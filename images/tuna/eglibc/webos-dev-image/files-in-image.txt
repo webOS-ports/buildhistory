@@ -214,6 +214,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root               87 ./etc/event.d/connman-adapter  
 -rw-r--r-- root       root              537 ./etc/event.d/console  
 -rw-r--r-- root       root              260 ./etc/event.d/control-alt-delete  
+-rw-r--r-- root       root              111 ./etc/event.d/coredump  
 -rw-r--r-- root       root              275 ./etc/event.d/createLocalAccount  
 -rw-r--r-- root       root             1115 ./etc/event.d/crond  
 -rw-r--r-- root       root              256 ./etc/event.d/db8  
@@ -1281,6 +1282,7 @@ lrwxrwxrwx root       root               12 ./usr/bin/pkill -> pkill.procps
 -r-xr-xr-x root       root            15748 ./usr/bin/pkill.procps  
 lrwxrwxrwx root       root               11 ./usr/bin/pmap -> pmap.procps
 -r-xr-xr-x root       root            10800 ./usr/bin/pmap.procps  
+-rwxr-xr-x root       root            20072 ./usr/bin/powerstat  
 lrwxrwxrwx root       root               17 ./usr/bin/printf -> ../../bin/busybox
 -rwxr-xr-x root       root            25648 ./usr/bin/prlimit  
 lrwxrwxrwx root       root                9 ./usr/bin/psfaddtable -> psfxtable
@@ -1306,6 +1308,8 @@ lrwxrwxrwx root       root               15 ./usr/bin/reset -> ../../bin/reset
 lrwxrwxrwx root       root               17 ./usr/bin/run-parts -> ../../bin/busybox
 lrwxrwxrwx root       root               11 ./usr/bin/scp -> scp.openssh
 -rwxr-xr-x root       root            52716 ./usr/bin/scp.openssh  
+lrwxrwxrwx root       root               12 ./usr/bin/screen -> screen-4.0.3
+-rwsr-xr-x root       root           296620 ./usr/bin/screen-4.0.3  
 -rwxr-xr-x root       root            10332 ./usr/bin/script  
 -rwxr-xr-x root       root             7236 ./usr/bin/scriptreplay  
 -rwxr-xr-x root       root           115744 ./usr/bin/sdptool  
@@ -6690,6 +6694,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busyb
 -rwxr-xr-x root       root            93280 ./usr/sbin/configurator  
 -rwxr-xr-x root       root           501308 ./usr/sbin/connmand  
 -rwxr-xr-x root       root           113596 ./usr/sbin/console-kit-daemon  
+-rwxr-xr-x root       root            26448 ./usr/sbin/crash_handler  
 -rwxr-xr-x root       root             3432 ./usr/sbin/delpart  
 -rwxr-xr-x root       root             5832 ./usr/sbin/elvtune  
 lrwxrwxrwx root       root               17 ./usr/sbin/fbset -> ../../bin/busybox
@@ -7048,6 +7053,25 @@ drwxr-xr-x root       root             4096 ./usr/share/readline
 -rw-r--r-- root       root             6531 ./usr/share/readline/rlptytest.c  
 -rw-r--r-- root       root             2146 ./usr/share/readline/rltest.c  
 -rw-r--r-- root       root             1287 ./usr/share/readline/rlversion.c  
+drwxr-xr-x root       root             4096 ./usr/share/screen  
+drwxr-xr-x root       root             4096 ./usr/share/screen/utf8encodings  
+-rw-r--r-- root       root            29808 ./usr/share/screen/utf8encodings/01  
+-rw-r--r-- root       root            27550 ./usr/share/screen/utf8encodings/02  
+-rw-r--r-- root       root            32926 ./usr/share/screen/utf8encodings/03  
+-rw-r--r-- root       root            24302 ./usr/share/screen/utf8encodings/04  
+-rw-r--r-- root       root            54862 ./usr/share/screen/utf8encodings/18  
+-rw-r--r-- root       root            95776 ./usr/share/screen/utf8encodings/19  
+-rw-r--r-- root       root              536 ./usr/share/screen/utf8encodings/a1  
+-rw-r--r-- root       root              232 ./usr/share/screen/utf8encodings/bf  
+-rw-r--r-- root       root              256 ./usr/share/screen/utf8encodings/c2  
+-rw-r--r-- root       root              140 ./usr/share/screen/utf8encodings/c3  
+-rw-r--r-- root       root              228 ./usr/share/screen/utf8encodings/c4  
+-rw-r--r-- root       root               68 ./usr/share/screen/utf8encodings/c6  
+-rw-r--r-- root       root               52 ./usr/share/screen/utf8encodings/c7  
+-rw-r--r-- root       root               40 ./usr/share/screen/utf8encodings/c8  
+-rw-r--r-- root       root               68 ./usr/share/screen/utf8encodings/cc  
+-rw-r--r-- root       root               52 ./usr/share/screen/utf8encodings/cd  
+-rw-r--r-- root       root              212 ./usr/share/screen/utf8encodings/d6  
 drwxr-xr-x root       root             4096 ./usr/share/tabset  
 -rw-r--r-- root       root              135 ./usr/share/tabset/std  
 -rw-r--r-- root       root               95 ./usr/share/tabset/stdcrt  
@@ -7355,7 +7379,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/zImage  
 -rw-r--r-- root       root               24 ./var/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            36864 ./var/lib/opkg/info  
+drwxr-xr-x root       root            32768 ./var/lib/opkg/info  
 -rw-r--r-- root       root              589 ./var/lib/opkg/info/activitymanager.control  
 -rw-r--r-- root       root              439 ./var/lib/opkg/info/activitymanager.list  
 -rw-r--r-- root       root              535 ./var/lib/opkg/info/alsa-conf-base.control  
@@ -7430,6 +7454,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root            71963 ./var/lib/opkg/info/core-apps.list  
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/cpushareholder-stub.control  
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/cpushareholder-stub.list  
+-rw-r--r-- root       root              509 ./var/lib/opkg/info/crash-handler.control  
+-rw-r--r-- root       root               46 ./var/lib/opkg/info/crash-handler.list  
 -rw-r--r-- root       root              442 ./var/lib/opkg/info/curl.control  
 -rw-r--r-- root       root               14 ./var/lib/opkg/info/curl.list  
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/db.control  
@@ -7924,9 +7950,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-boot.list  
 -rw-r--r-- root       root             1346 ./var/lib/opkg/info/packagegroup-webos-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list  
--rw-r--r-- root       root              506 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
+-rw-r--r-- root       root              525 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list  
--rw-r--r-- root       root              468 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
+-rw-r--r-- root       root              483 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              350 ./var/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-upstart.list  
@@ -7951,6 +7977,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              456 ./var/lib/opkg/info/powerd.control  
 -rw-r--r-- root       root              311 ./var/lib/opkg/info/powerd.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/powerd.postinst  
+-rw-r--r-- root       root              522 ./var/lib/opkg/info/powerstat.control  
+-rw-r--r-- root       root               19 ./var/lib/opkg/info/powerstat.list  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/procps.conffiles  
 -rw-r--r-- root       root              771 ./var/lib/opkg/info/procps.control  
 -rw-r--r-- root       root              352 ./var/lib/opkg/info/procps.list  
@@ -8034,6 +8062,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/samsung-tuna-firmware.list  
 -rwxr-xr-x root       root              501 ./var/lib/opkg/info/samsung-tuna-firmware.postinst  
 -rwxr-xr-x root       root              232 ./var/lib/opkg/info/samsung-tuna-firmware.postrm  
+-rw-r--r-- root       root              650 ./var/lib/opkg/info/screen.control  
+-rw-r--r-- root       root              685 ./var/lib/opkg/info/screen.list  
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/serial-forward.control  
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/serial-forward.list  
 -rw-r--r-- root       root              326 ./var/lib/opkg/info/shadow-securetty.control  
@@ -8147,7 +8177,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            82565 ./var/lib/opkg/status  
+-rw-r--r-- root       root            83224 ./var/lib/opkg/status  
 drwx------ root       root             4096 ./var/lib/polkit-1  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/10-vendor.d  
