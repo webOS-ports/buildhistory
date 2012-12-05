@@ -81,8 +81,8 @@ lrwxrwxrwx root       root                7 ./bin/vi -> busybox
 lrwxrwxrwx root       root                9 ./bin/zcat -> zcat.gzip
 -rwxr-xr-x root       root             1943 ./bin/zcat.gzip  
 drwxr-xr-x root       root             4096 ./boot  
-lrwxrwxrwx root       root               13 ./boot/zImage -> zImage-3.0.49
--rw-r--r-- root       root          3251608 ./boot/zImage-3.0.49  
+lrwxrwxrwx root       root               13 ./boot/zImage -> zImage-3.0.31
+-rw-r--r-- root       root          4622320 ./boot/zImage-3.0.31  
 drwxr-xr-x root       root             4096 ./dev  
 crw-rw---- root       plugdev             0 ./dev/apm_bios  
 crw-rw--w- root       tty                 0 ./dev/console  
@@ -178,7 +178,7 @@ drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root                0 ./etc/default/usbd  
 -rw-r--r-- root       root              117 ./etc/default/useradd  
 drwxr-xr-x root       root             4096 ./etc/default/volatiles  
--rw-r--r-- root       root             1710 ./etc/default/volatiles/00_core  
+-rw-r--r-- root       root             1626 ./etc/default/volatiles/00_core  
 -rw-r--r-- root       root               48 ./etc/default/volatiles/99_dbus  
 -rw-r--r-- root       root               46 ./etc/default/volatiles/99_wpa_supplicant  
 -rw-r--r-- root       root               91 ./etc/default/volatiles/volatiles.04_pulse  
@@ -190,7 +190,7 @@ drwxr-xr-x root       root             4096 ./etc/dhcp
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
 drwxr-xr-x root       root             4096 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
--rw-r--r-- root       root             1617 ./etc/event.d/LunaSysMgr  
+-rw-r--r-- root       root             1571 ./etc/event.d/LunaSysMgr  
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService  
 -rw-r--r-- root       root              268 ./etc/event.d/LunaUniversalSearchMgr  
 -rw-r--r-- root       root              838 ./etc/event.d/PmKLogDaemon  
@@ -217,9 +217,9 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d  
 -rw-r--r-- root       root              724 ./etc/event.d/hostname  
 -rw-r--r-- root       root              299 ./etc/event.d/logd  
--rw-r--r-- root       root              784 ./etc/event.d/ls-hubd_private  
+-rw-r--r-- root       root              978 ./etc/event.d/ls-hubd_private  
 -rw-r--r-- root       root              906 ./etc/event.d/ls-hubd_private_watchdog  
--rw-r--r-- root       root              797 ./etc/event.d/ls-hubd_public  
+-rw-r--r-- root       root              808 ./etc/event.d/ls-hubd_public  
 -rw-r--r-- root       root              903 ./etc/event.d/ls-hubd_public_watchdog  
 -rw-r--r-- root       root              735 ./etc/event.d/modutils  
 -rw-r--r-- root       root             1189 ./etc/event.d/mountall  
@@ -326,9 +326,9 @@ drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root              118 ./etc/localtime  
 -rw-r--r-- root       root             2060 ./etc/login.access  
 -rw-r--r-- root       root            10595 ./etc/login.defs  
-drwxr-xr-x root       root             4096 ./etc/ls2  
--rw-r--r-- root       root             1306 ./etc/ls2/ls-private.conf  
--rw-r--r-- root       root             1269 ./etc/ls2/ls-public.conf  
+drwxr-xr-x root       root             4096 ./etc/luna-service2  
+-rw-r--r-- root       root             1222 ./etc/luna-service2/ls-private.conf  
+-rw-r--r-- root       root             1215 ./etc/luna-service2/ls-public.conf  
 drwxr-xr-x root       root             4096 ./etc/modprobe.d  
 -rw-r--r-- root       root                0 ./etc/motd  
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
@@ -674,6 +674,7 @@ drwxr-xr-x root       root             4096 ./lib/depmod.d
 drwxr-xr-x root       root             4096 ./lib/firmware  
 -rw-r--r-- root       root            37751 ./lib/firmware/bcm4330.hcd  
 -rw-r--r-- root       root             1790 ./lib/firmware/bcmdhd.cal  
+-rw-r--r-- root       root          1388356 ./lib/firmware/ducati-m3.bin  
 -rw-r--r-- root       root           221204 ./lib/firmware/fw_bcmdhd.bin  
 -rw-r--r-- root       root           221204 ./lib/firmware/fw_bcmdhd_apsta.bin  
 -rw-r--r-- root       root           221204 ./lib/firmware/fw_bcmdhd_p2p.bin  
@@ -744,20 +745,20 @@ lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3
 -rwxr-xr-x root       root            14320 ./lib/libuuid.so.1.3.0  
 drwxr-xr-x root       root             4096 ./lib/modprobe.d  
 drwxr-xr-x root       root             4096 ./lib/modules  
-drwxr-xr-x root       root             4096 ./lib/modules/3.0.49  
-drwxr-xr-x root       root             4096 ./lib/modules/3.0.49/kernel  
-drwxr-xr-x root       root             4096 ./lib/modules/3.0.49/kernel/fs  
-drwxr-xr-x root       root             4096 ./lib/modules/3.0.49/kernel/fs/autofs4  
--rw-r--r-- root       root            30524 ./lib/modules/3.0.49/kernel/fs/autofs4/autofs4.ko  
--rw-r--r-- root       root              106 ./lib/modules/3.0.49/modules.alias  
--rw-r--r-- root       root               85 ./lib/modules/3.0.49/modules.alias.bin  
--rw-r--r-- root       root                0 ./lib/modules/3.0.49/modules.builtin.bin  
--rw-r--r-- root       root               30 ./lib/modules/3.0.49/modules.dep  
--rw-r--r-- root       root               63 ./lib/modules/3.0.49/modules.dep.bin  
--rw-r--r-- root       root               75 ./lib/modules/3.0.49/modules.devname  
--rw-r--r-- root       root              131 ./lib/modules/3.0.49/modules.softdep  
--rw-r--r-- root       root               49 ./lib/modules/3.0.49/modules.symbols  
--rw-r--r-- root       root               12 ./lib/modules/3.0.49/modules.symbols.bin  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.31  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.31/kernel  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.31/kernel/fs  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.31/kernel/fs/autofs4  
+-rw-r--r-- root       root            30516 ./lib/modules/3.0.31/kernel/fs/autofs4/autofs4.ko  
+-rw-r--r-- root       root              106 ./lib/modules/3.0.31/modules.alias  
+-rw-r--r-- root       root               85 ./lib/modules/3.0.31/modules.alias.bin  
+-rw-r--r-- root       root                0 ./lib/modules/3.0.31/modules.builtin.bin  
+-rw-r--r-- root       root               30 ./lib/modules/3.0.31/modules.dep  
+-rw-r--r-- root       root               63 ./lib/modules/3.0.31/modules.dep.bin  
+-rw-r--r-- root       root               75 ./lib/modules/3.0.31/modules.devname  
+-rw-r--r-- root       root              131 ./lib/modules/3.0.31/modules.softdep  
+-rw-r--r-- root       root               49 ./lib/modules/3.0.31/modules.symbols  
+-rw-r--r-- root       root               12 ./lib/modules/3.0.31/modules.symbols.bin  
 drwxr-xr-x root       root             4096 ./lib/udev  
 -rwxr-xr-x root       root            17096 ./lib/udev/ata_id  
 -rwxr-xr-x root       root            27344 ./lib/udev/cdrom_id  
@@ -1191,14 +1192,13 @@ lrwxrwxrwx root       root               17 ./usr/bin/logger -> logger.util-linu
 -rwxr-xr-x root       root            16932 ./usr/bin/logger.util-linux  
 lrwxrwxrwx root       root               17 ./usr/bin/logname -> ../../bin/busybox
 -rwxr-xr-x root       root             6792 ./usr/bin/look  
--rwx------ root       root             3220 ./usr/bin/ls-control  
--rwx------ root       root            86508 ./usr/bin/ls-hubd  
--rwx------ root       root            16448 ./usr/bin/ls-monitor  
+-rwxr-xr-x root       root             3220 ./usr/bin/ls-control  
+-rwxr-xr-x root       root            16472 ./usr/bin/ls-monitor  
 -rwxr-xr-x root       root             6628 ./usr/bin/lsattr  
 -rwxr-xr-x root       root            39568 ./usr/bin/lsblk  
--rwx------ root       root             7200 ./usr/bin/luna-helper  
+-rwxr-xr-x root       root             7216 ./usr/bin/luna-helper  
 -rwxr-x--- root       root            16084 ./usr/bin/luna-prefs-service  
--rwx------ root       root            12160 ./usr/bin/luna-send  
+-rwxr-xr-x root       root            12176 ./usr/bin/luna-send  
 -rwxr-x--- root       root             9160 ./usr/bin/lunaprop  
 -rwxr-xr-x root       root            27132 ./usr/bin/makeconv  
 -rwxr-xr-x root       root            11844 ./usr/bin/mapscrn  
@@ -1452,7 +1452,7 @@ lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbl
 lrwxrwxrwx root       root               15 ./usr/lib/libbz2.so.0 -> libbz2.so.0.0.0
 -rwxr-xr-x root       root            70432 ./usr/lib/libbz2.so.0.0.0  
 lrwxrwxrwx root       root               17 ./usr/lib/libcares.so.2 -> libcares.so.2.0.0
--rwxr-xr-x root       root            48624 ./usr/lib/libcares.so.2.0.0  
+-rwxr-xr-x root       root            51148 ./usr/lib/libcares.so.2.0.0  
 lrwxrwxrwx root       root               17 ./usr/lib/libcjson.so.1 -> libcjson.so.1.8.0
 -rwxr-xr-x root       root            20404 ./usr/lib/libcjson.so.1.8.0  
 -rw-r--r-- root       root              538 ./usr/lib/libconnman-qt4.prl  
@@ -1535,8 +1535,8 @@ lrwxrwxrwx root       root               16 ./usr/lib/libltdl.so.7 -> libltdl.so
 -rwxr-xr-x root       root            28536 ./usr/lib/libltdl.so.7.3.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libluna-prefs.so.2 -> libluna-prefs.so.2.0.0
 -rwxr-xr-x root       root            19684 ./usr/lib/libluna-prefs.so.2.0.0  
-lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> libluna-service2.so.3.1.0
--rwxr-xr-x root       root           180472 ./usr/lib/libluna-service2.so.3.1.0  
+lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> libluna-service2.so.3.2.0
+-rwxr-xr-x root       root           180924 ./usr/lib/libluna-service2.so.3.2.0  
 lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.so.5.9
 -rwxr-xr-x root       root            23688 ./usr/lib/libmenuw.so.5.9  
 lrwxrwxrwx root       root               20 ./usr/lib/libmojocore.so.2 -> libmojocore.so.2.0.0
@@ -1594,7 +1594,7 @@ lrwxrwxrwx root       root               19 ./usr/lib/librolegen.so.2 -> librole
 lrwxrwxrwx root       root               22 ./usr/lib/libsamplerate.so.0 -> libsamplerate.so.0.1.8
 -rwxr-xr-x root       root          1481168 ./usr/lib/libsamplerate.so.0.1.8  
 lrwxrwxrwx root       root               23 ./usr/lib/libsamsung-ipc.so.0 -> libsamsung-ipc.so.0.0.0
--rwxr-xr-x root       root            78864 ./usr/lib/libsamsung-ipc.so.0.0.0  
+-rwxr-xr-x root       root            79028 ./usr/lib/libsamsung-ipc.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsigc-2.0.so.0 -> libsigc-2.0.so.0.0.0
 -rwxr-xr-x root       root            14088 ./usr/lib/libsigc-2.0.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsndfile.so.1 -> libsndfile.so.1.0.25
@@ -1895,14 +1895,14 @@ drwxr-xr-x root       root             4096 ./usr/lib/luna/system/luna-systemui/
 -rw-r--r-- root       root              983 ./usr/lib/luna/system/luna-systemui/depends.js  
 -rw-r--r-- root       root               17 ./usr/lib/luna/system/luna-systemui/framework_config.json  
 drwxr-xr-x root       root             4096 ./usr/lib/luna/system/luna-systemui/images  
--rw-r--r-- root       xuser           27917 ./usr/lib/luna/system/luna-systemui/images/Wallpaper_Image_LICENSE.txt  
+-rw-r--r-- root       pulse           27917 ./usr/lib/luna/system/luna-systemui/images/Wallpaper_Image_LICENSE.txt  
 -rw-r--r-- root       root            10710 ./usr/lib/luna/system/luna-systemui/images/activity-indicator-32x32-dark.png  
 -rw-r--r-- root       root            13044 ./usr/lib/luna/system/luna-systemui/images/activity-indicator-32x32.png  
 -rw-r--r-- root       root             5531 ./usr/lib/luna/system/luna-systemui/images/activity_1_loop_white_48x48.png  
 -rw-r--r-- root       root              584 ./usr/lib/luna/system/luna-systemui/images/battery-0.png  
 -rw-r--r-- root       root              391 ./usr/lib/luna/system/luna-systemui/images/battery-1.png  
 -rw-r--r-- root       root              210 ./usr/lib/luna/system/luna-systemui/images/blank.png  
--rw-r--r-- root       xuser         2432270 ./usr/lib/luna/system/luna-systemui/images/bluerocks.png  
+-rw-r--r-- root       pulse         2432270 ./usr/lib/luna/system/luna-systemui/images/bluerocks.png  
 -rw-r--r-- root       root              302 ./usr/lib/luna/system/luna-systemui/images/bluetooth-on.png  
 -rw-r--r-- root       root              541 ./usr/lib/luna/system/luna-systemui/images/dashboard-container.png  
 -rw-r--r-- root       root             1282 ./usr/lib/luna/system/luna-systemui/images/dashboard-newitem-badge.png  
@@ -6668,6 +6668,7 @@ lrwxrwxrwx root       root               13 ./usr/sbin/iptables-save -> xtables-
 -rwxr-xr-x root       root            17124 ./usr/sbin/ldattach  
 lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/busybox
 -rwxr-xr-x root       root             8524 ./usr/sbin/logoutd  
+-rwxr-xr-x root       root            86504 ./usr/sbin/ls-hubd  
 -rwxr-xr-x root       root             5860 ./usr/sbin/mkfs  
 -rwxr-xr-x root       root            17108 ./usr/sbin/mkfs.bfs  
 -rwxr-xr-x root       root            26592 ./usr/sbin/mkfs.cramfs  
@@ -6685,7 +6686,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             7124 ./usr/sbin/nl-qdisc-add  
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
--rwxr-xr-x root       root          1009920 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root          1027040 ./usr/sbin/ofonod  
 -rwxr-xr-x root       root            63796 ./usr/sbin/parted  
 -rwxr-xr-x root       root             6996 ./usr/sbin/partprobe  
 -rwxr-xr-x root       root            47380 ./usr/sbin/partx  
@@ -6723,7 +6724,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busyb
 -rwxr-xr-x root       root           418376 ./usr/sbin/wpa_supplicant  
 -rwxr-xr-x root       root            73476 ./usr/sbin/xtables-multi  
 drwxr-xr-x root       root             4096 ./usr/share  
-drwx------ root       root             4096 ./usr/share/PmLogDaemon  
+drwxr-xr-x root       root             4096 ./usr/share/PmLogDaemon  
 -rwxr-xr-x root       root              788 ./usr/share/PmLogDaemon/show_disk_usage.sh  
 drwxr-xr-x root       root             4096 ./usr/share/X11  
 -rw-r--r-- root       root            41495 ./usr/share/X11/XErrorDB  
@@ -6870,6 +6871,7 @@ drwxr-xr-x root       root             4096 ./usr/share/locale
 drwxr-xr-x root       root             4096 ./usr/share/locale/en_GB  
 drwxr-xr-x root       root             4096 ./usr/share/locale/en_GB/LC_MESSAGES  
 -rw-r--r-- root       root            85664 ./usr/share/locale/en_GB/LC_MESSAGES/glib20.mo  
+-rw-r--r-- root       root             1474 ./usr/share/locale/en_GB/LC_MESSAGES/libc.mo  
 drwxr-xr-x root       root             4096 ./usr/share/ls2  
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles  
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv  
@@ -7414,7 +7416,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              311 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.control  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.list  
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/eglibc-locale-en-gb.control  
--rw-r--r-- root       root               81 ./var/lib/opkg/info/eglibc-locale-en-gb.list  
+-rw-r--r-- root       root              125 ./var/lib/opkg/info/eglibc-locale-en-gb.list  
 -rw-r--r-- root       root              423 ./var/lib/opkg/info/enyo-1.0.control  
 -rw-r--r-- root       root           175623 ./var/lib/opkg/info/enyo-1.0.list  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/fbprogress.control  
@@ -7456,13 +7458,13 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/kbd.list  
 -rwxr-xr-x root       root              298 ./var/lib/opkg/info/kbd.postinst  
 -rwxr-xr-x root       root              214 ./var/lib/opkg/info/kbd.postrm  
--rw-r--r-- root       root              575 ./var/lib/opkg/info/kernel-3.0.49.control  
--rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.0.49.list  
--rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-3.0.49.postinst  
--rwxr-xr-x root       root               69 ./var/lib/opkg/info/kernel-3.0.49.postrm  
--rw-r--r-- root       root              528 ./var/lib/opkg/info/kernel-image-3.0.49.control  
--rw-r--r-- root       root               27 ./var/lib/opkg/info/kernel-image-3.0.49.list  
--rwxr-xr-x root       root              257 ./var/lib/opkg/info/kernel-image-3.0.49.postinst  
+-rw-r--r-- root       root              575 ./var/lib/opkg/info/kernel-3.0.31.control  
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.0.31.list  
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-3.0.31.postinst  
+-rwxr-xr-x root       root               69 ./var/lib/opkg/info/kernel-3.0.31.postrm  
+-rw-r--r-- root       root              528 ./var/lib/opkg/info/kernel-image-3.0.31.control  
+-rw-r--r-- root       root               27 ./var/lib/opkg/info/kernel-image-3.0.31.list  
+-rwxr-xr-x root       root              257 ./var/lib/opkg/info/kernel-image-3.0.31.postinst  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/kernel-module-autofs4.control  
 -rw-r--r-- root       root              182 ./var/lib/opkg/info/kernel-module-autofs4.list  
 -rwxr-xr-x root       root               77 ./var/lib/opkg/info/kernel-module-autofs4.postinst  
@@ -7592,7 +7594,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              840 ./var/lib/opkg/info/libicuuc36.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libicuuc36.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libicuuc36.postinst  
--rw-r--r-- root       root              531 ./var/lib/opkg/info/libjpeg8.control  
+-rw-r--r-- root       root              577 ./var/lib/opkg/info/libjpeg8.control  
 -rw-r--r-- root       root              106 ./var/lib/opkg/info/libjpeg8.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libjpeg8.postinst  
 -rw-r--r-- root       root              362 ./var/lib/opkg/info/libjson0.control  
@@ -7776,9 +7778,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              731 ./var/lib/opkg/info/luna-prefs.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-prefs.postinst  
 -rw-r--r-- root       root              544 ./var/lib/opkg/info/luna-service2.control  
--rw-r--r-- root       root              894 ./var/lib/opkg/info/luna-service2.list  
+-rw-r--r-- root       root              563 ./var/lib/opkg/info/luna-service2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst  
--rw-r--r-- root       root              949 ./var/lib/opkg/info/luna-sysmgr.control  
+-rw-r--r-- root       root              992 ./var/lib/opkg/info/luna-sysmgr.control  
 -rw-r--r-- root       root            21707 ./var/lib/opkg/info/luna-sysmgr.list  
 -rw-r--r-- root       root              758 ./var/lib/opkg/info/luna-sysservice.control  
 -rw-r--r-- root       root              409 ./var/lib/opkg/info/luna-sysservice.list  
@@ -7833,7 +7835,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/nodejs.list  
 -rw-r--r-- root       root              536 ./var/lib/opkg/info/nyx-modules.control  
 -rw-r--r-- root       root              351 ./var/lib/opkg/info/nyx-modules.list  
--rw-r--r-- root       root              723 ./var/lib/opkg/info/ofono.control  
+-rw-r--r-- root       root              735 ./var/lib/opkg/info/ofono.control  
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/ofono.list  
 -rwxr-xr-x root       root              103 ./var/lib/opkg/info/ofono.postinst  
 -rwxr-xr-x root       root               38 ./var/lib/opkg/info/ofono.postrm  
@@ -7983,10 +7985,10 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root              115 ./var/lib/opkg/info/samsung-modem-mgr.postinst  
 -rwxr-xr-x root       root               50 ./var/lib/opkg/info/samsung-modem-mgr.postrm  
 -rwxr-xr-x root       root               75 ./var/lib/opkg/info/samsung-modem-mgr.prerm  
--rw-r--r-- root       root              786 ./var/lib/opkg/info/samsung-tuna-firmware-nonfree.control  
+-rw-r--r-- root       root              968 ./var/lib/opkg/info/samsung-tuna-firmware-nonfree.control  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/samsung-tuna-firmware-nonfree.list  
--rw-r--r-- root       root              778 ./var/lib/opkg/info/samsung-tuna-firmware.control  
--rw-r--r-- root       root              185 ./var/lib/opkg/info/samsung-tuna-firmware.list  
+-rw-r--r-- root       root              960 ./var/lib/opkg/info/samsung-tuna-firmware.control  
+-rw-r--r-- root       root              213 ./var/lib/opkg/info/samsung-tuna-firmware.list  
 -rw-r--r-- root       root              650 ./var/lib/opkg/info/screen.control  
 -rw-r--r-- root       root              685 ./var/lib/opkg/info/screen.list  
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/serial-forward.control  
@@ -8102,26 +8104,10 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            83320 ./var/lib/opkg/status  
+-rw-r--r-- root       root            83356 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
-drwxr-xr-x root       root             4096 ./var/mft  
-drwxr-xr-x root       root             4096 ./var/mft/palm  
-drwxr-xr-x root       root             4096 ./var/mft/palm/ls2  
-drwxr-xr-x root       root             4096 ./var/mft/palm/ls2/roles  
-drwxr-xr-x root       root             4096 ./var/mft/palm/ls2/roles/prv  
-drwxr-xr-x root       root             4096 ./var/mft/palm/ls2/roles/pub  
-drwxr-xr-x root       root             4096 ./var/mft/palm/system-services  
-drwxr-xr-x root       root             4096 ./var/palm  
-drwxr-xr-x root       root             4096 ./var/palm/ls2  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/roles  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/roles/prv  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/roles/pub  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/services  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/services/prv  
-drwxr-xr-x root       root             4096 ./var/palm/ls2/services/pub  
-drwxr-xr-x root       root             4096 ./var/palm/system-services  
 drwxr-xr-x root       root             4096 ./var/preferences  
 drwxr-xr-x root       root             4096 ./var/preferences/com.palm.sleep  
 -rw-r--r-- root       root              841 ./var/preferences/com.palm.sleep/sleepd.conf  
