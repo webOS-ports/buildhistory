@@ -178,7 +178,7 @@ drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root                0 ./etc/default/usbd  
 -rw-r--r-- root       root              117 ./etc/default/useradd  
 drwxr-xr-x root       root             4096 ./etc/default/volatiles  
--rw-r--r-- root       root             1626 ./etc/default/volatiles/00_core  
+-rw-r--r-- root       root             1710 ./etc/default/volatiles/00_core  
 -rw-r--r-- root       root               48 ./etc/default/volatiles/99_dbus  
 -rw-r--r-- root       root               46 ./etc/default/volatiles/99_wpa_supplicant  
 -rw-r--r-- root       root               91 ./etc/default/volatiles/volatiles.04_pulse  
@@ -208,6 +208,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              537 ./etc/event.d/console  
 -rw-r--r-- root       root              260 ./etc/event.d/control-alt-delete  
 -rw-r--r-- root       root              111 ./etc/event.d/coredump  
+-rw-r--r-- root       root              320 ./etc/event.d/cpufreq-setup  
 -rw-r--r-- root       root              275 ./etc/event.d/createLocalAccount  
 -rw-r--r-- root       root             1115 ./etc/event.d/crond  
 -rw-r--r-- root       root              256 ./etc/event.d/db8  
@@ -225,6 +226,8 @@ drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root             1189 ./etc/event.d/mountall  
 -rw-r--r-- root       root              717 ./etc/event.d/networking  
 -rw-r--r-- root       root             1367 ./etc/event.d/node_fork_server  
+-rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice  
+-rw-r--r-- root       root               86 ./etc/event.d/org.webosinternals.service.upstartmgr  
 -rw-r--r-- root       root              757 ./etc/event.d/populate-volatile  
 -rw-r--r-- root       root             2842 ./etc/event.d/powerd  
 -rw-r--r-- root       root              485 ./etc/event.d/rc-default  
@@ -317,7 +320,7 @@ drwxr-xr-x root       root             4096 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables  
 -rw-r--r-- root       root               21 ./etc/issue  
 -rw-r--r-- root       root               19 ./etc/issue.net  
--rw-r--r-- root       root            10065 ./etc/ld.so.cache  
+-rw-r--r-- root       root            10126 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -1049,7 +1052,7 @@ lrwxrwxrwx root       root               47 ./usr/arm-webos-linux-gnueabi/bin/ra
 lrwxrwxrwx root       root               46 ./usr/arm-webos-linux-gnueabi/bin/strip -> ../../../usr/bin/arm-webos-linux-gnueabi-strip
 drwxr-xr-x root       root            12288 ./usr/bin  
 -rwxr-x--- root       root           213436 ./usr/bin/BrowserServer  
--rwxr-x--- root       root          2703476 ./usr/bin/LunaSysMgr  
+-rwxr-x--- root       root          2703764 ./usr/bin/LunaSysMgr  
 -rwxr-xr-x root       root            19340 ./usr/bin/PmLogCtl  
 lrwxrwxrwx root       root               17 ./usr/bin/[ -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/[[ -> ../../bin/busybox
@@ -1539,6 +1542,8 @@ lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> l
 -rwxr-xr-x root       root           180924 ./usr/lib/libluna-service2.so.3.2.0  
 lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.so.5.9
 -rwxr-xr-x root       root            23688 ./usr/lib/libmenuw.so.5.9  
+lrwxrwxrwx root       root               17 ./usr/lib/libmjson.so.0 -> libmjson.so.0.0.0
+-rwxr-xr-x root       root            50860 ./usr/lib/libmjson.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libmojocore.so.2 -> libmojocore.so.2.0.0
 -rwxr-xr-x root       root           209396 ./usr/lib/libmojocore.so.2.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libmojodb.so.2 -> libmojodb.so.2.0.0
@@ -6687,6 +6692,8 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
 -rwxr-xr-x root       root          1027040 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root            43428 ./usr/sbin/org.webosinternals.ipkgservice  
+-rwxr-xr-x root       root            11228 ./usr/sbin/org.webosinternals.service.upstartmgr  
 -rwxr-xr-x root       root            63796 ./usr/sbin/parted  
 -rwxr-xr-x root       root             6996 ./usr/sbin/partprobe  
 -rwxr-xr-x root       root            47380 ./usr/sbin/partx  
@@ -6766,6 +6773,8 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/services
 -rw-r--r-- root       root              101 ./usr/share/dbus-1/services/com.palm.systemservice.service  
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/services/com.palm.universalsearch.service  
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/services/com.palm.wifi.service  
+-rw-r--r-- root       root               98 ./usr/share/dbus-1/services/org.webosinternals.ipkgservice.service  
+-rw-r--r-- root       root              112 ./usr/share/dbus-1/services/org.webosinternals.service.upstartmgr.service  
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/services/org.webosports.service.licenses.service  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services  
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service  
@@ -6794,6 +6803,8 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              134 ./usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service  
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service  
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.bluez.service  
+-rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/org.webosinternals.ipkgservice.service  
+-rw-r--r-- root       root              112 ./usr/share/dbus-1/system-services/org.webosinternals.service.upstartmgr.service  
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosports.service.licenses.service  
 drwxr-xr-x root       root             4096 ./usr/share/dict  
 drwxr-xr-x root       root             4096 ./usr/share/fbprogress  
@@ -6900,6 +6911,8 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/prv/com.palm.universalsearch.json  
 -rw-r--r-- root       root              285 ./usr/share/ls2/roles/prv/com.palm.wifi.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/prv/ls-monitor.json  
+-rw-r--r-- root       root              294 ./usr/share/ls2/roles/prv/org.webosinternals.ipkgservice.json  
+-rw-r--r-- root       root              358 ./usr/share/ls2/roles/prv/org.webosinternals.service.upstartmgr.json  
 -rw-r--r-- root       root              233 ./usr/share/ls2/roles/prv/org.webosports.service.licenses.json  
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub  
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/pub/com.palm.activitymanager.json  
@@ -6919,6 +6932,8 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json  
 -rw-r--r-- root       root              285 ./usr/share/ls2/roles/pub/com.palm.wifi.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/pub/ls-monitor.json  
+-rw-r--r-- root       root              294 ./usr/share/ls2/roles/pub/org.webosinternals.ipkgservice.json  
+-rw-r--r-- root       root              358 ./usr/share/ls2/roles/pub/org.webosinternals.service.upstartmgr.json  
 -rw-r--r-- root       root              233 ./usr/share/ls2/roles/pub/org.webosports.service.licenses.json  
 drwxr-xr-x root       root             4096 ./usr/share/man  
 drwxr-xr-x root       root             4096 ./usr/share/misc  
@@ -7345,7 +7360,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root             1090 ./var/lib/opkg/info/binutils.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/binutils.postinst  
 -rw-r--r-- root       root              650 ./var/lib/opkg/info/bluez4.control  
--rw-r--r-- root       root              691 ./var/lib/opkg/info/bluez4.list  
+-rw-r--r-- root       root              637 ./var/lib/opkg/info/bluez4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/bluez4.postinst  
 -rw-r--r-- root       root              484 ./var/lib/opkg/info/brcm-patchram-plus.control  
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/brcm-patchram-plus.list  
@@ -7395,7 +7410,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
 -rw-r--r-- root       root              849 ./var/lib/opkg/info/dbus-1.control  
--rw-r--r-- root       root              444 ./var/lib/opkg/info/dbus-1.list  
+-rw-r--r-- root       root              402 ./var/lib/opkg/info/dbus-1.list  
 -rwxr-xr-x root       root              227 ./var/lib/opkg/info/dbus-1.postinst  
 -rwxr-xr-x root       root               39 ./var/lib/opkg/info/dbus-1.postrm  
 -rwxr-xr-x root       root             3229 ./var/lib/opkg/info/dbus-1.preinst  
@@ -7612,6 +7627,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              446 ./var/lib/opkg/info/libmenuw5.control  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libmenuw5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libmenuw5.postinst  
+-rw-r--r-- root       root              627 ./var/lib/opkg/info/libmjson0.control  
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/libmjson0.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libmjson0.postinst  
 -rw-r--r-- root       root              427 ./var/lib/opkg/info/libncurses5.control  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/libncurses5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libncurses5.postinst  
@@ -7872,8 +7890,13 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              188 ./var/lib/opkg/info/opkg.list  
 -rwxr-xr-x root       root              343 ./var/lib/opkg/info/opkg.postinst  
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
+-rw-r--r-- root       root              564 ./var/lib/opkg/info/org.webosinternals.ipkgservice.control  
+-rw-r--r-- root       root              346 ./var/lib/opkg/info/org.webosinternals.ipkgservice.list  
+-rwxr-xr-x root       root              511 ./var/lib/opkg/info/org.webosinternals.ipkgservice.postinst  
+-rw-r--r-- root       root              608 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.control  
+-rw-r--r-- root       root              560 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.list  
 -rw-r--r-- root       root              515 ./var/lib/opkg/info/org.webosports.service.licenses.control  
--rw-r--r-- root       root              649 ./var/lib/opkg/info/org.webosports.service.licenses.list  
+-rw-r--r-- root       root              559 ./var/lib/opkg/info/org.webosports.service.licenses.list  
 -rw-r--r-- root       root              399 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.list  
 -rw-r--r-- root       root              548 ./var/lib/opkg/info/packagegroup-webos-boot.control  
@@ -7882,7 +7905,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list  
 -rw-r--r-- root       root              525 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list  
--rw-r--r-- root       root              516 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
+-rw-r--r-- root       root              587 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              350 ./var/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-upstart.list  
@@ -8045,7 +8068,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              429 ./var/lib/opkg/info/update-rc.d.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/update-rc.d.list  
 -rw-r--r-- root       root              510 ./var/lib/opkg/info/upstart-sysvcompat.control  
--rw-r--r-- root       root              387 ./var/lib/opkg/info/upstart-sysvcompat.list  
+-rw-r--r-- root       root              401 ./var/lib/opkg/info/upstart-sysvcompat.list  
 -rwxr-xr-x root       root              364 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
 -rwxr-xr-x root       root              216 ./var/lib/opkg/info/upstart-sysvcompat.prerm  
 -rw-r--r-- root       root              543 ./var/lib/opkg/info/upstart.control  
@@ -8086,8 +8109,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root             1011 ./var/lib/opkg/info/util-linux.postrm  
 -rw-r--r-- root       root              535 ./var/lib/opkg/info/webkit-supplemental.control  
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/webkit-supplemental.list  
--rw-r--r-- root       root              420 ./var/lib/opkg/info/webos-initscripts.control  
--rw-r--r-- root       root              558 ./var/lib/opkg/info/webos-initscripts.list  
+-rw-r--r-- root       root              449 ./var/lib/opkg/info/webos-initscripts.control  
+-rw-r--r-- root       root              585 ./var/lib/opkg/info/webos-initscripts.list  
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/webos-shutdownscripts.control  
 -rw-r--r-- root       root              960 ./var/lib/opkg/info/webos-shutdownscripts.list  
 -rw-r--r-- root       root              626 ./var/lib/opkg/info/wireless-tools.control  
@@ -8104,7 +8127,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            83356 ./var/lib/opkg/status  
+-rw-r--r-- root       root            84280 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
@@ -8118,7 +8141,7 @@ lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
 drwxr-xr-x root       root             4096 ./var/volatile  
 drwxr-xr-x root       root             4096 ./var/volatile/cache  
 drwx------ root       root             4096 ./var/volatile/cache/ldconfig  
--rw------- root       root             9990 ./var/volatile/cache/ldconfig/aux-cache  
+-rw------- root       root            10052 ./var/volatile/cache/ldconfig/aux-cache  
 drwxrwxrwt root       root             4096 ./var/volatile/lock  
 drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys  
 drwxr-xr-x root       root             4096 ./var/volatile/log  
