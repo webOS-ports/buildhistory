@@ -1,0 +1,18 @@
+    #!/bin/sh -e
+
+    # Make sure we're only executed on the device
+    if [ x"$D" = "x" ]; then
+        APPS=/media/cryptofs/apps
+
+        # Create the opkg config and database areas
+        mkdir -p $APPS//etc/opkg $APPS//usr/lib/opkg/cache
+
+        # Remove all list database cache files
+        rm -f $APPS//var/lib/opkg/lists/*
+
+        # Set up the architecture configuration file
+        rm -f $APPS//etc/opkg/arch.conf
+        cp /etc/opkg/arch.conf $APPS//etc/opkg/arch.conf
+    else
+        exit 1
+    fi
