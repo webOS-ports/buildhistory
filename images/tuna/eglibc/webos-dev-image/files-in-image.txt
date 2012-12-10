@@ -908,7 +908,7 @@ lrwxrwxrwx root       root               14 ./sbin/fsck.minix -> ../bin/busybox
 lrwxrwxrwx root       root               15 ./sbin/getty -> getty.tinylogin
 lrwxrwxrwx root       root               14 ./sbin/getty.tinylogin -> /bin/tinylogin
 lrwxrwxrwx root       root               12 ./sbin/halt -> halt.upstart
-lrwxrwxrwx root       root                6 ./sbin/halt.upstart -> reboot
+lrwxrwxrwx root       root               14 ./sbin/halt.upstart -> reboot.upstart
 lrwxrwxrwx root       root               14 ./sbin/hwclock -> ../bin/busybox
 -rwxr-xr-x root       root            32080 ./sbin/hwclock.util-linux  
 -rwxr-xr-x root       root             3056 ./sbin/ifcfg  
@@ -951,7 +951,7 @@ lrwxrwxrwx root       root               11 ./sbin/modprobe.kmod -> ../bin/kmod
 lrwxrwxrwx root       root               21 ./sbin/pivot_root -> pivot_root.util-linux
 -rwxr-xr-x root       root             4472 ./sbin/pivot_root.util-linux  
 lrwxrwxrwx root       root               16 ./sbin/poweroff -> poweroff.upstart
-lrwxrwxrwx root       root                6 ./sbin/poweroff.upstart -> reboot
+lrwxrwxrwx root       root               14 ./sbin/poweroff.upstart -> reboot.upstart
 -rwxr-xr-x root       root            14344 ./sbin/readprofile  
 lrwxrwxrwx root       root               14 ./sbin/reboot -> reboot.upstart
 -rwxr-xr-x root       root            43340 ./sbin/reboot.upstart  
@@ -1307,7 +1307,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/telnet -> ../../bin/busybo
 lrwxrwxrwx root       root               17 ./usr/bin/test -> ../../bin/busybox
 -rwxr-xr-x root       root             4296 ./usr/bin/test_egl  
 -rwxr-xr-x root       root             7044 ./usr/bin/test_glesv2  
--rwxr-xr-x root       root            22720 ./usr/bin/test_offscreen_rendering  
+-rwxr-xr-x root       root            26768 ./usr/bin/test_offscreen_rendering  
 lrwxrwxrwx root       root               17 ./usr/bin/tftp -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/time -> ../../bin/busybox
 -r-xr-xr-x root       root             6344 ./usr/bin/tload  
@@ -7296,7 +7296,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root             1432 ./var/lib/opkg/info/connman.control  
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/connman.list  
 -rwxr-xr-x root       root             3164 ./var/lib/opkg/info/connman.preinst  
--rw-r--r-- root       root              427 ./var/lib/opkg/info/core-apps.control  
+-rw-r--r-- root       root              428 ./var/lib/opkg/info/core-apps.control  
 -rw-r--r-- root       root            65328 ./var/lib/opkg/info/core-apps.list  
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/cpushareholder-stub.control  
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/cpushareholder-stub.list  
@@ -7477,9 +7477,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              400 ./var/lib/opkg/info/libgdbm4.control  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libgdbm4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgdbm4.postinst  
--rw-r--r-- root       root              823 ./var/lib/opkg/info/libgles-android-nonfree.control  
+-rw-r--r-- root       root              822 ./var/lib/opkg/info/libgles-android-nonfree.control  
 -rw-r--r-- root       root              663 ./var/lib/opkg/info/libgles-android-nonfree.list  
--rw-r--r-- root       root              845 ./var/lib/opkg/info/libgles-android.control  
+-rw-r--r-- root       root              844 ./var/lib/opkg/info/libgles-android.control  
 -rw-r--r-- root       root              907 ./var/lib/opkg/info/libgles-android.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgles-android.postinst  
 -rw-r--r-- root       root              743 ./var/lib/opkg/info/libglib-2.0-0.control  
@@ -7690,7 +7690,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/locale-base-en-gb.list  
 -rw-r--r-- root       root              384 ./var/lib/opkg/info/locale-base-en-us.control  
 -rw-r--r-- root       root                2 ./var/lib/opkg/info/locale-base-en-us.list  
--rw-r--r-- root       root              433 ./var/lib/opkg/info/luna-applauncher.control  
+-rw-r--r-- root       root              434 ./var/lib/opkg/info/luna-applauncher.control  
 -rw-r--r-- root       root             5365 ./var/lib/opkg/info/luna-applauncher.list  
 -rw-r--r-- root       root              388 ./var/lib/opkg/info/luna-init.control  
 -rw-r--r-- root       root             1589 ./var/lib/opkg/info/luna-init.list  
@@ -7971,8 +7971,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/update-rc.d.list  
 -rw-r--r-- root       root              510 ./var/lib/opkg/info/upstart-sysvcompat.control  
 -rw-r--r-- root       root              401 ./var/lib/opkg/info/upstart-sysvcompat.list  
--rwxr-xr-x root       root              364 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
--rwxr-xr-x root       root              216 ./var/lib/opkg/info/upstart-sysvcompat.prerm  
+-rwxr-xr-x root       root              369 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
+-rwxr-xr-x root       root              281 ./var/lib/opkg/info/upstart-sysvcompat.postrm  
 -rw-r--r-- root       root              543 ./var/lib/opkg/info/upstart.control  
 -rw-r--r-- root       root              208 ./var/lib/opkg/info/upstart.list  
 -rwxr-xr-x root       root              153 ./var/lib/opkg/info/upstart.postinst  
@@ -8029,7 +8029,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            84280 ./var/lib/opkg/status  
+-rw-r--r-- root       root            84286 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
