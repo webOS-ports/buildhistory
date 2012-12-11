@@ -206,6 +206,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              537 ./etc/event.d/console  
 -rw-r--r-- root       root              260 ./etc/event.d/control-alt-delete  
 -rw-r--r-- root       root              111 ./etc/event.d/coredump  
+-rw-r--r-- root       root              320 ./etc/event.d/cpufreq-setup  
 -rw-r--r-- root       root              275 ./etc/event.d/createLocalAccount  
 -rw-r--r-- root       root             1115 ./etc/event.d/crond  
 -rw-r--r-- root       root              256 ./etc/event.d/db8  
@@ -223,6 +224,8 @@ drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root             1189 ./etc/event.d/mountall  
 -rw-r--r-- root       root              717 ./etc/event.d/networking  
 -rw-r--r-- root       root             1367 ./etc/event.d/node_fork_server  
+-rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice  
+-rw-r--r-- root       root               86 ./etc/event.d/org.webosinternals.service.upstartmgr  
 -rw-r--r-- root       root              757 ./etc/event.d/populate-volatile  
 -rw-r--r-- root       root             2842 ./etc/event.d/powerd  
 -rw-r--r-- root       root              485 ./etc/event.d/rc-default  
@@ -309,7 +312,7 @@ drwxr-xr-x root       root             4096 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables  
 -rw-r--r-- root       root               21 ./etc/issue  
 -rw-r--r-- root       root               19 ./etc/issue.net  
--rw-r--r-- root       root             9734 ./etc/ld.so.cache  
+-rw-r--r-- root       root             9795 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -395,7 +398,6 @@ drwxr-xr-x root       root             4096 ./etc/palm/db/kinds
 -rw-r--r-- root       root              548 ./etc/palm/db/kinds/com.palm.mail.account  
 -rwxr-xr-x root       root              974 ./etc/palm/db/kinds/com.palm.manualLink  
 -rwxr-xr-x root       root              978 ./etc/palm/db/kinds/com.palm.manualUnlink  
--rw-r--r-- root       root             1331 ./etc/palm/db/kinds/com.palm.note  
 -rwxr-xr-x root       root            24707 ./etc/palm/db/kinds/com.palm.person  
 -rwxr-xr-x root       root             1066 ./etc/palm/db/kinds/com.palm.person.favoritebackup  
 -rwxr-xr-x root       root              948 ./etc/palm/db/kinds/com.palm.person.speeddialbackup  
@@ -428,7 +430,6 @@ drwxr-xr-x root       root             4096 ./etc/palm/db/permissions
 -rw-r--r-- root       root             2346 ./etc/palm/db/permissions/com.palm.mail.account  
 -rwxr-xr-x root       root              223 ./etc/palm/db/permissions/com.palm.manualLink  
 -rwxr-xr-x root       root              225 ./etc/palm/db/permissions/com.palm.manualUnlink  
--rw-r--r-- root       root              793 ./etc/palm/db/permissions/com.palm.note  
 -rwxr-xr-x root       root             1058 ./etc/palm/db/permissions/com.palm.person  
 -rwxr-xr-x root       root              903 ./etc/palm/db/permissions/com.palm.person.favoritebackup  
 -rwxr-xr-x root       root              676 ./etc/palm/db/permissions/com.palm.person.speeddialbackup  
@@ -879,7 +880,7 @@ lrwxrwxrwx root       root               14 ./sbin/fsck.minix -> ../bin/busybox
 lrwxrwxrwx root       root               15 ./sbin/getty -> getty.tinylogin
 lrwxrwxrwx root       root               14 ./sbin/getty.tinylogin -> /bin/tinylogin
 lrwxrwxrwx root       root               12 ./sbin/halt -> halt.upstart
-lrwxrwxrwx root       root                6 ./sbin/halt.upstart -> reboot
+lrwxrwxrwx root       root               14 ./sbin/halt.upstart -> reboot.upstart
 lrwxrwxrwx root       root               14 ./sbin/hwclock -> ../bin/busybox
 -rwxr-xr-x root       root            35352 ./sbin/hwclock.util-linux  
 -rwxr-xr-x root       root             3056 ./sbin/ifcfg  
@@ -922,7 +923,7 @@ lrwxrwxrwx root       root               11 ./sbin/modprobe.kmod -> ../bin/kmod
 lrwxrwxrwx root       root               21 ./sbin/pivot_root -> pivot_root.util-linux
 -rwxr-xr-x root       root             4464 ./sbin/pivot_root.util-linux  
 lrwxrwxrwx root       root               16 ./sbin/poweroff -> poweroff.upstart
-lrwxrwxrwx root       root                6 ./sbin/poweroff.upstart -> reboot
+lrwxrwxrwx root       root               14 ./sbin/poweroff.upstart -> reboot.upstart
 -rwxr-xr-x root       root            15760 ./sbin/readprofile  
 lrwxrwxrwx root       root               14 ./sbin/reboot -> reboot.upstart
 -rwxr-xr-x root       root            43332 ./sbin/reboot.upstart  
@@ -976,7 +977,7 @@ lrwxrwxrwx root       root               47 ./usr/arm-webos-linux-gnueabi/bin/ra
 lrwxrwxrwx root       root               46 ./usr/arm-webos-linux-gnueabi/bin/strip -> ../../../usr/bin/arm-webos-linux-gnueabi-strip
 drwxr-xr-x root       root            12288 ./usr/bin  
 -rwxr-x--- root       root           223812 ./usr/bin/BrowserServer  
--rwxr-x--- root       root          2749412 ./usr/bin/LunaSysMgr  
+-rwxr-x--- root       root          2749700 ./usr/bin/LunaSysMgr  
 -rwxr-xr-x root       root            18952 ./usr/bin/PmLogCtl  
 lrwxrwxrwx root       root               17 ./usr/bin/[ -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/[[ -> ../../bin/busybox
@@ -1287,7 +1288,7 @@ lrwxrwxrwx root       root               32 ./usr/lib/libPmStateMachineEngine.so
 -rwxr-xr-x root       root             7732 ./usr/lib/libPmStateMachineEngine.so.2.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libQtCore.so.4 -> libQtCore.so.4.8.2
 lrwxrwxrwx root       root               18 ./usr/lib/libQtCore.so.4.8 -> libQtCore.so.4.8.2
--rwxr-xr-x root       root          2858676 ./usr/lib/libQtCore.so.4.8.2  
+-rwxr-xr-x root       root          2862772 ./usr/lib/libQtCore.so.4.8.2  
 lrwxrwxrwx root       root               18 ./usr/lib/libQtDBus.so.4 -> libQtDBus.so.4.8.2
 lrwxrwxrwx root       root               18 ./usr/lib/libQtDBus.so.4.8 -> libQtDBus.so.4.8.2
 -rwxr-xr-x root       root           371164 ./usr/lib/libQtDBus.so.4.8.2  
@@ -1426,6 +1427,8 @@ lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> l
 -rwxr-xr-x root       root           183608 ./usr/lib/libluna-service2.so.3.2.0  
 lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.so.5.9
 -rwxr-xr-x root       root            23696 ./usr/lib/libmenuw.so.5.9  
+lrwxrwxrwx root       root               17 ./usr/lib/libmjson.so.0 -> libmjson.so.0.0.0
+-rwxr-xr-x root       root            50964 ./usr/lib/libmjson.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libmojocore.so.2 -> libmojocore.so.2.0.0
 -rwxr-xr-x root       root           209392 ./usr/lib/libmojocore.so.2.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libmojodb.so.2 -> libmojodb.so.2.0.0
@@ -1481,7 +1484,7 @@ lrwxrwxrwx root       root               19 ./usr/lib/librolegen.so.2 -> librole
 lrwxrwxrwx root       root               22 ./usr/lib/libsamplerate.so.0 -> libsamplerate.so.0.1.8
 -rwxr-xr-x root       root          1491588 ./usr/lib/libsamplerate.so.0.1.8  
 lrwxrwxrwx root       root               23 ./usr/lib/libsamsung-ipc.so.0 -> libsamsung-ipc.so.0.0.0
--rwxr-xr-x root       root            80732 ./usr/lib/libsamsung-ipc.so.0.0.0  
+-rwxr-xr-x root       root            80736 ./usr/lib/libsamsung-ipc.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsigc-2.0.so.0 -> libsigc-2.0.so.0.0.0
 -rwxr-xr-x root       root            14080 ./usr/lib/libsigc-2.0.so.0.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsndfile.so.1 -> libsndfile.so.1.0.25
@@ -1782,14 +1785,14 @@ drwxr-xr-x root       root             4096 ./usr/lib/luna/system/luna-systemui/
 -rw-r--r-- root       root              983 ./usr/lib/luna/system/luna-systemui/depends.js  
 -rw-r--r-- root       root               17 ./usr/lib/luna/system/luna-systemui/framework_config.json  
 drwxr-xr-x root       root             4096 ./usr/lib/luna/system/luna-systemui/images  
--rw-r--r-- root       pulse           27917 ./usr/lib/luna/system/luna-systemui/images/Wallpaper_Image_LICENSE.txt  
+-rw-r--r-- root       xuser           27917 ./usr/lib/luna/system/luna-systemui/images/Wallpaper_Image_LICENSE.txt  
 -rw-r--r-- root       root            10710 ./usr/lib/luna/system/luna-systemui/images/activity-indicator-32x32-dark.png  
 -rw-r--r-- root       root            13044 ./usr/lib/luna/system/luna-systemui/images/activity-indicator-32x32.png  
 -rw-r--r-- root       root             5531 ./usr/lib/luna/system/luna-systemui/images/activity_1_loop_white_48x48.png  
 -rw-r--r-- root       root              584 ./usr/lib/luna/system/luna-systemui/images/battery-0.png  
 -rw-r--r-- root       root              391 ./usr/lib/luna/system/luna-systemui/images/battery-1.png  
 -rw-r--r-- root       root              210 ./usr/lib/luna/system/luna-systemui/images/blank.png  
--rw-r--r-- root       pulse         2432270 ./usr/lib/luna/system/luna-systemui/images/bluerocks.png  
+-rw-r--r-- root       xuser         2432270 ./usr/lib/luna/system/luna-systemui/images/bluerocks.png  
 -rw-r--r-- root       root              302 ./usr/lib/luna/system/luna-systemui/images/bluetooth-on.png  
 -rw-r--r-- root       root              541 ./usr/lib/luna/system/luna-systemui/images/dashboard-container.png  
 -rw-r--r-- root       root             1282 ./usr/lib/luna/system/luna-systemui/images/dashboard-newitem-badge.png  
@@ -3043,102 +3046,6 @@ drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             6504 ./usr/palm/applications/com.palm.app.email/util/stringify.js  
 -rw-r--r-- root       root             2322 ./usr/palm/applications/com.palm.app.email/util/urlparser.js  
 -rw-r--r-- root       root            44092 ./usr/palm/applications/com.palm.app.email/util/util.js  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes  
--rw-r--r-- root       root            11357 ./usr/palm/applications/com.palm.app.notes/LICENSE  
--rw-r--r-- root       root             1974 ./usr/palm/applications/com.palm.app.notes/README.md  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/app  
--rw-r--r-- root       root             1023 ./usr/palm/applications/com.palm.app.notes/app/App.js  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/app/agents  
--rw-r--r-- root       root             1224 ./usr/palm/applications/com.palm.app.notes/app/agents/ConfirmDeletePopupAgent.js  
--rw-r--r-- root       root             2055 ./usr/palm/applications/com.palm.app.notes/app/agents/EditAgent.js  
--rw-r--r-- root       root             3659 ./usr/palm/applications/com.palm.app.notes/app/agents/GridAgent.js  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/app/lib  
--rw-r--r-- root       root              886 ./usr/palm/applications/com.palm.app.notes/app/lib/AppManagerApi.js  
--rw-r--r-- root       root             2306 ./usr/palm/applications/com.palm.app.notes/app/lib/DbApi.js  
--rw-r--r-- root       root             3494 ./usr/palm/applications/com.palm.app.notes/app/lib/ServiceWrapper.js  
--rw-r--r-- root       root             1935 ./usr/palm/applications/com.palm.app.notes/app/lib/Util.js  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/app/models  
--rw-r--r-- root       root             5027 ./usr/palm/applications/com.palm.app.notes/app/models/Memo.js  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/app/views  
--rw-r--r-- root       root             2306 ./usr/palm/applications/com.palm.app.notes/app/views/AppView.js  
--rw-r--r-- root       root             2218 ./usr/palm/applications/com.palm.app.notes/app/views/ColorPickerView.js  
--rw-r--r-- root       root             2050 ./usr/palm/applications/com.palm.app.notes/app/views/ConfirmDeletePopupView.js  
--rw-r--r-- root       root             6457 ./usr/palm/applications/com.palm.app.notes/app/views/EditView.js  
--rw-r--r-- root       root             6753 ./usr/palm/applications/com.palm.app.notes/app/views/GridView.js  
--rw-r--r-- root       root             2338 ./usr/palm/applications/com.palm.app.notes/app/views/MemoRowView.js  
--rw-r--r-- root       root             1584 ./usr/palm/applications/com.palm.app.notes/app/views/MemoView.js  
--rw-r--r-- root       root             1039 ./usr/palm/applications/com.palm.app.notes/app/views/NewMemoView.js  
--rw-r--r-- root       root             1490 ./usr/palm/applications/com.palm.app.notes/app/views/TitleBarSearchView.js  
--rw-r--r-- root       root              803 ./usr/palm/applications/com.palm.app.notes/app/views/TitleBarView.js  
--rw-r--r-- root       root              502 ./usr/palm/applications/com.palm.app.notes/appinfo.json  
--rw-r--r-- root       root                0 ./usr/palm/applications/com.palm.app.notes/build-ignore  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/configuration  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/configuration/db  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/configuration/db/kinds  
--rw-r--r-- root       root             1331 ./usr/palm/applications/com.palm.app.notes/configuration/db/kinds/com.palm.note  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/configuration/db/permissions  
--rw-r--r-- root       root              793 ./usr/palm/applications/com.palm.app.notes/configuration/db/permissions/com.palm.note  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/css  
--rw-r--r-- root       root              991 ./usr/palm/applications/com.palm.app.notes/css/confirm-delete-popup.css  
--rw-r--r-- root       root             2202 ./usr/palm/applications/com.palm.app.notes/css/edit.css  
--rw-r--r-- root       root             1388 ./usr/palm/applications/com.palm.app.notes/css/grid-edit.css  
--rw-r--r-- root       root             3035 ./usr/palm/applications/com.palm.app.notes/css/grid.css  
--rw-r--r-- root       root             1838 ./usr/palm/applications/com.palm.app.notes/css/memos.css  
--rw-r--r-- root       root             1443 ./usr/palm/applications/com.palm.app.notes/depends.js  
--rw-r--r-- root       root            26948 ./usr/palm/applications/com.palm.app.notes/icon.png  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/images  
--rw-r--r-- root       root            50553 ./usr/palm/applications/com.palm.app.notes/images/background.png  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/images/edit  
--rw-r--r-- root       root            77436 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-blue.png  
--rw-r--r-- root       root            85930 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-green.png  
--rw-r--r-- root       root            86080 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-orange.png  
--rw-r--r-- root       root            78512 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-pink.png  
--rw-r--r-- root       root            90628 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-salmon.png  
--rw-r--r-- root       root            74502 ./usr/palm/applications/com.palm.app.notes/images/edit/memo-edit-yellow.png  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/images/grid  
--rw-r--r-- root       root             4979 ./usr/palm/applications/com.palm.app.notes/images/grid/delete-down.png  
--rw-r--r-- root       root             4809 ./usr/palm/applications/com.palm.app.notes/images/grid/delete-up.png  
--rw-r--r-- root       root            23397 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-blue.png  
--rw-r--r-- root       root            25044 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-green.png  
--rw-r--r-- root       root            24361 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-orange.png  
--rw-r--r-- root       root            23368 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-pink.png  
--rw-r--r-- root       root            23476 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-salmon.png  
--rw-r--r-- root       root            24651 ./usr/palm/applications/com.palm.app.notes/images/grid/memo-yellow.png  
--rw-r--r-- root       root            11281 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-base.png  
--rw-r--r-- root       root            19189 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-blue.png  
--rw-r--r-- root       root            21751 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-green.png  
--rw-r--r-- root       root            22064 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-orange.png  
--rw-r--r-- root       root            18538 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-pink.png  
--rw-r--r-- root       root            20597 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-salmon.png  
--rw-r--r-- root       root            20096 ./usr/palm/applications/com.palm.app.notes/images/grid/new-memo-yellow.png  
--rw-r--r-- root       root               83 ./usr/palm/applications/com.palm.app.notes/images/grid/underline.png  
--rw-r--r-- root       root              453 ./usr/palm/applications/com.palm.app.notes/images/icon-delete.png  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/images/search-input  
--rw-r--r-- root       root             1466 ./usr/palm/applications/com.palm.app.notes/images/search-input/search_cancel.png  
-drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.notes/images/title-bar  
--rw-r--r-- root       root             1443 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-blue.png  
--rw-r--r-- root       root             1423 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-green.png  
--rw-r--r-- root       root             1453 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-orange.png  
--rw-r--r-- root       root             1407 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-pink.png  
--rw-r--r-- root       root              414 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-salmon.png  
--rw-r--r-- root       root             2078 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-blue.png  
--rw-r--r-- root       root             2100 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-green.png  
--rw-r--r-- root       root             1997 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-orange.png  
--rw-r--r-- root       root             2001 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-pink.png  
--rw-r--r-- root       root              844 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-salmon.png  
--rw-r--r-- root       root             2023 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-selected-yellow.png  
--rw-r--r-- root       root             1444 ./usr/palm/applications/com.palm.app.notes/images/title-bar/color-picker-yellow.png  
--rw-r--r-- root       root              343 ./usr/palm/applications/com.palm.app.notes/images/title-bar/dark-back-arrow.png  
--rw-r--r-- root       root             1826 ./usr/palm/applications/com.palm.app.notes/images/title-bar/icon-email.png  
--rw-r--r-- root       root             1451 ./usr/palm/applications/com.palm.app.notes/images/title-bar/icon-trash.png  
--rw-r--r-- root       root             7975 ./usr/palm/applications/com.palm.app.notes/images/title-bar/memos-header.png  
--rw-r--r-- root       root             1322 ./usr/palm/applications/com.palm.app.notes/images/title-bar/progress-button-cancel.png  
--rw-r--r-- root       root              456 ./usr/palm/applications/com.palm.app.notes/images/title-bar/search-icon.png  
--rw-r--r-- root       root              886 ./usr/palm/applications/com.palm.app.notes/images/title-bar/shadow.png  
--rw-r--r-- root       root            50553 ./usr/palm/applications/com.palm.app.notes/images/wall_background.png  
--rw-r--r-- root       root            21622 ./usr/palm/applications/com.palm.app.notes/images/wall_background_tile_bottom.png  
--rw-r--r-- root       root            21636 ./usr/palm/applications/com.palm.app.notes/images/wall_background_tile_top.png  
--rw-r--r-- root       root              916 ./usr/palm/applications/com.palm.app.notes/index.html  
 drwxrwxr-x root       root             4096 ./usr/palm/applications/com.palm.sysapp.voicedial  
 -rw-rw-r-- root       root              225 ./usr/palm/applications/com.palm.sysapp.voicedial/appinfo.json  
 -rw-rw-r-- root       root             8490 ./usr/palm/applications/com.palm.sysapp.voicedial/icon-64x64.png  
@@ -6567,7 +6474,9 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             7128 ./usr/sbin/nl-qdisc-add  
 -rwxr-xr-x root       root             6756 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
--rwxr-xr-x root       root          1015528 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root          1034176 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root            40392 ./usr/sbin/org.webosinternals.ipkgservice  
+-rwxr-xr-x root       root            11220 ./usr/sbin/org.webosinternals.service.upstartmgr  
 -rwxr-xr-x root       root            63788 ./usr/sbin/parted  
 -rwxr-xr-x root       root             6984 ./usr/sbin/partprobe  
 -rwxr-xr-x root       root            49124 ./usr/sbin/partx  
@@ -6640,6 +6549,8 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/services
 -rw-r--r-- root       root              101 ./usr/share/dbus-1/services/com.palm.systemservice.service  
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/services/com.palm.universalsearch.service  
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/services/com.palm.wifi.service  
+-rw-r--r-- root       root               98 ./usr/share/dbus-1/services/org.webosinternals.ipkgservice.service  
+-rw-r--r-- root       root              112 ./usr/share/dbus-1/services/org.webosinternals.service.upstartmgr.service  
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/services/org.webosports.service.licenses.service  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services  
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service  
@@ -6668,6 +6579,8 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              134 ./usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service  
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service  
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.bluez.service  
+-rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/org.webosinternals.ipkgservice.service  
+-rw-r--r-- root       root              112 ./usr/share/dbus-1/system-services/org.webosinternals.service.upstartmgr.service  
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosports.service.licenses.service  
 drwxr-xr-x root       root             4096 ./usr/share/dict  
 drwxr-xr-x root       root             4096 ./usr/share/fbprogress  
@@ -6774,6 +6687,8 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/prv/com.palm.universalsearch.json  
 -rw-r--r-- root       root              285 ./usr/share/ls2/roles/prv/com.palm.wifi.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/prv/ls-monitor.json  
+-rw-r--r-- root       root              294 ./usr/share/ls2/roles/prv/org.webosinternals.ipkgservice.json  
+-rw-r--r-- root       root              358 ./usr/share/ls2/roles/prv/org.webosinternals.service.upstartmgr.json  
 -rw-r--r-- root       root              233 ./usr/share/ls2/roles/prv/org.webosports.service.licenses.json  
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub  
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/pub/com.palm.activitymanager.json  
@@ -6793,6 +6708,8 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json  
 -rw-r--r-- root       root              285 ./usr/share/ls2/roles/pub/com.palm.wifi.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/pub/ls-monitor.json  
+-rw-r--r-- root       root              294 ./usr/share/ls2/roles/pub/org.webosinternals.ipkgservice.json  
+-rw-r--r-- root       root              358 ./usr/share/ls2/roles/pub/org.webosinternals.service.upstartmgr.json  
 -rw-r--r-- root       root              233 ./usr/share/ls2/roles/pub/org.webosports.service.licenses.json  
 drwxr-xr-x root       root             4096 ./usr/share/man  
 drwxr-xr-x root       root             4096 ./usr/share/misc  
@@ -7216,7 +7133,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root             1090 ./var/lib/opkg/info/binutils.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/binutils.postinst  
 -rw-r--r-- root       root              642 ./var/lib/opkg/info/bluez4.control  
--rw-r--r-- root       root              691 ./var/lib/opkg/info/bluez4.list  
+-rw-r--r-- root       root              602 ./var/lib/opkg/info/bluez4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/bluez4.postinst  
 -rw-r--r-- root       root              511 ./var/lib/opkg/info/browser-adapter.control  
 -rw-r--r-- root       root              877 ./var/lib/opkg/info/browser-adapter.list  
@@ -7246,10 +7163,10 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root             1107 ./var/lib/opkg/info/connman-upstart.control  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/connman-upstart.list  
 -rw-r--r-- root       root             1424 ./var/lib/opkg/info/connman.control  
--rw-r--r-- root       root               53 ./var/lib/opkg/info/connman.list  
+-rw-r--r-- root       root               88 ./var/lib/opkg/info/connman.list  
 -rwxr-xr-x root       root             3164 ./var/lib/opkg/info/connman.preinst  
--rw-r--r-- root       root              430 ./var/lib/opkg/info/core-apps.control  
--rw-r--r-- root       root            71963 ./var/lib/opkg/info/core-apps.list  
+-rw-r--r-- root       root              431 ./var/lib/opkg/info/core-apps.control  
+-rw-r--r-- root       root            65328 ./var/lib/opkg/info/core-apps.list  
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/cpushareholder-stub.control  
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/cpushareholder-stub.list  
 -rw-r--r-- root       root              501 ./var/lib/opkg/info/crash-handler.control  
@@ -7264,7 +7181,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
 -rw-r--r-- root       root              841 ./var/lib/opkg/info/dbus-1.control  
--rw-r--r-- root       root              444 ./var/lib/opkg/info/dbus-1.list  
+-rw-r--r-- root       root              402 ./var/lib/opkg/info/dbus-1.list  
 -rwxr-xr-x root       root              227 ./var/lib/opkg/info/dbus-1.postinst  
 -rwxr-xr-x root       root               39 ./var/lib/opkg/info/dbus-1.postrm  
 -rwxr-xr-x root       root             3229 ./var/lib/opkg/info/dbus-1.preinst  
@@ -7496,6 +7413,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/libmenuw5.control  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libmenuw5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libmenuw5.postinst  
+-rw-r--r-- root       root              619 ./var/lib/opkg/info/libmjson0.control  
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/libmjson0.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libmjson0.postinst  
 -rw-r--r-- root       root              419 ./var/lib/opkg/info/libncurses5.control  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/libncurses5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libncurses5.postinst  
@@ -7652,7 +7572,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/locale-base-en-gb.list  
 -rw-r--r-- root       root              376 ./var/lib/opkg/info/locale-base-en-us.control  
 -rw-r--r-- root       root                2 ./var/lib/opkg/info/locale-base-en-us.list  
--rw-r--r-- root       root              436 ./var/lib/opkg/info/luna-applauncher.control  
+-rw-r--r-- root       root              437 ./var/lib/opkg/info/luna-applauncher.control  
 -rw-r--r-- root       root             5365 ./var/lib/opkg/info/luna-applauncher.list  
 -rw-r--r-- root       root              388 ./var/lib/opkg/info/luna-init.control  
 -rw-r--r-- root       root             1589 ./var/lib/opkg/info/luna-init.list  
@@ -7662,7 +7582,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              536 ./var/lib/opkg/info/luna-service2.control  
 -rw-r--r-- root       root              563 ./var/lib/opkg/info/luna-service2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst  
--rw-r--r-- root       root              920 ./var/lib/opkg/info/luna-sysmgr.control  
+-rw-r--r-- root       root              966 ./var/lib/opkg/info/luna-sysmgr.control  
 -rw-r--r-- root       root            21643 ./var/lib/opkg/info/luna-sysmgr.list  
 -rw-r--r-- root       root              761 ./var/lib/opkg/info/luna-sysservice.control  
 -rw-r--r-- root       root              409 ./var/lib/opkg/info/luna-sysservice.list  
@@ -7717,7 +7637,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/nodejs.list  
 -rw-r--r-- root       root              520 ./var/lib/opkg/info/nyx-modules.control  
 -rw-r--r-- root       root              326 ./var/lib/opkg/info/nyx-modules.list  
--rw-r--r-- root       root              715 ./var/lib/opkg/info/ofono.control  
+-rw-r--r-- root       root              727 ./var/lib/opkg/info/ofono.control  
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/ofono.list  
 -rwxr-xr-x root       root              103 ./var/lib/opkg/info/ofono.postinst  
 -rwxr-xr-x root       root               38 ./var/lib/opkg/info/ofono.postrm  
@@ -7754,8 +7674,13 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              188 ./var/lib/opkg/info/opkg.list  
 -rwxr-xr-x root       root              343 ./var/lib/opkg/info/opkg.postinst  
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
+-rw-r--r-- root       root              556 ./var/lib/opkg/info/org.webosinternals.ipkgservice.control  
+-rw-r--r-- root       root              346 ./var/lib/opkg/info/org.webosinternals.ipkgservice.list  
+-rwxr-xr-x root       root             4637 ./var/lib/opkg/info/org.webosinternals.ipkgservice.postinst  
+-rw-r--r-- root       root              600 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.control  
+-rw-r--r-- root       root              560 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.list  
 -rw-r--r-- root       root              515 ./var/lib/opkg/info/org.webosports.service.licenses.control  
--rw-r--r-- root       root              649 ./var/lib/opkg/info/org.webosports.service.licenses.list  
+-rw-r--r-- root       root              559 ./var/lib/opkg/info/org.webosports.service.licenses.list  
 -rw-r--r-- root       root              399 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.list  
 -rw-r--r-- root       root              542 ./var/lib/opkg/info/packagegroup-webos-boot.control  
@@ -7764,7 +7689,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list  
 -rw-r--r-- root       root              525 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list  
--rw-r--r-- root       root              502 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
+-rw-r--r-- root       root              573 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              350 ./var/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-upstart.list  
@@ -7898,7 +7823,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              764 ./var/lib/opkg/info/udev-utils.control  
 -rw-r--r-- root       root               14 ./var/lib/opkg/info/udev-utils.list  
 -rw-r--r-- root       root              869 ./var/lib/opkg/info/udev.control  
--rw-r--r-- root       root             3705 ./var/lib/opkg/info/udev.list  
+-rw-r--r-- root       root             3692 ./var/lib/opkg/info/udev.list  
 -rwxr-xr-x root       root              103 ./var/lib/opkg/info/udev.postinst  
 -rwxr-xr-x root       root               37 ./var/lib/opkg/info/udev.postrm  
 -rwxr-xr-x root       root               62 ./var/lib/opkg/info/udev.prerm  
@@ -7912,9 +7837,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              429 ./var/lib/opkg/info/update-rc.d.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/update-rc.d.list  
 -rw-r--r-- root       root              502 ./var/lib/opkg/info/upstart-sysvcompat.control  
--rw-r--r-- root       root              387 ./var/lib/opkg/info/upstart-sysvcompat.list  
--rwxr-xr-x root       root              364 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
--rwxr-xr-x root       root              216 ./var/lib/opkg/info/upstart-sysvcompat.prerm  
+-rw-r--r-- root       root              414 ./var/lib/opkg/info/upstart-sysvcompat.list  
+-rwxr-xr-x root       root              369 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
+-rwxr-xr-x root       root              281 ./var/lib/opkg/info/upstart-sysvcompat.postrm  
 -rw-r--r-- root       root              535 ./var/lib/opkg/info/upstart.control  
 -rw-r--r-- root       root              208 ./var/lib/opkg/info/upstart.list  
 -rwxr-xr-x root       root              153 ./var/lib/opkg/info/upstart.postinst  
@@ -7953,8 +7878,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root             1011 ./var/lib/opkg/info/util-linux.postrm  
 -rw-r--r-- root       root              538 ./var/lib/opkg/info/webkit-supplemental.control  
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/webkit-supplemental.list  
--rw-r--r-- root       root              420 ./var/lib/opkg/info/webos-initscripts.control  
--rw-r--r-- root       root              558 ./var/lib/opkg/info/webos-initscripts.list  
+-rw-r--r-- root       root              449 ./var/lib/opkg/info/webos-initscripts.control  
+-rw-r--r-- root       root              585 ./var/lib/opkg/info/webos-initscripts.list  
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/webos-shutdownscripts.control  
 -rw-r--r-- root       root              960 ./var/lib/opkg/info/webos-shutdownscripts.list  
 -rw-r--r-- root       root              618 ./var/lib/opkg/info/wireless-tools.control  
@@ -7971,7 +7896,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            81310 ./var/lib/opkg/status  
+-rw-r--r-- root       root            82212 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
@@ -7985,7 +7910,7 @@ lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
 drwxr-xr-x root       root             4096 ./var/volatile  
 drwxr-xr-x root       root             4096 ./var/volatile/cache  
 drwx------ root       root             4096 ./var/volatile/cache/ldconfig  
--rw------- root       root             9667 ./var/volatile/cache/ldconfig/aux-cache  
+-rw------- root       root             9729 ./var/volatile/cache/ldconfig/aux-cache  
 drwxrwxrwt root       root             4096 ./var/volatile/lock  
 drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys  
 drwxr-xr-x root       root             4096 ./var/volatile/log  
