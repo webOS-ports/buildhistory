@@ -158,6 +158,9 @@ drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf  
 -rw-r--r-- root       root              297 ./etc/bluetooth/rfcomm.conf  
 -rw-r--r-- root       root             2064 ./etc/busybox.links  
+drwxr-xr-x root       root             4096 ./etc/ca-certificates  
+-rw-r--r-- root       root             6481 ./etc/ca-certificates.conf  
+drwxr-xr-x root       root             4096 ./etc/ca-certificates/update.d  
 drwxr-xr-x root       root             4096 ./etc/dbus-1  
 -rw-r--r-- root       root             2771 ./etc/dbus-1/session.conf  
 drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d  
@@ -214,7 +217,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              757 ./etc/event.d/devpts  
 -rw-r--r-- root       root              961 ./etc/event.d/filecache  
 -rw-r--r-- root       root             1796 ./etc/event.d/finish  
-drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d  
+drwx------ root       root             4096 ./etc/event.d/finish-poststart.d  
 -rw-r--r-- root       root              724 ./etc/event.d/hostname  
 -rw-r--r-- root       root              299 ./etc/event.d/logd  
 -rw-r--r-- root       root              978 ./etc/event.d/ls-hubd_private  
@@ -255,7 +258,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root              942 ./etc/event.d/urandom  
 -rw-r--r-- root       root             2283 ./etc/event.d/usbctrl  
 -rw-r--r-- root       root              735 ./etc/event.d/webos-connman-adapter  
-drwxr-xr-x root       root             4096 ./etc/event.dis  
+drwx------ root       root             4096 ./etc/event.dis  
 -rw-r--r-- root       root              744 ./etc/event.dis/swaphack  
 -rw-r--r-- root       root               38 ./etc/filesystems  
 -rw-r--r-- root       root              480 ./etc/fstab  
@@ -320,7 +323,7 @@ drwxr-xr-x root       root             4096 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables  
 -rw-r--r-- root       root               21 ./etc/issue  
 -rw-r--r-- root       root               19 ./etc/issue.net  
--rw-r--r-- root       root            10197 ./etc/ld.so.cache  
+-rw-r--r-- root       root            10256 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -622,6 +625,8 @@ drwxr-xr-x root       root             4096 ./etc/ssh
 -rw-r--r-- root       root           136218 ./etc/ssh/moduli  
 -rw-r--r-- root       root             1494 ./etc/ssh/ssh_config  
 -rw-r--r-- root       root             3239 ./etc/ssh/sshd_config  
+drwxr-xr-x root       root             4096 ./etc/ssl  
+drwxr-xr-x root       root             4096 ./etc/ssl/certs  
 -rw-r--r-- root       root             2049 ./etc/sysctl.conf  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
@@ -1095,6 +1100,7 @@ lrwxrwxrwx root       root               15 ./usr/bin/bzfgrep -> /usr/bin/bzgrep
 -rwxr-xr-x root       root             8464 ./usr/bin/bzip2recover  
 lrwxrwxrwx root       root               15 ./usr/bin/bzless -> /usr/bin/bzmore
 -rwxr-xr-x root       root             1259 ./usr/bin/bzmore  
+-rwxr-xr-x root       root             4408 ./usr/bin/c_rehash  
 -rwxr-xr-x root       root            22908 ./usr/bin/cal  
 -rwsr-xr-x root       root            37460 ./usr/bin/chage  
 -rwxr-xr-x root       root             7808 ./usr/bin/chattr  
@@ -1234,6 +1240,8 @@ lrwxrwxrwx root       root                7 ./usr/bin/opkg -> opkg-cl
 lrwxrwxrwx root       root               13 ./usr/bin/passwd -> passwd.shadow
 -rwsr-xr-x root       root            39396 ./usr/bin/passwd.shadow  
 lrwxrwxrwx root       root               17 ./usr/bin/patch -> ../../bin/busybox
+lrwxrwxrwx root       root               10 ./usr/bin/perl -> perl5.14.2
+-rwxr-xr-x root       root             5884 ./usr/bin/perl5.14.2  
 -rwxr-xr-x root       root            27448 ./usr/bin/pg  
 lrwxrwxrwx root       root               12 ./usr/bin/pgrep -> pgrep.procps
 -r-xr-xr-x root       root            15748 ./usr/bin/pgrep.procps  
@@ -1580,6 +1588,8 @@ lrwxrwxrwx root       root               21 ./usr/lib/libpbnjson_c.so.1 -> libpb
 -rwxr-xr-x root       root            64464 ./usr/lib/libpbnjson_c.so.1.3.0  
 lrwxrwxrwx root       root               23 ./usr/lib/libpbnjson_cpp.so.1 -> libpbnjson_cpp.so.1.3.0
 -rwxr-xr-x root       root            52144 ./usr/lib/libpbnjson_cpp.so.1.3.0  
+lrwxrwxrwx root       root               17 ./usr/lib/libperl.so.5 -> libperl.so.5.14.2
+-r-xr-xr-x root       root          1284416 ./usr/lib/libperl.so.5.14.2  
 lrwxrwxrwx root       root               18 ./usr/lib/libpng12.so.0 -> libpng12.so.0.49.0
 -rwxr-xr-x root       root           121568 ./usr/lib/libpng12.so.0.49.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libpowerd.so.4 -> libpowerd.so.4.0.0
@@ -1661,7 +1671,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/locale/en_US/LC_MESSAGES
 -rw-r--r-- root       root             2454 ./usr/lib/locale/en_US/LC_TIME  
 drwxr-xr-x root       root             4096 ./usr/lib/luna  
 -rwxr-xr-x root       root           130288 ./usr/lib/luna/libkeyboard-efigs-phone.so  
--rwxr-xr-x root       root           133800 ./usr/lib/luna/libkeyboard-efigs-tablet.so  
+-rwxr-xr-x root       root           133896 ./usr/lib/luna/libkeyboard-efigs-tablet.so  
 drwxr-xr-x root       root             4096 ./usr/lib/luna/system  
 drwxr-xr-x root       root             4096 ./usr/lib/luna/system/luna-applauncher  
 -rw-r--r-- root       root             1496 ./usr/lib/luna/system/luna-applauncher/README.md  
@@ -1989,6 +1999,12 @@ drwxr-xr-x root       root             4096 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root             5256 ./usr/lib/nyx/modules/nyxMicroControllerLEDsDefault.module  
 -rwxr-xr-x root       root            10180 ./usr/lib/nyx/modules/nyxSystemMain.module  
 -rwxr-xr-x root       root            15812 ./usr/lib/nyx/modules/nyxTouchpanelMain.module  
+drwxr-xr-x root       root             4096 ./usr/lib/perl  
+drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2  
+lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
+-r--r--r-- root       root            44550 ./usr/lib/perl/5.14.2/Config_heavy.pl  
+-rwxr-xr-x root       root            36688 ./usr/lib/perl/config.sh  
+lrwxrwxrwx root       root                4 ./usr/lib/perl5 -> perl
 drwxr-xr-x root       root             4096 ./usr/lib/pulse-2.1  
 drwxr-xr-x root       root             4096 ./usr/lib/pulse-2.1/modules  
 -rwxr-xr-x root       root           222156 ./usr/lib/pulse-2.1/modules/libalsa-util.so  
@@ -2130,7 +2146,7 @@ drwxr-xr-x root       root             4096 ./usr/libexec/pulse
 -rwsr-xr-x root       root             6116 ./usr/libexec/pulse/proximity-helper  
 lrwxrwxrwx root       root                7 ./usr/libexec/rmt -> rmt.tar
 -rwxr-xr-x root       root            44076 ./usr/libexec/rmt.tar  
-drwx------ root       root             4096 ./usr/palm  
+drwxr-xr-x root       root             4096 ./usr/palm  
 drwxr-xr-x root       root             4096 ./usr/palm/applications  
 drwxr-xr-x root       root             4096 ./usr/palm/applications/com.palm.app.accounts  
 -rw-r--r-- root       root            11357 ./usr/palm/applications/com.palm.app.accounts/LICENSE  
@@ -3170,7 +3186,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              164 ./usr/palm/applications/org.webosports.app.firstuse/appinfo.json  
 drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.firstuse/build  
 -rw-r--r-- root       root            28918 ./usr/palm/applications/org.webosports.app.firstuse/build/app.css  
--rw-r--r-- root       root           106905 ./usr/palm/applications/org.webosports.app.firstuse/build/app.js  
+-rw-r--r-- root       root           112451 ./usr/palm/applications/org.webosports.app.firstuse/build/app.js  
 -rw-r--r-- root       root             2752 ./usr/palm/applications/org.webosports.app.firstuse/build/enyo.css  
 -rw-r--r-- root       root           127355 ./usr/palm/applications/org.webosports.app.firstuse/build/enyo.js  
 -rw-r--r-- root       root            63980 ./usr/palm/applications/org.webosports.app.firstuse/icon.png  
@@ -3199,6 +3215,10 @@ drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              711 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/PortsHeader.js  
 -rw-r--r-- root       root             2406 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/PortsSearch.js  
 -rw-r--r-- root       root               74 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/package.js  
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.firstuse/lib/webos-ext  
+-rw-r--r-- root       root             2600 ./usr/palm/applications/org.webosports.app.firstuse/lib/webos-ext/ServiceRequest.js  
+-rw-r--r-- root       root               53 ./usr/palm/applications/org.webosports.app.firstuse/lib/webos-ext/package.js  
+-rw-r--r-- root       root             4500 ./usr/palm/applications/org.webosports.app.firstuse/lib/webos-ext/webOSExt.js  
 drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.memos  
 -rw-r--r-- root       root              258 ./usr/palm/applications/org.webosports.app.memos/appinfo.json  
 drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.memos/assets  
@@ -3331,7 +3351,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root             8802 ./usr/palm/command-resource-handlers.json  
 -rw-r--r-- root       root              233 ./usr/palm/default-dock-positions.json  
 -rw-r--r-- root       root            81323 ./usr/palm/ext-timezones.json  
-drwx------ root       root             4096 ./usr/palm/frameworks  
+drwxr-xr-x root       root             4096 ./usr/palm/frameworks  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/calendar  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/calendar.io  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/calendar.io/version  
@@ -5996,8 +6016,8 @@ drwxr-xr-x root       root             4096 ./usr/palm/frameworks/mojoservice/ve
 -rw-r--r-- root       root             1934 ./usr/palm/frameworks/mojoservice/version/1.0/schema/services-schema.json  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/mojoservice/version/1.0/tools  
 -rw-r--r-- root       root             1125 ./usr/palm/frameworks/mojoservice/version/1.0/tools/validate-services-json.js  
-drwx------ root       root             4096 ./usr/palm/frameworks/private  
-drwx------ root       root             4096 ./usr/palm/frameworks/private/javascripts  
+drwxr-xr-x root       root             4096 ./usr/palm/frameworks/private  
+drwxr-xr-x root       root             4096 ./usr/palm/frameworks/private/javascripts  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore/version  
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore/version/1.0  
@@ -6006,7 +6026,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore/ver
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore/version/1.0/javascript  
 -rw-r--r-- root       root            24583 ./usr/palm/frameworks/underscore/version/1.0/javascript/underscore.js  
 -rw-r--r-- root       root               86 ./usr/palm/frameworks/underscore/version/1.0/manifest.json  
-drwx------ root       root             4096 ./usr/palm/nodejs  
+drwxr-xr-x root       root             4096 ./usr/palm/nodejs  
 -rw-r--r-- root       root            16104 ./usr/palm/nodejs/fork_server.js  
 lrwxrwxrwx root       root               13 ./usr/palm/nodejs/node -> /usr/bin/node
 lrwxrwxrwx root       root               28 ./usr/palm/nodejs/palmbus.node -> /usr/lib/nodejs/palmbus.node
@@ -6037,7 +6057,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/public/accounts/com.palm.
 drwxr-xr-x root       root             4096 ./usr/palm/public/accounts/com.palm.pop/images  
 -rw-r--r-- root       root             1125 ./usr/palm/public/accounts/com.palm.pop/images/popmail32.png  
 -rw-r--r-- root       root             1244 ./usr/palm/public/accounts/com.palm.pop/images/popmail48.png  
-drwx------ root       root             4096 ./usr/palm/services  
+drwxr-xr-x root       root             4096 ./usr/palm/services  
 drwxr-xr-x root       root             4096 ./usr/palm/services/com.palm.connectionmanager  
 -rw-r--r-- root       root             1310 ./usr/palm/services/com.palm.connectionmanager/GetStatusCommandAssistant.js  
 -rw-r--r-- root       root              554 ./usr/palm/services/com.palm.connectionmanager/services.json  
@@ -6262,7 +6282,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/services/com.palm.service
 -rw-r--r-- root       root             1415 ./usr/palm/services/com.palm.service.contacts/test/loadall.js  
 -rw-r--r-- root       root             7295 ./usr/palm/services/com.palm.service.contacts/test/photoBackupTests.js  
 -rw-r--r-- root       root                3 ./usr/palm/services/com.palm.service.contacts/testSpec.json  
-drwx------ root       root             4096 ./usr/palm/services/jsservicelauncher  
+drwxr-xr-x root       root             4096 ./usr/palm/services/jsservicelauncher  
 -rw-r--r-- root       root             5591 ./usr/palm/services/jsservicelauncher/bootstrap-node.js  
 -rw-r--r-- root       root               73 ./usr/palm/services/jsservicelauncher/palm_bus_config.json  
 -rw-r--r-- root       root              540 ./usr/palm/services/jsservicelauncher/sources.json  
@@ -6788,6 +6808,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/rfkill -> ../../bin/busyb
 -rwxr-xr-x root       root             7260 ./usr/sbin/switch_root  
 -rwxr-xr-x root       root             8336 ./usr/sbin/tunelp  
 lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busybox
+-rwxr-xr-x root       root             4053 ./usr/sbin/update-ca-certificates  
 -rwxr-xr-x root       root             4619 ./usr/sbin/update-modules  
 -rwxr-xr-x root       root             4409 ./usr/sbin/update-rc.d  
 -rwxr-xr-x root       root            68916 ./usr/sbin/useradd  
@@ -6825,6 +6846,162 @@ drwxr-xr-x root       root             4096 ./usr/share/alsa/ucm/Tuna
 -rw-r--r-- root       root              336 ./usr/share/alsa/ucm/Tuna/README  
 -rw-r--r-- root       root              278 ./usr/share/alsa/ucm/Tuna/Tuna.conf  
 -rw-r--r-- root       root            17205 ./usr/share/alsa/ucm/Tuna/VoiceCall  
+drwxr-xr-x root       root             4096 ./usr/share/ca-certificates  
+drwxr-xr-x root       root             4096 ./usr/share/ca-certificates/cacert.org  
+-rw-r--r-- root       root             5179 ./usr/share/ca-certificates/cacert.org/cacert.org.crt  
+drwxr-xr-x root       root             4096 ./usr/share/ca-certificates/debconf.org  
+-rw-r--r-- root       root             1549 ./usr/share/ca-certificates/debconf.org/ca.crt  
+drwxr-xr-x root       root            16384 ./usr/share/ca-certificates/mozilla  
+-rw-r--r-- root       root             1383 ./usr/share/ca-certificates/mozilla/A-Trust-nQual-03.crt  
+-rw-r--r-- root       root             2041 ./usr/share/ca-certificates/mozilla/ACEDICOM_Root.crt  
+-rw-r--r-- root       root             2281 ./usr/share/ca-certificates/mozilla/AC_Ra\303\255z_Certic\303\241mara_S.A..crt  
+-rw-r--r-- root       root             1521 ./usr/share/ca-certificates/mozilla/AddTrust_External_Root.crt  
+-rw-r--r-- root       root             1480 ./usr/share/ca-certificates/mozilla/AddTrust_Low-Value_Services_Root.crt  
+-rw-r--r-- root       root             1476 ./usr/share/ca-certificates/mozilla/AddTrust_Public_Services_Root.crt  
+-rw-r--r-- root       root             1489 ./usr/share/ca-certificates/mozilla/AddTrust_Qualified_Certificates_Root.crt  
+-rw-r--r-- root       root             1204 ./usr/share/ca-certificates/mozilla/AffirmTrust_Commercial.crt  
+-rw-r--r-- root       root             1204 ./usr/share/ca-certificates/mozilla/AffirmTrust_Networking.crt  
+-rw-r--r-- root       root             1891 ./usr/share/ca-certificates/mozilla/AffirmTrust_Premium.crt  
+-rw-r--r-- root       root              753 ./usr/share/ca-certificates/mozilla/AffirmTrust_Premium_ECC.crt  
+-rw-r--r-- root       root             1322 ./usr/share/ca-certificates/mozilla/America_Online_Root_Certification_Authority_1.crt  
+-rw-r--r-- root       root             2017 ./usr/share/ca-certificates/mozilla/America_Online_Root_Certification_Authority_2.crt  
+-rw-r--r-- root       root             1318 ./usr/share/ca-certificates/mozilla/ApplicationCA_-_Japanese_Government.crt  
+-rw-r--r-- root       root             2167 ./usr/share/ca-certificates/mozilla/Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.crt  
+-rw-r--r-- root       root             1261 ./usr/share/ca-certificates/mozilla/Baltimore_CyberTrust_Root.crt  
+-rw-r--r-- root       root             1212 ./usr/share/ca-certificates/mozilla/Buypass_Class_2_CA_1.crt  
+-rw-r--r-- root       root             1212 ./usr/share/ca-certificates/mozilla/Buypass_Class_3_CA_1.crt  
+-rw-r--r-- root       root             1468 ./usr/share/ca-certificates/mozilla/CA_Disig.crt  
+-rw-r--r-- root       root             1216 ./usr/share/ca-certificates/mozilla/CNNIC_ROOT.crt  
+-rw-r--r-- root       root             1489 ./usr/share/ca-certificates/mozilla/COMODO_Certification_Authority.crt  
+-rw-r--r-- root       root              940 ./usr/share/ca-certificates/mozilla/COMODO_ECC_Certification_Authority.crt  
+-rw-r--r-- root       root             1704 ./usr/share/ca-certificates/mozilla/Camerfirma_Chambers_of_Commerce_Root.crt  
+-rw-r--r-- root       root             1716 ./usr/share/ca-certificates/mozilla/Camerfirma_Global_Chambersign_Root.crt  
+-rw-r--r-- root       root             1330 ./usr/share/ca-certificates/mozilla/Certigna.crt  
+-rw-r--r-- root       root             2004 ./usr/share/ca-certificates/mozilla/Certinomis_-_Autorit\303\251_Racine.crt  
+-rw-r--r-- root       root             1298 ./usr/share/ca-certificates/mozilla/Certplus_Class_2_Primary_CA.crt  
+-rw-r--r-- root       root             1119 ./usr/share/ca-certificates/mozilla/Certum_Root_CA.crt  
+-rw-r--r-- root       root             1354 ./usr/share/ca-certificates/mozilla/Certum_Trusted_Network_CA.crt  
+-rw-r--r-- root       root             2594 ./usr/share/ca-certificates/mozilla/Chambers_of_Commerce_Root_-_2008.crt  
+-rw-r--r-- root       root             1302 ./usr/share/ca-certificates/mozilla/ComSign_CA.crt  
+-rw-r--r-- root       root             1334 ./usr/share/ca-certificates/mozilla/ComSign_Secured_CA.crt  
+-rw-r--r-- root       root             1517 ./usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt  
+-rw-r--r-- root       root             1533 ./usr/share/ca-certificates/mozilla/Comodo_Secure_Services_root.crt  
+-rw-r--r-- root       root             1537 ./usr/share/ca-certificates/mozilla/Comodo_Trusted_Services_root.crt  
+-rw-r--r-- root       root             1318 ./usr/share/ca-certificates/mozilla/Cybertrust_Global_Root.crt  
+-rw-r--r-- root       root             1460 ./usr/share/ca-certificates/mozilla/DST_ACES_CA_X6.crt  
+-rw-r--r-- root       root             1200 ./usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt  
+-rw-r--r-- root       root             1318 ./usr/share/ca-certificates/mozilla/Deutsche_Telekom_Root_CA_2.crt  
+-rw-r--r-- root       root             1350 ./usr/share/ca-certificates/mozilla/DigiCert_Assured_ID_Root_CA.crt  
+-rw-r--r-- root       root             1338 ./usr/share/ca-certificates/mozilla/DigiCert_Global_Root_CA.crt  
+-rw-r--r-- root       root             1367 ./usr/share/ca-certificates/mozilla/DigiCert_High_Assurance_EV_Root_CA.crt  
+-rw-r--r-- root       root             1155 ./usr/share/ca-certificates/mozilla/Digital_Signature_Trust_Co._Global_CA_1.crt  
+-rw-r--r-- root       root             1155 ./usr/share/ca-certificates/mozilla/Digital_Signature_Trust_Co._Global_CA_3.crt  
+-rw-r--r-- root       root             1346 ./usr/share/ca-certificates/mozilla/E-Guven_Kok_Elektronik_Sertifika_Hizmet_Saglayicisi.crt  
+-rw-r--r-- root       root             2106 ./usr/share/ca-certificates/mozilla/EBG_Elektronik_Sertifika_Hizmet_Sa\304\237lay\304\261c\304\261s\304\261.crt  
+-rw-r--r-- root       root             1911 ./usr/share/ca-certificates/mozilla/EC-ACC.crt  
+-rw-r--r-- root       root             1574 ./usr/share/ca-certificates/mozilla/Entrust.net_Premium_2048_Secure_Server_CA.crt  
+-rw-r--r-- root       root             1740 ./usr/share/ca-certificates/mozilla/Entrust.net_Secure_Server_CA.crt  
+-rw-r--r-- root       root             1643 ./usr/share/ca-certificates/mozilla/Entrust_Root_Certification_Authority.crt  
+-rw-r--r-- root       root             1143 ./usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt  
+-rw-r--r-- root       root              948 ./usr/share/ca-certificates/mozilla/Equifax_Secure_Global_eBusiness_CA.crt  
+-rw-r--r-- root       root              932 ./usr/share/ca-certificates/mozilla/Equifax_Secure_eBusiness_CA_1.crt  
+-rw-r--r-- root       root             1143 ./usr/share/ca-certificates/mozilla/Equifax_Secure_eBusiness_CA_2.crt  
+-rw-r--r-- root       root             1566 ./usr/share/ca-certificates/mozilla/Firmaprofesional_Root_CA.crt  
+-rw-r--r-- root       root              875 ./usr/share/ca-certificates/mozilla/GTE_CyberTrust_Global_Root.crt  
+-rw-r--r-- root       root             1216 ./usr/share/ca-certificates/mozilla/GeoTrust_Global_CA.crt  
+-rw-r--r-- root       root             1241 ./usr/share/ca-certificates/mozilla/GeoTrust_Global_CA_2.crt  
+-rw-r--r-- root       root             1269 ./usr/share/ca-certificates/mozilla/GeoTrust_Primary_Certification_Authority.crt  
+-rw-r--r-- root       root              989 ./usr/share/ca-certificates/mozilla/GeoTrust_Primary_Certification_Authority_-_G2.crt  
+-rw-r--r-- root       root             1444 ./usr/share/ca-certificates/mozilla/GeoTrust_Primary_Certification_Authority_-_G3.crt  
+-rw-r--r-- root       root             1935 ./usr/share/ca-certificates/mozilla/GeoTrust_Universal_CA.crt  
+-rw-r--r-- root       root             1939 ./usr/share/ca-certificates/mozilla/GeoTrust_Universal_CA_2.crt  
+-rw-r--r-- root       root             1261 ./usr/share/ca-certificates/mozilla/GlobalSign_Root_CA.crt  
+-rw-r--r-- root       root             1354 ./usr/share/ca-certificates/mozilla/GlobalSign_Root_CA_-_R2.crt  
+-rw-r--r-- root       root             1229 ./usr/share/ca-certificates/mozilla/GlobalSign_Root_CA_-_R3.crt  
+-rw-r--r-- root       root             2585 ./usr/share/ca-certificates/mozilla/Global_Chambersign_Root_-_2008.crt  
+-rw-r--r-- root       root             1448 ./usr/share/ca-certificates/mozilla/Go_Daddy_Class_2_CA.crt  
+-rw-r--r-- root       root             1367 ./usr/share/ca-certificates/mozilla/Go_Daddy_Root_Certificate_Authority_-_G2.crt  
+-rw-r--r-- root       root             1513 ./usr/share/ca-certificates/mozilla/Hellenic_Academic_and_Research_Institutions_RootCA_2011.crt  
+-rw-r--r-- root       root             1168 ./usr/share/ca-certificates/mozilla/Hongkong_Post_Root_CA_1.crt  
+-rw-r--r-- root       root             1452 ./usr/share/ca-certificates/mozilla/IGC_A.crt  
+-rw-r--r-- root       root             2122 ./usr/share/ca-certificates/mozilla/Izenpe.com.crt  
+-rw-r--r-- root       root             1761 ./usr/share/ca-certificates/mozilla/Juur-SK.crt  
+-rw-r--r-- root       root             2715 ./usr/share/ca-certificates/mozilla/Microsec_e-Szigno_Root_CA.crt  
+-rw-r--r-- root       root             1460 ./usr/share/ca-certificates/mozilla/Microsec_e-Szigno_Root_CA_2009.crt  
+-rw-r--r-- root       root             1476 ./usr/share/ca-certificates/mozilla/NetLock_Arany_=Class_Gold=_F\305\221tan\303\272s\303\255tv\303\241ny.crt  
+-rw-r--r-- root       root             1895 ./usr/share/ca-certificates/mozilla/NetLock_Business_=Class_B=_Root.crt  
+-rw-r--r-- root       root             1903 ./usr/share/ca-certificates/mozilla/NetLock_Express_=Class_C=_Root.crt  
+-rw-r--r-- root       root             2309 ./usr/share/ca-certificates/mozilla/NetLock_Notary_=Class_A=_Root.crt  
+-rw-r--r-- root       root             2423 ./usr/share/ca-certificates/mozilla/NetLock_Qualified_=Class_QA=_Root.crt  
+-rw-r--r-- root       root             1411 ./usr/share/ca-certificates/mozilla/Network_Solutions_Certificate_Authority.crt  
+-rw-r--r-- root       root             1428 ./usr/share/ca-certificates/mozilla/OISTE_WISeKey_Global_Root_GA_CA.crt  
+-rw-r--r-- root       root             2078 ./usr/share/ca-certificates/mozilla/QuoVadis_Root_CA.crt  
+-rw-r--r-- root       root             2041 ./usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_2.crt  
+-rw-r--r-- root       root             2354 ./usr/share/ca-certificates/mozilla/QuoVadis_Root_CA_3.crt  
+-rw-r--r-- root       root             1066 ./usr/share/ca-certificates/mozilla/RSA_Root_Certificate_1.crt  
+-rw-r--r-- root       root             1233 ./usr/share/ca-certificates/mozilla/RSA_Security_2048_v3.crt  
+-rw-r--r-- root       root             2329 ./usr/share/ca-certificates/mozilla/Root_CA_Generalitat_Valenciana.crt  
+-rw-r--r-- root       root             1614 ./usr/share/ca-certificates/mozilla/S-TRUST_Authentication_and_Encryption_Root_CA_2005_PN.crt  
+-rw-r--r-- root       root             1249 ./usr/share/ca-certificates/mozilla/SecureSign_RootCA11.crt  
+-rw-r--r-- root       root             1350 ./usr/share/ca-certificates/mozilla/SecureTrust_CA.crt  
+-rw-r--r-- root       root             1354 ./usr/share/ca-certificates/mozilla/Secure_Global_CA.crt  
+-rw-r--r-- root       root             1269 ./usr/share/ca-certificates/mozilla/Security_Communication_EV_RootCA1.crt  
+-rw-r--r-- root       root             1261 ./usr/share/ca-certificates/mozilla/Security_Communication_RootCA2.crt  
+-rw-r--r-- root       root             1224 ./usr/share/ca-certificates/mozilla/Security_Communication_Root_CA.crt  
+-rw-r--r-- root       root             1143 ./usr/share/ca-certificates/mozilla/Sonera_Class_1_Root_CA.crt  
+-rw-r--r-- root       root             1143 ./usr/share/ca-certificates/mozilla/Sonera_Class_2_Root_CA.crt  
+-rw-r--r-- root       root             1354 ./usr/share/ca-certificates/mozilla/Staat_der_Nederlanden_Root_CA.crt  
+-rw-r--r-- root       root             2069 ./usr/share/ca-certificates/mozilla/Staat_der_Nederlanden_Root_CA_-_G2.crt  
+-rw-r--r-- root       root             1468 ./usr/share/ca-certificates/mozilla/Starfield_Class_2_CA.crt  
+-rw-r--r-- root       root             1399 ./usr/share/ca-certificates/mozilla/Starfield_Root_Certificate_Authority_-_G2.crt  
+-rw-r--r-- root       root             1424 ./usr/share/ca-certificates/mozilla/Starfield_Services_Root_Certificate_Authority_-_G2.crt  
+-rw-r--r-- root       root             2760 ./usr/share/ca-certificates/mozilla/StartCom_Certification_Authority.crt  
+-rw-r--r-- root       root             2045 ./usr/share/ca-certificates/mozilla/SwissSign_Gold_CA_-_G2.crt  
+-rw-r--r-- root       root             2057 ./usr/share/ca-certificates/mozilla/SwissSign_Platinum_CA_-_G2.crt  
+-rw-r--r-- root       root             2049 ./usr/share/ca-certificates/mozilla/SwissSign_Silver_CA_-_G2.crt  
+-rw-r--r-- root       root             2090 ./usr/share/ca-certificates/mozilla/Swisscom_Root_CA_1.crt  
+-rw-r--r-- root       root             1679 ./usr/share/ca-certificates/mozilla/TC_TrustCenter_Class_2_CA_II.crt  
+-rw-r--r-- root       root             1679 ./usr/share/ca-certificates/mozilla/TC_TrustCenter_Class_3_CA_II.crt  
+-rw-r--r-- root       root             1399 ./usr/share/ca-certificates/mozilla/TC_TrustCenter_Universal_CA_I.crt  
+-rw-r--r-- root       root             1407 ./usr/share/ca-certificates/mozilla/TC_TrustCenter_Universal_CA_III.crt  
+-rw-r--r-- root       root             1505 ./usr/share/ca-certificates/mozilla/TDC_Internet_Root_CA.crt  
+-rw-r--r-- root       root             1830 ./usr/share/ca-certificates/mozilla/TDC_OCES_Root_CA.crt  
+-rw-r--r-- root       root             1440 ./usr/share/ca-certificates/mozilla/TURKTRUST_Certificate_Services_Provider_Root_1.crt  
+-rw-r--r-- root       root             1529 ./usr/share/ca-certificates/mozilla/TURKTRUST_Certificate_Services_Provider_Root_2.crt  
+-rw-r--r-- root       root             1269 ./usr/share/ca-certificates/mozilla/TWCA_Root_Certification_Authority.crt  
+-rw-r--r-- root       root             1826 ./usr/share/ca-certificates/mozilla/T\303\234B\304\260TAK_UEKAE_K\303\266k_Sertifika_Hizmet_Sa\304\237lay\304\261c\304\261s\304\261_-_S\303\274r\303\274m_3.crt  
+-rw-r--r-- root       root             1948 ./usr/share/ca-certificates/mozilla/Taiwan_GRCA.crt  
+-rw-r--r-- root       root             1155 ./usr/share/ca-certificates/mozilla/Thawte_Premium_Server_CA.crt  
+-rw-r--r-- root       root             1127 ./usr/share/ca-certificates/mozilla/Thawte_Server_CA.crt  
+-rw-r--r-- root       root             1574 ./usr/share/ca-certificates/mozilla/UTN_DATACorp_SGC_Root_CA.crt  
+-rw-r--r-- root       root             1667 ./usr/share/ca-certificates/mozilla/UTN_USERFirst_Email_Root_CA.crt  
+-rw-r--r-- root       root             1606 ./usr/share/ca-certificates/mozilla/UTN_USERFirst_Hardware_Root_CA.crt  
+-rw-r--r-- root       root             1066 ./usr/share/ca-certificates/mozilla/ValiCert_Class_1_VA.crt  
+-rw-r--r-- root       root             1066 ./usr/share/ca-certificates/mozilla/ValiCert_Class_2_VA.crt  
+-rw-r--r-- root       root             1281 ./usr/share/ca-certificates/mozilla/VeriSign_Class_3_Public_Primary_Certification_Authority_-_G4.crt  
+-rw-r--r-- root       root             1732 ./usr/share/ca-certificates/mozilla/VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.crt  
+-rw-r--r-- root       root             1700 ./usr/share/ca-certificates/mozilla/VeriSign_Universal_Root_Certification_Authority.crt  
+-rw-r--r-- root       root              834 ./usr/share/ca-certificates/mozilla/Verisign_Class_1_Public_Primary_Certification_Authority.crt  
+-rw-r--r-- root       root             1103 ./usr/share/ca-certificates/mozilla/Verisign_Class_1_Public_Primary_Certification_Authority_-_G2.crt  
+-rw-r--r-- root       root             1484 ./usr/share/ca-certificates/mozilla/Verisign_Class_1_Public_Primary_Certification_Authority_-_G3.crt  
+-rw-r--r-- root       root             1107 ./usr/share/ca-certificates/mozilla/Verisign_Class_2_Public_Primary_Certification_Authority_-_G2.crt  
+-rw-r--r-- root       root             1480 ./usr/share/ca-certificates/mozilla/Verisign_Class_2_Public_Primary_Certification_Authority_-_G3.crt  
+-rw-r--r-- root       root              834 ./usr/share/ca-certificates/mozilla/Verisign_Class_3_Public_Primary_Certification_Authority.crt  
+-rw-r--r-- root       root             1103 ./usr/share/ca-certificates/mozilla/Verisign_Class_3_Public_Primary_Certification_Authority_-_G2.crt  
+-rw-r--r-- root       root             1484 ./usr/share/ca-certificates/mozilla/Verisign_Class_3_Public_Primary_Certification_Authority_-_G3.crt  
+-rw-r--r-- root       root             1484 ./usr/share/ca-certificates/mozilla/Verisign_Class_4_Public_Primary_Certification_Authority_-_G3.crt  
+-rw-r--r-- root       root             1322 ./usr/share/ca-certificates/mozilla/Visa_eCommerce_Root.crt  
+-rw-r--r-- root       root             1704 ./usr/share/ca-certificates/mozilla/WellsSecure_Public_Root_Certificate_Authority.crt  
+-rw-r--r-- root       root             1411 ./usr/share/ca-certificates/mozilla/Wells_Fargo_Root_CA.crt  
+-rw-r--r-- root       root             1513 ./usr/share/ca-certificates/mozilla/XRamp_Global_CA_Root.crt  
+-rw-r--r-- root       root             1176 ./usr/share/ca-certificates/mozilla/certSIGN_ROOT_CA.crt  
+-rw-r--r-- root       root             2033 ./usr/share/ca-certificates/mozilla/ePKI_Root_Certification_Authority.crt  
+-rw-r--r-- root       root             1493 ./usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA.crt  
+-rw-r--r-- root       root              940 ./usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA_-_G2.crt  
+-rw-r--r-- root       root             1505 ./usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA_-_G3.crt  
+drwxr-xr-x root       root             4096 ./usr/share/ca-certificates/spi-inc.org  
+-rw-r--r-- root       root             1476 ./usr/share/ca-certificates/spi-inc.org/spi-ca-2003.crt  
+-rw-r--r-- root       root             2854 ./usr/share/ca-certificates/spi-inc.org/spi-cacert-2008.crt  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/services  
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/services/com.palm.activitymanager.service  
@@ -7500,6 +7677,11 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              194 ./var/lib/opkg/info/bzip2.list  
 -rwxr-xr-x root       root              152 ./var/lib/opkg/info/bzip2.postinst  
 -rwxr-xr-x root       root              112 ./var/lib/opkg/info/bzip2.postrm  
+-rw-r--r-- root       root               26 ./var/lib/opkg/info/ca-certificates.conffiles  
+-rw-r--r-- root       root              451 ./var/lib/opkg/info/ca-certificates.control  
+-rw-r--r-- root       root            10774 ./var/lib/opkg/info/ca-certificates.list  
+-rwxr-xr-x root       root               67 ./var/lib/opkg/info/ca-certificates.postinst  
+-rwxr-xr-x root       root              104 ./var/lib/opkg/info/ca-certificates.postrm  
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/com.palm.app.browser.control  
 -rw-r--r-- root       root             9419 ./var/lib/opkg/info/com.palm.app.browser.list  
 -rw-r--r-- root       root              531 ./var/lib/opkg/info/configurator.control  
@@ -7785,6 +7967,9 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              442 ./var/lib/opkg/info/libpbnjson.control  
 -rw-r--r-- root       root              120 ./var/lib/opkg/info/libpbnjson.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpbnjson.postinst  
+-rw-r--r-- root       root             2455 ./var/lib/opkg/info/libperl5.control  
+-rw-r--r-- root       root              206 ./var/lib/opkg/info/libperl5.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libperl5.postinst  
 -rw-r--r-- root       root              547 ./var/lib/opkg/info/libpmcertificatemgr2.control  
 -rw-r--r-- root       root               72 ./var/lib/opkg/info/libpmcertificatemgr2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpmcertificatemgr2.postinst  
@@ -7854,7 +8039,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              777 ./var/lib/opkg/info/libudev0.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libudev0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libudev0.postinst  
--rw-r--r-- root       root              524 ./var/lib/opkg/info/libupstart0.control  
+-rw-r--r-- root       root              528 ./var/lib/opkg/info/libupstart0.control  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libupstart0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libupstart0.postinst  
 -rw-r--r-- root       root              391 ./var/lib/opkg/info/liburiparser1.control  
@@ -7998,8 +8183,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               62 ./var/lib/opkg/info/openssh-sshd.prerm  
 -rw-r--r-- root       root              687 ./var/lib/opkg/info/openssh.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/openssh.list  
--rw-r--r-- root       root              954 ./var/lib/opkg/info/openssl.control  
--rw-r--r-- root       root               73 ./var/lib/opkg/info/openssl.list  
+-rw-r--r-- root       root              960 ./var/lib/opkg/info/openssl.control  
+-rw-r--r-- root       root               91 ./var/lib/opkg/info/openssl.list  
 -rw-r--r-- root       root               20 ./var/lib/opkg/info/opkg-collateral.conffiles  
 -rw-r--r-- root       root              330 ./var/lib/opkg/info/opkg-collateral.control  
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/opkg-collateral.list  
@@ -8016,7 +8201,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              608 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.control  
 -rw-r--r-- root       root              560 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.list  
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/org.webosports.app.firstuse.control  
--rw-r--r-- root       root             2445 ./var/lib/opkg/info/org.webosports.app.firstuse.list  
+-rw-r--r-- root       root             2747 ./var/lib/opkg/info/org.webosports.app.firstuse.list  
 -rw-r--r-- root       root              445 ./var/lib/opkg/info/org.webosports.app.memos.control  
 -rw-r--r-- root       root             4526 ./var/lib/opkg/info/org.webosports.app.memos.list  
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/org.webosports.app.settings.control  
@@ -8031,7 +8216,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list  
 -rw-r--r-- root       root              525 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list  
--rw-r--r-- root       root              670 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
+-rw-r--r-- root       root              687 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              350 ./var/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-upstart.list  
@@ -8040,6 +8225,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/parted.postinst  
 -rw-r--r-- root       root              504 ./var/lib/opkg/info/pciutils-ids.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/pciutils-ids.list  
+-rw-r--r-- root       root             2434 ./var/lib/opkg/info/perl.control  
+-rw-r--r-- root       root               34 ./var/lib/opkg/info/perl.list  
 -rw-r--r-- root       root              358 ./var/lib/opkg/info/pmklogd.control  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pmklogd.list  
 -rw-r--r-- root       root              354 ./var/lib/opkg/info/pmlogconf.control  
@@ -8193,11 +8380,11 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/update-modules.postinst  
 -rw-r--r-- root       root              429 ./var/lib/opkg/info/update-rc.d.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/update-rc.d.list  
--rw-r--r-- root       root              510 ./var/lib/opkg/info/upstart-sysvcompat.control  
+-rw-r--r-- root       root              514 ./var/lib/opkg/info/upstart-sysvcompat.control  
 -rw-r--r-- root       root              401 ./var/lib/opkg/info/upstart-sysvcompat.list  
 -rwxr-xr-x root       root              369 ./var/lib/opkg/info/upstart-sysvcompat.postinst  
 -rwxr-xr-x root       root              281 ./var/lib/opkg/info/upstart-sysvcompat.postrm  
--rw-r--r-- root       root              543 ./var/lib/opkg/info/upstart.control  
+-rw-r--r-- root       root              547 ./var/lib/opkg/info/upstart.control  
 -rw-r--r-- root       root              208 ./var/lib/opkg/info/upstart.list  
 -rwxr-xr-x root       root              153 ./var/lib/opkg/info/upstart.postinst  
 -rwxr-xr-x root       root               59 ./var/lib/opkg/info/upstart.postrm  
@@ -8257,7 +8444,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            86553 ./var/lib/opkg/status  
+-rw-r--r-- root       root            87210 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
@@ -8271,7 +8458,7 @@ lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
 drwxr-xr-x root       root             4096 ./var/volatile  
 drwxr-xr-x root       root             4096 ./var/volatile/cache  
 drwx------ root       root             4096 ./var/volatile/cache/ldconfig  
--rw------- root       root            10119 ./var/volatile/cache/ldconfig/aux-cache  
+-rw------- root       root            10180 ./var/volatile/cache/ldconfig/aux-cache  
 drwxrwxrwt root       root             4096 ./var/volatile/lock  
 drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys  
 drwxr-xr-x root       root             4096 ./var/volatile/log  
