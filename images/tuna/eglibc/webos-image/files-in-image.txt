@@ -161,7 +161,6 @@ drwxr-xr-x root       root             4096 ./etc/default/volatiles
 -rwxr-xr-x root       root             6666 ./etc/device_table  
 drwxr-xr-x root       root             4096 ./etc/dhcp  
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
-drwxr-xr-x root       root             4096 ./etc/dropbear  
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
 drwxr-xr-x root       root             4096 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
@@ -186,7 +185,6 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root             1115 ./etc/event.d/crond  
 -rw-r--r-- root       root              256 ./etc/event.d/db8  
 -rw-r--r-- root       root              757 ./etc/event.d/devpts  
--rw-r--r-- root       root             1176 ./etc/event.d/dropbear  
 -rw-r--r-- root       root              961 ./etc/event.d/filecache  
 -rw-r--r-- root       root             1796 ./etc/event.d/finish  
 drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d  
@@ -231,9 +229,9 @@ drwxr-xr-x root       root             4096 ./etc/event.dis
 -rw-r--r-- root       root              744 ./etc/event.dis/swaphack  
 -rw-r--r-- root       root               38 ./etc/filesystems  
 -rw-r--r-- root       root              480 ./etc/fstab  
--rw-r--r-- root       root              446 ./etc/group  
--rw------- root       root              446 ./etc/group-  
--r-------- root       root              374 ./etc/gshadow  
+-rw-r--r-- root       root              458 ./etc/group  
+-rw------- root       root              458 ./etc/group-  
+-r-------- root       root              383 ./etc/gshadow  
 -rw-r--r-- root       root               26 ./etc/host.conf  
 -rw-r--r-- root       root                5 ./etc/hostname  
 -rw-r--r-- root       root               44 ./etc/hosts  
@@ -265,6 +263,7 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rwxr-xr-x root       root              438 ./etc/init.d/sendsigs  
 -rwxr-xr-x root       root             1169 ./etc/init.d/shutdown_animation  
 -rwxr-xr-x root       root              578 ./etc/init.d/single  
+-rwxr-xr-x root       root             2143 ./etc/init.d/sshd  
 -rwxr-xr-x root       root              946 ./etc/init.d/stop_comms  
 -rwxr-xr-x root       root              734 ./etc/init.d/stop_fbprogress  
 -rwxr-xr-x root       root              660 ./etc/init.d/sysfs.sh  
@@ -432,8 +431,8 @@ drwxr-xr-x root       root             4096 ./etc/palm/tempdb/permissions/com.pa
 -rw-r--r-- root       root              185 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.account.syncstate  
 -rw-r--r-- root       root              197 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.signaling  
 -rw-r--r-- root       root            22550 ./etc/palm/timezone.txt  
--rw-r--r-- root       root              720 ./etc/passwd  
--rw------- root       root              719 ./etc/passwd-  
+-rw-r--r-- root       root              761 ./etc/passwd  
+-rw------- root       root              760 ./etc/passwd-  
 drwxr-xr-x root       root             4096 ./etc/prefs  
 drwxr-xr-x root       root             4096 ./etc/prefs/properties  
 -rw-r--r-- root       root               10 ./etc/prefs/properties/browserOsName  
@@ -449,6 +448,7 @@ drwxr-xr-x root       root             4096 ./etc/prefs/properties
 -rw-r--r-- root       root              847 ./etc/profile  
 -rw-r--r-- root       root             2933 ./etc/protocols  
 drwxr-xr-x root       root             4096 ./etc/rc0.d  
+lrwxrwxrwx root       root               14 ./etc/rc0.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc0.d/S00watchdog.sh -> ../init.d/watchdog.sh
@@ -462,21 +462,27 @@ lrwxrwxrwx root       root               18 ./etc/rc0.d/S40umountfs -> ../init.d
 lrwxrwxrwx root       root               25 ./etc/rc0.d/S89stop_fbprogress -> ../init.d/stop_fbprogress
 lrwxrwxrwx root       root               14 ./etc/rc0.d/S90halt -> ../init.d/halt
 drwxr-xr-x root       root             4096 ./etc/rc1.d  
+lrwxrwxrwx root       root               14 ./etc/rc1.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               20 ./etc/rc1.d/K40networking -> ../init.d/networking
 drwxr-xr-x root       root             4096 ./etc/rc2.d  
+lrwxrwxrwx root       root               14 ./etc/rc2.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc2.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
 drwxr-xr-x root       root             4096 ./etc/rc3.d  
+lrwxrwxrwx root       root               14 ./etc/rc3.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc3.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
 drwxr-xr-x root       root             4096 ./etc/rc4.d  
+lrwxrwxrwx root       root               14 ./etc/rc4.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc4.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
 drwxr-xr-x root       root             4096 ./etc/rc5.d  
+lrwxrwxrwx root       root               14 ./etc/rc5.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc5.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
 drwxr-xr-x root       root             4096 ./etc/rc6.d  
+lrwxrwxrwx root       root               14 ./etc/rc6.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               20 ./etc/rc6.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc6.d/S00watchdog.sh -> ../init.d/watchdog.sh
@@ -526,11 +532,15 @@ lrwxrwxrwx root       root               16 ./etc/rcU.d/S90reboot -> ../init.d/r
 -rw-r--r-- root       root              887 ./etc/rpc  
 -r-------- root       root             1598 ./etc/securetty  
 -rw-r--r-- root       root            19398 ./etc/services  
--r-------- root       root              474 ./etc/shadow  
+-r-------- root       root              500 ./etc/shadow  
 -rw-r--r-- root       root              109 ./etc/shells  
 drwxr-xr-x root       root             4096 ./etc/skel  
 -rwxr-xr-x root       root              410 ./etc/skel/.bashrc  
 -rwxr-xr-x root       root              152 ./etc/skel/.profile  
+drwxr-xr-x root       root             4096 ./etc/ssh  
+-rw-r--r-- root       root           136218 ./etc/ssh/moduli  
+-rw-r--r-- root       root             1494 ./etc/ssh/ssh_config  
+-rw-r--r-- root       root             3239 ./etc/ssh/sshd_config  
 -rw-r--r-- root       root             2049 ./etc/sysctl.conf  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
@@ -985,7 +995,6 @@ lrwxrwxrwx root       root               17 ./usr/bin/cmp -> ../../bin/busybox
 -rwxr-xr-x root       root           127104 ./usr/bin/curl  
 lrwxrwxrwx root       root               17 ./usr/bin/cut -> ../../bin/busybox
 -rwxr-xr-x root       root            18252 ./usr/bin/cytune  
-lrwxrwxrwx root       root               23 ./usr/bin/dbclient -> /usr/sbin/dropbearmulti
 lrwxrwxrwx root       root               17 ./usr/bin/dc -> ../../bin/busybox
 lrwxrwxrwx root       root               13 ./usr/bin/deallocvt -> deallocvt.kbd
 -rwxr-xr-x root       root             5188 ./usr/bin/deallocvt.kbd  
@@ -1118,7 +1127,8 @@ lrwxrwxrwx root       root               15 ./usr/bin/reset -> ../../bin/reset
 -rwxr-xr-x root       root             5848 ./usr/bin/rev  
 -rwxr-xr-x root       root             6963 ./usr/bin/run-js-service  
 lrwxrwxrwx root       root               17 ./usr/bin/run-parts -> ../../bin/busybox
-lrwxrwxrwx root       root               21 ./usr/bin/scp -> ../sbin/dropbearmulti
+lrwxrwxrwx root       root               11 ./usr/bin/scp -> scp.openssh
+-rwxr-xr-x root       root            52716 ./usr/bin/scp.openssh  
 -rwxr-xr-x root       root            10332 ./usr/bin/script  
 -rwxr-xr-x root       root             7236 ./usr/bin/scriptreplay  
 lrwxrwxrwx root       root               17 ./usr/bin/seq -> ../../bin/busybox
@@ -1138,7 +1148,9 @@ lrwxrwxrwx root       root               13 ./usr/bin/sg -> newgrp.shadow
 -r-xr-xr-x root       root            15204 ./usr/bin/snice  
 lrwxrwxrwx root       root               17 ./usr/bin/sort -> ../../bin/busybox
 -rwxr-xr-x root       root            45764 ./usr/bin/sqlite3  
-lrwxrwxrwx root       root               21 ./usr/bin/ssh -> ../sbin/dropbearmulti
+lrwxrwxrwx root       root               11 ./usr/bin/ssh -> ssh.openssh
+-rwxr-xr-x root       root           167264 ./usr/bin/ssh-keygen  
+-rwxr-xr-x root       root           350148 ./usr/bin/ssh.openssh  
 lrwxrwxrwx root       root               17 ./usr/bin/strings -> ../../bin/busybox
 -rwsr-xr-x root       root            39672 ./usr/bin/su  
 lrwxrwxrwx root       root               17 ./usr/bin/tail -> ../../bin/busybox
@@ -6282,10 +6294,6 @@ lrwxrwxrwx root       root               15 ./usr/sbin/chpasswd -> chpasswd.shad
 lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busybox
 -rwxr-xr-x root       root            93288 ./usr/sbin/configurator  
 -rwxr-xr-x root       root             3432 ./usr/sbin/delpart  
-lrwxrwxrwx root       root               15 ./usr/sbin/dropbear -> ./dropbearmulti
-lrwxrwxrwx root       root               15 ./usr/sbin/dropbearconvert -> ./dropbearmulti
-lrwxrwxrwx root       root               15 ./usr/sbin/dropbearkey -> ./dropbearmulti
--rwxr-xr-x root       root           224044 ./usr/sbin/dropbearmulti  
 -rwxr-xr-x root       root             5832 ./usr/sbin/elvtune  
 lrwxrwxrwx root       root               17 ./usr/sbin/fbset -> ../../bin/busybox
 -rwxr-xr-x root       root             6544 ./usr/sbin/fdformat  
@@ -6340,6 +6348,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/rfkill -> ../../bin/busyb
 -rwxr-xr-x root       root              127 ./usr/sbin/setcpushares-upstart  
 -rwxr-xr-x root       root            60288 ./usr/sbin/sfdisk  
 -rwxr-xr-x root       root            81368 ./usr/sbin/sleepd  
+-rwxr-xr-x root       root           393612 ./usr/sbin/sshd  
 -rwxr-xr-x root       root            22648 ./usr/sbin/storaged  
 -rwxr-xr-x root       root              805 ./usr/sbin/suspend_action  
 -rwxr-xr-x root       root             8760 ./usr/sbin/swaplabel  
