@@ -216,6 +216,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root             1115 ./etc/event.d/crond  
 -rw-r--r-- root       root              256 ./etc/event.d/db8  
 -rw-r--r-- root       root              757 ./etc/event.d/devpts  
+-rw-r--r-- root       root              828 ./etc/event.d/dhclient  
 -rw-r--r-- root       root              961 ./etc/event.d/filecache  
 -rw-r--r-- root       root             1796 ./etc/event.d/finish  
 drwxr-xr-x root       root             4096 ./etc/event.d/finish-poststart.d  
@@ -629,7 +630,8 @@ drwxr-xr-x root       root             4096 ./etc/ssh
 -rw-r--r-- root       root             3239 ./etc/ssh/sshd_config  
 drwxr-xr-x root       root             4096 ./etc/ssl  
 drwxr-xr-x root       root             4096 ./etc/ssl/certs  
--rw-r--r-- root       root              877 ./etc/ssl/openssl.cnf  
+lrwxrwxrwx root       root               28 ./etc/ssl/openssl.cnf -> openssl.cnf.pmcertificatemgr
+-rw-r--r-- root       root              877 ./etc/ssl/openssl.cnf.pmcertificatemgr  
 -rw-r--r-- root       root             2049 ./etc/sysctl.conf  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
@@ -1060,9 +1062,9 @@ lrwxrwxrwx root       root               47 ./usr/arm-webos-linux-gnueabi/bin/ra
 lrwxrwxrwx root       root               46 ./usr/arm-webos-linux-gnueabi/bin/strip -> ../../../usr/bin/arm-webos-linux-gnueabi-strip
 drwxr-xr-x root       root            12288 ./usr/bin  
 -rwxr-x--- root       root           215548 ./usr/bin/BrowserServer  
--rwxr-x--- root       root          2362876 ./usr/bin/LunaSysMgr  
+-rwxr-x--- root       root          2362996 ./usr/bin/LunaSysMgr  
 -rwxr-xr-x root       root            19340 ./usr/bin/PmLogCtl  
--rwxr-x--- root       root           277248 ./usr/bin/WebAppMgr  
+-rwxr-x--- root       root           277240 ./usr/bin/WebAppMgr  
 lrwxrwxrwx root       root               17 ./usr/bin/[ -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/[[ -> ../../bin/busybox
 -rwxr-xr-x root       root            51760 ./usr/bin/alsamixer  
@@ -1979,7 +1981,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root             5708 ./usr/lib/nyx/modules/nyxKeysMain.module  
 -rwxr-xr-x root       root             5240 ./usr/lib/nyx/modules/nyxMicroControllerLEDsDefault.module  
 -rwxr-xr-x root       root            10164 ./usr/lib/nyx/modules/nyxSystemMain.module  
--rwxr-xr-x root       root            15756 ./usr/lib/nyx/modules/nyxTouchpanelMain.module  
+-rwxr-xr-x root       root            15760 ./usr/lib/nyx/modules/nyxTouchpanelMain.module  
 drwxr-xr-x root       root             4096 ./usr/lib/perl  
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2  
 lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
@@ -6036,10 +6038,6 @@ drwxr-xr-x root       root             4096 ./usr/palm/public/accounts/com.palm.
 -rw-r--r-- root       root             1125 ./usr/palm/public/accounts/com.palm.pop/images/popmail32.png  
 -rw-r--r-- root       root             1244 ./usr/palm/public/accounts/com.palm.pop/images/popmail48.png  
 drwxr-xr-x root       root             4096 ./usr/palm/services  
-drwxr-xr-x root       root             4096 ./usr/palm/services/com.palm.connectionmanager  
--rw-r--r-- root       root             1310 ./usr/palm/services/com.palm.connectionmanager/GetStatusCommandAssistant.js  
--rw-r--r-- root       root              554 ./usr/palm/services/com.palm.connectionmanager/services.json  
--rw-r--r-- root       root              122 ./usr/palm/services/com.palm.connectionmanager/sources.json  
 drwxr-xr-x root       root             4096 ./usr/palm/services/com.palm.location  
 -rw-r--r-- root       root             1192 ./usr/palm/services/com.palm.location/GetCurrentPositionCommandAssistant.js  
 -rw-r--r-- root       root              346 ./usr/palm/services/com.palm.location/services.json  
@@ -6649,7 +6647,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/sysmgr/uiComponents/Syste
 -rw-r--r-- root       root              400 ./usr/palm/sysmgr/uiComponents/SystemMenu/SystemMenu.qmlproject  
 -rw-r--r-- root       root             5430 ./usr/palm/sysmgr/uiComponents/SystemMenu/VpnElement.qml  
 -rw-r--r-- root       root             1612 ./usr/palm/sysmgr/uiComponents/SystemMenu/VpnEntry.qml  
--rw-r--r-- root       root            10774 ./usr/palm/sysmgr/uiComponents/SystemMenu/WiFiElement.qml  
+-rw-r--r-- root       root            10778 ./usr/palm/sysmgr/uiComponents/SystemMenu/WiFiElement.qml  
 -rw-r--r-- root       root             2143 ./usr/palm/sysmgr/uiComponents/SystemMenu/WifiEntry.qml  
 drwxr-xr-x root       root             4096 ./usr/palm/sysmgr/uiComponents/UnlockPanel  
 -rw-r--r-- root       root             1705 ./usr/palm/sysmgr/uiComponents/UnlockPanel/PINButton.qml  
@@ -6983,7 +6981,6 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/services  
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/services/com.palm.activitymanager.service  
 -rw-r--r-- root       root              108 ./usr/share/dbus-1/services/com.palm.browserServer.service  
--rw-r--r-- root       root              126 ./usr/share/dbus-1/services/com.palm.connectionmanager.service  
 -rw-r--r-- root       root              726 ./usr/share/dbus-1/services/com.palm.db.service  
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/services/com.palm.filecache.service  
 -rw-r--r-- root       root              108 ./usr/share/dbus-1/services/com.palm.location.service  
@@ -7005,7 +7002,6 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service  
 -rw-r--r-- root       root              108 ./usr/share/dbus-1/system-services/com.palm.browserServer.service  
 -rw-r--r-- root       root              183 ./usr/share/dbus-1/system-services/com.palm.configurator.service  
--rw-r--r-- root       root              126 ./usr/share/dbus-1/system-services/com.palm.connectionmanager.service  
 -rw-r--r-- root       root              726 ./usr/share/dbus-1/system-services/com.palm.db.service  
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/system-services/com.palm.filecache.service  
 -rw-r--r-- root       root              294 ./usr/share/dbus-1/system-services/com.palm.imap.service  
@@ -7068,37 +7064,37 @@ drwxr-xr-x root       root             4096 ./usr/share/fonts
 -rw-r--r-- root       root          4291480 ./usr/share/fonts/NanumGothicBold.ttf  
 -rw-r--r-- root       root          3808496 ./usr/share/fonts/NanumMyeongjo.ttf  
 -rw-r--r-- root       root          4638736 ./usr/share/fonts/NanumMyeongjoBold.ttf  
--rw-r--r-- root       root            55644 ./usr/share/fonts/Prelude-Bold.ttf  
--rw-r--r-- root       root            51436 ./usr/share/fonts/Prelude-BoldOblique.ttf  
--rw-r--r-- root       root            56548 ./usr/share/fonts/Prelude-Medium.ttf  
--rw-r--r-- root       root            51612 ./usr/share/fonts/Prelude-MediumOblique.ttf  
--rw-r--r-- root       root            91892 ./usr/share/fonts/PreludeCompWGL-Black.ttf  
--rw-r--r-- root       root           331480 ./usr/share/fonts/PreludeCompWGL-BlackItalic.ttf  
--rw-r--r-- root       root           378452 ./usr/share/fonts/PreludeCompWGL-Bold.ttf  
--rw-r--r-- root       root           325592 ./usr/share/fonts/PreludeCompWGL-BoldItalic.ttf  
--rw-r--r-- root       root           369960 ./usr/share/fonts/PreludeCompWGL-Light.ttf  
--rw-r--r-- root       root           313528 ./usr/share/fonts/PreludeCompWGL-LightItalic.ttf  
--rw-r--r-- root       root           371136 ./usr/share/fonts/PreludeCompWGL-Medium.ttf  
--rw-r--r-- root       root           315356 ./usr/share/fonts/PreludeCompWGL-MediumItalic.ttf  
--rw-r--r-- root       root           108552 ./usr/share/fonts/PreludeCondWGL-Black.ttf  
--rw-r--r-- root       root           347452 ./usr/share/fonts/PreludeCondWGL-BlackItalic.ttf  
--rw-r--r-- root       root            97000 ./usr/share/fonts/PreludeCondWGL-Bold.ttf  
--rw-r--r-- root       root           100436 ./usr/share/fonts/PreludeCondWGL-BoldItalic.ttf  
--rw-r--r-- root       root           110508 ./usr/share/fonts/PreludeCondWGL-Light.ttf  
--rw-r--r-- root       root           334584 ./usr/share/fonts/PreludeCondWGL-LightItalic.ttf  
--rw-r--r-- root       root           105216 ./usr/share/fonts/PreludeCondWGL-Medium.ttf  
--rw-r--r-- root       root            97096 ./usr/share/fonts/PreludeCondWGL-MediumItalic.ttf  
--rw-r--r-- root       root            55636 ./usr/share/fonts/PreludeCondensed-Bold.ttf  
--rw-r--r-- root       root            55832 ./usr/share/fonts/PreludeCondensed-Medium.ttf  
--rw-r--r-- root       root            97924 ./usr/share/fonts/PreludeWGL-Black.ttf  
--rw-r--r-- root       root           341016 ./usr/share/fonts/PreludeWGL-BlackItalic.ttf  
--rw-r--r-- root       root            93996 ./usr/share/fonts/PreludeWGL-Bold.ttf  
--rw-r--r-- root       root            94300 ./usr/share/fonts/PreludeWGL-BoldItalic.ttf  
--rw-r--r-- root       root            98540 ./usr/share/fonts/PreludeWGL-Light.ttf  
--rw-r--r-- root       root           329728 ./usr/share/fonts/PreludeWGL-LightItalic.ttf  
--rw-r--r-- root       root            97056 ./usr/share/fonts/PreludeWGL-Medium.ttf  
--rw-r--r-- root       root            94484 ./usr/share/fonts/PreludeWGL-MediumItalic.ttf  
--rw-r--r-- root       root            28677 ./usr/share/fonts/Prelude_Font_LICENSE.txt  
+-rw-r--r-- root       pulse           55644 ./usr/share/fonts/Prelude-Bold.ttf  
+-rw-r--r-- root       pulse           51436 ./usr/share/fonts/Prelude-BoldOblique.ttf  
+-rw-r--r-- root       pulse           56548 ./usr/share/fonts/Prelude-Medium.ttf  
+-rw-r--r-- root       pulse           51612 ./usr/share/fonts/Prelude-MediumOblique.ttf  
+-rw-r--r-- root       pulse           91892 ./usr/share/fonts/PreludeCompWGL-Black.ttf  
+-rw-r--r-- root       pulse          331480 ./usr/share/fonts/PreludeCompWGL-BlackItalic.ttf  
+-rw-r--r-- root       pulse          378452 ./usr/share/fonts/PreludeCompWGL-Bold.ttf  
+-rw-r--r-- root       pulse          325592 ./usr/share/fonts/PreludeCompWGL-BoldItalic.ttf  
+-rw-r--r-- root       pulse          369960 ./usr/share/fonts/PreludeCompWGL-Light.ttf  
+-rw-r--r-- root       pulse          313528 ./usr/share/fonts/PreludeCompWGL-LightItalic.ttf  
+-rw-r--r-- root       pulse          371136 ./usr/share/fonts/PreludeCompWGL-Medium.ttf  
+-rw-r--r-- root       pulse          315356 ./usr/share/fonts/PreludeCompWGL-MediumItalic.ttf  
+-rw-r--r-- root       pulse          108552 ./usr/share/fonts/PreludeCondWGL-Black.ttf  
+-rw-r--r-- root       pulse          347452 ./usr/share/fonts/PreludeCondWGL-BlackItalic.ttf  
+-rw-r--r-- root       pulse           97000 ./usr/share/fonts/PreludeCondWGL-Bold.ttf  
+-rw-r--r-- root       pulse          100436 ./usr/share/fonts/PreludeCondWGL-BoldItalic.ttf  
+-rw-r--r-- root       pulse          110508 ./usr/share/fonts/PreludeCondWGL-Light.ttf  
+-rw-r--r-- root       pulse          334584 ./usr/share/fonts/PreludeCondWGL-LightItalic.ttf  
+-rw-r--r-- root       pulse          105216 ./usr/share/fonts/PreludeCondWGL-Medium.ttf  
+-rw-r--r-- root       pulse           97096 ./usr/share/fonts/PreludeCondWGL-MediumItalic.ttf  
+-rw-r--r-- root       pulse           55636 ./usr/share/fonts/PreludeCondensed-Bold.ttf  
+-rw-r--r-- root       pulse           55832 ./usr/share/fonts/PreludeCondensed-Medium.ttf  
+-rw-r--r-- root       pulse           97924 ./usr/share/fonts/PreludeWGL-Black.ttf  
+-rw-r--r-- root       pulse          341016 ./usr/share/fonts/PreludeWGL-BlackItalic.ttf  
+-rw-r--r-- root       pulse           93996 ./usr/share/fonts/PreludeWGL-Bold.ttf  
+-rw-r--r-- root       pulse           94300 ./usr/share/fonts/PreludeWGL-BoldItalic.ttf  
+-rw-r--r-- root       pulse           98540 ./usr/share/fonts/PreludeWGL-Light.ttf  
+-rw-r--r-- root       pulse          329728 ./usr/share/fonts/PreludeWGL-LightItalic.ttf  
+-rw-r--r-- root       pulse           97056 ./usr/share/fonts/PreludeWGL-Medium.ttf  
+-rw-r--r-- root       pulse           94484 ./usr/share/fonts/PreludeWGL-MediumItalic.ttf  
+-rw-r--r-- root       pulse           28677 ./usr/share/fonts/Prelude_Font_LICENSE.txt  
 -rw-r--r-- root       root              890 ./usr/share/fonts/README.txt  
 -rw-r--r-- root       root            79620 ./usr/share/fonts/Roboto-Bold.ttf  
 -rw-r--r-- root       root            80508 ./usr/share/fonts/Roboto-BoldCondensed.ttf  
@@ -7158,7 +7154,6 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/prv/com.palm.activitymanager.json  
 -rw-r--r-- root       root              455 ./usr/share/ls2/roles/prv/com.palm.browserServer.json  
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/prv/com.palm.configurator.json  
--rw-r--r-- root       root              223 ./usr/share/ls2/roles/prv/com.palm.connectionmanager.json  
 -rw-r--r-- root       root              511 ./usr/share/ls2/roles/prv/com.palm.db.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/prv/com.palm.filecache.json  
 -rw-r--r-- root       root              282 ./usr/share/ls2/roles/prv/com.palm.imap.json  
@@ -7188,7 +7183,6 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub  
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/pub/com.palm.activitymanager.json  
 -rw-r--r-- root       root              455 ./usr/share/ls2/roles/pub/com.palm.browserServer.json  
--rw-r--r-- root       root              223 ./usr/share/ls2/roles/pub/com.palm.connectionmanager.json  
 -rw-r--r-- root       root              292 ./usr/share/ls2/roles/pub/com.palm.db.json  
 -rw-r--r-- root       root              289 ./usr/share/ls2/roles/pub/com.palm.filecache.json  
 -rw-r--r-- root       root              205 ./usr/share/ls2/roles/pub/com.palm.location.json  
@@ -7512,6 +7506,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/nohup  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/nslookup  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/od  
+-rw-r--r-- root       root               53 ./var/lib/opkg/alternatives/openssl-cnf  
 -rw-r--r-- root       root               52 ./var/lib/opkg/alternatives/openvt  
 -rw-r--r-- root       root               26 ./var/lib/opkg/alternatives/opkg  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/passwd  
@@ -7600,7 +7595,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/zImage  
 -rw-r--r-- root       root               24 ./var/lib/opkg/alternatives/zcat  
 drwxr-xr-x root       root            40960 ./var/lib/opkg/info  
--rw-r--r-- root       root              589 ./var/lib/opkg/info/activitymanager.control  
+-rw-r--r-- root       root              587 ./var/lib/opkg/info/activitymanager.control  
 -rw-r--r-- root       root              439 ./var/lib/opkg/info/activitymanager.list  
 -rw-r--r-- root       root              535 ./var/lib/opkg/info/alsa-conf-base.control  
 -rw-r--r-- root       root              229 ./var/lib/opkg/info/alsa-conf-base.list  
@@ -7644,12 +7639,12 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              756 ./var/lib/opkg/info/browserserver.control  
 -rw-r--r-- root       root              476 ./var/lib/opkg/info/browserserver.list  
 -rw-r--r-- root       root               33 ./var/lib/opkg/info/busybox-syslog.conffiles  
--rw-r--r-- root       root             1766 ./var/lib/opkg/info/busybox-syslog.control  
+-rw-r--r-- root       root             1772 ./var/lib/opkg/info/busybox-syslog.control  
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/busybox-syslog.list  
 -rwxr-xr-x root       root              288 ./var/lib/opkg/info/busybox-syslog.postinst  
 -rwxr-xr-x root       root              176 ./var/lib/opkg/info/busybox-syslog.postrm  
 -rwxr-xr-x root       root              186 ./var/lib/opkg/info/busybox-syslog.prerm  
--rw-r--r-- root       root             1840 ./var/lib/opkg/info/busybox.control  
+-rw-r--r-- root       root             1846 ./var/lib/opkg/info/busybox.control  
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/busybox.list  
 -rwxr-xr-x root       root            11002 ./var/lib/opkg/info/busybox.postinst  
 -rwxr-xr-x root       root             7969 ./var/lib/opkg/info/busybox.postrm  
@@ -7665,7 +7660,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rwxr-xr-x root       root              104 ./var/lib/opkg/info/ca-certificates.postrm  
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/com.palm.app.browser.control  
 -rw-r--r-- root       root             9419 ./var/lib/opkg/info/com.palm.app.browser.list  
--rw-r--r-- root       root              531 ./var/lib/opkg/info/configurator.control  
+-rw-r--r-- root       root              529 ./var/lib/opkg/info/configurator.control  
 -rw-r--r-- root       root              197 ./var/lib/opkg/info/configurator.list  
 -rw-r--r-- root       root             1087 ./var/lib/opkg/info/connman-upstart.control  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/connman-upstart.list  
@@ -7685,7 +7680,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/db.control  
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/db.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db.postinst  
--rw-r--r-- root       root              600 ./var/lib/opkg/info/db8.control  
+-rw-r--r-- root       root              598 ./var/lib/opkg/info/db8.control  
 -rw-r--r-- root       root              710 ./var/lib/opkg/info/db8.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
@@ -7695,8 +7690,8 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rwxr-xr-x root       root               39 ./var/lib/opkg/info/dbus-1.postrm  
 -rwxr-xr-x root       root             3229 ./var/lib/opkg/info/dbus-1.preinst  
 -rwxr-xr-x root       root               64 ./var/lib/opkg/info/dbus-1.prerm  
--rw-r--r-- root       root              943 ./var/lib/opkg/info/dhcp-client.control  
--rw-r--r-- root       root               72 ./var/lib/opkg/info/dhcp-client.list  
+-rw-r--r-- root       root              965 ./var/lib/opkg/info/dhcp-client.control  
+-rw-r--r-- root       root               94 ./var/lib/opkg/info/dhcp-client.list  
 -rwxr-xr-x root       root               26 ./var/lib/opkg/info/dhcp-client.postinst  
 -rwxr-xr-x root       root              203 ./var/lib/opkg/info/dhcp-client.postrm  
 -rw-r--r-- root       root              337 ./var/lib/opkg/info/distro-feed-configs.conffiles  
@@ -7716,7 +7711,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root           175623 ./var/lib/opkg/info/enyo-1.0.list  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/fbprogress.control  
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/fbprogress.list  
--rw-r--r-- root       root              693 ./var/lib/opkg/info/filecache.control  
+-rw-r--r-- root       root              691 ./var/lib/opkg/info/filecache.control  
 -rw-r--r-- root       root              281 ./var/lib/opkg/info/filecache.list  
 -rw-r--r-- root       root              411 ./var/lib/opkg/info/foundation-frameworks.control  
 -rw-r--r-- root       root             7744 ./var/lib/opkg/info/foundation-frameworks.list  
@@ -7767,7 +7762,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rwxr-xr-x root       root               77 ./var/lib/opkg/info/kernel-module-autofs4.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-autofs4.postrm  
 -rw-r--r-- root       root              599 ./var/lib/opkg/info/keyboard-efigs.control  
--rw-r--r-- root       root               98 ./var/lib/opkg/info/keyboard-efigs.list  
+-rw-r--r-- root       root               83 ./var/lib/opkg/info/keyboard-efigs.list  
 -rw-r--r-- root       root              329 ./var/lib/opkg/info/keymaps.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/keymaps.list  
 -rwxr-xr-x root       root              108 ./var/lib/opkg/info/keymaps.postinst  
@@ -7829,7 +7824,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              639 ./var/lib/opkg/info/libe2p2.control  
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/libe2p2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libe2p2.postinst  
--rw-r--r-- root       root              693 ./var/lib/opkg/info/libemail-common2.control  
+-rw-r--r-- root       root              691 ./var/lib/opkg/info/libemail-common2.control  
 -rw-r--r-- root       root              160 ./var/lib/opkg/info/libemail-common2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libemail-common2.postinst  
 -rw-r--r-- root       root              576 ./var/lib/opkg/info/libexpat1.control  
@@ -7951,8 +7946,9 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              206 ./var/lib/opkg/info/libperl5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libperl5.postinst  
 -rw-r--r-- root       root              547 ./var/lib/opkg/info/libpmcertificatemgr2.control  
--rw-r--r-- root       root              172 ./var/lib/opkg/info/libpmcertificatemgr2.list  
--rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpmcertificatemgr2.postinst  
+-rw-r--r-- root       root              189 ./var/lib/opkg/info/libpmcertificatemgr2.list  
+-rwxr-xr-x root       root              186 ./var/lib/opkg/info/libpmcertificatemgr2.postinst  
+-rwxr-xr-x root       root               82 ./var/lib/opkg/info/libpmcertificatemgr2.postrm  
 -rw-r--r-- root       root              377 ./var/lib/opkg/info/libpmloglib2.control  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/libpmloglib2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpmloglib2.postinst  
@@ -7968,7 +7964,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              705 ./var/lib/opkg/info/libpulsecore.control  
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/libpulsecore.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulsecore.postinst  
--rw-r--r-- root       root              681 ./var/lib/opkg/info/libqtwebkit4.control  
+-rw-r--r-- root       root              682 ./var/lib/opkg/info/libqtwebkit4.control  
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/libqtwebkit4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libqtwebkit4.postinst  
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/librdx-stub.control  
@@ -8053,12 +8049,12 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              544 ./var/lib/opkg/info/luna-service2.control  
 -rw-r--r-- root       root              563 ./var/lib/opkg/info/luna-service2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst  
--rw-r--r-- root       root             1104 ./var/lib/opkg/info/luna-sysmgr.control  
+-rw-r--r-- root       root             1073 ./var/lib/opkg/info/luna-sysmgr.control  
 -rw-r--r-- root       root            21721 ./var/lib/opkg/info/luna-sysmgr.list  
 -rw-r--r-- root       root              752 ./var/lib/opkg/info/luna-sysservice.control  
 -rw-r--r-- root       root              409 ./var/lib/opkg/info/luna-sysservice.list  
 -rw-r--r-- root       root              361 ./var/lib/opkg/info/luna-systemui.control  
--rw-r--r-- root       root            15850 ./var/lib/opkg/info/luna-systemui.list  
+-rw-r--r-- root       root            15865 ./var/lib/opkg/info/luna-systemui.list  
 -rw-r--r-- root       root              571 ./var/lib/opkg/info/luna-universalsearchmgr.control  
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/luna-universalsearchmgr.list  
 -rw-r--r-- root       root              320 ./var/lib/opkg/info/makedevs.control  
@@ -8078,11 +8074,11 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/mojoloader.list  
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/mojolocation-stub.control  
 -rw-r--r-- root       root              423 ./var/lib/opkg/info/mojolocation-stub.list  
--rw-r--r-- root       root              581 ./var/lib/opkg/info/mojomail-imap.control  
+-rw-r--r-- root       root              579 ./var/lib/opkg/info/mojomail-imap.control  
 -rw-r--r-- root       root              864 ./var/lib/opkg/info/mojomail-imap.list  
--rw-r--r-- root       root              542 ./var/lib/opkg/info/mojomail-pop.control  
+-rw-r--r-- root       root              540 ./var/lib/opkg/info/mojomail-pop.control  
 -rw-r--r-- root       root              542 ./var/lib/opkg/info/mojomail-pop.list  
--rw-r--r-- root       root              578 ./var/lib/opkg/info/mojomail-smtp.control  
+-rw-r--r-- root       root              576 ./var/lib/opkg/info/mojomail-smtp.control  
 -rw-r--r-- root       root              123 ./var/lib/opkg/info/mojomail-smtp.list  
 -rw-r--r-- root       root              382 ./var/lib/opkg/info/mojoservice-frameworks.control  
 -rw-r--r-- root       root             5695 ./var/lib/opkg/info/mojoservice-frameworks.list  
@@ -8109,7 +8105,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              185 ./var/lib/opkg/info/nodejs-module-webos-sysbus.list  
 -rw-r--r-- root       root              511 ./var/lib/opkg/info/nodejs.control  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/nodejs.list  
--rw-r--r-- root       root              554 ./var/lib/opkg/info/nyx-modules.control  
+-rw-r--r-- root       root              555 ./var/lib/opkg/info/nyx-modules.control  
 -rw-r--r-- root       root              351 ./var/lib/opkg/info/nyx-modules.list  
 -rw-r--r-- root       root              744 ./var/lib/opkg/info/ofono.control  
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/ofono.list  
@@ -8165,9 +8161,9 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root              548 ./var/lib/opkg/info/org.webosports.service.licenses.list  
 -rw-r--r-- root       root              399 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.list  
--rw-r--r-- root       root              548 ./var/lib/opkg/info/packagegroup-webos-boot.control  
+-rw-r--r-- root       root              530 ./var/lib/opkg/info/packagegroup-webos-boot.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-boot.list  
--rw-r--r-- root       root             1346 ./var/lib/opkg/info/packagegroup-webos-extended.control  
+-rw-r--r-- root       root             1377 ./var/lib/opkg/info/packagegroup-webos-extended.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list  
 -rw-r--r-- root       root              525 ./var/lib/opkg/info/packagegroup-webos-ports-development.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list  
@@ -8190,8 +8186,6 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root               18 ./var/lib/opkg/info/pmlogctl.list  
 -rw-r--r-- root       root              498 ./var/lib/opkg/info/pmlogdaemon.control  
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/pmlogdaemon.list  
--rw-r--r-- root       root              381 ./var/lib/opkg/info/pmnetconfigmanager-stub.control  
--rw-r--r-- root       root              486 ./var/lib/opkg/info/pmnetconfigmanager-stub.list  
 -rw-r--r-- root       root              456 ./var/lib/opkg/info/powerd.control  
 -rw-r--r-- root       root              311 ./var/lib/opkg/info/powerd.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/powerd.postinst  
@@ -8262,9 +8256,9 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rwxr-xr-x root       root             3281 ./var/lib/opkg/info/pulseaudio-server.preinst  
 -rw-r--r-- root       root              634 ./var/lib/opkg/info/pulseaudio.control  
 -rw-r--r-- root       root             3166 ./var/lib/opkg/info/pulseaudio.list  
--rw-r--r-- root       root              844 ./var/lib/opkg/info/qt4-webos-support.control  
+-rw-r--r-- root       root              806 ./var/lib/opkg/info/qt4-webos-support.control  
 -rw-r--r-- root       root               21 ./var/lib/opkg/info/qt4-webos-support.list  
--rw-r--r-- root       root              879 ./var/lib/opkg/info/qt4-webos.control  
+-rw-r--r-- root       root              841 ./var/lib/opkg/info/qt4-webos.control  
 -rw-r--r-- root       root             1467 ./var/lib/opkg/info/qt4-webos.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/qt4-webos.postinst  
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/rdx-utils-stub.control  
@@ -8399,7 +8393,7 @@ drwxr-xr-x root       root            40960 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root            79180 ./var/lib/opkg/status  
+-rw-r--r-- root       root            79025 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
