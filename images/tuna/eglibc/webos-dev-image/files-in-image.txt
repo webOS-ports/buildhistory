@@ -292,6 +292,7 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rwxr-xr-x root       root              516 ./etc/init.d/ofono  
 -rwxr-xr-x root       root             1181 ./etc/init.d/orderly_shutdown  
 -rwxr-xr-x root       root             5249 ./etc/init.d/populate-volatile.sh  
+-rwxr-xr-x root       root               80 ./etc/init.d/pvrinit.sh  
 -rwxr-xr-x root       root             2199 ./etc/init.d/rc  
 -rwxr-xr-x root       root             2308 ./etc/init.d/rcS  
 -rwxr-xr-x root       root              289 ./etc/init.d/reboot  
@@ -325,7 +326,7 @@ drwxr-xr-x root       root             4096 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables  
 -rw-r--r-- root       root               22 ./etc/issue  
 -rw-r--r-- root       root               19 ./etc/issue.net  
--rw-r--r-- root       root             9530 ./etc/ld.so.cache  
+-rw-r--r-- root       root             9674 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -605,6 +606,7 @@ lrwxrwxrwx root       root               21 ./etc/rcS.d/S45mountnfs.sh -> ../ini
 lrwxrwxrwx root       root               21 ./etc/rcS.d/S55bootmisc.sh -> ../init.d/bootmisc.sh
 lrwxrwxrwx root       root               28 ./etc/rcS.d/S65token-generator.sh -> ../init.d/token-generator.sh
 -rwxr-xr-x root       root               64 ./etc/rcS.d/S80run-postinsts  
+lrwxrwxrwx root       root               20 ./etc/rcS.d/S90pvrinit.sh -> ../init.d/pvrinit.sh
 drwxr-xr-x root       root             4096 ./etc/rcU.d  
 lrwxrwxrwx root       root               21 ./etc/rcU.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rcU.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -999,6 +1001,51 @@ lrwxrwxrwx root       root               11 ./sbin/vigr.shadow -> vipw.shadow
 lrwxrwxrwx root       root               11 ./sbin/vipw -> vipw.shadow
 -rwxr-xr-x root       root            32676 ./sbin/vipw.shadow  
 drwxr-xr-x root       root             4096 ./sys  
+drwxr-xr-x root       root             4096 ./system  
+drwxr-xr-x root       root             4096 ./system/bin  
+-rwxr-xr-x root       root            79880 ./system/bin/linker  
+-rwxr-xr-x root       root             4612 ./system/bin/pvrsrvctl  
+-rw-r--r-- root       root             2035 ./system/build.prop  
+drwxr-xr-x root       root             4096 ./system/lib  
+drwxr-xr-x root       root             4096 ./system/lib/egl  
+-rw-r--r-- root       root               23 ./system/lib/egl/egl.cfg  
+-rw-r----- root       root             4812 ./system/lib/egl/libEGL_POWERVR_SGX540_120.so  
+-rwxr-xr-x root       root            83168 ./system/lib/egl/libGLES_android.so  
+-rw-r----- root       root           445892 ./system/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so  
+-rw-r----- root       root           371532 ./system/lib/egl/libGLESv2_POWERVR_SGX540_120.so  
+drwxr-xr-x root       root             4096 ./system/lib/hw  
+-rw-r----- root       root            34568 ./system/lib/hw/gralloc.omap4.so  
+-rwxr-xr-x root       root           136636 ./system/lib/libEGL.so  
+-rwxr-xr-x root       root           266172 ./system/lib/libGLES_trace.so  
+-rwxr-xr-x root       root            21468 ./system/lib/libGLESv1_CM.so  
+-rwxr-xr-x root       root            21468 ./system/lib/libGLESv2.so  
+-rw-r----- root       root            73364 ./system/lib/libIMGegl.so  
+-rw-r----- root       root             5804 ./system/lib/libPVRScopeServices.so  
+-rwxr-xr-x root       root           286400 ./system/lib/libc.so  
+-rwxr-xr-x root       root            13376 ./system/lib/libcorkscrew.so  
+-rwxr-xr-x root       root           875136 ./system/lib/libcrypto.so  
+-rwxr-xr-x root       root            63156 ./system/lib/libcutils.so  
+-rwxr-xr-x root       root            21632 ./system/lib/libgccdemangle.so  
+-rw-r----- root       root           249740 ./system/lib/libglslcompiler.so  
+-rwxr-xr-x root       root             5244 ./system/lib/libhardware.so  
+-rwxr-xr-x root       root            13436 ./system/lib/liblog.so  
+-rwxr-xr-x root       root            87096 ./system/lib/libm.so  
+-rw-r----- root       root            21356 ./system/lib/libpvr2d.so  
+-rw-r----- root       root            10248 ./system/lib/libpvrANDROID_WSEGL.so  
+-rw-r----- root       root           110340 ./system/lib/libsrv_init.so  
+-rw-r----- root       root           189992 ./system/lib/libsrv_um.so  
+-rwxr-xr-x root       root             5236 ./system/lib/libstdc++.so  
+-rwxr-xr-x root       root           218348 ./system/lib/libstlport.so  
+-rwxr-xr-x root       root            33904 ./system/lib/libui.so  
+-rw-r----- root       root           896928 ./system/lib/libusc.so  
+-rwxr-xr-x root       root            99572 ./system/lib/libutils.so  
+-rwxr-xr-x root       root            83164 ./system/lib/libz.so  
+drwxr-xr-x root       root             4096 ./system/vendor  
+drwxr-xr-x root       root             4096 ./system/vendor/lib  
+drwxr-xr-x root       root             4096 ./system/vendor/lib/egl  
+-rw-r----- root       root             4812 ./system/vendor/lib/egl/libEGL_POWERVR_SGX540_120.so  
+-rw-r----- root       root           445892 ./system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so  
+-rw-r----- root       root           371532 ./system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so  
 drwxrwxrwt root       root             4096 ./tmp  
 drwxr-xr-x root       root             4096 ./usr  
 drwxr-xr-x root       root             4096 ./usr/arm-webos-linux-gnueabi  
@@ -1270,9 +1317,9 @@ lrwxrwxrwx root       root               17 ./usr/bin/tail -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/tee -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/telnet -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/test -> ../../bin/busybox
--rwxr-xr-x root       root             4328 ./usr/bin/test_egl  
--rwxr-xr-x root       root             3800 ./usr/bin/test_gingerbread  
--rwxr-xr-x root       root             7132 ./usr/bin/test_glesv2  
+-rwxr-xr-x root       root             4296 ./usr/bin/test_egl  
+-rwxr-xr-x root       root             7044 ./usr/bin/test_glesv2  
+-rwxr-xr-x root       root            28600 ./usr/bin/test_offscreen_rendering  
 lrwxrwxrwx root       root               17 ./usr/bin/tftp -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/time -> ../../bin/busybox
 -r-xr-xr-x root       root             6344 ./usr/bin/tload  
@@ -1341,10 +1388,10 @@ drwxr-xr-x root       root             4096 ./usr/lib/BrowserPlugins/BrowserAdap
 -rw-r--r-- root       root             3360 ./usr/lib/BrowserPlugins/BrowserAdapterData/launcher-bookmark-overlay.png  
 -rw-r--r-- root       root             5250 ./usr/lib/BrowserPlugins/BrowserAdapterData/shift-tap-reticle.png  
 -rwxr-xr-x root       root             7916 ./usr/lib/e2initrd_helper  
-lrwxrwxrwx root       root               13 ./usr/lib/libEGL.so.1 -> libEGL.so.1.0
--rwxr-xr-x root       root            11608 ./usr/lib/libEGL.so.1.0  
-lrwxrwxrwx root       root               16 ./usr/lib/libGLESv2.so.2 -> libGLESv2.so.2.0
--rwxr-xr-x root       root            38412 ./usr/lib/libGLESv2.so.2.0  
+lrwxrwxrwx root       root               15 ./usr/lib/libEGL.so.1 -> libEGL.so.1.0.0
+-rwxr-xr-x root       root            24212 ./usr/lib/libEGL.so.1.0.0  
+lrwxrwxrwx root       root               18 ./usr/lib/libGLESv2.so.2 -> libGLESv2.so.2.0.0
+-rwxr-xr-x root       root            31348 ./usr/lib/libGLESv2.so.2.0.0  
 lrwxrwxrwx root       root               28 ./usr/lib/libLunaSysMgrCommon.so.1 -> libLunaSysMgrCommon.so.1.0.0
 lrwxrwxrwx root       root               28 ./usr/lib/libLunaSysMgrCommon.so.1.0 -> libLunaSysMgrCommon.so.1.0.0
 -rwxr-xr-x root       root           209284 ./usr/lib/libLunaSysMgrCommon.so.1.0.0  
@@ -1370,7 +1417,7 @@ lrwxrwxrwx root       root               17 ./usr/lib/libQtGui.so.4.8 -> libQtGu
 -rwxr-xr-x root       root          4386204 ./usr/lib/libQtGui.so.4.8.3  
 lrwxrwxrwx root       root               21 ./usr/lib/libQtNetwork.so.4 -> libQtNetwork.so.4.8.3
 lrwxrwxrwx root       root               21 ./usr/lib/libQtNetwork.so.4.8 -> libQtNetwork.so.4.8.3
--rwxr-xr-x root       root           839772 ./usr/lib/libQtNetwork.so.4.8.3  
+-rwxr-xr-x root       root           697656 ./usr/lib/libQtNetwork.so.4.8.3  
 lrwxrwxrwx root       root               20 ./usr/lib/libQtOpenGL.so.4 -> libQtOpenGL.so.4.8.3
 lrwxrwxrwx root       root               20 ./usr/lib/libQtOpenGL.so.4.8 -> libQtOpenGL.so.4.8.3
 -rwxr-xr-x root       root           405860 ./usr/lib/libQtOpenGL.so.4.8.3  
@@ -1385,7 +1432,7 @@ lrwxrwxrwx root       root               18 ./usr/lib/libQtTest.so.4.8 -> libQtT
 -rwxr-xr-x root       root           110024 ./usr/lib/libQtTest.so.4.8.3  
 lrwxrwxrwx root       root               20 ./usr/lib/libQtWebKit.so.4 -> libQtWebKit.so.4.8.3
 lrwxrwxrwx root       root               20 ./usr/lib/libQtWebKit.so.4.8 -> libQtWebKit.so.4.8.3
--rwxr-xr-x root       root         22113332 ./usr/lib/libQtWebKit.so.4.8.3  
+-rwxr-xr-x root       root         22113316 ./usr/lib/libQtWebKit.so.4.8.3  
 lrwxrwxrwx root       root               17 ./usr/lib/libQtXml.so.4 -> libQtXml.so.4.8.3
 lrwxrwxrwx root       root               17 ./usr/lib/libQtXml.so.4.8 -> libQtXml.so.4.8.3
 -rwxr-xr-x root       root           185432 ./usr/lib/libQtXml.so.4.8.3  
@@ -1444,10 +1491,14 @@ lrwxrwxrwx root       root               21 ./usr/lib/libgpg-error.so.0 -> libgp
 -rwxr-xr-x root       root            11988 ./usr/lib/libgpg-error.so.0.8.0  
 lrwxrwxrwx root       root               26 ./usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.3200.4
 -rwxr-xr-x root       root             3560 ./usr/lib/libgthread-2.0.so.0.3200.4  
+lrwxrwxrwx root       root               20 ./usr/lib/libhardware.so.2 -> libhardware.so.2.0.0
+-rwxr-xr-x root       root             3352 ./usr/lib/libhardware.so.2.0.0  
 lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.6 -> libhistory.so.6.2
 -rwxr-xr-x root       root            23528 ./usr/lib/libhistory.so.6.2  
 lrwxrwxrwx root       root               24 ./usr/lib/libhunspell-1.3.so.0 -> libhunspell-1.3.so.0.0.0
 -rwxr-xr-x root       root           300080 ./usr/lib/libhunspell-1.3.so.0.0.0  
+lrwxrwxrwx root       root               25 ./usr/lib/libhybris-common.so.1 -> libhybris-common.so.1.0.0
+-rwxr-xr-x root       root            53816 ./usr/lib/libhybris-common.so.1.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libicudata.so.36 -> libicudata.so.36.0
 -rwxr-xr-x root       root         10205588 ./usr/lib/libicudata.so.36.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libicui18n.so.36 -> libicui18n.so.36.0
@@ -7327,6 +7378,11 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libgcrypt
 -rw-r--r-- root       root            26536 ./usr/share/licenses/libgcrypt/COPYING.LIB  
 -rw-r--r-- root       root            17611 ./usr/share/licenses/libgcrypt/generic_GPLv2  
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libgcrypt/generic_LGPLv2.1  
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libgles-android  
+-rw-r--r-- root       root            11360 ./usr/share/licenses/libgles-android/Apache-2.0  
+-rw-r--r-- root       root            13633 ./usr/share/licenses/libgles-android/LICENSE.imgtec  
+-rw-r--r-- root       root            11360 ./usr/share/licenses/libgles-android/generic_Apache-2.0  
+-rw-r--r-- root       root               21 ./usr/share/licenses/libgles-android/generic_Proprietary  
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libgpg-error  
 -rw-r--r-- root       root            18002 ./usr/share/licenses/libgpg-error/COPYING  
 -rw-r--r-- root       root            26527 ./usr/share/licenses/libgpg-error/COPYING.LIB  
@@ -7334,9 +7390,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libgpg-error
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libgpg-error/generic_LGPLv2.1  
 -rw-r--r-- root       root             8163 ./usr/share/licenses/libgpg-error/gpg-error.h.in  
 -rw-r--r-- root       root            10891 ./usr/share/licenses/libgpg-error/init.c  
-drwxr-xr-x root       root             4096 ./usr/share/licenses/libhybris  
--rw-r--r-- root       root            11360 ./usr/share/licenses/libhybris/Apache-2.0  
--rw-r--r-- root       root            11360 ./usr/share/licenses/libhybris/generic_Apache-2.0  
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libjpeg-turbo  
 -rw-r--r-- root       root             6256 ./usr/share/licenses/libjpeg-turbo/cdjpeg.h  
 -rw-r--r-- root       root            19697 ./usr/share/licenses/libjpeg-turbo/djpeg.c  
@@ -8559,6 +8612,13 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/libgdbm4.control  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libgdbm4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgdbm4.postinst  
+-rw-r--r-- root       root              754 ./var/lib/opkg/info/libgles-android-lic.control  
+-rw-r--r-- root       root              246 ./var/lib/opkg/info/libgles-android-lic.list  
+-rw-r--r-- root       root              841 ./var/lib/opkg/info/libgles-android-nonfree.control  
+-rw-r--r-- root       root              663 ./var/lib/opkg/info/libgles-android-nonfree.list  
+-rw-r--r-- root       root              895 ./var/lib/opkg/info/libgles-android.control  
+-rw-r--r-- root       root              907 ./var/lib/opkg/info/libgles-android.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgles-android.postinst  
 -rw-r--r-- root       root              771 ./var/lib/opkg/info/libglib-2.0-0.control  
 -rw-r--r-- root       root              401 ./var/lib/opkg/info/libglib-2.0-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libglib-2.0-0.postinst  
@@ -8581,11 +8641,6 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libhunspell-1.3-0.postinst  
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/libhunspell-1.3-lic.control  
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/libhunspell-1.3-lic.list  
--rw-r--r-- root       root              507 ./var/lib/opkg/info/libhybris-lic.control  
--rw-r--r-- root       root              121 ./var/lib/opkg/info/libhybris-lic.list  
--rw-r--r-- root       root              554 ./var/lib/opkg/info/libhybris.control  
--rw-r--r-- root       root              159 ./var/lib/opkg/info/libhybris.list  
--rwxr-xr-x root       root               90 ./var/lib/opkg/info/libhybris.postinst  
 -rw-r--r-- root       root              751 ./var/lib/opkg/info/libicudata36.control  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libicudata36.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libicudata36.postinst  
@@ -8706,7 +8761,7 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulsecore.postinst  
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/libqtwebkit-lic.control  
 -rw-r--r-- root       root              134 ./var/lib/opkg/info/libqtwebkit-lic.list  
--rw-r--r-- root       root              704 ./var/lib/opkg/info/libqtwebkit4.control  
+-rw-r--r-- root       root              710 ./var/lib/opkg/info/libqtwebkit4.control  
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/libqtwebkit4.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libqtwebkit4.postinst  
 -rw-r--r-- root       root              402 ./var/lib/opkg/info/librdx-lic.control  
@@ -8829,7 +8884,7 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst  
 -rw-r--r-- root       root              532 ./var/lib/opkg/info/luna-sysmgr-lic.control  
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/luna-sysmgr-lic.list  
--rw-r--r-- root       root             1067 ./var/lib/opkg/info/luna-sysmgr.control  
+-rw-r--r-- root       root             1073 ./var/lib/opkg/info/luna-sysmgr.control  
 -rw-r--r-- root       root            21721 ./var/lib/opkg/info/luna-sysmgr.list  
 -rw-r--r-- root       root              499 ./var/lib/opkg/info/luna-sysservice-lic.control  
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/luna-sysservice-lic.list  
@@ -9148,9 +9203,9 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rw-r--r-- root       root             3166 ./var/lib/opkg/info/pulseaudio.list  
 -rw-r--r-- root       root              559 ./var/lib/opkg/info/qt4-webos-lic.control  
 -rw-r--r-- root       root              252 ./var/lib/opkg/info/qt4-webos-lic.list  
--rw-r--r-- root       root              800 ./var/lib/opkg/info/qt4-webos-support.control  
+-rw-r--r-- root       root              806 ./var/lib/opkg/info/qt4-webos-support.control  
 -rw-r--r-- root       root               21 ./var/lib/opkg/info/qt4-webos-support.list  
--rw-r--r-- root       root              861 ./var/lib/opkg/info/qt4-webos.control  
+-rw-r--r-- root       root              867 ./var/lib/opkg/info/qt4-webos.control  
 -rw-r--r-- root       root             1467 ./var/lib/opkg/info/qt4-webos.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/qt4-webos.postinst  
 -rw-r--r-- root       root              442 ./var/lib/opkg/info/rdx-utils-stub-lic.control  
@@ -9309,7 +9364,7 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rwxr-xr-x root       root             1011 ./var/lib/opkg/info/util-linux.postrm  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/webappmanager-lic.control  
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/webappmanager-lic.list  
--rw-r--r-- root       root             1085 ./var/lib/opkg/info/webappmanager.control  
+-rw-r--r-- root       root             1091 ./var/lib/opkg/info/webappmanager.control  
 -rw-r--r-- root       root              255 ./var/lib/opkg/info/webappmanager.list  
 -rw-r--r-- root       root              390 ./var/lib/opkg/info/webkit-supplemental-lic.control  
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/webkit-supplemental-lic.list  
@@ -9347,7 +9402,7 @@ drwxr-xr-x root       root            53248 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           113443 ./var/lib/opkg/status  
+-rw-r--r-- root       root           113850 ./var/lib/opkg/status  
 drwxr-sr-x root       root             4096 ./var/local  
 lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
@@ -9361,7 +9416,7 @@ lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
 drwxr-xr-x root       root             4096 ./var/volatile  
 drwxr-xr-x root       root             4096 ./var/volatile/cache  
 drwx------ root       root             4096 ./var/volatile/cache/ldconfig  
--rw------- root       root             9439 ./var/volatile/cache/ldconfig/aux-cache  
+-rw------- root       root             9574 ./var/volatile/cache/ldconfig/aux-cache  
 drwxrwxrwt root       root             4096 ./var/volatile/lock  
 drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys  
 drwxr-xr-x root       root             4096 ./var/volatile/log  
