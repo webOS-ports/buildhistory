@@ -1,2 +1,6 @@
 #!/bin/sh
-update-rc.d $D samsung-rfs-mgr remove
+if [ "$D" != "" ]; then
+	update-rc.d -f -r $D samsung-rfs-mgr remove
+else
+	update-rc.d samsung-rfs-mgr remove
+fi
