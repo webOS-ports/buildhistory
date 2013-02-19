@@ -193,7 +193,7 @@ drwxr-xr-x root       root               40 ./etc/depmod.d
 drwxr-xr-x root       root               60 ./etc/dhcp  
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
-drwxr-xr-x root       root             1480 ./etc/event.d  
+drwxr-xr-x root       root             1500 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
 -rw-r--r-- root       root             1623 ./etc/event.d/LunaSysMgr  
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService  
@@ -234,6 +234,7 @@ drwxr-xr-x root       root               40 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root              717 ./etc/event.d/networking  
 -rw-r--r-- root       root             1367 ./etc/event.d/node_fork_server  
 -rw-r--r-- root       root              939 ./etc/event.d/novacomd  
+-rw-r--r-- root       root              119 ./etc/event.d/ofono  
 -rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice  
 -rw-r--r-- root       root              265 ./etc/event.d/org.webosinternals.service.update  
 -rw-r--r-- root       root               86 ./etc/event.d/org.webosinternals.service.upstartmgr  
@@ -276,7 +277,7 @@ drwxr-xr-x root       root               60 ./etc/event.dis
 -rw-r--r-- root       root               26 ./etc/host.conf  
 -rw-r--r-- root       root                5 ./etc/hostname  
 -rw-r--r-- root       root               44 ./etc/hosts  
-drwxr-xr-x root       root              900 ./etc/init.d  
+drwxr-xr-x root       root              880 ./etc/init.d  
 -rwxr-xr-x root       root              250 ./etc/init.d/alignment.sh  
 -rwxr-xr-x root       root              492 ./etc/init.d/banner.sh  
 -rwxr-xr-x root       root             1752 ./etc/init.d/bootmisc.sh  
@@ -294,7 +295,6 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rwxr-xr-x root       root              859 ./etc/init.d/mountall.sh  
 -rwxr-xr-x root       root             1540 ./etc/init.d/mountnfs.sh  
 -rwxr-xr-x root       root             1909 ./etc/init.d/networking  
--rwxr-xr-x root       root              516 ./etc/init.d/ofono  
 -rwxr-xr-x root       root             1181 ./etc/init.d/orderly_shutdown  
 -rwxr-xr-x root       root             5249 ./etc/init.d/populate-volatile.sh  
 -rwxr-xr-x root       root               80 ./etc/init.d/pvrinit.sh  
@@ -511,12 +511,11 @@ drwxr-xr-x root       root              220 ./etc/prefs/properties
 drwxr-xr-x root       root               80 ./etc/pulse  
 -rw-r--r-- root       root             2361 ./etc/pulse/daemon.conf  
 -rw-r--r-- root       root             2248 ./etc/pulse/system.pa  
-drwxr-xr-x root       root              360 ./etc/rc0.d  
+drwxr-xr-x root       root              340 ./etc/rc0.d  
 lrwxrwxrwx root       root               14 ./etc/rc0.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               25 ./etc/rc0.d/K20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc0.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc0.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc0.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -528,46 +527,40 @@ lrwxrwxrwx root       root               22 ./etc/rc0.d/S31umountnfs.sh -> ../in
 lrwxrwxrwx root       root               18 ./etc/rc0.d/S40umountfs -> ../init.d/umountfs
 lrwxrwxrwx root       root               25 ./etc/rc0.d/S89stop_fbprogress -> ../init.d/stop_fbprogress
 lrwxrwxrwx root       root               14 ./etc/rc0.d/S90halt -> ../init.d/halt
-drwxr-xr-x root       root              160 ./etc/rc1.d  
+drwxr-xr-x root       root              140 ./etc/rc1.d  
 lrwxrwxrwx root       root               14 ./etc/rc1.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               25 ./etc/rc1.d/K20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc1.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc1.d/K40networking -> ../init.d/networking
-drwxr-xr-x root       root              160 ./etc/rc2.d  
+drwxr-xr-x root       root              140 ./etc/rc2.d  
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc2.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               25 ./etc/rc2.d/S20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc2.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc2.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              160 ./etc/rc3.d  
+drwxr-xr-x root       root              140 ./etc/rc3.d  
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc3.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               25 ./etc/rc3.d/S20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc3.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc3.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              140 ./etc/rc4.d  
+drwxr-xr-x root       root              120 ./etc/rc4.d  
 lrwxrwxrwx root       root               14 ./etc/rc4.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               25 ./etc/rc4.d/S20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc4.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc4.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              160 ./etc/rc5.d  
+drwxr-xr-x root       root              140 ./etc/rc5.d  
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc5.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               25 ./etc/rc5.d/S20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc5.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc5.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              360 ./etc/rc6.d  
+drwxr-xr-x root       root              340 ./etc/rc6.d  
 lrwxrwxrwx root       root               14 ./etc/rc6.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               25 ./etc/rc6.d/K20samsung-rfs-mgr -> ../init.d/samsung-rfs-mgr
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc6.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc6.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc6.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc6.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -2184,7 +2177,7 @@ drwxr-xr-x root       root             3940 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/zImage  
 -rw-r--r-- root       root               24 ./usr/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            24060 ./usr/lib/opkg/info  
+drwxr-xr-x root       root            24120 ./usr/lib/opkg/info  
 -rw-r--r-- root       root              406 ./usr/lib/opkg/info/activitymanager-lic.control  
 -rw-r--r-- root       root              139 ./usr/lib/opkg/info/activitymanager-lic.list  
 -rw-r--r-- root       root              619 ./usr/lib/opkg/info/activitymanager.control  
@@ -2207,6 +2200,10 @@ drwxr-xr-x root       root            24060 ./usr/lib/opkg/info
 -rw-r--r-- root       root               16 ./usr/lib/opkg/info/alsa-utils-amixer.list  
 -rw-r--r-- root       root              576 ./usr/lib/opkg/info/alsa-utils-aplay.control  
 -rw-r--r-- root       root               32 ./usr/lib/opkg/info/alsa-utils-aplay.list  
+-rw-r--r-- root       root              453 ./usr/lib/opkg/info/android-apn-database-lic.control  
+-rw-r--r-- root       root              162 ./usr/lib/opkg/info/android-apn-database-lic.list  
+-rw-r--r-- root       root              486 ./usr/lib/opkg/info/android-apn-database.control  
+-rw-r--r-- root       root               74 ./usr/lib/opkg/info/android-apn-database.list  
 -rw-r--r-- root       root              348 ./usr/lib/opkg/info/app-services-lic.control  
 -rw-r--r-- root       root              130 ./usr/lib/opkg/info/app-services-lic.list  
 -rw-r--r-- root       root              373 ./usr/lib/opkg/info/app-services.control  
@@ -2955,13 +2952,12 @@ drwxr-xr-x root       root            24060 ./usr/lib/opkg/info
 -rw-r--r-- root       root              127 ./usr/lib/opkg/info/nyx-modules-lic.list  
 -rw-r--r-- root       root              588 ./usr/lib/opkg/info/nyx-modules.control  
 -rw-r--r-- root       root              438 ./usr/lib/opkg/info/nyx-modules.list  
--rw-r--r-- root       root              529 ./usr/lib/opkg/info/ofono-lic.control  
+-rw-r--r-- root       root              550 ./usr/lib/opkg/info/ofono-lic.control  
 -rw-r--r-- root       root              135 ./usr/lib/opkg/info/ofono-lic.list  
--rw-r--r-- root       root              747 ./usr/lib/opkg/info/ofono.control  
--rw-r--r-- root       root              104 ./usr/lib/opkg/info/ofono.list  
--rwxr-xr-x root       root              103 ./usr/lib/opkg/info/ofono.postinst  
--rwxr-xr-x root       root               38 ./usr/lib/opkg/info/ofono.postrm  
--rwxr-xr-x root       root               63 ./usr/lib/opkg/info/ofono.prerm  
+-rw-r--r-- root       root              554 ./usr/lib/opkg/info/ofono-upstart.control  
+-rw-r--r-- root       root               19 ./usr/lib/opkg/info/ofono-upstart.list  
+-rw-r--r-- root       root              790 ./usr/lib/opkg/info/ofono.control  
+-rw-r--r-- root       root               86 ./usr/lib/opkg/info/ofono.list  
 -rw-r--r-- root       root              692 ./usr/lib/opkg/info/openssh-keygen.control  
 -rw-r--r-- root       root               20 ./usr/lib/opkg/info/openssh-keygen.list  
 -rw-r--r-- root       root              594 ./usr/lib/opkg/info/openssh-lic.control  
@@ -3073,7 +3069,7 @@ drwxr-xr-x root       root            24060 ./usr/lib/opkg/info
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-telephony.list  
 -rw-r--r-- root       root              329 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.control  
 -rw-r--r-- root       root              172 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.list  
--rw-r--r-- root       root              393 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
+-rw-r--r-- root       root              408 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-upstart.list  
 -rw-r--r-- root       root              466 ./usr/lib/opkg/info/parted-lic.control  
 -rw-r--r-- root       root              104 ./usr/lib/opkg/info/parted-lic.list  
@@ -3387,7 +3383,7 @@ drwxr-xr-x root       root            24060 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root               40 ./usr/lib/opkg/lists  
--rw-r--r-- root       root           117875 ./usr/lib/opkg/status  
+-rw-r--r-- root       root           118556 ./usr/lib/opkg/status  
 drwxr-xr-x root       root               80 ./usr/lib/perl  
 drwxr-xr-x root       root               80 ./usr/lib/perl/5.14.2  
 lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
@@ -9494,7 +9490,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             7124 ./usr/sbin/nl-qdisc-add  
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
--rwxr-xr-x root       root          1013016 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root          1015480 ./usr/sbin/ofonod  
 -rwxr-xr-x root       root            43428 ./usr/sbin/org.webosinternals.ipkgservice  
 -rwxr-xr-x root       root            12452 ./usr/sbin/org.webosinternals.service.update  
 -rwxr-xr-x root       root            11228 ./usr/sbin/org.webosinternals.service.upstartmgr  
@@ -9536,7 +9532,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busyb
 -rwxr-xr-x root       root            48228 ./usr/sbin/wpa_cli  
 -rwxr-xr-x root       root           418376 ./usr/sbin/wpa_supplicant  
 -rwxr-xr-x root       root            73476 ./usr/sbin/xtables-multi  
-drwxr-xr-x root       root              560 ./usr/share  
+drwxr-xr-x root       root              580 ./usr/share  
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon  
 -rwxr-xr-x root       root              788 ./usr/share/PmLogDaemon/show_disk_usage.sh  
 drwxr-xr-x root       root               60 ./usr/share/X11  
@@ -9562,6 +9558,8 @@ drwxr-xr-x root       root              120 ./usr/share/alsa/ucm/Tuna
 -rw-r--r-- root       root              336 ./usr/share/alsa/ucm/Tuna/README  
 -rw-r--r-- root       root              278 ./usr/share/alsa/ucm/Tuna/Tuna.conf  
 -rw-r--r-- root       root            17205 ./usr/share/alsa/ucm/Tuna/VoiceCall  
+drwxr-xr-x root       root               60 ./usr/share/android-apn-database  
+-rw-r--r-- root       root           308533 ./usr/share/android-apn-database/apns.xml  
 drwxr-xr-x root       root              120 ./usr/share/ca-certificates  
 drwxr-xr-x root       root               60 ./usr/share/ca-certificates/cacert.org  
 -rw-r--r-- root       root             5179 ./usr/share/ca-certificates/cacert.org/cacert.org.crt  
@@ -9886,13 +9884,16 @@ drwxr-xr-x root       root               60 ./usr/share/icu/3.6/config
 -rw-r--r-- root       root             1977 ./usr/share/icu/3.6/license.html  
 -rwxr-xr-x root       root              935 ./usr/share/icu/3.6/mkinstalldirs  
 drwxr-xr-x root       root               40 ./usr/share/info  
-drwxr-xr-x root       root             3820 ./usr/share/licenses  
+drwxr-xr-x root       root             3840 ./usr/share/licenses  
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/alsa-ucm-conf-tuna  
 -rw-rw-r-- root       root             1035 ./usr/share/licenses/alsa-ucm-conf-tuna/COPYING.MIT  
 -rw-rw-r-- root       root             1080 ./usr/share/licenses/alsa-ucm-conf-tuna/generic_MIT  
+drwxr-xr-x root       root               80 ./usr/share/licenses/android-apn-database  
+-rwxrwxr-x root       root           308533 ./usr/share/licenses/android-apn-database/apns-full-conf.xml  
+-rw-rw-r-- root       root            11360 ./usr/share/licenses/android-apn-database/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/app-services  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/app-services/Apache-2.0  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/app-services/generic_Apache-2.0  
@@ -10372,7 +10373,7 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-we
 drwx------ root       root               80 ./usr/share/licenses/packagegroup-webos-telephony  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-telephony/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-telephony/generic_Apache-2.0  
-drwx------ root       root               80 ./usr/share/licenses/packagegroup-webos-upstart  
+drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-upstart  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-upstart/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-upstart/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/parted  
