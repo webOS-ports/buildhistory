@@ -187,7 +187,7 @@ drwxr-xr-x root       root              120 ./etc/default/volatiles
 drwxr-xr-x root       root               60 ./etc/dhcp  
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
-drwxr-xr-x root       root             1440 ./etc/event.d  
+drwxr-xr-x root       root             1460 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
 -rw-r--r-- root       root             1623 ./etc/event.d/LunaSysMgr  
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService  
@@ -228,6 +228,7 @@ drwxr-xr-x root       root               40 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root              717 ./etc/event.d/networking  
 -rw-r--r-- root       root             1367 ./etc/event.d/node_fork_server  
 -rw-r--r-- root       root              939 ./etc/event.d/novacomd  
+-rw-r--r-- root       root              119 ./etc/event.d/ofono  
 -rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice  
 -rw-r--r-- root       root              265 ./etc/event.d/org.webosinternals.service.update  
 -rw-r--r-- root       root               86 ./etc/event.d/org.webosinternals.service.upstartmgr  
@@ -268,7 +269,7 @@ drwxr-xr-x root       root               60 ./etc/event.dis
 -rw-r--r-- root       root               26 ./etc/host.conf  
 -rw-r--r-- root       root                8 ./etc/hostname  
 -rw-r--r-- root       root               44 ./etc/hosts  
-drwxr-xr-x root       root              820 ./etc/init.d  
+drwxr-xr-x root       root              800 ./etc/init.d  
 -rwxr-xr-x root       root              250 ./etc/init.d/alignment.sh  
 -rwxr-xr-x root       root              492 ./etc/init.d/banner.sh  
 -rwxr-xr-x root       root             1752 ./etc/init.d/bootmisc.sh  
@@ -284,7 +285,6 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rwxr-xr-x root       root              859 ./etc/init.d/mountall.sh  
 -rwxr-xr-x root       root             1540 ./etc/init.d/mountnfs.sh  
 -rwxr-xr-x root       root             1909 ./etc/init.d/networking  
--rwxr-xr-x root       root              516 ./etc/init.d/ofono  
 -rwxr-xr-x root       root             1181 ./etc/init.d/orderly_shutdown  
 -rwxr-xr-x root       root             5249 ./etc/init.d/populate-volatile.sh  
 -rwxr-xr-x root       root             2199 ./etc/init.d/rc  
@@ -494,11 +494,10 @@ drwxr-xr-x root       root              220 ./etc/prefs/properties
 -rw-r--r-- root       root               26 ./etc/prefs/public_properties  
 -rw-r--r-- root       root              847 ./etc/profile  
 -rw-r--r-- root       root             2933 ./etc/protocols  
-drwxr-xr-x root       root              340 ./etc/rc0.d  
+drwxr-xr-x root       root              320 ./etc/rc0.d  
 lrwxrwxrwx root       root               14 ./etc/rc0.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc0.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc0.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc0.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -510,40 +509,34 @@ lrwxrwxrwx root       root               22 ./etc/rc0.d/S31umountnfs.sh -> ../in
 lrwxrwxrwx root       root               18 ./etc/rc0.d/S40umountfs -> ../init.d/umountfs
 lrwxrwxrwx root       root               25 ./etc/rc0.d/S89stop_fbprogress -> ../init.d/stop_fbprogress
 lrwxrwxrwx root       root               14 ./etc/rc0.d/S90halt -> ../init.d/halt
-drwxr-xr-x root       root              140 ./etc/rc1.d  
+drwxr-xr-x root       root              120 ./etc/rc1.d  
 lrwxrwxrwx root       root               14 ./etc/rc1.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc1.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc1.d/K40networking -> ../init.d/networking
-drwxr-xr-x root       root              140 ./etc/rc2.d  
+drwxr-xr-x root       root              120 ./etc/rc2.d  
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc2.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc2.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc2.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              140 ./etc/rc3.d  
+drwxr-xr-x root       root              120 ./etc/rc3.d  
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc3.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc3.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc3.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              120 ./etc/rc4.d  
+drwxr-xr-x root       root              100 ./etc/rc4.d  
 lrwxrwxrwx root       root               14 ./etc/rc4.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc4.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc4.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              140 ./etc/rc5.d  
+drwxr-xr-x root       root              120 ./etc/rc5.d  
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               14 ./etc/rc5.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc5.d/S22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               22 ./etc/rc5.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              340 ./etc/rc6.d  
+drwxr-xr-x root       root              320 ./etc/rc6.d  
 lrwxrwxrwx root       root               14 ./etc/rc6.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
-lrwxrwxrwx root       root               15 ./etc/rc6.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc6.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc6.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc6.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -2146,7 +2139,7 @@ drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               24 ./usr/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            22660 ./usr/lib/opkg/info  
+drwxr-xr-x root       root            22640 ./usr/lib/opkg/info  
 -rw-r--r-- root       root              406 ./usr/lib/opkg/info/activitymanager-lic.control  
 -rw-r--r-- root       root              139 ./usr/lib/opkg/info/activitymanager-lic.list  
 -rw-r--r-- root       root              619 ./usr/lib/opkg/info/activitymanager.control  
@@ -2165,6 +2158,10 @@ drwxr-xr-x root       root            22660 ./usr/lib/opkg/info
 -rw-r--r-- root       root               16 ./usr/lib/opkg/info/alsa-utils-amixer.list  
 -rw-r--r-- root       root              576 ./usr/lib/opkg/info/alsa-utils-aplay.control  
 -rw-r--r-- root       root               32 ./usr/lib/opkg/info/alsa-utils-aplay.list  
+-rw-r--r-- root       root              453 ./usr/lib/opkg/info/android-apn-database-lic.control  
+-rw-r--r-- root       root              162 ./usr/lib/opkg/info/android-apn-database-lic.list  
+-rw-r--r-- root       root              486 ./usr/lib/opkg/info/android-apn-database.control  
+-rw-r--r-- root       root               74 ./usr/lib/opkg/info/android-apn-database.list  
 -rw-r--r-- root       root              348 ./usr/lib/opkg/info/app-services-lic.control  
 -rw-r--r-- root       root              130 ./usr/lib/opkg/info/app-services-lic.list  
 -rw-r--r-- root       root              373 ./usr/lib/opkg/info/app-services.control  
@@ -2803,10 +2800,6 @@ drwxr-xr-x root       root            22660 ./usr/lib/opkg/info
 -rw-r--r-- root       root               15 ./usr/lib/opkg/info/mingetty.list  
 -rwxr-xr-x root       root               71 ./usr/lib/opkg/info/mingetty.postinst  
 -rwxr-xr-x root       root               56 ./usr/lib/opkg/info/mingetty.postrm  
--rw-r--r-- root       root              501 ./usr/lib/opkg/info/mobile-broadband-provider-info-lic.control  
--rw-r--r-- root       root              173 ./usr/lib/opkg/info/mobile-broadband-provider-info-lic.list  
--rw-r--r-- root       root              544 ./usr/lib/opkg/info/mobile-broadband-provider-info.control  
--rw-r--r-- root       root              171 ./usr/lib/opkg/info/mobile-broadband-provider-info.list  
 -rw-r--r-- root       root              325 ./usr/lib/opkg/info/modutils-initscripts-lic.control  
 -rw-r--r-- root       root              143 ./usr/lib/opkg/info/modutils-initscripts-lic.list  
 -rw-r--r-- root       root              379 ./usr/lib/opkg/info/modutils-initscripts.control  
@@ -2885,13 +2878,12 @@ drwxr-xr-x root       root            22660 ./usr/lib/opkg/info
 -rw-r--r-- root       root              127 ./usr/lib/opkg/info/nyx-modules-lic.list  
 -rw-r--r-- root       root              591 ./usr/lib/opkg/info/nyx-modules.control  
 -rw-r--r-- root       root              390 ./usr/lib/opkg/info/nyx-modules.list  
--rw-r--r-- root       root              529 ./usr/lib/opkg/info/ofono-lic.control  
+-rw-r--r-- root       root              550 ./usr/lib/opkg/info/ofono-lic.control  
 -rw-r--r-- root       root              135 ./usr/lib/opkg/info/ofono-lic.list  
--rw-r--r-- root       root              770 ./usr/lib/opkg/info/ofono.control  
--rw-r--r-- root       root              104 ./usr/lib/opkg/info/ofono.list  
--rwxr-xr-x root       root              103 ./usr/lib/opkg/info/ofono.postinst  
--rwxr-xr-x root       root               38 ./usr/lib/opkg/info/ofono.postrm  
--rwxr-xr-x root       root               63 ./usr/lib/opkg/info/ofono.prerm  
+-rw-r--r-- root       root              554 ./usr/lib/opkg/info/ofono-upstart.control  
+-rw-r--r-- root       root               19 ./usr/lib/opkg/info/ofono-upstart.list  
+-rw-r--r-- root       root              781 ./usr/lib/opkg/info/ofono.control  
+-rw-r--r-- root       root               86 ./usr/lib/opkg/info/ofono.list  
 -rw-r--r-- root       root              692 ./usr/lib/opkg/info/openssh-keygen.control  
 -rw-r--r-- root       root               20 ./usr/lib/opkg/info/openssh-keygen.list  
 -rw-r--r-- root       root              594 ./usr/lib/opkg/info/openssh-lic.control  
@@ -2995,7 +2987,7 @@ drwxr-xr-x root       root            22660 ./usr/lib/opkg/info
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              329 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.control  
 -rw-r--r-- root       root              172 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.list  
--rw-r--r-- root       root              393 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
+-rw-r--r-- root       root              408 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-upstart.list  
 -rw-r--r-- root       root              466 ./usr/lib/opkg/info/parted-lic.control  
 -rw-r--r-- root       root              104 ./usr/lib/opkg/info/parted-lic.list  
@@ -3279,7 +3271,7 @@ drwxr-xr-x root       root            22660 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root               40 ./usr/lib/opkg/lists  
--rw-r--r-- root       root           112336 ./usr/lib/opkg/status  
+-rw-r--r-- root       root           112486 ./usr/lib/opkg/status  
 drwxr-xr-x root       root               80 ./usr/lib/perl  
 drwxr-xr-x root       root               80 ./usr/lib/perl/5.14.2  
 lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
@@ -9315,7 +9307,7 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             7124 ./usr/sbin/nl-qdisc-add  
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
--rwxr-xr-x root       root          1013016 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root          1015480 ./usr/sbin/ofonod  
 -rwxr-xr-x root       root            43428 ./usr/sbin/org.webosinternals.ipkgservice  
 -rwxr-xr-x root       root            12452 ./usr/sbin/org.webosinternals.service.update  
 -rwxr-xr-x root       root            11228 ./usr/sbin/org.webosinternals.service.upstartmgr  
@@ -9374,6 +9366,8 @@ drwxr-xr-x root       root              100 ./usr/share/alsa/pcm
 -rw-r--r-- root       root              762 ./usr/share/alsa/pcm/default.conf  
 -rw-r--r-- root       root             1517 ./usr/share/alsa/pcm/dmix.conf  
 -rw-r--r-- root       root             1532 ./usr/share/alsa/pcm/dsnoop.conf  
+drwxr-xr-x root       root               60 ./usr/share/android-apn-database  
+-rw-r--r-- root       root           308533 ./usr/share/android-apn-database/apns.xml  
 drwxr-xr-x root       root              120 ./usr/share/ca-certificates  
 drwxr-xr-x root       root               60 ./usr/share/ca-certificates/cacert.org  
 -rw-r--r-- root       root             5179 ./usr/share/ca-certificates/cacert.org/cacert.org.crt  
@@ -9700,6 +9694,9 @@ drwxr-xr-x root       root             3600 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0  
+drwxr-xr-x root       root               80 ./usr/share/licenses/android-apn-database  
+-rwxrwxr-x root       root           308533 ./usr/share/licenses/android-apn-database/apns-full-conf.xml  
+-rw-rw-r-- root       root            11360 ./usr/share/licenses/android-apn-database/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/app-services  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/app-services/Apache-2.0  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/app-services/generic_Apache-2.0  
@@ -10048,9 +10045,6 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/mingetty
 drwxr-xr-x root       root               80 ./usr/share/licenses/mjson  
 -rw-rw-r-- root       root            24925 ./usr/share/licenses/mjson/LGPL-2.0  
 -rw-rw-r-- root       root            24925 ./usr/share/licenses/mjson/generic_LGPLv2  
-drwxr-xr-x root       root               80 ./usr/share/licenses/mobile-broadband-provider-info  
--rw-rw-r-- root       root             1623 ./usr/share/licenses/mobile-broadband-provider-info/COPYING  
--rw-rw-r-- root       root               52 ./usr/share/licenses/mobile-broadband-provider-info/generic_PD  
 drwxr-xr-x root       root               80 ./usr/share/licenses/modutils-initscripts  
 -rw-rw-r-- root       root               14 ./usr/share/licenses/modutils-initscripts/LICENSE  
 -rw-rw-r-- root       root               52 ./usr/share/licenses/modutils-initscripts/generic_PD  
@@ -10403,9 +10397,6 @@ drwxr-xr-x root       root              440 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              453 ./usr/share/ls2/roles/pub/webos-connman-adapter.json  
 drwxr-xr-x root       root               40 ./usr/share/man  
 drwxr-xr-x root       root               40 ./usr/share/misc  
-drwxr-xr-x root       root               80 ./usr/share/mobile-broadband-provider-info  
--rw-r--r-- root       root             3665 ./usr/share/mobile-broadband-provider-info/serviceproviders.2.dtd  
--rw-r--r-- root       root           170820 ./usr/share/mobile-broadband-provider-info/serviceproviders.xml  
 drwxr-xr-x root       root               60 ./usr/share/opkg  
 drwxr-xr-x root       root              100 ./usr/share/opkg/intercept  
 -rwxr-xr-x root       root              309 ./usr/share/opkg/intercept/depmod  
