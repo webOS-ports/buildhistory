@@ -1,5 +1,5 @@
 drwxr-xr-x root       root              360 .  
-drwxr-xr-x root       root             1600 ./bin  
+drwxr-xr-x root       root             1620 ./bin  
 lrwxrwxrwx root       root               14 ./bin/addgroup -> /bin/tinylogin
 lrwxrwxrwx root       root               14 ./bin/adduser -> /bin/tinylogin
 lrwxrwxrwx root       root                7 ./bin/ash -> busybox
@@ -25,6 +25,7 @@ lrwxrwxrwx root       root                7 ./bin/echo -> busybox
 lrwxrwxrwx root       root                7 ./bin/egrep -> busybox
 lrwxrwxrwx root       root                7 ./bin/false -> busybox
 lrwxrwxrwx root       root                7 ./bin/fgrep -> busybox
+lrwxrwxrwx root       root               17 ./bin/getopt -> ../usr/bin/getopt
 lrwxrwxrwx root       root                7 ./bin/grep -> busybox
 lrwxrwxrwx root       root               11 ./bin/gunzip -> gunzip.gzip
 -rwxr-xr-x root       root             2255 ./bin/gunzip.gzip  
@@ -193,7 +194,7 @@ drwxr-xr-x root       root              120 ./etc/default/volatiles
 drwxr-xr-x root       root               60 ./etc/dhcp  
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
-drwxr-xr-x root       root             1540 ./etc/event.d  
+drwxr-xr-x root       root             1560 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
 -rw-r--r-- root       root             1623 ./etc/event.d/LunaSysMgr  
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService  
@@ -203,10 +204,11 @@ drwxr-xr-x root       root             1540 ./etc/event.d
 -rw-r--r-- root       root             1601 ./etc/event.d/WebAppMgr  
 -rw-r--r-- root       root              856 ./etc/event.d/activitymanager  
 -rw-r--r-- root       root              799 ./etc/event.d/alignment  
--rw-r--r-- root       root              130 ./etc/event.d/android_drmserver.upstart  
--rw-r--r-- root       root              134 ./etc/event.d/android_mediaserver.upstart  
--rw-r--r-- root       root              149 ./etc/event.d/android_sensorservice.upstart  
--rw-r--r-- root       root              140 ./etc/event.d/android_servicemanager.upstart  
+-rw-r--r-- root       root              130 ./etc/event.d/android_drmserver  
+-rw-r--r-- root       root              469 ./etc/event.d/android_finish  
+-rw-r--r-- root       root              134 ./etc/event.d/android_mediaserver  
+-rw-r--r-- root       root              149 ./etc/event.d/android_sensorservice  
+-rw-r--r-- root       root              140 ./etc/event.d/android_servicemanager  
 -rw-r--r-- root       root              978 ./etc/event.d/banner  
 -rw-r--r-- root       root              737 ./etc/event.d/bootmisc  
 -r-xr-xr-x root       root              734 ./etc/event.d/browserserver  
@@ -329,7 +331,7 @@ drwxr-xr-x root       root              180 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables  
 -rw-r--r-- root       root               22 ./etc/issue  
 -rw-r--r-- root       root               19 ./etc/issue.net  
--rw-r--r-- root       root             9847 ./etc/ld.so.cache  
+-rw-r--r-- root       root             9615 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root               80 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -1599,8 +1601,8 @@ lrwxrwxrwx root       root               17 ./usr/bin/cmp -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/cut -> ../../bin/busybox
 -rwxr-xr-x root       root            18252 ./usr/bin/cytune  
 -rwxr-xr-x root       root             7120 ./usr/bin/dbus-cleanup-sockets  
--rwxr-xr-x root       root           269536 ./usr/bin/dbus-daemon  
--rwxr-xr-x root       root            20424 ./usr/bin/dbus-launch  
+-rwxr-xr-x root       root           269524 ./usr/bin/dbus-daemon  
+-rwxr-xr-x root       root            14136 ./usr/bin/dbus-launch  
 -rwxr-xr-x root       root            11228 ./usr/bin/dbus-monitor  
 -rwxr-xr-x root       root            14188 ./usr/bin/dbus-send  
 -rwxr-xr-x root       root             5064 ./usr/bin/dbus-uuidgen  
@@ -1821,7 +1823,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/yes -> ../../bin/busybox
 -rwxr-xr-x root       root             5053 ./usr/bin/znew  
 drwxr-xr-x root       root               40 ./usr/games  
 drwxr-xr-x root       root               40 ./usr/include  
-drwxr-xr-x root       root             5140 ./usr/lib  
+drwxr-xr-x root       root             4960 ./usr/lib  
 drwxr-xr-x root       root               80 ./usr/lib/BrowserPlugins  
 -rwxr-xr-x root       root           128708 ./usr/lib/BrowserPlugins/BrowserAdapter.so  
 drwxr-xr-x root       root              260 ./usr/lib/BrowserPlugins/BrowserAdapterData  
@@ -1836,8 +1838,6 @@ drwxr-xr-x root       root              260 ./usr/lib/BrowserPlugins/BrowserAdap
 -rw-r--r-- root       root              318 ./usr/lib/BrowserPlugins/BrowserAdapterData/launcher-bookmark-alpha.png  
 -rw-r--r-- root       root             3360 ./usr/lib/BrowserPlugins/BrowserAdapterData/launcher-bookmark-overlay.png  
 -rw-r--r-- root       root             5250 ./usr/lib/BrowserPlugins/BrowserAdapterData/shift-tap-reticle.png  
-drwxr-xr-x root       root               60 ./usr/lib/X11  
--rw-r--r-- root       root             1723 ./usr/lib/X11/Xcms.txt  
 -rwxr-xr-x root       root             7916 ./usr/lib/e2initrd_helper  
 lrwxrwxrwx root       root               15 ./usr/lib/libEGL.so.1 -> libEGL.so.1.0.0
 -rwxr-xr-x root       root            28732 ./usr/lib/libEGL.so.1.0.0  
@@ -1887,12 +1887,6 @@ lrwxrwxrwx root       root               20 ./usr/lib/libQtWebKit.so.4.8 -> libQ
 lrwxrwxrwx root       root               17 ./usr/lib/libQtXml.so.4 -> libQtXml.so.4.8.3
 lrwxrwxrwx root       root               17 ./usr/lib/libQtXml.so.4.8 -> libQtXml.so.4.8.3
 -rwxr-xr-x root       root           185432 ./usr/lib/libQtXml.so.4.8.3  
-lrwxrwxrwx root       root               15 ./usr/lib/libX11.so.6 -> libX11.so.6.3.0
--rwxr-xr-x root       root          1023144 ./usr/lib/libX11.so.6.3.0  
-lrwxrwxrwx root       root               15 ./usr/lib/libXau.so.6 -> libXau.so.6.0.0
--rwxr-xr-x root       root             7276 ./usr/lib/libXau.so.6.0.0  
-lrwxrwxrwx root       root               17 ./usr/lib/libXdmcp.so.6 -> libXdmcp.so.6.0.0
--rwxr-xr-x root       root            15412 ./usr/lib/libXdmcp.so.6.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasound.so.2.0.0
 -rwxr-xr-x root       root           770032 ./usr/lib/libasound.so.2.0.0  
 -rwxr-xr-x root       root           629092 ./usr/lib/libbfd-2.22.so  
@@ -1913,7 +1907,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so.5 -> libcurl.so
 -rwxr-xr-x root       root           889436 ./usr/lib/libdb-4.8.so  
 lrwxrwxrwx root       root               12 ./usr/lib/libdb-4.so -> libdb-4.8.so
 lrwxrwxrwx root       root               18 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.2
--rwxr-xr-x root       root           179448 ./usr/lib/libdbus-1.so.3.7.2  
+-rwxr-xr-x root       root           179372 ./usr/lib/libdbus-1.so.3.7.2  
 lrwxrwxrwx root       root               24 ./usr/lib/libemail-common.so.2 -> libemail-common.so.2.0.0
 -rwxr-xr-x root       root           775340 ./usr/lib/libemail-common.so.2.0.0  
 lrwxrwxrwx root       root               17 ./usr/lib/libexpat.so.1 -> libexpat.so.1.6.0
@@ -2069,8 +2063,6 @@ lrwxrwxrwx root       root               19 ./usr/lib/libupstart.so.0 -> libupst
 -rwxr-xr-x root       root            18156 ./usr/lib/libupstart.so.0.0.0  
 lrwxrwxrwx root       root               22 ./usr/lib/liburiparser.so.1 -> liburiparser.so.1.0.12
 -rwxr-xr-x root       root            89400 ./usr/lib/liburiparser.so.1.0.12  
-lrwxrwxrwx root       root               15 ./usr/lib/libxcb.so.1 -> libxcb.so.1.1.0
--rwxr-xr-x root       root            88104 ./usr/lib/libxcb.so.1.1.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libxml2.so.2 -> libxml2.so.2.8.0
 -rwxr-xr-x root       root          1075796 ./usr/lib/libxml2.so.2.8.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libxtables.so.7 -> libxtables.so.7.1.0
@@ -2453,7 +2445,7 @@ drwxr-xr-x root       root              220 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root             9904 ./usr/lib/nyx/modules/nyxSystemMain.module  
 -rwxr-xr-x root       root            16604 ./usr/lib/nyx/modules/nyxTouchpanelMain.module  
 drwxr-xr-x root       root              120 ./usr/lib/opkg  
-drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives  
+drwxr-xr-x root       root             3860 ./usr/lib/opkg/alternatives  
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/[[  
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/ar  
 -rw-r--r-- root       root               20 ./usr/lib/opkg/alternatives/ash  
@@ -2505,6 +2497,7 @@ drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/fsck.minix  
 -rw-r--r-- root       root               47 ./usr/lib/opkg/alternatives/functions  
 -rw-r--r-- root       root               52 ./usr/lib/opkg/alternatives/fuser  
+-rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/getopt  
 -rw-r--r-- root       root               43 ./usr/lib/opkg/alternatives/getty  
 -rw-r--r-- root       root               21 ./usr/lib/opkg/alternatives/grep  
 -rw-r--r-- root       root               55 ./usr/lib/opkg/alternatives/groups  
@@ -2644,7 +2637,7 @@ drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               24 ./usr/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            22940 ./usr/lib/opkg/info  
+drwxr-xr-x root       root            22540 ./usr/lib/opkg/info  
 -rw-r--r-- root       root              393 ./usr/lib/opkg/info/activitymanager-lic.control  
 -rw-r--r-- root       root              139 ./usr/lib/opkg/info/activitymanager-lic.list  
 -rw-r--r-- root       root              608 ./usr/lib/opkg/info/activitymanager.control  
@@ -2671,8 +2664,8 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rw-r--r-- root       root              130 ./usr/lib/opkg/info/android-exec-lic.list  
 -rw-r--r-- root       root              395 ./usr/lib/opkg/info/android-exec.control  
 -rw-r--r-- root       root               22 ./usr/lib/opkg/info/android-exec.list  
--rw-r--r-- root       root              507 ./usr/lib/opkg/info/android-initscripts-upstart.control  
--rw-r--r-- root       root              181 ./usr/lib/opkg/info/android-initscripts-upstart.list  
+-rw-r--r-- root       root              537 ./usr/lib/opkg/info/android-initscripts-upstart.control  
+-rw-r--r-- root       root              177 ./usr/lib/opkg/info/android-initscripts-upstart.list  
 -rw-r--r-- root       root              475 ./usr/lib/opkg/info/android-system-image-grouper-lic.control  
 -rw-r--r-- root       root              178 ./usr/lib/opkg/info/android-system-image-grouper-lic.list  
 -rw-r--r-- root       root              555 ./usr/lib/opkg/info/android-system-image-grouper.control  
@@ -2795,7 +2788,7 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rw-r--r-- root       root              710 ./usr/lib/opkg/info/db8.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/db8.postinst  
 -rw-r--r-- root       root               49 ./usr/lib/opkg/info/dbus-1.conffiles  
--rw-r--r-- root       root              870 ./usr/lib/opkg/info/dbus-1.control  
+-rw-r--r-- root       root              849 ./usr/lib/opkg/info/dbus-1.control  
 -rw-r--r-- root       root              402 ./usr/lib/opkg/info/dbus-1.list  
 -rwxr-xr-x root       root              227 ./usr/lib/opkg/info/dbus-1.postinst  
 -rwxr-xr-x root       root               39 ./usr/lib/opkg/info/dbus-1.postrm  
@@ -2906,7 +2899,7 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rw-r--r-- root       root              592 ./usr/lib/opkg/info/libasound2.control  
 -rw-r--r-- root       root               52 ./usr/lib/opkg/info/libasound2.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libasound2.postinst  
--rw-r--r-- root       root              897 ./usr/lib/opkg/info/libblkid1.control  
+-rw-r--r-- root       root              903 ./usr/lib/opkg/info/libblkid1.control  
 -rw-r--r-- root       root               42 ./usr/lib/opkg/info/libblkid1.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libblkid1.postinst  
 -rw-r--r-- root       root              544 ./usr/lib/opkg/info/libboost-filesystem1.51.0.control  
@@ -3224,29 +3217,9 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libusb-1.0-0.postinst  
 -rw-r--r-- root       root              356 ./usr/lib/opkg/info/libusb-1.0-lic.control  
 -rw-r--r-- root       root              110 ./usr/lib/opkg/info/libusb-1.0-lic.list  
--rw-r--r-- root       root              874 ./usr/lib/opkg/info/libuuid1.control  
+-rw-r--r-- root       root              880 ./usr/lib/opkg/info/libuuid1.control  
 -rw-r--r-- root       root               40 ./usr/lib/opkg/info/libuuid1.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libuuid1.postinst  
--rw-r--r-- root       root              652 ./usr/lib/opkg/info/libx11-6.control  
--rw-r--r-- root       root              122 ./usr/lib/opkg/info/libx11-6.list  
--rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libx11-6.postinst  
--rw-r--r-- root       root              544 ./usr/lib/opkg/info/libx11-lic.control  
--rw-r--r-- root       root              186 ./usr/lib/opkg/info/libx11-lic.list  
--rw-r--r-- root       root              483 ./usr/lib/opkg/info/libxau-lic.control  
--rw-r--r-- root       root              108 ./usr/lib/opkg/info/libxau-lic.list  
--rw-r--r-- root       root              528 ./usr/lib/opkg/info/libxau6.control  
--rw-r--r-- root       root               46 ./usr/lib/opkg/info/libxau6.list  
--rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libxau6.postinst  
--rw-r--r-- root       root              505 ./usr/lib/opkg/info/libxcb-lic.control  
--rw-r--r-- root       root              102 ./usr/lib/opkg/info/libxcb-lic.list  
--rw-r--r-- root       root              592 ./usr/lib/opkg/info/libxcb1.control  
--rw-r--r-- root       root               46 ./usr/lib/opkg/info/libxcb1.list  
--rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libxcb1.postinst  
--rw-r--r-- root       root              636 ./usr/lib/opkg/info/libxdmcp-lic.control  
--rw-r--r-- root       root              114 ./usr/lib/opkg/info/libxdmcp-lic.list  
--rw-r--r-- root       root              683 ./usr/lib/opkg/info/libxdmcp6.control  
--rw-r--r-- root       root               50 ./usr/lib/opkg/info/libxdmcp6.list  
--rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libxdmcp6.postinst  
 -rw-r--r-- root       root              776 ./usr/lib/opkg/info/libxml2-lic.control  
 -rw-r--r-- root       root              212 ./usr/lib/opkg/info/libxml2-lic.list  
 -rw-r--r-- root       root              839 ./usr/lib/opkg/info/libxml2.control  
@@ -3719,38 +3692,38 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rwxr-xr-x root       root               59 ./usr/lib/opkg/info/upstart.postrm  
 -rw-r--r-- root       root              489 ./usr/lib/opkg/info/usbutils-ids.control  
 -rw-r--r-- root       root               22 ./usr/lib/opkg/info/usbutils-ids.list  
--rw-r--r-- root       root              949 ./usr/lib/opkg/info/util-linux-cfdisk.control  
+-rw-r--r-- root       root              955 ./usr/lib/opkg/info/util-linux-cfdisk.control  
 -rw-r--r-- root       root               13 ./usr/lib/opkg/info/util-linux-cfdisk.list  
--rw-r--r-- root       root              905 ./usr/lib/opkg/info/util-linux-fdisk.control  
+-rw-r--r-- root       root              911 ./usr/lib/opkg/info/util-linux-fdisk.control  
 -rw-r--r-- root       root               23 ./usr/lib/opkg/info/util-linux-fdisk.list  
 -rwxr-xr-x root       root               80 ./usr/lib/opkg/info/util-linux-fdisk.postinst  
 -rwxr-xr-x root       root               64 ./usr/lib/opkg/info/util-linux-fdisk.postrm  
--rw-r--r-- root       root              835 ./usr/lib/opkg/info/util-linux-lic.control  
+-rw-r--r-- root       root              841 ./usr/lib/opkg/info/util-linux-lic.control  
 -rw-r--r-- root       root              436 ./usr/lib/opkg/info/util-linux-lic.list  
--rw-r--r-- root       root              884 ./usr/lib/opkg/info/util-linux-losetup.control  
+-rw-r--r-- root       root              890 ./usr/lib/opkg/info/util-linux-losetup.control  
 -rw-r--r-- root       root               25 ./usr/lib/opkg/info/util-linux-losetup.list  
 -rwxr-xr-x root       root               86 ./usr/lib/opkg/info/util-linux-losetup.postinst  
 -rwxr-xr-x root       root               68 ./usr/lib/opkg/info/util-linux-losetup.postrm  
--rw-r--r-- root       root              861 ./usr/lib/opkg/info/util-linux-mkfs.control  
+-rw-r--r-- root       root              867 ./usr/lib/opkg/info/util-linux-mkfs.control  
 -rw-r--r-- root       root               15 ./usr/lib/opkg/info/util-linux-mkfs.list  
--rw-r--r-- root       root              905 ./usr/lib/opkg/info/util-linux-mount.control  
+-rw-r--r-- root       root              911 ./usr/lib/opkg/info/util-linux-mount.control  
 -rw-r--r-- root       root               22 ./usr/lib/opkg/info/util-linux-mount.list  
 -rwxr-xr-x root       root               79 ./usr/lib/opkg/info/util-linux-mount.postinst  
 -rwxr-xr-x root       root               64 ./usr/lib/opkg/info/util-linux-mount.postrm  
--rw-r--r-- root       root              883 ./usr/lib/opkg/info/util-linux-sfdisk.control  
+-rw-r--r-- root       root              889 ./usr/lib/opkg/info/util-linux-sfdisk.control  
 -rw-r--r-- root       root               17 ./usr/lib/opkg/info/util-linux-sfdisk.list  
--rw-r--r-- root       root              889 ./usr/lib/opkg/info/util-linux-swaponoff.control  
+-rw-r--r-- root       root              895 ./usr/lib/opkg/info/util-linux-swaponoff.control  
 -rw-r--r-- root       root               49 ./usr/lib/opkg/info/util-linux-swaponoff.list  
 -rwxr-xr-x root       root              159 ./usr/lib/opkg/info/util-linux-swaponoff.postinst  
 -rwxr-xr-x root       root              124 ./usr/lib/opkg/info/util-linux-swaponoff.postrm  
--rw-r--r-- root       root              906 ./usr/lib/opkg/info/util-linux-umount.control  
+-rw-r--r-- root       root              912 ./usr/lib/opkg/info/util-linux-umount.control  
 -rw-r--r-- root       root               23 ./usr/lib/opkg/info/util-linux-umount.list  
 -rwxr-xr-x root       root               82 ./usr/lib/opkg/info/util-linux-umount.postinst  
 -rwxr-xr-x root       root               66 ./usr/lib/opkg/info/util-linux-umount.postrm  
--rw-r--r-- root       root             1185 ./usr/lib/opkg/info/util-linux.control  
+-rw-r--r-- root       root             1191 ./usr/lib/opkg/info/util-linux.control  
 -rw-r--r-- root       root             1457 ./usr/lib/opkg/info/util-linux.list  
--rwxr-xr-x root       root             1420 ./usr/lib/opkg/info/util-linux.postinst  
--rwxr-xr-x root       root             1011 ./usr/lib/opkg/info/util-linux.postrm  
+-rwxr-xr-x root       root             1492 ./usr/lib/opkg/info/util-linux.postinst  
+-rwxr-xr-x root       root             1067 ./usr/lib/opkg/info/util-linux.postrm  
 -rw-r--r-- root       root              482 ./usr/lib/opkg/info/webappmanager-lic.control  
 -rw-r--r-- root       root              133 ./usr/lib/opkg/info/webappmanager-lic.list  
 -rw-r--r-- root       root             1076 ./usr/lib/opkg/info/webappmanager.control  
@@ -3791,7 +3764,7 @@ drwxr-xr-x root       root            22940 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root               40 ./usr/lib/opkg/lists  
--rw-r--r-- root       root           114321 ./usr/lib/opkg/status  
+-rw-r--r-- root       root           112825 ./usr/lib/opkg/status  
 drwxr-xr-x root       root               80 ./usr/lib/perl  
 drwxr-xr-x root       root               80 ./usr/lib/perl/5.14.2  
 lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
@@ -3935,7 +3908,7 @@ drwxr-xr-x root       root             2020 ./usr/lib/xtables
 -rwxr-xr-x root       root             6668 ./usr/lib/xtables/libxt_u32.so  
 -rwxr-xr-x root       root             4976 ./usr/lib/xtables/libxt_udp.so  
 drwxr-xr-x root       root              140 ./usr/libexec  
--rwsr-xr-x root       messagebus     191632 ./usr/libexec/dbus-daemon-launch-helper  
+-rwsr-xr-x root       messagebus     188204 ./usr/libexec/dbus-daemon-launch-helper  
 -rwsr-xr-x root       root             9660 ./usr/libexec/pt_chown  
 drwxr-xr-x root       root               60 ./usr/libexec/pulse  
 -rwsr-xr-x root       root             6116 ./usr/libexec/pulse/proximity-helper  
@@ -4971,12 +4944,12 @@ drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app
 drwxrwxr-x root       root               80 ./usr/palm/applications/com.palm.sysapp.voicedial  
 -rw-rw-r-- root       root              225 ./usr/palm/applications/com.palm.sysapp.voicedial/appinfo.json  
 -rw-rw-r-- root       root             8490 ./usr/palm/applications/com.palm.sysapp.voicedial/icon-64x64.png  
-drwxr-xr-x root       root              180 ./usr/palm/applications/org.webosinternals.preware  
+drwx------ root       root              180 ./usr/palm/applications/org.webosinternals.preware  
 -rw-r--r-- root       root              191 ./usr/palm/applications/org.webosinternals.preware/appinfo.json  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosinternals.preware/assets  
+drwx------ root       root               80 ./usr/palm/applications/org.webosinternals.preware/assets  
 -rw-r--r-- root       root            79561 ./usr/palm/applications/org.webosinternals.preware/assets/bg.png  
 -rw-r--r-- root       root             1150 ./usr/palm/applications/org.webosinternals.preware/assets/favicon.ico  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosinternals.preware/build  
+drwx------ root       root              120 ./usr/palm/applications/org.webosinternals.preware/build  
 -rw-r--r-- root       root            35908 ./usr/palm/applications/org.webosinternals.preware/build/app.css  
 -rw-r--r-- root       root           227465 ./usr/palm/applications/org.webosinternals.preware/build/app.js  
 -rw-r--r-- root       root             2812 ./usr/palm/applications/org.webosinternals.preware/build/enyo.css  
@@ -4984,10 +4957,10 @@ drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosint
 lrwxrwxrwx root       root               39 ./usr/palm/applications/org.webosinternals.preware/cordova.js -> /usr/palm/frameworks/cordova/cordova.js
 -rw-r--r-- root       root           108357 ./usr/palm/applications/org.webosinternals.preware/icon.png  
 -rw-r--r-- root       root              769 ./usr/palm/applications/org.webosinternals.preware/index.html  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib/onyx  
+drwx------ root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib  
+drwx------ root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib/onyx  
 -rw-r--r-- root       root            11358 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/LICENSE-2.0.txt  
-drwxr-xr-x root       root              260 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images  
+drwx------ root       root              260 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images  
 -rw-r--r-- root       root             5462 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/checkbox.png  
 -rw-r--r-- root       root              676 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/grabbutton.png  
 -rw-r--r-- root       root              255 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/gradient-invert.png  
@@ -4999,13 +4972,13 @@ drwxr-xr-x root       root              260 ./usr/palm/applications/org.webosint
 -rw-r--r-- root       root             3095 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/slider-handle.png  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/spinner-dark.gif  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/spinner-light.gif  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib  
+drwx------ root       root              120 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib  
 -rw-r--r-- root       root             3255 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/README.md  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/assets  
+drwx------ root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/assets  
 -rw-r--r-- root       root            29499 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/assets/lightbar.png  
 -rw-r--r-- root       root              447 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/assets/search-input-search.png  
 -rw-r--r-- root       root               27 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/package.js  
-drwxr-xr-x root       root              240 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source  
+drwx------ root       root              240 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source  
 -rw-r--r-- root       root              441 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/BackGesture.js  
 -rw-r--r-- root       root             1606 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/CoreNavi.js  
 -rw-r--r-- root       root             2593 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/CoreNaviArranger.js  
@@ -5914,9 +5887,9 @@ drwxr-xr-x root       root              220 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              350 ./usr/palm/applications/org.webosports.app.calendar/lib/webos-ports-lib/source/ProgressOrb.css  
 -rw-r--r-- root       root             2897 ./usr/palm/applications/org.webosports.app.calendar/lib/webos-ports-lib/source/ProgressOrb.js  
 -rw-r--r-- root       root              172 ./usr/palm/applications/org.webosports.app.calendar/lib/webos-ports-lib/source/package.js  
-drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosports.app.firstuse  
+drwx------ root       root              160 ./usr/palm/applications/org.webosports.app.firstuse  
 -rw-r--r-- root       root              164 ./usr/palm/applications/org.webosports.app.firstuse/appinfo.json  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosports.app.firstuse/build  
+drwx------ root       root              120 ./usr/palm/applications/org.webosports.app.firstuse/build  
 -rw-r--r-- root       root            28918 ./usr/palm/applications/org.webosports.app.firstuse/build/app.css  
 -rw-r--r-- root       root           107542 ./usr/palm/applications/org.webosports.app.firstuse/build/app.js  
 -rw-r--r-- root       root             2752 ./usr/palm/applications/org.webosports.app.firstuse/build/enyo.css  
@@ -5924,10 +5897,10 @@ drwxr-xr-x root       root              120 ./usr/palm/applications/org.webospor
 lrwxrwxrwx root       root               39 ./usr/palm/applications/org.webosports.app.firstuse/cordova.js -> /usr/palm/frameworks/cordova/cordova.js
 -rw-r--r-- root       root            63980 ./usr/palm/applications/org.webosports.app.firstuse/icon.png  
 -rw-r--r-- root       root              865 ./usr/palm/applications/org.webosports.app.firstuse/index.html  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.firstuse/lib  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.firstuse/lib  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx  
 -rw-r--r-- root       root            11358 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/LICENSE-2.0.txt  
-drwxr-xr-x root       root              260 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images  
+drwx------ root       root              260 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images  
 -rw-r--r-- root       root             5462 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/checkbox.png  
 -rw-r--r-- root       root              676 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/grabbutton.png  
 -rw-r--r-- root       root              255 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/gradient-invert.png  
@@ -5939,11 +5912,11 @@ drwxr-xr-x root       root              260 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root             3095 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/slider-handle.png  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/spinner-dark.gif  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosports.app.firstuse/lib/onyx/images/spinner-light.gif  
-drwxr-xr-x root       root              100 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports  
-drwxr-xr-x root       root               60 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/assets  
+drwx------ root       root              100 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports  
+drwx------ root       root               60 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/assets  
 -rw-r--r-- root       root              447 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/assets/search-input-search.png  
 -rw-r--r-- root       root               27 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/package.js  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source  
+drwx------ root       root              120 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source  
 -rw-r--r-- root       root               33 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/PortsHeader.css  
 -rw-r--r-- root       root              711 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/PortsHeader.js  
 -rw-r--r-- root       root             2406 ./usr/palm/applications/org.webosports.app.firstuse/lib/ports/source/PortsSearch.js  
@@ -6006,12 +5979,12 @@ drwxr-xr-x root       root              140 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              711 ./usr/palm/applications/org.webosports.app.memos/lib/webos-ports-lib/source/PortsHeader.js  
 -rw-r--r-- root       root             2438 ./usr/palm/applications/org.webosports.app.memos/lib/webos-ports-lib/source/PortsSearch.js  
 -rw-r--r-- root       root               93 ./usr/palm/applications/org.webosports.app.memos/lib/webos-ports-lib/source/package.js  
-drwxr-xr-x root       root              180 ./usr/palm/applications/org.webosports.app.settings  
+drwx------ root       root              180 ./usr/palm/applications/org.webosports.app.settings  
 -rw-r--r-- root       root              262 ./usr/palm/applications/org.webosports.app.settings/appinfo.json  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.settings/assets  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.settings/assets  
 -rw-r--r-- root       root            79561 ./usr/palm/applications/org.webosports.app.settings/assets/bg.png  
 -rw-r--r-- root       root             1892 ./usr/palm/applications/org.webosports.app.settings/assets/icon-new.png  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosports.app.settings/build  
+drwx------ root       root              120 ./usr/palm/applications/org.webosports.app.settings/build  
 -rw-r--r-- root       root            30668 ./usr/palm/applications/org.webosports.app.settings/build/app.css  
 -rw-r--r-- root       root           155460 ./usr/palm/applications/org.webosports.app.settings/build/app.js  
 -rw-r--r-- root       root             2752 ./usr/palm/applications/org.webosports.app.settings/build/enyo.css  
@@ -6019,27 +5992,27 @@ drwxr-xr-x root       root              120 ./usr/palm/applications/org.webospor
 lrwxrwxrwx root       root               39 ./usr/palm/applications/org.webosports.app.settings/cordova.js -> /usr/palm/frameworks/cordova/cordova.js
 -rw-r--r-- root       root             7115 ./usr/palm/applications/org.webosports.app.settings/icon.png  
 -rw-r--r-- root       root              930 ./usr/palm/applications/org.webosports.app.settings/index.html  
-drwxr-xr-x root       root              100 ./usr/palm/applications/org.webosports.app.settings/lib  
-drwxr-xr-x root       root              220 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers  
+drwx------ root       root              100 ./usr/palm/applications/org.webosports.app.settings/lib  
+drwx------ root       root              220 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers  
 -rw-r--r-- root       root             2069 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/README.md  
-drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples  
+drwx------ root       root              160 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples  
 -rw-r--r-- root       root             1563 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-boxturn.html  
 -rw-r--r-- root       root             1561 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-hflip.html  
 -rw-r--r-- root       root             1564 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-pagespin.html  
 -rw-r--r-- root       root             1564 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-pageturn.html  
 -rw-r--r-- root       root             1521 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-pushpop.html  
 -rw-r--r-- root       root             1519 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/examples/app-slade.html  
-drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images  
+drwx------ root       root              120 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images  
 -rw-r--r-- root       root              943 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images/bg_hr.png  
 -rw-r--r-- root       root             1428 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images/blacktocat.png  
 -rw-r--r-- root       root             1162 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images/icon_download.png  
 -rw-r--r-- root       root            16799 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/images/sprite_download.png  
 -rw-r--r-- root       root             2721 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/index.html  
-drwxr-xr-x root       root               60 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/javascripts  
+drwx------ root       root               60 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/javascripts  
 -rw-r--r-- root       root               48 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/javascripts/main.js  
 -rw-r--r-- root       root              222 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/package.js  
 -rw-r--r-- root       root             2171 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/params.json  
-drwxr-xr-x root       root              180 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source  
+drwx------ root       root              180 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source  
 -rw-r--r-- root       root             3267 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/BoxTurnArranger.js  
 -rw-r--r-- root       root             2794 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/HFlipArranger.js  
 -rw-r--r-- root       root              134 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/MoreArrangers.css  
@@ -6047,12 +6020,12 @@ drwxr-xr-x root       root              180 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root             2891 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/PageTurnArranger.js  
 -rw-r--r-- root       root             2586 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/PushPopArranger.js  
 -rw-r--r-- root       root             2200 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/source/SladeArranger.js  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/stylesheets  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/stylesheets  
 -rw-r--r-- root       root             4366 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/stylesheets/pygment_trac.css  
 -rw-r--r-- root       root             7578 ./usr/palm/applications/org.webosports.app.settings/lib/more-arrangers/stylesheets/stylesheet.css  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/onyx  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/onyx  
 -rw-r--r-- root       root            11358 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/LICENSE-2.0.txt  
-drwxr-xr-x root       root              260 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images  
+drwx------ root       root              260 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images  
 -rw-r--r-- root       root             5462 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/checkbox.png  
 -rw-r--r-- root       root              676 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/grabbutton.png  
 -rw-r--r-- root       root              255 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/gradient-invert.png  
@@ -6064,14 +6037,14 @@ drwxr-xr-x root       root              260 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root             3095 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/slider-handle.png  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/spinner-dark.gif  
 -rw-r--r-- root       root             1924 ./usr/palm/applications/org.webosports.app.settings/lib/onyx/images/spinner-light.gif  
-drwxr-xr-x root       root              140 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib  
+drwx------ root       root              140 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib  
 -rw-r--r-- root       root             4802 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/README.md  
 -rw-r--r-- root       root             3993 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/README.md~  
-drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/assets  
+drwx------ root       root               80 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/assets  
 -rw-r--r-- root       root            29499 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/assets/lightbar.png  
 -rw-r--r-- root       root              447 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/assets/search-input-search.png  
 -rw-r--r-- root       root               27 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/package.js  
-drwxr-xr-x root       root              320 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/source  
+drwx------ root       root              320 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/source  
 -rw-r--r-- root       root              441 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/source/BackGesture.js  
 -rw-r--r-- root       root             1606 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/source/CoreNavi.js  
 -rw-r--r-- root       root             2593 ./usr/palm/applications/org.webosports.app.settings/lib/webos-ports-lib/source/CoreNaviArranger.js  
@@ -8679,7 +8652,7 @@ drwxr-xr-x root       root              200 ./usr/palm/frameworks/globalization/
 -rw-r--r-- root       root            17157 ./usr/palm/frameworks/globalization/version/1.0/langinfo/zh.json  
 -rw-r--r-- root       root              334 ./usr/palm/frameworks/globalization/version/1.0/manifest.json  
 -rwxr-xr-x root       root              291 ./usr/palm/frameworks/globalization/version/1.0/run_tests.sh  
--rw-r--r-- root       root            10712 ./usr/palm/frameworks/mojoloader.js  
+-rw-r--r-- root       root            10748 ./usr/palm/frameworks/mojoloader.js  
 drwxr-xr-x root       root               60 ./usr/palm/frameworks/mojoservice  
 drwxr-xr-x root       root               60 ./usr/palm/frameworks/mojoservice.transport  
 drwxr-xr-x root       root               60 ./usr/palm/frameworks/mojoservice.transport.sync  
@@ -9022,7 +8995,7 @@ drwxr-xr-x root       root              100 ./usr/palm/services/jsservicelaunche
 -rw-r--r-- root       root             5591 ./usr/palm/services/jsservicelauncher/bootstrap-node.js  
 -rw-r--r-- root       root               73 ./usr/palm/services/jsservicelauncher/palm_bus_config.json  
 -rw-r--r-- root       root              540 ./usr/palm/services/jsservicelauncher/sources.json  
-drwxr-xr-x root       root              100 ./usr/palm/services/org.webosports.service.licenses  
+drwx------ root       root              100 ./usr/palm/services/org.webosports.service.licenses  
 -rw-r--r-- root       root             1153 ./usr/palm/services/org.webosports.service.licenses/LicenseManagementAssistants.js  
 -rw-r--r-- root       root              634 ./usr/palm/services/org.webosports.service.licenses/services.json  
 -rw-r--r-- root       root              175 ./usr/palm/services/org.webosports.service.licenses/sources.json  
@@ -9555,11 +9528,9 @@ lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busyb
 -rwxr-xr-x root       root            48228 ./usr/sbin/wpa_cli  
 -rwxr-xr-x root       root           418376 ./usr/sbin/wpa_supplicant  
 -rwxr-xr-x root       root            73476 ./usr/sbin/xtables-multi  
-drwxr-xr-x root       root              580 ./usr/share  
+drwxr-xr-x root       root              560 ./usr/share  
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon  
 -rwxr-xr-x root       root              788 ./usr/share/PmLogDaemon/show_disk_usage.sh  
-drwxr-xr-x root       root               60 ./usr/share/X11  
--rw-r--r-- root       root            41495 ./usr/share/X11/XErrorDB  
 drwxr-xr-x root       root              120 ./usr/share/alsa  
 -rw-r--r-- root       root             9184 ./usr/share/alsa/alsa.conf  
 drwxr-xr-x root       root               60 ./usr/share/alsa/cards  
@@ -9906,7 +9877,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/3.6/config
 -rw-r--r-- root       root             1977 ./usr/share/icu/3.6/license.html  
 -rwxr-xr-x root       root              935 ./usr/share/icu/3.6/mkinstalldirs  
 drwxr-xr-x root       root               40 ./usr/share/info  
-drwxr-xr-x root       root             3680 ./usr/share/licenses  
+drwxr-xr-x root       root             3600 ./usr/share/licenses  
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0  
@@ -10200,20 +10171,6 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/libusb-compat
 drwxr-xr-x root       root               80 ./usr/share/licenses/libusb1  
 -rw-r--r-- root       root            26436 ./usr/share/licenses/libusb1/COPYING  
 -rw-rw-r-- root       root            25878 ./usr/share/licenses/libusb1/generic_LGPLv2.1  
-drwxr-xr-x root       root              120 ./usr/share/licenses/libx11  
--rw-r--r-- root       root            47018 ./usr/share/licenses/libx11/COPYING  
--rw-rw-r-- root       root             1499 ./usr/share/licenses/libx11/generic_BSD  
--rw-rw-r-- root       root             1080 ./usr/share/licenses/libx11/generic_MIT  
--rw-rw-r-- root       root             1080 ./usr/share/licenses/libx11/generic_MIT-style  
-drwxr-xr-x root       root               80 ./usr/share/licenses/libxau  
--rw-r--r-- root       root             1148 ./usr/share/licenses/libxau/COPYING  
--rw-rw-r-- root       root             1080 ./usr/share/licenses/libxau/generic_MIT-style  
-drwxr-xr-x root       root               80 ./usr/share/licenses/libxcb  
--rw-r--r-- root       root             1337 ./usr/share/licenses/libxcb/COPYING  
--rw-rw-r-- root       root             1080 ./usr/share/licenses/libxcb/generic_MIT  
-drwxr-xr-x root       root               80 ./usr/share/licenses/libxdmcp  
--rw-r--r-- root       root             1178 ./usr/share/licenses/libxdmcp/COPYING  
--rw-rw-r-- root       root             1080 ./usr/share/licenses/libxdmcp/generic_MIT-style  
 drwxr-xr-x root       root              140 ./usr/share/licenses/libxml2  
 -rw-rw-r-- root       root             1498 ./usr/share/licenses/libxml2/Copyright  
 -rw-rw-r-- root       root             1080 ./usr/share/licenses/libxml2/generic_MIT  
@@ -10349,7 +10306,7 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/opkg-config-bas
 drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosinternals.ipkgservice  
 -rw-rw-r-- root       root            18011 ./usr/share/licenses/org.webosinternals.ipkgservice/LICENSE  
 -rw-rw-r-- root       root            17611 ./usr/share/licenses/org.webosinternals.ipkgservice/generic_GPLv2  
-drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosinternals.preware  
+drwx------ root       root               80 ./usr/share/licenses/org.webosinternals.preware  
 -rw-rw-r-- root       root            18011 ./usr/share/licenses/org.webosinternals.preware/LICENSE  
 -rw-rw-r-- root       root            17611 ./usr/share/licenses/org.webosinternals.preware/generic_GPLv2  
 drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosinternals.service.update  
@@ -10361,16 +10318,16 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosintern
 drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosports.app.calendar  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/org.webosports.app.calendar/Apache-2.0  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/org.webosports.app.calendar/generic_Apache-2.0  
-drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosports.app.firstuse  
+drwx------ root       root               80 ./usr/share/licenses/org.webosports.app.firstuse  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/org.webosports.app.firstuse/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/org.webosports.app.firstuse/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosports.app.memos  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/org.webosports.app.memos/Apache-2.0  
 -rw-rw-r-- 3004       3004            11360 ./usr/share/licenses/org.webosports.app.memos/generic_Apache-2.0  
-drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosports.app.settings  
+drwx------ root       root               80 ./usr/share/licenses/org.webosports.app.settings  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/org.webosports.app.settings/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/org.webosports.app.settings/generic_Apache-2.0  
-drwxr-xr-x root       root               80 ./usr/share/licenses/org.webosports.service.licenses  
+drwx------ root       root               80 ./usr/share/licenses/org.webosports.service.licenses  
 -rw-rw-r-- root       root            18011 ./usr/share/licenses/org.webosports.service.licenses/COPYING  
 -rw-rw-r-- root       root            17611 ./usr/share/licenses/org.webosports.service.licenses/generic_GPLv2  
 drwxr-xr-x root       root               40 ./usr/share/licenses/packagegroup-core-ssh-openssh  
@@ -10828,7 +10785,7 @@ lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
 drwxr-xr-x root       root              140 ./var/volatile  
 drwxr-xr-x root       root               60 ./var/volatile/cache  
 drwx------ root       root               60 ./var/volatile/cache/ldconfig  
--rw------- root       root             9755 ./var/volatile/cache/ldconfig/aux-cache  
+-rw------- root       root             9513 ./var/volatile/cache/ldconfig/aux-cache  
 drwxrwxrwt root       root               60 ./var/volatile/lock  
 drwxr-xr-x root       root               40 ./var/volatile/lock/subsys  
 drwxr-xr-x root       root               40 ./var/volatile/log  
