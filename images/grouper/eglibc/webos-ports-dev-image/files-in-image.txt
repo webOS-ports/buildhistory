@@ -194,7 +194,7 @@ drwxr-xr-x root       root              120 ./etc/default/volatiles
 drwxr-xr-x root       root               60 ./etc/dhcp  
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf  
-drwxr-xr-x root       root             1540 ./etc/event.d  
+drwxr-xr-x root       root             1520 ./etc/event.d  
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady  
 -rw-r--r-- root       root             1623 ./etc/event.d/LunaSysMgr  
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService  
@@ -215,7 +215,6 @@ drwxr-xr-x root       root             1540 ./etc/event.d
 -rw-r--r-- root       root              855 ./etc/event.d/cgroups  
 -rw-r--r-- root       root             2436 ./etc/event.d/configurator  
 -rw-r--r-- root       root              548 ./etc/event.d/configurator-async  
--rw-r--r-- root       root              307 ./etc/event.d/connman  
 -rw-r--r-- root       root              537 ./etc/event.d/console  
 -rw-r--r-- root       root              260 ./etc/event.d/control-alt-delete  
 -rw-r--r-- root       root              111 ./etc/event.d/coredump  
@@ -269,7 +268,7 @@ drwxr-xr-x root       root               40 ./etc/event.d/finish-poststart.d
 -rw-r--r-- root       root              740 ./etc/event.d/udev  
 -rw-r--r-- root       root              942 ./etc/event.d/urandom  
 -rw-r--r-- root       root             2283 ./etc/event.d/usbctrl  
--rw-r--r-- root       root              730 ./etc/event.d/webos-connman-adapter  
+-rw-r--r-- root       root              729 ./etc/event.d/webos-connman-adapter  
 drwxr-xr-x root       root               60 ./etc/event.dis  
 -rw-r--r-- root       root              744 ./etc/event.dis/swaphack  
 -rw-r--r-- root       root               38 ./etc/filesystems  
@@ -280,11 +279,12 @@ drwxr-xr-x root       root               60 ./etc/event.dis
 -rw-r--r-- root       root               26 ./etc/host.conf  
 -rw-r--r-- root       root                8 ./etc/hostname  
 -rw-r--r-- root       root               44 ./etc/hosts  
-drwxr-xr-x root       root              800 ./etc/init.d  
+drwxr-xr-x root       root              820 ./etc/init.d  
 -rwxr-xr-x root       root              250 ./etc/init.d/alignment.sh  
 -rwxr-xr-x root       root              492 ./etc/init.d/banner.sh  
 -rwxr-xr-x root       root             1752 ./etc/init.d/bootmisc.sh  
 -rwxr-xr-x root       root             3229 ./etc/init.d/checkroot.sh  
+-rwxr-xr-x root       root             1084 ./etc/init.d/connman  
 -rwxr-xr-x root       root             2774 ./etc/init.d/dbus-1  
 -rwxr-xr-x root       root              526 ./etc/init.d/devpts.sh  
 lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.initscripts
@@ -511,10 +511,11 @@ drwxr-xr-x root       root              120 ./etc/pulse
 -rw-r--r-- root       root             2331 ./etc/pulse/daemon.conf  
 -rw-r--r-- root       root             5410 ./etc/pulse/default.pa  
 -rw-r--r-- root       root             2284 ./etc/pulse/system.pa  
-drwxr-xr-x root       root              320 ./etc/rc0.d  
+drwxr-xr-x root       root              340 ./etc/rc0.d  
 lrwxrwxrwx root       root               14 ./etc/rc0.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               17 ./etc/rc0.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc0.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc0.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -526,18 +527,21 @@ lrwxrwxrwx root       root               22 ./etc/rc0.d/S31umountnfs.sh -> ../in
 lrwxrwxrwx root       root               18 ./etc/rc0.d/S40umountfs -> ../init.d/umountfs
 lrwxrwxrwx root       root               25 ./etc/rc0.d/S89stop_fbprogress -> ../init.d/stop_fbprogress
 lrwxrwxrwx root       root               14 ./etc/rc0.d/S90halt -> ../init.d/halt
-drwxr-xr-x root       root              120 ./etc/rc1.d  
+drwxr-xr-x root       root              140 ./etc/rc1.d  
 lrwxrwxrwx root       root               14 ./etc/rc1.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               17 ./etc/rc1.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               20 ./etc/rc1.d/K40networking -> ../init.d/networking
-drwxr-xr-x root       root              120 ./etc/rc2.d  
+drwxr-xr-x root       root              140 ./etc/rc2.d  
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S02dbus-1 -> ../init.d/dbus-1
+lrwxrwxrwx root       root               17 ./etc/rc2.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               14 ./etc/rc2.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc2.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              120 ./etc/rc3.d  
+drwxr-xr-x root       root              140 ./etc/rc3.d  
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S02dbus-1 -> ../init.d/dbus-1
+lrwxrwxrwx root       root               17 ./etc/rc3.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               14 ./etc/rc3.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc3.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
@@ -545,15 +549,17 @@ drwxr-xr-x root       root              100 ./etc/rc4.d
 lrwxrwxrwx root       root               14 ./etc/rc4.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc4.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              120 ./etc/rc5.d  
+drwxr-xr-x root       root              140 ./etc/rc5.d  
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S02dbus-1 -> ../init.d/dbus-1
+lrwxrwxrwx root       root               17 ./etc/rc5.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               14 ./etc/rc5.d/S09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc5.d/S99rmnologin.sh -> ../init.d/rmnologin.sh
-drwxr-xr-x root       root              320 ./etc/rc6.d  
+drwxr-xr-x root       root              340 ./etc/rc6.d  
 lrwxrwxrwx root       root               14 ./etc/rc6.d/K09sshd -> ../init.d/sshd
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               17 ./etc/rc6.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               20 ./etc/rc6.d/K40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rc6.d/S00watchdog.sh -> ../init.d/watchdog.sh
 lrwxrwxrwx root       root               26 ./etc/rc6.d/S10orderly_shutdown -> ../init.d/orderly_shutdown
@@ -3105,7 +3111,7 @@ drwxr-xr-x root       root             3860 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               24 ./usr/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            22420 ./usr/lib/opkg/info  
+drwxr-xr-x root       root            22440 ./usr/lib/opkg/info  
 -rw-r--r-- root       root              393 ./usr/lib/opkg/info/activitymanager-lic.control  
 -rw-r--r-- root       root              139 ./usr/lib/opkg/info/activitymanager-lic.list  
 -rw-r--r-- root       root              608 ./usr/lib/opkg/info/activitymanager.control  
@@ -3217,13 +3223,14 @@ drwxr-xr-x root       root            22420 ./usr/lib/opkg/info
 -rw-r--r-- root       root              130 ./usr/lib/opkg/info/configurator-lic.list  
 -rw-r--r-- root       root              546 ./usr/lib/opkg/info/configurator.control  
 -rw-r--r-- root       root              197 ./usr/lib/opkg/info/configurator.list  
--rw-r--r-- root       root             1115 ./usr/lib/opkg/info/connman-lic.control  
+-rw-r--r-- root       root             1022 ./usr/lib/opkg/info/connman-lic.control  
 -rw-r--r-- root       root              142 ./usr/lib/opkg/info/connman-lic.list  
--rw-r--r-- root       root             1119 ./usr/lib/opkg/info/connman-upstart.control  
--rw-r--r-- root       root               21 ./usr/lib/opkg/info/connman-upstart.list  
--rw-r--r-- root       root             1460 ./usr/lib/opkg/info/connman.control  
--rw-r--r-- root       root               88 ./usr/lib/opkg/info/connman.list  
+-rw-r--r-- root       root             1381 ./usr/lib/opkg/info/connman.control  
+-rw-r--r-- root       root              108 ./usr/lib/opkg/info/connman.list  
+-rwxr-xr-x root       root              126 ./usr/lib/opkg/info/connman.postinst  
+-rwxr-xr-x root       root               40 ./usr/lib/opkg/info/connman.postrm  
 -rwxr-xr-x root       root             3164 ./usr/lib/opkg/info/connman.preinst  
+-rwxr-xr-x root       root               65 ./usr/lib/opkg/info/connman.prerm  
 -rw-r--r-- root       root              531 ./usr/lib/opkg/info/cordova-lic.control  
 -rw-r--r-- root       root              112 ./usr/lib/opkg/info/cordova-lic.list  
 -rw-r--r-- root       root              551 ./usr/lib/opkg/info/cordova.control  
@@ -3903,9 +3910,9 @@ drwxr-xr-x root       root            22420 ./usr/lib/opkg/info
 -rw-r--r-- root       root              175 ./usr/lib/opkg/info/org.webosports.app.calendar-lic.list  
 -rw-r--r-- root       root              504 ./usr/lib/opkg/info/org.webosports.app.calendar.control  
 -rw-r--r-- root       root            80673 ./usr/lib/opkg/info/org.webosports.app.calendar.list  
--rw-r--r-- root       root              428 ./usr/lib/opkg/info/org.webosports.app.firstuse-lic.control  
+-rw-r--r-- root       root              442 ./usr/lib/opkg/info/org.webosports.app.firstuse-lic.control  
 -rw-r--r-- root       root              175 ./usr/lib/opkg/info/org.webosports.app.firstuse-lic.list  
--rw-r--r-- root       root              485 ./usr/lib/opkg/info/org.webosports.app.firstuse.control  
+-rw-r--r-- root       root              499 ./usr/lib/opkg/info/org.webosports.app.firstuse.control  
 -rw-r--r-- root       root             2507 ./usr/lib/opkg/info/org.webosports.app.firstuse.list  
 -rw-r--r-- root       root              449 ./usr/lib/opkg/info/org.webosports.app.memos-lic.control  
 -rw-r--r-- root       root              166 ./usr/lib/opkg/info/org.webosports.app.memos-lic.list  
@@ -3941,7 +3948,7 @@ drwxr-xr-x root       root            22420 ./usr/lib/opkg/info
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-ports-extended.list  
 -rw-r--r-- root       root              329 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.control  
 -rw-r--r-- root       root              172 ./usr/lib/opkg/info/packagegroup-webos-upstart-lic.list  
--rw-r--r-- root       root              437 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
+-rw-r--r-- root       root              420 ./usr/lib/opkg/info/packagegroup-webos-upstart.control  
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/packagegroup-webos-upstart.list  
 -rw-r--r-- root       root              466 ./usr/lib/opkg/info/parted-lic.control  
 -rw-r--r-- root       root              104 ./usr/lib/opkg/info/parted-lic.list  
@@ -4194,9 +4201,9 @@ drwxr-xr-x root       root            22420 ./usr/lib/opkg/info
 -rw-r--r-- root       root              151 ./usr/lib/opkg/info/webkit-supplemental-lic.list  
 -rw-r--r-- root       root              557 ./usr/lib/opkg/info/webkit-supplemental.control  
 -rw-r--r-- root       root              101 ./usr/lib/opkg/info/webkit-supplemental.list  
--rw-r--r-- root       root              425 ./usr/lib/opkg/info/webos-connman-adapter-lic.control  
+-rw-r--r-- root       root              496 ./usr/lib/opkg/info/webos-connman-adapter-lic.control  
 -rw-r--r-- root       root              157 ./usr/lib/opkg/info/webos-connman-adapter-lic.list  
--rw-r--r-- root       root              668 ./usr/lib/opkg/info/webos-connman-adapter.control  
+-rw-r--r-- root       root              739 ./usr/lib/opkg/info/webos-connman-adapter.control  
 -rw-r--r-- root       root              329 ./usr/lib/opkg/info/webos-connman-adapter.list  
 -rw-r--r-- root       root              425 ./usr/lib/opkg/info/webos-initscripts-lic.control  
 -rw-r--r-- root       root              195 ./usr/lib/opkg/info/webos-initscripts-lic.list  
@@ -4226,7 +4233,7 @@ drwxr-xr-x root       root            22420 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list  
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst  
 drwxr-xr-x root       root               40 ./usr/lib/opkg/lists  
--rw-r--r-- root       root           112272 ./usr/lib/opkg/status  
+-rw-r--r-- root       root           112107 ./usr/lib/opkg/status  
 drwxr-xr-x root       root               60 ./usr/lib/pulse-2.1  
 drwxr-xr-x root       root              500 ./usr/lib/pulse-2.1/modules  
 -rwxr-xr-x root       root           222068 ./usr/lib/pulse-2.1/modules/libalsa-util.so  
@@ -6348,7 +6355,7 @@ drwxr-xr-x root       root              160 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              164 ./usr/palm/applications/org.webosports.app.firstuse/appinfo.json  
 drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosports.app.firstuse/build  
 -rw-r--r-- root       root            28918 ./usr/palm/applications/org.webosports.app.firstuse/build/app.css  
--rw-r--r-- root       root           108206 ./usr/palm/applications/org.webosports.app.firstuse/build/app.js  
+-rw-r--r-- root       root           108251 ./usr/palm/applications/org.webosports.app.firstuse/build/app.js  
 -rw-r--r-- root       root             2752 ./usr/palm/applications/org.webosports.app.firstuse/build/enyo.css  
 -rw-r--r-- root       root           127355 ./usr/palm/applications/org.webosports.app.firstuse/build/enyo.js  
 lrwxrwxrwx root       root               39 ./usr/palm/applications/org.webosports.app.firstuse/cordova.js -> /usr/palm/frameworks/cordova/cordova.js
@@ -9890,7 +9897,7 @@ lrwxrwxrwx root       root               15 ./usr/sbin/chpasswd -> chpasswd.shad
 -rwxr-xr-x root       root            28020 ./usr/sbin/chpasswd.shadow  
 lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busybox
 -rwxr-xr-x root       root            93392 ./usr/sbin/configurator  
--rwxr-xr-x root       root           535572 ./usr/sbin/connmand  
+-rwxr-xr-x root       root           544868 ./usr/sbin/connmand  
 -rwxr-xr-x root       root            26448 ./usr/sbin/crash_handler  
 -rwxr-xr-x root       root             3432 ./usr/sbin/delpart  
 -rwxr-xr-x root       root             5832 ./usr/sbin/elvtune  
@@ -10334,7 +10341,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/3.6/config
 -rw-r--r-- root       root             1977 ./usr/share/icu/3.6/license.html  
 -rwxr-xr-x root       root              935 ./usr/share/icu/3.6/mkinstalldirs  
 drwxr-xr-x root       root               40 ./usr/share/info  
-drwx------ root       root             3580 ./usr/share/licenses  
+drwxr-xr-x root       root             3580 ./usr/share/licenses  
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0  
@@ -10791,16 +10798,16 @@ drwx------ root       root               40 ./usr/share/licenses/packagegroup-co
 drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-boot  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-boot/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-boot/generic_Apache-2.0  
-drwx------ root       root               80 ./usr/share/licenses/packagegroup-webos-extended  
+drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-extended  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-extended/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-extended/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-ports-development  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-ports-development/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-ports-development/generic_Apache-2.0  
-drwx------ root       root               80 ./usr/share/licenses/packagegroup-webos-ports-extended  
+drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-ports-extended  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-ports-extended/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-ports-extended/generic_Apache-2.0  
-drwx------ root       root               80 ./usr/share/licenses/packagegroup-webos-upstart  
+drwxr-xr-x root       root               80 ./usr/share/licenses/packagegroup-webos-upstart  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-upstart/Apache-2.0  
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/packagegroup-webos-upstart/generic_Apache-2.0  
 drwxr-xr-x root       root               80 ./usr/share/licenses/parted  
