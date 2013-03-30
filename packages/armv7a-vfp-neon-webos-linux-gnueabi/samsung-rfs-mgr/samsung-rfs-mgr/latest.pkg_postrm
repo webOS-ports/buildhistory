@@ -1,6 +1,9 @@
 #!/bin/sh
-if [ "$D" != "" ]; then
-	update-rc.d -f -r $D samsung-rfs-mgr remove
+if test "$D" != ""; then
+	OPT="-f -r $D"
 else
-	update-rc.d samsung-rfs-mgr remove
+	OPT=""
+fi
+if type update-rc.d >/dev/null; then
+	update-rc.d $OPT samsung-rfs-mgr remove
 fi
