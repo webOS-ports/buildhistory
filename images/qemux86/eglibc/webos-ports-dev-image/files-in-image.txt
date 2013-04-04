@@ -1398,6 +1398,7 @@ lrwxrwxrwx root       root                9 ./mnt/cf -> /media/cf
 lrwxrwxrwx root       root               10 ./mnt/net -> /media/net
 lrwxrwxrwx root       root               10 ./mnt/ram -> /media/ram
 drwxr-xr-x root       root             4096 ./proc
+drwxr-xr-x root       root             4096 ./run
 drwxr-xr-x root       root             4096 ./sbin
 -rwxr-xr-x root       root            24636 ./sbin/agetty
 -rwxr-xr-x root       root            21524 ./sbin/badblocks
@@ -1812,7 +1813,6 @@ lrwxrwxrwx root       root               41 ./usr/i586-webos-linux/bin/objcopy -
 lrwxrwxrwx root       root               41 ./usr/i586-webos-linux/bin/objdump -> ../../../usr/bin/i586-webos-linux-objdump
 lrwxrwxrwx root       root               40 ./usr/i586-webos-linux/bin/ranlib -> ../../../usr/bin/i586-webos-linux-ranlib
 lrwxrwxrwx root       root               39 ./usr/i586-webos-linux/bin/strip -> ../../../usr/bin/i586-webos-linux-strip
-drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root            12288 ./usr/lib
 drwxr-xr-x root       root             4096 ./usr/lib/BrowserPlugins
 -rwxr-xr-x root       root           190372 ./usr/lib/BrowserPlugins/BrowserAdapter.so
@@ -2656,11 +2656,11 @@ drwxr-xr-x root       root            53248 ./usr/lib/opkg/info
 -rw-r--r-- root       root              130 ./usr/lib/opkg/info/app-services-lic.list
 -rw-r--r-- root       root              362 ./usr/lib/opkg/info/app-services.control
 -rw-r--r-- root       root            19154 ./usr/lib/opkg/info/app-services.list
--rw-r--r-- root       root              639 ./usr/lib/opkg/info/base-files-lic.control
+-rw-r--r-- root       root              645 ./usr/lib/opkg/info/base-files-lic.control
 -rw-r--r-- root       root              114 ./usr/lib/opkg/info/base-files-lic.list
 -rw-r--r-- root       root               25 ./usr/lib/opkg/info/base-files.conffiles
--rw-r--r-- root       root              662 ./usr/lib/opkg/info/base-files.control
--rw-r--r-- root       root              660 ./usr/lib/opkg/info/base-files.list
+-rw-r--r-- root       root              668 ./usr/lib/opkg/info/base-files.control
+-rw-r--r-- root       root              704 ./usr/lib/opkg/info/base-files.list
 -rw-r--r-- root       root              529 ./usr/lib/opkg/info/base-passwd-lic.control
 -rw-r--r-- root       root              119 ./usr/lib/opkg/info/base-passwd-lic.list
 -rw-r--r-- root       root              553 ./usr/lib/opkg/info/base-passwd.control
@@ -3818,7 +3818,7 @@ drwxr-xr-x root       root            53248 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root             4096 ./usr/lib/opkg/lists
--rw-r--r-- root       root           109460 ./usr/lib/opkg/status
+-rw-r--r-- root       root           109472 ./usr/lib/opkg/status
 drwxr-xr-x root       root             4096 ./usr/lib/pulse-3.0
 drwxr-xr-x root       root             4096 ./usr/lib/pulse-3.0/modules
 -rwxr-xr-x root       root           276488 ./usr/lib/pulse-3.0/modules/libalsa-util.so
@@ -9973,8 +9973,8 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/app-services
 -rw-r--r-- root       root            11360 ./usr/share/licenses/app-services/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/app-services/generic_Apache-2.0
 drwxr-xr-x root       root             4096 ./usr/share/licenses/base-files
--rw-r--r-- 1026       1026            17992 ./usr/share/licenses/base-files/GPL-2
--rw-r--r-- 1026       1026            17611 ./usr/share/licenses/base-files/generic_GPLv2
+-rw-r--r-- root       root            17992 ./usr/share/licenses/base-files/GPL-2
+-rw-r--r-- root       root            17611 ./usr/share/licenses/base-files/generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/licenses/base-passwd
 -rw-r--r-- root       root            18011 ./usr/share/licenses/base-passwd/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/base-passwd/generic_GPLv2
@@ -10777,6 +10777,9 @@ drwxr-xr-x root       root             4096 ./usr/share/zoneinfo/Pacific
 drwxr-xr-x root       root             4096 ./usr/src
 drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/backups
+drwxr-xr-x root       root             4096 ./var/cache
+drwx------ root       root             4096 ./var/cache/ldconfig
+-rw------- root       root             9548 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/lib
 drwxr-xr-x root       root             4096 ./var/lib/alsa
 -rw-r--r-- root       root               28 ./var/lib/alsa/asound.state
@@ -10786,13 +10789,14 @@ drwxr-xr-x root       root             4096 ./var/lib/dhcp
 drwxr-xr-x root       root             4096 ./var/lib/misc
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
-lrwxrwxrwx root       root               13 ./var/lock -> volatile/lock
+drwxr-xr-x root       root             4096 ./var/lock
+drwxr-xr-x root       root             4096 ./var/lock/subsys
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
 drwxr-xr-x root       root             4096 ./var/opt
 lrwxrwxrwx root       root               12 ./var/run -> volatile/run
 drwxr-xr-x root       root             4096 ./var/spool
 drwxr-xr-x root       root             4096 ./var/spool/mail
-lrwxrwxrwx root       root               12 ./var/tmp -> volatile/tmp
+drwxr-xr-x root       root             4096 ./var/tmp
 drwxr-xr-x root       root             4096 ./var/volatile
 drwxr-xr-t root       root             4096 ./var/volatile/lock
 drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys
