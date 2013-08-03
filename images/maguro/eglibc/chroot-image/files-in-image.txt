@@ -65,23 +65,15 @@ lrwxrwxrwx root       root               26 ./etc/init.d/syslog -> /etc/init.d/s
 -rw-r--r-- root       root              907 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root              720 ./etc/passwd
-drwxr-xr-x root       root             4096 ./etc/rc0.d
-lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc1.d
-lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc2.d
-lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc3.d
-lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc4.d
-lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc5.d
-lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
-drwxr-xr-x root       root             4096 ./etc/rc6.d
-lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
 drwxr-xr-x root       root             4096 ./etc/rcS.d
 lrwxrwxrwx root       root               32 ./etc/syslog-startup.conf -> /etc/syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox
+drwxr-xr-x root       root             4096 ./etc/systemd
+drwxr-xr-x root       root             4096 ./etc/systemd/system
+drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.target.wants
+lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
+lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
+lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
 -rw-r--r-- root       root               13 ./etc/timestamp
 -rw-r--r-- root       root               13 ./etc/version
 -rwxr-xr-x root       root             2494 ./init
@@ -129,6 +121,8 @@ drwxr-xr-x root       root             4096 ./lib/modules/3.0.31
 -rw-r--r-- root       root               12 ./lib/modules/3.0.31/modules.symbols.bin
 drwxr-xr-x root       root             4096 ./lib/systemd
 drwxr-xr-x root       root             4096 ./lib/systemd/system
+-rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service
+-rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service -> /dev/null
 drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               12 ./sbin/fdisk -> /bin/busybox
@@ -257,75 +251,75 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/chroot-script
 -rw-r--r-- root       root             1035 ./usr/share/licenses/chroot-script/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/chroot-script/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/eglibc
--rw-r--r-- 1026       1026            18009 ./usr/share/licenses/eglibc/COPYING
--rw-r--r-- 1026       1026            26536 ./usr/share/licenses/eglibc/COPYING.LIB
--rw-r--r-- 1026       1026              956 ./usr/share/licenses/eglibc/COPYRIGHT
--rw-r--r-- 1026       1026            22359 ./usr/share/licenses/eglibc/LICENSES
--rw-r--r-- 1026       1026            17611 ./usr/share/licenses/eglibc/generic_GPLv2
--rw-r--r-- 1026       1026            25878 ./usr/share/licenses/eglibc/generic_LGPLv2.1
+-rw-r--r-- root       root            18009 ./usr/share/licenses/eglibc/COPYING
+-rw-r--r-- root       root            26536 ./usr/share/licenses/eglibc/COPYING.LIB
+-rw-r--r-- root       root              956 ./usr/share/licenses/eglibc/COPYRIGHT
+-rw-r--r-- root       root            22359 ./usr/share/licenses/eglibc/LICENSES
+-rw-r--r-- root       root            17611 ./usr/share/licenses/eglibc/generic_GPLv2
+-rw-r--r-- root       root            25878 ./usr/share/licenses/eglibc/generic_LGPLv2.1
 drwxr-xr-x root       root             4096 ./usr/share/licenses/run-postinsts
 -rw-r--r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-r--r-- root       root              545 ./usr/share/licenses/run-postinsts/LICENSE
 -rw-r--r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
-crw-rw---- root       plugdev           10, 10:37 ./dev/apm_bios
-crw-rw--w- root       tty                5, 10:37 ./dev/console
-crw------- root       root              29, 10:37 ./dev/fb0
-brw-rw---- root       disk               3, 10:37 ./dev/hda
-brw-rw---- root       root               3, 10:37 ./dev/hda1
-brw-rw---- root       root               3, 10:37 ./dev/hda10
-brw-rw---- root       root               3, 10:37 ./dev/hda11
-brw-rw---- root       root               3, 10:37 ./dev/hda12
-brw-rw---- root       root               3, 10:37 ./dev/hda13
-brw-rw---- root       root               3, 10:37 ./dev/hda14
-brw-rw---- root       root               3, 10:37 ./dev/hda15
-brw-rw---- root       root               3, 10:37 ./dev/hda16
-brw-rw---- root       root               3, 10:37 ./dev/hda17
-brw-rw---- root       root               3, 10:37 ./dev/hda18
-brw-rw---- root       root               3, 10:37 ./dev/hda19
-brw-rw---- root       root               3, 10:37 ./dev/hda2
-brw-rw---- root       root               3, 10:37 ./dev/hda3
-brw-rw---- root       root               3, 10:37 ./dev/hda4
-brw-rw---- root       root               3, 10:37 ./dev/hda5
-brw-rw---- root       root               3, 10:37 ./dev/hda6
-brw-rw---- root       root               3, 10:37 ./dev/hda7
-brw-rw---- root       root               3, 10:37 ./dev/hda8
-brw-rw---- root       root               3, 10:37 ./dev/hda9
-crw-r----- root       kmem               1, 10:37 ./dev/kmem
-crw------- root       root               1, 10:37 ./dev/kmsg
-crw-r----- root       kmem               1, 10:37 ./dev/mem
-crw-rw---- root       root              90, 10:37 ./dev/mtd0
-crw-rw---- root       root              90, 10:37 ./dev/mtd1
-crw-rw---- root       root              90, 10:37 ./dev/mtd2
-crw-rw---- root       root              90, 10:37 ./dev/mtd3
-crw-rw---- root       root              90, 10:37 ./dev/mtd4
-crw-rw---- root       root              90, 10:37 ./dev/mtd5
-crw-rw---- root       root              90, 10:37 ./dev/mtd6
-crw-rw---- root       root              90, 10:37 ./dev/mtd7
-brw-r----- root       root              31, 10:37 ./dev/mtdblock0
-brw-r----- root       root              31, 10:37 ./dev/mtdblock1
-brw-r----- root       root              31, 10:37 ./dev/mtdblock2
-brw-r----- root       root              31, 10:37 ./dev/mtdblock3
-brw-r----- root       root              31, 10:37 ./dev/mtdblock4
-brw-r----- root       root              31, 10:37 ./dev/mtdblock5
-brw-r----- root       root              31, 10:37 ./dev/mtdblock6
-brw-r----- root       root              31, 10:37 ./dev/mtdblock7
-crw-rw-rw- root       root               1, 10:37 ./dev/null
-brw-r----- root       root               1, 10:37 ./dev/ram0
-brw-r----- root       root               1, 10:37 ./dev/ram1
-brw-r----- root       root               1, 10:37 ./dev/ram2
-brw-r----- root       root               1, 10:37 ./dev/ram3
-crw-r--r-- root       root               1, 10:37 ./dev/random
-crw-rw--w- root       tty                5, 10:37 ./dev/tty
-crw-rw-rw- root       root               4, 10:37 ./dev/tty0
-crw-rw-rw- root       root               4, 10:37 ./dev/tty1
-crw-rw-rw- root       root               4, 10:37 ./dev/tty2
-crw-rw-rw- root       root               4, 10:37 ./dev/tty3
-crw-rw-rw- root       root               4, 10:37 ./dev/tty4
-crw-rw-rw- root       root               4, 10:37 ./dev/tty5
-crw-rw-rw- root       root               4, 10:37 ./dev/tty6
-crw-rw-rw- root       root               4, 10:37 ./dev/tty7
-crw-rw-rw- root       root               4, 10:37 ./dev/tty8
-crw-r----- root       root               4, 10:37 ./dev/ttyS0
-crw-r----- root       root             204, 10:37 ./dev/ttySA0
-crw-r--r-- root       root               1, 10:37 ./dev/urandom
-crw-r--r-- root       root               1, 10:37 ./dev/zero
+crw-rw---- root       plugdev           10, 19:15 ./dev/apm_bios
+crw-rw--w- root       tty                5, 19:15 ./dev/console
+crw------- root       root              29, 19:15 ./dev/fb0
+brw-rw---- root       disk               3, 19:15 ./dev/hda
+brw-rw---- root       root               3, 19:15 ./dev/hda1
+brw-rw---- root       root               3, 19:15 ./dev/hda10
+brw-rw---- root       root               3, 19:15 ./dev/hda11
+brw-rw---- root       root               3, 19:15 ./dev/hda12
+brw-rw---- root       root               3, 19:15 ./dev/hda13
+brw-rw---- root       root               3, 19:15 ./dev/hda14
+brw-rw---- root       root               3, 19:15 ./dev/hda15
+brw-rw---- root       root               3, 19:15 ./dev/hda16
+brw-rw---- root       root               3, 19:15 ./dev/hda17
+brw-rw---- root       root               3, 19:15 ./dev/hda18
+brw-rw---- root       root               3, 19:15 ./dev/hda19
+brw-rw---- root       root               3, 19:15 ./dev/hda2
+brw-rw---- root       root               3, 19:15 ./dev/hda3
+brw-rw---- root       root               3, 19:15 ./dev/hda4
+brw-rw---- root       root               3, 19:15 ./dev/hda5
+brw-rw---- root       root               3, 19:15 ./dev/hda6
+brw-rw---- root       root               3, 19:15 ./dev/hda7
+brw-rw---- root       root               3, 19:15 ./dev/hda8
+brw-rw---- root       root               3, 19:15 ./dev/hda9
+crw-r----- root       kmem               1, 19:15 ./dev/kmem
+crw------- root       root               1, 19:15 ./dev/kmsg
+crw-r----- root       kmem               1, 19:15 ./dev/mem
+crw-rw---- root       root              90, 19:15 ./dev/mtd0
+crw-rw---- root       root              90, 19:15 ./dev/mtd1
+crw-rw---- root       root              90, 19:15 ./dev/mtd2
+crw-rw---- root       root              90, 19:15 ./dev/mtd3
+crw-rw---- root       root              90, 19:15 ./dev/mtd4
+crw-rw---- root       root              90, 19:15 ./dev/mtd5
+crw-rw---- root       root              90, 19:15 ./dev/mtd6
+crw-rw---- root       root              90, 19:15 ./dev/mtd7
+brw-r----- root       root              31, 19:15 ./dev/mtdblock0
+brw-r----- root       root              31, 19:15 ./dev/mtdblock1
+brw-r----- root       root              31, 19:15 ./dev/mtdblock2
+brw-r----- root       root              31, 19:15 ./dev/mtdblock3
+brw-r----- root       root              31, 19:15 ./dev/mtdblock4
+brw-r----- root       root              31, 19:15 ./dev/mtdblock5
+brw-r----- root       root              31, 19:15 ./dev/mtdblock6
+brw-r----- root       root              31, 19:15 ./dev/mtdblock7
+crw-rw-rw- root       root               1, 19:15 ./dev/null
+brw-r----- root       root               1, 19:15 ./dev/ram0
+brw-r----- root       root               1, 19:15 ./dev/ram1
+brw-r----- root       root               1, 19:15 ./dev/ram2
+brw-r----- root       root               1, 19:15 ./dev/ram3
+crw-r--r-- root       root               1, 19:15 ./dev/random
+crw-rw--w- root       tty                5, 19:15 ./dev/tty
+crw-rw-rw- root       root               4, 19:15 ./dev/tty0
+crw-rw-rw- root       root               4, 19:15 ./dev/tty1
+crw-rw-rw- root       root               4, 19:15 ./dev/tty2
+crw-rw-rw- root       root               4, 19:15 ./dev/tty3
+crw-rw-rw- root       root               4, 19:15 ./dev/tty4
+crw-rw-rw- root       root               4, 19:15 ./dev/tty5
+crw-rw-rw- root       root               4, 19:15 ./dev/tty6
+crw-rw-rw- root       root               4, 19:15 ./dev/tty7
+crw-rw-rw- root       root               4, 19:15 ./dev/tty8
+crw-r----- root       root               4, 19:15 ./dev/ttyS0
+crw-r----- root       root             204, 19:15 ./dev/ttySA0
+crw-r--r-- root       root               1, 19:15 ./dev/urandom
+crw-r--r-- root       root               1, 19:15 ./dev/zero
