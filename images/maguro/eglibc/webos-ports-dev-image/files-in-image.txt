@@ -54,7 +54,7 @@ lrwxrwxrwx root       root               14 ./bin/pidof.sysvinit -> /sbin/killal
 lrwxrwxrwx root       root               17 ./bin/ping -> /bin/busybox.suid
 lrwxrwxrwx root       root               17 ./bin/ping6 -> /bin/busybox.suid
 lrwxrwxrwx root       root               14 ./bin/ps -> /bin/ps.procps
--rwxr-xr-x root       root            66164 ./bin/ps.procps
+-r-xr-xr-x root       root            67956 ./bin/ps.procps
 lrwxrwxrwx root       root               19 ./bin/pwd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rm -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rmdir -> /bin/busybox.nosuid
@@ -455,6 +455,7 @@ drwxr-xr-x root       root             4096 ./etc/ssh
 -rw-r--r-- root       root           242153 ./etc/ssh/moduli
 -rw-r--r-- root       root             1494 ./etc/ssh/ssh_config
 -rw-r--r-- root       root             3243 ./etc/ssh/sshd_config
+-rw-r--r-- root       root             3221 ./etc/ssh/sshd_config_readonly
 drwxr-xr-x root       root             4096 ./etc/ssl
 drwxr-xr-x root       root            20480 ./etc/ssl/certs
 lrwxrwxrwx root       root               29 ./etc/ssl/certs/024dc131.0 -> Microsec_e-Szigno_Root_CA.pem
@@ -1429,7 +1430,7 @@ lrwxrwxrwx root       root               19 ./sbin/logread -> /bin/busybox.nosui
 lrwxrwxrwx root       root               24 ./sbin/losetup -> /sbin/losetup.util-linux
 -rwxr-xr-x root       root            56000 ./sbin/losetup.util-linux
 lrwxrwxrwx root       root               19 ./sbin/lsmod -> /bin/busybox.nosuid
--rwxr-xr-x root       root             8504 ./sbin/makedevs
+-rwxr-xr-x root       root             9588 ./sbin/makedevs
 -rwxr-xr-x root       root            10380 ./sbin/mingetty
 lrwxrwxrwx root       root               27 ./sbin/mkfs.minix -> /sbin/mkfs.minix.util-linux
 -rwxr-xr-x root       root            26828 ./sbin/mkfs.minix.util-linux
@@ -4994,11 +4995,11 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root               22 ./usr/lib/opkg/info/fuser.list
 -rwxr-xr-x root       root               87 ./usr/lib/opkg/info/fuser.postinst
 -rwxr-xr-x root       root               69 ./usr/lib/opkg/info/fuser.postrm
--rw-r--r-- root       root              464 ./usr/lib/opkg/info/gdb-lic.control
+-rw-r--r-- root       root              465 ./usr/lib/opkg/info/gdb-lic.control
 -rw-r--r-- root       root              317 ./usr/lib/opkg/info/gdb-lic.list
--rw-r--r-- root       root              605 ./usr/lib/opkg/info/gdb.control
+-rw-r--r-- root       root              606 ./usr/lib/opkg/info/gdb.control
 -rw-r--r-- root       root             1062 ./usr/lib/opkg/info/gdb.list
--rw-r--r-- root       root              519 ./usr/lib/opkg/info/gdbserver.control
+-rw-r--r-- root       root              520 ./usr/lib/opkg/info/gdbserver.control
 -rw-r--r-- root       root               19 ./usr/lib/opkg/info/gdbserver.list
 -rw-r--r-- root       root              567 ./usr/lib/opkg/info/glib-networking-lic.control
 -rw-r--r-- root       root              132 ./usr/lib/opkg/info/glib-networking-lic.list
@@ -5128,11 +5129,10 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rwxr-xr-x root       root              250 ./usr/lib/opkg/info/kbd.postrm
 -rw-r--r-- root       root              544 ./usr/lib/opkg/info/kernel-3.0.31.control
 -rw-r--r-- root       root               70 ./usr/lib/opkg/info/kernel-3.0.31.list
--rwxr-xr-x root       root               79 ./usr/lib/opkg/info/kernel-3.0.31.postinst
--rwxr-xr-x root       root               59 ./usr/lib/opkg/info/kernel-3.0.31.postrm
 -rw-r--r-- root       root              497 ./usr/lib/opkg/info/kernel-image-3.0.31.control
 -rw-r--r-- root       root               27 ./usr/lib/opkg/info/kernel-image-3.0.31.list
--rwxr-xr-x root       root              155 ./usr/lib/opkg/info/kernel-image-3.0.31.postinst
+-rwxr-xr-x root       root              242 ./usr/lib/opkg/info/kernel-image-3.0.31.postinst
+-rwxr-xr-x root       root               59 ./usr/lib/opkg/info/kernel-image-3.0.31.postrm
 -rw-r--r-- root       root              461 ./usr/lib/opkg/info/kernel-module-autofs4.control
 -rw-r--r-- root       root              182 ./usr/lib/opkg/info/kernel-module-autofs4.list
 -rwxr-xr-x root       root               89 ./usr/lib/opkg/info/kernel-module-autofs4.postinst
@@ -5394,7 +5394,7 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root              508 ./usr/lib/opkg/info/libogg0.control
 -rw-r--r-- root       root               46 ./usr/lib/opkg/info/libogg0.list
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libogg0.postinst
--rw-r--r-- root       root              436 ./usr/lib/opkg/info/libopkg1.control
+-rw-r--r-- root       root              398 ./usr/lib/opkg/info/libopkg1.control
 -rw-r--r-- root       root               63 ./usr/lib/opkg/info/libopkg1.list
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/libopkg1.postinst
 -rw-r--r-- root       root              365 ./usr/lib/opkg/info/libpalmsocket-lic.control
@@ -5742,7 +5742,7 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rwxr-xr-x root       root               66 ./usr/lib/opkg/info/openssh-ssh.postrm
 -rw-r--r-- root       root               21 ./usr/lib/opkg/info/openssh-sshd.conffiles
 -rw-r--r-- root       root              950 ./usr/lib/opkg/info/openssh-sshd.control
--rw-r--r-- root       root              158 ./usr/lib/opkg/info/openssh-sshd.list
+-rw-r--r-- root       root              188 ./usr/lib/opkg/info/openssh-sshd.list
 -rwxr-xr-x root       root              233 ./usr/lib/opkg/info/openssh-sshd.postinst
 -rwxr-xr-x root       root             5456 ./usr/lib/opkg/info/openssh-sshd.preinst
 -rwxr-xr-x root       root              147 ./usr/lib/opkg/info/openssh-sshd.prerm
@@ -5764,28 +5764,28 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root               20 ./usr/lib/opkg/info/opkg-config-base.conffiles
 -rw-r--r-- root       root              327 ./usr/lib/opkg/info/opkg-config-base.control
 -rw-r--r-- root       root               20 ./usr/lib/opkg/info/opkg-config-base.list
--rw-r--r-- root       root              403 ./usr/lib/opkg/info/opkg-lic.control
+-rw-r--r-- root       root              365 ./usr/lib/opkg/info/opkg-lic.control
 -rw-r--r-- root       root              133 ./usr/lib/opkg/info/opkg-lic.list
 -rw-r--r-- root       root              405 ./usr/lib/opkg/info/opkg-utils-lic.control
 -rw-r--r-- root       root              155 ./usr/lib/opkg/info/opkg-utils-lic.list
 -rw-r--r-- root       root              633 ./usr/lib/opkg/info/opkg-utils.control
 -rw-r--r-- root       root              321 ./usr/lib/opkg/info/opkg-utils.list
--rw-r--r-- root       root              541 ./usr/lib/opkg/info/opkg.control
+-rw-r--r-- root       root              503 ./usr/lib/opkg/info/opkg.control
 -rw-r--r-- root       root              188 ./usr/lib/opkg/info/opkg.list
 -rwxr-xr-x root       root              535 ./usr/lib/opkg/info/opkg.postinst
 -rwxr-xr-x root       root               63 ./usr/lib/opkg/info/opkg.postrm
--rw-r--r-- root       root              445 ./usr/lib/opkg/info/org.webosinternals.ipkgservice-lic.control
+-rw-r--r-- root       root              446 ./usr/lib/opkg/info/org.webosinternals.ipkgservice-lic.control
 -rw-r--r-- root       root              176 ./usr/lib/opkg/info/org.webosinternals.ipkgservice-lic.list
--rw-r--r-- root       root              592 ./usr/lib/opkg/info/org.webosinternals.ipkgservice.control
+-rw-r--r-- root       root              593 ./usr/lib/opkg/info/org.webosinternals.ipkgservice.control
 -rw-r--r-- root       root              346 ./usr/lib/opkg/info/org.webosinternals.ipkgservice.list
 -rwxr-xr-x root       root             4637 ./usr/lib/opkg/info/org.webosinternals.ipkgservice.postinst
 -rw-r--r-- root       root              434 ./usr/lib/opkg/info/org.webosinternals.preware-lic.control
 -rw-r--r-- root       root              164 ./usr/lib/opkg/info/org.webosinternals.preware-lic.list
 -rw-r--r-- root       root              490 ./usr/lib/opkg/info/org.webosinternals.preware.control
 -rw-r--r-- root       root             3477 ./usr/lib/opkg/info/org.webosinternals.preware.list
--rw-r--r-- root       root              509 ./usr/lib/opkg/info/org.webosinternals.service.update-lic.control
+-rw-r--r-- root       root              510 ./usr/lib/opkg/info/org.webosinternals.service.update-lic.control
 -rw-r--r-- root       root              185 ./usr/lib/opkg/info/org.webosinternals.service.update-lic.list
--rw-r--r-- root       root              692 ./usr/lib/opkg/info/org.webosinternals.service.update.control
+-rw-r--r-- root       root              693 ./usr/lib/opkg/info/org.webosinternals.service.update.control
 -rw-r--r-- root       root              364 ./usr/lib/opkg/info/org.webosinternals.service.update.list
 -rw-r--r-- root       root              490 ./usr/lib/opkg/info/org.webosinternals.service.upstartmgr-lic.control
 -rw-r--r-- root       root              197 ./usr/lib/opkg/info/org.webosinternals.service.upstartmgr-lic.list
@@ -5955,10 +5955,10 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root              117 ./usr/lib/opkg/info/powerstat-lic.list
 -rw-r--r-- root       root              568 ./usr/lib/opkg/info/powerstat.control
 -rw-r--r-- root       root               19 ./usr/lib/opkg/info/powerstat.list
--rw-r--r-- root       root              781 ./usr/lib/opkg/info/procps-lic.control
+-rw-r--r-- root       root              817 ./usr/lib/opkg/info/procps-lic.control
 -rw-r--r-- root       root              185 ./usr/lib/opkg/info/procps-lic.list
 -rw-r--r-- root       root               17 ./usr/lib/opkg/info/procps.conffiles
--rw-r--r-- root       root              895 ./usr/lib/opkg/info/procps.control
+-rw-r--r-- root       root              931 ./usr/lib/opkg/info/procps.control
 -rw-r--r-- root       root              352 ./usr/lib/opkg/info/procps.list
 -rwxr-xr-x root       root              905 ./usr/lib/opkg/info/procps.postinst
 -rwxr-xr-x root       root              634 ./usr/lib/opkg/info/procps.postrm
@@ -6214,7 +6214,7 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rwxr-xr-x root       root              540 ./usr/lib/opkg/info/tzdata.postinst
 -rw-r--r-- root       root              591 ./usr/lib/opkg/info/udev-hwdb.control
 -rw-r--r-- root       root              292 ./usr/lib/opkg/info/udev-hwdb.list
--rwxr-xr-x root       root              171 ./usr/lib/opkg/info/udev-hwdb.postinst
+-rwxr-xr-x root       root              185 ./usr/lib/opkg/info/udev-hwdb.postinst
 -rwxr-xr-x root       root               63 ./usr/lib/opkg/info/udev-hwdb.prerm
 -rw-r--r-- root       root              674 ./usr/lib/opkg/info/udev-utils.control
 -rw-r--r-- root       root               60 ./usr/lib/opkg/info/udev-utils.list
@@ -6224,7 +6224,7 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root              124 ./usr/lib/opkg/info/underscore-lic.list
 -rw-r--r-- root       root              491 ./usr/lib/opkg/info/underscore.control
 -rw-r--r-- root       root              407 ./usr/lib/opkg/info/underscore.list
--rw-r--r-- root       root              486 ./usr/lib/opkg/info/update-alternatives-cworth.control
+-rw-r--r-- root       root              448 ./usr/lib/opkg/info/update-alternatives-cworth.control
 -rw-r--r-- root       root               29 ./usr/lib/opkg/info/update-alternatives-cworth.list
 -rw-r--r-- root       root              937 ./usr/lib/opkg/info/util-linux-agetty.control
 -rw-r--r-- root       root               13 ./usr/lib/opkg/info/util-linux-agetty.list
@@ -6308,9 +6308,9 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root              640 ./usr/lib/opkg/info/wpa-supplicant.list
 -rwxr-xr-x root       root              496 ./usr/lib/opkg/info/wpa-supplicant.postinst
 -rwxr-xr-x root       root              293 ./usr/lib/opkg/info/wpa-supplicant.prerm
--rw-r--r-- root       root              278 ./usr/lib/opkg/info/xuser-account-lic.control
+-rw-r--r-- root       root              279 ./usr/lib/opkg/info/xuser-account-lic.control
 -rw-r--r-- root       root              127 ./usr/lib/opkg/info/xuser-account-lic.list
--rw-r--r-- root       root              333 ./usr/lib/opkg/info/xuser-account.control
+-rw-r--r-- root       root              334 ./usr/lib/opkg/info/xuser-account.control
 -rw-r--r-- root       root                0 ./usr/lib/opkg/info/xuser-account.list
 -rwxr-xr-x root       root             5569 ./usr/lib/opkg/info/xuser-account.preinst
 -rw-r--r-- root       root              356 ./usr/lib/opkg/info/yajl-lic.control
@@ -6319,7 +6319,7 @@ drwxr-xr-x root       root            77824 ./usr/lib/opkg/info
 -rw-r--r-- root       root               93 ./usr/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./usr/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root             4096 ./usr/lib/opkg/lists
--rw-r--r-- root       root           158287 ./usr/lib/opkg/status
+-rw-r--r-- root       root           158296 ./usr/lib/opkg/status
 drwxr-xr-x root       root             4096 ./usr/lib/perl
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.3
 -r--r--r-- root       root            26381 ./usr/lib/perl/5.14.3/B.pm
@@ -13089,37 +13089,37 @@ drwxr-xr-x root       root             4096 ./usr/share/fontconfig/conf.avail
 -rw-r--r-- root       root              422 ./usr/share/fontconfig/conf.avail/80-delicious.conf
 -rw-r--r-- root       root             1691 ./usr/share/fontconfig/conf.avail/90-synthetic.conf
 drwxr-xr-x root       root             4096 ./usr/share/fonts
--rw-r--r-- root       xuser           55644 ./usr/share/fonts/Prelude-Bold.ttf
--rw-r--r-- root       xuser           51436 ./usr/share/fonts/Prelude-BoldOblique.ttf
--rw-r--r-- root       xuser           56548 ./usr/share/fonts/Prelude-Medium.ttf
--rw-r--r-- root       xuser           51612 ./usr/share/fonts/Prelude-MediumOblique.ttf
--rw-r--r-- root       xuser           91892 ./usr/share/fonts/PreludeCompWGL-Black.ttf
--rw-r--r-- root       xuser          331480 ./usr/share/fonts/PreludeCompWGL-BlackItalic.ttf
--rw-r--r-- root       xuser          378452 ./usr/share/fonts/PreludeCompWGL-Bold.ttf
--rw-r--r-- root       xuser          325592 ./usr/share/fonts/PreludeCompWGL-BoldItalic.ttf
--rw-r--r-- root       xuser          369960 ./usr/share/fonts/PreludeCompWGL-Light.ttf
--rw-r--r-- root       xuser          313528 ./usr/share/fonts/PreludeCompWGL-LightItalic.ttf
--rw-r--r-- root       xuser          371136 ./usr/share/fonts/PreludeCompWGL-Medium.ttf
--rw-r--r-- root       xuser          315356 ./usr/share/fonts/PreludeCompWGL-MediumItalic.ttf
--rw-r--r-- root       xuser          108552 ./usr/share/fonts/PreludeCondWGL-Black.ttf
--rw-r--r-- root       xuser          347452 ./usr/share/fonts/PreludeCondWGL-BlackItalic.ttf
--rw-r--r-- root       xuser           97000 ./usr/share/fonts/PreludeCondWGL-Bold.ttf
--rw-r--r-- root       xuser          100436 ./usr/share/fonts/PreludeCondWGL-BoldItalic.ttf
--rw-r--r-- root       xuser          110508 ./usr/share/fonts/PreludeCondWGL-Light.ttf
--rw-r--r-- root       xuser          334584 ./usr/share/fonts/PreludeCondWGL-LightItalic.ttf
--rw-r--r-- root       xuser          105216 ./usr/share/fonts/PreludeCondWGL-Medium.ttf
--rw-r--r-- root       xuser           97096 ./usr/share/fonts/PreludeCondWGL-MediumItalic.ttf
--rw-r--r-- root       xuser           55636 ./usr/share/fonts/PreludeCondensed-Bold.ttf
--rw-r--r-- root       xuser           55832 ./usr/share/fonts/PreludeCondensed-Medium.ttf
--rw-r--r-- root       xuser           97924 ./usr/share/fonts/PreludeWGL-Black.ttf
--rw-r--r-- root       xuser          341016 ./usr/share/fonts/PreludeWGL-BlackItalic.ttf
--rw-r--r-- root       xuser           93996 ./usr/share/fonts/PreludeWGL-Bold.ttf
--rw-r--r-- root       xuser           94300 ./usr/share/fonts/PreludeWGL-BoldItalic.ttf
--rw-r--r-- root       xuser           98540 ./usr/share/fonts/PreludeWGL-Light.ttf
--rw-r--r-- root       xuser          329728 ./usr/share/fonts/PreludeWGL-LightItalic.ttf
--rw-r--r-- root       xuser           97056 ./usr/share/fonts/PreludeWGL-Medium.ttf
--rw-r--r-- root       xuser           94484 ./usr/share/fonts/PreludeWGL-MediumItalic.ttf
--rw-r--r-- root       xuser           28677 ./usr/share/fonts/Prelude_Font_LICENSE.txt
+-rw-r--r-- radio      root            55644 ./usr/share/fonts/Prelude-Bold.ttf
+-rw-r--r-- radio      root            51436 ./usr/share/fonts/Prelude-BoldOblique.ttf
+-rw-r--r-- radio      root            56548 ./usr/share/fonts/Prelude-Medium.ttf
+-rw-r--r-- radio      root            51612 ./usr/share/fonts/Prelude-MediumOblique.ttf
+-rw-r--r-- radio      root            91892 ./usr/share/fonts/PreludeCompWGL-Black.ttf
+-rw-r--r-- radio      root           331480 ./usr/share/fonts/PreludeCompWGL-BlackItalic.ttf
+-rw-r--r-- radio      root           378452 ./usr/share/fonts/PreludeCompWGL-Bold.ttf
+-rw-r--r-- radio      root           325592 ./usr/share/fonts/PreludeCompWGL-BoldItalic.ttf
+-rw-r--r-- radio      root           369960 ./usr/share/fonts/PreludeCompWGL-Light.ttf
+-rw-r--r-- radio      root           313528 ./usr/share/fonts/PreludeCompWGL-LightItalic.ttf
+-rw-r--r-- radio      root           371136 ./usr/share/fonts/PreludeCompWGL-Medium.ttf
+-rw-r--r-- radio      root           315356 ./usr/share/fonts/PreludeCompWGL-MediumItalic.ttf
+-rw-r--r-- radio      root           108552 ./usr/share/fonts/PreludeCondWGL-Black.ttf
+-rw-r--r-- radio      root           347452 ./usr/share/fonts/PreludeCondWGL-BlackItalic.ttf
+-rw-r--r-- radio      root            97000 ./usr/share/fonts/PreludeCondWGL-Bold.ttf
+-rw-r--r-- radio      root           100436 ./usr/share/fonts/PreludeCondWGL-BoldItalic.ttf
+-rw-r--r-- radio      root           110508 ./usr/share/fonts/PreludeCondWGL-Light.ttf
+-rw-r--r-- radio      root           334584 ./usr/share/fonts/PreludeCondWGL-LightItalic.ttf
+-rw-r--r-- radio      root           105216 ./usr/share/fonts/PreludeCondWGL-Medium.ttf
+-rw-r--r-- radio      root            97096 ./usr/share/fonts/PreludeCondWGL-MediumItalic.ttf
+-rw-r--r-- radio      root            55636 ./usr/share/fonts/PreludeCondensed-Bold.ttf
+-rw-r--r-- radio      root            55832 ./usr/share/fonts/PreludeCondensed-Medium.ttf
+-rw-r--r-- radio      root            97924 ./usr/share/fonts/PreludeWGL-Black.ttf
+-rw-r--r-- radio      root           341016 ./usr/share/fonts/PreludeWGL-BlackItalic.ttf
+-rw-r--r-- radio      root            93996 ./usr/share/fonts/PreludeWGL-Bold.ttf
+-rw-r--r-- radio      root            94300 ./usr/share/fonts/PreludeWGL-BoldItalic.ttf
+-rw-r--r-- radio      root            98540 ./usr/share/fonts/PreludeWGL-Light.ttf
+-rw-r--r-- radio      root           329728 ./usr/share/fonts/PreludeWGL-LightItalic.ttf
+-rw-r--r-- radio      root            97056 ./usr/share/fonts/PreludeWGL-Medium.ttf
+-rw-r--r-- radio      root            94484 ./usr/share/fonts/PreludeWGL-MediumItalic.ttf
+-rw-r--r-- radio      root            28677 ./usr/share/fonts/Prelude_Font_LICENSE.txt
 -rw-r--r-- root       root             2487 ./usr/share/fonts/webos-fallback-fonts.xml
 -rw-r--r-- root       root             5721 ./usr/share/fonts/webos-system-fonts.xml
 drwxr-xr-x root       root             4096 ./usr/share/gdb
