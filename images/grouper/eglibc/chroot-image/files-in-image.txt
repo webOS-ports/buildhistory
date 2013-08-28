@@ -124,20 +124,22 @@ drwxr-xr-x root       root              260 ./etc
 drwxr-xr-x root       root               60 ./etc/default
 -rw-r--r-- root       root               15 ./etc/default/busybox-syslog
 -rw-r--r-- root       root              458 ./etc/group
--rw-r--r-- root       root              907 ./etc/ld.so.cache
+-rw-r--r-- root       root             1023 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root              720 ./etc/passwd
 drwxr-xr-x root       root               40 ./etc/rcS.d
 drwxr-xr-x root       root               60 ./etc/systemd
-drwxr-xr-x root       root               80 ./etc/systemd/system
+drwxr-xr-x root       root              100 ./etc/systemd/system
+drwxr-xr-x root       root               60 ./etc/systemd/system/basic.target.wants
+lrwxrwxrwx root       root               46 ./etc/systemd/system/basic.target.wants/android-tools-adbd.service -> /lib/systemd/system/android-tools-adbd.service
 drwxr-xr-x root       root               80 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
 -rw-r--r-- root       root               13 ./etc/timestamp
 -rw-r--r-- root       root                1 ./etc/version
--rwxr-xr-x root       root             2680 ./init
-drwxr-xr-x root       root              660 ./lib
+-rwxr-xr-x root       root             2863 ./init
+drwxr-xr-x root       root              720 ./lib
 -rwxr-xr-x root       root           130300 ./lib/ld-2.18.so
 lrwxrwxrwx root       root               10 ./lib/ld-linux.so.3 -> ld-2.18.so
 -rwxr-xr-x root       root             5588 ./lib/libBrokenLocale-2.18.so
@@ -148,6 +150,7 @@ lrwxrwxrwx root       root               14 ./lib/libanl.so.1 -> libanl-2.18.so
 lrwxrwxrwx root       root               12 ./lib/libc.so.6 -> libc-2.18.so
 -rwxr-xr-x root       root            30244 ./lib/libcrypt-2.18.so
 lrwxrwxrwx root       root               16 ./lib/libcrypt.so.1 -> libcrypt-2.18.so
+-rwxr-xr-x root       root          1405204 ./lib/libcrypto.so.1.0.0
 -rwxr-xr-x root       root             9764 ./lib/libdl-2.18.so
 lrwxrwxrwx root       root               13 ./lib/libdl.so.2 -> libdl-2.18.so
 -rwxr-xr-x root       root           439844 ./lib/libm-2.18.so
@@ -168,8 +171,11 @@ lrwxrwxrwx root       root               17 ./lib/libresolv.so.2 -> libresolv-2.
 lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.18.so
 -rwxr-xr-x root       root             9800 ./lib/libutil-2.18.so
 lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.18.so
+lrwxrwxrwx root       root               13 ./lib/libz.so.1 -> libz.so.1.2.8
+-rwxr-xr-x root       root            77392 ./lib/libz.so.1.2.8
 drwxr-xr-x root       root               60 ./lib/systemd
-drwxr-xr-x root       root              100 ./lib/systemd/system
+drwxr-xr-x root       root              120 ./lib/systemd/system
+-rw-r--r-- root       root              206 ./lib/systemd/system/android-tools-adbd.service
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service -> /dev/null
@@ -209,9 +215,11 @@ lrwxrwxrwx root       root               19 ./sbin/switch_root -> /bin/busybox.n
 lrwxrwxrwx root       root               19 ./sbin/sysctl -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/syslogd -> /bin/busybox.nosuid
 drwxr-xr-x root       root              120 ./usr
-drwxr-xr-x root       root             1520 ./usr/bin
+drwxr-xr-x root       root             1560 ./usr/bin
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/[[ -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            93048 ./usr/bin/adbd
+-rwxr-xr-x root       root             1090 ./usr/bin/android-gadget-setup
 lrwxrwxrwx root       root               19 ./usr/bin/ar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
@@ -298,7 +306,17 @@ lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nos
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 drwxr-xr-x root       root               60 ./usr/share
-drwxr-xr-x root       root              140 ./usr/share/licenses
+drwxr-xr-x root       root              180 ./usr/share/licenses
+drwxr-xr-x root       root              220 ./usr/share/licenses/android-tools
+-rw-rw-r-- root       root            11360 ./usr/share/licenses/android-tools/Apache-2.0
+-rw-rw-r-- root       root             1512 ./usr/share/licenses/android-tools/BSD-2-Clause
+-rw-rw-r-- root       root             1468 ./usr/share/licenses/android-tools/BSD-3-Clause
+-rw-rw-r-- root       root            17611 ./usr/share/licenses/android-tools/GPL-2.0
+-rw-r--r-- root       root             8460 ./usr/share/licenses/android-tools/copyright
+-rw-rw-r-- root       root            11360 ./usr/share/licenses/android-tools/generic_Apache-2.0
+-rw-rw-r-- root       root             1512 ./usr/share/licenses/android-tools/generic_BSD-2-Clause
+-rw-rw-r-- root       root             1468 ./usr/share/licenses/android-tools/generic_BSD-3-Clause
+-rw-rw-r-- root       root            17611 ./usr/share/licenses/android-tools/generic_GPL-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/base-passwd
 -rw-r--r-- root       root            18011 ./usr/share/licenses/base-passwd/COPYING
 -rw-rw-r-- root       root            17611 ./usr/share/licenses/base-passwd/generic_GPLv2
@@ -320,3 +338,6 @@ drwxr-xr-x root       root              100 ./usr/share/licenses/run-postinsts
 -rw-rw-r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-rw-r-- root       root              545 ./usr/share/licenses/run-postinsts/LICENSE
 -rw-rw-r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
+drwxr-xr-x root       root               80 ./usr/share/licenses/zlib
+-rw-rw-r-- root       root              863 ./usr/share/licenses/zlib/generic_Zlib
+-rw-r--r-- root       root            87883 ./usr/share/licenses/zlib/zlib.h
