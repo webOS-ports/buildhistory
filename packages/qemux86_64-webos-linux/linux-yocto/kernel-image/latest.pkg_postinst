@@ -1,8 +1,9 @@
-if [ ! -e "$D/lib/modules/3.4.11-yocto-standard" ]; then
-	mkdir -p $D/lib/modules/3.4.11-yocto-standard
-fi
-if [ -n "$D" ]; then
-	depmod -a -b $D -F /OE/webos/owpb/openwebos-ports/tmp-eglibc/sysroots/qemux86-64/usr/src/kernel/System.map-3.4.11-yocto-standard 3.4.11-yocto-standard
-else
-	depmod -a 3.4.11-yocto-standard
-fi
+	update-alternatives --install /boot/bzImage bzImage bzImage-3.4.52-yocto-standard 30452 || true
+	if [ ! -e "$D/lib/modules/3.4.52-yocto-standard" ]; then
+		mkdir -p $D/lib/modules/3.4.52-yocto-standard
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.4.52-yocto-standard
+	else
+		depmod -a 3.4.52-yocto-standard
+	fi
