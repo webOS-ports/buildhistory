@@ -464,6 +464,8 @@ digraph depends {
 "kernel-module-snd-ens1370" -> "kernel-module-snd-rawmidi";
 "kernel-module-stp" -> "kernel-module-llc";
 "kernel-module-vboxsf" -> "kernel-module-vboxguest";
+"kmod" -> "kmod-lic" [style=dotted];
+"kmod" -> "libkmod2";
 "libacl1" -> "libattr1";
 "libasound2" -> "alsa-conf-base";
 "libblkid1" -> "libuuid1";
@@ -735,7 +737,9 @@ digraph depends {
 "luna-next" -> "luna-service2";
 "luna-next" -> "qtbase";
 "luna-next" -> "qtdeclarative";
-"luna-next" -> "qtgraphicaleffects-qmlplugins";
+"luna-next-cardshell" -> "luna-next";
+"luna-next-cardshell" -> "luna-next-cardshell-lic" [style=dotted];
+"luna-next-cardshell" -> "qtgraphicaleffects-qmlplugins";
 "luna-prefs" -> "libcjson1";
 "luna-prefs" -> "libglib-2.0-0";
 "luna-prefs" -> "libsqlite3-0";
@@ -1036,6 +1040,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "libqt5compositor-plugins";
 "packagegroup-webos-ports-extended" -> "libqt5compositor5";
 "packagegroup-webos-ports-extended" -> "luna-next";
+"packagegroup-webos-ports-extended" -> "luna-next-cardshell";
 "packagegroup-webos-ports-extended" -> "luna-sysmgr";
 "packagegroup-webos-ports-extended" -> "luna-sysmgr-conf";
 "packagegroup-webos-ports-extended" -> "luna-webappmanager";
@@ -1783,6 +1788,7 @@ digraph depends {
 "systemd" -> "kernel-module-autofs4" [style=dotted];
 "systemd" -> "kernel-module-ipv6" [style=dotted];
 "systemd" -> "kernel-module-unix" [style=dotted];
+"systemd" -> "kmod";
 "systemd" -> "libacl1";
 "systemd" -> "libattr1";
 "systemd" -> "libcap2";
@@ -1824,7 +1830,6 @@ digraph depends {
 "util-linux" -> "libncursesw5";
 "util-linux" -> "libtinfo5";
 "util-linux" -> "libuuid1";
-"util-linux" -> "libz1";
 "util-linux" -> "util-linux-cfdisk" [style=dotted];
 "util-linux" -> "util-linux-fdisk" [style=dotted];
 "util-linux" -> "util-linux-lic" [style=dotted];
