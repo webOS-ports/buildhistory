@@ -450,7 +450,21 @@ digraph depends {
 "libcurl5" -> "libtasn1-6";
 "libcurl5" -> "libz1";
 "libdbus-1-3" -> "dbus-1" [style=dotted];
+"libdrm-nouveau2" -> "libdrm2";
+"libdrm-radeon1" -> "libdrm2";
 "libdrm2" -> "libdrm-lic" [style=dotted];
+"libegl-gallium" -> "libdrm-nouveau2";
+"libegl-gallium" -> "libdrm-radeon1";
+"libegl-gallium" -> "libdrm2";
+"libegl-gallium" -> "libegl-mesa";
+"libegl-gallium" -> "libffi6";
+"libegl-gallium" -> "libgbm1";
+"libegl-gallium" -> "libglapi0";
+"libegl-gallium" -> "libllvm3.3-llvm-3.3";
+"libegl-gallium" -> "libstdc++6";
+"libegl-gallium" -> "libudev1";
+"libegl-gallium" -> "libz1";
+"libegl-gallium" -> "wayland";
 "libegl-mesa" -> "libdrm2";
 "libegl-mesa" -> "libffi6";
 "libegl-mesa" -> "libgbm1";
@@ -551,6 +565,13 @@ digraph depends {
 "libjson0" -> "libjson-lic" [style=dotted];
 "libleveldb1" -> "libleveldb-lic" [style=dotted];
 "libleveldb1" -> "libstdc++6";
+"libllvm3.3-llvm-3.3" -> "libstdc++6";
+"libllvm3.3-llvm-3.3" -> "libz1";
+"libllvm3.3-llvm-3.3" -> "llvm3.3";
+"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
+"libllvm3.3-lto" -> "libstdc++6";
+"libllvm3.3-lto" -> "llvm3.3";
+"libllvm3.3-profile-rt" -> "llvm3.3";
 "liblunasysmgrcommon3" -> "libglib-2.0-0";
 "liblunasysmgrcommon3" -> "liblunasysmgrcommon-lic" [style=dotted];
 "liblunasysmgrcommon3" -> "libnyx5";
@@ -685,6 +706,10 @@ digraph depends {
 "libxslt" -> "libxslt-lic" [style=dotted];
 "libxslt" -> "libz1";
 "libz1" -> "libz-lic" [style=dotted];
+"llvm3.3" -> "libllvm3.3-llvm-3.3";
+"llvm3.3" -> "libllvm3.3-lto";
+"llvm3.3" -> "libllvm3.3-profile-rt";
+"llvm3.3" -> "llvm3.3-lic" [style=dotted];
 "loadable-frameworks" -> "loadable-frameworks-lic" [style=dotted];
 "locale-base-en-gb" -> "eglibc-binary-localedata-en-gb";
 "locale-base-en-us" -> "eglibc-binary-localedata-en-us";
@@ -695,6 +720,7 @@ digraph depends {
 "luna-next" -> "libqt5compositor5";
 "luna-next" -> "libstdc++6";
 "luna-next" -> "libsystemd-daemon0";
+"luna-next" -> "luna-next-conf";
 "luna-next" -> "luna-next-lic" [style=dotted];
 "luna-next" -> "luna-service2";
 "luna-next" -> "qtbase";
@@ -702,6 +728,7 @@ digraph depends {
 "luna-next-cardshell" -> "luna-next";
 "luna-next-cardshell" -> "luna-next-cardshell-lic" [style=dotted];
 "luna-next-cardshell" -> "qtgraphicaleffects-qmlplugins";
+"luna-next-conf" -> "luna-next-conf-lic" [style=dotted];
 "luna-prefs" -> "libcjson1";
 "luna-prefs" -> "libglib-2.0-0";
 "luna-prefs" -> "libsqlite3-0";
@@ -769,6 +796,11 @@ digraph depends {
 "mdbus2" -> "libglib-2.0-0";
 "mdbus2" -> "libreadline6";
 "mdbus2" -> "mdbus2-lic" [style=dotted];
+"mesa-driver-swrast" -> "libdrm2";
+"mesa-driver-swrast" -> "libexpat1";
+"mesa-driver-swrast" -> "libllvm3.3-llvm-3.3";
+"mesa-driver-swrast" -> "libstdc++6";
+"mesa-driver-swrast" -> "libz1";
 "mingetty" -> "mingetty-lic" [style=dotted];
 "mojoloader" -> "mojoloader-lic" [style=dotted];
 "mojolocation-stub" -> "luna-service2";
@@ -999,6 +1031,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "gst-plugins-good-pulse";
 "packagegroup-webos-ports-extended" -> "gst-plugins-ugly-lame";
 "packagegroup-webos-ports-extended" -> "gst-plugins-ugly-mad";
+"packagegroup-webos-ports-extended" -> "libegl-gallium";
 "packagegroup-webos-ports-extended" -> "libqt5compositor-plugins";
 "packagegroup-webos-ports-extended" -> "libqt5compositor5";
 "packagegroup-webos-ports-extended" -> "luna-next";
@@ -1006,6 +1039,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "luna-sysmgr";
 "packagegroup-webos-ports-extended" -> "luna-sysmgr-conf";
 "packagegroup-webos-ports-extended" -> "luna-webappmanager";
+"packagegroup-webos-ports-extended" -> "mesa-driver-swrast";
 "packagegroup-webos-ports-extended" -> "org.webosinternals.ipkgservice";
 "packagegroup-webos-ports-extended" -> "org.webosinternals.preware";
 "packagegroup-webos-ports-extended" -> "org.webosinternals.service.update";
@@ -1018,6 +1052,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "packagegroup-webos-ports-extended-lic" [style=dotted];
 "packagegroup-webos-ports-extended" -> "pulseaudio-misc";
 "packagegroup-webos-ports-extended" -> "pulseaudio-server";
+"packagegroup-webos-ports-extended" -> "qt5-plugin-generic-vboxtouch";
 "packagegroup-webos-ports-extended" -> "qtbase-fonts";
 "packagegroup-webos-ports-extended" -> "qtbase-fonts-ttf-dejavu";
 "packagegroup-webos-ports-extended" -> "qtbase-fonts-ttf-vera";
@@ -1651,6 +1686,9 @@ digraph depends {
 "qt5-opengles2-test" -> "libstdc++6";
 "qt5-opengles2-test" -> "qt5-opengles2-test-lic" [style=dotted];
 "qt5-opengles2-test" -> "qtbase";
+"qt5-plugin-generic-vboxtouch" -> "libstdc++6";
+"qt5-plugin-generic-vboxtouch" -> "qt5-plugin-generic-vboxtouch-lic" [style=dotted];
+"qt5-plugin-generic-vboxtouch" -> "qtbase";
 "qtbase" -> "libgles2-mesa";
 "qtbase" -> "libglib-2.0-0";
 "qtbase" -> "libicui18n51";
