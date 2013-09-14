@@ -118,7 +118,7 @@ crw-r----- root       tty                 0 ./dev/ttyS0
 crw-r----- root       tty                 0 ./dev/ttySA0
 crw-r--r-- root       root                0 ./dev/urandom
 crw-r--r-- root       root                0 ./dev/zero
-drwxr-xr-x root       root              260 ./etc
+drwxr-xr-x root       root              300 ./etc
 -rw-r--r-- root       root             2141 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               95 ./etc/busybox.links.suid
 drwxr-xr-x root       root               60 ./etc/default
@@ -128,6 +128,8 @@ drwxr-xr-x root       root               60 ./etc/default
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root              720 ./etc/passwd
 drwxr-xr-x root       root               40 ./etc/rcS.d
+lrwxrwxrwx root       root               24 ./etc/syslog.conf -> /etc/syslog.conf.busybox
+-rw-r--r-- root       root               69 ./etc/syslog.conf.busybox
 drwxr-xr-x root       root               60 ./etc/systemd
 drwxr-xr-x root       root              100 ./etc/systemd/system
 drwxr-xr-x root       root               60 ./etc/systemd/system/basic.target.wants
@@ -137,9 +139,9 @@ lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
 -rw-r--r-- root       root               13 ./etc/timestamp
--rw-r--r-- root       root                1 ./etc/version
+-rw-r--r-- root       root               13 ./etc/version
 -rwxr-xr-x root       root             2863 ./init
-drwxr-xr-x root       root              740 ./lib
+drwxr-xr-x root       root              720 ./lib
 -rwxr-xr-x root       root           130300 ./lib/ld-2.18.so
 lrwxrwxrwx root       root               10 ./lib/ld-linux.so.3 -> ld-2.18.so
 -rwxr-xr-x root       root             5588 ./lib/libBrokenLocale-2.18.so
@@ -173,17 +175,6 @@ lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.18.so
 lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.18.so
 lrwxrwxrwx root       root               13 ./lib/libz.so.1 -> libz.so.1.2.8
 -rwxr-xr-x root       root            77392 ./lib/libz.so.1.2.8
-drwxr-xr-x root       root               60 ./lib/modules
-drwxr-xr-x root       root              220 ./lib/modules/3.1.10
--rw-r--r-- root       root               45 ./lib/modules/3.1.10/modules.alias
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.alias.bin
--rw-r--r-- root       root                0 ./lib/modules/3.1.10/modules.builtin.bin
--rw-r--r-- root       root                0 ./lib/modules/3.1.10/modules.dep
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.dep.bin
--rw-r--r-- root       root               52 ./lib/modules/3.1.10/modules.devname
--rw-r--r-- root       root              131 ./lib/modules/3.1.10/modules.softdep
--rw-r--r-- root       root               49 ./lib/modules/3.1.10/modules.symbols
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.symbols.bin
 drwxr-xr-x root       root               60 ./lib/systemd
 drwxr-xr-x root       root              120 ./lib/systemd/system
 -rw-r--r-- root       root              206 ./lib/systemd/system/android-tools-adbd.service
@@ -339,16 +330,16 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/chroot-script
 -rw-rw-r-- root       root             1035 ./usr/share/licenses/chroot-script/COPYING.MIT
 -rw-rw-r-- root       root             1080 ./usr/share/licenses/chroot-script/generic_MIT
 drwxr-xr-x root       root              160 ./usr/share/licenses/eglibc
--rw-rw-r-- root       root            18009 ./usr/share/licenses/eglibc/COPYING
--rw-rw-r-- root       root            26536 ./usr/share/licenses/eglibc/COPYING.LIB
--rw-rw-r-- root       root              956 ./usr/share/licenses/eglibc/COPYRIGHT
--rw-rw-r-- root       root            22359 ./usr/share/licenses/eglibc/LICENSES
--rw-rw-r-- root       root            17611 ./usr/share/licenses/eglibc/generic_GPLv2
--rw-rw-r-- root       root            25878 ./usr/share/licenses/eglibc/generic_LGPLv2.1
+-rw-rw-r-- 3004       3004            18009 ./usr/share/licenses/eglibc/COPYING
+-rw-rw-r-- 3004       3004            26536 ./usr/share/licenses/eglibc/COPYING.LIB
+-rw-rw-r-- 3004       3004              956 ./usr/share/licenses/eglibc/COPYRIGHT
+-rw-rw-r-- 3004       3004            22359 ./usr/share/licenses/eglibc/LICENSES
+-rw-rw-r-- 3004       3004            17611 ./usr/share/licenses/eglibc/generic_GPLv2
+-rw-rw-r-- 3004       3004            25878 ./usr/share/licenses/eglibc/generic_LGPLv2.1
 drwxr-xr-x root       root              100 ./usr/share/licenses/run-postinsts
 -rw-rw-r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-rw-r-- root       root              545 ./usr/share/licenses/run-postinsts/LICENSE
 -rw-rw-r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
 drwxr-xr-x root       root               80 ./usr/share/licenses/zlib
--rw-rw-r-- root       root              863 ./usr/share/licenses/zlib/generic_Zlib
--rw-r--r-- root       root            87883 ./usr/share/licenses/zlib/zlib.h
+-rw-rw-r-- 3004       3004              863 ./usr/share/licenses/zlib/generic_Zlib
+-rw-r--r-- 3004       3004            87883 ./usr/share/licenses/zlib/zlib.h
