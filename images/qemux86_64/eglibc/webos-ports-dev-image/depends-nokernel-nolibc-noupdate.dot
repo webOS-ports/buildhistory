@@ -89,6 +89,8 @@ digraph depends {
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
 "dbus-1" -> "shadow";
+"dhcp-client" -> "bash";
+"dhcp-client" -> "libcrypto1.0.0";
 "distro-feed-configs" -> "distro-feed-configs-lic" [style=dotted];
 "dnsmasq" -> "dnsmasq-lic" [style=dotted];
 "e2fsprogs" -> "e2fsprogs-badblocks";
@@ -459,9 +461,7 @@ digraph depends {
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
 "kernel-module-snd-ens1370" -> "kernel-module-snd-rawmidi";
 "kernel-module-stp" -> "kernel-module-llc";
-"kernel-module-uvesafb" -> "kernel-module-cfbcopyarea";
-"kernel-module-uvesafb" -> "kernel-module-cfbfillrect";
-"kernel-module-uvesafb" -> "kernel-module-cfbimgblt";
+"kernel-module-vboxsf" -> "kernel-module-vboxguest";
 "kmod" -> "kmod-lic" [style=dotted];
 "kmod" -> "libkmod2";
 "libacl1" -> "libattr1";
@@ -538,6 +538,7 @@ digraph depends {
 "libglib-2.0-0" -> "libglib-2.0-lic" [style=dotted];
 "libglib-2.0-0" -> "libz1";
 "libglib-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted];
+"libgmp10" -> "libgmp-lic" [style=dotted];
 "libgnutls26" -> "libcap2";
 "libgnutls26" -> "libgcrypt11";
 "libgnutls26" -> "libgnutls-lic" [style=dotted];
@@ -647,8 +648,10 @@ digraph depends {
 "libpanelw5" -> "libncursesw5";
 "libpanelw5" -> "libtinfo5";
 "libpbnjson" -> "libglib-2.0-0";
+"libpbnjson" -> "libgmp10";
 "libpbnjson" -> "libpbnjson-lic" [style=dotted];
 "libpbnjson" -> "libstdc++6";
+"libpbnjson" -> "liburiparser1";
 "libpbnjson" -> "yajl";
 "libpmloglib3" -> "libglib-2.0-0";
 "libpmloglib3" -> "libpbnjson";
@@ -915,6 +918,7 @@ digraph depends {
 "nyx-modules" -> "lsb";
 "nyx-modules" -> "mtdev";
 "nyx-modules" -> "nyx-modules-lic" [style=dotted];
+"nyx-modules" -> "vboxguestdrivers";
 "ofono" -> "android-apn-database";
 "ofono" -> "bluez4";
 "ofono" -> "dbus-1";
@@ -1003,6 +1007,7 @@ digraph depends {
 "packagegroup-webos-extended" -> "core-apps";
 "packagegroup-webos-extended" -> "cpushareholder-stub";
 "packagegroup-webos-extended" -> "curl";
+"packagegroup-webos-extended" -> "dhcp-client";
 "packagegroup-webos-extended" -> "e2fsprogs";
 "packagegroup-webos-extended" -> "enyo-1.0";
 "packagegroup-webos-extended" -> "fbprogress";
@@ -1904,6 +1909,10 @@ digraph depends {
 "util-linux-umount" -> "libmount1";
 "v86d" -> "kernel-module-uvesafb" [style=dotted];
 "v86d" -> "v86d-lic" [style=dotted];
+"vboxguestdrivers" -> "kernel-module-vboxguest";
+"vboxguestdrivers" -> "kernel-module-vboxsf";
+"vboxguestdrivers" -> "kernel-module-vboxvideo";
+"vboxguestdrivers" -> "vboxguestdrivers-lic" [style=dotted];
 "wakelockd" -> "libglib-2.0-0";
 "wakelockd" -> "wakelockd-lic" [style=dotted];
 "wayland" -> "libffi6";
