@@ -1,7 +1,11 @@
-PV = 1.12
-PR = r17.0
-RDEPENDS = base-passwd bluez4 dbus dbus-lib (>= 1.6.4) eglibc (>= 2.16) glib-2.0 (>= 2.32.4) gnutls (>= 2.12.20) iptables (>= 1.4.15) ofono shadow wpa-supplicant
+PV = 1.17
+PR = r20.0
+PKGR = r20.0.9
+RPROVIDES = connman-plugin-bluetooth connman-plugin-ethernet connman-plugin-loopback connman-plugin-ofono connman-plugin-wifi connman-systemd
+RDEPENDS = bluez4 dbus dbus-lib (>= 1.6.10) eglibc (>= 2.18) glib-2.0 (>= 2.36.4) gnutls (>= 2.12.23) iptables (>= 1.4.19.1) ofono wpa-supplicant xuser-account
 RRECOMMENDS = connman-conf connman-lic update-rc.d
-PKGSIZE = 546683
-FILES = /usr/bin/* /usr/sbin/* /usr/libexec/* /usr/lib/lib*.so.* /usr/lib/connman/plugins /etc /com /var /bin/* /sbin/* /lib/*.so* /usr/share/connman /usr/share/dbus-1/system-services/*
-FILELIST = /etc/dbus-1/system.d/connman.conf /etc/init.d/connman /usr/sbin/connmand
+RREPLACES = connman-systemd
+RCONFLICTS = connman-systemd
+PKGSIZE = 614756
+FILES = /usr/bin/* /usr/sbin/* /usr/lib/connman/* /usr/lib/lib*.so.* /usr/lib/connman/plugins /etc /com /var /bin/* /sbin/* /lib/*.so* /usr/share/connman /usr/share/dbus-1/system-services/* /lib/systemd/system/connman.service
+FILELIST = /etc/dbus-1/system.d/connman.conf /etc/event.d/connman /lib/systemd/system/connman.service /usr/sbin/connmand
