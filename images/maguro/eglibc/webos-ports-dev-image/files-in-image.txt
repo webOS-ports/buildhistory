@@ -1,9 +1,9 @@
 drwxr-xr-x root       root             4096 .
 drwxr-xr-x root       root             4096 ./bin
 lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
--rwxr-xr-x root       root           801956 ./bin/bash
+lrwxrwxrwx root       root               19 ./bin/bash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           519828 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           519844 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            51808 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
@@ -77,8 +77,7 @@ lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            34500 ./bin/systemd-notify
 -rwxr-xr-x root       root            59128 ./bin/systemd-tmpfiles
 -rwxr-xr-x root       root            59096 ./bin/systemd-tty-ask-password-agent
-lrwxrwxrwx root       root               12 ./bin/tar -> /bin/tar.tar
--rwxr-xr-x root       root           322816 ./bin/tar.tar
+lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tzset -> /bin/busybox.nosuid
@@ -106,7 +105,7 @@ drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root             2440 ./etc/bluetooth/main.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
 -rw-r--r-- root       root              297 ./etc/bluetooth/rfcomm.conf
--rw-r--r-- root       root             2141 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2151 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/ca-certificates
 -rw-r--r-- root       root             6752 ./etc/ca-certificates.conf
@@ -141,7 +140,6 @@ drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root               36 ./etc/default/mountall
 -rw-r--r-- root       root               52 ./etc/default/postinst
 -rw-r--r-- root       root              703 ./etc/default/powerd.conf
--rw-r--r-- root       root              848 ./etc/default/shutdown-watchdog
 -rw-r--r-- root       root              820 ./etc/default/sleepd.conf
 -rw-r--r-- root       root               34 ./etc/default/sntp
 -rw-r--r-- root       root                0 ./etc/default/usbd
@@ -182,8 +180,6 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice
 -rw-r--r-- root       root               86 ./etc/event.d/org.webosinternals.service.upstartmgr
 -rw-r--r-- root       root             2821 ./etc/event.d/powerd
--rwxr-xr-x root       root              710 ./etc/event.d/runlevel-H-handler
--rwxr-xr-x root       root              710 ./etc/event.d/runlevel-U-handler
 -rw-r--r-- root       root              900 ./etc/event.d/sleepd
 -rw-r--r-- root       root              122 ./etc/event.d/tempdb
 -rw-r--r-- root       root              714 ./etc/event.d/webos-connman-adapter
@@ -197,13 +193,6 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root                7 ./etc/hostname
 -rw-r--r-- root       root               44 ./etc/hosts
 drwxr-xr-x root       root             4096 ./etc/init
-drwxr-xr-x root       root             4096 ./etc/init.d
--rwxr-xr-x root       root             1181 ./etc/init.d/orderly-shutdown
--rwxr-xr-x root       root             1214 ./etc/init.d/shutdown-animation
--rwxr-xr-x root       root             1640 ./etc/init.d/shutdown-cancel-watchdog.sh
--rwxr-xr-x root       root             2984 ./etc/init.d/shutdown-watchdog.sh
--rwxr-xr-x root       root              946 ./etc/init.d/stop-comms
--rwxr-xr-x root       root              779 ./etc/init.d/stop-fbprogress
 -rw-r--r-- root       root              931 ./etc/init/LunaSysService.conf
 -rw-r--r-- root       root              836 ./etc/init/PmKLogDaemon.conf
 -rw-r--r-- root       root              830 ./etc/init/PmLogDaemon.conf
@@ -211,12 +200,10 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rw-r--r-- root       root             1367 ./etc/init/configurator-async.conf
 -rw-r--r-- root       root             1216 ./etc/init/configurator.conf
 -rw-r--r-- root       root             1064 ./etc/init/createLocalAccount.conf
--rw-r--r-- root       root             1163 ./etc/init/db8.conf
+-rw-r--r-- root       root             1273 ./etc/init/db8.conf
 -rw-r--r-- root       root             1068 ./etc/init/filecache.conf
 -rw-r--r-- root       root             1180 ./etc/init/ls-hubd_private.conf
--rw-r--r-- root       root              935 ./etc/init/ls-hubd_private_watchdog.conf
 -rw-r--r-- root       root             1050 ./etc/init/ls-hubd_public.conf
--rw-r--r-- root       root              931 ./etc/init/ls-hubd_public_watchdog.conf
 -rw-r--r-- root       root              758 ./etc/init/mediadb.conf
 -rw-r--r-- root       root             1306 ./etc/init/powerd.conf
 -rw-r--r-- root       root              862 ./etc/init/sleepd.conf
@@ -238,15 +225,15 @@ drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
 -rw-r--r-- root       root             1532 ./etc/libnl/pktloc
 -rw-r--r-- root       root              827 ./etc/limits
-lrwxrwxrwx root       root               29 ./etc/localtime -> /usr/share/zoneinfo/Universal
+lrwxrwxrwx root       root               31 ./etc/localtime -> /var/luna/preferences/localtime
 -rw-r--r-- root       root             2060 ./etc/login.access
 -rw-r--r-- root       root            10595 ./etc/login.defs
 drwxr-xr-x root       root             4096 ./etc/luna-next
 -rw-r--r-- root       root              162 ./etc/luna-next/environment.conf
 -rw-r--r-- root       root               36 ./etc/luna-next/maliit-env.conf
 drwxr-xr-x root       root             4096 ./etc/luna-service2
--rw-r--r-- root       root             1390 ./etc/luna-service2/ls-private.conf
--rw-r--r-- root       root             1383 ./etc/luna-service2/ls-public.conf
+-rw-r--r-- root       root             1431 ./etc/luna-service2/ls-private.conf
+-rw-r--r-- root       root             1424 ./etc/luna-service2/ls-public.conf
 drwxr-xr-x root       root             4096 ./etc/lxc
 -rw-r--r-- root       root               25 ./etc/lxc/default.conf
 -rw-r--r-- root       root                0 ./etc/machine-id
@@ -283,6 +270,10 @@ drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.servi
 drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.service.contacts.linker
 -rwxr-xr-x root       root              669 ./etc/palm/activities/com.palm.service.contacts.linker/com.palm.service.contacts.linker.json
 -rw-r--r-- root       root              681 ./etc/palm/activities/com.palm.service.contacts/com.palm.service.contacts.sortorder.json
+drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.tempdb
+-rw-r--r-- root       root              460 ./etc/palm/activities/com.palm.tempdb/activity-com.palm.tempdb.purge.json
+drwxr-xr-x root       root             4096 ./etc/palm/activities/com.webos.mediadb
+-rw-r--r-- root       root              467 ./etc/palm/activities/com.webos.mediadb/activity-com.webos.mediadb.purge.json
 drwxr-xr-x root       root             4096 ./etc/palm/activities/org.webosports.service.update
 -rw-r--r-- root       root              644 ./etc/palm/activities/org.webosports.service.update/org.webosports.service.update.check
 drwxr-xr-x root       root             4096 ./etc/palm/backup
@@ -366,7 +357,7 @@ drwxr-xr-x root       root             4096 ./etc/palm/filecache_types
 -rw-r--r-- root       root             1254 ./etc/palm/luna-platform.conf
 -rw-r--r-- root       root             3821 ./etc/palm/luna.conf
 -rw-r--r-- root       root             3099 ./etc/palm/lunaAnimations.conf
--rw-r--r-- root       root             1017 ./etc/palm/mojodb.conf
+-rw-r--r-- root       root             1324 ./etc/palm/mojodb.conf
 -rw-r--r-- root       root             1485 ./etc/palm/notificationPolicy.conf
 -rw-r--r-- root       root              824 ./etc/palm/persistentWindows.conf
 drwxr-xr-x root       root             4096 ./etc/palm/pubsub_handlers
@@ -410,34 +401,9 @@ drwxr-xr-x root       root             4096 ./etc/pulse
 -rw-r--r-- root       root             2298 ./etc/pulse/daemon.conf
 -rw-r--r-- root       root             5485 ./etc/pulse/default.pa
 -rw-r--r-- root       root             2301 ./etc/pulse/system.pa
-drwxr-xr-x root       root             4096 ./etc/rc0.d
-lrwxrwxrwx root       root               30 ./etc/rc0.d/S00shutdown-watchdog.sh -> ../init.d/shutdown-watchdog.sh
-lrwxrwxrwx root       root               26 ./etc/rc0.d/S10orderly-shutdown -> ../init.d/orderly-shutdown
-lrwxrwxrwx root       root               28 ./etc/rc0.d/S25shutdown-animation -> ../init.d/shutdown_animation
-lrwxrwxrwx root       root               20 ./etc/rc0.d/S30stop-comms -> ../init.d/stop-comms
-lrwxrwxrwx root       root               25 ./etc/rc0.d/S89stop-fbprogress -> ../init.d/stop-fbprogress
-drwxr-xr-x root       root             4096 ./etc/rc6.d
-lrwxrwxrwx root       root               30 ./etc/rc6.d/S00shutdown-watchdog.sh -> ../init.d/shutdown-watchdog.sh
-lrwxrwxrwx root       root               26 ./etc/rc6.d/S10orderly-shutdown -> ../init.d/orderly-shutdown
-lrwxrwxrwx root       root               28 ./etc/rc6.d/S25shutdown-animation -> ../init.d/shutdown_animation
-lrwxrwxrwx root       root               20 ./etc/rc6.d/S30stop-comms -> ../init.d/stop-comms
-lrwxrwxrwx root       root               25 ./etc/rc6.d/S89stop-fbprogress -> ../init.d/stop-fbprogress
-drwxr-xr-x root       root             4096 ./etc/rcH.d
-lrwxrwxrwx root       root               30 ./etc/rcH.d/S00shutdown-watchdog.sh -> ../init.d/shutdown-watchdog.sh
-lrwxrwxrwx root       root               26 ./etc/rcH.d/S10orderly-shutdown -> ../init.d/orderly-shutdown
-lrwxrwxrwx root       root               28 ./etc/rcH.d/S25shutdown-animation -> ../init.d/shutdown_animation
-lrwxrwxrwx root       root               20 ./etc/rcH.d/S30stop-comms -> ../init.d/stop-comms
-lrwxrwxrwx root       root               25 ./etc/rcH.d/S89stop-fbprogress -> ../init.d/stop-fbprogress
-lrwxrwxrwx root       root               16 ./etc/rcH.d/S90reboot -> ../init.d/reboot
-drwxr-xr-x root       root             4096 ./etc/rcU.d
-lrwxrwxrwx root       root               30 ./etc/rcU.d/S00shutdown-watchdog.sh -> ../init.d/shutdown-watchdog.sh
-lrwxrwxrwx root       root               26 ./etc/rcU.d/S10orderly-shutdown -> ../init.d/orderly-shutdown
-lrwxrwxrwx root       root               28 ./etc/rcU.d/S25shutdown-animation -> ../init.d/shutdown_animation
-lrwxrwxrwx root       root               20 ./etc/rcU.d/S30stop-comms -> ../init.d/stop-comms
-lrwxrwxrwx root       root               37 ./etc/rcU.d/S70shutdown-cancel-watchdog.sh -> ../init.d/shutdown-cancel-watchdog.sh
-lrwxrwxrwx root       root               41 ./etc/rcU.d/S85make_update_uimage -> /usr/share/ota-scripts/make-update-uimage
-lrwxrwxrwx root       root               25 ./etc/rcU.d/S89stop-fbprogress -> ../init.d/stop-fbprogress
-lrwxrwxrwx root       root               16 ./etc/rcU.d/S90reboot -> ../init.d/reboot
+drwxr-xr-x root       root             4096 ./etc/qt5
+drwxr-xr-x root       root             4096 ./etc/qt5/webos-ports
+-rw-r--r-- root       root              141 ./etc/qt5/webos-ports/webos-keyboard.conf
 -rw-r--r-- root       root              887 ./etc/rpc
 -rw-r--r-- root       root              370 ./etc/rsyncd.conf
 -r-------- root       root             1646 ./etc/securetty
@@ -855,7 +821,7 @@ lrwxrwxrwx root       root               11 ./etc/terminfo/x/xterm -> xterm-colo
 -rw-r--r-- root       root             1551 ./etc/terminfo/x/xterm-color
 -rw-r--r-- root       root             2235 ./etc/terminfo/x/xterm-xfree86
 -rw-r--r-- root       root               13 ./etc/timestamp
--rw-r--r-- root       root               10 ./etc/timezone
+lrwxrwxrwx root       root               30 ./etc/timezone -> /var/luna/preferences/timezone
 drwxr-xr-x root       root             4096 ./etc/tmpfiles.d
 -rw-r--r-- root       root              224 ./etc/tmpfiles.d/00-create-volatile.conf
 drwxr-xr-x root       root             4096 ./etc/udev
@@ -2305,7 +2271,7 @@ lrwxrwxrwx root       root                7 ./system/xbin/yes -> busybox
 lrwxrwxrwx root       root                7 ./system/xbin/zcat -> busybox
 drwxrwxrwt root       root             4096 ./tmp
 drwxr-xr-x root       root             4096 ./usr
-drwxr-xr-x root       root            16384 ./usr/bin
+drwxr-xr-x root       root            12288 ./usr/bin
 drwxr-xr-x root       root             4096 ./usr/bin/.debug
 -rwxr-xr-x root       root            57064 ./usr/bin/.debug/gencat
 -rwxr-xr-x root       root            29617 ./usr/bin/.debug/getconf
@@ -2334,7 +2300,6 @@ lrwxrwxrwx root       root                5 ./usr/bin/arecord -> aplay
 -rwxr-xr-x root       root             4039 ./usr/bin/arfile.py
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
--r-xr-xr-x root       root             7009 ./usr/bin/bashbug
 -rwxr-xr-x root       root            61484 ./usr/bin/bc
 -rwxr-xr-x root       root            46840 ./usr/bin/bootctl
 lrwxrwxrwx root       root               22 ./usr/bin/bunzip2 -> /usr/bin/bunzip2.bzip2
@@ -2406,7 +2371,6 @@ lrwxrwxrwx root       root               19 ./usr/bin/env -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/expr -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            13712 ./usr/bin/faillog
 -rwxr-xr-x root       root            14772 ./usr/bin/fallocate
--rwxr-xr-x root       root            92472 ./usr/bin/fbprogress
 lrwxrwxrwx root       root               22 ./usr/bin/fgconsole -> /usr/bin/fgconsole.kbd
 -rwxr-xr-x root       root             5704 ./usr/bin/fgconsole.kbd
 lrwxrwxrwx root       root               19 ./usr/bin/find -> /bin/busybox.nosuid
@@ -2482,8 +2446,7 @@ lrwxrwxrwx root       root               26 ./usr/bin/logger -> /usr/bin/logger.
 -rwxr-xr-x root       root            18872 ./usr/bin/logger.util-linux
 lrwxrwxrwx root       root               19 ./usr/bin/logname -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             7748 ./usr/bin/look
--rwxr-xr-x root       root            15752 ./usr/bin/ls-monitor
--rwxr-xr-x root       root            15132 ./usr/bin/ls-monitor-pub
+-rwxr-xr-x root       root            15760 ./usr/bin/ls-monitor-pub
 -rwxr-xr-x root       root             6536 ./usr/bin/lsattr
 -rwxr-xr-x root       root            52680 ./usr/bin/lsblk
 -rwxr-xr-x root       root            27784 ./usr/bin/lslocks
@@ -2755,7 +2718,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/yes -> /bin/busybox.nosuid
 drwxr-xr-x root       root             4096 ./usr/games
 drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root             4096 ./usr/include/python2.7
--rw-r--r-- root       root            35988 ./usr/include/python2.7/pyconfig.h
+-rw-r--r-- root       root            35991 ./usr/include/python2.7/pyconfig.h
 drwxr-xr-x root       root            20480 ./usr/lib
 drwxr-xr-x root       root             4096 ./usr/lib/audit
 drwxr-xr-x root       root             4096 ./usr/lib/audit/.debug
@@ -2929,7 +2892,7 @@ lrwxrwxrwx root       root               18 ./usr/lib/libGLESv2.so.2 -> libGLESv
 lrwxrwxrwx root       root               28 ./usr/lib/libLunaSysMgrCommon.so.3 -> libLunaSysMgrCommon.so.3.0.0
 -rwxr-xr-x root       root           312324 ./usr/lib/libLunaSysMgrCommon.so.3.0.0
 lrwxrwxrwx root       root               20 ./usr/lib/libPmLogLib.so.3 -> libPmLogLib.so.3.0.1
--rwxr-xr-x root       root            20668 ./usr/lib/libPmLogLib.so.3.0.1
+-rwxr-xr-x root       root            20688 ./usr/lib/libPmLogLib.so.3.0.1
 lrwxrwxrwx root       root               25 ./usr/lib/libQt5Compositor.so.5 -> libQt5Compositor.so.5.1.0
 lrwxrwxrwx root       root               25 ./usr/lib/libQt5Compositor.so.5.1 -> libQt5Compositor.so.5.1.0
 -rwxr-xr-x root       root           220856 ./usr/lib/libQt5Compositor.so.5.1.0
@@ -3080,8 +3043,8 @@ lrwxrwxrwx root       root               26 ./usr/lib/libgthread-2.0.so.0 -> lib
 -rwxr-xr-x root       root             3948 ./usr/lib/libgthread-2.0.so.0.3600.4
 lrwxrwxrwx root       root               20 ./usr/lib/libhardware.so.2 -> libhardware.so.2.0.0
 -rwxr-xr-x root       root             4028 ./usr/lib/libhardware.so.2.0.0
-lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.6 -> libhistory.so.6.2
--rwxr-xr-x root       root            23796 ./usr/lib/libhistory.so.6.2
+lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.5 -> libhistory.so.5.2
+-rwxr-xr-x root       root            23300 ./usr/lib/libhistory.so.5.2
 lrwxrwxrwx root       root               24 ./usr/lib/libhunspell-1.3.so.0 -> libhunspell-1.3.so.0.0.0
 -rwxr-xr-x root       root           300148 ./usr/lib/libhunspell-1.3.so.0.0.0
 drwxr-xr-x root       root             4096 ./usr/lib/libhybris
@@ -3125,8 +3088,8 @@ lrwxrwxrwx root       root               16 ./usr/lib/libltdl.so.7 -> libltdl.so
 -rwxr-xr-x root       root            29136 ./usr/lib/libltdl.so.7.3.0
 lrwxrwxrwx root       root               22 ./usr/lib/libluna-prefs.so.2 -> libluna-prefs.so.2.0.0
 -rwxr-xr-x root       root            20316 ./usr/lib/libluna-prefs.so.2.0.0
-lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> libluna-service2.so.3.5.1
--rwxr-xr-x root       root           188256 ./usr/lib/libluna-service2.so.3.5.1
+lrwxrwxrwx root       root               25 ./usr/lib/libluna-service2.so.3 -> libluna-service2.so.3.5.3
+-rwxr-xr-x root       root           204644 ./usr/lib/libluna-service2.so.3.5.3
 lrwxrwxrwx root       root               15 ./usr/lib/liblxc.so.0 -> liblxc.so.0.9.0
 -rwxr-xr-x root       root           202344 ./usr/lib/liblxc.so.0.9.0
 lrwxrwxrwx root       root               17 ./usr/lib/liblzma.so.5 -> liblzma.so.5.0.99
@@ -3141,9 +3104,9 @@ lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.
 lrwxrwxrwx root       root               17 ./usr/lib/libmjson.so.0 -> libmjson.so.0.0.0
 -rwxr-xr-x root       root            51244 ./usr/lib/libmjson.so.0.0.0
 lrwxrwxrwx root       root               20 ./usr/lib/libmojocore.so.3 -> libmojocore.so.3.1.0
--rwxr-xr-x root       root           225744 ./usr/lib/libmojocore.so.3.1.0
+-rwxr-xr-x root       root           225768 ./usr/lib/libmojocore.so.3.1.0
 lrwxrwxrwx root       root               18 ./usr/lib/libmojodb.so.3 -> libmojodb.so.3.1.0
--rwxr-xr-x root       root           394304 ./usr/lib/libmojodb.so.3.1.0
+-rwxr-xr-x root       root           402312 ./usr/lib/libmojodb.so.3.1.0
 lrwxrwxrwx root       root               20 ./usr/lib/libmojoluna.so.3 -> libmojoluna.so.3.1.0
 -rwxr-xr-x root       root            27592 ./usr/lib/libmojoluna.so.3.1.0
 lrwxrwxrwx root       root               19 ./usr/lib/libmp3lame.so.0 -> libmp3lame.so.0.0.0
@@ -3175,10 +3138,10 @@ lrwxrwxrwx root       root               22 ./usr/lib/libpalmsocket.so.2 -> libp
 -rwxr-xr-x root       root           154528 ./usr/lib/libpalmsocket.so.2.0.0
 lrwxrwxrwx root       root               16 ./usr/lib/libpanelw.so.5 -> libpanelw.so.5.9
 -rwxr-xr-x root       root             8816 ./usr/lib/libpanelw.so.5.9
-lrwxrwxrwx root       root               21 ./usr/lib/libpbnjson_c.so.2 -> libpbnjson_c.so.2.1.1
--rwxr-xr-x root       root           113988 ./usr/lib/libpbnjson_c.so.2.1.1
-lrwxrwxrwx root       root               23 ./usr/lib/libpbnjson_cpp.so.2 -> libpbnjson_cpp.so.2.1.1
--rwxr-xr-x root       root            52900 ./usr/lib/libpbnjson_cpp.so.2.1.1
+lrwxrwxrwx root       root               21 ./usr/lib/libpbnjson_c.so.2 -> libpbnjson_c.so.2.2.0
+-rwxr-xr-x root       root           114708 ./usr/lib/libpbnjson_c.so.2.2.0
+lrwxrwxrwx root       root               23 ./usr/lib/libpbnjson_cpp.so.2 -> libpbnjson_cpp.so.2.2.0
+-rwxr-xr-x root       root            56804 ./usr/lib/libpbnjson_cpp.so.2.2.0
 lrwxrwxrwx root       root               17 ./usr/lib/libperl.so.5 -> libperl.so.5.14.3
 -r-xr-xr-x root       root          1307148 ./usr/lib/libperl.so.5.14.3
 lrwxrwxrwx root       root               18 ./usr/lib/libpng16.so.16 -> libpng16.so.16.3.0
@@ -3196,8 +3159,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libpulse.so.0 -> libpulse.
 -r-xr-xr-x root       root          1519144 ./usr/lib/libpython2.7.so.1.0
 lrwxrwxrwx root       root               15 ./usr/lib/librdx.so.2 -> librdx.so.2.0.0
 -rwxr-xr-x root       root             3592 ./usr/lib/librdx.so.2.0.0
-lrwxrwxrwx root       root               18 ./usr/lib/libreadline.so.6 -> libreadline.so.6.2
--rwxr-xr-x root       root           193248 ./usr/lib/libreadline.so.6.2
+lrwxrwxrwx root       root               18 ./usr/lib/libreadline.so.5 -> libreadline.so.5.2
+-rwxr-xr-x root       root           180732 ./usr/lib/libreadline.so.5.2
 lrwxrwxrwx root       root               19 ./usr/lib/librolegen.so.2 -> librolegen.so.2.1.0
 -rwxr-xr-x root       root            17052 ./usr/lib/librolegen.so.2.1.0
 lrwxrwxrwx root       root               22 ./usr/lib/libsamplerate.so.0 -> libsamplerate.so.0.1.8
@@ -3622,7 +3585,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/lxc/rootfs
 -rw-r--r-- root       root              205 ./usr/lib/lxc/rootfs/README
 drwxr-xr-x root       root             4096 ./usr/lib/maliit
 drwxr-xr-x root       root             4096 ./usr/lib/maliit/plugins
--rwxr-xr-x root       root           597644 ./usr/lib/maliit/plugins/libubuntu-keyboard-plugin.so
+-rwxr-xr-x root       root           597848 ./usr/lib/maliit/plugins/libubuntu-keyboard-plugin.so
 drwxr-xr-x root       root             4096 ./usr/lib/modules-load.d
 drwxr-xr-x root       root             4096 ./usr/lib/node_modules
 drwxr-xr-x root       root             4096 ./usr/lib/node_modules/npm
@@ -4897,7 +4860,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/node_modules/npm/scripts
 -rwxr-xr-x root       root              665 ./usr/lib/node_modules/npm/scripts/relocate.sh
 drwxr-xr-x root       root             4096 ./usr/lib/nodejs
 -rwxr-xr-x root       root              991 ./usr/lib/nodejs/palmbus.js
--rwxr-xr-x root       root            13532 ./usr/lib/nodejs/pmloglib.node
+-rwxr-xr-x root       root            17628 ./usr/lib/nodejs/pmloglib.node
 -rwxr-xr-x root       root            56624 ./usr/lib/nodejs/webos-sysbus.node
 -rwxr-xr-x root       root            19680 ./usr/lib/nodejs/webos.node
 drwxr-xr-x root       root             4096 ./usr/lib/nyx
@@ -5357,7 +5320,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/lib-dynload
 -rwxr-xr-x root       root            15984 ./usr/lib/python2.7/lib-dynload/_locale.so
 -rwxr-xr-x root       root            33144 ./usr/lib/python2.7/lib-dynload/_multibytecodec.so
 -rwxr-xr-x root       root            10696 ./usr/lib/python2.7/lib-dynload/_random.so
--rwxr-xr-x root       root            66380 ./usr/lib/python2.7/lib-dynload/_socket.so
+-rwxr-xr-x root       root            58180 ./usr/lib/python2.7/lib-dynload/_socket.so
 -rwxr-xr-x root       root            29204 ./usr/lib/python2.7/lib-dynload/_ssl.so
 -rwxr-xr-x root       root            34152 ./usr/lib/python2.7/lib-dynload/_struct.so
 -rwxr-xr-x root       root            36600 ./usr/lib/python2.7/lib-dynload/array.so
@@ -5519,7 +5482,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/qt5/plugins/waylandcomposi
 -rwxr-xr-x root       root            64916 ./usr/lib/qt5/plugins/waylandcompositors/libwayland-egl.so
 drwxr-xr-x root       root             4096 ./usr/lib/qt5/qml
 drwxr-xr-x root       root             4096 ./usr/lib/qt5/qml/LunaNext
--rwxr-xr-x root       root           214688 ./usr/lib/qt5/qml/LunaNext/liblunanext-qml.so
+-rwxr-xr-x root       root           212580 ./usr/lib/qt5/qml/LunaNext/liblunanext-qml.so
 -rw-r--r-- root       root               36 ./usr/lib/qt5/qml/LunaNext/qmldir
 drwxr-xr-x root       root             4096 ./usr/lib/qt5/qml/Qt
 drwxr-xr-x root       root             4096 ./usr/lib/qt5/qml/Qt/labs
@@ -11283,7 +11246,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             3291 ./usr/palm/luna-next/shells/card/qml/LaunchBar/FullLauncher.qml
 -rw-r--r-- root       root             3563 ./usr/palm/luna-next/shells/card/qml/LaunchBar/JustTypeField.qml
 -rw-r--r-- root       root             1741 ./usr/palm/luna-next/shells/card/qml/LaunchBar/JustTypeLauncher.qml
--rw-r--r-- root       root             5690 ./usr/palm/luna-next/shells/card/qml/LaunchBar/LaunchBar.qml
+-rw-r--r-- root       root             5697 ./usr/palm/luna-next/shells/card/qml/LaunchBar/LaunchBar.qml
 -rw-r--r-- root       root             1964 ./usr/palm/luna-next/shells/card/qml/LaunchBar/LaunchableAppIcon.qml
 -rw-r--r-- root       root             6482 ./usr/palm/luna-next/shells/card/qml/LaunchBar/Launcher.qml
 drwxr-xr-x root       root             4096 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI
@@ -11328,8 +11291,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             4062 ./usr/palm/luna-next/shells/card/qml/Utils/SlidingItemArea.qml
 drwxr-xr-x root       root             4096 ./usr/palm/luna-next/shells/card/qml/WindowManager
 -rw-r--r-- root       root             4726 ./usr/palm/luna-next/shells/card/qml/WindowManager/LunaGestureArea.qml
--rw-r--r-- root       root             1875 ./usr/palm/luna-next/shells/card/qml/WindowManager/OverlayWindow.qml
--rw-r--r-- root       root             3044 ./usr/palm/luna-next/shells/card/qml/WindowManager/OverlaysManager.qml
+-rw-r--r-- root       root             2444 ./usr/palm/luna-next/shells/card/qml/WindowManager/OverlaysManager.qml
 -rw-r--r-- root       root            11772 ./usr/palm/luna-next/shells/card/qml/WindowManager/WindowManager.qml
 -rw-r--r-- root       root             2959 ./usr/palm/luna-next/shells/card/qml/WindowManager/WindowManagerServices.js
 -rw-r--r-- root       root             9408 ./usr/palm/luna-next/shells/card/qml/WindowManager/WindowWrapper.qml
@@ -12093,13 +12055,13 @@ drwxr-xr-x root       root             4096 ./usr/sbin/.debug
 -rwxr-xr-x root       root           472449 ./usr/sbin/.debug/nscd
 -rwxr-xr-x root       root            26789 ./usr/sbin/.debug/zdump
 -rwxr-xr-x root       root            87140 ./usr/sbin/.debug/zic
--rwxr-xr-x root       root           782428 ./usr/sbin/LunaSysMgr
+-rwxr-xr-x root       root           782448 ./usr/sbin/LunaSysMgr
 -rwxr-xr-x root       root           472148 ./usr/sbin/LunaSysService
 -rwxr-xr-x root       root           146420 ./usr/sbin/LunaUniversalSearchMgr
--rwxr-xr-x root       root            10952 ./usr/sbin/PmKLogDaemon
+-rwxr-xr-x root       root            10928 ./usr/sbin/PmKLogDaemon
 -rwxr-xr-x root       root            35364 ./usr/sbin/PmLogDaemon
 -rwxr-xr-x root       root           572964 ./usr/sbin/WebAppMgr
--rwxr-xr-x root       root           838752 ./usr/sbin/activitymanager
+-rwxr-xr-x root       root           896092 ./usr/sbin/activitymanager
 lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            13172 ./usr/sbin/addpart
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
@@ -12115,7 +12077,7 @@ lrwxrwxrwx root       root               18 ./usr/sbin/brctl -> brctl.bridge-uti
 lrwxrwxrwx root       root               25 ./usr/sbin/chpasswd -> /usr/sbin/chpasswd.shadow
 -rwxr-xr-x root       root            28064 ./usr/sbin/chpasswd.shadow
 lrwxrwxrwx root       root               19 ./usr/sbin/chroot -> /bin/busybox.nosuid
--rwxr-xr-x root       root           109080 ./usr/sbin/configurator
+-rwxr-xr-x root       root           109084 ./usr/sbin/configurator
 -rwxr-xr-x root       root           613048 ./usr/sbin/connmand
 -rwxr-xr-x root       root            26756 ./usr/sbin/crash_handler
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
@@ -12155,12 +12117,13 @@ lrwxrwxrwx root       root               13 ./usr/sbin/iptables-save -> xtables-
 -rwxr-xr-x root       root            18552 ./usr/sbin/ldattach
 lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             8528 ./usr/sbin/logoutd
--rwxr-xr-x root       root             3199 ./usr/sbin/ls-control
--rwxr-xr-x root       root            86076 ./usr/sbin/ls-hubd
+-rwxr-xr-x root       root             3725 ./usr/sbin/ls-control
+-rwxr-xr-x root       root            95628 ./usr/sbin/ls-hubd
+-rwxr-xr-x root       root            16388 ./usr/sbin/ls-monitor
 -rwxr-xr-x root       root            25528 ./usr/sbin/luna-next
 -rwxr-xr-x root       root             7300 ./usr/sbin/mkfs
 -rwxr-xr-x root       root            19176 ./usr/sbin/mkfs.bfs
--rwxr-xr-x root       root           103036 ./usr/sbin/mojodb-luna
+-rwxr-xr-x root       root           107136 ./usr/sbin/mojodb-luna
 -rwxr-xr-x root       root            44216 ./usr/sbin/newusers
 -rwxr-xr-x root       root             7560 ./usr/sbin/nl-class-add
 -rwxr-xr-x root       root             6544 ./usr/sbin/nl-class-delete
@@ -12601,9 +12564,6 @@ drwxr-xr-x root       root             4096 ./usr/share/doc/lxc/examples
 -rw-r--r-- root       root              305 ./usr/share/doc/lxc/examples/lxc-vlan.conf
 drwxr-xr-x root       root             4096 ./usr/share/evtest
 -rw-r--r-- root       root             6033 ./usr/share/evtest/evtest-create-device.xsl
-drwxr-xr-x root       root             4096 ./usr/share/fbprogress
--rw-r--r-- root       root            90750 ./usr/share/fbprogress/battery.tgz
--rw-r--r-- root       root            31891 ./usr/share/fbprogress/common.tgz
 drwxr-xr-x root       root             4096 ./usr/share/gdb
 drwxr-xr-x root       root             4096 ./usr/share/gdb/python
 drwxr-xr-x root       root             4096 ./usr/share/gdb/python/gdb
@@ -12684,9 +12644,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/base-files
 drwxr-xr-x root       root             4096 ./usr/share/licenses/base-passwd
 -rw-r--r-- root       root            18011 ./usr/share/licenses/base-passwd/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/base-passwd/generic_GPLv2
-drwxr-xr-x root       root             4096 ./usr/share/licenses/bash
--rw-r--r-- root       root            35147 ./usr/share/licenses/bash/COPYING
--rw-r--r-- root       root            34694 ./usr/share/licenses/bash/generic_GPLv3
 drwxr-xr-x root       root             4096 ./usr/share/licenses/bc
 -rw-r--r-- root       root            17992 ./usr/share/licenses/bc/COPYING
 -rw-r--r-- root       root            26532 ./usr/share/licenses/bc/COPYING.LIB
@@ -12798,9 +12755,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/evtest
 drwxr-xr-x root       root             4096 ./usr/share/licenses/expat
 -rw-r--r-- root       root             1208 ./usr/share/licenses/expat/COPYING
 -rw-r--r-- root       root             1080 ./usr/share/licenses/expat/generic_MIT
-drwxr-xr-x root       root             4096 ./usr/share/licenses/fbprogress
--rw-r--r-- root       root            11360 ./usr/share/licenses/fbprogress/Apache-2.0
--rw-r--r-- root       root            11360 ./usr/share/licenses/fbprogress/generic_Apache-2.0
 drwxr-xr-x root       root             4096 ./usr/share/licenses/filecache
 -rw-r--r-- root       root            11360 ./usr/share/licenses/filecache/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/filecache/generic_Apache-2.0
@@ -13335,8 +13289,8 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/rdx-utils-stub
 -rw-r--r-- root       root            11360 ./usr/share/licenses/rdx-utils-stub/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/rdx-utils-stub/generic_Apache-2.0
 drwxr-xr-x root       root             4096 ./usr/share/licenses/readline
--rw-r--r-- root       root            35147 ./usr/share/licenses/readline/COPYING
--rw-r--r-- root       root            34694 ./usr/share/licenses/readline/generic_GPLv3
+-rw-r--r-- root       root            18008 ./usr/share/licenses/readline/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/readline/generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/licenses/rsync
 -rw-r--r-- root       root            35147 ./usr/share/licenses/rsync/COPYING
 -rw-r--r-- root       root            34694 ./usr/share/licenses/rsync/generic_GPLv3
@@ -13392,9 +13346,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/systemd-serialg
 -rw-r--r-- root       root            17611 ./usr/share/licenses/systemd/generic_GPLv2
 -rw-r--r-- root       root            25878 ./usr/share/licenses/systemd/generic_LGPLv2.1
 -rw-r--r-- root       root             1080 ./usr/share/licenses/systemd/generic_MIT
-drwxr-xr-x root       root             4096 ./usr/share/licenses/tar
--rw-r--r-- root       root            35147 ./usr/share/licenses/tar/COPYING
--rw-r--r-- root       root            34694 ./usr/share/licenses/tar/generic_GPLv3
 drwxr-xr-x root       root             4096 ./usr/share/licenses/token-generator
 -rw-r--r-- root       root             1035 ./usr/share/licenses/token-generator/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/token-generator/generic_MIT
@@ -13445,9 +13396,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/webos-connman-a
 drwxr-xr-x root       root             4096 ./usr/share/licenses/webos-keyboard
 -rw-r--r-- root       root             7639 ./usr/share/licenses/webos-keyboard/COPYING
 -rw-r--r-- root       root            34694 ./usr/share/licenses/webos-keyboard/generic_GPL-3.0
-drwxr-xr-x root       root             4096 ./usr/share/licenses/webos-shutdownscripts
--rw-r--r-- root       root            11360 ./usr/share/licenses/webos-shutdownscripts/Apache-2.0
--rw-r--r-- root       root            11360 ./usr/share/licenses/webos-shutdownscripts/generic_Apache-2.0
 drwxr-xr-x root       root             4096 ./usr/share/licenses/webos-systemd-services
 -rw-r--r-- root       root            11360 ./usr/share/licenses/webos-systemd-services/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/webos-systemd-services/generic_Apache-2.0
@@ -13493,7 +13441,7 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles
 drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/prv/com.palm.activitymanager.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/prv/com.palm.configurator.json
--rw-r--r-- root       root              838 ./usr/share/ls2/roles/prv/com.palm.db.json
+-rw-r--r-- root       root              890 ./usr/share/ls2/roles/prv/com.palm.db.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/prv/com.palm.db8_gtest_db_media.json
 -rw-r--r-- root       root              283 ./usr/share/ls2/roles/prv/com.palm.db8_test_db_stress.json
 -rw-r--r-- root       root              300 ./usr/share/ls2/roles/prv/com.palm.db8_test_dbclient.json
@@ -13517,7 +13465,7 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              439 ./usr/share/ls2/roles/prv/com.palm.systemservice.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/prv/com.palm.universalsearch.json
 -rw-r--r-- root       root              287 ./usr/share/ls2/roles/prv/com.webos.pmlogd.json
--rw-r--r-- root       root              289 ./usr/share/ls2/roles/prv/ls-monitor.json
+-rw-r--r-- root       root              290 ./usr/share/ls2/roles/prv/ls-monitor.json
 -rw-r--r-- root       root              294 ./usr/share/ls2/roles/prv/org.webosinternals.ipkgservice.json
 -rw-r--r-- root       root              358 ./usr/share/ls2/roles/prv/org.webosinternals.service.upstartmgr.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/prv/org.webosports.luna.json
@@ -13551,7 +13499,7 @@ drwxr-xr-x root       root             4096 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              439 ./usr/share/ls2/roles/pub/com.palm.systemservice.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/pub/ls-monitor-pub.json
--rw-r--r-- root       root              289 ./usr/share/ls2/roles/pub/ls-monitor.json
+-rw-r--r-- root       root              290 ./usr/share/ls2/roles/pub/ls-monitor.json
 -rw-r--r-- root       root              294 ./usr/share/ls2/roles/pub/org.webosinternals.ipkgservice.json
 -rw-r--r-- root       root              358 ./usr/share/ls2/roles/pub/org.webosinternals.service.upstartmgr.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/pub/org.webosports.luna.json
@@ -13589,6 +13537,7 @@ drwxr-xr-x root       root             4096 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root             2577 ./usr/share/maliit/plugins/com/ubuntu/images/action_key_bg@27.png
 -rw-r--r-- root       root               94 ./usr/share/maliit/plugins/com/ubuntu/images/action_key_bg@27.sci
 -rw-r--r-- root       root              166 ./usr/share/maliit/plugins/com/ubuntu/images/b2.png
+-rw-r--r-- root       root              604 ./usr/share/maliit/plugins/com/ubuntu/images/backspace-icon.png
 -rw-r--r-- root       root              153 ./usr/share/maliit/plugins/com/ubuntu/images/border_bottom.png
 -rw-r--r-- root       root              166 ./usr/share/maliit/plugins/com/ubuntu/images/border_top.png
 -rw-r--r-- root       root             1579 ./usr/share/maliit/plugins/com/ubuntu/images/icon_backspace@18.png
@@ -13606,28 +13555,32 @@ drwxr-xr-x root       root             4096 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root             2706 ./usr/share/maliit/plugins/com/ubuntu/images/keybg_action_active@18.png
 -rw-r--r-- root       root             2667 ./usr/share/maliit/plugins/com/ubuntu/images/keybg_capslock_bg@18.png
 -rw-r--r-- root       root            53463 ./usr/share/maliit/plugins/com/ubuntu/images/keyboard_popover.png
+-rw-r--r-- root       root             1524 ./usr/share/maliit/plugins/com/ubuntu/images/language-icon.png
 -rw-r--r-- root       root             4603 ./usr/share/maliit/plugins/com/ubuntu/images/popover@27.png
 -rw-r--r-- root       root               88 ./usr/share/maliit/plugins/com/ubuntu/images/popover@27.sci
 -rw-r--r-- root       root             1641 ./usr/share/maliit/plugins/com/ubuntu/images/popover_tooltip@27.png
 -rw-r--r-- root       root              153 ./usr/share/maliit/plugins/com/ubuntu/images/rect3846.png
+-rw-r--r-- root       root              856 ./usr/share/maliit/plugins/com/ubuntu/images/return-icon.png
+-rw-r--r-- root       root              485 ./usr/share/maliit/plugins/com/ubuntu/images/shift-icon.png
+-rw-r--r-- root       root              516 ./usr/share/maliit/plugins/com/ubuntu/images/shift-latched-icon.png
 -rw-r--r-- root       root             2243 ./usr/share/maliit/plugins/com/ubuntu/images/tablet_icon_backspace@20.png
 -rw-r--r-- root       root             1747 ./usr/share/maliit/plugins/com/ubuntu/images/tablet_icon_return@20.png
 -rw-r--r-- root       root             1720 ./usr/share/maliit/plugins/com/ubuntu/images/tablet_icon_shift@20.png
 -rw-r--r-- root       root             1709 ./usr/share/maliit/plugins/com/ubuntu/images/tablet_icon_shift_white@20.png
 drwxr-xr-x root       root             4096 ./usr/share/maliit/plugins/com/ubuntu/keys
--rw-r--r-- root       root             2041 ./usr/share/maliit/plugins/com/ubuntu/keys/ActionKey.qml
--rw-r--r-- root       root              784 ./usr/share/maliit/plugins/com/ubuntu/keys/BackspaceKey.qml
+-rw-r--r-- root       root             2086 ./usr/share/maliit/plugins/com/ubuntu/keys/ActionKey.qml
+-rw-r--r-- root       root              796 ./usr/share/maliit/plugins/com/ubuntu/keys/BackspaceKey.qml
 -rw-r--r-- root       root             5392 ./usr/share/maliit/plugins/com/ubuntu/keys/CharKey.qml
 -rw-r--r-- root       root             2855 ./usr/share/maliit/plugins/com/ubuntu/keys/DropShadow.qml
 -rw-r--r-- root       root             5072 ./usr/share/maliit/plugins/com/ubuntu/keys/ExtendedKeysSelector.qml
 -rw-r--r-- root       root             1718 ./usr/share/maliit/plugins/com/ubuntu/keys/KeyPad.qml
--rw-r--r-- root       root             1063 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageKey.qml
--rw-r--r-- root       root             3170 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageMenu.qml
+-rw-r--r-- root       root             1039 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageKey.qml
+-rw-r--r-- root       root             3375 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageMenu.qml
 -rw-r--r-- root       root             2134 ./usr/share/maliit/plugins/com/ubuntu/keys/Magnifier.qml
 -rw-r--r-- root       root             1304 ./usr/share/maliit/plugins/com/ubuntu/keys/OneTwoKey.qml
 -rw-r--r-- root       root             1587 ./usr/share/maliit/plugins/com/ubuntu/keys/PressArea.qml
--rw-r--r-- root       root              809 ./usr/share/maliit/plugins/com/ubuntu/keys/ReturnKey.qml
--rw-r--r-- root       root             1508 ./usr/share/maliit/plugins/com/ubuntu/keys/ShiftKey.qml
+-rw-r--r-- root       root              782 ./usr/share/maliit/plugins/com/ubuntu/keys/ReturnKey.qml
+-rw-r--r-- root       root             1487 ./usr/share/maliit/plugins/com/ubuntu/keys/ShiftKey.qml
 -rw-r--r-- root       root              840 ./usr/share/maliit/plugins/com/ubuntu/keys/SpaceKey.qml
 -rw-r--r-- root       root              814 ./usr/share/maliit/plugins/com/ubuntu/keys/Spacer.qml
 -rw-r--r-- root       root             1089 ./usr/share/maliit/plugins/com/ubuntu/keys/SymbolShiftKey.qml
@@ -13944,18 +13897,6 @@ drwxr-xr-x root       root             4096 ./usr/share/qt5/examples/qtwayland/q
 -rw-r--r-- root       root             3927 ./usr/share/qt5/examples/qtwayland/qwindow-compositor/qwindowcompositor.h
 -rw-r--r-- root       root             6201 ./usr/share/qt5/examples/qtwayland/qwindow-compositor/textureblitter.cpp
 -rw-r--r-- root       root             2600 ./usr/share/qt5/examples/qtwayland/qwindow-compositor/textureblitter.h
-drwxr-xr-x root       root             4096 ./usr/share/readline
--rw-r--r-- root       root             5734 ./usr/share/readline/excallback.c
--rw-r--r-- root       root            11426 ./usr/share/readline/fileman.c
--rw-r--r-- root       root             2889 ./usr/share/readline/histexamp.c
--rw-r--r-- root       root             3300 ./usr/share/readline/manexamp.c
--rw-r--r-- root       root            11147 ./usr/share/readline/rl-fgets.c
--rw-r--r-- root       root             3179 ./usr/share/readline/rl.c
--rw-r--r-- root       root             3299 ./usr/share/readline/rlcat.c
--rw-r--r-- root       root             3295 ./usr/share/readline/rlevent.c
--rw-r--r-- root       root             6531 ./usr/share/readline/rlptytest.c
--rw-r--r-- root       root             2146 ./usr/share/readline/rltest.c
--rw-r--r-- root       root             1287 ./usr/share/readline/rlversion.c
 drwxr-xr-x root       root             4096 ./usr/share/rolegen
 drwxr-xr-x root       root             4096 ./usr/share/rolegen/templates
 -rw-r--r-- root       root              242 ./usr/share/rolegen/templates/NDK.prv
@@ -18410,6 +18351,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               32 ./var/lib/opkg/alternatives/ash
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/awk
 -rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/basename
+-rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/bash
 -rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/bin-lsmod
 -rw-r--r-- root       root               45 ./var/lib/opkg/alternatives/blockdev
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/brctl
@@ -18570,7 +18512,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               45 ./var/lib/opkg/alternatives/syslog-conf
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/syslogd
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/tail
--rw-r--r-- root       root               49 ./var/lib/opkg/alternatives/tar
+-rw-r--r-- root       root               32 ./var/lib/opkg/alternatives/tar
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/tee
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/telnet
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/test
@@ -18606,7 +18548,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/xargs
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/yes
 -rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/zcat
-drwxr-xr-x root       root            73728 ./var/lib/opkg/info
+drwxr-xr-x root       root            69632 ./var/lib/opkg/info
 -rw-r--r-- root       root              427 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              765 ./var/lib/opkg/info/activitymanager.control
@@ -18666,11 +18608,6 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              605 ./var/lib/opkg/info/base-passwd.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/base-passwd.list
 -rwxr-xr-x root       root             1352 ./var/lib/opkg/info/base-passwd.preinst
--rw-r--r-- root       root             1451 ./var/lib/opkg/info/bash-lic.control
--rw-r--r-- root       root               98 ./var/lib/opkg/info/bash-lic.list
--rw-r--r-- root       root             1513 ./var/lib/opkg/info/bash.control
--rw-r--r-- root       root               27 ./var/lib/opkg/info/bash.list
--rwxr-xr-x root       root              155 ./var/lib/opkg/info/bash.postinst
 -rw-r--r-- root       root              387 ./var/lib/opkg/info/bc-lic.control
 -rw-r--r-- root       root              259 ./var/lib/opkg/info/bc-lic.list
 -rw-r--r-- root       root              455 ./var/lib/opkg/info/bc.control
@@ -18703,8 +18640,8 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rwxr-xr-x root       root              291 ./var/lib/opkg/info/busybox-syslog.prerm
 -rw-r--r-- root       root             2128 ./var/lib/opkg/info/busybox.control
 -rw-r--r-- root       root              109 ./var/lib/opkg/info/busybox.list
--rwxr-xr-x root       root            13431 ./var/lib/opkg/info/busybox.postinst
--rwxr-xr-x root       root             9501 ./var/lib/opkg/info/busybox.postrm
+-rwxr-xr-x root       root            13500 ./var/lib/opkg/info/busybox.postinst
+-rwxr-xr-x root       root             9557 ./var/lib/opkg/info/busybox.postrm
 -rwxr-xr-x root       root              762 ./var/lib/opkg/info/busybox.prerm
 -rw-r--r-- root       root              691 ./var/lib/opkg/info/bzip2-lic.control
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/bzip2-lic.list
@@ -18726,9 +18663,9 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              122 ./var/lib/opkg/info/connman-conf-lic.list
 -rw-r--r-- root       root              437 ./var/lib/opkg/info/connman-conf.control
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/connman-conf.list
--rw-r--r-- root       root             1018 ./var/lib/opkg/info/connman-lic.control
+-rw-r--r-- root       root             1019 ./var/lib/opkg/info/connman-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/connman-lic.list
--rw-r--r-- root       root             1444 ./var/lib/opkg/info/connman.control
+-rw-r--r-- root       root             1445 ./var/lib/opkg/info/connman.control
 -rw-r--r-- root       root              154 ./var/lib/opkg/info/connman.list
 -rwxr-xr-x root       root              241 ./var/lib/opkg/info/connman.postinst
 -rwxr-xr-x root       root              155 ./var/lib/opkg/info/connman.prerm
@@ -18755,7 +18692,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              414 ./var/lib/opkg/info/db8-lic.control
 -rw-r--r-- root       root              103 ./var/lib/opkg/info/db8-lic.list
 -rw-r--r-- root       root              695 ./var/lib/opkg/info/db8.control
--rw-r--r-- root       root             1415 ./var/lib/opkg/info/db8.list
+-rw-r--r-- root       root             1643 ./var/lib/opkg/info/db8.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles
 -rw-r--r-- root       root              942 ./var/lib/opkg/info/dbus-1.control
@@ -18800,10 +18737,6 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/evtest-lic.list
 -rw-r--r-- root       root              472 ./var/lib/opkg/info/evtest.control
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/evtest.list
--rw-r--r-- root       root              389 ./var/lib/opkg/info/fbprogress-lic.control
--rw-r--r-- root       root              124 ./var/lib/opkg/info/fbprogress-lic.list
--rw-r--r-- root       root              485 ./var/lib/opkg/info/fbprogress.control
--rw-r--r-- root       root              110 ./var/lib/opkg/info/fbprogress.list
 -rw-r--r-- root       root              382 ./var/lib/opkg/info/filecache-lic.control
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/filecache-lic.list
 -rw-r--r-- root       root              710 ./var/lib/opkg/info/filecache.control
@@ -19289,11 +19222,11 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              457 ./var/lib/opkg/info/librdx-stub.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/librdx-stub.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/librdx-stub.postinst
--rw-r--r-- root       root             1275 ./var/lib/opkg/info/libreadline-lic.control
+-rw-r--r-- root       root             2245 ./var/lib/opkg/info/libreadline-lic.control
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/libreadline-lic.list
--rw-r--r-- root       root             1345 ./var/lib/opkg/info/libreadline6.control
--rw-r--r-- root       root              460 ./var/lib/opkg/info/libreadline6.list
--rwxr-xr-x root       root               90 ./var/lib/opkg/info/libreadline6.postinst
+-rw-r--r-- root       root             2315 ./var/lib/opkg/info/libreadline5.control
+-rw-r--r-- root       root              106 ./var/lib/opkg/info/libreadline5.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libreadline5.postinst
 -rw-r--r-- root       root              486 ./var/lib/opkg/info/librolegen-lic.control
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/librolegen-lic.list
 -rw-r--r-- root       root              578 ./var/lib/opkg/info/librolegen2.control
@@ -19321,7 +19254,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              120 ./var/lib/opkg/info/libsoup-2.4-lic.list
 -rw-r--r-- root       root              580 ./var/lib/opkg/info/libsoup-2.4-locale-en-gb.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/libsoup-2.4-locale-en-gb.list
--rw-r--r-- root       root              408 ./var/lib/opkg/info/libsqlite3-0.control
+-rw-r--r-- root       root              409 ./var/lib/opkg/info/libsqlite3-0.control
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libsqlite3-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsqlite3-0.postinst
 -rw-r--r-- root       root              799 ./var/lib/opkg/info/libss2.control
@@ -19430,14 +19363,14 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              475 ./var/lib/opkg/info/luna-next-cardshell-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/luna-next-cardshell-lic.list
 -rw-r--r-- root       root              611 ./var/lib/opkg/info/luna-next-cardshell.control
--rw-r--r-- root       root             9154 ./var/lib/opkg/info/luna-next-cardshell.list
+-rw-r--r-- root       root             9086 ./var/lib/opkg/info/luna-next-cardshell.list
 -rw-r--r-- root       root              352 ./var/lib/opkg/info/luna-next-conf-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/luna-next-conf-lic.list
 -rw-r--r-- root       root              379 ./var/lib/opkg/info/luna-next-conf.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/luna-next-conf.list
--rw-r--r-- root       root              558 ./var/lib/opkg/info/luna-next-lic.control
+-rw-r--r-- root       root              557 ./var/lib/opkg/info/luna-next-lic.control
 -rw-r--r-- root       root              164 ./var/lib/opkg/info/luna-next-lic.list
--rw-r--r-- root       root              936 ./var/lib/opkg/info/luna-next.control
+-rw-r--r-- root       root              935 ./var/lib/opkg/info/luna-next.control
 -rw-r--r-- root       root              403 ./var/lib/opkg/info/luna-next.list
 -rwxr-xr-x root       root              245 ./var/lib/opkg/info/luna-next.postinst
 -rwxr-xr-x root       root              159 ./var/lib/opkg/info/luna-next.prerm
@@ -19453,19 +19386,19 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              445 ./var/lib/opkg/info/luna-service2-lic.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/luna-service2-lic.list
 -rw-r--r-- root       root              682 ./var/lib/opkg/info/luna-service2.control
--rw-r--r-- root       root              858 ./var/lib/opkg/info/luna-service2.list
+-rw-r--r-- root       root              780 ./var/lib/opkg/info/luna-service2.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst
 -rw-r--r-- root       root              461 ./var/lib/opkg/info/luna-sysmgr-conf-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/luna-sysmgr-conf-lic.list
 -rw-r--r-- root       root              490 ./var/lib/opkg/info/luna-sysmgr-conf.control
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/luna-sysmgr-conf.list
--rw-r--r-- root       root              383 ./var/lib/opkg/info/luna-sysmgr-lic.control
+-rw-r--r-- root       root              382 ./var/lib/opkg/info/luna-sysmgr-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/luna-sysmgr-lic.list
--rw-r--r-- root       root              946 ./var/lib/opkg/info/luna-sysmgr.control
+-rw-r--r-- root       root              945 ./var/lib/opkg/info/luna-sysmgr.control
 -rw-r--r-- root       root            20847 ./var/lib/opkg/info/luna-sysmgr.list
--rw-r--r-- root       root              512 ./var/lib/opkg/info/luna-sysservice-lic.control
+-rw-r--r-- root       root              511 ./var/lib/opkg/info/luna-sysservice-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/luna-sysservice-lic.list
--rw-r--r-- root       root              946 ./var/lib/opkg/info/luna-sysservice.control
+-rw-r--r-- root       root              945 ./var/lib/opkg/info/luna-sysservice.control
 -rw-r--r-- root       root              439 ./var/lib/opkg/info/luna-sysservice.list
 -rw-r--r-- root       root              400 ./var/lib/opkg/info/luna-systemui-lic.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/luna-systemui-lic.list
@@ -19492,7 +19425,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root               15 ./var/lib/opkg/info/makedevs.list
 -rw-r--r-- root       root              855 ./var/lib/opkg/info/maliit-framework-qt5-lic.control
 -rw-r--r-- root       root              154 ./var/lib/opkg/info/maliit-framework-qt5-lic.list
--rw-r--r-- root       root             1036 ./var/lib/opkg/info/maliit-framework-qt5.control
+-rw-r--r-- root       root             1020 ./var/lib/opkg/info/maliit-framework-qt5.control
 -rw-r--r-- root       root              473 ./var/lib/opkg/info/maliit-framework-qt5.list
 -rwxr-xr-x root       root              333 ./var/lib/opkg/info/maliit-framework-qt5.postinst
 -rwxr-xr-x root       root              167 ./var/lib/opkg/info/maliit-framework-qt5.prerm
@@ -19578,9 +19511,9 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/nyx-modules-lic.list
 -rw-r--r-- root       root              593 ./var/lib/opkg/info/nyx-modules.control
 -rw-r--r-- root       root              505 ./var/lib/opkg/info/nyx-modules.list
--rw-r--r-- root       root              640 ./var/lib/opkg/info/ofono-lic.control
+-rw-r--r-- root       root              641 ./var/lib/opkg/info/ofono-lic.control
 -rw-r--r-- root       root              135 ./var/lib/opkg/info/ofono-lic.list
--rw-r--r-- root       root              816 ./var/lib/opkg/info/ofono.control
+-rw-r--r-- root       root              817 ./var/lib/opkg/info/ofono.control
 -rw-r--r-- root       root              146 ./var/lib/opkg/info/ofono.list
 -rwxr-xr-x root       root              237 ./var/lib/opkg/info/ofono.postinst
 -rwxr-xr-x root       root              151 ./var/lib/opkg/info/ofono.prerm
@@ -19707,7 +19640,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.list
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/packagegroup-webos-extended-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/packagegroup-webos-extended-lic.list
--rw-r--r-- root       root             1435 ./var/lib/opkg/info/packagegroup-webos-extended.control
+-rw-r--r-- root       root             1400 ./var/lib/opkg/info/packagegroup-webos-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list
 -rw-r--r-- root       root              382 ./var/lib/opkg/info/packagegroup-webos-ports-development-lic.control
 -rw-r--r-- root       root              202 ./var/lib/opkg/info/packagegroup-webos-ports-development-lic.list
@@ -20036,9 +19969,9 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              453 ./var/lib/opkg/info/speex.control
 -rw-r--r-- root       root              106 ./var/lib/opkg/info/speex.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/speex.postinst
--rw-r--r-- root       root              382 ./var/lib/opkg/info/sqlite3-lic.control
+-rw-r--r-- root       root              383 ./var/lib/opkg/info/sqlite3-lic.control
 -rw-r--r-- root       root              106 ./var/lib/opkg/info/sqlite3-lic.list
--rw-r--r-- root       root              477 ./var/lib/opkg/info/sqlite3.control
+-rw-r--r-- root       root              478 ./var/lib/opkg/info/sqlite3.control
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/sqlite3.list
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/strace-lic.control
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/strace-lic.list
@@ -20077,12 +20010,6 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/sysvinit-pidof.list
 -rwxr-xr-x root       root               82 ./var/lib/opkg/info/sysvinit-pidof.postinst
 -rwxr-xr-x root       root               67 ./var/lib/opkg/info/sysvinit-pidof.postrm
--rw-r--r-- root       root              455 ./var/lib/opkg/info/tar-lic.control
--rw-r--r-- root       root               95 ./var/lib/opkg/info/tar-lic.list
--rw-r--r-- root       root              524 ./var/lib/opkg/info/tar.control
--rw-r--r-- root       root               13 ./var/lib/opkg/info/tar.list
--rwxr-xr-x root       root               71 ./var/lib/opkg/info/tar.postinst
--rwxr-xr-x root       root               58 ./var/lib/opkg/info/tar.postrm
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/token-generator-lic.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/token-generator-lic.list
 -rw-r--r-- root       root              394 ./var/lib/opkg/info/token-generator.control
@@ -20116,8 +20043,8 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              351 ./var/lib/opkg/info/tzdata-right.control
 -rw-r--r-- root       root            24863 ./var/lib/opkg/info/tzdata-right.list
 -rw-r--r-- root       root              586 ./var/lib/opkg/info/tzdata.control
--rw-r--r-- root       root             2697 ./var/lib/opkg/info/tzdata.list
--rwxr-xr-x root       root              540 ./var/lib/opkg/info/tzdata.postinst
+-rw-r--r-- root       root             2794 ./var/lib/opkg/info/tzdata.list
+-rwxr-xr-x root       root              694 ./var/lib/opkg/info/tzdata.postinst
 -rw-r--r-- root       root              615 ./var/lib/opkg/info/udev-extraconf-lic.control
 -rw-r--r-- root       root              225 ./var/lib/opkg/info/udev-extraconf-lic.list
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/udev-extraconf.conffiles
@@ -20198,14 +20125,10 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              157 ./var/lib/opkg/info/webos-connman-adapter-lic.list
 -rw-r--r-- root       root              829 ./var/lib/opkg/info/webos-connman-adapter.control
 -rw-r--r-- root       root              329 ./var/lib/opkg/info/webos-connman-adapter.list
--rw-r--r-- root       root              463 ./var/lib/opkg/info/webos-keyboard-lic.control
+-rw-r--r-- root       root              489 ./var/lib/opkg/info/webos-keyboard-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/webos-keyboard-lic.list
--rw-r--r-- root       root              713 ./var/lib/opkg/info/webos-keyboard.control
--rw-r--r-- root       root            17074 ./var/lib/opkg/info/webos-keyboard.list
--rw-r--r-- root       root              376 ./var/lib/opkg/info/webos-shutdownscripts-lic.control
--rw-r--r-- root       root              157 ./var/lib/opkg/info/webos-shutdownscripts-lic.list
--rw-r--r-- root       root              430 ./var/lib/opkg/info/webos-shutdownscripts.control
--rw-r--r-- root       root             1073 ./var/lib/opkg/info/webos-shutdownscripts.list
+-rw-r--r-- root       root              739 ./var/lib/opkg/info/webos-keyboard.control
+-rw-r--r-- root       root            17458 ./var/lib/opkg/info/webos-keyboard.list
 -rw-r--r-- root       root              469 ./var/lib/opkg/info/webos-systemd-services-lic.control
 -rw-r--r-- root       root              160 ./var/lib/opkg/info/webos-systemd-services-lic.list
 -rw-r--r-- root       root              504 ./var/lib/opkg/info/webos-systemd-services.control
@@ -20242,11 +20165,15 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists
--rw-r--r-- root       root           169920 ./var/lib/opkg/status
+-rw-r--r-- root       root           168331 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
 lrwxrwxrwx root       root               12 ./var/log -> volatile/log
+drwxr-xr-x root       root             4096 ./var/luna
+drwxr-xr-x root       root             4096 ./var/luna/preferences
+lrwxrwxrwx root       root               29 ./var/luna/preferences/localtime -> /usr/share/zoneinfo/Universal
+-rw-r--r-- root       root               10 ./var/luna/preferences/timezone
 drwxr-xr-x root       root             4096 ./var/opt
 lrwxrwxrwx root       root                6 ./var/run -> ../run
 drwxr-xr-x root       root             4096 ./var/spool
