@@ -90,8 +90,10 @@ lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/vi -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
 -rwxr-xr-x root       root             1943 ./bin/zcat.gzip
-drwxr-xr-x root       root               60 ./boot
+drwxr-xr-x root       root              100 ./boot
 -rw-r--r-- root       root           233519 ./boot/android-ramdisk.img
+lrwxrwxrwx root       root               13 ./boot/zImage -> zImage-3.1.10
+-rw-r--r-- root       root          4866300 ./boot/zImage-3.1.10
 drwxr-xr-x root       root               40 ./dev
 drwxr-xr-x root       root             1800 ./etc
 drwxr-xr-x root       root               60 ./etc/bash_completion.d
@@ -153,7 +155,7 @@ drwxr-xr-x root       root               40 ./etc/depmod.d
 -rw-r--r-- root       root            10939 ./etc/dnsmasq.conf
 drwxr-xr-x root       root               40 ./etc/dnsmasq.d
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf
-drwxr-xr-x root       root              640 ./etc/event.d
+drwxr-xr-x root       root              680 ./etc/event.d
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady
 -rw-r--r-- root       root             1370 ./etc/event.d/LunaSysMgr
 -rw-r--r-- root       root              274 ./etc/event.d/LunaSysService
@@ -162,6 +164,8 @@ drwxr-xr-x root       root              640 ./etc/event.d
 -rw-r--r-- root       root             1229 ./etc/event.d/PmLogDaemon
 -rw-r--r-- root       root                0 ./etc/event.d/WebAppMgr
 -rw-r--r-- root       root              834 ./etc/event.d/activitymanager
+-rw-r--r-- root       root                0 ./etc/event.d/android-property-service
+-rw-r--r-- root       root                0 ./etc/event.d/audio-service
 -rw-r--r-- root       root             2436 ./etc/event.d/configurator
 -rw-r--r-- root       root              548 ./etc/event.d/configurator-async
 -rw-r--r-- root       root              726 ./etc/event.d/connman
@@ -228,7 +232,7 @@ drwxr-xr-x root       root              180 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               22 ./etc/issue
 -rw-r--r-- root       root               19 ./etc/issue.net
--rw-r--r-- root       root            13497 ./etc/ld.so.cache
+-rw-r--r-- root       root            13987 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 drwxr-xr-x root       root               80 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -949,11 +953,12 @@ drwxr-xr-x root       root               80 ./etc/systemd/system/getty.target.wa
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyS0.service -> /lib/systemd/system/serial-getty@.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
-drwxr-xr-x root       root              520 ./etc/systemd/system/multi-user.target.wants
+drwxr-xr-x root       root              560 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/LunaSysMgr.service -> /lib/systemd/system/LunaSysMgr.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/LunaSysService.service -> /lib/systemd/system/LunaSysService.service
 lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/PmLogDaemon.service -> /lib/systemd/system/PmLogDaemon.service
 lrwxrwxrwx root       root               43 ./etc/systemd/system/multi-user.target.wants/activitymanager.service -> /lib/systemd/system/activitymanager.service
+lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               46 ./etc/systemd/system/multi-user.target.wants/configurator-async.service -> /lib/systemd/system/configurator-async.service
@@ -965,6 +970,7 @@ lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/luna-next.service -> /lib/systemd/system/luna-next.service
 lrwxrwxrwx root       root               46 ./etc/systemd/system/multi-user.target.wants/luna-webappmanager.service -> /lib/systemd/system/luna-webappmanager.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/maliit-server.service -> /lib/systemd/system/maliit-server.service
+lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/mtp-server.service -> /lib/systemd/system/mtp-server.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/ofono.service -> /lib/systemd/system/ofono.service
 lrwxrwxrwx root       root               58 ./etc/systemd/system/multi-user.target.wants/org.webosinternals.ipkgservice.service -> /lib/systemd/system/org.webosinternals.ipkgservice.service
 lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/powerd.service -> /lib/systemd/system/powerd.service
@@ -1123,18 +1129,34 @@ drwxr-xr-x root       root               60 ./lib/lsb
 -rwxr-xr-x root       root              740 ./lib/lsb/init-functions
 drwxr-xr-x root       root               40 ./lib/modprobe.d
 drwxr-xr-x root       root               60 ./lib/modules
-drwxr-xr-x root       root              220 ./lib/modules/3.1.10
--rw-r--r-- root       root               45 ./lib/modules/3.1.10/modules.alias
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.alias.bin
--rw-r--r-- root       root                0 ./lib/modules/3.1.10/modules.builtin.bin
--rw-r--r-- root       root                0 ./lib/modules/3.1.10/modules.dep
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.dep.bin
+drwxr-xr-x root       root              280 ./lib/modules/3.1.10
+drwxr-xr-x root       root               60 ./lib/modules/3.1.10/kernel
+drwxr-xr-x root       root               80 ./lib/modules/3.1.10/kernel/net
+drwxr-xr-x root       root               60 ./lib/modules/3.1.10/kernel/net/ipv4
+drwxr-xr-x root       root              180 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter
+-rw-r--r-- root       root            19932 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/ip_tables.ko
+-rw-r--r-- root       root             5912 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/ipt_MASQUERADE.ko
+-rw-r--r-- root       root             5172 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/iptable_filter.ko
+-rw-r--r-- root       root             9656 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/iptable_nat.ko
+-rw-r--r-- root       root            23400 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko
+-rw-r--r-- root       root             3920 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko
+-rw-r--r-- root       root            26964 ./lib/modules/3.1.10/kernel/net/ipv4/netfilter/nf_nat.ko
+drwxr-xr-x root       root               80 ./lib/modules/3.1.10/kernel/net/netfilter
+-rw-r--r-- root       root            97888 ./lib/modules/3.1.10/kernel/net/netfilter/nf_conntrack.ko
+-rw-r--r-- root       root            25632 ./lib/modules/3.1.10/kernel/net/netfilter/x_tables.ko
+-rw-r--r-- root       root              171 ./lib/modules/3.1.10/modules.alias
+-rw-r--r-- root       root              262 ./lib/modules/3.1.10/modules.alias.bin
+-rw-r--r-- root       root            13060 ./lib/modules/3.1.10/modules.builtin
+-rw-r--r-- root       root            15035 ./lib/modules/3.1.10/modules.builtin.bin
+-rw-r--r-- root       root             1121 ./lib/modules/3.1.10/modules.dep
+-rw-r--r-- root       root             1542 ./lib/modules/3.1.10/modules.dep.bin
 -rw-r--r-- root       root               52 ./lib/modules/3.1.10/modules.devname
+-rw-r--r-- root       root             5329 ./lib/modules/3.1.10/modules.order
 -rw-r--r-- root       root              131 ./lib/modules/3.1.10/modules.softdep
--rw-r--r-- root       root               49 ./lib/modules/3.1.10/modules.symbols
--rw-r--r-- root       root               12 ./lib/modules/3.1.10/modules.symbols.bin
+-rw-r--r-- root       root             6017 ./lib/modules/3.1.10/modules.symbols
+-rw-r--r-- root       root             6913 ./lib/modules/3.1.10/modules.symbols.bin
 drwxr-xr-x root       root              720 ./lib/systemd
-drwxr-xr-x root       root             3840 ./lib/systemd/system
+drwxr-xr-x root       root             3880 ./lib/systemd/system
 drwxr-xr-x root       root              140 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            34516 ./lib/systemd/system-generators/systemd-efi-boot-generator
 -rwxr-xr-x root       root            46852 ./lib/systemd/system-generators/systemd-fstab-generator
@@ -1151,6 +1173,7 @@ drwxr-xr-x root       root               40 ./lib/systemd/system-sleep
 -rw-r--r-- root       root              326 ./lib/systemd/system/activitymanager.service
 -rw-r--r-- root       root              234 ./lib/systemd/system/android-system.service
 -rw-r--r-- root       root              206 ./lib/systemd/system/android-tools-adbd.service
+-rw-r--r-- root       root              326 ./lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r-- root       root              546 ./lib/systemd/system/basic.target
 drwxr-xr-x root       root               80 ./lib/systemd/system/basic.target.wants
@@ -1215,6 +1238,7 @@ lrwxrwxrwx root       root               12 ./lib/systemd/system/local-fs.target
 -rw-r--r-- root       root              405 ./lib/systemd/system/machine.slice
 -rw-r--r-- root       root              329 ./lib/systemd/system/machineid.service
 -rw-r--r-- root       root              264 ./lib/systemd/system/maliit-server.service
+-rw-r--r-- root       root              192 ./lib/systemd/system/mtp-server.service
 -rw-r--r-- root       root              524 ./lib/systemd/system/multi-user.target
 drwxr-xr-x root       root              140 ./lib/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               15 ./lib/systemd/system/multi-user.target.wants/dbus.service -> ../dbus.service
@@ -2430,7 +2454,7 @@ lrwxrwxrwx root       root               48 ./usr/arm-webos-linux-gnueabi/bin/ob
 lrwxrwxrwx root       root               48 ./usr/arm-webos-linux-gnueabi/bin/objdump -> ../../../usr/bin/arm-webos-linux-gnueabi-objdump
 lrwxrwxrwx root       root               47 ./usr/arm-webos-linux-gnueabi/bin/ranlib -> ../../../usr/bin/arm-webos-linux-gnueabi-ranlib
 lrwxrwxrwx root       root               46 ./usr/arm-webos-linux-gnueabi/bin/strip -> ../../../usr/bin/arm-webos-linux-gnueabi-strip
-drwxr-xr-x root       root             7720 ./usr/bin
+drwxr-xr-x root       root             7740 ./usr/bin
 -rwxr-xr-x root       root            23856 ./usr/bin/PmLogCtl
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/[[ -> /bin/busybox.nosuid
@@ -2636,6 +2660,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/mkfifo -> /bin/busybox.nos
 -rwxr-xr-x root       root           343100 ./usr/bin/mojomail-smtp
 -rwxr-xr-x root       root             7956 ./usr/bin/mountpoint
 -rwxr-xr-x root       root             8156 ./usr/bin/mtdev-test
+-rwxr-xr-x root       root            50588 ./usr/bin/mtp-server
 -rwxr-xr-x root       root            14332 ./usr/bin/munch
 -rwxr-xr-x root       root            17964 ./usr/bin/namei
 lrwxrwxrwx root       root               19 ./usr/bin/nc -> /bin/busybox.nosuid
@@ -2768,7 +2793,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/tr -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./usr/bin/traceroute -> /bin/busybox.suid
 -rwxr-xr-x root       root            14820 ./usr/bin/tset
 lrwxrwxrwx root       root               19 ./usr/bin/tty -> /bin/busybox.nosuid
--rwxr-xr-x root       root           300248 ./usr/bin/ubuntu-keyboard-benchmark
+-rwxr-xr-x root       root           123668 ./usr/bin/ubuntu-keyboard-benchmark
 -rwxr-xr-x root       root            43588 ./usr/bin/uconv
 -rwxr-xr-x root       root            12072 ./usr/bin/ul
 -rwxr-xr-x root       root             2307 ./usr/bin/uncompress
@@ -2819,7 +2844,7 @@ drwxr-xr-x root       root               40 ./usr/games
 drwxr-xr-x root       root               60 ./usr/include
 drwxr-xr-x root       root               60 ./usr/include/python2.7
 -rw-r--r-- root       root            35988 ./usr/include/python2.7/pyconfig.h
-drwxr-xr-x root       root             7420 ./usr/lib
+drwxr-xr-x root       root             7740 ./usr/lib
 drwxr-xr-x root       root               40 ./usr/lib/binfmt.d
 drwxr-xr-x root       root               80 ./usr/lib/connman
 drwxr-xr-x root       root               40 ./usr/lib/connman/plugins
@@ -3015,6 +3040,15 @@ lrwxrwxrwx root       root               19 ./usr/lib/libQt5DBus.so.5.1 -> libQt
 lrwxrwxrwx root       root               18 ./usr/lib/libQt5Gui.so.5 -> libQt5Gui.so.5.1.1
 lrwxrwxrwx root       root               18 ./usr/lib/libQt5Gui.so.5.1 -> libQt5Gui.so.5.1.1
 -rwxr-xr-x root       root          3321180 ./usr/lib/libQt5Gui.so.5.1.1
+lrwxrwxrwx root       root               25 ./usr/lib/libQt5Multimedia.so.5 -> libQt5Multimedia.so.5.1.1
+lrwxrwxrwx root       root               25 ./usr/lib/libQt5Multimedia.so.5.1 -> libQt5Multimedia.so.5.1.1
+-rwxr-xr-x root       root           700688 ./usr/lib/libQt5Multimedia.so.5.1.1
+lrwxrwxrwx root       root               32 ./usr/lib/libQt5MultimediaQuick_p.so.5 -> libQt5MultimediaQuick_p.so.5.1.1
+lrwxrwxrwx root       root               32 ./usr/lib/libQt5MultimediaQuick_p.so.5.1 -> libQt5MultimediaQuick_p.so.5.1.1
+-rwxr-xr-x root       root             8532 ./usr/lib/libQt5MultimediaQuick_p.so.5.1.1
+lrwxrwxrwx root       root               32 ./usr/lib/libQt5MultimediaWidgets.so.5 -> libQt5MultimediaWidgets.so.5.1.1
+lrwxrwxrwx root       root               32 ./usr/lib/libQt5MultimediaWidgets.so.5.1 -> libQt5MultimediaWidgets.so.5.1.1
+-rwxr-xr-x root       root            83352 ./usr/lib/libQt5MultimediaWidgets.so.5.1.1
 lrwxrwxrwx root       root               22 ./usr/lib/libQt5Network.so.5 -> libQt5Network.so.5.1.1
 lrwxrwxrwx root       root               22 ./usr/lib/libQt5Network.so.5.1 -> libQt5Network.so.5.1.1
 -rwxr-xr-x root       root          1154636 ./usr/lib/libQt5Network.so.5.1.1
@@ -3217,6 +3251,8 @@ lrwxrwxrwx root       root               19 ./usr/lib/libmp3lame.so.0 -> libmp3l
 -rwxr-xr-x root       root           242464 ./usr/lib/libmp3lame.so.0.0.0
 lrwxrwxrwx root       root               17 ./usr/lib/libmtdev.so.1 -> libmtdev.so.1.0.0
 -rwxr-xr-x root       root            15936 ./usr/lib/libmtdev.so.1.0.0
+lrwxrwxrwx root       root               21 ./usr/lib/libmtpserver.so.1 -> libmtpserver.so.1.0.0
+-rwxr-xr-x root       root           102060 ./usr/lib/libmtpserver.so.1.0.0
 lrwxrwxrwx root       root               24 ./usr/lib/libnfc_ndef_nxp.so.1 -> libnfc_ndef_nxp.so.1.0.0
 -rwxr-xr-x root       root             4756 ./usr/lib/libnfc_ndef_nxp.so.1.0.0
 lrwxrwxrwx root       root               19 ./usr/lib/libnfc_nxp.so.1 -> libnfc_nxp.so.1.0.0
@@ -3260,10 +3296,15 @@ lrwxrwxrwx root       root               18 ./usr/lib/libpowerd.so.4 -> libpower
 lrwxrwxrwx root       root               19 ./usr/lib/libpresage.so.1 -> libpresage.so.1.1.1
 -rwxr-xr-x root       root           414528 ./usr/lib/libpresage.so.1.1.1
 -r-xr-xr-x root       root            27348 ./usr/lib/libptmalloc3.so
+lrwxrwxrwx root       root               31 ./usr/lib/libpulse-mainloop-glib.so.0 -> libpulse-mainloop-glib.so.0.0.4
+-rwxr-xr-x root       root            15564 ./usr/lib/libpulse-mainloop-glib.so.0.0.4
 lrwxrwxrwx root       root               18 ./usr/lib/libpulse.so.0 -> libpulse.so.0.16.2
 -rwxr-xr-x root       root           275776 ./usr/lib/libpulse.so.0.16.2
 -rwxr-xr-x root       root           547944 ./usr/lib/libpulsecore-4.0.so
 -r-xr-xr-x root       root          1519144 ./usr/lib/libpython2.7.so.1.0
+lrwxrwxrwx root       root               23 ./usr/lib/libqgsttools_p.so.1 -> libqgsttools_p.so.1.0.0
+lrwxrwxrwx root       root               23 ./usr/lib/libqgsttools_p.so.1.0 -> libqgsttools_p.so.1.0.0
+-rwxr-xr-x root       root           118004 ./usr/lib/libqgsttools_p.so.1.0.0
 lrwxrwxrwx root       root               15 ./usr/lib/librdx.so.2 -> librdx.so.2.0.0
 -rwxr-xr-x root       root             3592 ./usr/lib/librdx.so.2.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libreadline.so.6 -> libreadline.so.6.2
@@ -3692,7 +3733,7 @@ drwxr-xr-x root       root               60 ./usr/lib/lxc/rootfs
 -rw-r--r-- root       root              205 ./usr/lib/lxc/rootfs/README
 drwxr-xr-x root       root               60 ./usr/lib/maliit
 drwxr-xr-x root       root               60 ./usr/lib/maliit/plugins
--rwxr-xr-x root       root           597848 ./usr/lib/maliit/plugins/libubuntu-keyboard-plugin.so
+-rwxr-xr-x root       root           381884 ./usr/lib/maliit/plugins/libubuntu-keyboard-plugin.so
 drwxr-xr-x root       root               40 ./usr/lib/modules-load.d
 drwxr-xr-x root       root               60 ./usr/lib/node_modules
 drwxr-xr-x root       root              360 ./usr/lib/node_modules/npm
@@ -5562,7 +5603,8 @@ drwxr-xr-x root       root              120 ./usr/lib/qt5/plugins/imageformats
 drwxr-xr-x root       root               80 ./usr/lib/qt5/plugins/platforminputcontexts
 -rwxr-xr-x root       root            57952 ./usr/lib/qt5/plugins/platforminputcontexts/libibusplatforminputcontextplugin.so
 -rwxr-xr-x root       root           185596 ./usr/lib/qt5/plugins/platforminputcontexts/libmaliitplatforminputcontextplugin.so
-drwxr-xr-x root       root              140 ./usr/lib/qt5/plugins/platforms
+drwxr-xr-x root       root              160 ./usr/lib/qt5/plugins/platforms
+-rwxr-xr-x root       root           576100 ./usr/lib/qt5/plugins/platforms/libhwcomposer.so
 -rwxr-xr-x root       root           572904 ./usr/lib/qt5/plugins/platforms/libqeglfs.so
 -rwxr-xr-x root       root            25252 ./usr/lib/qt5/plugins/platforms/libqminimal.so
 -rwxr-xr-x root       root           483748 ./usr/lib/qt5/plugins/platforms/libqminimalegl.so
@@ -5570,7 +5612,7 @@ drwxr-xr-x root       root              140 ./usr/lib/qt5/plugins/platforms
 -rwxr-xr-x root       root           652884 ./usr/lib/qt5/plugins/platforms/libqwayland-egl.so
 drwxr-xr-x root       root               60 ./usr/lib/qt5/plugins/waylandcompositors
 -rwxr-xr-x root       root            64940 ./usr/lib/qt5/plugins/waylandcompositors/libwayland-egl.so
-drwxr-xr-x root       root              200 ./usr/lib/qt5/qml
+drwxr-xr-x root       root              220 ./usr/lib/qt5/qml
 drwxr-xr-x root       root               80 ./usr/lib/qt5/qml/LunaNext
 -rwxr-xr-x root       root           212580 ./usr/lib/qt5/qml/LunaNext/liblunanext-qml.so
 -rw-r--r-- root       root               36 ./usr/lib/qt5/qml/LunaNext/qmldir
@@ -5616,6 +5658,11 @@ drwxr-xr-x root       root              200 ./usr/lib/qt5/qml/QtGraphicalEffects
 -rw-r--r-- root       root             3976 ./usr/lib/qt5/qml/QtGraphicalEffects/private/GaussianMaskedBlur.qml
 -rw-r--r-- root       root             4800 ./usr/lib/qt5/qml/QtGraphicalEffects/private/SourceProxy.qml
 -rw-r--r-- root       root              808 ./usr/lib/qt5/qml/QtGraphicalEffects/qmldir
+drwxr-xr-x root       root              120 ./usr/lib/qt5/qml/QtMultimedia
+-rw-r--r-- root       root            21930 ./usr/lib/qt5/qml/QtMultimedia/Video.qml
+-rwxr-xr-x root       root           217708 ./usr/lib/qt5/qml/QtMultimedia/libdeclarative_multimedia.so
+-rw-r--r-- root       root            44410 ./usr/lib/qt5/qml/QtMultimedia/plugins.qmltypes
+-rw-r--r-- root       root               96 ./usr/lib/qt5/qml/QtMultimedia/qmldir
 drwxr-xr-x root       root               60 ./usr/lib/qt5/qml/QtQml
 drwxr-xr-x root       root               80 ./usr/lib/qt5/qml/QtQml/Models.2
 -rwxr-xr-x root       root             7040 ./usr/lib/qt5/qml/QtQml/Models.2/libmodelsplugin.so
@@ -11846,7 +11893,7 @@ drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
 -rw-r--r-- root       root             2392 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
-drwxr-xr-x root       root             2400 ./usr/sbin
+drwxr-xr-x root       root             2440 ./usr/sbin
 -rwxr-xr-x root       root           782448 ./usr/sbin/LunaSysMgr
 -rwxr-xr-x root       root           472148 ./usr/sbin/LunaSysService
 -rwxr-xr-x root       root           146420 ./usr/sbin/LunaUniversalSearchMgr
@@ -11857,6 +11904,8 @@ drwxr-xr-x root       root             2400 ./usr/sbin
 lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            13172 ./usr/sbin/addpart
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            12800 ./usr/sbin/android-property-service
+-rwxr-xr-x root       root            14852 ./usr/sbin/audio-service
 -rwxr-xr-x root       root           116132 ./usr/sbin/bccmd
 -rwxr-xr-x root       root            15200 ./usr/sbin/blkdiscard
 -rwxr-xr-x root       root           543092 ./usr/sbin/bluetoothd
@@ -12291,7 +12340,9 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/services/org.webosports.service.licenses.service
 -rw-r--r-- root       root               87 ./usr/share/dbus-1/services/org.webosports.webappmanager.service
 -rw-r--r-- root       root              737 ./usr/share/dbus-1/services/webos-connman-adapter.service
-drwxr-xr-x root       root              820 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root              860 ./usr/share/dbus-1/system-services
+-rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/android-property-service.service
+-rw-r--r-- root       root               83 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service
 -rw-r--r-- root       root              183 ./usr/share/dbus-1/system-services/com.palm.configurator.service
 -rw-r--r-- root       root              705 ./usr/share/dbus-1/system-services/com.palm.db.service
@@ -12363,13 +12414,16 @@ drwxr-xr-x root       root               60 ./usr/share/icu/51.2/config
 -rw-r--r-- root       root            17943 ./usr/share/icu/51.2/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/51.2/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             4040 ./usr/share/licenses
+drwxr-xr-x root       root             4140 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/android-apn-database
 -rw-r--r-- root       root           308533 ./usr/share/licenses/android-apn-database/apns-full-conf.xml
 -rw-r--r-- root       root            11360 ./usr/share/licenses/android-apn-database/generic_Apache-2.0
+drwxr-xr-x root       root               80 ./usr/share/licenses/android-property-service
+-rw-r--r-- root       root             3480 ./usr/share/licenses/android-property-service/README.md
+-rw-r--r-- root       root            11360 ./usr/share/licenses/android-property-service/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/android-system
 drwxr-xr-x root       root               80 ./usr/share/licenses/android-system-compat
 -rw-r--r-- root       root            11360 ./usr/share/licenses/android-system-compat/Apache-2.0
@@ -12397,6 +12451,9 @@ drwxr-xr-x root       root              120 ./usr/share/licenses/asus-grouper-fi
 -rw-r--r-- root       root            13637 ./usr/share/licenses/asus-grouper-firmware/LICENSE.elan
 -rw-r--r-- root       root            13622 ./usr/share/licenses/asus-grouper-firmware/LICENSE.nvidia
 -rw-r--r-- root       root               21 ./usr/share/licenses/asus-grouper-firmware/generic_Proprietary
+drwxr-xr-x root       root               80 ./usr/share/licenses/audio-service
+-rw-r--r-- root       root            11360 ./usr/share/licenses/audio-service/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/audio-service/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/base-files
 -rw-r--r-- root       root            17992 ./usr/share/licenses/base-files/GPL-2
 -rw-r--r-- root       root            17611 ./usr/share/licenses/base-files/generic_GPLv2
@@ -12807,6 +12864,12 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/mojoservicelaun
 drwxr-xr-x root       root               80 ./usr/share/licenses/mtdev
 -rw-r--r-- root       root             1209 ./usr/share/licenses/mtdev/COPYING
 -rw-r--r-- root       root             1080 ./usr/share/licenses/mtdev/generic_MIT
+drwxr-xr-x root       root              140 ./usr/share/licenses/mtp-server
+-rw-r--r-- root       root            35147 ./usr/share/licenses/mtp-server/COPYING
+-rw-r--r-- root       root                0 ./usr/share/licenses/mtp-server/MODULE_LICENSE_APACHE2
+-rw-r--r-- root       root            10695 ./usr/share/licenses/mtp-server/NOTICE
+-rw-r--r-- root       root            11360 ./usr/share/licenses/mtp-server/generic_Apache-2.0
+-rw-r--r-- root       root            34694 ./usr/share/licenses/mtp-server/generic_GPL-3.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/ncurses
 -rw-r--r-- root       root             1080 ./usr/share/licenses/ncurses/generic_MIT
 -rw-r--r-- root       root             2579 ./usr/share/licenses/ncurses/version.c
@@ -12948,6 +13011,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/psmisc
 drwxr-xr-x root       root               80 ./usr/share/licenses/ptmalloc3
 -rw-r--r-- root       root             1499 ./usr/share/licenses/ptmalloc3/BSD
 -rw-r--r-- root       root             1499 ./usr/share/licenses/ptmalloc3/generic_BSD
+drwxr-xr-x root       root               80 ./usr/share/licenses/qt5-qpa-hwcomposer-plugin
+-rw-r--r-- root       root            25878 ./usr/share/licenses/qt5-qpa-hwcomposer-plugin/generic_LGPL-2.1
+-rw-r--r-- root       root             4552 ./usr/share/licenses/qt5-qpa-hwcomposer-plugin/hwcomposer_backend.cpp
 drwxr-xr-x root       root              180 ./usr/share/licenses/qtbase
 -rw-r--r-- root       root             1187 ./usr/share/licenses/qtbase/LGPL_EXCEPTION.txt
 -rw-r--r-- root       root            22961 ./usr/share/licenses/qtbase/LICENSE.FDL
@@ -12970,6 +13036,14 @@ drwxr-xr-x root       root              140 ./usr/share/licenses/qtjsbackend
 -rw-r--r-- root       root            26817 ./usr/share/licenses/qtjsbackend/LICENSE.LGPL
 -rw-r--r-- root       root            34694 ./usr/share/licenses/qtjsbackend/generic_GPL-3.0
 -rw-r--r-- root       root            25878 ./usr/share/licenses/qtjsbackend/generic_LGPL-2.1
+drwxr-xr-x root       root              180 ./usr/share/licenses/qtmultimedia
+-rw-r--r-- root       root             1187 ./usr/share/licenses/qtmultimedia/LGPL_EXCEPTION.txt
+-rw-r--r-- root       root            22961 ./usr/share/licenses/qtmultimedia/LICENSE.FDL
+-rw-r--r-- root       root            35147 ./usr/share/licenses/qtmultimedia/LICENSE.GPL
+-rw-r--r-- root       root            26817 ./usr/share/licenses/qtmultimedia/LICENSE.LGPL
+-rw-r--r-- root       root            22964 ./usr/share/licenses/qtmultimedia/generic_GFDL-1.3
+-rw-r--r-- root       root            34694 ./usr/share/licenses/qtmultimedia/generic_GPL-3.0
+-rw-r--r-- root       root            25878 ./usr/share/licenses/qtmultimedia/generic_LGPL-2.1
 drwxr-xr-x root       root              180 ./usr/share/licenses/qtsensors
 -rw-r--r-- root       root             1187 ./usr/share/licenses/qtsensors/LGPL_EXCEPTION.txt
 -rw-r--r-- root       root            22961 ./usr/share/licenses/qtsensors/LICENSE.FDL
@@ -13141,7 +13215,9 @@ drwxr-xr-x root       root              200 ./usr/share/locale/en_GB/LC_MESSAGES
 -rw-r--r-- root       root             1556 ./usr/share/locale/en_GB/LC_MESSAGES/libsoup.mo
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root              720 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root              760 ./usr/share/ls2/roles/prv
+-rw-r--r-- root       root              442 ./usr/share/ls2/roles/prv/android-property-service.json
+-rw-r--r-- root       root              425 ./usr/share/ls2/roles/prv/audio-service.json
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/prv/com.palm.activitymanager.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/prv/com.palm.configurator.json
 -rw-r--r-- root       root              838 ./usr/share/ls2/roles/prv/com.palm.db.json
@@ -13226,9 +13302,9 @@ drwxr-xr-x root       root              260 ./usr/share/lxc/templates
 drwxr-xr-x root       root               60 ./usr/share/maliit
 drwxr-xr-x root       root               60 ./usr/share/maliit/plugins
 drwxr-xr-x root       root               60 ./usr/share/maliit/plugins/com
-drwxr-xr-x root       root              240 ./usr/share/maliit/plugins/com/ubuntu
--rw-r--r-- root       root             9687 ./usr/share/maliit/plugins/com/ubuntu/Keyboard.qml
--rw-r--r-- root       root             6213 ./usr/share/maliit/plugins/com/ubuntu/KeyboardContainer.qml
+drwxr-xr-x root       root              220 ./usr/share/maliit/plugins/com/ubuntu
+-rw-r--r-- root       root            10673 ./usr/share/maliit/plugins/com/ubuntu/Keyboard.qml
+-rw-r--r-- root       root             6482 ./usr/share/maliit/plugins/com/ubuntu/KeyboardContainer.qml
 -rw-r--r-- root       root              181 ./usr/share/maliit/plugins/com/ubuntu/OrientationHelper.qml
 -rw-r--r-- root       root             2548 ./usr/share/maliit/plugins/com/ubuntu/WordRibbon.qml
 -rw-r--r-- root       root              713 ./usr/share/maliit/plugins/com/ubuntu/constants.js
@@ -13269,12 +13345,12 @@ drwxr-xr-x root       root              700 ./usr/share/maliit/plugins/com/ubunt
 drwxr-xr-x root       root              400 ./usr/share/maliit/plugins/com/ubuntu/keys
 -rw-r--r-- root       root             2086 ./usr/share/maliit/plugins/com/ubuntu/keys/ActionKey.qml
 -rw-r--r-- root       root              796 ./usr/share/maliit/plugins/com/ubuntu/keys/BackspaceKey.qml
--rw-r--r-- root       root             5392 ./usr/share/maliit/plugins/com/ubuntu/keys/CharKey.qml
+-rw-r--r-- root       root             5517 ./usr/share/maliit/plugins/com/ubuntu/keys/CharKey.qml
 -rw-r--r-- root       root             2855 ./usr/share/maliit/plugins/com/ubuntu/keys/DropShadow.qml
 -rw-r--r-- root       root             5072 ./usr/share/maliit/plugins/com/ubuntu/keys/ExtendedKeysSelector.qml
 -rw-r--r-- root       root             1718 ./usr/share/maliit/plugins/com/ubuntu/keys/KeyPad.qml
 -rw-r--r-- root       root             1039 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageKey.qml
--rw-r--r-- root       root             3375 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageMenu.qml
+-rw-r--r-- root       root             3440 ./usr/share/maliit/plugins/com/ubuntu/keys/LanguageMenu.qml
 -rw-r--r-- root       root             2134 ./usr/share/maliit/plugins/com/ubuntu/keys/Magnifier.qml
 -rw-r--r-- root       root             1304 ./usr/share/maliit/plugins/com/ubuntu/keys/OneTwoKey.qml
 -rw-r--r-- root       root             1587 ./usr/share/maliit/plugins/com/ubuntu/keys/PressArea.qml
@@ -13284,7 +13360,7 @@ drwxr-xr-x root       root              400 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root              814 ./usr/share/maliit/plugins/com/ubuntu/keys/Spacer.qml
 -rw-r--r-- root       root             1089 ./usr/share/maliit/plugins/com/ubuntu/keys/SymbolShiftKey.qml
 -rw-r--r-- root       root              898 ./usr/share/maliit/plugins/com/ubuntu/keys/UrlKey.qml
--rw-r--r-- root       root             2013 ./usr/share/maliit/plugins/com/ubuntu/keys/key_constants.js
+-rw-r--r-- root       root             2209 ./usr/share/maliit/plugins/com/ubuntu/keys/key_constants.js
 drwxr-xr-x root       root             2080 ./usr/share/maliit/plugins/com/ubuntu/languages
 -rw-r--r-- root       root             1913 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_numbers.qml
 -rw-r--r-- root       root             3497 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_symbols.qml
@@ -13448,12 +13524,14 @@ drwxr-xr-x root       root              120 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root            10764 ./usr/share/maliit/plugins/com/ubuntu/languages/ur_pk.xml
 -rw-r--r-- root       root            13404 ./usr/share/maliit/plugins/com/ubuntu/languages/url.xml
 -rw-r--r-- root       root             7403 ./usr/share/maliit/plugins/com/ubuntu/languages/vi.xml
-drwxr-xr-x root       root               60 ./usr/share/maliit/plugins/com/ubuntu/languages/zh_cn
--rw-r--r-- root       root             3038 ./usr/share/maliit/plugins/com/ubuntu/languages/zh_cn/Keyboard_zh_cn_pinyin.qml
+drwxr-xr-x root       root              120 ./usr/share/maliit/plugins/com/ubuntu/languages/zh
+-rw-r--r-- root       root             3038 ./usr/share/maliit/plugins/com/ubuntu/languages/zh/Keyboard_zh_cn_pinyin.qml
+-rw-r--r-- root       root             4116 ./usr/share/maliit/plugins/com/ubuntu/languages/zh/Keyboard_zh_email.qml
+-rw-r--r-- root       root             3968 ./usr/share/maliit/plugins/com/ubuntu/languages/zh/Keyboard_zh_url.qml
+-rw-r--r-- root       root             4119 ./usr/share/maliit/plugins/com/ubuntu/languages/zh/Keyboard_zh_url_search.qml
 -rw-r--r-- root       root             5533 ./usr/share/maliit/plugins/com/ubuntu/languages/zh_cn_cangjie.xml
 -rw-r--r-- root       root             6532 ./usr/share/maliit/plugins/com/ubuntu/languages/zh_cn_pinyin.xml
 -rw-r--r-- root       root             8474 ./usr/share/maliit/plugins/com/ubuntu/languages/zh_cn_zhuyin.xml
--rw-r--r-- root       root             3822 ./usr/share/maliit/plugins/com/ubuntu/maliit-ui-constants.qml
 drwxr-xr-x root       root               60 ./usr/share/maliit/plugins/com/ubuntu/styles
 drwxr-xr-x root       root              120 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu
 -rw-r--r-- root       root              940 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/extended-keys.ini
@@ -13492,7 +13570,7 @@ drwxr-xr-x root       root              680 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root              326 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/images/square-smile.png
 -rw-r--r-- root       root             4776 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/main.ini
 drwxr-xr-x root       root               60 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/sounds
--rw-r--r-- root       root           176172 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/sounds/typewriter.wav
+-rw-r--r-- root       root            26620 ./usr/share/maliit/plugins/com/ubuntu/styles/ubuntu/sounds/typewriter.wav
 drwxr-xr-x root       root               40 ./usr/share/man
 drwxr-xr-x root       root               40 ./usr/share/misc
 drwxr-xr-x root       root               60 ./usr/share/opkg
@@ -13705,7 +13783,7 @@ drwxr-xr-x root       root              100 ./var/lib/lxc/android/pre-start.d
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              120 ./var/lib/opkg
-drwxr-xr-x root       root             4080 ./var/lib/opkg/alternatives
+drwxr-xr-x root       root             4100 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/[[
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/addgroup
 -rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/adduser
@@ -13907,8 +13985,9 @@ drwxr-xr-x root       root             4080 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/whoami
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/xargs
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/yes
+-rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/zImage
 -rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/zcat
-drwxr-xr-x root       root            29820 ./var/lib/opkg/info
+drwxr-xr-x root       root            31260 ./var/lib/opkg/info
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              766 ./var/lib/opkg/info/activitymanager.control
@@ -13921,6 +14000,10 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/android-apn-database-lic.list
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/android-apn-database.control
 -rw-r--r-- root       root               74 ./var/lib/opkg/info/android-apn-database.list
+-rw-r--r-- root       root              509 ./var/lib/opkg/info/android-property-service-lic.control
+-rw-r--r-- root       root              165 ./var/lib/opkg/info/android-property-service-lic.list
+-rw-r--r-- root       root              735 ./var/lib/opkg/info/android-property-service.control
+-rw-r--r-- root       root              195 ./var/lib/opkg/info/android-property-service.list
 -rw-r--r-- root       root              381 ./var/lib/opkg/info/android-system-compat-lic.control
 -rw-r--r-- root       root              157 ./var/lib/opkg/info/android-system-compat-lic.list
 -rw-r--r-- root       root              415 ./var/lib/opkg/info/android-system-compat.control
@@ -13928,7 +14011,7 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              486 ./var/lib/opkg/info/android-system-image-grouper-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/android-system-image-grouper-lic.list
 -rw-r--r-- root       root              566 ./var/lib/opkg/info/android-system-image-grouper.control
--rw-r--r-- root       root            32256 ./var/lib/opkg/info/android-system-image-grouper.list
+-rw-r--r-- root       root            32249 ./var/lib/opkg/info/android-system-image-grouper.list
 -rw-r--r-- root       root              543 ./var/lib/opkg/info/android-system-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/android-system-lic.list
 -rw-r--r-- root       root              700 ./var/lib/opkg/info/android-system.control
@@ -13950,6 +14033,12 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              276 ./var/lib/opkg/info/asus-grouper-firmware-lic.list
 -rw-r--r-- root       root              670 ./var/lib/opkg/info/asus-grouper-firmware.control
 -rw-r--r-- root       root               92 ./var/lib/opkg/info/asus-grouper-firmware.list
+-rw-r--r-- root       root              470 ./var/lib/opkg/info/audio-service-lic.control
+-rw-r--r-- root       root              133 ./var/lib/opkg/info/audio-service-lic.list
+-rw-r--r-- root       root              699 ./var/lib/opkg/info/audio-service.control
+-rw-r--r-- root       root              193 ./var/lib/opkg/info/audio-service.list
+-rwxr-xr-x root       root              253 ./var/lib/opkg/info/audio-service.postinst
+-rwxr-xr-x root       root              167 ./var/lib/opkg/info/audio-service.prerm
 -rw-r--r-- root       root              655 ./var/lib/opkg/info/base-files-lic.control
 -rw-r--r-- root       root              114 ./var/lib/opkg/info/base-files-lic.list
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/base-files.conffiles
@@ -14223,6 +14312,48 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              920 ./var/lib/opkg/info/iptables.control
 -rw-r--r-- root       root             4014 ./var/lib/opkg/info/iptables.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/iptables.postinst
+-rw-r--r-- root       root              501 ./var/lib/opkg/info/kernel-3.1.10.control
+-rw-r--r-- root       root               70 ./var/lib/opkg/info/kernel-3.1.10.list
+-rw-r--r-- root       root              454 ./var/lib/opkg/info/kernel-image-3.1.10.control
+-rw-r--r-- root       root               27 ./var/lib/opkg/info/kernel-image-3.1.10.list
+-rwxr-xr-x root       root              242 ./var/lib/opkg/info/kernel-image-3.1.10.postinst
+-rwxr-xr-x root       root               59 ./var/lib/opkg/info/kernel-image-3.1.10.postrm
+-rw-r--r-- root       root              508 ./var/lib/opkg/info/kernel-module-ip-tables.control
+-rw-r--r-- root       root               59 ./var/lib/opkg/info/kernel-module-ip-tables.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ip-tables.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ip-tables.postrm
+-rw-r--r-- root       root              644 ./var/lib/opkg/info/kernel-module-ipt-masquerade.control
+-rw-r--r-- root       root               64 ./var/lib/opkg/info/kernel-module-ipt-masquerade.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postrm
+-rw-r--r-- root       root              546 ./var/lib/opkg/info/kernel-module-iptable-filter.control
+-rw-r--r-- root       root               64 ./var/lib/opkg/info/kernel-module-iptable-filter.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-filter.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-filter.postrm
+-rw-r--r-- root       root              630 ./var/lib/opkg/info/kernel-module-iptable-nat.control
+-rw-r--r-- root       root               61 ./var/lib/opkg/info/kernel-module-iptable-nat.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-nat.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-nat.postrm
+-rw-r--r-- root       root              538 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.control
+-rw-r--r-- root       root               67 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postrm
+-rw-r--r-- root       root              470 ./var/lib/opkg/info/kernel-module-nf-conntrack.control
+-rw-r--r-- root       root               99 ./var/lib/opkg/info/kernel-module-nf-conntrack.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack.postrm
+-rw-r--r-- root       root              474 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.control
+-rw-r--r-- root       root              243 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postrm
+-rw-r--r-- root       root              549 ./var/lib/opkg/info/kernel-module-nf-nat.control
+-rw-r--r-- root       root               56 ./var/lib/opkg/info/kernel-module-nf-nat.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-nat.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-nat.postrm
+-rw-r--r-- root       root              501 ./var/lib/opkg/info/kernel-module-x-tables.control
+-rw-r--r-- root       root               53 ./var/lib/opkg/info/kernel-module-x-tables.list
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-x-tables.postinst
+-rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-x-tables.postrm
 -rw-r--r-- root       root              792 ./var/lib/opkg/info/killall.control
 -rw-r--r-- root       root               24 ./var/lib/opkg/info/killall.list
 -rwxr-xr-x root       root               93 ./var/lib/opkg/info/killall.postinst
@@ -14495,6 +14626,9 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              480 ./var/lib/opkg/info/libpopt0.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libpopt0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpopt0.postinst
+-rw-r--r-- root       root             1367 ./var/lib/opkg/info/libpulse-mainloop-glib0.control
+-rw-r--r-- root       root               78 ./var/lib/opkg/info/libpulse-mainloop-glib0.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulse-mainloop-glib0.postinst
 -rw-r--r-- root       root             1306 ./var/lib/opkg/info/libpulse0.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/libpulse0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulse0.postinst
@@ -14723,9 +14857,9 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              163 ./var/lib/opkg/info/luna-universalsearchmgr-lic.list
 -rw-r--r-- root       root              651 ./var/lib/opkg/info/luna-universalsearchmgr.control
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/luna-universalsearchmgr.list
--rw-r--r-- root       root              502 ./var/lib/opkg/info/luna-webappmanager-lic.control
+-rw-r--r-- root       root              503 ./var/lib/opkg/info/luna-webappmanager-lic.control
 -rw-r--r-- root       root              258 ./var/lib/opkg/info/luna-webappmanager-lic.list
--rw-r--r-- root       root              939 ./var/lib/opkg/info/luna-webappmanager.control
+-rw-r--r-- root       root              940 ./var/lib/opkg/info/luna-webappmanager.control
 -rw-r--r-- root       root              509 ./var/lib/opkg/info/luna-webappmanager.list
 -rwxr-xr-x root       root              263 ./var/lib/opkg/info/luna-webappmanager.postinst
 -rwxr-xr-x root       root              177 ./var/lib/opkg/info/luna-webappmanager.prerm
@@ -14777,6 +14911,12 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              653 ./var/lib/opkg/info/mtdev.control
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/mtdev.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/mtdev.postinst
+-rw-r--r-- root       root              492 ./var/lib/opkg/info/mtp-server-lic.control
+-rw-r--r-- root       root              260 ./var/lib/opkg/info/mtp-server-lic.list
+-rw-r--r-- root       root              697 ./var/lib/opkg/info/mtp-server.control
+-rw-r--r-- root       root              117 ./var/lib/opkg/info/mtp-server.list
+-rwxr-xr-x root       root              327 ./var/lib/opkg/info/mtp-server.postinst
+-rwxr-xr-x root       root              161 ./var/lib/opkg/info/mtp-server.prerm
 -rw-r--r-- root       root              717 ./var/lib/opkg/info/ncurses-lic.control
 -rw-r--r-- root       root              107 ./var/lib/opkg/info/ncurses-lic.list
 -rw-r--r-- root       root              727 ./var/lib/opkg/info/ncurses-terminfo-base.control
@@ -14937,7 +15077,7 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list
 -rw-r--r-- root       root              378 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.control
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.list
--rw-r--r-- root       root             1462 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
+-rw-r--r-- root       root             1542 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list
 -rw-r--r-- root       root              515 ./var/lib/opkg/info/parted-lic.control
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/parted-lic.list
@@ -15159,6 +15299,10 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/python-subprocess.list
 -rw-r--r-- root       root             1527 ./var/lib/opkg/info/python-textutils.control
 -rw-r--r-- root       root              309 ./var/lib/opkg/info/python-textutils.list
+-rw-r--r-- root       root              631 ./var/lib/opkg/info/qt5-qpa-hwcomposer-plugin-lic.control
+-rw-r--r-- root       root              179 ./var/lib/opkg/info/qt5-qpa-hwcomposer-plugin-lic.list
+-rw-r--r-- root       root              878 ./var/lib/opkg/info/qt5-qpa-hwcomposer-plugin.control
+-rw-r--r-- root       root               48 ./var/lib/opkg/info/qt5-qpa-hwcomposer-plugin.list
 -rw-r--r-- root       root             1974 ./var/lib/opkg/info/qtbase-fonts-pfa.control
 -rw-r--r-- root       root              574 ./var/lib/opkg/info/qtbase-fonts-pfa.list
 -rw-r--r-- root       root             1974 ./var/lib/opkg/info/qtbase-fonts-pfb.control
@@ -15187,6 +15331,13 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/qtdeclarative.postinst
 -rw-r--r-- root       root              467 ./var/lib/opkg/info/qtgraphicaleffects-qmlplugins.control
 -rw-r--r-- root       root             1941 ./var/lib/opkg/info/qtgraphicaleffects-qmlplugins.list
+-rw-r--r-- root       root              429 ./var/lib/opkg/info/qtmultimedia-lic.control
+-rw-r--r-- root       root              371 ./var/lib/opkg/info/qtmultimedia-lic.list
+-rw-r--r-- root       root              614 ./var/lib/opkg/info/qtmultimedia-qmlplugins.control
+-rw-r--r-- root       root              214 ./var/lib/opkg/info/qtmultimedia-qmlplugins.list
+-rw-r--r-- root       root              742 ./var/lib/opkg/info/qtmultimedia.control
+-rw-r--r-- root       root              432 ./var/lib/opkg/info/qtmultimedia.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/qtmultimedia.postinst
 -rw-r--r-- root       root              565 ./var/lib/opkg/info/qtquickcontrols-qmlplugins.control
 -rw-r--r-- root       root             6425 ./var/lib/opkg/info/qtquickcontrols-qmlplugins.list
 -rw-r--r-- root       root              421 ./var/lib/opkg/info/qtwebkit-lic.control
@@ -15220,9 +15371,9 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              715 ./var/lib/opkg/info/shadow.list
 -rwxr-xr-x root       root              861 ./var/lib/opkg/info/shadow.postinst
 -rwxr-xr-x root       root              585 ./var/lib/opkg/info/shadow.postrm
--rw-r--r-- root       root              388 ./var/lib/opkg/info/sleepd-lic.control
+-rw-r--r-- root       root              389 ./var/lib/opkg/info/sleepd-lic.control
 -rw-r--r-- root       root              112 ./var/lib/opkg/info/sleepd-lic.list
--rw-r--r-- root       root              746 ./var/lib/opkg/info/sleepd.control
+-rw-r--r-- root       root              747 ./var/lib/opkg/info/sleepd.control
 -rw-r--r-- root       root              306 ./var/lib/opkg/info/sleepd.list
 -rw-r--r-- root       root              807 ./var/lib/opkg/info/sntp.control
 -rw-r--r-- root       root               65 ./var/lib/opkg/info/sntp.list
@@ -15361,8 +15512,8 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root              329 ./var/lib/opkg/info/webos-connman-adapter.list
 -rw-r--r-- root       root              489 ./var/lib/opkg/info/webos-keyboard-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/webos-keyboard-lic.list
--rw-r--r-- root       root              739 ./var/lib/opkg/info/webos-keyboard.control
--rw-r--r-- root       root            17458 ./var/lib/opkg/info/webos-keyboard.list
+-rw-r--r-- root       root              764 ./var/lib/opkg/info/webos-keyboard.control
+-rw-r--r-- root       root            17610 ./var/lib/opkg/info/webos-keyboard.list
 -rw-r--r-- root       root              376 ./var/lib/opkg/info/webos-shutdownscripts-lic.control
 -rw-r--r-- root       root              157 ./var/lib/opkg/info/webos-shutdownscripts-lic.list
 -rw-r--r-- root       root              410 ./var/lib/opkg/info/webos-shutdownscripts.control
@@ -15399,7 +15550,7 @@ drwxr-xr-x root       root            29820 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root               40 ./var/lib/opkg/lists
--rw-r--r-- root       root           155184 ./var/lib/opkg/status
+-rw-r--r-- root       root           161568 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
