@@ -1,5 +1,5 @@
 drwxr-xr-x root       root              340 .
-drwxr-xr-x root       root             1680 ./bin
+drwxr-xr-x root       root             1800 ./bin
 lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/bash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
@@ -25,6 +25,10 @@ lrwxrwxrwx root       root               19 ./bin/false -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/fgrep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               15 ./bin/getopt -> /usr/bin/getopt
 lrwxrwxrwx root       root               19 ./bin/grep -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               16 ./bin/gunzip -> /bin/gunzip.gzip
+-rwxr-xr-x root       root               67 ./bin/gunzip.gzip
+lrwxrwxrwx root       root               14 ./bin/gzip -> /bin/gzip.gzip
+-rwxr-xr-x root       root            58444 ./bin/gzip.gzip
 lrwxrwxrwx root       root               19 ./bin/hostname -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           206520 ./bin/journalctl
 lrwxrwxrwx root       root               16 ./bin/kill -> /bin/kill.procps
@@ -82,6 +86,8 @@ lrwxrwxrwx root       root               22 ./bin/umount -> /bin/umount.util-lin
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/vi -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
+-rwxr-xr-x root       root               68 ./bin/zcat.gzip
 drwxr-xr-x root       root               40 ./boot
 drwxr-xr-x root       root               40 ./dev
 drwxr-xr-x root       root             1680 ./etc
@@ -1591,7 +1597,7 @@ lrwxrwxrwx root       root               17 ./sbin/vipw -> /sbin/vipw.shadow
 drwxr-xr-x root       root               40 ./sys
 drwxrwxrwt root       root               40 ./tmp
 drwxr-xr-x root       root              200 ./usr
-drwxr-xr-x root       root             7180 ./usr/bin
+drwxr-xr-x root       root             7400 ./usr/bin
 drwxr-xr-x root       root              260 ./usr/bin/.debug
 -rwxr-xr-x root       root            54678 ./usr/bin/.debug/gencat
 -rwxr-xr-x root       root            28467 ./usr/bin/.debug/getconf
@@ -1721,6 +1727,7 @@ lrwxrwxrwx root       root               22 ./usr/bin/groups -> /usr/bin/groups.
 -rwxr-xr-x root       root            17640 ./usr/bin/gst-xmlinspect-0.10
 -rwxr-xr-x root       root             9504 ./usr/bin/gst-xmllaunch
 -rwxr-xr-x root       root            29640 ./usr/bin/gst-xmllaunch-0.10
+-rwxr-xr-x root       root             5878 ./usr/bin/gzexe
 -rwxr-xr-x root       root            89560 ./usr/bin/hcitool
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               27 ./usr/bin/hexdump -> /usr/bin/hexdump.util-linux
@@ -1923,6 +1930,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/tty -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           147012 ./usr/bin/ubuntu-keyboard-benchmark
 -rwxr-xr-x root       root            45948 ./usr/bin/uconv
 -rwxr-xr-x root       root            13484 ./usr/bin/ul
+-rwxr-xr-x root       root               67 ./usr/bin/uncompress
 lrwxrwxrwx root       root               19 ./usr/bin/uniq -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            10032 ./usr/bin/unmunch
 -rwxr-xr-x root       root             7900 ./usr/bin/unshare
@@ -1960,6 +1968,15 @@ lrwxrwxrwx root       root               19 ./usr/bin/xargs -> /bin/busybox.nosu
 -rwxr-xr-x root       root             3672 ./usr/bin/xmlcatalog
 -rwxr-xr-x root       root            56208 ./usr/bin/xmllint
 lrwxrwxrwx root       root               19 ./usr/bin/yes -> /bin/busybox.nosuid
+-rwxr-xr-x root       root               73 ./usr/bin/zcmp
+-rwxr-xr-x root       root             4424 ./usr/bin/zdiff
+-rwxr-xr-x root       root               68 ./usr/bin/zegrep
+-rwxr-xr-x root       root               68 ./usr/bin/zfgrep
+-rwxr-xr-x root       root             2019 ./usr/bin/zforce
+-rwxr-xr-x root       root             4896 ./usr/bin/zgrep
+-rwxr-xr-x root       root             1737 ./usr/bin/zless
+-rwxr-xr-x root       root             2443 ./usr/bin/zmore
+-rwxr-xr-x root       root             4956 ./usr/bin/znew
 drwxr-xr-x root       root               40 ./usr/games
 drwxr-xr-x root       root               60 ./usr/include
 drwxr-xr-x root       root               80 ./usr/include/python2.7
@@ -11455,7 +11472,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/51.2/config
 -rw-r--r-- root       root            17943 ./usr/share/icu/51.2/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/51.2/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             3960 ./usr/share/licenses
+drwxr-xr-x root       root             3980 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0
@@ -11635,6 +11652,11 @@ drwxr-xr-x root       root              100 ./usr/share/licenses/gstreamer
 -rw-r--r-- root       root            25265 ./usr/share/licenses/gstreamer/COPYING
 -rw-r--r-- root       root            24925 ./usr/share/licenses/gstreamer/generic_LGPLv2
 -rw-r--r-- root       root             3133 ./usr/share/licenses/gstreamer/gst.h
+drwxr-xr-x root       root              120 ./usr/share/licenses/gzip
+-rw-r--r-- root       root            17987 ./usr/share/licenses/gzip/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/gzip/generic_GPLv2
+-rw-r--r-- root       root            11694 ./usr/share/licenses/gzip/gzip.h
+-rw-r--r-- root       root             2039 ./usr/share/licenses/gzip/lzw.h
 drwxr-xr-x root       root              120 ./usr/share/licenses/hunspell
 -rw-r--r-- root       root            26532 ./usr/share/licenses/hunspell/COPYING.LGPL
 -rw-r--r-- root       root            25755 ./usr/share/licenses/hunspell/COPYING.MPL
@@ -17192,7 +17214,7 @@ drwxr-xr-x root       root               40 ./var/lib/dhcp
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              120 ./var/lib/opkg
-drwxr-xr-x root       root             4040 ./var/lib/opkg/alternatives
+drwxr-xr-x root       root             4100 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/[[
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/addgroup
 -rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/adduser
@@ -17255,6 +17277,8 @@ drwxr-xr-x root       root             4040 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               70 ./var/lib/opkg/alternatives/getty
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/grep
 -rw-r--r-- root       root               66 ./var/lib/opkg/alternatives/groups
+-rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/gunzip
+-rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/gzip
 -rw-r--r-- root       root               53 ./var/lib/opkg/alternatives/halt
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/head
 -rw-r--r-- root       root               72 ./var/lib/opkg/alternatives/hexdump
@@ -17393,7 +17417,8 @@ drwxr-xr-x root       root             4040 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/whoami
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/xargs
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/yes
-drwxr-xr-x root       root            31260 ./var/lib/opkg/info
+-rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/zcat
+drwxr-xr-x root       root            31380 ./var/lib/opkg/info
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              767 ./var/lib/opkg/info/activitymanager.control
@@ -17669,6 +17694,12 @@ drwxr-xr-x root       root            31260 ./var/lib/opkg/info
 -rw-r--r-- root       root              764 ./var/lib/opkg/info/gstreamer.control
 -rw-r--r-- root       root              916 ./var/lib/opkg/info/gstreamer.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/gstreamer.postinst
+-rw-r--r-- root       root              506 ./var/lib/opkg/info/gzip-lic.control
+-rw-r--r-- root       root              161 ./var/lib/opkg/info/gzip-lic.list
+-rw-r--r-- root       root              576 ./var/lib/opkg/info/gzip.control
+-rw-r--r-- root       root              218 ./var/lib/opkg/info/gzip.list
+-rwxr-xr-x root       root              211 ./var/lib/opkg/info/gzip.postinst
+-rwxr-xr-x root       root              167 ./var/lib/opkg/info/gzip.postrm
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/hunspell-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/hunspell-lic.list
 -rw-r--r-- root       root              455 ./var/lib/opkg/info/hunspell.control
@@ -18515,7 +18546,7 @@ drwxr-xr-x root       root            31260 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.list
 -rw-r--r-- root       root              346 ./var/lib/opkg/info/packagegroup-webos-extended-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/packagegroup-webos-extended-lic.list
--rw-r--r-- root       root             1428 ./var/lib/opkg/info/packagegroup-webos-extended.control
+-rw-r--r-- root       root             1434 ./var/lib/opkg/info/packagegroup-webos-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-extended.list
 -rw-r--r-- root       root              382 ./var/lib/opkg/info/packagegroup-webos-ports-development-lic.control
 -rw-r--r-- root       root              202 ./var/lib/opkg/info/packagegroup-webos-ports-development-lic.list
@@ -18956,7 +18987,7 @@ drwxr-xr-x root       root            31260 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root               40 ./var/lib/opkg/lists
--rw-r--r-- root       root           154186 ./var/lib/opkg/status
+-rw-r--r-- root       root           154532 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
