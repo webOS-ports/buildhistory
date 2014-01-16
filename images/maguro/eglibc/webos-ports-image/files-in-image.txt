@@ -92,7 +92,7 @@ lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
 drwxr-xr-x root       root             4096 ./boot
 -rw-r--r-- root       root           395269 ./boot/android-ramdisk.img
 lrwxrwxrwx root       root               13 ./boot/zImage -> zImage-3.0.31
--rw-r--r-- root       root          4353508 ./boot/zImage-3.0.31
+-rw-r--r-- root       root          4292268 ./boot/zImage-3.0.31
 drwxr-xr-x root       root             4096 ./data
 drwxr-xr-x root       root             4096 ./data/radio
 drwxr-xr-x root       root             4096 ./data/radio/log
@@ -956,6 +956,8 @@ lrwxrwxrwx root       root               42 ./etc/systemd/system/sysinit.target.
 lrwxrwxrwx root       root               42 ./etc/systemd/system/sysinit.target.wants/systemd-binfmt.service -> /lib/systemd/system/systemd-binfmt.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/syslog.busybox.service -> /dev/null
 lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
+drwxr-xr-x root       root             4096 ./etc/systemd/system/system-update.target.wants
+lrwxrwxrwx root       root               47 ./etc/systemd/system/system-update.target.wants/webos-system-update.service -> /lib/systemd/system/webos-system-update.service
 drwxr-xr-x root       root             4096 ./etc/systemd/user
 -rw-r--r-- root       root              492 ./etc/systemd/user.conf
 drwxr-xr-x root       root             4096 ./etc/terminfo
@@ -1124,8 +1126,8 @@ drwxr-xr-x root       root             4096 ./lib/modules/3.0.31/kernel/net/netf
 -rw-r--r-- root       root            30584 ./lib/modules/3.0.31/kernel/net/netfilter/x_tables.ko
 -rw-r--r-- root       root              171 ./lib/modules/3.0.31/modules.alias
 -rw-r--r-- root       root              262 ./lib/modules/3.0.31/modules.alias.bin
--rw-r--r-- root       root            10313 ./lib/modules/3.0.31/modules.builtin
--rw-r--r-- root       root            12735 ./lib/modules/3.0.31/modules.builtin.bin
+-rw-r--r-- root       root             8481 ./lib/modules/3.0.31/modules.builtin
+-rw-r--r-- root       root            10524 ./lib/modules/3.0.31/modules.builtin.bin
 -rw-r--r-- root       root             1121 ./lib/modules/3.0.31/modules.dep
 -rw-r--r-- root       root             1542 ./lib/modules/3.0.31/modules.dep.bin
 -rw-r--r-- root       root               52 ./lib/modules/3.0.31/modules.devname
@@ -1373,6 +1375,7 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/timers.target.w
 -rw-r--r-- root       root              392 ./lib/systemd/system/user.slice
 -rw-r--r-- root       root              561 ./lib/systemd/system/user@.service
 -rw-r--r-- root       root              282 ./lib/systemd/system/webos-connman-adapter.service
+-rw-r--r-- root       root              226 ./lib/systemd/system/webos-system-update.service
 -rw-r--r-- root       root              268 ./lib/systemd/system/webos-telephonyd.service
 -rw-r--r-- root       root              450 ./lib/systemd/system/wpa_supplicant-nl80211@.service
 -rw-r--r-- root       root              442 ./lib/systemd/system/wpa_supplicant-wired@.service
@@ -11839,20 +11842,22 @@ drwxr-xr-x root       root             4096 ./usr/palm/services/org.webosports.s
 -rw-r--r-- root       root              634 ./usr/palm/services/org.webosports.service.licenses/services.json
 -rw-r--r-- root       root              175 ./usr/palm/services/org.webosports.service.licenses/sources.json
 drwxr-xr-x root       root             4096 ./usr/palm/services/org.webosports.service.update
--rw-r--r-- root       root               92 ./usr/palm/services/org.webosports.service.update/download-updates.sh
+-rwxr-xr-x root       root              185 ./usr/palm/services/org.webosports.service.update/download-updates.sh
 drwxr-xr-x root       root             4096 ./usr/palm/services/org.webosports.service.update/javascript
 drwxr-xr-x root       root             4096 ./usr/palm/services/org.webosports.service.update/javascript/assistants
 -rw-r--r-- root       root             2959 ./usr/palm/services/org.webosports.service.update/javascript/assistants/checkUpdateAssistant.js
 -rw-r--r-- root       root             2674 ./usr/palm/services/org.webosports.service.update/javascript/assistants/downloadUpdateAssistant.js
 -rw-r--r-- root       root             1032 ./usr/palm/services/org.webosports.service.update/javascript/assistants/initiateUpdateAssistant.js
--rw-r--r-- root       root             1122 ./usr/palm/services/org.webosports.service.update/javascript/config.js
+-rw-r--r-- root       root             1135 ./usr/palm/services/org.webosports.service.update/javascript/config.js
 -rw-r--r-- root       root              743 ./usr/palm/services/org.webosports.service.update/javascript/prologue.js
 drwxr-xr-x root       root             4096 ./usr/palm/services/org.webosports.service.update/javascript/utils
 -rw-r--r-- root       root             2583 ./usr/palm/services/org.webosports.service.update/javascript/utils/activities.js
 -rw-r--r-- root       root             1221 ./usr/palm/services/org.webosports.service.update/javascript/utils/parser.js
 -rw-r--r-- root       root             3654 ./usr/palm/services/org.webosports.service.update/javascript/utils/utils.js
+-rwxr-xr-x root       root              492 ./usr/palm/services/org.webosports.service.update/run-update.sh
 -rw-r--r-- root       root              781 ./usr/palm/services/org.webosports.service.update/services.json
 -rw-r--r-- root       root              514 ./usr/palm/services/org.webosports.service.update/sources.json
+-rwxr-xr-x root       root              369 ./usr/palm/services/org.webosports.service.update/start-update.sh
 drwxr-xr-x root       root             4096 ./usr/palm/sounds
 -rw-r--r-- root       root           530368 ./usr/palm/sounds/alert.wav
 -rw-r--r-- root       root            50154 ./usr/palm/sounds/battery_full.mp3
@@ -12682,6 +12687,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root               78 ./usr/share/dbus-1/services/org.webosports.luna.service
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/services/org.webosports.service.licenses.service
 -rw-r--r-- root       root              737 ./usr/share/dbus-1/services/webos-connman-adapter.service
+-rw-r--r-- root       root              226 ./usr/share/dbus-1/services/webos-system-update.service
 -rw-r--r-- root       root              745 ./usr/share/dbus-1/services/webos-telephonyd.service
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/android-property-service.service
@@ -12724,6 +12730,7 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosports.service.licenses.service
 -rw-r--r-- root       root              132 ./usr/share/dbus-1/system-services/org.webosports.service.update.service
 -rw-r--r-- root       root              737 ./usr/share/dbus-1/system-services/webos-connman-adapter.service
+-rw-r--r-- root       root              226 ./usr/share/dbus-1/system-services/webos-system-update.service
 -rw-r--r-- root       root              745 ./usr/share/dbus-1/system-services/webos-telephonyd.service
 drwxr-xr-x root       root             4096 ./usr/share/dict
 drwxr-xr-x root       root             4096 ./usr/share/doc
@@ -16312,45 +16319,45 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/kbd.list
 -rwxr-xr-x root       root              334 ./var/lib/opkg/info/kbd.postinst
 -rwxr-xr-x root       root              250 ./var/lib/opkg/info/kbd.postrm
--rw-r--r-- root       root              542 ./var/lib/opkg/info/kernel-3.0.31.control
+-rw-r--r-- root       root              543 ./var/lib/opkg/info/kernel-3.0.31.control
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/kernel-3.0.31.list
--rw-r--r-- root       root              495 ./var/lib/opkg/info/kernel-image-3.0.31.control
+-rw-r--r-- root       root              496 ./var/lib/opkg/info/kernel-image-3.0.31.control
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/kernel-image-3.0.31.list
 -rwxr-xr-x root       root              242 ./var/lib/opkg/info/kernel-image-3.0.31.postinst
 -rwxr-xr-x root       root               59 ./var/lib/opkg/info/kernel-image-3.0.31.postrm
--rw-r--r-- root       root              507 ./var/lib/opkg/info/kernel-module-ip-tables.control
+-rw-r--r-- root       root              508 ./var/lib/opkg/info/kernel-module-ip-tables.control
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/kernel-module-ip-tables.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ip-tables.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ip-tables.postrm
--rw-r--r-- root       root              643 ./var/lib/opkg/info/kernel-module-ipt-masquerade.control
+-rw-r--r-- root       root              644 ./var/lib/opkg/info/kernel-module-ipt-masquerade.control
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/kernel-module-ipt-masquerade.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postrm
--rw-r--r-- root       root              545 ./var/lib/opkg/info/kernel-module-iptable-filter.control
+-rw-r--r-- root       root              546 ./var/lib/opkg/info/kernel-module-iptable-filter.control
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/kernel-module-iptable-filter.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-filter.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-filter.postrm
--rw-r--r-- root       root              629 ./var/lib/opkg/info/kernel-module-iptable-nat.control
+-rw-r--r-- root       root              630 ./var/lib/opkg/info/kernel-module-iptable-nat.control
 -rw-r--r-- root       root               61 ./var/lib/opkg/info/kernel-module-iptable-nat.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-nat.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-iptable-nat.postrm
--rw-r--r-- root       root              537 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.control
+-rw-r--r-- root       root              538 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.control
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postrm
--rw-r--r-- root       root              469 ./var/lib/opkg/info/kernel-module-nf-conntrack.control
+-rw-r--r-- root       root              470 ./var/lib/opkg/info/kernel-module-nf-conntrack.control
 -rw-r--r-- root       root               99 ./var/lib/opkg/info/kernel-module-nf-conntrack.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack.postrm
--rw-r--r-- root       root              473 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.control
+-rw-r--r-- root       root              474 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.control
 -rw-r--r-- root       root              243 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postrm
--rw-r--r-- root       root              548 ./var/lib/opkg/info/kernel-module-nf-nat.control
+-rw-r--r-- root       root              549 ./var/lib/opkg/info/kernel-module-nf-nat.control
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/kernel-module-nf-nat.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-nat.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-nat.postrm
--rw-r--r-- root       root              500 ./var/lib/opkg/info/kernel-module-x-tables.control
+-rw-r--r-- root       root              501 ./var/lib/opkg/info/kernel-module-x-tables.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/kernel-module-x-tables.list
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-x-tables.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-x-tables.postrm
@@ -17064,9 +17071,9 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/org.webosports.app.phone-lic.list
 -rw-r--r-- root       root              485 ./var/lib/opkg/info/org.webosports.app.phone.control
 -rw-r--r-- root       root             6510 ./var/lib/opkg/info/org.webosports.app.phone.list
--rw-r--r-- root       root              457 ./var/lib/opkg/info/org.webosports.app.settings-lic.control
+-rw-r--r-- root       root              458 ./var/lib/opkg/info/org.webosports.app.settings-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/org.webosports.app.settings-lic.list
--rw-r--r-- root       root              691 ./var/lib/opkg/info/org.webosports.app.settings.control
+-rw-r--r-- root       root              692 ./var/lib/opkg/info/org.webosports.app.settings.control
 -rw-r--r-- root       root             8487 ./var/lib/opkg/info/org.webosports.app.settings.list
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/org.webosports.service.devmode-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/org.webosports.service.devmode-lic.list
@@ -17079,7 +17086,9 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/org.webosports.service.update-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/org.webosports.service.update-lic.list
 -rw-r--r-- root       root              466 ./var/lib/opkg/info/org.webosports.service.update.control
--rw-r--r-- root       root             1461 ./var/lib/opkg/info/org.webosports.service.update.list
+-rw-r--r-- root       root             1754 ./var/lib/opkg/info/org.webosports.service.update.list
+-rwxr-xr-x root       root              265 ./var/lib/opkg/info/org.webosports.service.update.postinst
+-rwxr-xr-x root       root              179 ./var/lib/opkg/info/org.webosports.service.update.prerm
 -rw-r--r-- root       root              327 ./var/lib/opkg/info/packagegroup-core-boot-lic.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/packagegroup-core-boot-lic.list
 -rw-r--r-- root       root              586 ./var/lib/opkg/info/packagegroup-core-boot.control
@@ -17548,7 +17557,7 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              874 ./var/lib/opkg/info/web-apps.list
 -rw-r--r-- root       root              495 ./var/lib/opkg/info/webapp-launcher-lic.control
 -rw-r--r-- root       root              243 ./var/lib/opkg/info/webapp-launcher-lic.list
--rw-r--r-- root       root              911 ./var/lib/opkg/info/webapp-launcher.control
+-rw-r--r-- root       root              929 ./var/lib/opkg/info/webapp-launcher.control
 -rw-r--r-- root       root              362 ./var/lib/opkg/info/webapp-launcher.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/webapp-launcher.postinst
 -rw-r--r-- root       root              587 ./var/lib/opkg/info/webos-connman-adapter-lic.control
@@ -17595,7 +17604,7 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists
--rw-r--r-- root       root           165549 ./var/lib/opkg/status
+-rw-r--r-- root       root           165580 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
