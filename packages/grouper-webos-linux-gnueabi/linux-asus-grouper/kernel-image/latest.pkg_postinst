@@ -7,3 +7,20 @@
 	else
 		depmod -a 3.1.10
 	fi
+    if [ x"$D" = "x" ] ; then
+        if [ ! -e /boot/boot.img ] ; then
+            # if the boot image is not available here something went wrong and we don't
+            # continue with anything that can be dangerous
+            exit 1
+        fi
+
+        if [ ! -e /dev/mmcblk0p2 ] ; then
+            echo "Boot partition does not exist!"
+            exit 1
+        fi
+
+        echo "Flashing the new kernel /boot/boot.img"
+        dd if=/boot/boot.img of=/dev/mmcblk0p2
+    else
+        exit 1
+    fi
