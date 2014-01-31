@@ -14,13 +14,13 @@
             exit 1
         fi
 
-        if [ ! -e /dev/mmcblk0p7 ] ; then
+        if [ ! -e /dev/block/mmcblk0p7 ] ; then
             echo "Boot partition does not exist!"
             exit 1
         fi
 
         echo "Flashing the new kernel /boot/boot.img"
-        dd if=/boot/boot.img of=/dev/mmcblk0p7
+        dd if=/boot/boot.img of=/dev/block/mmcblk0p7
     else
         exit 1
     fi
