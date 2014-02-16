@@ -14,13 +14,19 @@
             exit 1
         fi
 
-        if [ ! -e /dev/block/mmcblk0p2 ] ; then
+        BOOT_PARTITION_NAMES="LNX boot KERNEL"
+        for i in $BOOT_PARTITION_NAMES; do
+            path=$(find /dev -name "*$i*"|grep disk| head)
+            [ -n "$path" ] && break
+        done
+
+        if [ -z "$path" ] ; then
             echo "Boot partition does not exist!"
             exit 1
         fi
 
-        echo "Flashing the new kernel /boot/boot.img"
-        dd if=/boot/boot.img of=/dev/block/mmcblk0p2
+        echo "Flashing the new kernel /boot/boot.img to $path"
+        dd if=/boot/boot.img of=$path
     else
         exit 1
     fi
