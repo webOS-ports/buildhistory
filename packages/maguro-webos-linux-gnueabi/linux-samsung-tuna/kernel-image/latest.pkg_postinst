@@ -1,1 +1,24 @@
-\tupdate-alternatives --install /boot/zImage zImage zImage-3.0.31 30072 || true\n\tif [ ! -e "$D/lib/modules/3.0.31" ]; then\n\t\tmkdir -p $D/lib/modules/3.0.31\n\tfi\n\tif [ -n "$D" ]; then\n\t\tdepmodwrapper -a -b $D 3.0.31\n\telse\n\t\tdepmod -a 3.0.31\n\tfi\n    if [ x"$D" = "x" ] ; then\n        if [ ! -e /boot/boot.img ] ; then\n            # if the boot image is not available here something went wrong and we don\'t\n            # continue with anything that can be dangerous\n            exit 1\n        fi\n\n        if [ ! -e /dev/block/mmcblk0p7 ] ; then\n            echo "Boot partition does not exist!"\n            exit 1\n        fi\n\n        echo "Flashing the new kernel /boot/boot.img"\n        dd if=/boot/boot.img of=/dev/block/mmcblk0p7\n    else\n        exit 1\n    fi\n
+	update-alternatives --install /boot/zImage zImage zImage-3.0.31 30072 || true
+    if [ x"$D" = "x" ] ; then
+        if [ ! -e /boot/boot.img ] ; then
+            # if the boot image is not available here something went wrong and we don't
+            # continue with anything that can be dangerous
+            exit 1
+        fi
+
+        BOOT_PARTITION_NAMES="LNX boot KERNEL"
+        for i in $BOOT_PARTITION_NAMES; do
+            path=$(find /dev -name "*$i*"|grep disk| head)
+            [ -n "$path" ] && break
+        done
+
+        if [ -z "$path" ] ; then
+            echo "Boot partition does not exist!"
+            exit 1
+        fi
+
+        echo "Flashing the new kernel /boot/boot.img to $path"
+        dd if=/boot/boot.img of=$path
+    else
+        exit 1
+    fi
