@@ -1,12 +1,14 @@
 #!/bin/sh
-if [ "x$D" != "x" ] && [ -f $D/usr/lib/opkg/status ]; then
-	install -d $D/etc/rcS.d
+OPTS=""
 
-	# this happens at S98 where our good 'ole packages script used to run
-	echo "#!/bin/sh
-opkg-cl configure 
-rm -f //etc/rcS.d/S80run-postinsts
-" > $D/etc/rcS.d/S80run-postinsts
-	chmod 0755 $D/etc/rcS.d/S80run-postinsts
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
 fi
-	update-alternatives --install /usr/bin/opkg opkg /usr/bin/opkg-cl 100
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable opkg-configure.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart opkg-configure.service
+	fi
+fi
