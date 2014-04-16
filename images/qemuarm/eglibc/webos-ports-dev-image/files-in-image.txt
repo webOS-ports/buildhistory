@@ -3,8 +3,8 @@ drwxr-xr-x root       root             1800 ./bin
 lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/bash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           535948 ./bin/busybox.nosuid
--rwsr-xr-x root       root            54264 ./bin/busybox.suid
+-rwxr-xr-x root       root           535952 ./bin/busybox.nosuid
+-rwsr-xr-x root       root            54344 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chgrp -> /bin/busybox.nosuid
@@ -34,7 +34,7 @@ lrwxrwxrwx root       root               19 ./bin/hostname -> /bin/busybox.nosui
 lrwxrwxrwx root       root               16 ./bin/kill -> /bin/kill.procps
 -r-xr-xr-x root       root            11556 ./bin/kill.procps
 -rwxr-xr-x root       root            22968 ./bin/kill.util-linux
--rwxr-xr-x root       root            70380 ./bin/kmod
+-rwxr-xr-x root       root            70384 ./bin/kmod
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            48188 ./bin/login.shadow
@@ -58,7 +58,7 @@ lrwxrwxrwx root       root               14 ./bin/pidof.sysvinit -> /sbin/killal
 lrwxrwxrwx root       root               17 ./bin/ping -> /bin/busybox.suid
 lrwxrwxrwx root       root               17 ./bin/ping6 -> /bin/busybox.suid
 lrwxrwxrwx root       root               14 ./bin/ps -> /bin/ps.procps
--r-xr-xr-x root       root            66044 ./bin/ps.procps
+-r-xr-xr-x root       root            66040 ./bin/ps.procps
 lrwxrwxrwx root       root               19 ./bin/pwd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rm -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rmdir -> /bin/busybox.nosuid
@@ -148,7 +148,7 @@ drwxr-xr-x root       root               40 ./etc/depmod.d
 drwxr-xr-x root       root               60 ./etc/dhcp
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf
 -rw-r--r-- root       root               37 ./etc/e2fsck.conf
-drwxr-xr-x root       root              660 ./etc/event.d
+drwxr-xr-x root       root              680 ./etc/event.d
 -rw-r--r-- root       root             1370 ./etc/event.d/LunaAppManager
 -rw-r--r-- root       root              146 ./etc/event.d/LunaReady
 -rw-r--r-- root       root             1370 ./etc/event.d/LunaSysMgr
@@ -158,6 +158,7 @@ drwxr-xr-x root       root              660 ./etc/event.d
 -rw-r--r-- root       root             1229 ./etc/event.d/PmLogDaemon
 -rw-r--r-- root       root              834 ./etc/event.d/activitymanager
 -rw-r--r-- root       root                0 ./etc/event.d/audio-service
+-rw-r--r-- root       root                0 ./etc/event.d/certmgrd
 -rw-r--r-- root       root             2436 ./etc/event.d/configurator
 -rw-r--r-- root       root              548 ./etc/event.d/configurator-async
 -rw-r--r-- root       root              111 ./etc/event.d/coredump
@@ -235,7 +236,7 @@ drwxr-xr-x root       root              180 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               22 ./etc/issue
 -rw-r--r-- root       root               19 ./etc/issue.net
--rw-r--r-- root       root            15657 ./etc/ld.so.cache
+-rw-r--r-- root       root            15740 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 drwxr-xr-x root       root               80 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -297,7 +298,7 @@ drwxr-xr-x root       root               80 ./etc/palm/backup
 drwxr-xr-x root       root               60 ./etc/palm/build
 -rw-r--r-- root       root               22 ./etc/palm/build/image-name
 drwxr-xr-x root       root               80 ./etc/palm/db
-drwxr-xr-x root       root             1100 ./etc/palm/db/kinds
+drwxr-xr-x root       root             1060 ./etc/palm/db/kinds
 -rw-r--r-- root       root               73 ./etc/palm/db/kinds/com.palm.activity
 -rw-r--r-- root       root              295 ./etc/palm/db/kinds/com.palm.app.contacts.prefs
 -rw-r--r-- root       root               96 ./etc/palm/db/kinds/com.palm.app.email.carrier_defaults
@@ -309,9 +310,7 @@ drwxr-xr-x root       root             1100 ./etc/palm/db/kinds
 -rw-r--r-- root       root              103 ./etc/palm/db/kinds/com.palm.clock.prefs
 -rwxr-xr-x root       root            14487 ./etc/palm/db/kinds/com.palm.contact
 -rwxr-xr-x root       root              163 ./etc/palm/db/kinds/com.palm.contact.palmprofile
--rw-r--r-- root       root             2345 ./etc/palm/db/kinds/com.palm.email
--rw-r--r-- root       root              980 ./etc/palm/db/kinds/com.palm.email.conversation
--rw-r--r-- root       root              162 ./etc/palm/db/kinds/com.palm.email.processorstate
+-rw-r--r-- root       root             1924 ./etc/palm/db/kinds/com.palm.email
 -rw-r--r-- root       root              791 ./etc/palm/db/kinds/com.palm.folder
 -rw-r--r-- root       root              601 ./etc/palm/db/kinds/com.palm.imap.account
 -rw-r--r-- root       root              713 ./etc/palm/db/kinds/com.palm.imap.email
@@ -343,32 +342,31 @@ drwxr-xr-x root       root              100 ./etc/palm/db/kinds/com.palm.service
 -rw-r--r-- root       root              129 ./etc/palm/db/kinds/com.palm.service.accounts/com.palm.firstlaunch
 -rw-r--r-- root       root              294 ./etc/palm/db/kinds/com.palm.service.calendar.reminders
 -rw-r--r-- root       root              118 ./etc/palm/db/kinds/com.palm.service.calendar.remindersstatus
--rw-r--r-- root       root               72 ./etc/palm/db/kinds/org.webosinternals.tweaks.prefs
+-rw-r--r-- root       root              111 ./etc/palm/db/kinds/org.webosinternals.tweaks.prefs
 -rw-r--r-- root       root              563 ./etc/palm/db/kinds/org.webosports.calendar
 -rw-r--r-- root       root             1344 ./etc/palm/db/kinds/org.webosports.calendarevent
 -rw-r--r-- root       root              111 ./etc/palm/db/kinds/org.webosports.calendarprefs
--rw-r--r-- root       root              308 ./etc/palm/db/kinds/org.webosports.cdav.account.calendar
--rw-r--r-- root       root              367 ./etc/palm/db/kinds/org.webosports.cdav.account.config
--rw-r--r-- root       root              308 ./etc/palm/db/kinds/org.webosports.cdav.account.contacts
--rw-r--r-- root       root              343 ./etc/palm/db/kinds/org.webosports.cdav.calendar
--rw-r--r-- root       root              954 ./etc/palm/db/kinds/org.webosports.cdav.calendarevent
--rw-r--r-- root       root              820 ./etc/palm/db/kinds/org.webosports.cdav.contact
--rw-r--r-- root       root              303 ./etc/palm/db/kinds/org.webosports.cdav.contactset
-drwxr-xr-x root       root              620 ./etc/palm/db/permissions
+-rw-r--r-- root       root              349 ./etc/palm/db/kinds/org.webosports.cdav.account.calendar
+-rw-r--r-- root       root              410 ./etc/palm/db/kinds/org.webosports.cdav.account.config
+-rw-r--r-- root       root              349 ./etc/palm/db/kinds/org.webosports.cdav.account.contacts
+-rw-r--r-- root       root              384 ./etc/palm/db/kinds/org.webosports.cdav.calendar
+-rw-r--r-- root       root              995 ./etc/palm/db/kinds/org.webosports.cdav.calendarevent
+-rw-r--r-- root       root              861 ./etc/palm/db/kinds/org.webosports.cdav.contact
+-rw-r--r-- root       root              344 ./etc/palm/db/kinds/org.webosports.cdav.contactset
+drwxr-xr-x root       root              600 ./etc/palm/db/permissions
 -rw-r--r-- root       root              231 ./etc/palm/db/permissions/com.palm.activitymanager
 -rw-r--r-- root       root              809 ./etc/palm/db/permissions/com.palm.app.contacts.prefs
--rw-r--r-- root       root              831 ./etc/palm/db/permissions/com.palm.app.email.carrier_defaults
+-rw-r--r-- root       root             1159 ./etc/palm/db/permissions/com.palm.app.email.carrier_defaults
 -rw-r--r-- root       root             2220 ./etc/palm/db/permissions/com.palm.app.email.prefs
 -rw-r--r-- root       root             1947 ./etc/palm/db/permissions/com.palm.calendar
 -rw-r--r-- root       root             1992 ./etc/palm/db/permissions/com.palm.calendarevent
 -rw-r--r-- root       root             1162 ./etc/palm/db/permissions/com.palm.calendarprefs
 -rwxr-xr-x root       root             1192 ./etc/palm/db/permissions/com.palm.contact
 -rwxr-xr-x root       root              229 ./etc/palm/db/permissions/com.palm.contact.palmprofile
--rw-r--r-- root       root             2321 ./etc/palm/db/permissions/com.palm.email
--rw-r--r-- root       root              798 ./etc/palm/db/permissions/com.palm.email.processorstate
+-rw-r--r-- root       root             2325 ./etc/palm/db/permissions/com.palm.email
 -rw-r--r-- root       root             2329 ./etc/palm/db/permissions/com.palm.folder
 -rwxr-xr-x root       root              223 ./etc/palm/db/permissions/com.palm.linker.rev
--rw-r--r-- root       root             2350 ./etc/palm/db/permissions/com.palm.mail.account
+-rw-r--r-- root       root             2346 ./etc/palm/db/permissions/com.palm.mail.account
 -rwxr-xr-x root       root              223 ./etc/palm/db/permissions/com.palm.manualLink
 -rwxr-xr-x root       root              225 ./etc/palm/db/permissions/com.palm.manualUnlink
 -rwxr-xr-x root       root             1058 ./etc/palm/db/permissions/com.palm.person
@@ -395,7 +393,7 @@ drwxr-xr-x root       root               80 ./etc/palm/db_kinds
 -rw-r--r-- root       root              214 ./etc/palm/db_kinds/com.palm.securitypolicy.device
 -rw-r--r-- root       root               67 ./etc/palm/default-exhibition-apps.json
 -rw-r--r-- root       root             1793 ./etc/palm/default-launcher-page-layout.json
--rw-r--r-- root       root             1864 ./etc/palm/defaultPreferences.txt
+-rw-r--r-- root       root             1865 ./etc/palm/defaultPreferences.txt
 drwxr-xr-x root       root               80 ./etc/palm/filecache_types
 -rw-r--r-- root       root               73 ./etc/palm/filecache_types/attachment
 -rw-r--r-- root       root               68 ./etc/palm/filecache_types/email
@@ -462,7 +460,7 @@ drwxr-xr-x root       root              120 ./etc/ssh
 -rw-r--r-- root       root             1494 ./etc/ssh/ssh_config
 -rw-r--r-- root       root             3243 ./etc/ssh/sshd_config
 -rw-r--r-- root       root             3221 ./etc/ssh/sshd_config_readonly
-drwxr-xr-x root       root               60 ./etc/ssl
+drwxr-xr-x root       root               80 ./etc/ssl
 drwxr-xr-x root       root             9480 ./etc/ssl/certs
 lrwxrwxrwx root       root               26 ./etc/ssl/certs/00673b5b.0 -> thawte_Primary_Root_CA.pem
 lrwxrwxrwx root       root               29 ./etc/ssl/certs/024dc131.0 -> Microsec_e-Szigno_Root_CA.pem
@@ -936,6 +934,7 @@ lrwxrwxrwx root       root               58 ./etc/ssl/certs/spi-cacert-2008.pem 
 lrwxrwxrwx root       root               61 ./etc/ssl/certs/thawte_Primary_Root_CA.pem -> /usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA.crt
 lrwxrwxrwx root       root               66 ./etc/ssl/certs/thawte_Primary_Root_CA_-_G2.pem -> /usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA_-_G2.crt
 lrwxrwxrwx root       root               66 ./etc/ssl/certs/thawte_Primary_Root_CA_-_G3.pem -> /usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA_-_G3.crt
+-rw-r--r-- root       root              877 ./etc/ssl/openssl.cnf
 -rw-r--r-- root       root             2049 ./etc/sysctl.conf
 drwxr-xr-x root       root               40 ./etc/sysctl.d
 lrwxrwxrwx root       root               24 ./etc/syslog.conf -> /etc/syslog.conf.busybox
@@ -957,7 +956,7 @@ drwxr-xr-x root       root               80 ./etc/systemd/system/getty.target.wa
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyAMA0.service -> /lib/systemd/system/serial-getty@.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
-drwxr-xr-x root       root              520 ./etc/systemd/system/multi-user.target.wants
+drwxr-xr-x root       root              540 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/LunaAppManager.service -> /lib/systemd/system/LunaAppManager.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/LunaSysMgr.service -> /lib/systemd/system/LunaSysMgr.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/LunaSysService.service -> /lib/systemd/system/LunaSysService.service
@@ -966,6 +965,7 @@ lrwxrwxrwx root       root               43 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
+lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/certmgrd.service -> /lib/systemd/system/certmgrd.service
 lrwxrwxrwx root       root               46 ./etc/systemd/system/multi-user.target.wants/configurator-async.service -> /lib/systemd/system/configurator-async.service
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/configurator.service -> /lib/systemd/system/configurator.service
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
@@ -1055,29 +1055,29 @@ drwxr-xr-x xuser      xuser              80 ./home/xuser
 drwxr-xr-x root       root             1740 ./lib
 drwxr-xr-x root       root               60 ./lib/depmod.d
 -rw-r--r-- root       root               71 ./lib/depmod.d/search.conf
--rwxr-xr-x root       root           130292 ./lib/ld-2.18.so
-lrwxrwxrwx root       root               10 ./lib/ld-linux.so.3 -> ld-2.18.so
--rwxr-xr-x root       root             5576 ./lib/libBrokenLocale-2.18.so
-lrwxrwxrwx root       root               23 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.18.so
+-rwxr-xr-x root       root           130292 ./lib/ld-2.17.so
+lrwxrwxrwx root       root               10 ./lib/ld-linux.so.3 -> ld-2.17.so
+-rwxr-xr-x root       root             5576 ./lib/libBrokenLocale-2.17.so
+lrwxrwxrwx root       root               23 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.17.so
 lrwxrwxrwx root       root               15 ./lib/libacl.so.1 -> libacl.so.1.1.0
 -rw-r--r-- root       root            25280 ./lib/libacl.so.1.1.0
--rwxr-xr-x root       root             9904 ./lib/libanl-2.18.so
-lrwxrwxrwx root       root               14 ./lib/libanl.so.1 -> libanl-2.18.so
+-rwxr-xr-x root       root             9904 ./lib/libanl-2.17.so
+lrwxrwxrwx root       root               14 ./lib/libanl.so.1 -> libanl-2.17.so
 lrwxrwxrwx root       root               16 ./lib/libattr.so.1 -> libattr.so.1.1.0
 -rw-r--r-- root       root            14360 ./lib/libattr.so.1.1.0
 lrwxrwxrwx root       root               17 ./lib/libblkid.so.1 -> libblkid.so.1.1.0
 -rwxr-xr-x root       root           197216 ./lib/libblkid.so.1.1.0
--rwxr-xr-x root       root          1250520 ./lib/libc-2.18.so
-lrwxrwxrwx root       root               12 ./lib/libc.so.6 -> libc-2.18.so
+-rwxr-xr-x root       root          1250520 ./lib/libc-2.17.so
+lrwxrwxrwx root       root               12 ./lib/libc.so.6 -> libc-2.17.so
 lrwxrwxrwx root       root               14 ./lib/libcap.so.2 -> libcap.so.2.22
 -rw-r--r-- root       root            15140 ./lib/libcap.so.2.22
 lrwxrwxrwx root       root               17 ./lib/libcom_err.so.2 -> libcom_err.so.2.1
 -rwxr-xr-x root       root             9136 ./lib/libcom_err.so.2.1
--rwxr-xr-x root       root            30232 ./lib/libcrypt-2.18.so
-lrwxrwxrwx root       root               16 ./lib/libcrypt.so.1 -> libcrypt-2.18.so
+-rwxr-xr-x root       root            34328 ./lib/libcrypt-2.17.so
+lrwxrwxrwx root       root               16 ./lib/libcrypt.so.1 -> libcrypt-2.17.so
 -rwxr-xr-x root       root          1419804 ./lib/libcrypto.so.1.0.0
--rwxr-xr-x root       root             9752 ./lib/libdl-2.18.so
-lrwxrwxrwx root       root               13 ./lib/libdl.so.2 -> libdl-2.18.so
+-rwxr-xr-x root       root             9752 ./lib/libdl-2.17.so
+lrwxrwxrwx root       root               13 ./lib/libdl.so.2 -> libdl-2.17.so
 lrwxrwxrwx root       root               13 ./lib/libe2p.so.2 -> libe2p.so.2.3
 -rwxr-xr-x root       root            23556 ./lib/libe2p.so.2.3
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
@@ -1085,29 +1085,29 @@ lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so
 -rw-r--r-- root       root           129724 ./lib/libgcc_s.so.1
 lrwxrwxrwx root       root               21 ./lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.3
 -rwxr-xr-x root       root            30336 ./lib/libgudev-1.0.so.0.1.3
--rwxr-xr-x root       root           640544 ./lib/libm-2.18.so
-lrwxrwxrwx root       root               12 ./lib/libm.so.6 -> libm-2.18.so
+-rwxr-xr-x root       root           624148 ./lib/libm-2.17.so
+lrwxrwxrwx root       root               12 ./lib/libm.so.6 -> libm-2.17.so
 lrwxrwxrwx root       root               17 ./lib/libmount.so.1 -> libmount.so.1.1.0
--rwxr-xr-x root       root           206032 ./lib/libmount.so.1.1.0
+-rwxr-xr-x root       root           206052 ./lib/libmount.so.1.1.0
 lrwxrwxrwx root       root               17 ./lib/libncurses.so.5 -> libncurses.so.5.9
 -rwxr-xr-x root       root           123316 ./lib/libncurses.so.5.9
 lrwxrwxrwx root       root               18 ./lib/libncursesw.so.5 -> libncursesw.so.5.9
 -rwxr-xr-x root       root           180128 ./lib/libncursesw.so.5.9
--rwxr-xr-x root       root            71560 ./lib/libnsl-2.18.so
-lrwxrwxrwx root       root               14 ./lib/libnsl.so.1 -> libnsl-2.18.so
--rwxr-xr-x root       root            30524 ./lib/libnss_compat-2.18.so
-lrwxrwxrwx root       root               21 ./lib/libnss_compat.so.2 -> libnss_compat-2.18.so
--rwxr-xr-x root       root            17980 ./lib/libnss_dns-2.18.so
-lrwxrwxrwx root       root               18 ./lib/libnss_dns.so.2 -> libnss_dns-2.18.so
--rwxr-xr-x root       root            46748 ./lib/libnss_files-2.18.so
-lrwxrwxrwx root       root               20 ./lib/libnss_files.so.2 -> libnss_files-2.18.so
--r-xr-xr-x root       root            52552 ./lib/libproc-3.2.8.so
--rwxr-xr-x root       root            92180 ./lib/libpthread-2.18.so
-lrwxrwxrwx root       root               18 ./lib/libpthread.so.0 -> libpthread-2.18.so
--rwxr-xr-x root       root            75572 ./lib/libresolv-2.18.so
-lrwxrwxrwx root       root               17 ./lib/libresolv.so.2 -> libresolv-2.18.so
--rwxr-xr-x root       root            26608 ./lib/librt-2.18.so
-lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.18.so
+-rwxr-xr-x root       root            71560 ./lib/libnsl-2.17.so
+lrwxrwxrwx root       root               14 ./lib/libnsl.so.1 -> libnsl-2.17.so
+-rwxr-xr-x root       root            30524 ./lib/libnss_compat-2.17.so
+lrwxrwxrwx root       root               21 ./lib/libnss_compat.so.2 -> libnss_compat-2.17.so
+-rwxr-xr-x root       root            17980 ./lib/libnss_dns-2.17.so
+lrwxrwxrwx root       root               18 ./lib/libnss_dns.so.2 -> libnss_dns-2.17.so
+-rwxr-xr-x root       root            46976 ./lib/libnss_files-2.17.so
+lrwxrwxrwx root       root               20 ./lib/libnss_files.so.2 -> libnss_files-2.17.so
+-r-xr-xr-x root       root            52556 ./lib/libproc-3.2.8.so
+-rwxr-xr-x root       root            88076 ./lib/libpthread-2.17.so
+lrwxrwxrwx root       root               18 ./lib/libpthread.so.0 -> libpthread-2.17.so
+-rwxr-xr-x root       root            71476 ./lib/libresolv-2.17.so
+lrwxrwxrwx root       root               17 ./lib/libresolv.so.2 -> libresolv-2.17.so
+-rwxr-xr-x root       root            26608 ./lib/librt-2.17.so
+lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.17.so
 lrwxrwxrwx root       root               12 ./lib/libss.so.2 -> libss.so.2.0
 -rwxr-xr-x root       root            17584 ./lib/libss.so.2.0
 lrwxrwxrwx root       root               27 ./lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.10
@@ -1126,8 +1126,8 @@ lrwxrwxrwx root       root               19 ./lib/libusb-0.1.so.4 -> libusb-0.1.
 -rwxr-xr-x root       root            14536 ./lib/libusb-0.1.so.4.4.4
 lrwxrwxrwx root       root               19 ./lib/libusb-1.0.so.0 -> libusb-1.0.so.0.1.0
 -rwxr-xr-x root       root            48156 ./lib/libusb-1.0.so.0.1.0
--rwxr-xr-x root       root             9788 ./lib/libutil-2.18.so
-lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.18.so
+-rwxr-xr-x root       root             9788 ./lib/libutil-2.17.so
+lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.17.so
 lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3.0
 -rwxr-xr-x root       root            14584 ./lib/libuuid.so.1.3.0
 lrwxrwxrwx root       root               16 ./lib/libwrap.so.0 -> libwrap.so.0.7.6
@@ -1168,7 +1168,7 @@ drwxr-xr-x root       root              100 ./lib/modules/3.10.17-yocto-standard
 -rw-r--r-- root       root             6427 ./lib/modules/3.10.17-yocto-standard/modules.symbols
 -rw-r--r-- root       root             7484 ./lib/modules/3.10.17-yocto-standard/modules.symbols.bin
 drwxr-xr-x root       root              700 ./lib/systemd
-drwxr-xr-x root       root             3860 ./lib/systemd/system
+drwxr-xr-x root       root             3880 ./lib/systemd/system
 drwxr-xr-x root       root              140 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            34508 ./lib/systemd/system-generators/systemd-efi-boot-generator
 -rwxr-xr-x root       root            46844 ./lib/systemd/system-generators/systemd-fstab-generator
@@ -1194,6 +1194,7 @@ lrwxrwxrwx root       root               24 ./lib/systemd/system/basic.target.wa
 -rw-r--r-- root       root              379 ./lib/systemd/system/bluetooth.target
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service
+-rw-r--r-- root       root              268 ./lib/systemd/system/certmgrd.service
 -rw-r--r-- root       root              316 ./lib/systemd/system/configurator-async.service
 -rw-r--r-- root       root              526 ./lib/systemd/system/configurator.service
 -rw-r--r-- root       root              357 ./lib/systemd/system/connman.service
@@ -1502,10 +1503,10 @@ lrwxrwxrwx root       root               25 ./sbin/blockdev -> /sbin/blockdev.ut
 -rwxr-xr-x root       root            12524 ./sbin/blockdev.util-linux
 -rwxr-xr-x root       root            60956 ./sbin/cfdisk
 -rwxr-xr-x root       root             6152 ./sbin/ctrlaltdel
--rwxr-xr-x root       root            96820 ./sbin/debugfs
+-rwxr-xr-x root       root            96812 ./sbin/debugfs
 lrwxrwxrwx root       root               17 ./sbin/depmod -> /sbin/depmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/depmod.kmod -> ../bin/kmod
--rwxr-xr-x root       root          1330780 ./sbin/dhclient
+-rwxr-xr-x root       root          1332496 ./sbin/dhclient
 -rwxr-xr-x root       root             9864 ./sbin/dhclient-script
 -rwxr-xr-x root       root            15616 ./sbin/dumpe2fs
 -rwxr-xr-x root       root             9780 ./sbin/e2freefrag
@@ -1544,7 +1545,7 @@ lrwxrwxrwx root       root                8 ./sbin/iwpriv -> iwconfig
 lrwxrwxrwx root       root                8 ./sbin/iwspy -> iwconfig
 -rwxr-xr-x root       root            14484 ./sbin/killall5
 lrwxrwxrwx root       root               19 ./sbin/klogd -> /bin/busybox.nosuid
--rwxr-xr-x root       root           614032 ./sbin/ldconfig
+-rwxr-xr-x root       root           628264 ./sbin/ldconfig
 lrwxrwxrwx root       root               19 ./sbin/loadkmap -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/logread -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             6824 ./sbin/logsave
@@ -1667,7 +1668,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/deallocvt -> /bin/busybox.
 -rwxr-xr-x root       root            13640 ./usr/bin/derb
 -rwxr-xr-x root       root            19648 ./usr/bin/dfbdump
 -rwxr-xr-x root       root             6628 ./usr/bin/dfbdumpinput
--rwxr-xr-x root       root            10548 ./usr/bin/dfbfx
+-rwxr-xr-x root       root            10540 ./usr/bin/dfbfx
 -rwxr-xr-x root       root             6648 ./usr/bin/dfbg
 -rwxr-xr-x root       root            11056 ./usr/bin/dfbinfo
 -rwxr-xr-x root       root            16268 ./usr/bin/dfbinput
@@ -1699,9 +1700,9 @@ lrwxrwxrwx root       root               25 ./usr/bin/flock -> /usr/bin/flock.ut
 lrwxrwxrwx root       root               20 ./usr/bin/free -> /usr/bin/free.procps
 -r-xr-xr-x root       root             7936 ./usr/bin/free.procps
 lrwxrwxrwx root       root               21 ./usr/bin/fuser -> /usr/bin/fuser.psmisc
--rwxr-xr-x root       root            25944 ./usr/bin/fuser.psmisc
+-rwxr-xr-x root       root            25952 ./usr/bin/fuser.psmisc
 -rwxr-xr-x root       root           117596 ./usr/bin/gatttool
--rwxr-xr-x root       root          3338676 ./usr/bin/gdb
+-rwxr-xr-x root       root          3338408 ./usr/bin/gdb
 -rwxr-xr-x root       root           223296 ./usr/bin/gdbserver
 -rwxr-xr-x root       root             6144 ./usr/bin/gdk-pixbuf-pixdata
 -rwxr-xr-x root       root             7372 ./usr/bin/gdk-pixbuf-query-loaders
@@ -1733,7 +1734,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/id -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            17776 ./usr/bin/ionice
 -rwxr-xr-x root       root            18612 ./usr/bin/ipcmk
 -rwxr-xr-x root       root            20124 ./usr/bin/ipcrm
--rwxr-xr-x root       root            36572 ./usr/bin/ipcs
+-rwxr-xr-x root       root            36564 ./usr/bin/ipcs
 lrwxrwxrwx root       root               23 ./usr/bin/iptables-xml -> /usr/sbin/xtables-multi
 -rwxr-xr-x root       root            17396 ./usr/bin/isosize
 -rwxr-xr-x root       root            13207 ./usr/bin/ispellaff2myspell
@@ -1904,7 +1905,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/sort -> /bin/busybox.nosui
 lrwxrwxrwx root       root               20 ./usr/bin/ssh -> /usr/bin/ssh.openssh
 -rwxr-xr-x root       root           188248 ./usr/bin/ssh-keygen
 -rwxr-xr-x root       root           361152 ./usr/bin/ssh.openssh
--rwxr-xr-x root       root           237704 ./usr/bin/strace
+-rwxr-xr-x root       root           237660 ./usr/bin/strace
 -rwxr-xr-x root       root              944 ./usr/bin/strace-log-merge
 lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            67316 ./usr/bin/systemd-analyze
@@ -1928,7 +1929,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/time -> /bin/busybox.nosui
 -rwxr-xr-x root       root            59072 ./usr/bin/timedatectl
 -r-xr-xr-x root       root             8344 ./usr/bin/tload
 lrwxrwxrwx root       root               19 ./usr/bin/top -> /usr/bin/top.procps
--r-xr-xr-x root       root            53460 ./usr/bin/top.procps
+-r-xr-xr-x root       root            53440 ./usr/bin/top.procps
 -rwxr-xr-x root       root             8960 ./usr/bin/tput
 lrwxrwxrwx root       root               19 ./usr/bin/tr -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./usr/bin/traceroute -> /bin/busybox.suid
@@ -1985,7 +1986,7 @@ drwxr-xr-x root       root               40 ./usr/games
 drwxr-xr-x root       root               60 ./usr/include
 drwxr-xr-x root       root               60 ./usr/include/python2.7
 -rw-r--r-- root       root            35988 ./usr/include/python2.7/pyconfig.h
-drwxr-xr-x root       root             8660 ./usr/lib
+drwxr-xr-x root       root             8720 ./usr/lib
 drwxr-xr-x root       root               40 ./usr/lib/binfmt.d
 drwxr-xr-x root       root               80 ./usr/lib/connman
 drwxr-xr-x root       root               40 ./usr/lib/connman/plugins
@@ -2004,7 +2005,7 @@ drwxr-xr-x root       root              320 ./usr/lib/directfb-1.6-0/inputdriver
 -rwxr-xr-x root       root             7032 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_joystick.so
 -rwxr-xr-x root       root            10424 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_keyboard.so
 -rwxr-xr-x root       root            21584 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_linux_input.so
--rwxr-xr-x root       root            21148 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_lirc.so
+-rwxr-xr-x root       root            21140 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_lirc.so
 -rwxr-xr-x root       root             8792 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_mutouch.so
 -rwxr-xr-x root       root             9352 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_penmount.so
 -rwxr-xr-x root       root            10432 ./usr/lib/directfb-1.6-0/inputdrivers/libdirectfb_ps2mouse.so
@@ -2040,10 +2041,12 @@ drwxr-xr-x root       root              100 ./usr/lib/directfb-1.6-0/systems
 -rwxr-xr-x root       root             5112 ./usr/lib/directfb-1.6-0/systems/libdirectfb_dummy.so
 -rwxr-xr-x root       root            48604 ./usr/lib/directfb-1.6-0/systems/libdirectfb_fbdev.so
 drwxr-xr-x root       root               60 ./usr/lib/directfb-1.6-0/wm
--rwxr-xr-x root       root            39604 ./usr/lib/directfb-1.6-0/wm/libdirectfbwm_default.so
+-rwxr-xr-x root       root            39608 ./usr/lib/directfb-1.6-0/wm/libdirectfbwm_default.so
 drwxr-xr-x root       root               60 ./usr/lib/dtrace
 -rw-r--r-- root       root            12324 ./usr/lib/dtrace/node.d
 -rwxr-xr-x root       root             7752 ./usr/lib/e2initrd_helper
+drwxr-xr-x root       root               60 ./usr/lib/eglibc
+-rwsr-xr-x root       root             9648 ./usr/lib/eglibc/pt_chown
 drwxr-xr-x root       root             2300 ./usr/lib/fonts
 -rw-r--r-- root       root           466696 ./usr/lib/fonts/DejaVuSans-Bold.ttf
 -rw-r--r-- root       root           441736 ./usr/lib/fonts/DejaVuSans-BoldOblique.ttf
@@ -2057,37 +2060,37 @@ drwxr-xr-x root       root             2300 ./usr/lib/fonts
 -rw-r--r-- root       root           180948 ./usr/lib/fonts/DejaVuSerif-BoldOblique.ttf
 -rw-r--r-- root       root           179872 ./usr/lib/fonts/DejaVuSerif-Oblique.ttf
 -rw-r--r-- root       root           210416 ./usr/lib/fonts/DejaVuSerif.ttf
--rw-r--r-- root       root            55644 ./usr/lib/fonts/Prelude-Bold.ttf
--rw-r--r-- root       root            51436 ./usr/lib/fonts/Prelude-BoldOblique.ttf
--rw-r--r-- root       root            56548 ./usr/lib/fonts/Prelude-Medium.ttf
--rw-r--r-- root       root            51612 ./usr/lib/fonts/Prelude-MediumOblique.ttf
--rw-r--r-- root       root            91892 ./usr/lib/fonts/PreludeCompWGL-Black.ttf
--rw-r--r-- root       root           331480 ./usr/lib/fonts/PreludeCompWGL-BlackItalic.ttf
--rw-r--r-- root       root           378452 ./usr/lib/fonts/PreludeCompWGL-Bold.ttf
--rw-r--r-- root       root           325592 ./usr/lib/fonts/PreludeCompWGL-BoldItalic.ttf
--rw-r--r-- root       root           369960 ./usr/lib/fonts/PreludeCompWGL-Light.ttf
--rw-r--r-- root       root           313528 ./usr/lib/fonts/PreludeCompWGL-LightItalic.ttf
--rw-r--r-- root       root           371136 ./usr/lib/fonts/PreludeCompWGL-Medium.ttf
--rw-r--r-- root       root           315356 ./usr/lib/fonts/PreludeCompWGL-MediumItalic.ttf
--rw-r--r-- root       root           108552 ./usr/lib/fonts/PreludeCondWGL-Black.ttf
--rw-r--r-- root       root           347452 ./usr/lib/fonts/PreludeCondWGL-BlackItalic.ttf
--rw-r--r-- root       root            97000 ./usr/lib/fonts/PreludeCondWGL-Bold.ttf
--rw-r--r-- root       root           100436 ./usr/lib/fonts/PreludeCondWGL-BoldItalic.ttf
--rw-r--r-- root       root           110508 ./usr/lib/fonts/PreludeCondWGL-Light.ttf
--rw-r--r-- root       root           334584 ./usr/lib/fonts/PreludeCondWGL-LightItalic.ttf
--rw-r--r-- root       root           105216 ./usr/lib/fonts/PreludeCondWGL-Medium.ttf
--rw-r--r-- root       root            97096 ./usr/lib/fonts/PreludeCondWGL-MediumItalic.ttf
--rw-r--r-- root       root            55636 ./usr/lib/fonts/PreludeCondensed-Bold.ttf
--rw-r--r-- root       root            55832 ./usr/lib/fonts/PreludeCondensed-Medium.ttf
--rw-r--r-- root       root            97924 ./usr/lib/fonts/PreludeWGL-Black.ttf
--rw-r--r-- root       root           341016 ./usr/lib/fonts/PreludeWGL-BlackItalic.ttf
--rw-r--r-- root       root            93996 ./usr/lib/fonts/PreludeWGL-Bold.ttf
--rw-r--r-- root       root            94300 ./usr/lib/fonts/PreludeWGL-BoldItalic.ttf
--rw-r--r-- root       root            98540 ./usr/lib/fonts/PreludeWGL-Light.ttf
--rw-r--r-- root       root           329728 ./usr/lib/fonts/PreludeWGL-LightItalic.ttf
--rw-r--r-- root       root            97056 ./usr/lib/fonts/PreludeWGL-Medium.ttf
--rw-r--r-- root       root            94484 ./usr/lib/fonts/PreludeWGL-MediumItalic.ttf
--rw-r--r-- root       root            28677 ./usr/lib/fonts/Prelude_Font_LICENSE.txt
+-rw-r--r-- 1001       root            55644 ./usr/lib/fonts/Prelude-Bold.ttf
+-rw-r--r-- 1001       root            51436 ./usr/lib/fonts/Prelude-BoldOblique.ttf
+-rw-r--r-- 1001       root            56548 ./usr/lib/fonts/Prelude-Medium.ttf
+-rw-r--r-- 1001       root            51612 ./usr/lib/fonts/Prelude-MediumOblique.ttf
+-rw-r--r-- 1001       root            91892 ./usr/lib/fonts/PreludeCompWGL-Black.ttf
+-rw-r--r-- 1001       root           331480 ./usr/lib/fonts/PreludeCompWGL-BlackItalic.ttf
+-rw-r--r-- 1001       root           378452 ./usr/lib/fonts/PreludeCompWGL-Bold.ttf
+-rw-r--r-- 1001       root           325592 ./usr/lib/fonts/PreludeCompWGL-BoldItalic.ttf
+-rw-r--r-- 1001       root           369960 ./usr/lib/fonts/PreludeCompWGL-Light.ttf
+-rw-r--r-- 1001       root           313528 ./usr/lib/fonts/PreludeCompWGL-LightItalic.ttf
+-rw-r--r-- 1001       root           371136 ./usr/lib/fonts/PreludeCompWGL-Medium.ttf
+-rw-r--r-- 1001       root           315356 ./usr/lib/fonts/PreludeCompWGL-MediumItalic.ttf
+-rw-r--r-- 1001       root           108552 ./usr/lib/fonts/PreludeCondWGL-Black.ttf
+-rw-r--r-- 1001       root           347452 ./usr/lib/fonts/PreludeCondWGL-BlackItalic.ttf
+-rw-r--r-- 1001       root            97000 ./usr/lib/fonts/PreludeCondWGL-Bold.ttf
+-rw-r--r-- 1001       root           100436 ./usr/lib/fonts/PreludeCondWGL-BoldItalic.ttf
+-rw-r--r-- 1001       root           110508 ./usr/lib/fonts/PreludeCondWGL-Light.ttf
+-rw-r--r-- 1001       root           334584 ./usr/lib/fonts/PreludeCondWGL-LightItalic.ttf
+-rw-r--r-- 1001       root           105216 ./usr/lib/fonts/PreludeCondWGL-Medium.ttf
+-rw-r--r-- 1001       root            97096 ./usr/lib/fonts/PreludeCondWGL-MediumItalic.ttf
+-rw-r--r-- 1001       root            55636 ./usr/lib/fonts/PreludeCondensed-Bold.ttf
+-rw-r--r-- 1001       root            55832 ./usr/lib/fonts/PreludeCondensed-Medium.ttf
+-rw-r--r-- 1001       root            97924 ./usr/lib/fonts/PreludeWGL-Black.ttf
+-rw-r--r-- 1001       root           341016 ./usr/lib/fonts/PreludeWGL-BlackItalic.ttf
+-rw-r--r-- 1001       root            93996 ./usr/lib/fonts/PreludeWGL-Bold.ttf
+-rw-r--r-- 1001       root            94300 ./usr/lib/fonts/PreludeWGL-BoldItalic.ttf
+-rw-r--r-- 1001       root            98540 ./usr/lib/fonts/PreludeWGL-Light.ttf
+-rw-r--r-- 1001       root           329728 ./usr/lib/fonts/PreludeWGL-LightItalic.ttf
+-rw-r--r-- 1001       root            97056 ./usr/lib/fonts/PreludeWGL-Medium.ttf
+-rw-r--r-- 1001       root            94484 ./usr/lib/fonts/PreludeWGL-MediumItalic.ttf
+-rw-r--r-- 1001       root            28677 ./usr/lib/fonts/Prelude_Font_LICENSE.txt
 -rw-r--r-- root       root              915 ./usr/lib/fonts/README
 -rw-r--r-- root       root            75363 ./usr/lib/fonts/UTBI____.pfa
 -rw-r--r-- root       root            72834 ./usr/lib/fonts/UTB_____.pfa
@@ -2271,7 +2274,7 @@ drwxr-xr-x root       root             3100 ./usr/lib/gstreamer-1.0
 -rwxr-xr-x root       root            41064 ./usr/lib/gstreamer-1.0/libgstreplaygain.so
 -rwxr-xr-x root       root            43508 ./usr/lib/gstreamer-1.0/libgstrfbsrc.so
 -rwxr-xr-x root       root           124276 ./usr/lib/gstreamer-1.0/libgstrmdemux.so
--rwxr-xr-x root       root           397328 ./usr/lib/gstreamer-1.0/libgstrtp.so
+-rwxr-xr-x root       root           397312 ./usr/lib/gstreamer-1.0/libgstrtp.so
 -rwxr-xr-x root       root           246564 ./usr/lib/gstreamer-1.0/libgstrtpmanager.so
 -rwxr-xr-x root       root           136020 ./usr/lib/gstreamer-1.0/libgstrtsp.so
 -rwxr-xr-x root       root            16240 ./usr/lib/gstreamer-1.0/libgstsbc.so
@@ -2328,6 +2331,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libGLESv2.so.2 -> libGLESv
 -rwxr-xr-x root       root            42408 ./usr/lib/libGLESv2.so.2.0.0
 lrwxrwxrwx root       root               28 ./usr/lib/libLunaSysMgrCommon.so.3 -> libLunaSysMgrCommon.so.3.0.0
 -rwxr-xr-x root       root           312332 ./usr/lib/libLunaSysMgrCommon.so.3.0.0
+lrwxrwxrwx root       root               28 ./usr/lib/libPmCertificateMgr.so.2 -> libPmCertificateMgr.so.2.0.0
+-rwxr-xr-x root       root            45592 ./usr/lib/libPmCertificateMgr.so.2.0.0
 lrwxrwxrwx root       root               20 ./usr/lib/libPmLogLib.so.3 -> libPmLogLib.so.3.1.0
 -rwxr-xr-x root       root            21208 ./usr/lib/libPmLogLib.so.3.1.0
 lrwxrwxrwx root       root               32 ./usr/lib/libPmStateMachineEngine.so.2 -> libPmStateMachineEngine.so.2.0.0
@@ -2391,7 +2396,7 @@ lrwxrwxrwx root       root               28 ./usr/lib/libQt5WaylandClient.so.5.2
 -rwxr-xr-x root       root           779556 ./usr/lib/libQt5WaylandClient.so.5.2.1
 lrwxrwxrwx root       root               21 ./usr/lib/libQt5WebKit.so.5 -> libQt5WebKit.so.5.2.0
 lrwxrwxrwx root       root               21 ./usr/lib/libQt5WebKit.so.5.2 -> libQt5WebKit.so.5.2.0
--rwxr-xr-x root       root         26448580 ./usr/lib/libQt5WebKit.so.5.2.0
+-rwxr-xr-x root       root         26448584 ./usr/lib/libQt5WebKit.so.5.2.0
 lrwxrwxrwx root       root               28 ./usr/lib/libQt5WebKitWidgets.so.5 -> libQt5WebKitWidgets.so.5.2.0
 lrwxrwxrwx root       root               28 ./usr/lib/libQt5WebKitWidgets.so.5.2 -> libQt5WebKitWidgets.so.5.2.0
 -rwxr-xr-x root       root           214548 ./usr/lib/libQt5WebKitWidgets.so.5.2.0
@@ -2409,7 +2414,7 @@ lrwxrwxrwx root       root               20 ./usr/lib/libSDL2-2.0.so.0 -> libSDL
 lrwxrwxrwx root       root               15 ./usr/lib/liba52.so.0 -> liba52.so.0.0.0
 -rwxr-xr-x root       root            44748 ./usr/lib/liba52.so.0.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasound.so.2.0.0
--rwxr-xr-x root       root           817056 ./usr/lib/libasound.so.2.0.0
+-rwxr-xr-x root       root           817060 ./usr/lib/libasound.so.2.0.0
 lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.13.0
 -rwxr-xr-x root       root            84916 ./usr/lib/libbluetooth.so.3.13.0
 -rwxr-xr-x root       root            89304 ./usr/lib/libboost_filesystem.so.1.54.0
@@ -2432,9 +2437,9 @@ lrwxrwxrwx root       root               24 ./usr/lib/libconnman-qt5.so.1.0 -> l
 lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so.5 -> libcurl.so.5.3.0
 -rwxr-xr-x root       root           297964 ./usr/lib/libcurl.so.5.3.0
 lrwxrwxrwx root       root               18 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.3
--rwxr-xr-x root       root           188408 ./usr/lib/libdbus-1.so.3.7.3
+-rwxr-xr-x root       root           188404 ./usr/lib/libdbus-1.so.3.7.3
 lrwxrwxrwx root       root               22 ./usr/lib/libdirect-1.6.so.0 -> libdirect-1.6.so.0.3.0
--rwxr-xr-x root       root           118412 ./usr/lib/libdirect-1.6.so.0.3.0
+-rwxr-xr-x root       root           118416 ./usr/lib/libdirect-1.6.so.0.3.0
 lrwxrwxrwx root       root               24 ./usr/lib/libdirectfb-1.6.so.0 -> libdirectfb-1.6.so.0.3.0
 -rwxr-xr-x root       root           837256 ./usr/lib/libdirectfb-1.6.so.0.3.0
 lrwxrwxrwx root       root               15 ./usr/lib/libdrm.so.2 -> libdrm.so.2.4.0
@@ -2464,13 +2469,13 @@ lrwxrwxrwx root       root               19 ./usr/lib/libgcrypt.so.11 -> libgcry
 lrwxrwxrwx root       root               29 ./usr/lib/libgdk_pixbuf-2.0.so.0 -> libgdk_pixbuf-2.0.so.0.2800.2
 -rwxr-xr-x root       root           121800 ./usr/lib/libgdk_pixbuf-2.0.so.0.2800.2
 lrwxrwxrwx root       root               22 ./usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3600.4
--rwxr-xr-x root       root          1184416 ./usr/lib/libgio-2.0.so.0.3600.4
+-rwxr-xr-x root       root          1184364 ./usr/lib/libgio-2.0.so.0.3600.4
 lrwxrwxrwx root       root               21 ./usr/lib/libgiomm-2.4.so.1 -> libgiomm-2.4.so.1.3.0
 -rwxr-xr-x root       root          1039588 ./usr/lib/libgiomm-2.4.so.1.3.0
 lrwxrwxrwx root       root               17 ./usr/lib/libglapi.so.0 -> libglapi.so.0.0.0
--rwxr-xr-x root       root           257660 ./usr/lib/libglapi.so.0.0.0
+-rwxr-xr-x root       root           257668 ./usr/lib/libglapi.so.0.0.0
 lrwxrwxrwx root       root               23 ./usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3600.4
--rwxr-xr-x root       root          1081520 ./usr/lib/libglib-2.0.so.0.3600.4
+-rwxr-xr-x root       root          1081524 ./usr/lib/libglib-2.0.so.0.3600.4
 lrwxrwxrwx root       root               22 ./usr/lib/libglibmm-2.4.so.1 -> libglibmm-2.4.so.1.3.0
 -rwxr-xr-x root       root           332764 ./usr/lib/libglibmm-2.4.so.1.3.0
 lrwxrwxrwx root       root               42 ./usr/lib/libglibmm_generate_extra_defs-2.4.so.1 -> libglibmm_generate_extra_defs-2.4.so.1.3.0
@@ -2540,7 +2545,7 @@ lrwxrwxrwx root       root               18 ./usr/lib/libicudata.so.51 -> libicu
 lrwxrwxrwx root       root               18 ./usr/lib/libicui18n.so.51 -> libicui18n.so.51.2
 -rwxr-xr-x root       root          1690612 ./usr/lib/libicui18n.so.51.2
 lrwxrwxrwx root       root               18 ./usr/lib/libicutest.so.51 -> libicutest.so.51.2
--rwxr-xr-x root       root            49128 ./usr/lib/libicutest.so.51.2
+-rwxr-xr-x root       root            49120 ./usr/lib/libicutest.so.51.2
 lrwxrwxrwx root       root               16 ./usr/lib/libicutu.so.51 -> libicutu.so.51.2
 -rwxr-xr-x root       root           136636 ./usr/lib/libicutu.so.51.2
 lrwxrwxrwx root       root               16 ./usr/lib/libicuuc.so.51 -> libicuuc.so.51.2
@@ -2556,7 +2561,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/libjpeg.so.8 -> libjpeg.so
 lrwxrwxrwx root       root               16 ./usr/lib/libjson.so.0 -> libjson.so.0.0.1
 -rwxr-xr-x root       root            24104 ./usr/lib/libjson.so.0.0.1
 lrwxrwxrwx root       root               16 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.4
--rwxr-xr-x root       root            77100 ./usr/lib/libkmod.so.2.2.4
+-rwxr-xr-x root       root            77080 ./usr/lib/libkmod.so.2.2.4
 lrwxrwxrwx root       root               18 ./usr/lib/libleveldb.so.1 -> libleveldb.so.1.15
 -rwxr-xr-x root       root           272456 ./usr/lib/libleveldb.so.1.15
 lrwxrwxrwx root       root               16 ./usr/lib/libltdl.so.7 -> libltdl.so.7.3.0
@@ -2640,7 +2645,7 @@ lrwxrwxrwx root       root               31 ./usr/lib/libpulse-mainloop-glib.so.
 lrwxrwxrwx root       root               18 ./usr/lib/libpulse.so.0 -> libpulse.so.0.16.2
 -rwxr-xr-x root       root           284456 ./usr/lib/libpulse.so.0.16.2
 -rwxr-xr-x root       root           561724 ./usr/lib/libpulsecore-4.0.so
--r-xr-xr-x root       root          1528168 ./usr/lib/libpython2.7.so.1.0
+-r-xr-xr-x root       root          1528200 ./usr/lib/libpython2.7.so.1.0
 lrwxrwxrwx root       root               23 ./usr/lib/libqgsttools_p.so.1 -> libqgsttools_p.so.1.0.0
 lrwxrwxrwx root       root               23 ./usr/lib/libqgsttools_p.so.1.0 -> libqgsttools_p.so.1.0.0
 -rwxr-xr-x root       root           154568 ./usr/lib/libqgsttools_p.so.1.0.0
@@ -2712,14 +2717,14 @@ lrwxrwxrwx root       root               25 ./usr/lib/libwebapp-plugin.so.0 -> l
 lrwxrwxrwx root       root               29 ./usr/lib/libwebos-application.so.0 -> libwebos-application.so.0.1.0
 -rwxr-xr-x root       root             9584 ./usr/lib/libwebos-application.so.0.1.0
 lrwxrwxrwx root       root               21 ./usr/lib/libxkbcommon.so.0 -> libxkbcommon.so.0.0.0
--rwxr-xr-x root       root           254968 ./usr/lib/libxkbcommon.so.0.0.0
+-rwxr-xr-x root       root           254980 ./usr/lib/libxkbcommon.so.0.0.0
 lrwxrwxrwx root       root               16 ./usr/lib/libxml2.so.2 -> libxml2.so.2.9.1
 -rwxr-xr-x root       root          1146352 ./usr/lib/libxml2.so.2.9.1
 drwxr-xr-x root       root               40 ./usr/lib/libxslt-plugins
 lrwxrwxrwx root       root               17 ./usr/lib/libxslt.so.1 -> libxslt.so.1.1.28
 -rwxr-xr-x root       root           208708 ./usr/lib/libxslt.so.1.1.28
 lrwxrwxrwx root       root               20 ./usr/lib/libxtables.so.10 -> libxtables.so.10.0.0
--rwxr-xr-x root       root            43772 ./usr/lib/libxtables.so.10.0.0
+-rwxr-xr-x root       root            43776 ./usr/lib/libxtables.so.10.0.0
 lrwxrwxrwx root       root               17 ./usr/lib/libyajl.so.1 -> libyajl.so.1.0.12
 -rwxr-xr-x root       root            24228 ./usr/lib/libyajl.so.1.0.12
 drwxr-xr-x root       root               80 ./usr/lib/locale
@@ -4287,7 +4292,7 @@ drwxr-xr-x root       root              220 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root            16204 ./usr/lib/nyx/modules/nyxTouchpanelMain.module
 drwxr-xr-x root       root               60 ./usr/lib/pulse-4.0
 drwxr-xr-x root       root              560 ./usr/lib/pulse-4.0/modules
--rwxr-xr-x root       root           268832 ./usr/lib/pulse-4.0/modules/libalsa-util.so
+-rwxr-xr-x root       root           268840 ./usr/lib/pulse-4.0/modules/libalsa-util.so
 -rwxr-xr-x root       root             7148 ./usr/lib/pulse-4.0/modules/libcli.so
 -rwxr-xr-x root       root            11508 ./usr/lib/pulse-4.0/modules/libprotocol-cli.so
 -rwxr-xr-x root       root           110172 ./usr/lib/pulse-4.0/modules/libprotocol-native.so
@@ -4309,7 +4314,7 @@ drwxr-xr-x root       root              560 ./usr/lib/pulse-4.0/modules
 -rwxr-xr-x root       root             9432 ./usr/lib/pulse-4.0/modules/module-position-event-sounds.so
 -rwxr-xr-x root       root            10316 ./usr/lib/pulse-4.0/modules/module-rescue-streams.so
 -rwxr-xr-x root       root            16532 ./usr/lib/pulse-4.0/modules/module-role-cork.so
--rwxr-xr-x root       root            64920 ./usr/lib/pulse-4.0/modules/module-stream-restore.so
+-rwxr-xr-x root       root            64932 ./usr/lib/pulse-4.0/modules/module-stream-restore.so
 -rwxr-xr-x root       root            21280 ./usr/lib/pulse-4.0/modules/module-suspend-on-idle.so
 -rwxr-xr-x root       root             8336 ./usr/lib/pulse-4.0/modules/module-switch-on-port-available.so
 -rwxr-xr-x root       root            23604 ./usr/lib/pulse-4.0/modules/module-udev-detect.so
@@ -4666,7 +4671,7 @@ drwxr-xr-x root       root              820 ./usr/lib/python2.7/lib-dynload
 -rwxr-xr-x root       root            46188 ./usr/lib/python2.7/lib-dynload/itertools.so
 -rwxr-xr-x root       root            61432 ./usr/lib/python2.7/lib-dynload/math.so
 -rwxr-xr-x root       root            26052 ./usr/lib/python2.7/lib-dynload/operator.so
--rwxr-xr-x root       root            62980 ./usr/lib/python2.7/lib-dynload/parser.so
+-rwxr-xr-x root       root            64492 ./usr/lib/python2.7/lib-dynload/parser.so
 -rwxr-xr-x root       root            21932 ./usr/lib/python2.7/lib-dynload/readline.so
 -rwxr-xr-x root       root            22608 ./usr/lib/python2.7/lib-dynload/select.so
 -rwxr-xr-x root       root            21936 ./usr/lib/python2.7/lib-dynload/strop.so
@@ -5077,9 +5082,12 @@ drwxr-xr-x root       root               80 ./usr/lib/qt5/qml/QtWebKit/experimen
 -rwxr-xr-x root       root            25724 ./usr/lib/qt5/qml/QtWebKit/libqmlwebkitplugin.so
 -rw-r--r-- root       root               65 ./usr/lib/qt5/qml/QtWebKit/qmldir
 lrwxrwxrwx root       root               18 ./usr/lib/sendmail -> /usr/sbin/sendmail
-drwxr-xr-x root       root               80 ./usr/lib/ssl
-lrwxrwxrwx root       root               32 ./usr/lib/ssl/openssl.cnf -> /usr/lib/ssl/openssl.cnf.openssl
+drwxr-xr-x root       root              140 ./usr/lib/ssl
+lrwxrwxrwx root       root               14 ./usr/lib/ssl/certs -> /etc/ssl/certs
+lrwxrwxrwx root       root               41 ./usr/lib/ssl/openssl.cnf -> /usr/lib/ssl/openssl.cnf.pmcertificatemgr
 -rw-r--r-- root       root            10835 ./usr/lib/ssl/openssl.cnf.openssl
+lrwxrwxrwx root       root               20 ./usr/lib/ssl/openssl.cnf.pmcertificatemgr -> /etc/ssl/openssl.cnf
+lrwxrwxrwx root       root               16 ./usr/lib/ssl/private -> /etc/ssl/private
 drwxr-xr-x root       root               60 ./usr/lib/sysctl.d
 -rw-r--r-- root       root              710 ./usr/lib/sysctl.d/50-default.conf
 drwxr-xr-x root       root              120 ./usr/lib/systemd
@@ -5761,138 +5769,176 @@ drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             1371 ./usr/palm/applications/com.palm.app.contacts/spec/unit/support/jasmine.yml
 drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.contacts/tests
 -rw-r--r-- root       root             8747 ./usr/palm/applications/com.palm.app.contacts/tests/ContactsAppSpecs.js
-drwxr-xr-x root       root              320 ./usr/palm/applications/com.palm.app.email
+drwxr-xr-x root       root              720 ./usr/palm/applications/com.palm.app.email
+drwxr-xr-x root       root              360 ./usr/palm/applications/com.palm.app.email/2
+-rw-r--r-- root       root              603 ./usr/palm/applications/com.palm.app.email/2/NOTICE
+-rw-r--r-- root       root             3268 ./usr/palm/applications/com.palm.app.email/2/README.md
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/2/accounts
+-rw-r--r-- root       root             2359 ./usr/palm/applications/com.palm.app.email/2/accounts/accounts.css
+-rw-r--r-- root       root             1129 ./usr/palm/applications/com.palm.app.email/2/accounts/depends.js
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/2/accounts/source
+-rw-r--r-- root       root            85941 ./usr/palm/applications/com.palm.app.email/2/accounts/source/AccountWizard.js
+-rw-r--r-- root       root            18762 ./usr/palm/applications/com.palm.app.email/2/accounts/source/CRUDAccounts.js
+-rw-r--r-- root       root            33980 ./usr/palm/applications/com.palm.app.email/2/accounts/source/ManualConfig.js
+-rw-r--r-- root       root             4974 ./usr/palm/applications/com.palm.app.email/2/accounts/source/ProtocolSettings.js
+-rw-r--r-- root       root            14843 ./usr/palm/applications/com.palm.app.email/2/accounts/source/SimpleConfig.js
+-rw-r--r-- root       root             1275 ./usr/palm/applications/com.palm.app.email/2/accounts/wizard.html
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/2/css
+-rw-r--r-- root       root             8174 ./usr/palm/applications/com.palm.app.email/2/css/compose.css
+-rw-r--r-- root       root             6132 ./usr/palm/applications/com.palm.app.email/2/css/controls.css
+-rw-r--r-- root       root            18035 ./usr/palm/applications/com.palm.app.email/2/css/mail.css
+-rw-r--r-- root       root             4632 ./usr/palm/applications/com.palm.app.email/2/css/overrides.css
+drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/2/data
+-rw-r--r-- root       root            19866 ./usr/palm/applications/com.palm.app.email/2/data/AccountList.js
+-rw-r--r-- root       root             6180 ./usr/palm/applications/com.palm.app.email/2/data/AccountPreferences.js
+-rw-r--r-- root       root             8950 ./usr/palm/applications/com.palm.app.email/2/data/AttachmentManager.js
+-rw-r--r-- root       root            15665 ./usr/palm/applications/com.palm.app.email/2/data/CombinedAccount.js
+-rw-r--r-- root       root            31859 ./usr/palm/applications/com.palm.app.email/2/data/EmailAccount.js
+-rw-r--r-- root       root             6191 ./usr/palm/applications/com.palm.app.email/2/data/mail.js
+-rw-r--r-- root       root              675 ./usr/palm/applications/com.palm.app.email/2/depends.js
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/2/emailviewer
+-rw-r--r-- root       root             1170 ./usr/palm/applications/com.palm.app.email/2/emailviewer/depends.js
+-rw-r--r-- root       root             1138 ./usr/palm/applications/com.palm.app.email/2/emailviewer/index.html
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/2/emailviewer/source
+-rw-r--r-- root       root             2899 ./usr/palm/applications/com.palm.app.email/2/emailviewer/source/EmailViewerWindow.js
+-rw-r--r-- root       root              175 ./usr/palm/applications/com.palm.app.email/2/eris_config.json
+-rwxr-xr-x root       root            56905 ./usr/palm/applications/com.palm.app.email/2/icon-256x256.png
+-rw-r--r-- root       root             5621 ./usr/palm/applications/com.palm.app.email/2/icon.png
+-rw-r--r-- root       root             1816 ./usr/palm/applications/com.palm.app.email/2/index.html
+-rw-r--r-- root       root             2138 ./usr/palm/applications/com.palm.app.email/2/jasminerunner.html
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/2/mail
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/2/mail/cache
+-rw-r--r-- root       root             1138 ./usr/palm/applications/com.palm.app.email/2/mail/cache/mailfolders.json
+-rw-r--r-- root       root             1691 ./usr/palm/applications/com.palm.app.email/2/mail/depends.js
+-rw-r--r-- root       root             1611 ./usr/palm/applications/com.palm.app.email/2/mail/index.html
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/2/mail/mock
+-rw-r--r-- root       root             2493 ./usr/palm/applications/com.palm.app.email/2/mail/mock/com.palm.email-1.json
+-rw-r--r-- root       root           211937 ./usr/palm/applications/com.palm.app.email/2/mail/mock/mailApp_mail_emailFind.json
+-rw-r--r-- root       root             2497 ./usr/palm/applications/com.palm.app.email/2/mail/mock/mailApp_messageDisplayFetcher.json
+drwxr-xr-x root       root              260 ./usr/palm/applications/com.palm.app.email/2/mail/source
+-rw-r--r-- root       root             7274 ./usr/palm/applications/com.palm.app.email/2/mail/source/Accounts.js
+-rw-r--r-- root       root             1869 ./usr/palm/applications/com.palm.app.email/2/mail/source/DarkSwipeable.js
+-rw-r--r-- root       root            21094 ./usr/palm/applications/com.palm.app.email/2/mail/source/Folders.js
+-rw-r--r-- root       root            14624 ./usr/palm/applications/com.palm.app.email/2/mail/source/HtmlView.js
+-rw-r--r-- root       root            53242 ./usr/palm/applications/com.palm.app.email/2/mail/source/Mail.js
+-rw-r--r-- root       root            25004 ./usr/palm/applications/com.palm.app.email/2/mail/source/MailApp.js
+-rw-r--r-- root       root            39938 ./usr/palm/applications/com.palm.app.email/2/mail/source/MessageDisplay.js
+-rw-r--r-- root       root            11864 ./usr/palm/applications/com.palm.app.email/2/mail/source/MessageLoader.js
+-rw-r--r-- root       root            21601 ./usr/palm/applications/com.palm.app.email/2/mail/source/MessagePane.js
+-rw-r--r-- root       root             3353 ./usr/palm/applications/com.palm.app.email/2/mail/source/MessageSelection.js
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/2/mail/source/settings
+-rw-r--r-- root       root            21815 ./usr/palm/applications/com.palm.app.email/2/mail/source/settings/AccountSettings.js
+-rw-r--r-- root       root             3421 ./usr/palm/applications/com.palm.app.email/2/mail/source/settings/MasterSettings.js
+-rw-r--r-- root       root             9397 ./usr/palm/applications/com.palm.app.email/2/mail/source/settings/Preferences.js
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/2/nowindow
+-rw-r--r-- root       root             1238 ./usr/palm/applications/com.palm.app.email/2/nowindow/depends.js
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/2/nowindow/source
+-rw-r--r-- root       root             9162 ./usr/palm/applications/com.palm.app.email/2/nowindow/source/Launch.js
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/2/tests
+-rw-r--r-- root       root             2630 ./usr/palm/applications/com.palm.app.email/2/tests/CardLaunch-spec.js
+-rw-r--r-- root       root            11748 ./usr/palm/applications/com.palm.app.email/2/tests/Mail-spec.js
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/2/tests/mock
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts/com.palm.imap
+-rwxr-xr-x root       root             1311 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts/com.palm.imap/com.palm.imap.json
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts/com.palm.imap/images
+-rwxr-xr-x root       root             1014 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts/com.palm.imap/images/imapmail32.png
+-rwxr-xr-x root       root             1091 ./usr/palm/applications/com.palm.app.email/2/tests/mock/accounts/com.palm.imap/images/imapmail48.png
+-rw-r--r-- root       root             2493 ./usr/palm/applications/com.palm.app.email/2/tests/mock/com.palm.email-1.json
+-rw-r--r-- root       root               53 ./usr/palm/applications/com.palm.app.email/2/tests/mock/dashboardManager_screenState.json
+-rw-r--r-- root       root           215072 ./usr/palm/applications/com.palm.app.email/2/tests/mock/mailApp_mail_emailFind.json
+-rw-r--r-- root       root            20989 ./usr/palm/applications/com.palm.app.email/2/tests/mockingStubs.js
+-rw-r--r-- root       root             6804 ./usr/palm/applications/com.palm.app.email/2/tests/nowindow-spec.js
+drwxr-xr-x root       root              240 ./usr/palm/applications/com.palm.app.email/2/util
+-rw-r--r-- root       root             2673 ./usr/palm/applications/com.palm.app.email/2/util/CachedFile.js
+-rw-r--r-- root       root            13195 ./usr/palm/applications/com.palm.app.email/2/util/EmailProcessor.js
+-rw-r--r-- root       root            15084 ./usr/palm/applications/com.palm.app.email/2/util/FolderProcessor.js
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/2/util/Mailto
+-rw-r--r-- root       root             1361 ./usr/palm/applications/com.palm.app.email/2/util/Mailto/LICENSE_1_0.txt
+-rw-r--r-- root       root             7331 ./usr/palm/applications/com.palm.app.email/2/util/Mailto/MailtoURIParser.js
+-rw-r--r-- root       root            17410 ./usr/palm/applications/com.palm.app.email/2/util/MojoDBChangeProcessor.js
+-rw-r--r-- root       root             1400 ./usr/palm/applications/com.palm.app.email/2/util/Power.js
+-rw-r--r-- root       root             1152 ./usr/palm/applications/com.palm.app.email/2/util/prologue.js
+-rw-r--r-- root       root             6483 ./usr/palm/applications/com.palm.app.email/2/util/stringify.js
+-rw-r--r-- root       root             2322 ./usr/palm/applications/com.palm.app.email/2/util/urlparser.js
+-rw-r--r-- root       root            44071 ./usr/palm/applications/com.palm.app.email/2/util/util.js
+-rw-r--r-- root       root               65 ./usr/palm/applications/com.palm.app.email/Gemfile
+-rw-r--r-- root       root              960 ./usr/palm/applications/com.palm.app.email/Gemfile.lock
 -rw-r--r-- root       root            11358 ./usr/palm/applications/com.palm.app.email/LICENSE
--rw-r--r-- root       root              607 ./usr/palm/applications/com.palm.app.email/NOTICE
--rw-r--r-- root       root             5202 ./usr/palm/applications/com.palm.app.email/README.md
+-rw-r--r-- root       root              603 ./usr/palm/applications/com.palm.app.email/NOTICE
+-rw-r--r-- root       root             3268 ./usr/palm/applications/com.palm.app.email/README.md
+-rw-r--r-- root       root              865 ./usr/palm/applications/com.palm.app.email/Rakefile
 drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/accounts
--rw-r--r-- root       root             2358 ./usr/palm/applications/com.palm.app.email/accounts/accounts.css
--rw-r--r-- root       root             1136 ./usr/palm/applications/com.palm.app.email/accounts/depends.js
+-rw-r--r-- root       root             2359 ./usr/palm/applications/com.palm.app.email/accounts/accounts.css
+-rw-r--r-- root       root             1129 ./usr/palm/applications/com.palm.app.email/accounts/depends.js
 drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/accounts/source
--rw-r--r-- root       root            85911 ./usr/palm/applications/com.palm.app.email/accounts/source/AccountWizard.js
--rw-r--r-- root       root            20892 ./usr/palm/applications/com.palm.app.email/accounts/source/CRUDAccounts.js
--rw-r--r-- root       root            33282 ./usr/palm/applications/com.palm.app.email/accounts/source/ManualConfig.js
--rw-r--r-- root       root             4635 ./usr/palm/applications/com.palm.app.email/accounts/source/ProtocolSettings.js
+-rw-r--r-- root       root            85941 ./usr/palm/applications/com.palm.app.email/accounts/source/AccountWizard.js
+-rw-r--r-- root       root            18762 ./usr/palm/applications/com.palm.app.email/accounts/source/CRUDAccounts.js
+-rw-r--r-- root       root            33980 ./usr/palm/applications/com.palm.app.email/accounts/source/ManualConfig.js
+-rw-r--r-- root       root             4974 ./usr/palm/applications/com.palm.app.email/accounts/source/ProtocolSettings.js
 -rw-r--r-- root       root            14843 ./usr/palm/applications/com.palm.app.email/accounts/source/SimpleConfig.js
 -rw-r--r-- root       root             1275 ./usr/palm/applications/com.palm.app.email/accounts/wizard.html
-drwxr-xr-x root       root              240 ./usr/palm/applications/com.palm.app.email/app
-drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/app/compose
--rw-r--r-- root       root             1329 ./usr/palm/applications/com.palm.app.email/app/compose-window.html
--rw-r--r-- root       root            38046 ./usr/palm/applications/com.palm.app.email/app/compose/ComposeWindow.js
--rw-r--r-- root       root            37163 ./usr/palm/applications/com.palm.app.email/app/compose/Composition.js
--rw-r--r-- root       root             1087 ./usr/palm/applications/com.palm.app.email/app/compose/EmailRecipient.js
--rw-r--r-- root       root             1046 ./usr/palm/applications/com.palm.app.email/app/compose/depends.js
--rw-r--r-- root       root              730 ./usr/palm/applications/com.palm.app.email/app/depends.js
-drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/app/emailviewer
--rw-r--r-- root       root             1325 ./usr/palm/applications/com.palm.app.email/app/emailviewer-window.html
--rw-r--r-- root       root             4951 ./usr/palm/applications/com.palm.app.email/app/emailviewer/EmailViewerWindow.js
--rw-r--r-- root       root             1229 ./usr/palm/applications/com.palm.app.email/app/emailviewer/depends.js
--rw-r--r-- root       root             1865 ./usr/palm/applications/com.palm.app.email/app/mail-window.html
-drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/app/main
--rw-r--r-- root       root            30008 ./usr/palm/applications/com.palm.app.email/app/main/MailApp.js
--rw-r--r-- root       root             1650 ./usr/palm/applications/com.palm.app.email/app/main/depends.js
-drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/app/main/panes
-drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/app/main/panes/folders
--rw-r--r-- root       root            20841 ./usr/palm/applications/com.palm.app.email/app/main/panes/folders/FolderGroup.js
--rw-r--r-- root       root             8870 ./usr/palm/applications/com.palm.app.email/app/main/panes/folders/FolderListPane.js
--rw-r--r-- root       root              720 ./usr/palm/applications/com.palm.app.email/app/main/panes/folders/depends.js
-drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/app/main/panes/list
--rw-r--r-- root       root             4683 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/CustomSelection.js
--rw-r--r-- root       root             1869 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/DarkSwipeable.js
--rw-r--r-- root       root            20081 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/EmailList.js
--rw-r--r-- root       root            26215 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/EmailListPane.js
--rw-r--r-- root       root             2540 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/FolderInfoPopup.js
--rw-r--r-- root       root              793 ./usr/palm/applications/com.palm.app.email/app/main/panes/list/depends.js
-drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview
--rw-r--r-- root       root             8177 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/ConversationView.js
--rw-r--r-- root       root            28177 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/HtmlView.js
--rw-r--r-- root       root            10434 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/MeetingInfo.js
--rw-r--r-- root       root            26789 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/MessageView.js
--rw-r--r-- root       root            18025 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/MessageViewPane.js
--rw-r--r-- root       root             1029 ./usr/palm/applications/com.palm.app.email/app/main/panes/messageview/depends.js
-drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/app/main/settings
--rw-r--r-- root       root            22543 ./usr/palm/applications/com.palm.app.email/app/main/settings/AccountSettings.js
--rw-r--r-- root       root             4009 ./usr/palm/applications/com.palm.app.email/app/main/settings/MasterSettings.js
--rw-r--r-- root       root            20490 ./usr/palm/applications/com.palm.app.email/app/main/settings/Preferences.js
-drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/app/nowindow
--rw-r--r-- root       root            32278 ./usr/palm/applications/com.palm.app.email/app/nowindow/DashboardManager.js
--rw-r--r-- root       root             9574 ./usr/palm/applications/com.palm.app.email/app/nowindow/Launch.js
--rw-r--r-- root       root             1201 ./usr/palm/applications/com.palm.app.email/app/nowindow/depends.js
-drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/app/nowindow/mock
--rw-r--r-- root       root               53 ./usr/palm/applications/com.palm.app.email/app/nowindow/mock/dashboardManager_screenState.json
-drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/app/shared
--rw-r--r-- root       root            34218 ./usr/palm/applications/com.palm.app.email/app/shared/AttachmentsDrawer.js
--rw-r--r-- root       root             1009 ./usr/palm/applications/com.palm.app.email/app/shared/BasicFadeScroller.js
--rw-r--r-- root       root            11532 ./usr/palm/applications/com.palm.app.email/app/shared/Dialogs.js
--rw-r--r-- root       root             6420 ./usr/palm/applications/com.palm.app.email/app/shared/FolderListPopup.js
--rw-r--r-- root       root              937 ./usr/palm/applications/com.palm.app.email/app/shared/depends.js
-drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/app/spawn
--rw-r--r-- root       root            34119 ./usr/palm/applications/com.palm.app.email/app/spawn/cow.png
--rw-r--r-- root       root            52092 ./usr/palm/applications/com.palm.app.email/app/spawn/farmFarm.jpg
--rw-r--r-- root       root             5194 ./usr/palm/applications/com.palm.app.email/app/spawn/index.html
--rw-r--r-- root       root            19793 ./usr/palm/applications/com.palm.app.email/app/spawn/toasterBack2.png
--rw-r--r-- root       root            19936 ./usr/palm/applications/com.palm.app.email/app/spawn/toasterFront2.png
--rw-r--r-- root       root             1516 ./usr/palm/applications/com.palm.app.email/appinfo.json
+-rw-r--r-- root       root             1684 ./usr/palm/applications/com.palm.app.email/appinfo.json
+-rw-r--r-- root       root                0 ./usr/palm/applications/com.palm.app.email/build-ignore
+-rwxr-xr-x root       root              386 ./usr/palm/applications/com.palm.app.email/ci_build.sh
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/compose
+-rw-r--r-- root       root              970 ./usr/palm/applications/com.palm.app.email/compose/depends.js
+-rw-r--r-- root       root             1165 ./usr/palm/applications/com.palm.app.email/compose/index.html
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/compose/mock
+-rw-r--r-- root       root              343 ./usr/palm/applications/com.palm.app.email/compose/mock/composeMailApp_desktopBackground_getWallpaper.json
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/compose/source
+-rw-r--r-- root       root            38575 ./usr/palm/applications/com.palm.app.email/compose/source/Compose.js
+-rw-r--r-- root       root            36184 ./usr/palm/applications/com.palm.app.email/compose/source/Composition.js
+-rw-r--r-- root       root             1087 ./usr/palm/applications/com.palm.app.email/compose/source/EmailRecipient.js
 drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/configuration
 drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/configuration/db
-drwxr-xr-x root       root              180 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds
 -rw-r--r-- root       root               96 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.app.email.carrier_defaults
 -rw-r--r-- root       root               99 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.app.email.prefs
--rw-r--r-- root       root             2345 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.email
--rw-r--r-- root       root              980 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.email.conversation
--rw-r--r-- root       root              162 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.email.processorstate
+-rw-r--r-- root       root             1924 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.email
 -rw-r--r-- root       root              791 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.folder
 -rw-r--r-- root       root              548 ./usr/palm/applications/com.palm.app.email/configuration/db/kinds/com.palm.mail.account
-drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions
--rw-r--r-- root       root              831 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.app.email.carrier_defaults
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions
+-rw-r--r-- root       root             1159 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.app.email.carrier_defaults
 -rw-r--r-- root       root             2220 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.app.email.prefs
--rw-r--r-- root       root             2321 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.email
--rw-r--r-- root       root              798 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.email.processorstate
+-rw-r--r-- root       root             2325 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.email
 -rw-r--r-- root       root             2329 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.folder
--rw-r--r-- root       root             2350 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.mail.account
-drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/css
--rw-r--r-- root       root             8242 ./usr/palm/applications/com.palm.app.email/css/compose.css
--rw-r--r-- root       root             6233 ./usr/palm/applications/com.palm.app.email/css/controls.css
--rw-r--r-- root       root            18293 ./usr/palm/applications/com.palm.app.email/css/mail.css
-drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/css/main
--rw-r--r-- root       root             1529 ./usr/palm/applications/com.palm.app.email/css/main/email-list.css
--rw-r--r-- root       root              400 ./usr/palm/applications/com.palm.app.email/css/main/html-view.css
--rw-r--r-- root       root             1738 ./usr/palm/applications/com.palm.app.email/css/main/message-pane.css
--rw-r--r-- root       root             2621 ./usr/palm/applications/com.palm.app.email/css/main/message-view.css
--rw-r--r-- root       root             4556 ./usr/palm/applications/com.palm.app.email/css/overrides.css
-drwxr-xr-x root       root              320 ./usr/palm/applications/com.palm.app.email/data
--rw-r--r-- root       root             8084 ./usr/palm/applications/com.palm.app.email/data/AccountPreferences.js
--rw-r--r-- root       root             8910 ./usr/palm/applications/com.palm.app.email/data/AttachmentManager.js
--rw-r--r-- root       root            16825 ./usr/palm/applications/com.palm.app.email/data/CombinedAccount.js
--rw-r--r-- root       root             4916 ./usr/palm/applications/com.palm.app.email/data/ConversationLoader.js
--rw-r--r-- root       root            23861 ./usr/palm/applications/com.palm.app.email/data/EmailAccount.js
--rw-r--r-- root       root            10905 ./usr/palm/applications/com.palm.app.email/data/EmailKinds.js
--rw-r--r-- root       root             7408 ./usr/palm/applications/com.palm.app.email/data/FolderStateWatcher.js
--rw-r--r-- root       root             4862 ./usr/palm/applications/com.palm.app.email/data/NextPrevLoader.js
--rw-r--r-- root       root             4425 ./usr/palm/applications/com.palm.app.email/data/PartDownloadManager.js
--rw-r--r-- root       root             2790 ./usr/palm/applications/com.palm.app.email/data/Transports.js
--rw-r--r-- root       root             4544 ./usr/palm/applications/com.palm.app.email/data/VirtualConversation.js
-drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/data/facades
--rw-r--r-- root       root             6226 ./usr/palm/applications/com.palm.app.email/data/facades/Attachment.js
--rw-r--r-- root       root             7901 ./usr/palm/applications/com.palm.app.email/data/facades/ContactCache.js
--rw-r--r-- root       root             8704 ./usr/palm/applications/com.palm.app.email/data/facades/Email.js
--rw-r--r-- root       root             7178 ./usr/palm/applications/com.palm.app.email/data/facades/Folder.js
--rw-r--r-- root       root              250 ./usr/palm/applications/com.palm.app.email/data/facades/readme.txt
--rw-r--r-- root       root             1548 ./usr/palm/applications/com.palm.app.email/data/mail.js
-drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/data/processors
--rw-r--r-- root       root            20070 ./usr/palm/applications/com.palm.app.email/data/processors/AccountList.js
--rw-r--r-- root       root            14494 ./usr/palm/applications/com.palm.app.email/data/processors/FolderProcessor.js
--rw-r--r-- root       root            16778 ./usr/palm/applications/com.palm.app.email/data/processors/MojoDBChangeProcessor.js
--rw-r--r-- root       root              776 ./usr/palm/applications/com.palm.app.email/data/processors/depends.js
-drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor
--rw-r--r-- root       root            12657 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/ConversationState.js
--rw-r--r-- root       root            13497 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/EmailProcessor2.js
--rw-r--r-- root       root            24597 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/EmailProcessorCommands.js
--rw-r--r-- root       root             1294 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/EmailProcessorUtils.js
--rw-r--r-- root       root             4559 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/InitialRevQueue.js
--rw-r--r-- root       root              821 ./usr/palm/applications/com.palm.app.email/data/processors/emailprocessor/depends.js
--rw-r--r-- root       root              832 ./usr/palm/applications/com.palm.app.email/depends.js
-drwxr-xr-x root       root             3080 ./usr/palm/applications/com.palm.app.email/images
+-rw-r--r-- root       root             2346 ./usr/palm/applications/com.palm.app.email/configuration/db/permissions/com.palm.mail.account
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/controls
+-rw-r--r-- root       root            34012 ./usr/palm/applications/com.palm.app.email/controls/AttachmentsDrawer.js
+-rw-r--r-- root       root             1009 ./usr/palm/applications/com.palm.app.email/controls/BasicFadeScroller.js
+-rw-r--r-- root       root            11516 ./usr/palm/applications/com.palm.app.email/controls/Dialogs.js
+-rw-r--r-- root       root             6421 ./usr/palm/applications/com.palm.app.email/controls/FolderListPopup.js
+-rw-r--r-- root       root              925 ./usr/palm/applications/com.palm.app.email/controls/depends.js
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/css
+-rw-r--r-- root       root             8174 ./usr/palm/applications/com.palm.app.email/css/compose.css
+-rw-r--r-- root       root             6132 ./usr/palm/applications/com.palm.app.email/css/controls.css
+-rw-r--r-- root       root            18035 ./usr/palm/applications/com.palm.app.email/css/mail.css
+-rw-r--r-- root       root             4632 ./usr/palm/applications/com.palm.app.email/css/overrides.css
+drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/data
+-rw-r--r-- root       root            19866 ./usr/palm/applications/com.palm.app.email/data/AccountList.js
+-rw-r--r-- root       root             6180 ./usr/palm/applications/com.palm.app.email/data/AccountPreferences.js
+-rw-r--r-- root       root             8950 ./usr/palm/applications/com.palm.app.email/data/AttachmentManager.js
+-rw-r--r-- root       root            15665 ./usr/palm/applications/com.palm.app.email/data/CombinedAccount.js
+-rw-r--r-- root       root            31859 ./usr/palm/applications/com.palm.app.email/data/EmailAccount.js
+-rw-r--r-- root       root             6191 ./usr/palm/applications/com.palm.app.email/data/mail.js
+-rw-r--r-- root       root              675 ./usr/palm/applications/com.palm.app.email/depends.js
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/emailviewer
+-rw-r--r-- root       root             1170 ./usr/palm/applications/com.palm.app.email/emailviewer/depends.js
+-rw-r--r-- root       root             1138 ./usr/palm/applications/com.palm.app.email/emailviewer/index.html
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/emailviewer/source
+-rw-r--r-- root       root             2899 ./usr/palm/applications/com.palm.app.email/emailviewer/source/EmailViewerWindow.js
+-rw-r--r-- root       root              175 ./usr/palm/applications/com.palm.app.email/eris_config.json
+drwxr-xr-x root       root              160 ./usr/palm/applications/com.palm.app.email/facades
+-rw-r--r-- root       root             6092 ./usr/palm/applications/com.palm.app.email/facades/Attachment.js
+-rw-r--r-- root       root             7779 ./usr/palm/applications/com.palm.app.email/facades/ContactCache.js
+-rw-r--r-- root       root            18146 ./usr/palm/applications/com.palm.app.email/facades/Email.js
+-rw-r--r-- root       root             7618 ./usr/palm/applications/com.palm.app.email/facades/Folder.js
+-rw-r--r-- root       root              748 ./usr/palm/applications/com.palm.app.email/facades/Message.js
+-rw-r--r-- root       root              250 ./usr/palm/applications/com.palm.app.email/facades/readme.txt
+-rwxr-xr-x root       root            56905 ./usr/palm/applications/com.palm.app.email/icon-256x256.png
+-rw-r--r-- root       root             5621 ./usr/palm/applications/com.palm.app.email/icon.png
+drwxr-xr-x root       root             3000 ./usr/palm/applications/com.palm.app.email/images
 -rwxr-xr-x root       root             2008 ./usr/palm/applications/com.palm.app.email/images/Flag.png
 -rw-r--r-- root       root            56905 ./usr/palm/applications/com.palm.app.email/images/Mail-2-1a-256.png
 -rw-r--r-- root       root             1125 ./usr/palm/applications/com.palm.app.email/images/account-generic-small.png
@@ -5906,7 +5952,6 @@ drwxr-xr-x root       root             3080 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root              839 ./usr/palm/applications/com.palm.app.email/images/attachment-icon.png
 -rwxr-xr-x root       root             3336 ./usr/palm/applications/com.palm.app.email/images/attachments-bg-tile.png
 -rw-r--r-- root       root             4837 ./usr/palm/applications/com.palm.app.email/images/attachments_button.png
--rw-r--r-- root       root             1406 ./usr/palm/applications/com.palm.app.email/images/bg_icon_mask.png
 -rw-r--r-- root       root            15670 ./usr/palm/applications/com.palm.app.email/images/body-background-sprite.png
 -rw-r--r-- root       root             2922 ./usr/palm/applications/com.palm.app.email/images/bottom-fade-dark.png
 -rw-r--r-- root       root             2917 ./usr/palm/applications/com.palm.app.email/images/bottom-fade.png
@@ -5964,7 +6009,6 @@ drwxr-xr-x root       root             3080 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root              848 ./usr/palm/applications/com.palm.app.email/images/header-warning-icon.png
 -rw-r--r-- root       root             7639 ./usr/palm/applications/com.palm.app.email/images/header_chrome_tile.png
 -rw-r--r-- root       root              309 ./usr/palm/applications/com.palm.app.email/images/highlight-bg.png
--rw-r--r-- root       root            56905 ./usr/palm/applications/com.palm.app.email/images/icon-256x256.png
 -rw-r--r-- root       root             7147 ./usr/palm/applications/com.palm.app.email/images/icon-48.png
 -rw-r--r-- root       root             2196 ./usr/palm/applications/com.palm.app.email/images/icon-all-inboxes-new.png
 -rw-r--r-- root       root             3052 ./usr/palm/applications/com.palm.app.email/images/icon-delete.png
@@ -5974,7 +6018,6 @@ drwxr-xr-x root       root             3080 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             3469 ./usr/palm/applications/com.palm.app.email/images/icon-reply-all.png
 -rw-r--r-- root       root             3420 ./usr/palm/applications/com.palm.app.email/images/icon-reply.png
 -rw-r--r-- root       root             1797 ./usr/palm/applications/com.palm.app.email/images/icon-sync.png
--rwxr-xr-x root       root            56905 ./usr/palm/applications/com.palm.app.email/images/icon.png
 -rw-r--r-- root       root             3749 ./usr/palm/applications/com.palm.app.email/images/icon_download.png
 -rw-r--r-- root       root             1437 ./usr/palm/applications/com.palm.app.email/images/icon_generic_attch.png
 -rw-r--r-- root       root             2075 ./usr/palm/applications/com.palm.app.email/images/icon_image.png
@@ -5987,7 +6030,8 @@ drwxr-xr-x root       root             3080 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             1122 ./usr/palm/applications/com.palm.app.email/images/icon_video.png
 -rw-r--r-- root       root             1629 ./usr/palm/applications/com.palm.app.email/images/icon_word.png
 -rw-r--r-- root       root             1451 ./usr/palm/applications/com.palm.app.email/images/icon_xls.png
-drwxr-xr-x root       root              280 ./usr/palm/applications/com.palm.app.email/images/icons
+drwxr-xr-x root       root              300 ./usr/palm/applications/com.palm.app.email/images/icons
+-rw-r--r-- root       root               66 ./usr/palm/applications/com.palm.app.email/images/icons/.directory
 -rw-r--r-- root       root             3342 ./usr/palm/applications/com.palm.app.email/images/icons/toolbar-icon-bovine.png
 -rwxr-xr-x root       root             1221 ./usr/palm/applications/com.palm.app.email/images/icons/toolbar-icon-delete.png
 -rwxr-xr-x root       root             1781 ./usr/palm/applications/com.palm.app.email/images/icons/toolbar-icon-forward.png
@@ -6046,7 +6090,6 @@ drwxr-xr-x root       root              280 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             5570 ./usr/palm/applications/com.palm.app.email/images/recipient-atom.png
 -rw-r--r-- root       root             1412 ./usr/palm/applications/com.palm.app.email/images/selection-checkmark.png
 -rw-r--r-- root       root             3453 ./usr/palm/applications/com.palm.app.email/images/selection-gradient-default.png
--rw-r--r-- root       root              135 ./usr/palm/applications/com.palm.app.email/images/sliding-shadow.png
 -rw-r--r-- root       root             1633 ./usr/palm/applications/com.palm.app.email/images/square-button-sprite.png
 -rw-r--r-- root       root             1886 ./usr/palm/applications/com.palm.app.email/images/star.png
 -rw-r--r-- root       root             4490 ./usr/palm/applications/com.palm.app.email/images/sync-activity-animation-1character.png
@@ -6057,22 +6100,85 @@ drwxr-xr-x root       root              280 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             2917 ./usr/palm/applications/com.palm.app.email/images/top-fade.png
 -rw-r--r-- root       root             1064 ./usr/palm/applications/com.palm.app.email/images/top_of_list_search.png
 -rwxr-xr-x root       root             1032 ./usr/palm/applications/com.palm.app.email/images/torn-paper-effect-tile.png
--rw-r--r-- root       root             1798 ./usr/palm/applications/com.palm.app.email/index.html
+-rw-r--r-- root       root             1816 ./usr/palm/applications/com.palm.app.email/index.html
+-rw-r--r-- root       root             2138 ./usr/palm/applications/com.palm.app.email/jasminerunner.html
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/mail
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/mail/cache
+-rw-r--r-- root       root             1138 ./usr/palm/applications/com.palm.app.email/mail/cache/mailfolders.json
+-rw-r--r-- root       root             1691 ./usr/palm/applications/com.palm.app.email/mail/depends.js
+-rw-r--r-- root       root             1611 ./usr/palm/applications/com.palm.app.email/mail/index.html
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/mail/mock
+-rw-r--r-- root       root             2493 ./usr/palm/applications/com.palm.app.email/mail/mock/com.palm.email-1.json
+-rw-r--r-- root       root           211937 ./usr/palm/applications/com.palm.app.email/mail/mock/mailApp_mail_emailFind.json
+-rw-r--r-- root       root             2497 ./usr/palm/applications/com.palm.app.email/mail/mock/mailApp_messageDisplayFetcher.json
+drwxr-xr-x root       root              260 ./usr/palm/applications/com.palm.app.email/mail/source
+-rw-r--r-- root       root             7274 ./usr/palm/applications/com.palm.app.email/mail/source/Accounts.js
+-rw-r--r-- root       root             1869 ./usr/palm/applications/com.palm.app.email/mail/source/DarkSwipeable.js
+-rw-r--r-- root       root            21094 ./usr/palm/applications/com.palm.app.email/mail/source/Folders.js
+-rw-r--r-- root       root            14624 ./usr/palm/applications/com.palm.app.email/mail/source/HtmlView.js
+-rw-r--r-- root       root            53242 ./usr/palm/applications/com.palm.app.email/mail/source/Mail.js
+-rw-r--r-- root       root            25618 ./usr/palm/applications/com.palm.app.email/mail/source/MailApp.js
+-rw-r--r-- root       root            39938 ./usr/palm/applications/com.palm.app.email/mail/source/MessageDisplay.js
+-rw-r--r-- root       root            11864 ./usr/palm/applications/com.palm.app.email/mail/source/MessageLoader.js
+-rw-r--r-- root       root            21601 ./usr/palm/applications/com.palm.app.email/mail/source/MessagePane.js
+-rw-r--r-- root       root             3353 ./usr/palm/applications/com.palm.app.email/mail/source/MessageSelection.js
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/mail/source/settings
+-rw-r--r-- root       root            21815 ./usr/palm/applications/com.palm.app.email/mail/source/settings/AccountSettings.js
+-rw-r--r-- root       root             3421 ./usr/palm/applications/com.palm.app.email/mail/source/settings/MasterSettings.js
+-rw-r--r-- root       root             9397 ./usr/palm/applications/com.palm.app.email/mail/source/settings/Preferences.js
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/mock
+-rw-r--r-- root       root               53 ./usr/palm/applications/com.palm.app.email/mock/dashboardManager_screenState.json
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/nowindow
+-rw-r--r-- root       root             1238 ./usr/palm/applications/com.palm.app.email/nowindow/depends.js
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/nowindow/source
+-rw-r--r-- root       root             9162 ./usr/palm/applications/com.palm.app.email/nowindow/source/Launch.js
 drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/sounds
 -rw-r--r-- root       root            11102 ./usr/palm/applications/com.palm.app.email/sounds/emailreceived.mp3
-drwxr-xr-x root       root              220 ./usr/palm/applications/com.palm.app.email/util
--rw-r--r-- root       root             5717 ./usr/palm/applications/com.palm.app.email/util/Broadcaster.js
--rw-r--r-- root       root             2735 ./usr/palm/applications/com.palm.app.email/util/CachedFile.js
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/source
+-rw-r--r-- root       root            32460 ./usr/palm/applications/com.palm.app.email/source/DashboardManager.js
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/spawn
+-rw-r--r-- root       root            34119 ./usr/palm/applications/com.palm.app.email/spawn/cow.png
+-rw-r--r-- root       root            52092 ./usr/palm/applications/com.palm.app.email/spawn/farmFarm.jpg
+-rw-r--r-- root       root             5194 ./usr/palm/applications/com.palm.app.email/spawn/index.html
+-rw-r--r-- root       root            19793 ./usr/palm/applications/com.palm.app.email/spawn/toasterBack2.png
+-rw-r--r-- root       root            19936 ./usr/palm/applications/com.palm.app.email/spawn/toasterFront2.png
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/spec
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/spec/unit
+drwxr-xr-x root       root              100 ./usr/palm/applications/com.palm.app.email/spec/unit/source
+-rw-r--r-- root       root            14782 ./usr/palm/applications/com.palm.app.email/spec/unit/source/AccountList-spec.js
+-rw-r--r-- root       root             8317 ./usr/palm/applications/com.palm.app.email/spec/unit/source/CombinedAccountLoad-spec.js
+-rw-r--r-- root       root              992 ./usr/palm/applications/com.palm.app.email/spec/unit/source/sampleSpec.js
+-rw-r--r-- root       root             1070 ./usr/palm/applications/com.palm.app.email/spec/unit/specHelper.js
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/spec/unit/support
+-rw-r--r-- root       root             1211 ./usr/palm/applications/com.palm.app.email/spec/unit/support/jasmine.yml
+drwxr-xr-x root       root              140 ./usr/palm/applications/com.palm.app.email/tests
+-rw-r--r-- root       root             2630 ./usr/palm/applications/com.palm.app.email/tests/CardLaunch-spec.js
+-rw-r--r-- root       root            11748 ./usr/palm/applications/com.palm.app.email/tests/Mail-spec.js
+drwxr-xr-x root       root              120 ./usr/palm/applications/com.palm.app.email/tests/mock
+drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts/com.palm.imap
+-rwxr-xr-x root       root             1311 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts/com.palm.imap/com.palm.imap.json
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts/com.palm.imap/images
+-rwxr-xr-x root       root             1014 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts/com.palm.imap/images/imapmail32.png
+-rwxr-xr-x root       root             1091 ./usr/palm/applications/com.palm.app.email/tests/mock/accounts/com.palm.imap/images/imapmail48.png
+-rw-r--r-- root       root             2493 ./usr/palm/applications/com.palm.app.email/tests/mock/com.palm.email-1.json
+-rw-r--r-- root       root               53 ./usr/palm/applications/com.palm.app.email/tests/mock/dashboardManager_screenState.json
+-rw-r--r-- root       root           215072 ./usr/palm/applications/com.palm.app.email/tests/mock/mailApp_mail_emailFind.json
+-rw-r--r-- root       root            20989 ./usr/palm/applications/com.palm.app.email/tests/mockingStubs.js
+-rw-r--r-- root       root             6804 ./usr/palm/applications/com.palm.app.email/tests/nowindow-spec.js
+drwxr-xr-x root       root              240 ./usr/palm/applications/com.palm.app.email/util
+-rw-r--r-- root       root             2673 ./usr/palm/applications/com.palm.app.email/util/CachedFile.js
+-rw-r--r-- root       root            13195 ./usr/palm/applications/com.palm.app.email/util/EmailProcessor.js
+-rw-r--r-- root       root            15084 ./usr/palm/applications/com.palm.app.email/util/FolderProcessor.js
+drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/util/Mailto
+-rw-r--r-- root       root             1361 ./usr/palm/applications/com.palm.app.email/util/Mailto/LICENSE_1_0.txt
+-rw-r--r-- root       root             7331 ./usr/palm/applications/com.palm.app.email/util/Mailto/MailtoURIParser.js
+-rw-r--r-- root       root            17410 ./usr/palm/applications/com.palm.app.email/util/MojoDBChangeProcessor.js
 -rw-r--r-- root       root             1400 ./usr/palm/applications/com.palm.app.email/util/Power.js
-drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.email/util/lib
-drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app.email/util/lib/Mailto
--rw-r--r-- root       root             1361 ./usr/palm/applications/com.palm.app.email/util/lib/Mailto/LICENSE_1_0.txt
--rw-r--r-- root       root             7331 ./usr/palm/applications/com.palm.app.email/util/lib/Mailto/MailtoURIParser.js
--rw-r--r-- root       root             1153 ./usr/palm/applications/com.palm.app.email/util/prologue.js
--rw-r--r-- root       root            10328 ./usr/palm/applications/com.palm.app.email/util/sanitizer0.js
--rw-r--r-- root       root             6459 ./usr/palm/applications/com.palm.app.email/util/stringify.js
+-rw-r--r-- root       root             1152 ./usr/palm/applications/com.palm.app.email/util/prologue.js
+-rw-r--r-- root       root             6483 ./usr/palm/applications/com.palm.app.email/util/stringify.js
 -rw-r--r-- root       root             2322 ./usr/palm/applications/com.palm.app.email/util/urlparser.js
--rw-r--r-- root       root            39768 ./usr/palm/applications/com.palm.app.email/util/util.js
+-rw-r--r-- root       root            44071 ./usr/palm/applications/com.palm.app.email/util/util.js
 drwxr-xr-x root       root              260 ./usr/palm/applications/com.palm.launcher
 -rw-r--r-- root       root             4667 ./usr/palm/applications/com.palm.launcher/README.md
 drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.launcher/Utils
@@ -6291,7 +6397,7 @@ drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosint
 -rw-r--r-- root       root             1605 ./usr/palm/applications/org.webosinternals.tweaks/source/Help.js
 -rw-r--r-- root       root             3787 ./usr/palm/applications/org.webosinternals.tweaks/source/Main.js
 -rw-r--r-- root       root             4681 ./usr/palm/applications/org.webosinternals.tweaks/source/Startup.js
--rw-r--r-- root       root             7082 ./usr/palm/applications/org.webosinternals.tweaks/source/Tweaks.js
+-rw-r--r-- root       root             7079 ./usr/palm/applications/org.webosinternals.tweaks/source/Tweaks.js
 -rw-r--r-- root       root             5366 ./usr/palm/applications/org.webosinternals.tweaks/source/Wosi.js
 -rw-r--r-- root       root              447 ./usr/palm/applications/org.webosinternals.tweaks/sources.json
 drwxr-xr-x root       root               60 ./usr/palm/applications/org.webosinternals.tweaks/stylesheets
@@ -7838,7 +7944,7 @@ drwxr-xr-x root       root               80 ./usr/palm/applications/sdl2_opengle
 -rwxr-xr-x root       root            10412 ./usr/palm/applications/sdl2_opengles2_test/sdl2_opengles2_test
 -rw-r--r-- root       root             8802 ./usr/palm/command-resource-handlers.json
 -rw-r--r-- root       root              233 ./usr/palm/default-dock-positions.json
--rw-r--r-- root       root             1864 ./usr/palm/defaultPreferences.txt
+-rw-r--r-- root       root             1865 ./usr/palm/defaultPreferences.txt
 -rw-r--r-- root       root            81836 ./usr/palm/ext-timezones.json
 drwxr-xr-x root       root              420 ./usr/palm/frameworks
 drwxr-xr-x root       root               60 ./usr/palm/frameworks/calendar
@@ -10543,7 +10649,7 @@ drwxr-xr-x root       root               80 ./usr/palm/luna-next/shells/card/qml
 drwxr-xr-x root       root              120 ./usr/palm/luna-next/shells/card/qml/CardView
 -rw-r--r-- root       root             6200 ./usr/palm/luna-next/shells/card/qml/CardView/CardListView.qml
 -rw-r--r-- root       root             6089 ./usr/palm/luna-next/shells/card/qml/CardView/CardListWindowDelegate.qml
--rw-r--r-- root       root             9116 ./usr/palm/luna-next/shells/card/qml/CardView/CardView.qml
+-rw-r--r-- root       root             9082 ./usr/palm/luna-next/shells/card/qml/CardView/CardView.qml
 -rw-r--r-- root       root             4376 ./usr/palm/luna-next/shells/card/qml/CardView/CardWindowWrapper.qml
 drwxr-xr-x root       root              100 ./usr/palm/luna-next/shells/card/qml/Connectors
 -rw-r--r-- root       root             2976 ./usr/palm/luna-next/shells/card/qml/Connectors/BatteryService.qml
@@ -10576,7 +10682,7 @@ drwxr-xr-x root       root              160 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             3607 ./usr/palm/luna-next/shells/card/qml/StatusBar/StatusBar.qml
 -rw-r--r-- root       root             2278 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemIndicators.qml
 drwxr-xr-x root       root              180 ./usr/palm/luna-next/shells/card/qml/Tests
--rw-r--r-- root       root             3926 ./usr/palm/luna-next/shells/card/qml/Tests/DummyWindow.qml
+-rw-r--r-- root       root             4405 ./usr/palm/luna-next/shells/card/qml/Tests/DummyWindow.qml
 -rw-r--r-- root       root             1569 ./usr/palm/luna-next/shells/card/qml/Tests/FakeDashboardWindow.qml
 -rw-r--r-- root       root             1172 ./usr/palm/luna-next/shells/card/qml/Tests/FakeJustTypeLauncherWindow.qml
 -rw-r--r-- root       root             1918 ./usr/palm/luna-next/shells/card/qml/Tests/FakeOverlayWindow.qml
@@ -10780,7 +10886,7 @@ lrwxrwxrwx root       root               26 ./usr/palm/nodejs/palmbus.js -> /usr
 lrwxrwxrwx root       root               29 ./usr/palm/nodejs/pmloglib.node -> /usr/lib/nodejs/pmloglib.node
 lrwxrwxrwx root       root               26 ./usr/palm/nodejs/webos.node -> /usr/lib/nodejs/webos.node
 drwxr-xr-x root       root               60 ./usr/palm/public
-drwxr-xr-x root       root              160 ./usr/palm/public/accounts
+drwxr-xr-x root       root              180 ./usr/palm/public/accounts
 drwxr-xr-x root       root               80 ./usr/palm/public/accounts/com.palm.imap
 -rw-r--r-- root       root              971 ./usr/palm/public/accounts/com.palm.imap/com.palm.imap.json
 drwxr-xr-x root       root               80 ./usr/palm/public/accounts/com.palm.imap/images
@@ -10812,6 +10918,15 @@ drwxr-xr-x root       root              120 ./usr/palm/public/accounts/org.webos
 -rw-r--r-- root       root            18386 ./usr/palm/public/accounts/org.webosports.cdav.account.google.contacts/images/google_256.png
 -rw-r--r-- root       root             1615 ./usr/palm/public/accounts/org.webosports.cdav.account.google.contacts/images/google_32.png
 -rw-r--r-- root       root             3446 ./usr/palm/public/accounts/org.webosports.cdav.account.google.contacts/images/google_64.png
+drwxr-xr-x root       root               80 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud
+-rw-r--r-- root       root             1840 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/account-template.json
+drwxr-xr-x root       root              160 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images
+-rw-r--r-- root       root            22342 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud.png
+-rw-r--r-- root       root            64126 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud.xcf
+-rw-r--r-- root       root             9363 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud_128.png
+-rw-r--r-- root       root            24682 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud_256.png
+-rw-r--r-- root       root             1428 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud_32.png
+-rw-r--r-- root       root             3716 ./usr/palm/public/accounts/org.webosports.cdav.account.icloud/images/icloud_64.png
 -rw-r--r-- root       root             1733 ./usr/palm/public/accounts/org.webosports.cdav/account-template.json
 drwxr-xr-x root       root               60 ./usr/palm/public/accounts/org.webosports.cdav/images
 -rw-r--r-- root       root             2417 ./usr/palm/public/accounts/org.webosports.cdav/images/webos-ports32.png
@@ -11077,7 +11192,7 @@ drwxr-xr-x root       root              160 ./usr/palm/services/org.webosinterna
 drwxr-xr-x root       root               60 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration
 drwxr-xr-x root       root               80 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db
 drwxr-xr-x root       root               60 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db/kinds
--rw-r--r-- root       root               72 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db/kinds/org.webosinternals.tweaks.prefs
+-rw-r--r-- root       root              111 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db/kinds/org.webosinternals.tweaks.prefs
 drwxr-xr-x root       root               60 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db/permissions
 -rw-r--r-- root       root              547 ./usr/palm/services/org.webosinternals.tweaks.prefs/configuration/db/permissions/org.webosinternals.tweaks.prefs
 -rw-r--r-- root       root              233 ./usr/palm/services/org.webosinternals.tweaks.prefs/org.webosinternals.tweaks.prefs.json
@@ -11543,7 +11658,7 @@ drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
 -rw-r--r-- root       root             2392 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
-drwxr-xr-x root       root             2380 ./usr/sbin
+drwxr-xr-x root       root             2400 ./usr/sbin
 -rwxr-xr-x root       root           572672 ./usr/sbin/LunaAppManager
 -rwxr-xr-x root       root           344024 ./usr/sbin/LunaSysMgr
 -rwxr-xr-x root       root           510736 ./usr/sbin/LunaSysService
@@ -11558,8 +11673,9 @@ lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.n
 -rwxr-xr-x root       root            20740 ./usr/sbin/audio-service
 -rwxr-xr-x root       root           117084 ./usr/sbin/bccmd
 -rwxr-xr-x root       root            17424 ./usr/sbin/blkdiscard
--rwxr-xr-x root       root           544196 ./usr/sbin/bluetoothd
--rwxr-xr-x root       root            15160 ./usr/sbin/chcpu
+-rwxr-xr-x root       root           544188 ./usr/sbin/bluetoothd
+-rwxr-xr-x root       root            16056 ./usr/sbin/certmgrd
+-rwxr-xr-x root       root            15152 ./usr/sbin/chcpu
 -rwxr-xr-x root       root            33788 ./usr/sbin/chgpasswd
 lrwxrwxrwx root       root               25 ./usr/sbin/chpasswd -> /usr/sbin/chpasswd.shadow
 -rwxr-xr-x root       root            30104 ./usr/sbin/chpasswd.shadow
@@ -11625,7 +11741,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root             6644 ./usr/sbin/nl-qdisc-delete
 -rwxr-xr-x root       root             7184 ./usr/sbin/nl-qdisc-list
 -rwxr-xr-x root       root            80776 ./usr/sbin/novacomd
--rwxr-xr-x root       root          1126260 ./usr/sbin/ofonod
+-rwxr-xr-x root       root          1125624 ./usr/sbin/ofonod
 -rwxr-xr-x root       root            39896 ./usr/sbin/org.webosinternals.ipkgservice
 -rwxr-xr-x root       root            10956 ./usr/sbin/org.webosinternals.service.upstartmgr
 -rwxr-xr-x root       root            52264 ./usr/sbin/powerd
@@ -11659,7 +11775,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.no
 -rwxrwxrwx root       root            43588 ./usr/sbin/webos-system-update
 -rwxr-xr-x root       root            21844 ./usr/sbin/wipefs
 -rwxr-xr-x root       root            49120 ./usr/sbin/wpa_cli
--rwxr-xr-x root       root           730076 ./usr/sbin/wpa_supplicant
+-rwxr-xr-x root       root           733196 ./usr/sbin/wpa_supplicant
 -rwxr-xr-x root       root            73720 ./usr/sbin/xtables-multi
 drwxr-xr-x root       root              760 ./usr/share
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon
@@ -12273,7 +12389,7 @@ drwxr-xr-x root       root             3120 ./usr/share/ca-certificates/mozilla
 drwxr-xr-x root       root               60 ./usr/share/ca-certificates/spi-inc.org
 -rw-r--r-- root       root             2854 ./usr/share/ca-certificates/spi-inc.org/spi-cacert-2008.crt
 drwxr-xr-x root       root               80 ./usr/share/dbus-1
-drwxr-xr-x root       root              560 ./usr/share/dbus-1/services
+drwxr-xr-x root       root              580 ./usr/share/dbus-1/services
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/services/com.palm.activitymanager.service
 -rw-r--r-- root       root              713 ./usr/share/dbus-1/services/com.palm.db.service
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/services/com.palm.filecache.service
@@ -12292,6 +12408,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root               69 ./usr/share/dbus-1/services/org.maliit.server.service
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/services/org.webosinternals.ipkgservice.service
 -rw-r--r-- root       root              112 ./usr/share/dbus-1/services/org.webosinternals.service.upstartmgr.service
+-rw-r--r-- root       root              136 ./usr/share/dbus-1/services/org.webosinternals.tweaks.prefs.service
 -rw-r--r-- root       root              150 ./usr/share/dbus-1/services/org.webosports.app.filemanager.service.service
 -rw-r--r-- root       root              134 ./usr/share/dbus-1/services/org.webosports.app.pdf.service.service
 -rw-r--r-- root       root              128 ./usr/share/dbus-1/services/org.webosports.cdav.service
@@ -12300,8 +12417,9 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root               83 ./usr/share/dbus-1/services/org.webosports.wakelockd.service
 -rw-r--r-- root       root              737 ./usr/share/dbus-1/services/webos-connman-adapter.service
 -rw-r--r-- root       root              226 ./usr/share/dbus-1/services/webos-system-update.service
-drwxr-xr-x root       root              980 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root             1020 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               83 ./usr/share/dbus-1/system-services/audio-service.service
+-rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service
 -rw-r--r-- root       root              183 ./usr/share/dbus-1/system-services/com.palm.configurator.service
 -rw-r--r-- root       root              713 ./usr/share/dbus-1/system-services/com.palm.db.service
@@ -12337,6 +12455,7 @@ drwxr-xr-x root       root              980 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              419 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/org.webosinternals.ipkgservice.service
 -rw-r--r-- root       root              112 ./usr/share/dbus-1/system-services/org.webosinternals.service.upstartmgr.service
+-rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosinternals.tweaks.prefs.service
 -rw-r--r-- root       root              150 ./usr/share/dbus-1/system-services/org.webosports.app.filemanager.service.service
 -rw-r--r-- root       root              134 ./usr/share/dbus-1/system-services/org.webosports.app.pdf.service.service
 -rw-r--r-- root       root              128 ./usr/share/dbus-1/system-services/org.webosports.cdav.service
@@ -12430,7 +12549,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/51.2/config
 -rw-r--r-- root       root            17943 ./usr/share/icu/51.2/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/51.2/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             4560 ./usr/share/licenses
+drwxr-xr-x root       root             4600 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0
@@ -12482,6 +12601,9 @@ drwxr-xr-x root       root              100 ./usr/share/licenses/cairo
 -rw-r--r-- root       root             1576 ./usr/share/licenses/cairo/COPYING
 -rw-r--r-- root       root            25878 ./usr/share/licenses/cairo/generic_LGPLv2.1
 -rw-r--r-- root       root            18004 ./usr/share/licenses/cairo/generic_MPL-1
+drwxr-xr-x root       root               80 ./usr/share/licenses/certmgrd
+-rw-r--r-- root       root            11360 ./usr/share/licenses/certmgrd/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/certmgrd/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/cjson
 -rw-r--r-- root       root             1080 ./usr/share/licenses/cjson/MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/cjson/generic_MIT
@@ -13049,6 +13171,9 @@ drwxr-xr-x root       root              160 ./usr/share/licenses/pixman
 -rw-r--r-- root       root               52 ./usr/share/licenses/pixman/generic_PD
 -rw-r--r-- root       root            40010 ./usr/share/licenses/pixman/pixman-arm-neon-asm.h
 -rw-r--r-- root       root            28837 ./usr/share/licenses/pixman/pixman-matrix.c
+drwxr-xr-x root       root               80 ./usr/share/licenses/pmcertificatemgr
+-rw-r--r-- root       root            11360 ./usr/share/licenses/pmcertificatemgr/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/pmcertificatemgr/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/pmklogd
 -rw-r--r-- root       root            11360 ./usr/share/licenses/pmklogd/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/pmklogd/generic_Apache-2.0
@@ -13314,8 +13439,9 @@ drwxr-xr-x root       root              260 ./usr/share/locale/en_GB/LC_MESSAGES
 -rw-r--r-- root       root            23250 ./usr/share/locale/en_GB/LC_MESSAGES/xkeyboard-config.mo
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root              920 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root              960 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              300 ./usr/share/ls2/roles/prv/audio-service.json
+-rw-r--r-- root       root              299 ./usr/share/ls2/roles/prv/certmgrd.json
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/prv/com.palm.activitymanager.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/prv/com.palm.configurator.json
 -rw-r--r-- root       root              998 ./usr/share/ls2/roles/prv/com.palm.db.json
@@ -13348,6 +13474,7 @@ drwxr-xr-x root       root              920 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              284 ./usr/share/ls2/roles/prv/org.maliit.json
 -rw-r--r-- root       root              294 ./usr/share/ls2/roles/prv/org.webosinternals.ipkgservice.json
 -rw-r--r-- root       root              358 ./usr/share/ls2/roles/prv/org.webosinternals.service.upstartmgr.json
+-rw-r--r-- root       root              233 ./usr/share/ls2/roles/prv/org.webosinternals.tweaks.prefs.json
 -rw-r--r-- root       root              247 ./usr/share/ls2/roles/prv/org.webosports.app.filemanager.service.json
 -rw-r--r-- root       root              231 ./usr/share/ls2/roles/prv/org.webosports.app.pdf.service.json
 -rw-r--r-- root       root              225 ./usr/share/ls2/roles/prv/org.webosports.cdav.service.json
@@ -13359,7 +13486,7 @@ drwxr-xr-x root       root              920 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              304 ./usr/share/ls2/roles/prv/org.webosports.wakelockd.json
 -rw-r--r-- root       root              311 ./usr/share/ls2/roles/prv/org.webosports.webapp.json
 -rw-r--r-- root       root              453 ./usr/share/ls2/roles/prv/webos-connman-adapter.json
-drwxr-xr-x root       root              800 ./usr/share/ls2/roles/pub
+drwxr-xr-x root       root              820 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/pub/com.palm.activitymanager.json
 -rw-r--r-- root       root              996 ./usr/share/ls2/roles/pub/com.palm.db.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/pub/com.palm.db8_gtest_db_media.json
@@ -13388,6 +13515,7 @@ drwxr-xr-x root       root              800 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              806 ./usr/share/ls2/roles/pub/luna-appmanager.json
 -rw-r--r-- root       root              294 ./usr/share/ls2/roles/pub/org.webosinternals.ipkgservice.json
 -rw-r--r-- root       root              358 ./usr/share/ls2/roles/pub/org.webosinternals.service.upstartmgr.json
+-rw-r--r-- root       root              233 ./usr/share/ls2/roles/pub/org.webosinternals.tweaks.prefs.json
 -rw-r--r-- root       root              247 ./usr/share/ls2/roles/pub/org.webosports.app.filemanager.service.json
 -rw-r--r-- root       root              231 ./usr/share/ls2/roles/pub/org.webosports.app.pdf.service.json
 -rw-r--r-- root       root              225 ./usr/share/ls2/roles/pub/org.webosports.cdav.service.json
@@ -13450,7 +13578,7 @@ drwxr-xr-x root       root              460 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root             2335 ./usr/share/maliit/plugins/com/ubuntu/keys/key_constants.js
 drwxr-xr-x root       root              100 ./usr/share/maliit/plugins/com/ubuntu/languages
 -rw-r--r-- root       root             1913 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_numbers.qml
--rw-r--r-- root       root             4477 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_symbols.qml
+-rw-r--r-- root       root             3497 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_symbols.qml
 -rw-r--r-- root       root             1943 ./usr/share/maliit/plugins/com/ubuntu/languages/Keyboard_telephone.qml
 drwxr-xr-x root       root              380 ./usr/share/maliit/plugins/com/ubuntu/lib
 drwxr-xr-x root       root              160 ./usr/share/maliit/plugins/com/ubuntu/lib/ar
@@ -13482,7 +13610,7 @@ drwxr-xr-x root       root              160 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root         20621312 ./usr/share/maliit/plugins/com/ubuntu/lib/de/database_de.db
 -rwxr-xr-x root       root            53448 ./usr/share/maliit/plugins/com/ubuntu/lib/de/libgermanplugin.so
 drwxr-xr-x root       root              160 ./usr/share/maliit/plugins/com/ubuntu/lib/en
--rw-r--r-- root       root             6010 ./usr/share/maliit/plugins/com/ubuntu/lib/en/Keyboard_en.qml
+-rw-r--r-- root       root             4087 ./usr/share/maliit/plugins/com/ubuntu/lib/en/Keyboard_en.qml
 -rw-r--r-- root       root             4092 ./usr/share/maliit/plugins/com/ubuntu/lib/en/Keyboard_en_email.qml
 -rw-r--r-- root       root             3944 ./usr/share/maliit/plugins/com/ubuntu/lib/en/Keyboard_en_url.qml
 -rw-r--r-- root       root             4096 ./usr/share/maliit/plugins/com/ubuntu/lib/en/Keyboard_en_url_search.qml
@@ -13530,7 +13658,7 @@ drwxr-xr-x root       root              160 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root             4034 ./usr/share/maliit/plugins/com/ubuntu/lib/it/Keyboard_it_url_search.qml
 -rw-r--r-- root       root          7164928 ./usr/share/maliit/plugins/com/ubuntu/lib/it/database_it.db
 -rwxr-xr-x root       root            53456 ./usr/share/maliit/plugins/com/ubuntu/lib/it/libitalianplugin.so
--rw-r--r-- root       root          2022548 ./usr/share/maliit/plugins/com/ubuntu/lib/libwesternsupport.a
+-rw-r--r-- root       root          2022456 ./usr/share/maliit/plugins/com/ubuntu/lib/libwesternsupport.a
 drwxr-xr-x root       root              160 ./usr/share/maliit/plugins/com/ubuntu/lib/nl
 -rw-r--r-- root       root             4011 ./usr/share/maliit/plugins/com/ubuntu/lib/nl/Keyboard_nl.qml
 -rw-r--r-- root       root             4032 ./usr/share/maliit/plugins/com/ubuntu/lib/nl/Keyboard_nl_email.qml
@@ -16186,7 +16314,7 @@ drwxr-xr-x root       root               40 ./var/backups
 drwxr-xr-x root       root               80 ./var/cache
 drwxr-xr-x root       root               40 ./var/cache/fontconfig
 drwx------ root       root               60 ./var/cache/ldconfig
--rw------- root       root            15196 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            15269 ./var/cache/ldconfig/aux-cache
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
 drwxr-xr-x root       root              220 ./var/lib
@@ -16313,7 +16441,7 @@ drwxr-xr-x root       root             4100 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/nohup
 -rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/nslookup
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/od
--rw-r--r-- root       root               60 ./var/lib/opkg/alternatives/openssl-cnf
+-rw-r--r-- root       root              105 ./var/lib/opkg/alternatives/openssl-cnf
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/openvt
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/opkg
 -rw-r--r-- root       root               64 ./var/lib/opkg/alternatives/passwd
@@ -16404,7 +16532,7 @@ drwxr-xr-x root       root             4100 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/xargs
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/yes
 -rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/zcat
-drwxr-xr-x root       root            39600 ./var/lib/opkg/info
+drwxr-xr-x root       root            39840 ./var/lib/opkg/info
 -rw-r--r-- root       root              443 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              782 ./var/lib/opkg/info/activitymanager.control
@@ -16484,8 +16612,14 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/ca-certificates-lic.list
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/ca-certificates.conffiles
 -rw-r--r-- root       root              684 ./var/lib/opkg/info/ca-certificates.control
--rw-r--r-- root       root            27102 ./var/lib/opkg/info/ca-certificates.list
+-rw-r--r-- root       root            27092 ./var/lib/opkg/info/ca-certificates.list
 -rwxr-xr-x root       root               36 ./var/lib/opkg/info/ca-certificates.postinst
+-rw-r--r-- root       root              379 ./var/lib/opkg/info/certmgrd-lic.control
+-rw-r--r-- root       root              118 ./var/lib/opkg/info/certmgrd-lic.list
+-rw-r--r-- root       root              605 ./var/lib/opkg/info/certmgrd.control
+-rw-r--r-- root       root              168 ./var/lib/opkg/info/certmgrd.list
+-rwxr-xr-x root       root              243 ./var/lib/opkg/info/certmgrd.postinst
+-rwxr-xr-x root       root              157 ./var/lib/opkg/info/certmgrd.prerm
 -rw-r--r-- root       root              408 ./var/lib/opkg/info/configurator-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/configurator-lic.list
 -rw-r--r-- root       root              616 ./var/lib/opkg/info/configurator.control
@@ -16509,7 +16643,7 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              405 ./var/lib/opkg/info/core-apps-lic.control
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/core-apps-lic.list
 -rw-r--r-- root       root              427 ./var/lib/opkg/info/core-apps.control
--rw-r--r-- root       root            62272 ./var/lib/opkg/info/core-apps.list
+-rw-r--r-- root       root            68160 ./var/lib/opkg/info/core-apps.list
 -rw-r--r-- root       root              438 ./var/lib/opkg/info/cpushareholder-stub-lic.control
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/cpushareholder-stub-lic.list
 -rw-r--r-- root       root              495 ./var/lib/opkg/info/cpushareholder-stub.control
@@ -16557,13 +16691,13 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              432 ./var/lib/opkg/info/e2fsprogs-lic.list
 -rw-r--r-- root       root              952 ./var/lib/opkg/info/e2fsprogs.control
 -rw-r--r-- root       root              265 ./var/lib/opkg/info/e2fsprogs.list
--rw-r--r-- root       root              328 ./var/lib/opkg/info/eglibc-binary-localedata-en-gb.control
+-rw-r--r-- root       root              327 ./var/lib/opkg/info/eglibc-binary-localedata-en-gb.control
 -rw-r--r-- root       root              475 ./var/lib/opkg/info/eglibc-binary-localedata-en-gb.list
--rw-r--r-- root       root              328 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.control
+-rw-r--r-- root       root              327 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.control
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.list
--rw-r--r-- root       root             1579 ./var/lib/opkg/info/eglibc-lic.control
+-rw-r--r-- root       root             1620 ./var/lib/opkg/info/eglibc-lic.control
 -rw-r--r-- root       root              260 ./var/lib/opkg/info/eglibc-lic.list
--rw-r--r-- root       root              476 ./var/lib/opkg/info/eglibc-locale-en-gb.control
+-rw-r--r-- root       root              475 ./var/lib/opkg/info/eglibc-locale-en-gb.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/eglibc-locale-en-gb.list
 -rw-r--r-- root       root              402 ./var/lib/opkg/info/enyo-1.0-lic.control
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/enyo-1.0-lic.list
@@ -17077,8 +17211,8 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              707 ./var/lib/opkg/info/libbz2-0.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libbz2-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libbz2-0.postinst
--rw-r--r-- root       root             1635 ./var/lib/opkg/info/libc6.control
--rw-r--r-- root       root              651 ./var/lib/opkg/info/libc6.list
+-rw-r--r-- root       root             1676 ./var/lib/opkg/info/libc6.control
+-rw-r--r-- root       root              693 ./var/lib/opkg/info/libc6.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libc6.postinst
 -rw-r--r-- root       root              715 ./var/lib/opkg/info/libcairo-gobject2.control
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/libcairo-gobject2.list
@@ -17399,6 +17533,12 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpixman-1-0.postinst
 -rw-r--r-- root       root              738 ./var/lib/opkg/info/libpixman-1-lic.control
 -rw-r--r-- root       root              277 ./var/lib/opkg/info/libpixman-1-lic.list
+-rw-r--r-- root       root              509 ./var/lib/opkg/info/libpmcertificatemgr-lic.control
+-rw-r--r-- root       root              142 ./var/lib/opkg/info/libpmcertificatemgr-lic.list
+-rw-r--r-- root       root              667 ./var/lib/opkg/info/libpmcertificatemgr2.control
+-rw-r--r-- root       root              185 ./var/lib/opkg/info/libpmcertificatemgr2.list
+-rwxr-xr-x root       root              203 ./var/lib/opkg/info/libpmcertificatemgr2.postinst
+-rwxr-xr-x root       root               95 ./var/lib/opkg/info/libpmcertificatemgr2.postrm
 -rw-r--r-- root       root              356 ./var/lib/opkg/info/libpmloglib-lic.control
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/libpmloglib-lic.list
 -rw-r--r-- root       root              479 ./var/lib/opkg/info/libpmloglib3.control
@@ -17533,7 +17673,7 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              501 ./var/lib/opkg/info/libtheora.control
 -rw-r--r-- root       root              169 ./var/lib/opkg/info/libtheora.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libtheora.postinst
--rw-r--r-- root       root             1633 ./var/lib/opkg/info/libthread-db1.control
+-rw-r--r-- root       root             1674 ./var/lib/opkg/info/libthread-db1.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libthread-db1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libthread-db1.postinst
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/libtinfo5.control
@@ -17610,9 +17750,9 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/loadable-frameworks-lic.list
 -rw-r--r-- root       root              478 ./var/lib/opkg/info/loadable-frameworks.control
 -rw-r--r-- root       root            20574 ./var/lib/opkg/info/loadable-frameworks.list
--rw-r--r-- root       root              394 ./var/lib/opkg/info/locale-base-en-gb.control
+-rw-r--r-- root       root              393 ./var/lib/opkg/info/locale-base-en-gb.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/locale-base-en-gb.list
--rw-r--r-- root       root              394 ./var/lib/opkg/info/locale-base-en-us.control
+-rw-r--r-- root       root              393 ./var/lib/opkg/info/locale-base-en-us.control
 -rw-r--r-- root       root                2 ./var/lib/opkg/info/locale-base-en-us.list
 -rw-r--r-- root       root              628 ./var/lib/opkg/info/lsb-lic.control
 -rw-r--r-- root       root               94 ./var/lib/opkg/info/lsb-lic.list
@@ -17632,9 +17772,9 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/luna-init-lic.list
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/luna-init.control
 -rw-r--r-- root       root              238 ./var/lib/opkg/info/luna-init.list
--rw-r--r-- root       root              472 ./var/lib/opkg/info/luna-next-cardshell-lic.control
+-rw-r--r-- root       root              473 ./var/lib/opkg/info/luna-next-cardshell-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/luna-next-cardshell-lic.list
--rw-r--r-- root       root              643 ./var/lib/opkg/info/luna-next-cardshell.control
+-rw-r--r-- root       root              644 ./var/lib/opkg/info/luna-next-cardshell.control
 -rw-r--r-- root       root            17013 ./var/lib/opkg/info/luna-next-cardshell.list
 -rw-r--r-- root       root              353 ./var/lib/opkg/info/luna-next-conf-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/luna-next-conf-lic.list
@@ -17854,10 +17994,10 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              197 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr-lic.list
 -rw-r--r-- root       root              655 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.control
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.list
--rw-r--r-- root       root              429 ./var/lib/opkg/info/org.webosinternals.tweaks-lic.control
+-rw-r--r-- root       root              389 ./var/lib/opkg/info/org.webosinternals.tweaks-lic.control
 -rw-r--r-- root       root              155 ./var/lib/opkg/info/org.webosinternals.tweaks-lic.list
--rw-r--r-- root       root              467 ./var/lib/opkg/info/org.webosinternals.tweaks.control
--rw-r--r-- root       root             6240 ./var/lib/opkg/info/org.webosinternals.tweaks.list
+-rw-r--r-- root       root              427 ./var/lib/opkg/info/org.webosinternals.tweaks.control
+-rw-r--r-- root       root             6505 ./var/lib/opkg/info/org.webosinternals.tweaks.list
 -rw-r--r-- root       root              477 ./var/lib/opkg/info/org.webosports.app.browser-lic.control
 -rw-r--r-- root       root              172 ./var/lib/opkg/info/org.webosports.app.browser-lic.list
 -rw-r--r-- root       root              713 ./var/lib/opkg/info/org.webosports.app.browser.control
@@ -17897,7 +18037,7 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root              494 ./var/lib/opkg/info/org.webosports.cdav-lic.control
 -rw-r--r-- root       root              149 ./var/lib/opkg/info/org.webosports.cdav-lic.list
 -rw-r--r-- root       root              526 ./var/lib/opkg/info/org.webosports.cdav.control
--rw-r--r-- root       root             4593 ./var/lib/opkg/info/org.webosports.cdav.list
+-rw-r--r-- root       root             5295 ./var/lib/opkg/info/org.webosports.cdav.list
 -rw-r--r-- root       root              464 ./var/lib/opkg/info/org.webosports.service.devmode-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/org.webosports.service.devmode-lic.list
 -rw-r--r-- root       root              507 ./var/lib/opkg/info/org.webosports.service.devmode.control
@@ -17928,7 +18068,7 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list
 -rw-r--r-- root       root              378 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.control
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.list
--rw-r--r-- root       root             1553 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
+-rw-r--r-- root       root             1585 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list
 -rw-r--r-- root       root              340 ./var/lib/opkg/info/pmklogd-lic.control
 -rw-r--r-- root       root              115 ./var/lib/opkg/info/pmklogd-lic.list
@@ -18384,7 +18524,7 @@ drwxr-xr-x root       root            39600 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root               40 ./var/lib/opkg/lists
--rw-r--r-- root       root           224258 ./var/lib/opkg/status
+-rw-r--r-- root       root           225342 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
