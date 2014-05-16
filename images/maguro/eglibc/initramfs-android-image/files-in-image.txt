@@ -2,7 +2,7 @@ drwxr-xr-x root       root             4096 .
 drwxr-xr-x root       root             4096 ./bin
 lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           519572 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           536860 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            51584 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
@@ -22,6 +22,8 @@ lrwxrwxrwx root       root               19 ./bin/egrep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/false -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/fgrep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/grep -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/gunzip -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/gzip -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/hostname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/kill -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
@@ -45,21 +47,22 @@ lrwxrwxrwx root       root               19 ./bin/run-parts -> /bin/busybox.nosu
 lrwxrwxrwx root       root               19 ./bin/sed -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/sh -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/sleep -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/stat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/stty -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/su -> /bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
-lrwxrwxrwx root       root               19 ./bin/tzset -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/umount -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/vi -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/watch -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/zcat -> /bin/busybox.nosuid
 -rw-r--r-- root       root               20 ./distro.conf
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             2146 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2201 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root             1055 ./etc/default/busybox-syslog
@@ -78,6 +81,8 @@ lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
 -rw-r--r-- root       root               13 ./etc/timestamp
+drwxr-xr-x root       root             4096 ./etc/udhcpc.d
+-rwxr-xr-x root       root             2549 ./etc/udhcpc.d/50default
 -rw-r--r-- root       root               13 ./etc/version
 -rwxr-xr-x root       root             3706 ./init
 drwxr-xr-x root       root             4096 ./lib
@@ -122,9 +127,9 @@ drwxr-xr-x root       root             4096 ./lib/systemd/system
 lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service -> /dev/null
 -rw-r--r-- root       root               56 ./machine.conf
 drwxr-xr-x root       root             4096 ./sbin
+lrwxrwxrwx root       root               19 ./sbin/depmod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/fdisk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/fsck -> /bin/busybox.nosuid
-lrwxrwxrwx root       root               19 ./sbin/fsck.minix -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/fstrim -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/getty -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/halt -> /bin/busybox.nosuid
@@ -140,7 +145,6 @@ lrwxrwxrwx root       root               19 ./sbin/loadkmap -> /bin/busybox.nosu
 lrwxrwxrwx root       root               19 ./sbin/logread -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/losetup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/lsmod -> /bin/busybox.nosuid
-lrwxrwxrwx root       root               19 ./sbin/mkfs.minix -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/mkswap -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/modprobe -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/pivot_root -> /bin/busybox.nosuid
@@ -156,6 +160,7 @@ lrwxrwxrwx root       root               19 ./sbin/swapon -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/switch_root -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/sysctl -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/syslogd -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
 drwxr-xr-x root       root             4096 ./usr
 drwxr-xr-x root       root             4096 ./usr/bin
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
@@ -165,6 +170,8 @@ lrwxrwxrwx root       root               19 ./usr/bin/[[ -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/ar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./usr/bin/bunzip2 -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./usr/bin/bzcat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/chvt -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/clear -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
@@ -242,6 +249,8 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/ash
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/awk
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/basename
+-rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/bunzip2
+-rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/bzcat
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/cat
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/chattr
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/chgrp
@@ -260,6 +269,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/deallocvt
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/delgroup
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/deluser
+-rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/depmod
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/df
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/diff
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/dirname
@@ -280,12 +290,13 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/flock
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/free
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/fsck
--rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/fsck.minix
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/fstrim
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/fuser
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/getty
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/grep
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/groups
+-rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/gunzip
+-rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/gzip
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/halt
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/head
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/hexdump
@@ -316,7 +327,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/microcom
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/mkdir
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/mkfifo
--rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/mkfs.minix
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/mknod
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/mkswap
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/mktemp
@@ -360,6 +370,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/sleep
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/sort
 -rw-r--r-- root       root               47 ./usr/lib/opkg/alternatives/start-stop-daemon
+-rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/stat
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/strings
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/stty
 -rw-r--r-- root       root               29 ./usr/lib/opkg/alternatives/su
@@ -384,7 +395,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/traceroute
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/true
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/tty
--rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/tzset
+-rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/udhcpc
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/udhcpd
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/umount
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/uname
@@ -403,6 +414,9 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/whoami
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/xargs
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/yes
+-rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/zcat
+drwxr-xr-x root       root             4096 ./usr/lib/ssl
+-rw-r--r-- root       root            10835 ./usr/lib/ssl/openssl.cnf
 drwxr-xr-x root       root             4096 ./usr/sbin
 lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
@@ -450,6 +464,8 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/run-postinsts
 drwxr-xr-x root       root             4096 ./usr/share/licenses/zlib
 -rw-r--r-- root       root              863 ./usr/share/licenses/zlib/generic_Zlib
 -rw-r--r-- root       root            87883 ./usr/share/licenses/zlib/zlib.h
+drwxr-xr-x root       root             4096 ./usr/share/udhcpc
+-rwxr-xr-x root       root               49 ./usr/share/udhcpc/default.script
 drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/lib
 drwxr-xr-x root       root             4096 ./var/lib/opkg
