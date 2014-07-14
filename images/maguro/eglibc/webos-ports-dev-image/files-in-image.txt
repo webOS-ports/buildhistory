@@ -1235,7 +1235,7 @@ drwxr-xr-x root       root               80 ./lib/modules/3.0.31/kernel/net/netf
 -rw-r--r-- root       root             6017 ./lib/modules/3.0.31/modules.symbols
 -rw-r--r-- root       root             6913 ./lib/modules/3.0.31/modules.symbols.bin
 drwxr-xr-x root       root              700 ./lib/systemd
-drwxr-xr-x root       root             4000 ./lib/systemd/system
+drwxr-xr-x root       root             4020 ./lib/systemd/system
 drwxr-xr-x root       root              140 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            34520 ./lib/systemd/system-generators/systemd-efi-boot-generator
 -rwxr-xr-x root       root            46852 ./lib/systemd/system-generators/systemd-fstab-generator
@@ -1253,6 +1253,8 @@ drwxr-xr-x root       root               40 ./lib/systemd/system-sleep
 -rw-r--r-- root       root              326 ./lib/systemd/system/activitymanager.service
 -rw-r--r-- root       root              328 ./lib/systemd/system/android-property-service.service
 -rw-r--r-- root       root              377 ./lib/systemd/system/android-system.service
+drwxr-xr-x root       root               60 ./lib/systemd/system/android-system.service.d
+-rw-r--r-- root       root               81 ./lib/systemd/system/android-system.service.d/change-before-dependencies.conf
 -rw-r--r-- root       root              284 ./lib/systemd/system/android-tools-adbd.service
 -rw-r--r-- root       root              345 ./lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
@@ -2619,7 +2621,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           132528 ./usr/bin/curl
 lrwxrwxrwx root       root               19 ./usr/bin/cut -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            19176 ./usr/bin/cytune
--rwxr-xr-x root       root              316 ./usr/bin/db8-prestart.sh
+-rwxr-xr-x root       root              321 ./usr/bin/db8-prestart.sh
 -rwxr-xr-x root       root             7412 ./usr/bin/dbus-cleanup-sockets
 -rwxr-xr-x root       root           278100 ./usr/bin/dbus-daemon
 -rwxr-xr-x root       root            14448 ./usr/bin/dbus-launch
@@ -7155,26 +7157,29 @@ drwxr-xr-x root       root              100 ./usr/palm/applications/fingerterm
 -rw-r--r-- root       root              269 ./usr/palm/applications/fingerterm/appinfo.json
 -rwxr-xr-x root       root           202168 ./usr/palm/applications/fingerterm/fingerterm
 -rw-r--r-- root       root             3143 ./usr/palm/applications/fingerterm/icon.png
-drwxr-xr-x root       root              180 ./usr/palm/applications/org.webosinternals.preware
+drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosinternals.preware
 -rw-r--r-- root       root              191 ./usr/palm/applications/org.webosinternals.preware/appinfo.json
 drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosinternals.preware/assets
 -rw-r--r-- root       root            79561 ./usr/palm/applications/org.webosinternals.preware/assets/bg.png
--rw-r--r-- root       root             1150 ./usr/palm/applications/org.webosinternals.preware/assets/favicon.ico
+-rw-r--r-- root       root             5558 ./usr/palm/applications/org.webosinternals.preware/assets/favicon.ico
 -rw-r--r-- root       root             2864 ./usr/palm/applications/org.webosinternals.preware/assets/file.png
 -rw-r--r-- root       root             2877 ./usr/palm/applications/org.webosinternals.preware/assets/folder.png
 drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosinternals.preware/build
--rw-r--r-- root       root            36151 ./usr/palm/applications/org.webosinternals.preware/build/app.css
--rw-r--r-- root       root           284039 ./usr/palm/applications/org.webosinternals.preware/build/app.js
--rw-r--r-- root       root             2812 ./usr/palm/applications/org.webosinternals.preware/build/enyo.css
--rw-r--r-- root       root           134137 ./usr/palm/applications/org.webosinternals.preware/build/enyo.js
-lrwxrwxrwx root       root               39 ./usr/palm/applications/org.webosinternals.preware/cordova.js -> /usr/palm/frameworks/cordova/cordova.js
+-rw-r--r-- root       root            42492 ./usr/palm/applications/org.webosinternals.preware/build/app.css
+-rw-r--r-- root       root           271374 ./usr/palm/applications/org.webosinternals.preware/build/app.js
+-rw-r--r-- root       root             6147 ./usr/palm/applications/org.webosinternals.preware/build/enyo.css
+-rw-r--r-- root       root           242149 ./usr/palm/applications/org.webosinternals.preware/build/enyo.js
 -rw-r--r-- root       root           108357 ./usr/palm/applications/org.webosinternals.preware/icon.png
 -rw-r--r-- root       root              894 ./usr/palm/applications/org.webosinternals.preware/index.html
-drwxr-xr-x root       root              100 ./usr/palm/applications/org.webosinternals.preware/lib
+drwxr-xr-x root       root              120 ./usr/palm/applications/org.webosinternals.preware/lib
+drwxr-xr-x root       root               60 ./usr/palm/applications/org.webosinternals.preware/lib/layout
+-rw-r--r-- root       root            11358 ./usr/palm/applications/org.webosinternals.preware/lib/layout/LICENSE-2.0.txt
 drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosinternals.preware/lib/onyx
 -rw-r--r-- root       root            11358 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/LICENSE-2.0.txt
-drwxr-xr-x root       root              260 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images
+drwxr-xr-x root       root              300 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images
 -rw-r--r-- root       root             5462 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/checkbox.png
+-rw-r--r-- root       root              706 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/close-active.png
+-rw-r--r-- root       root              254 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/close-inactive.png
 -rw-r--r-- root       root              676 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/grabbutton.png
 -rw-r--r-- root       root              255 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/gradient-invert.png
 -rw-r--r-- root       root              255 ./usr/palm/applications/org.webosinternals.preware/lib/onyx/images/gradient.png
@@ -7216,7 +7221,7 @@ drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosint
 -rw-r--r-- root       root               27 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/package.js
 drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source
 -rw-r--r-- root       root             1606 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/CoreNavi.js
--rw-r--r-- root       root             2593 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/CoreNaviArranger.js
+-rwxr-xr-x root       root             2593 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/CoreNaviArranger.js
 -rw-r--r-- root       root               59 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/PortsHeader.css
 -rw-r--r-- root       root              711 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/PortsHeader.js
 -rw-r--r-- root       root             2680 ./usr/palm/applications/org.webosinternals.preware/lib/webos-ports-lib/source/PortsSearch.js
@@ -8791,7 +8796,7 @@ drwxr-xr-x root       root              520 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root              445 ./usr/palm/applications/org.webosports.app.settings/lib/webos-lib/source/package.js
 -rw-r--r-- root       root             6433 ./usr/palm/applications/org.webosports.app.settings/lib/webos-lib/source/webos.js
 drwxr-xr-x root       root               60 ./usr/palm/applications/org.webosports.app.settings/plugins
--rwxr-xr-x root       root            48276 ./usr/palm/applications/org.webosports.app.settings/plugins/WebosPortsSettingsAppPlugin.so
+-rwxr-xr-x root       root            50420 ./usr/palm/applications/org.webosports.app.settings/plugins/WebosPortsSettingsAppPlugin.so
 drwxr-xr-x root       root              180 ./usr/palm/applications/org.webosports.app.testr
 -rw-r--r-- root       root              259 ./usr/palm/applications/org.webosports.app.testr/appinfo.json
 drwxr-xr-x root       root               80 ./usr/palm/applications/org.webosports.app.testr/assets
@@ -20416,10 +20421,10 @@ drwxr-xr-x root       root            45020 ./var/lib/opkg/info
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/android-system-image-maguro-lic.list
 -rw-r--r-- root       root              563 ./var/lib/opkg/info/android-system-image-maguro.control
 -rw-r--r-- root       root            25037 ./var/lib/opkg/info/android-system-image-maguro.list
--rw-r--r-- root       root              563 ./var/lib/opkg/info/android-system-lic.control
+-rw-r--r-- root       root              602 ./var/lib/opkg/info/android-system-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/android-system-lic.list
--rw-r--r-- root       root              732 ./var/lib/opkg/info/android-system.control
--rw-r--r-- root       root              601 ./var/lib/opkg/info/android-system.list
+-rw-r--r-- root       root              771 ./var/lib/opkg/info/android-system.control
+-rw-r--r-- root       root              724 ./var/lib/opkg/info/android-system.list
 -rwxr-xr-x root       root              255 ./var/lib/opkg/info/android-system.postinst
 -rwxr-xr-x root       root             5458 ./var/lib/opkg/info/android-system.preinst
 -rwxr-xr-x root       root              169 ./var/lib/opkg/info/android-system.prerm
@@ -21934,8 +21939,8 @@ drwxr-xr-x root       root            45020 ./var/lib/opkg/info
 -rwxr-xr-x root       root              780 ./var/lib/opkg/info/org.webosinternals.ipkgservice.postinst
 -rw-r--r-- root       root              433 ./var/lib/opkg/info/org.webosinternals.preware-lic.control
 -rw-r--r-- root       root              164 ./var/lib/opkg/info/org.webosinternals.preware-lic.list
--rw-r--r-- root       root              489 ./var/lib/opkg/info/org.webosinternals.preware.control
--rw-r--r-- root       root             5149 ./var/lib/opkg/info/org.webosinternals.preware.list
+-rw-r--r-- root       root              472 ./var/lib/opkg/info/org.webosinternals.preware.control
+-rw-r--r-- root       root             5395 ./var/lib/opkg/info/org.webosinternals.preware.list
 -rw-r--r-- root       root              487 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr-lic.control
 -rw-r--r-- root       root              197 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr-lic.list
 -rw-r--r-- root       root              662 ./var/lib/opkg/info/org.webosinternals.service.upstartmgr.control
@@ -21976,9 +21981,9 @@ drwxr-xr-x root       root            45020 ./var/lib/opkg/info
 -rw-r--r-- root       root              160 ./var/lib/opkg/info/org.webosports.app.phone-lic.list
 -rw-r--r-- root       root              720 ./var/lib/opkg/info/org.webosports.app.phone.control
 -rw-r--r-- root       root             5836 ./var/lib/opkg/info/org.webosports.app.phone.list
--rw-r--r-- root       root              459 ./var/lib/opkg/info/org.webosports.app.settings-lic.control
+-rw-r--r-- root       root              458 ./var/lib/opkg/info/org.webosports.app.settings-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/org.webosports.app.settings-lic.list
--rw-r--r-- root       root              693 ./var/lib/opkg/info/org.webosports.app.settings.control
+-rw-r--r-- root       root              692 ./var/lib/opkg/info/org.webosports.app.settings.control
 -rw-r--r-- root       root             8487 ./var/lib/opkg/info/org.webosports.app.settings.list
 -rw-r--r-- root       root              396 ./var/lib/opkg/info/org.webosports.app.testr-lic.control
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/org.webosports.app.testr-lic.list
@@ -22624,7 +22629,7 @@ drwxr-xr-x root       root            45020 ./var/lib/opkg/info
 -rw-r--r-- root       root               93 ./var/lib/opkg/info/yajl.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/yajl.postinst
 drwxr-xr-x root       root               40 ./var/lib/opkg/lists
--rw-r--r-- root       root           260085 ./var/lib/opkg/status
+-rw-r--r-- root       root           260066 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
