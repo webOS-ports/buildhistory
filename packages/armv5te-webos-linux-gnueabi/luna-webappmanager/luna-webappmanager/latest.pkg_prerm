@@ -1,8 +1,14 @@
 #!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
-		systemctl stop luna-webappmanager.service
+		systemctl stop LunaWebAppManager.service
 	fi
 
-	systemctl disable luna-webappmanager.service
+	systemctl $OPTS disable LunaWebAppManager.service
 fi
