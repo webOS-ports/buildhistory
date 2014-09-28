@@ -135,11 +135,12 @@ drwxr-xr-x root       root              280 ./etc/dbus-1/system.d
 -rw-r--r-- root       root             4144 ./etc/dbus-1/system.d/org.freedesktop.systemd1.conf
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.timedate1.conf
 -rw-r--r-- root       root             1148 ./etc/dbus-1/system.d/pulseaudio-system.conf
-drwxr-xr-x root       root              220 ./etc/default
+drwxr-xr-x root       root              240 ./etc/default
 -rw-r--r-- root       root             1055 ./etc/default/busybox-syslog
 -rw-r--r-- root       root               36 ./etc/default/mountall
 -rw-r--r-- root       root               52 ./etc/default/postinst
 -rw-r--r-- root       root              703 ./etc/default/powerd.conf
+-rw-r--r-- root       root               40 ./etc/default/pulseaudio.conf
 -rw-r--r-- root       root              820 ./etc/default/sleepd.conf
 -rw-r--r-- root       root               34 ./etc/default/sntp
 -rw-r--r-- root       root                0 ./etc/default/usbd
@@ -478,11 +479,12 @@ drwxr-xr-x root       root              220 ./etc/prefs/properties
 drwxr-xr-x root       root               60 ./etc/profile.d
 -rwxr-xr-x root       root              125 ./etc/profile.d/tslib.sh
 -rw-r--r-- root       root             2932 ./etc/protocols
-drwxr-xr-x root       root              120 ./etc/pulse
+drwxr-xr-x root       root              140 ./etc/pulse
 -rw-r--r-- root       root             1269 ./etc/pulse/client.conf
 -rw-r--r-- root       root             3221 ./etc/pulse/daemon.conf
 -rw-r--r-- root       root             5304 ./etc/pulse/default.pa
 -rw-r--r-- root       root             2112 ./etc/pulse/system.pa
+-rw-r--r-- root       root             4512 ./etc/pulse/webos-system.pa
 -rw-r--r-- root       root              887 ./etc/rpc
 -r-------- root       root             1678 ./etc/securetty
 -rw-r--r-- root       root            19558 ./etc/services
@@ -1362,7 +1364,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              377 ./lib/systemd/system/printer.target
 -rw-r--r-- root       root              728 ./lib/systemd/system/proc-sys-fs-binfmt_misc.automount
 -rw-r--r-- root       root              603 ./lib/systemd/system/proc-sys-fs-binfmt_misc.mount
--rw-r--r-- root       root              230 ./lib/systemd/system/pulseaudio.service
+-rw-r--r-- root       root              231 ./lib/systemd/system/pulseaudio.service
 -rw-r--r-- root       root              643 ./lib/systemd/system/quotaon.service
 -rw-r--r-- root       root              633 ./lib/systemd/system/rc-local.service
 -rw-r--r-- root       root              493 ./lib/systemd/system/reboot.target
@@ -6220,7 +6222,7 @@ drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.app
 -rw-r--r-- root       root             2322 ./usr/palm/applications/com.palm.app.email/util/urlparser.js
 -rw-r--r-- root       root            44071 ./usr/palm/applications/com.palm.app.email/util/util.js
 drwxr-xr-x root       root              260 ./usr/palm/applications/com.palm.launcher
--rw-r--r-- root       root             4667 ./usr/palm/applications/com.palm.launcher/README.md
+-rw-r--r-- root       root             4952 ./usr/palm/applications/com.palm.launcher/README.md
 drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.launcher/Utils
 -rw-r--r-- root       root             1390 ./usr/palm/applications/com.palm.launcher/Utils/stringutils.js
 -rw-r--r-- root       root             5657 ./usr/palm/applications/com.palm.launcher/Utils/utils.js
@@ -6244,7 +6246,7 @@ drwxr-xr-x root       root               80 ./usr/palm/applications/com.palm.lau
 -rw-r--r-- root       root             1152 ./usr/palm/applications/com.palm.launcher/depends.js
 -rw-r--r-- root       root               17 ./usr/palm/applications/com.palm.launcher/framework_config.json
 -rw-r--r-- root       root             4521 ./usr/palm/applications/com.palm.launcher/icon.png
-drwxr-xr-x root       root             1200 ./usr/palm/applications/com.palm.launcher/images
+drwxr-xr-x root       root             1220 ./usr/palm/applications/com.palm.launcher/images
 -rw-r--r-- root       root             9387 ./usr/palm/applications/com.palm.launcher/images/bg.png
 -rw-r--r-- root       root             1406 ./usr/palm/applications/com.palm.launcher/images/bg_icon_mask.png
 -rw-r--r-- root       root             3086 ./usr/palm/applications/com.palm.launcher/images/bookmark-icon-48.png
@@ -6290,6 +6292,7 @@ drwxr-xr-x root       root             1200 ./usr/palm/applications/com.palm.lau
 -rw-r--r-- root       root             4702 ./usr/palm/applications/com.palm.launcher/images/search-icon-bing.png
 -rw-r--r-- root       root             3086 ./usr/palm/applications/com.palm.launcher/images/search-icon-bookmark-32.png
 -rw-r--r-- root       root             2709 ./usr/palm/applications/com.palm.launcher/images/search-icon-cnn.png
+-rw-r--r-- root       root             4710 ./usr/palm/applications/com.palm.launcher/images/search-icon-duckduckgo.png
 -rwxr-xr-x root       root             1093 ./usr/palm/applications/com.palm.launcher/images/search-icon-facebook.png
 -rw-r--r-- root       root             3833 ./usr/palm/applications/com.palm.launcher/images/search-icon-google.png
 -rw-r--r-- root       root             1356 ./usr/palm/applications/com.palm.launcher/images/search-icon-gotourl.png
@@ -11753,7 +11756,7 @@ drwxr-xr-x root       root              120 ./usr/palm/services/org.webosports.c
 drwxr-xr-x root       root              140 ./usr/palm/services/org.webosports.cdav.service/javascript
 drwxr-xr-x root       root              220 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants
 -rw-r--r-- root       root             3099 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/addeventassistant.js
--rw-r--r-- root       root             6636 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/checkcredentialsassistant.js
+-rw-r--r-- root       root             6640 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/checkcredentialsassistant.js
 -rw-r--r-- root       root             6649 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/discoveryassistant.js
 -rw-r--r-- root       root             3041 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/oncreateassistant.js
 -rw-r--r-- root       root              876 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/ondeleteassistant.js
@@ -11763,9 +11766,9 @@ drwxr-xr-x root       root              220 ./usr/palm/services/org.webosports.c
 -rw-r--r-- root       root             2080 ./usr/palm/services/org.webosports.cdav.service/javascript/assistants/triggerslowsyncassistant.js
 -rw-r--r-- root       root             3437 ./usr/palm/services/org.webosports.cdav.service/javascript/kinds.js
 -rw-r--r-- root       root             2532 ./usr/palm/services/org.webosports.cdav.service/javascript/prologue.js
--rw-r--r-- root       root             7965 ./usr/palm/services/org.webosports.cdav.service/javascript/urlschemes.js
+-rw-r--r-- root       root             7941 ./usr/palm/services/org.webosports.cdav.service/javascript/urlschemes.js
 drwxr-xr-x root       root              400 ./usr/palm/services/org.webosports.cdav.service/javascript/utils
--rw-r--r-- root       root             6234 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/AuthManager.js
+-rw-r--r-- root       root             6233 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/AuthManager.js
 -rw-r--r-- root       root              704 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/Base64.js
 -rw-r--r-- root       root            32982 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/CalDav.js
 -rw-r--r-- root       root             9481 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/CalendarEventHandler.js
@@ -11777,7 +11780,7 @@ drwxr-xr-x root       root              400 ./usr/palm/services/org.webosports.c
 -rw-r--r-- root       root             1958 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/Quoting.js
 -rw-r--r-- root       root             3946 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/SyncKey.js
 -rw-r--r-- root       root             5223 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/accountConfigUtils.js
--rw-r--r-- root       root            16664 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/httpClient.js
+-rw-r--r-- root       root            16665 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/httpClient.js
 -rw-r--r-- root       root            16601 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/httpClient_legacy.js
 -rw-r--r-- root       root            60821 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/iCal.js
 -rw-r--r-- root       root            11545 ./usr/palm/services/org.webosports.cdav.service/javascript/utils/vCard.js
@@ -12147,7 +12150,7 @@ drwxr-xr-x root       root              220 ./usr/palm/sysmgr/low-memory
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
--rw-r--r-- root       root             2413 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
+-rw-r--r-- root       root             2655 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
 drwxr-xr-x root       root             2420 ./usr/sbin
 drwxr-xr-x root       root              120 ./usr/sbin/.debug
 -rwxr-xr-x root       root            53202 ./usr/sbin/.debug/iconvconfig
@@ -13059,7 +13062,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/51.2/config
 -rw-r--r-- root       root            17943 ./usr/share/icu/51.2/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/51.2/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             5020 ./usr/share/licenses
+drwxr-xr-x root       root             5040 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0
@@ -13771,6 +13774,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/psmisc
 drwxr-xr-x root       root               80 ./usr/share/licenses/ptmalloc3
 -rw-r--r-- root       root             1499 ./usr/share/licenses/ptmalloc3/BSD
 -rw-r--r-- root       root             1499 ./usr/share/licenses/ptmalloc3/generic_BSD
+drwxr-xr-x root       root               80 ./usr/share/licenses/pulseaudio-distro-conf
+-rw-r--r-- root       root             1080 ./usr/share/licenses/pulseaudio-distro-conf/MIT
+-rw-r--r-- root       root             1080 ./usr/share/licenses/pulseaudio-distro-conf/generic_MIT
 drwxr-xr-x root       root              220 ./usr/share/licenses/qt3d
 -rw-r--r-- root       root             1187 ./usr/share/licenses/qt3d/LGPL_EXCEPTION.txt
 -rw-r--r-- root       root            22961 ./usr/share/licenses/qt3d/LICENSE.FDL
@@ -19754,7 +19760,7 @@ drwxr-xr-x root       root               40 ./var/lib/dhcp
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              100 ./var/lib/opkg
-drwxr-xr-x root       root            42820 ./var/lib/opkg/info
+drwxr-xr-x root       root            42900 ./var/lib/opkg/info
 -rw-r--r-- root       root              496 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              792 ./var/lib/opkg/info/activitymanager.control
@@ -21037,7 +21043,7 @@ drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 -rw-r--r-- root       root              391 ./var/lib/opkg/info/luna-applauncher-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/luna-applauncher-lic.list
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/luna-applauncher.control
--rw-r--r-- root       root             5626 ./var/lib/opkg/info/luna-applauncher.list
+-rw-r--r-- root       root             5701 ./var/lib/opkg/info/luna-applauncher.list
 -rw-r--r-- root       root              383 ./var/lib/opkg/info/luna-appmanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/luna-appmanager-lic.list
 -rw-r--r-- root       root              772 ./var/lib/opkg/info/luna-appmanager.control
@@ -21383,7 +21389,7 @@ drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-development.list
 -rw-r--r-- root       root              360 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.control
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/packagegroup-webos-ports-extended-lic.list
--rw-r--r-- root       root             1861 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
+-rw-r--r-- root       root             1885 ./var/lib/opkg/info/packagegroup-webos-ports-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-webos-ports-extended.list
 -rw-r--r-- root       root             2399 ./var/lib/opkg/info/perl-lic.control
 -rw-r--r-- root       root              180 ./var/lib/opkg/info/perl-lic.list
@@ -21440,6 +21446,10 @@ drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 -rw-r--r-- root       root              107 ./var/lib/opkg/info/ptmalloc3-lic.list
 -rw-r--r-- root       root              425 ./var/lib/opkg/info/ptmalloc3.control
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/ptmalloc3.list
+-rw-r--r-- root       root              367 ./var/lib/opkg/info/pulseaudio-distro-conf-lic.control
+-rw-r--r-- root       root              146 ./var/lib/opkg/info/pulseaudio-distro-conf-lic.list
+-rw-r--r-- root       root              402 ./var/lib/opkg/info/pulseaudio-distro-conf.control
+-rw-r--r-- root       root               68 ./var/lib/opkg/info/pulseaudio-distro-conf.list
 -rw-r--r-- root       root             1462 ./var/lib/opkg/info/pulseaudio-lib-alsa-util.control
 -rw-r--r-- root       root               43 ./var/lib/opkg/info/pulseaudio-lib-alsa-util.list
 -rw-r--r-- root       root             1383 ./var/lib/opkg/info/pulseaudio-lib-cli.control
@@ -21498,7 +21508,7 @@ drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pulseaudio-module-udev-detect.list
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/pulseaudio-server.conffiles
 -rw-r--r-- root       root             2222 ./var/lib/opkg/info/pulseaudio-server.control
--rw-r--r-- root       root              376 ./var/lib/opkg/info/pulseaudio-server.list
+-rw-r--r-- root       root              364 ./var/lib/opkg/info/pulseaudio-server.list
 -rwxr-xr-x root       root              365 ./var/lib/opkg/info/pulseaudio-server.postinst
 -rwxr-xr-x root       root             5601 ./var/lib/opkg/info/pulseaudio-server.preinst
 -rwxr-xr-x root       root              222 ./var/lib/opkg/info/pulseaudio-server.prerm
@@ -21897,9 +21907,9 @@ drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 drwxr-xr-x root       root              120 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           106356 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5433751 ./var/lib/opkg/lists/oe-i586
--rw-r--r-- root       root           381681 ./var/lib/opkg/lists/oe-qemux86
--rw-r--r-- root       root           237651 ./var/lib/opkg/status
+-rw-r--r-- root       root          5435960 ./var/lib/opkg/lists/oe-i586
+-rw-r--r-- root       root           381761 ./var/lib/opkg/lists/oe-qemux86
+-rw-r--r-- root       root           238010 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
