@@ -93,7 +93,7 @@ lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
 -rwxr-xr-x root       root             1943 ./bin/zcat.gzip
 drwxr-xr-x root       root               40 ./boot
 drwxr-xr-x root       root               40 ./dev
-drwxr-xr-x root       root             1680 ./etc
+drwxr-xr-x root       root             1760 ./etc
 drwxr-xr-x root       root               60 ./etc/PmLogDaemon
 -rw-r--r-- root       root             8293 ./etc/PmLogDaemon/whitelist.txt
 drwxr-xr-x root       root               60 ./etc/bash_completion.d
@@ -122,10 +122,12 @@ drwxr-xr-x root       root              120 ./etc/dbus-1
 -rw-r--r-- root       root             2771 ./etc/dbus-1/session.conf
 drwxr-xr-x root       root               40 ./etc/dbus-1/session.d
 -rw-r--r-- root       root             2997 ./etc/dbus-1/system.conf
-drwxr-xr-x root       root              240 ./etc/dbus-1/system.d
+drwxr-xr-x root       root              280 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              524 ./etc/dbus-1/system.d/bluetooth.conf
 -rw-r--r-- root       root              731 ./etc/dbus-1/system.d/connman.conf
+-rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
 -rw-r--r-- root       root              494 ./etc/dbus-1/system.d/maliit-server.conf
+-rw-r--r-- root       root              937 ./etc/dbus-1/system.d/ofono.conf
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf
 -rw-r--r-- root       root              937 ./etc/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r-- root       root             8344 ./etc/dbus-1/system.d/org.freedesktop.login1.conf
@@ -143,9 +145,10 @@ drwxr-xr-x root       root              240 ./etc/default
 -rw-r--r-- root       root               34 ./etc/default/sntp
 -rw-r--r-- root       root                0 ./etc/default/usbd
 -rw-r--r-- root       root              117 ./etc/default/useradd
-drwxr-xr-x root       root              100 ./etc/default/volatiles
+drwxr-xr-x root       root              120 ./etc/default/volatiles
 -rw-r--r-- root       root               48 ./etc/default/volatiles/99_dbus
 -rw-r--r-- root       root               75 ./etc/default/volatiles/99_sshd
+-rw-r--r-- root       root               46 ./etc/default/volatiles/99_wpa_supplicant
 -rw-r--r-- root       root               91 ./etc/default/volatiles/volatiles.04_pulse
 drwxr-xr-x root       root               40 ./etc/depmod.d
 drwxr-xr-x root       root               60 ./etc/dhcp
@@ -240,8 +243,11 @@ drwxr-xr-x root       root              180 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               22 ./etc/issue
 -rw-r--r-- root       root               19 ./etc/issue.net
--rw-r--r-- root       root            16353 ./etc/ld.so.cache
+-rw-r--r-- root       root            16704 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
+drwxr-xr-x root       root               80 ./etc/libnl
+-rw-r--r-- root       root             1130 ./etc/libnl/classid
+-rw-r--r-- root       root             1532 ./etc/libnl/pktloc
 -rw-r--r-- root       root              827 ./etc/limits
 lrwxrwxrwx root       root               29 ./etc/localtime -> /usr/share/zoneinfo/Universal
 -rw-r--r-- root       root             2060 ./etc/login.access
@@ -263,8 +269,16 @@ drwxr-xr-x root       root              120 ./etc/modules-load.d
 -rw-r--r-- root       root               10 ./etc/modules-load.d/vboxvideo.conf
 -rw-r--r-- root       root                0 ./etc/motd
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
+drwxr-xr-x root       root              100 ./etc/network
+drwxr-xr-x root       root               40 ./etc/network/if-down.d
+drwxr-xr-x root       root               60 ./etc/network/if-post-down.d
+lrwxrwxrwx root       root               29 ./etc/network/if-post-down.d/wpa-supplicant -> ../if-pre-up.d/wpa-supplicant
+drwxr-xr-x root       root               60 ./etc/network/if-pre-up.d
+-rwxr-xr-x root       root             1951 ./etc/network/if-pre-up.d/wpa-supplicant
 -rw-r--r-- root       root              465 ./etc/nsswitch.conf
 -rw-r--r-- root       root               30 ./etc/nyx.conf
+drwxr-xr-x root       root               60 ./etc/ofono
+-rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
 drwxr-xr-x root       root              140 ./etc/opkg
 -rw-r--r-- root       root               79 ./etc/opkg/all-feed.conf
 -rw-r--r-- root       root               78 ./etc/opkg/arch.conf
@@ -1068,6 +1082,7 @@ drwxr-xr-x root       root               60 ./etc/udhcpc.d
 -rwxr-xr-x root       root             2549 ./etc/udhcpc.d/50default
 -rw-r--r-- root       root               13 ./etc/version
 -rw-r--r-- root       root               55 ./etc/webos-release
+-rw------- root       root              113 ./etc/wpa_supplicant.conf
 drwxr-xr-x root       root               60 ./etc/xdg
 drwxr-xr-x root       root               60 ./etc/xdg/systemd
 lrwxrwxrwx root       root               18 ./etc/xdg/systemd/user -> ../../systemd/user
@@ -1230,7 +1245,7 @@ drwxr-xr-x root       root              820 ./lib/systemd
 drwxr-xr-x root       root               80 ./lib/systemd/network
 -rw-r--r-- root       root               64 ./lib/systemd/network/80-container-host0.network
 -rw-r--r-- root       root               73 ./lib/systemd/network/99-default.link
-drwxr-xr-x root       root             4060 ./lib/systemd/system
+drwxr-xr-x root       root             4160 ./lib/systemd/system
 drwxr-xr-x root       root              160 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            30388 ./lib/systemd/system-generators/systemd-efi-boot-generator
 -rwxr-xr-x root       root            38588 ./lib/systemd/system-generators/systemd-fstab-generator
@@ -1333,6 +1348,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              433 ./lib/systemd/system/network.target
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
+-rw-r--r-- root       root              183 ./lib/systemd/system/ofono.service
 -rw-r--r-- root       root              527 ./lib/systemd/system/opkg-configure.service
 -rw-r--r-- root       root              554 ./lib/systemd/system/org.freedesktop.hostname1.busname
 -rw-r--r-- root       root              550 ./lib/systemd/system/org.freedesktop.locale1.busname
@@ -1486,6 +1502,10 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/timers.target.w
 -rw-r--r-- root       root              282 ./lib/systemd/system/webos-connman-adapter.service
 -rw-r--r-- root       root              263 ./lib/systemd/system/webos-system-update.service
 -rw-r--r-- root       root              268 ./lib/systemd/system/webos-telephonyd.service
+-rw-r--r-- root       root              447 ./lib/systemd/system/wpa_supplicant-nl80211@.service
+-rw-r--r-- root       root              439 ./lib/systemd/system/wpa_supplicant-wired@.service
+-rw-r--r-- root       root              222 ./lib/systemd/system/wpa_supplicant.service
+-rw-r--r-- root       root              401 ./lib/systemd/system/wpa_supplicant@.service
 -rwxr-xr-x root       root          1054508 ./lib/systemd/systemd
 -rwxr-xr-x root       root             9784 ./lib/systemd/systemd-ac-power
 -rwxr-xr-x root       root            38568 ./lib/systemd/systemd-activate
@@ -1695,7 +1715,7 @@ lrwxrwxrwx root       root               17 ./sbin/vipw -> /sbin/vipw.shadow
 drwxr-xr-x root       root               40 ./sys
 drwxrwxrwt root       root               40 ./tmp
 drwxr-xr-x root       root              220 ./usr
-drwxr-xr-x root       root             8540 ./usr/bin
+drwxr-xr-x root       root             8560 ./usr/bin
 drwxr-xr-x root       root              260 ./usr/bin/.debug
 -rwxr-xr-x root       root            54694 ./usr/bin/.debug/gencat
 -rwxr-xr-x root       root            28483 ./usr/bin/.debug/getconf
@@ -2126,6 +2146,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/who -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/whoami -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             1335 ./usr/bin/wordforms
 -rwxr-xr-x root       root             1701 ./usr/bin/wordlist2hunspell
+-rwxr-xr-x root       root            31360 ./usr/bin/wpa_passphrase
 -rwxr-xr-x root       root            11624 ./usr/bin/write
 lrwxrwxrwx root       root               19 ./usr/bin/xargs -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             3692 ./usr/bin/xmlcatalog
@@ -2157,7 +2178,7 @@ drwxr-xr-x root       root               60 ./usr/include
 drwxr-xr-x root       root               80 ./usr/include/python2.7
 -rw-r--r-- root       root            35989 ./usr/include/python2.7/pyconfig-32.h
 -rw-r--r-- root       root             1702 ./usr/include/python2.7/pyconfig.h
-drwxr-xr-x root       root             9340 ./usr/lib
+drwxr-xr-x root       root             9540 ./usr/lib
 drwxr-xr-x root       root               60 ./usr/lib/audit
 drwxr-xr-x root       root               60 ./usr/lib/audit/.debug
 -rwxr-xr-x root       root            22633 ./usr/lib/audit/.debug/sotruss-lib.so
@@ -2805,6 +2826,16 @@ lrwxrwxrwx root       root               17 ./usr/lib/libmtdev.so.1 -> libmtdev.
 -rwxr-xr-x root       root            19352 ./usr/lib/libmtdev.so.1.0.0
 lrwxrwxrwx root       root               17 ./usr/lib/libneon.so.27 -> libneon.so.27.3.0
 -rwxr-xr-x root       root           159884 ./usr/lib/libneon.so.27.3.0
+lrwxrwxrwx root       root               19 ./usr/lib/libnl-3.so.200 -> libnl-3.so.200.17.0
+-rwxr-xr-x root       root           115640 ./usr/lib/libnl-3.so.200.17.0
+lrwxrwxrwx root       root               23 ./usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.17.0
+-rwxr-xr-x root       root            39464 ./usr/lib/libnl-cli-3.so.200.17.0
+lrwxrwxrwx root       root               24 ./usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.17.0
+-rwxr-xr-x root       root            20636 ./usr/lib/libnl-genl-3.so.200.17.0
+lrwxrwxrwx root       root               22 ./usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.17.0
+-rwxr-xr-x root       root            88256 ./usr/lib/libnl-nf-3.so.200.17.0
+lrwxrwxrwx root       root               25 ./usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.17.0
+-rwxr-xr-x root       root           304304 ./usr/lib/libnl-route-3.so.200.17.0
 -rwxr-xr-x root       root            13784 ./usr/lib/libnss_myhostname.so.2
 lrwxrwxrwx root       root               15 ./usr/lib/libnyx.so.6 -> libnyx.so.6.1.0
 -rwxr-xr-x root       root            51964 ./usr/lib/libnyx.so.6.1.0
@@ -11843,7 +11874,7 @@ drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
 -rw-r--r-- root       root             2655 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
-drwxr-xr-x root       root             2100 ./usr/sbin
+drwxr-xr-x root       root             2420 ./usr/sbin
 drwxr-xr-x root       root              120 ./usr/sbin/.debug
 -rwxr-xr-x root       root            53234 ./usr/sbin/.debug/iconvconfig
 -rwxr-xr-x root       root           448613 ./usr/sbin/.debug/nscd
@@ -11872,7 +11903,7 @@ lrwxrwxrwx root       root               25 ./usr/sbin/chpasswd -> /usr/sbin/chp
 -rwxr-xr-x root       root            33812 ./usr/sbin/chpasswd.shadow
 lrwxrwxrwx root       root               19 ./usr/sbin/chroot -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           109944 ./usr/sbin/configurator
--rwxr-xr-x root       root           677672 ./usr/sbin/connmand
+-rwxr-xr-x root       root           781768 ./usr/sbin/connmand
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            13020 ./usr/sbin/delpart
 lrwxrwxrwx root       root               19 ./usr/sbin/deluser -> /bin/busybox.nosuid
@@ -11884,6 +11915,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nos
 -rwxr-xr-x root       root             7864 ./usr/sbin/fsfreeze
 -rwxr-xr-x root       root             6336 ./usr/sbin/genccode
 -rwxr-xr-x root       root             6308 ./usr/sbin/gencmn
+-rwxr-xr-x root       root             4896 ./usr/sbin/genl-ctrl-list
 -rwxr-xr-x root       root            35996 ./usr/sbin/gennorm2
 -rwxr-xr-x root       root            15796 ./usr/sbin/gensprep
 -rwxr-xr-x root       root            41904 ./usr/sbin/groupadd
@@ -11917,8 +11949,21 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root           208028 ./usr/sbin/mojodb-luna
 -rwxr-xr-x root       root           210316 ./usr/sbin/mojodb_migrate
 -rwxr-xr-x root       root            53040 ./usr/sbin/newusers
+-rwxr-xr-x root       root             7904 ./usr/sbin/nl-class-add
+-rwxr-xr-x root       root             6864 ./usr/sbin/nl-class-delete
+-rwxr-xr-x root       root             6144 ./usr/sbin/nl-class-list
+-rwxr-xr-x root       root             5092 ./usr/sbin/nl-classid-lookup
+-rwxr-xr-x root       root             8348 ./usr/sbin/nl-cls-add
+-rwxr-xr-x root       root             7728 ./usr/sbin/nl-cls-delete
+-rwxr-xr-x root       root             6780 ./usr/sbin/nl-cls-list
+-rwxr-xr-x root       root             6176 ./usr/sbin/nl-link-list
+-rwxr-xr-x root       root             6276 ./usr/sbin/nl-pktloc-lookup
+-rwxr-xr-x root       root             7328 ./usr/sbin/nl-qdisc-add
+-rwxr-xr-x root       root             6992 ./usr/sbin/nl-qdisc-delete
+-rwxr-xr-x root       root             7824 ./usr/sbin/nl-qdisc-list
 -rwxr-xr-x root       root             5316 ./usr/sbin/nologin
 -rwxr-xr-x root       root            98708 ./usr/sbin/novacomd
+-rwxr-xr-x root       root          1401604 ./usr/sbin/ofonod
 -rwxr-xr-x root       root            51808 ./usr/sbin/org.webosinternals.ipkgservice
 -rwxr-xr-x root       root            12588 ./usr/sbin/org.webosinternals.service.upstartmgr
 -rwxr-xr-x root       root            60420 ./usr/sbin/powerd
@@ -11950,6 +11995,8 @@ lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.no
 -rwxr-xr-x root       root           119868 ./usr/sbin/webos-connman-adapter
 -rwxrwxrwx root       root            45684 ./usr/sbin/webos-system-update
 -rwxr-xr-x root       root            22624 ./usr/sbin/wipefs
+-rwxr-xr-x root       root            69556 ./usr/sbin/wpa_cli
+-rwxr-xr-x root       root          1053004 ./usr/sbin/wpa_supplicant
 -rwxr-xr-x root       root            81520 ./usr/sbin/xtables-multi
 drwxr-xr-x root       root              840 ./usr/share
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon
@@ -12602,7 +12649,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/services/org.webosports.webappmanager.service
 -rw-r--r-- root       root              737 ./usr/share/dbus-1/services/webos-connman-adapter.service
 -rw-r--r-- root       root              226 ./usr/share/dbus-1/services/webos-system-update.service
-drwxr-xr-x root       root             1000 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root             1040 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               83 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/system-services/com.palm.activitymanager.service
@@ -12629,6 +12676,8 @@ drwxr-xr-x root       root             1000 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/com.palm.universalsearch.service
 -rw-r--r-- root       root              710 ./usr/share/dbus-1/system-services/com.webos.mediadb.service
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/system-services/com.webos.pmlogd.service
+-rw-r--r-- root       root              134 ./usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service
+-rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service
 -rw-r--r-- root       root              151 ./usr/share/dbus-1/system-services/luna-appmanager.service
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.bluez.service
 -rw-r--r-- root       root              419 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
@@ -12736,7 +12785,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/51.2/config
 -rw-r--r-- root       root            17943 ./usr/share/icu/51.2/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/51.2/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             4960 ./usr/share/licenses
+drwxr-xr-x root       root             5020 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/activitymanager
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/activitymanager/generic_Apache-2.0
@@ -13048,6 +13097,9 @@ drwxr-xr-x root       root              120 ./usr/share/licenses/libmad
 -rw-r--r-- root       root              918 ./usr/share/licenses/libmad/COPYRIGHT
 -rw-r--r-- root       root            17611 ./usr/share/licenses/libmad/generic_GPLv2
 -rw-r--r-- root       root             1610 ./usr/share/licenses/libmad/version.h
+drwxr-xr-x root       root               80 ./usr/share/licenses/libnl
+-rw-r--r-- root       root            26530 ./usr/share/licenses/libnl/COPYING
+-rw-r--r-- root       root            25878 ./usr/share/licenses/libnl/generic_LGPLv2.1
 drwxr-xr-x root       root              100 ./usr/share/licenses/libogg
 -rw-r--r-- root       root             1466 ./usr/share/licenses/libogg/COPYING
 -rw-r--r-- root       root             1499 ./usr/share/licenses/libogg/generic_BSD
@@ -13292,6 +13344,10 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/nyx-modules
 drwxr-xr-x root       root               80 ./usr/share/licenses/nyx-utils
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nyx-utils/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nyx-utils/generic_Apache-2.0
+drwxr-xr-x root       root              100 ./usr/share/licenses/ofono
+-rw-r--r-- root       root            18011 ./usr/share/licenses/ofono/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/ofono/generic_GPLv2
+-rw-r--r-- root       root            17241 ./usr/share/licenses/ofono/ofono.h
 drwxr-xr-x root       root               80 ./usr/share/licenses/openssh
 -rw-r--r-- root       root            16040 ./usr/share/licenses/openssh/LICENCE
 -rw-r--r-- root       root             1499 ./usr/share/licenses/openssh/generic_BSD
@@ -13693,6 +13749,11 @@ drwxr-xr-x root       root              200 ./usr/share/licenses/wireless-tools
 -rw-r--r-- root       root            47568 ./usr/share/licenses/wireless-tools/iwconfig.c
 -rw-r--r-- root       root            20461 ./usr/share/licenses/wireless-tools/iwevent.c
 -rw-r--r-- root       root             4362 ./usr/share/licenses/wireless-tools/sample_enc.c
+drwxr-xr-x root       root              120 ./usr/share/licenses/wpa-supplicant
+-rw-r--r-- root       root              965 ./usr/share/licenses/wpa-supplicant/COPYING
+-rw-r--r-- root       root             2351 ./usr/share/licenses/wpa-supplicant/README
+-rw-r--r-- root       root             1499 ./usr/share/licenses/wpa-supplicant/generic_BSD
+-rw-r--r-- root       root           125324 ./usr/share/licenses/wpa-supplicant/wpa_supplicant.c
 drwxr-xr-x root       root              100 ./usr/share/licenses/xkeyboard-config
 -rw-r--r-- root       root             9244 ./usr/share/licenses/xkeyboard-config/COPYING
 -rw-r--r-- root       root             1080 ./usr/share/licenses/xkeyboard-config/generic_MIT
@@ -19402,7 +19463,7 @@ drwxr-xr-x root       root               40 ./var/backups
 drwxr-xr-x root       root               80 ./var/cache
 drwxr-xr-x root       root               40 ./var/cache/fontconfig
 drwx------ root       root               60 ./var/cache/ldconfig
--rw------- root       root            15855 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            16188 ./var/cache/ldconfig/aux-cache
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
 drwxr-xr-x root       root              220 ./var/lib
@@ -19416,7 +19477,7 @@ drwxr-xr-x root       root               40 ./var/lib/dhcp
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              100 ./var/lib/opkg
-drwxr-xr-x root       root            42140 ./var/lib/opkg/info
+drwxr-xr-x root       root            42820 ./var/lib/opkg/info
 -rw-r--r-- root       root              496 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              792 ./var/lib/opkg/info/activitymanager.control
@@ -19528,7 +19589,7 @@ drwxr-xr-x root       root            42140 ./var/lib/opkg/info
 -rw-r--r-- root       root              144 ./var/lib/opkg/info/connman-conf.list
 -rw-r--r-- root       root              982 ./var/lib/opkg/info/connman-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/connman-lic.list
--rw-r--r-- root       root             1327 ./var/lib/opkg/info/connman.control
+-rw-r--r-- root       root             1393 ./var/lib/opkg/info/connman.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/connman.list
 -rwxr-xr-x root       root              241 ./var/lib/opkg/info/connman.postinst
 -rwxr-xr-x root       root              216 ./var/lib/opkg/info/connman.prerm
@@ -20416,6 +20477,23 @@ drwxr-xr-x root       root            42140 ./var/lib/opkg/info
 -rw-r--r-- root       root              631 ./var/lib/opkg/info/libneon27.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libneon27.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libneon27.postinst
+-rw-r--r-- root       root              700 ./var/lib/opkg/info/libnl-3-200.control
+-rw-r--r-- root       root              102 ./var/lib/opkg/info/libnl-3-200.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-3-200.postinst
+-rw-r--r-- root       root              751 ./var/lib/opkg/info/libnl-3-cli.control
+-rw-r--r-- root       root              352 ./var/lib/opkg/info/libnl-3-cli.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-3-cli.postinst
+-rw-r--r-- root       root              773 ./var/lib/opkg/info/libnl-3-genl.control
+-rw-r--r-- root       root               88 ./var/lib/opkg/info/libnl-3-genl.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-3-genl.postinst
+-rw-r--r-- root       root              616 ./var/lib/opkg/info/libnl-3-lic.control
+-rw-r--r-- root       root              104 ./var/lib/opkg/info/libnl-3-lic.list
+-rw-r--r-- root       root              700 ./var/lib/opkg/info/libnl-nf-3-200.control
+-rw-r--r-- root       root               59 ./var/lib/opkg/info/libnl-nf-3-200.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-nf-3-200.postinst
+-rw-r--r-- root       root              672 ./var/lib/opkg/info/libnl-route-3-200.control
+-rw-r--r-- root       root               65 ./var/lib/opkg/info/libnl-route-3-200.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-route-3-200.postinst
 -rw-r--r-- root       root              425 ./var/lib/opkg/info/libnyx-lic.control
 -rw-r--r-- root       root              115 ./var/lib/opkg/info/libnyx-lic.list
 -rw-r--r-- root       root              497 ./var/lib/opkg/info/libnyx6.control
@@ -20876,6 +20954,12 @@ drwxr-xr-x root       root            42140 ./var/lib/opkg/info
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/nyx-utils-lic.list
 -rw-r--r-- root       root              554 ./var/lib/opkg/info/nyx-utils.control
 -rw-r--r-- root       root              310 ./var/lib/opkg/info/nyx-utils.list
+-rw-r--r-- root       root              471 ./var/lib/opkg/info/ofono-lic.control
+-rw-r--r-- root       root              135 ./var/lib/opkg/info/ofono-lic.list
+-rw-r--r-- root       root              682 ./var/lib/opkg/info/ofono.control
+-rw-r--r-- root       root              120 ./var/lib/opkg/info/ofono.list
+-rwxr-xr-x root       root              239 ./var/lib/opkg/info/ofono.postinst
+-rwxr-xr-x root       root              212 ./var/lib/opkg/info/ofono.prerm
 -rw-r--r-- root       root              855 ./var/lib/opkg/info/openssh-keygen.control
 -rw-r--r-- root       root               20 ./var/lib/opkg/info/openssh-keygen.list
 -rw-r--r-- root       root              777 ./var/lib/opkg/info/openssh-lic.control
@@ -21506,6 +21590,17 @@ drwxr-xr-x root       root            42140 ./var/lib/opkg/info
 -rw-r--r-- root       root              417 ./var/lib/opkg/info/wireless-tools-lic.list
 -rw-r--r-- root       root              725 ./var/lib/opkg/info/wireless-tools.control
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/wireless-tools.list
+-rw-r--r-- root       root              598 ./var/lib/opkg/info/wpa-supplicant-cli.control
+-rw-r--r-- root       root               18 ./var/lib/opkg/info/wpa-supplicant-cli.list
+-rw-r--r-- root       root              573 ./var/lib/opkg/info/wpa-supplicant-lic.control
+-rw-r--r-- root       root              220 ./var/lib/opkg/info/wpa-supplicant-lic.list
+-rw-r--r-- root       root              629 ./var/lib/opkg/info/wpa-supplicant-passphrase.control
+-rw-r--r-- root       root               24 ./var/lib/opkg/info/wpa-supplicant-passphrase.list
+-rw-r--r-- root       root               25 ./var/lib/opkg/info/wpa-supplicant.conffiles
+-rw-r--r-- root       root              898 ./var/lib/opkg/info/wpa-supplicant.control
+-rw-r--r-- root       root              640 ./var/lib/opkg/info/wpa-supplicant.list
+-rwxr-xr-x root       root              487 ./var/lib/opkg/info/wpa-supplicant.postinst
+-rwxr-xr-x root       root              354 ./var/lib/opkg/info/wpa-supplicant.prerm
 -rw-r--r-- root       root              699 ./var/lib/opkg/info/xkeyboard-config-lic.control
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/xkeyboard-config-lic.list
 -rw-r--r-- root       root              888 ./var/lib/opkg/info/xkeyboard-config-locale-en-gb.control
@@ -21525,9 +21620,9 @@ drwxr-xr-x root       root            42140 ./var/lib/opkg/info
 drwxr-xr-x root       root              120 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           125188 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5470320 ./var/lib/opkg/lists/oe-i586
+-rw-r--r-- root       root          5469433 ./var/lib/opkg/lists/oe-i586
 -rw-r--r-- root       root           383587 ./var/lib/opkg/lists/oe-qemux86
--rw-r--r-- root       root           234697 ./var/lib/opkg/status
+-rw-r--r-- root       root           237648 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
