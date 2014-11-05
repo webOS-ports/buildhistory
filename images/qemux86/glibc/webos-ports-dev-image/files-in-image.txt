@@ -132,7 +132,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              731 ./etc/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
 -rw-r--r-- root       root              494 ./etc/dbus-1/system.d/maliit-server.conf
--rw-r--r-- root       root              937 ./etc/dbus-1/system.d/ofono.conf
+-rw-r--r-- root       root             1457 ./etc/dbus-1/system.d/ofono.conf
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf
 -rw-r--r-- root       root              937 ./etc/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r-- root       root             8344 ./etc/dbus-1/system.d/org.freedesktop.login1.conf
@@ -283,6 +283,7 @@ drwxr-xr-x root       root             4096 ./etc/network/if-pre-up.d
 -rw-r--r-- root       root               30 ./etc/nyx.conf
 drwxr-xr-x root       root             4096 ./etc/ofono
 -rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
+-rw-r--r-- root       root              344 ./etc/ofono/ril_subscription.conf
 drwxr-xr-x root       root             4096 ./etc/opkg
 -rw-r--r-- root       root               79 ./etc/opkg/all-feed.conf
 -rw-r--r-- root       root               78 ./etc/opkg/arch.conf
@@ -1399,7 +1400,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              480 ./lib/systemd/system/network.target
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
--rw-r--r-- root       root              183 ./lib/systemd/system/ofono.service
+-rw-r--r-- root       root              256 ./lib/systemd/system/ofono.service
 -rw-r--r-- root       root              527 ./lib/systemd/system/opkg-configure.service
 -rw-r--r-- root       root              554 ./lib/systemd/system/org.freedesktop.hostname1.busname
 -rw-r--r-- root       root              550 ./lib/systemd/system/org.freedesktop.locale1.busname
@@ -2214,6 +2215,7 @@ lrwxrwxrwx root       root               28 ./usr/bin/utmpdump -> /usr/bin/utmpd
 lrwxrwxrwx root       root               17 ./usr/bin/vlock -> /bin/busybox.suid
 -r-xr-xr-x root       root            19368 ./usr/bin/vmstat
 -r-xr-xr-x root       root            10340 ./usr/bin/w
+-rwxr--r-- root       root              267 ./usr/bin/wait-for-rild.sh
 lrwxrwxrwx root       root               24 ./usr/bin/wall -> /usr/bin/wall.util-linux
 -rwxr-xr-x root       root            22580 ./usr/bin/wall.util-linux
 -r-xr-xr-x root       root            10504 ./usr/bin/watch.procps
@@ -12090,7 +12092,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root             7920 ./usr/sbin/nl-qdisc-list
 -rwxr-xr-x root       root             5316 ./usr/sbin/nologin
 -rwxr-xr-x root       root           108980 ./usr/sbin/novacomd
--rwxr-xr-x root       root          1591364 ./usr/sbin/ofonod
+-rwxr-xr-x root       root          1622692 ./usr/sbin/ofonod
 -rwxr-xr-x root       root            55904 ./usr/sbin/org.webosinternals.ipkgservice
 -rwxr-xr-x root       root            14508 ./usr/sbin/org.webosinternals.service.upstartmgr
 -rwxr-xr-x root       root            64516 ./usr/sbin/powerd
@@ -13422,6 +13424,9 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/mingetty
 drwxr-xr-x root       root             4096 ./usr/share/licenses/mjson
 -rw-rw-r-- root       root            24925 ./usr/share/licenses/mjson/LGPL-2.0
 -rw-rw-r-- root       root            24925 ./usr/share/licenses/mjson/generic_LGPLv2
+drwxr-xr-x root       root             4096 ./usr/share/licenses/mobile-broadband-provider-info
+-rw-r--r-- root       root             1623 ./usr/share/licenses/mobile-broadband-provider-info/COPYING
+-rw-rw-r-- root       root               52 ./usr/share/licenses/mobile-broadband-provider-info/generic_PD
 drwxr-xr-x root       root             4096 ./usr/share/licenses/mojoloader
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/mojoloader/Apache-2.0
 -rw-rw-r-- root       root            11360 ./usr/share/licenses/mojoloader/generic_Apache-2.0
@@ -13506,7 +13511,7 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/nyx-utils
 drwxr-xr-x root       root             4096 ./usr/share/licenses/ofono
 -rw-r--r-- root       root            18011 ./usr/share/licenses/ofono/COPYING
 -rw-rw-r-- root       root            17611 ./usr/share/licenses/ofono/generic_GPLv2
--rw-r--r-- root       root            17241 ./usr/share/licenses/ofono/ofono.h
+-rw-r--r-- root       root            17409 ./usr/share/licenses/ofono/ofono.h
 drwxr-xr-x root       root             4096 ./usr/share/licenses/openssh
 -rw-r--r-- root       root            16040 ./usr/share/licenses/openssh/LICENCE
 -rw-rw-r-- root       root             1499 ./usr/share/licenses/openssh/generic_BSD
@@ -14934,6 +14939,9 @@ drwxr-xr-x root       root             4096 ./usr/share/mime/x-content
 drwxr-xr-x root       root             4096 ./usr/share/mime/x-epoc
 -rw-r--r-- root       root             2529 ./usr/share/mime/x-epoc/x-sisx-app.xml
 drwxr-xr-x root       root             4096 ./usr/share/misc
+drwxr-xr-x root       root             4096 ./usr/share/mobile-broadband-provider-info
+-rw-r--r-- root       root             4410 ./usr/share/mobile-broadband-provider-info/serviceproviders.2.dtd
+-rw-r--r-- root       root           328308 ./usr/share/mobile-broadband-provider-info/serviceproviders.xml
 drwxr-xr-x root       root             4096 ./usr/share/opkg
 drwxr-xr-x root       root             4096 ./usr/share/opkg/intercept
 -rwxr-xr-x root       root              309 ./usr/share/opkg/intercept/depmod
@@ -19654,7 +19662,7 @@ drwxr-xr-x root       root             4096 ./var/lib/dhcp
 drwxr-xr-x root       root             4096 ./var/lib/maliit
 drwxr-xr-x root       root             4096 ./var/lib/misc
 drwxr-xr-x root       root             4096 ./var/lib/opkg
-drwxr-xr-x root       root           126976 ./var/lib/opkg/info
+drwxr-xr-x root       root           122880 ./var/lib/opkg/info
 -rw-r--r-- root       root              496 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              792 ./var/lib/opkg/info/activitymanager.control
@@ -19788,7 +19796,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root               14 ./var/lib/opkg/info/curl.list
 -rw-r--r-- root       root              472 ./var/lib/opkg/info/db8-lic.control
 -rw-r--r-- root       root              103 ./var/lib/opkg/info/db8-lic.list
--rw-r--r-- root       root              753 ./var/lib/opkg/info/db8.control
+-rw-r--r-- root       root              759 ./var/lib/opkg/info/db8.control
 -rw-r--r-- root       root             2153 ./var/lib/opkg/info/db8.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles
@@ -21052,9 +21060,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              164 ./var/lib/opkg/info/media-permission-service-lic.list
 -rw-r--r-- root       root              504 ./var/lib/opkg/info/media-permission-service.control
 -rw-r--r-- root       root             1239 ./var/lib/opkg/info/media-permission-service.list
--rw-r--r-- root       root              367 ./var/lib/opkg/info/mediaindexer-lic.control
+-rw-r--r-- root       root              368 ./var/lib/opkg/info/mediaindexer-lic.control
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/mediaindexer-lic.list
--rw-r--r-- root       root              697 ./var/lib/opkg/info/mediaindexer.control
+-rw-r--r-- root       root              698 ./var/lib/opkg/info/mediaindexer.control
 -rw-r--r-- root       root             1019 ./var/lib/opkg/info/mediaindexer.list
 -rwxr-xr-x root       root              251 ./var/lib/opkg/info/mediaindexer.postinst
 -rwxr-xr-x root       root              226 ./var/lib/opkg/info/mediaindexer.prerm
@@ -21066,6 +21074,10 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root               15 ./var/lib/opkg/info/mingetty.list
 -rwxr-xr-x root       root               77 ./var/lib/opkg/info/mingetty.postinst
 -rwxr-xr-x root       root               62 ./var/lib/opkg/info/mingetty.postrm
+-rw-r--r-- root       root              398 ./var/lib/opkg/info/mobile-broadband-provider-info-lic.control
+-rw-r--r-- root       root              173 ./var/lib/opkg/info/mobile-broadband-provider-info-lic.list
+-rw-r--r-- root       root              441 ./var/lib/opkg/info/mobile-broadband-provider-info.control
+-rw-r--r-- root       root              171 ./var/lib/opkg/info/mobile-broadband-provider-info.list
 -rw-r--r-- root       root              435 ./var/lib/opkg/info/mojoloader-lic.control
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/mojoloader-lic.list
 -rw-r--r-- root       root              458 ./var/lib/opkg/info/mojoloader.control
@@ -21159,10 +21171,10 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/nyx-utils-lic.list
 -rw-r--r-- root       root              554 ./var/lib/opkg/info/nyx-utils.control
 -rw-r--r-- root       root              310 ./var/lib/opkg/info/nyx-utils.list
--rw-r--r-- root       root              516 ./var/lib/opkg/info/ofono-lic.control
+-rw-r--r-- root       root              612 ./var/lib/opkg/info/ofono-lic.control
 -rw-r--r-- root       root              135 ./var/lib/opkg/info/ofono-lic.list
--rw-r--r-- root       root              726 ./var/lib/opkg/info/ofono.control
--rw-r--r-- root       root              120 ./var/lib/opkg/info/ofono.list
+-rw-r--r-- root       root              854 ./var/lib/opkg/info/ofono.control
+-rw-r--r-- root       root              179 ./var/lib/opkg/info/ofono.list
 -rwxr-xr-x root       root              239 ./var/lib/opkg/info/ofono.postinst
 -rwxr-xr-x root       root              212 ./var/lib/opkg/info/ofono.prerm
 -rw-r--r-- root       root              980 ./var/lib/opkg/info/openssh-keygen.control
@@ -21829,9 +21841,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           129745 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5451717 ./var/lib/opkg/lists/oe-i586
--rw-r--r-- root       root           397221 ./var/lib/opkg/lists/oe-qemux86
--rw-r--r-- root       root           247135 ./var/lib/opkg/status
+-rw-r--r-- root       root          5462702 ./var/lib/opkg/lists/oe-i586
+-rw-r--r-- root       root           399020 ./var/lib/opkg/lists/oe-qemux86
+-rw-r--r-- root       root           247616 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
