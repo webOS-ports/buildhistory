@@ -34,7 +34,6 @@ digraph depends {
 "bc" -> "bc-lic" [style=dotted];
 "bc" -> "update-alternatives-opkg";
 "binutils" -> "binutils-lic" [style=dotted];
-"binutils" -> "libstdc++6";
 "binutils" -> "libz1";
 "binutils" -> "update-alternatives-opkg";
 "bluez4" -> "bluez4-lic" [style=dotted];
@@ -48,6 +47,7 @@ digraph depends {
 "busybox" -> "busybox-syslog" [style=dotted];
 "busybox" -> "busybox-udhcpc" [style=dotted];
 "busybox" -> "update-alternatives-opkg";
+"busybox" -> "update-rc.d" [style=dotted];
 "busybox-syslog" -> "update-alternatives-opkg";
 "bzip2" -> "bzip2-lic" [style=dotted];
 "bzip2" -> "libbz2-0";
@@ -72,6 +72,7 @@ digraph depends {
 "connman" -> "libglib-2.0-0";
 "connman" -> "libgnutls28";
 "connman" -> "ofono";
+"connman" -> "update-rc.d" [style=dotted];
 "connman" -> "wpa-supplicant";
 "connman" -> "xuser-account";
 "connman-client" -> "libdbus-1-3";
@@ -100,6 +101,7 @@ digraph depends {
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
 "dbus-1" -> "shadow";
+"dbus-1" -> "update-rc.d" [style=dotted];
 "dhcp-client" -> "bash";
 "dhcp-client" -> "libcrypto1.0.0";
 "directfb" -> "directfb-lic" [style=dotted];
@@ -1892,8 +1894,8 @@ digraph depends {
 "libpbnjson" -> "libgmp10";
 "libpbnjson" -> "libpbnjson-lic" [style=dotted];
 "libpbnjson" -> "libstdc++6";
+"libpbnjson" -> "libyajl2";
 "libpbnjson" -> "uriparser";
-"libpbnjson" -> "yajl";
 "libpixman-1-0" -> "libpixman-1-lic" [style=dotted];
 "libpmcertificatemgr2" -> "ca-certificates";
 "libpmcertificatemgr2" -> "libcrypto1.0.0";
@@ -2006,10 +2008,15 @@ digraph depends {
 "libxslt" -> "libxml2";
 "libxslt" -> "libxslt-lic" [style=dotted];
 "libxslt" -> "libz1";
+"libyajl2" -> "libyajl-lic" [style=dotted];
 "libz1" -> "libz-lic" [style=dotted];
 "loadable-frameworks" -> "loadable-frameworks-lic" [style=dotted];
 "locale-base-en-gb" -> "glibc-binary-localedata-en-gb";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
+"location-service" -> "libglib-2.0-0";
+"location-service" -> "libpbnjson";
+"location-service" -> "location-service-lic" [style=dotted];
+"location-service" -> "luna-service2";
 "lsb" -> "lsb-lic" [style=dotted];
 "lsb" -> "util-linux";
 "luna-applauncher" -> "luna-applauncher-lic" [style=dotted];
@@ -2220,11 +2227,13 @@ digraph depends {
 "ofono" -> "libudev1";
 "ofono" -> "mobile-broadband-provider-info";
 "ofono" -> "ofono-lic" [style=dotted];
+"ofono" -> "update-rc.d" [style=dotted];
 "openssh" -> "openssh-keygen";
 "openssh" -> "openssh-lic" [style=dotted];
 "openssh" -> "openssh-scp";
 "openssh" -> "openssh-ssh";
 "openssh" -> "openssh-sshd";
+"openssh" -> "update-rc.d" [style=dotted];
 "openssh-keygen" -> "libcrypto1.0.0";
 "openssh-scp" -> "update-alternatives-opkg";
 "openssh-ssh" -> "libcrypto1.0.0";
@@ -2297,6 +2306,7 @@ digraph depends {
 "org.webosports.cdav" -> "org.webosports.cdav-lic" [style=dotted];
 "org.webosports.service.devmode" -> "org.webosports.service.devmode-lic" [style=dotted];
 "org.webosports.service.licenses" -> "org.webosports.service.licenses-lic" [style=dotted];
+"org.webosports.service.messaging" -> "org.webosports.service.messaging-lic" [style=dotted];
 "org.webosports.service.update" -> "org.webosports.service.update-lic" [style=dotted];
 "os-release" -> "os-release-lic" [style=dotted];
 "packagegroup-core-boot" -> "base-files";
@@ -2414,6 +2424,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "gstreamer1.0-plugins-good-meta";
 "packagegroup-webos-ports-extended" -> "gstreamer1.0-plugins-ugly-meta";
 "packagegroup-webos-ports-extended" -> "keymanager";
+"packagegroup-webos-ports-extended" -> "location-service";
 "packagegroup-webos-ports-extended" -> "luna-appmanager";
 "packagegroup-webos-ports-extended" -> "luna-next-cardshell";
 "packagegroup-webos-ports-extended" -> "luna-qml-launcher";
@@ -2442,6 +2453,7 @@ digraph depends {
 "packagegroup-webos-ports-extended" -> "org.webosports.cdav";
 "packagegroup-webos-ports-extended" -> "org.webosports.service.devmode";
 "packagegroup-webos-ports-extended" -> "org.webosports.service.licenses";
+"packagegroup-webos-ports-extended" -> "org.webosports.service.messaging";
 "packagegroup-webos-ports-extended" -> "org.webosports.service.update";
 "packagegroup-webos-ports-extended" -> "packagegroup-webos-ports-extended-lic" [style=dotted];
 "packagegroup-webos-ports-extended" -> "pmcertificatemgr";
@@ -3004,6 +3016,7 @@ digraph depends {
 "qtwebkit-qmlplugins" -> "qtwebkit";
 "rdx-utils-stub" -> "rdx-utils-stub-lic" [style=dotted];
 "run-postinsts" -> "run-postinsts-lic" [style=dotted];
+"run-postinsts" -> "update-rc.d" [style=dotted];
 "sbc" -> "sbc-lic" [style=dotted];
 "screen" -> "base-files";
 "screen" -> "libtinfo5";
@@ -3061,6 +3074,7 @@ digraph depends {
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
+"systemd" -> "update-rc.d" [style=dotted];
 "systemd" -> "util-linux-agetty" [style=dotted];
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
@@ -3164,5 +3178,4 @@ digraph depends {
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 "xuser-account" -> "xuser-account-lic" [style=dotted];
-"yajl" -> "yajl-lic" [style=dotted];
 }
