@@ -101,8 +101,6 @@ drwxr-xr-x root       root             4096 ./boot
 -rw-r--r-- root       root          7462912 ./boot/boot.img
 lrwxrwxrwx root       root               19 ./boot/zImage -> /boot/zImage-3.0.31
 -rw-r--r-- root       root          4365068 ./boot/zImage-3.0.31
-drwxr-xr-x root       root             4096 ./build
--rw-r--r-- root       root               22 ./build/image-name
 drwxr-xr-x root       root             4096 ./data
 drwxr-xr-x root       root             4096 ./data/radio
 drwxr-xr-x root       root             4096 ./data/radio/log
@@ -221,7 +219,7 @@ lrwxrwxrwx root       root               50 ./etc/fonts/conf.d/80-delicious.conf
 lrwxrwxrwx root       root               50 ./etc/fonts/conf.d/90-synthetic.conf -> /usr/share/fontconfig/conf.avail/90-synthetic.conf
 -rw-r--r-- root       root              978 ./etc/fonts/conf.d/README
 -rw-r--r-- root       root             5493 ./etc/fonts/fonts.conf
--rw-r--r-- root       root              667 ./etc/fstab
+-rw-r--r-- root       root              674 ./etc/fstab
 -rw-r--r-- root       root              687 ./etc/group
 -rw------- root       root              687 ./etc/group-
 -r-------- root       root              571 ./etc/gshadow
@@ -314,6 +312,8 @@ drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.servi
 drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.service.contacts.linker
 -rwxr-xr-x root       root              669 ./etc/palm/activities/com.palm.service.contacts.linker/com.palm.service.contacts.linker.json
 -rw-r--r-- root       root              681 ./etc/palm/activities/com.palm.service.contacts/com.palm.service.contacts.sortorder.json
+drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.telephony
+-rw-r--r-- root       root              948 ./etc/palm/activities/com.palm.telephony/outgoing-sms.json
 drwxr-xr-x root       root             4096 ./etc/palm/activities/com.palm.tempdb
 -rw-r--r-- root       root              460 ./etc/palm/activities/com.palm.tempdb/activity-com.palm.tempdb.purge.json
 -rw-r--r-- root       root              471 ./etc/palm/activities/com.palm.tempdb/activity-com.palm.tempdb.space.json
@@ -325,6 +325,8 @@ drwxr-xr-x root       root             4096 ./etc/palm/activities/org.webosports
 drwxr-xr-x root       root             4096 ./etc/palm/backup
 -rw-r--r-- root       root              192 ./etc/palm/backup/backup-com.palm.db
 -rw-r--r-- root       root              117 ./etc/palm/backup/com.palm.systemservice.backupRegistration.json
+drwxr-xr-x root       root             4096 ./etc/palm/build
+-rw-r--r-- root       root               22 ./etc/palm/build/image-name
 drwxr-xr-x root       root             4096 ./etc/palm/db
 drwxr-xr-x root       root             4096 ./etc/palm/db/kinds
 -rw-r--r-- root       root               73 ./etc/palm/db/kinds/com.palm.activity
@@ -377,6 +379,7 @@ drwxr-xr-x root       root             4096 ./etc/palm/db/kinds/com.palm.service
 -rw-r--r-- root       root              129 ./etc/palm/db/kinds/com.palm.service.accounts/com.palm.firstlaunch
 -rw-r--r-- root       root              294 ./etc/palm/db/kinds/com.palm.service.calendar.reminders
 -rw-r--r-- root       root              118 ./etc/palm/db/kinds/com.palm.service.calendar.remindersstatus
+-rw-r--r-- root       root              366 ./etc/palm/db/kinds/com.palm.smsmessage
 -rw-r--r-- root       root              111 ./etc/palm/db/kinds/org.webosinternals.tweaks.prefs
 -rw-r--r-- root       root              563 ./etc/palm/db/kinds/org.webosports.calendar
 -rw-r--r-- root       root             1344 ./etc/palm/db/kinds/org.webosports.calendarevent
@@ -423,6 +426,7 @@ drwxr-xr-x root       root             4096 ./etc/palm/db/permissions
 drwxr-xr-x root       root             4096 ./etc/palm/db/permissions/com.palm.service.accounts
 -rw-r--r-- root       root              511 ./etc/palm/db/permissions/com.palm.service.accounts/com.palm.account
 -rw-r--r-- root       root              171 ./etc/palm/db/permissions/com.palm.service.accounts/com.palm.firstlaunch
+-rw-r--r-- root       root              379 ./etc/palm/db/permissions/com.palm.smsmessage
 -rw-r--r-- root       root              547 ./etc/palm/db/permissions/org.webosinternals.tweaks.prefs
 -rw-r--r-- root       root              301 ./etc/palm/db/permissions/org.webosports.cdav.account.calendar
 -rw-r--r-- root       root              608 ./etc/palm/db/permissions/org.webosports.cdav.account.config
@@ -1512,6 +1516,11 @@ drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rwxr-xr-x root       root            59684 ./lib/udev/scsi_id
 -rwxr-xr-x root       root             5800 ./lib/udev/v4l_id
 drwxr-xr-x root       root             4096 ./media
+drwxr-xr-x root       root             4096 ./media/cryptofs
+drwxr-xr-x root       root             4096 ./media/cryptofs/data
+drwxr-xr-x root       root             4096 ./media/cryptofs/data/db8
+drwx------ root       root             4096 ./media/cryptofs/data/db8/mediadb
+drwxrwxrwx root       root             4096 ./media/internal
 drwxr-xr-x root       root             4096 ./mnt
 drwxr-xr-x root       root             4096 ./proc
 drwxr-xr-x root       root             4096 ./run
@@ -2462,7 +2471,6 @@ lrwxrwxrwx root       root                7 ./system/xbin/xz -> busybox
 lrwxrwxrwx root       root                7 ./system/xbin/xzcat -> busybox
 lrwxrwxrwx root       root                7 ./system/xbin/yes -> busybox
 lrwxrwxrwx root       root                7 ./system/xbin/zcat -> busybox
-drwx------ root       root             4096 ./temp
 drwxrwxrwt root       root             4096 ./tmp
 drwxr-xr-x root       root             4096 ./usr
 drwxr-xr-x root       root             4096 ./usr/arm-webos-linux-gnueabi
@@ -3478,7 +3486,7 @@ lrwxrwxrwx root       root               17 ./usr/lib/libcjson.so.1 -> libcjson.
 -rwxr-xr-x root       root            20608 ./usr/lib/libcjson.so.1.8.0
 lrwxrwxrwx root       root               23 ./usr/lib/libconnman-qt5.so.1 -> libconnman-qt5.so.1.0.0
 lrwxrwxrwx root       root               23 ./usr/lib/libconnman-qt5.so.1.0 -> libconnman-qt5.so.1.0.0
--rwxr-xr-x root       root           369136 ./usr/lib/libconnman-qt5.so.1.0.0
+-rwxr-xr-x root       root           369152 ./usr/lib/libconnman-qt5.so.1.0.0
 lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so.5 -> libcurl.so.5.3.0
 -rwxr-xr-x root       root           305496 ./usr/lib/libcurl.so.5.3.0
 lrwxrwxrwx root       root               18 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.8.4
@@ -12071,6 +12079,7 @@ drwxr-xr-x root       root             4096 ./usr/palm/frameworks/underscore/ver
 -rw-r--r-- root       root               86 ./usr/palm/frameworks/underscore/version/1.0/manifest.json
 drwxr-xr-x root       root             4096 ./usr/palm/frameworks/webos
 -rw-r--r-- root       root             3777 ./usr/palm/frameworks/webos/webos-api.js
+drwxr-xr-x root       root             4096 ./usr/palm/ipkgs
 -rw-r--r-- root       root            31456 ./usr/palm/locale.txt
 drwxr-xr-x root       root             4096 ./usr/palm/luna-next
 drwxr-xr-x root       root             4096 ./usr/palm/luna-next/shells
@@ -15184,7 +15193,7 @@ drwxr-xr-x root       root             4096 ./usr/share/maliit/plugins/com/ubunt
 -rw-r--r-- root       root             4034 ./usr/share/maliit/plugins/com/ubuntu/lib/it/Keyboard_it_url_search.qml
 -rw-r--r-- root       root          7164928 ./usr/share/maliit/plugins/com/ubuntu/lib/it/database_it.db
 -rwxr-xr-x root       root            44312 ./usr/share/maliit/plugins/com/ubuntu/lib/it/libitalianplugin.so
--rw-r--r-- root       root          2009858 ./usr/share/maliit/plugins/com/ubuntu/lib/libwesternsupport.a
+-rw-r--r-- root       root          2009966 ./usr/share/maliit/plugins/com/ubuntu/lib/libwesternsupport.a
 drwxr-xr-x root       root             4096 ./usr/share/maliit/plugins/com/ubuntu/lib/nl
 -rw-r--r-- root       root             4011 ./usr/share/maliit/plugins/com/ubuntu/lib/nl/Keyboard_nl.qml
 -rw-r--r-- root       root             4032 ./usr/share/maliit/plugins/com/ubuntu/lib/nl/Keyboard_nl_email.qml
@@ -20523,6 +20532,8 @@ drwxr-xr-x root       root             4096 ./var/cache
 drwxr-xr-x root       root             4096 ./var/cache/fontconfig
 drwx------ root       root             4096 ./var/cache/ldconfig
 -rw------- root       root            17359 ./var/cache/ldconfig/aux-cache
+drwx------ root       root             4096 ./var/db
+drwx------ root       root             4096 ./var/db/temp
 drwxr-xr-x root       root             4096 ./var/lib
 drwxr-xr-x root       root             4096 ./var/lib/alsa
 -rw-r--r-- root       root               28 ./var/lib/alsa/asound.state
@@ -20611,7 +20622,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              114 ./var/lib/opkg/info/base-files-lic.list
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/base-files.conffiles
 -rw-r--r-- root       root              655 ./var/lib/opkg/info/base-files.control
--rw-r--r-- root       root              614 ./var/lib/opkg/info/base-files.list
+-rw-r--r-- root       root              792 ./var/lib/opkg/info/base-files.list
 -rw-r--r-- root       root              636 ./var/lib/opkg/info/base-passwd-lic.control
 -rw-r--r-- root       root              119 ./var/lib/opkg/info/base-passwd-lic.list
 -rw-r--r-- root       root              660 ./var/lib/opkg/info/base-passwd.control
@@ -20723,7 +20734,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              477 ./var/lib/opkg/info/db8-lic.control
 -rw-r--r-- root       root              103 ./var/lib/opkg/info/db8-lic.list
 -rw-r--r-- root       root              769 ./var/lib/opkg/info/db8.control
--rw-r--r-- root       root             2135 ./var/lib/opkg/info/db8.list
+-rw-r--r-- root       root             2113 ./var/lib/opkg/info/db8.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/db8.postinst
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles
 -rw-r--r-- root       root             1013 ./var/lib/opkg/info/dbus-1.control
@@ -21660,15 +21671,15 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              545 ./var/lib/opkg/info/libproxy.control
 -rw-r--r-- root       root              224 ./var/lib/opkg/info/libproxy.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libproxy.postinst
--rw-r--r-- root       root             1449 ./var/lib/opkg/info/libpulse-mainloop-glib0.control
+-rw-r--r-- root       root             1423 ./var/lib/opkg/info/libpulse-mainloop-glib0.control
 -rw-r--r-- root       root               78 ./var/lib/opkg/info/libpulse-mainloop-glib0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulse-mainloop-glib0.postinst
--rw-r--r-- root       root             1374 ./var/lib/opkg/info/libpulse0.control
+-rw-r--r-- root       root             1348 ./var/lib/opkg/info/libpulse0.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/libpulse0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulse0.postinst
--rw-r--r-- root       root             1335 ./var/lib/opkg/info/libpulsecommon.control
+-rw-r--r-- root       root             1309 ./var/lib/opkg/info/libpulsecommon.control
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/libpulsecommon.list
--rw-r--r-- root       root             1445 ./var/lib/opkg/info/libpulsecore.control
+-rw-r--r-- root       root             1419 ./var/lib/opkg/info/libpulsecore.control
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/libpulsecore.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpulsecore.postinst
 -rw-r--r-- root       root             1714 ./var/lib/opkg/info/libpython2.7-1.0.control
@@ -21880,7 +21891,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              441 ./var/lib/opkg/info/luna-next-cardshell-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/luna-next-cardshell-lic.list
 -rw-r--r-- root       root              612 ./var/lib/opkg/info/luna-next-cardshell.control
--rw-r--r-- root       root            23659 ./var/lib/opkg/info/luna-next-cardshell.list
+-rw-r--r-- root       root            23599 ./var/lib/opkg/info/luna-next-cardshell.list
 -rw-r--r-- root       root              331 ./var/lib/opkg/info/luna-next-conf-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/luna-next-conf-lic.list
 -rw-r--r-- root       root              358 ./var/lib/opkg/info/luna-next-conf.control
@@ -21907,7 +21918,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/luna-service2-lic.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/luna-service2-lic.list
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/luna-service2.control
--rw-r--r-- root       root             1242 ./var/lib/opkg/info/luna-service2.list
+-rw-r--r-- root       root             1231 ./var/lib/opkg/info/luna-service2.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/luna-service2.postinst
 -rw-r--r-- root       root              437 ./var/lib/opkg/info/luna-sysmgr-conf-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/luna-sysmgr-conf-lic.list
@@ -22195,7 +22206,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              376 ./var/lib/opkg/info/org.webosports.app.testr-lic.control
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/org.webosports.app.testr-lic.list
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/org.webosports.app.testr.control
--rw-r--r-- root       root             7173 ./var/lib/opkg/info/org.webosports.app.testr.list
+-rw-r--r-- root       root             7162 ./var/lib/opkg/info/org.webosports.app.testr.list
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/org.webosports.cdav-lic.control
 -rw-r--r-- root       root              149 ./var/lib/opkg/info/org.webosports.cdav-lic.list
 -rw-r--r-- root       root              495 ./var/lib/opkg/info/org.webosports.cdav.control
@@ -22331,68 +22342,68 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              146 ./var/lib/opkg/info/pulseaudio-distro-conf-lic.list
 -rw-r--r-- root       root              411 ./var/lib/opkg/info/pulseaudio-distro-conf.control
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/pulseaudio-distro-conf.list
--rw-r--r-- root       root             1494 ./var/lib/opkg/info/pulseaudio-lib-alsa-util.control
+-rw-r--r-- root       root             1468 ./var/lib/opkg/info/pulseaudio-lib-alsa-util.control
 -rw-r--r-- root       root               43 ./var/lib/opkg/info/pulseaudio-lib-alsa-util.list
--rw-r--r-- root       root             1417 ./var/lib/opkg/info/pulseaudio-lib-cli.control
+-rw-r--r-- root       root             1391 ./var/lib/opkg/info/pulseaudio-lib-cli.control
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/pulseaudio-lib-cli.list
--rw-r--r-- root       root             1473 ./var/lib/opkg/info/pulseaudio-lib-protocol-cli.control
+-rw-r--r-- root       root             1447 ./var/lib/opkg/info/pulseaudio-lib-protocol-cli.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/pulseaudio-lib-protocol-cli.list
--rw-r--r-- root       root             1453 ./var/lib/opkg/info/pulseaudio-lib-protocol-native.control
+-rw-r--r-- root       root             1427 ./var/lib/opkg/info/pulseaudio-lib-protocol-native.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pulseaudio-lib-protocol-native.list
--rw-r--r-- root       root             1418 ./var/lib/opkg/info/pulseaudio-misc.control
+-rw-r--r-- root       root             1392 ./var/lib/opkg/info/pulseaudio-misc.control
 -rw-r--r-- root       root              205 ./var/lib/opkg/info/pulseaudio-misc.list
--rw-r--r-- root       root             1577 ./var/lib/opkg/info/pulseaudio-module-alsa-card.control
+-rw-r--r-- root       root             1551 ./var/lib/opkg/info/pulseaudio-module-alsa-card.control
 -rw-r--r-- root       root             3194 ./var/lib/opkg/info/pulseaudio-module-alsa-card.list
--rw-r--r-- root       root             1530 ./var/lib/opkg/info/pulseaudio-module-alsa-sink.control
+-rw-r--r-- root       root             1504 ./var/lib/opkg/info/pulseaudio-module-alsa-sink.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/pulseaudio-module-alsa-sink.list
--rw-r--r-- root       root             1536 ./var/lib/opkg/info/pulseaudio-module-alsa-source.control
+-rw-r--r-- root       root             1510 ./var/lib/opkg/info/pulseaudio-module-alsa-source.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pulseaudio-module-alsa-source.list
--rw-r--r-- root       root             1442 ./var/lib/opkg/info/pulseaudio-module-always-sink.control
+-rw-r--r-- root       root             1416 ./var/lib/opkg/info/pulseaudio-module-always-sink.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pulseaudio-module-always-sink.list
--rw-r--r-- root       root             1463 ./var/lib/opkg/info/pulseaudio-module-augment-properties.control
+-rw-r--r-- root       root             1437 ./var/lib/opkg/info/pulseaudio-module-augment-properties.control
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/pulseaudio-module-augment-properties.list
--rw-r--r-- root       root             1445 ./var/lib/opkg/info/pulseaudio-module-card-restore.control
+-rw-r--r-- root       root             1419 ./var/lib/opkg/info/pulseaudio-module-card-restore.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/pulseaudio-module-card-restore.list
--rw-r--r-- root       root             1527 ./var/lib/opkg/info/pulseaudio-module-cli-protocol-unix.control
+-rw-r--r-- root       root             1501 ./var/lib/opkg/info/pulseaudio-module-cli-protocol-unix.control
 -rw-r--r-- root       root              103 ./var/lib/opkg/info/pulseaudio-module-cli-protocol-unix.list
--rw-r--r-- root       root             1475 ./var/lib/opkg/info/pulseaudio-module-default-device-restore.control
+-rw-r--r-- root       root             1449 ./var/lib/opkg/info/pulseaudio-module-default-device-restore.control
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/pulseaudio-module-default-device-restore.list
--rw-r--r-- root       root             1427 ./var/lib/opkg/info/pulseaudio-module-detect.control
+-rw-r--r-- root       root             1401 ./var/lib/opkg/info/pulseaudio-module-detect.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/pulseaudio-module-detect.list
--rw-r--r-- root       root             1492 ./var/lib/opkg/info/pulseaudio-module-device-restore.control
+-rw-r--r-- root       root             1466 ./var/lib/opkg/info/pulseaudio-module-device-restore.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/pulseaudio-module-device-restore.list
--rw-r--r-- root       root             1445 ./var/lib/opkg/info/pulseaudio-module-filter-apply.control
+-rw-r--r-- root       root             1419 ./var/lib/opkg/info/pulseaudio-module-filter-apply.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/pulseaudio-module-filter-apply.list
--rw-r--r-- root       root             1460 ./var/lib/opkg/info/pulseaudio-module-filter-heuristics.control
+-rw-r--r-- root       root             1434 ./var/lib/opkg/info/pulseaudio-module-filter-heuristics.control
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/pulseaudio-module-filter-heuristics.list
--rw-r--r-- root       root             1451 ./var/lib/opkg/info/pulseaudio-module-intended-roles.control
+-rw-r--r-- root       root             1425 ./var/lib/opkg/info/pulseaudio-module-intended-roles.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/pulseaudio-module-intended-roles.list
--rw-r--r-- root       root             1510 ./var/lib/opkg/info/pulseaudio-module-native-protocol-unix.control
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/pulseaudio-module-native-protocol-unix.control
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/pulseaudio-module-native-protocol-unix.list
--rw-r--r-- root       root             1436 ./var/lib/opkg/info/pulseaudio-module-null-sink.control
+-rw-r--r-- root       root             1410 ./var/lib/opkg/info/pulseaudio-module-null-sink.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/pulseaudio-module-null-sink.list
--rw-r--r-- root       root             1472 ./var/lib/opkg/info/pulseaudio-module-position-event-sounds.control
+-rw-r--r-- root       root             1446 ./var/lib/opkg/info/pulseaudio-module-position-event-sounds.control
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/pulseaudio-module-position-event-sounds.list
--rw-r--r-- root       root             1451 ./var/lib/opkg/info/pulseaudio-module-rescue-streams.control
+-rw-r--r-- root       root             1425 ./var/lib/opkg/info/pulseaudio-module-rescue-streams.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/pulseaudio-module-rescue-streams.list
--rw-r--r-- root       root             1436 ./var/lib/opkg/info/pulseaudio-module-role-cork.control
+-rw-r--r-- root       root             1410 ./var/lib/opkg/info/pulseaudio-module-role-cork.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/pulseaudio-module-role-cork.list
--rw-r--r-- root       root             1492 ./var/lib/opkg/info/pulseaudio-module-stream-restore.control
+-rw-r--r-- root       root             1466 ./var/lib/opkg/info/pulseaudio-module-stream-restore.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/pulseaudio-module-stream-restore.list
--rw-r--r-- root       root             1454 ./var/lib/opkg/info/pulseaudio-module-suspend-on-idle.control
+-rw-r--r-- root       root             1428 ./var/lib/opkg/info/pulseaudio-module-suspend-on-idle.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/pulseaudio-module-suspend-on-idle.list
--rw-r--r-- root       root             1460 ./var/lib/opkg/info/pulseaudio-module-switch-on-connect.control
+-rw-r--r-- root       root             1434 ./var/lib/opkg/info/pulseaudio-module-switch-on-connect.control
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/pulseaudio-module-switch-on-connect.list
--rw-r--r-- root       root             1481 ./var/lib/opkg/info/pulseaudio-module-switch-on-port-available.control
+-rw-r--r-- root       root             1455 ./var/lib/opkg/info/pulseaudio-module-switch-on-port-available.control
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/pulseaudio-module-switch-on-port-available.list
--rw-r--r-- root       root             1477 ./var/lib/opkg/info/pulseaudio-module-udev-detect.control
+-rw-r--r-- root       root             1451 ./var/lib/opkg/info/pulseaudio-module-udev-detect.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/pulseaudio-module-udev-detect.list
 -rw-r--r-- root       root              386 ./var/lib/opkg/info/pulseaudio-modules-droid-lic.control
 -rw-r--r-- root       root              161 ./var/lib/opkg/info/pulseaudio-modules-droid-lic.list
 -rw-r--r-- root       root              743 ./var/lib/opkg/info/pulseaudio-modules-droid.control
 -rw-r--r-- root       root              333 ./var/lib/opkg/info/pulseaudio-modules-droid.list
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/pulseaudio-server.conffiles
--rw-r--r-- root       root             2256 ./var/lib/opkg/info/pulseaudio-server.control
+-rw-r--r-- root       root             2230 ./var/lib/opkg/info/pulseaudio-server.control
 -rw-r--r-- root       root              340 ./var/lib/opkg/info/pulseaudio-server.list
 -rwxr-xr-x root       root              365 ./var/lib/opkg/info/pulseaudio-server.postinst
 -rwxr-xr-x root       root             5601 ./var/lib/opkg/info/pulseaudio-server.preinst
@@ -22763,7 +22774,7 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 -rw-r--r-- root       root              383 ./var/lib/opkg/info/webos-telephonyd-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/webos-telephonyd-lic.list
 -rw-r--r-- root       root              600 ./var/lib/opkg/info/webos-telephonyd.control
--rw-r--r-- root       root              352 ./var/lib/opkg/info/webos-telephonyd.list
+-rw-r--r-- root       root              628 ./var/lib/opkg/info/webos-telephonyd.list
 -rw-r--r-- root       root              681 ./var/lib/opkg/info/wireless-tools-lic.control
 -rw-r--r-- root       root              417 ./var/lib/opkg/info/wireless-tools-lic.list
 -rw-r--r-- root       root              733 ./var/lib/opkg/info/wireless-tools.control
@@ -22793,8 +22804,8 @@ drwxr-xr-x root       root           114688 ./var/lib/opkg/info
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists
 -rw-r--r-- 1026       1026                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           129869 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5758867 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
--rw-r--r-- root       root           228246 ./var/lib/opkg/lists/oe-maguro
+-rw-r--r-- root       root          5755435 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
+-rw-r--r-- root       root           230046 ./var/lib/opkg/lists/oe-maguro
 -rw-r--r-- root       root           257933 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
@@ -22803,6 +22814,7 @@ lrwxrwxrwx root       root               12 ./var/log -> volatile/log
 drwxr-xr-x root       root             4096 ./var/luna
 -rw-r--r-- root       root                0 ./var/luna/dev-mode-enabled
 drwxr-xr-x root       root             4096 ./var/opt
+drwxr-xr-x root       root             4096 ./var/preferences
 lrwxrwxrwx root       root                6 ./var/run -> ../run
 drwxr-xr-x root       root             4096 ./var/spool
 drwxr-xr-x root       root             4096 ./var/spool/mail
