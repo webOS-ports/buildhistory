@@ -6,9 +6,9 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS enable load-ath6kl-module.service
+	systemctl $OPTS enable tenderloin-ath6kl-module.service tenderloin-swap.service
 
 	if [ -z "$D" -a "enable" = "enable" ]; then
-		systemctl restart load-ath6kl-module.service
+		systemctl restart tenderloin-ath6kl-module.service tenderloin-swap.service
 	fi
 fi
