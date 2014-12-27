@@ -40,7 +40,7 @@ lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            68584 ./bin/login.shadow
 -rwxr-xr-x root       root           333552 ./bin/loginctl
 lrwxrwxrwx root       root               19 ./bin/ls -> /bin/busybox.nosuid
--rwxr-xr-x root       root            14619 ./bin/lsb_release
+-rwxr-xr-x root       root            14629 ./bin/lsb_release
 lrwxrwxrwx root       root               15 ./bin/lsmod -> /bin/lsmod.kmod
 lrwxrwxrwx root       root               11 ./bin/lsmod.kmod -> ../bin/kmod
 -rwxr-xr-x root       root           300784 ./bin/machinectl
@@ -115,6 +115,9 @@ drwxr-xr-x root       root              140 ./etc/bluetooth
 drwxr-xr-x root       root               60 ./etc/ca-certificates
 -rw-r--r-- root       root             7238 ./etc/ca-certificates.conf
 drwxr-xr-x root       root               40 ./etc/ca-certificates/update.d
+drwxr-xr-x root       root               80 ./etc/connman
+-rw-r--r-- root       root               13 ./etc/connman/environment.conf
+-rw-r--r-- root       root              161 ./etc/connman/main.conf
 drwxr-xr-x root       root              120 ./etc/core-lsb
 -rwxr-xr-x root       root               68 ./etc/core-lsb/lsb_killproc
 -rwxr-xr-x root       root              241 ./etc/core-lsb/lsb_log_message
@@ -207,7 +210,7 @@ lrwxrwxrwx root       root               50 ./etc/fonts/conf.d/80-delicious.conf
 lrwxrwxrwx root       root               50 ./etc/fonts/conf.d/90-synthetic.conf -> /usr/share/fontconfig/conf.avail/90-synthetic.conf
 -rw-r--r-- root       root              978 ./etc/fonts/conf.d/README
 -rw-r--r-- root       root             5464 ./etc/fonts/fonts.conf
--rw-r--r-- root       root              717 ./etc/fstab
+-rw-r--r-- root       root              804 ./etc/fstab
 drwxr-xr-x root       root              140 ./etc/gconf
 drwxr-xr-x root       root               60 ./etc/gconf/2
 -rw-r--r-- root       root             1448 ./etc/gconf/2/path
@@ -262,8 +265,8 @@ drwxr-xr-x root       root               40 ./etc/gconf/gconf.xml.mandatory
 drwxr-xr-x root       root               40 ./etc/gconf/gconf.xml.system
 drwxr-xr-x root       root               60 ./etc/gconf/schemas
 -rw-r--r-- root       root           423514 ./etc/gconf/schemas/purple.schemas
--rw-r--r-- root       root              656 ./etc/group
--rw------- root       root              656 ./etc/group-
+-rw-r--r-- root       root              658 ./etc/group
+-rw------- root       root              658 ./etc/group-
 -r-------- root       root              550 ./etc/gshadow
 -rw-r--r-- root       root               26 ./etc/host.conf
 -rw-r--r-- root       root                8 ./etc/hostname
@@ -308,18 +311,13 @@ drwxr-xr-x root       root               80 ./etc/libnl
 lrwxrwxrwx root       root               29 ./etc/localtime -> /usr/share/zoneinfo/Universal
 -rw-r--r-- root       root             2006 ./etc/login.access
 -rw-r--r-- root       root            10928 ./etc/login.defs
--rw-r--r-- root       root              115 ./etc/lsb-release
-drwxr-xr-x root       root              120 ./etc/lsb-release.d
--rw-r--r-- root       root                0 ./etc/lsb-release.d/desktop-4.1-ia32
--rw-r--r-- root       root                0 ./etc/lsb-release.d/desktop-4.1-noarch
--rw-r--r-- root       root                0 ./etc/lsb-release.d/graphics-4.1-ia32
--rw-r--r-- root       root                0 ./etc/lsb-release.d/graphics-4.1-noarch
 drwxr-xr-x root       root               80 ./etc/luna-next
 -rw-r--r-- root       root              283 ./etc/luna-next/environment.conf
 -rw-r--r-- root       root               36 ./etc/luna-next/maliit-env.conf
 drwxr-xr-x root       root               80 ./etc/luna-service2
 -rw-r--r-- root       root             1431 ./etc/luna-service2/ls-private.conf
 -rw-r--r-- root       root             1424 ./etc/luna-service2/ls-public.conf
+-rw-r--r-- root       root               52 ./etc/luneos-release
 -rw-r--r-- root       root                0 ./etc/machine-id
 -rw-r--r-- root       root              956 ./etc/mke2fs.conf
 drwxr-xr-x root       root               40 ./etc/modprobe.d
@@ -341,13 +339,12 @@ drwxr-xr-x root       root               60 ./etc/network/if-pre-up.d
 drwxr-xr-x root       root               80 ./etc/ofono
 -rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
 -rw-r--r-- root       root              344 ./etc/ofono/ril_subscription.conf
-drwxr-xr-x root       root              160 ./etc/opkg
+drwxr-xr-x root       root              140 ./etc/opkg
 -rw-r--r-- root       root               81 ./etc/opkg/all-feed.conf
 -rw-r--r-- root       root               78 ./etc/opkg/arch.conf
 -rw-r--r-- root       root               83 ./etc/opkg/i586-feed.conf
 -rw-r--r-- root       root              791 ./etc/opkg/opkg.conf
 -rw-r--r-- root       root               89 ./etc/opkg/qemux86-feed.conf
--rw-r--r-- root       root               81 ./etc/opkg/x86-feed.conf
 drwxr-xr-x root       root               40 ./etc/opt
 -rw-r--r-- root       root               72 ./etc/os-release
 drwxr-xr-x root       root              520 ./etc/palm
@@ -538,8 +535,8 @@ drwxr-xr-x root       root               80 ./etc/palm/tempdb/permissions/com.pa
 -rw-r--r-- root       root              185 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.account.syncstate
 -rw-r--r-- root       root              178 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.signaling
 -rw-r--r-- root       root            22550 ./etc/palm/timezone.txt
--rw-r--r-- root       root              964 ./etc/passwd
--rw------- root       root              963 ./etc/passwd-
+-rw-r--r-- root       root              969 ./etc/passwd
+-rw------- root       root              968 ./etc/passwd-
 drwxr-xr-x root       root               80 ./etc/pmlog.d
 -rw-r--r-- root       root             1396 ./etc/pmlog.d/default.conf
 -rw-r--r-- root       root              624 ./etc/pmlog.d/ls-hub.conf
@@ -580,7 +577,213 @@ drwxr-xr-x root       root              120 ./etc/ssh
 -rw-r--r-- root       root             3274 ./etc/ssh/sshd_config
 -rw-r--r-- root       root             3225 ./etc/ssh/sshd_config_readonly
 drwxr-xr-x root       root               80 ./etc/ssl
-drwxr-xr-x root       root             3420 ./etc/ssl/certs
+drwxr-xr-x root       root            10140 ./etc/ssl/certs
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/00673b5b.0 -> thawte_Primary_Root_CA.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/024dc131.0 -> Microsec_e-Szigno_Root_CA.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/02b73561.0 -> Comodo_Secure_Services_root.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/034868d6.0 -> Swisscom_Root_EV_CA_2.pem
+lrwxrwxrwx root       root               50 ./etc/ssl/certs/039c618a.0 -> TURKTRUST_Certificate_Services_Provider_Root_2.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/052e396b.0 -> AddTrust_Qualified_Certificates_Root.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/062cdee6.0 -> GlobalSign_Root_CA_-_R3.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/080911ac.0 -> QuoVadis_Root_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/0810ba98.0 -> Root_CA_Generalitat_Valenciana.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/08aef7bb.0 -> WellsSecure_Public_Root_Certificate_Authority.pem
+lrwxrwxrwx root       root               54 ./etc/ssl/certs/09789157.0 -> Starfield_Services_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               55 ./etc/ssl/certs/0b759015.0 -> E-Guven_Kok_Elektronik_Sertifika_Hizmet_Saglayicisi.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/0ba01d19.0 -> SG_TRUST_SERVICES_RACINE.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/0c4c9b6c.0 -> Global_Chambersign_Root_-_2008.pem
+lrwxrwxrwx root       root               55 ./etc/ssl/certs/0d188d89.0 -> E-Guven_Kok_Elektronik_Sertifika_Hizmet_Saglayicisi.pem
+lrwxrwxrwx root       root               57 ./etc/ssl/certs/0d1b923b.0 -> S-TRUST_Authentication_and_Encryption_Root_CA_2005_PN.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/0dad9736.0 -> SG_TRUST_SERVICES_RACINE.pem
+lrwxrwxrwx root       root               54 ./etc/ssl/certs/10531352.0 -> Starfield_Services_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/111e6273.0 -> GlobalSign_Root_CA_-_R2.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/116bf586.0 -> GeoTrust_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               11 ./etc/ssl/certs/119afc2e.0 -> Juur-SK.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/11f154d6.0 -> Verisign_Class_1_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/124bbd54.0 -> Comodo_Trusted_Services_root.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/128805a3.0 -> EE_Certification_Centre_Root_CA.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/12d55845.0 -> DST_Root_CA_X3.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/157753a5.0 -> AddTrust_External_Root.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/1636090b.0 -> Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+lrwxrwxrwx root       root               66 ./etc/ssl/certs/1676090a.0 -> China_Internet_Network_Information_Center_EV_Certificates_Root.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/17b51fe6.0 -> Certplus_Class_2_Primary_CA.pem
+lrwxrwxrwx root       root               66 ./etc/ssl/certs/1874d4aa.0 -> China_Internet_Network_Information_Center_EV_Certificates_Root.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/18856ac4.0 -> SecureSign_RootCA11.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/1dac3003.0 -> DST_ACES_CA_X6.pem
+lrwxrwxrwx root       root               15 ./etc/ssl/certs/1dcd6f4c.0 -> Taiwan_GRCA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/1df5a75f.0 -> D-TRUST_Root_Class_3_CA_2_2009.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/1e09d511.0 -> T-TeleSec_GlobalRoot_Class_2.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/1e1eab7c.0 -> T-TeleSec_GlobalRoot_Class_3.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/1e8e7201.0 -> GlobalSign_Root_CA_-_R3.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/1eb37bdf.0 -> Chambers_of_Commerce_Root_-_2008.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/1ec4d31a.0 -> Verisign_Class_3_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/201cada0.0 -> America_Online_Root_Certification_Authority_2.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/20d096ba.0 -> ValiCert_Class_1_VA.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/21855f49.0 -> CA_Disig_Root_R1.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/219d9499.0 -> Go_Daddy_Class_2_CA.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/2251b13a.0 -> ComSign_Secured_CA.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/23f4c490.0 -> Starfield_Class_2_CA.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/244b5494.0 -> DigiCert_High_Assurance_EV_Root_CA.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/24ad0b63.0 -> Verisign_Class_1_Public_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/27af790d.0 -> GeoTrust_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/2ab3b959.0 -> NetLock_Express_=Class_C=_Root.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/2ae6433e.0 -> CA_Disig_Root_R2.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/2afc57aa.0 -> TC_TrustCenter_Class_2_CA_II.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/2b349938.0 -> AffirmTrust_Commercial.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/2c543cd1.0 -> GeoTrust_Global_CA.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/2d9dafe4.0 -> Buypass_Class_3_Root_CA.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/2e4eed3c.0 -> thawte_Primary_Root_CA.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/2e5ac55d.0 -> DST_Root_CA_X3.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/2edf7016.0 -> Verisign_Class_1_Public_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/2fa87019.0 -> Network_Solutions_Certificate_Authority.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/2fb1850a.0 -> America_Online_Root_Certification_Authority_2.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/33815e15.0 -> StartCom_Certification_Authority.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/33815e15.1 -> StartCom_Certification_Authority_2.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/343eb6cb.0 -> Cybertrust_Global_Root.pem
+lrwxrwxrwx root       root               10 ./etc/ssl/certs/349f2832.0 -> EC-ACC.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/3513523f.0 -> DigiCert_Global_Root_CA.pem
+lrwxrwxrwx root       root               17 ./etc/ssl/certs/381ce4dd.0 -> ACEDICOM_Root.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/399e7759.0 -> DigiCert_Global_Root_CA.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/3a3b02ce.0 -> OISTE_WISeKey_Global_Root_GA_CA.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+lrwxrwxrwx root       root               51 ./etc/ssl/certs/3b2716e5.0 -> EBG_Elektronik_Sertifika_Hizmet_Sağlayıcısı.pem
+lrwxrwxrwx root       root               61 ./etc/ssl/certs/3bde41ac.0 -> Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/3c58f906.0 -> AddTrust_External_Root.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/3c860d51.0 -> SwissSign_Gold_CA_-_G2.pem
+lrwxrwxrwx root       root               13 ./etc/ssl/certs/3c9a4d3b.0 -> ACCVRAIZ1.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/3d441de8.0 -> Staat_der_Nederlanden_Root_CA_-_G2.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/3e45d192.0 -> Hongkong_Post_Root_CA_1.pem
+lrwxrwxrwx root       root               45 ./etc/ssl/certs/3e7271e8.0 -> Entrust.net_Premium_2048_Secure_Server_CA.pem
+lrwxrwxrwx root       root                9 ./etc/ssl/certs/3ee7e181.0 -> IGC_A.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/3efd4dc0.0 -> Swisscom_Root_CA_2.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/40547a79.0 -> COMODO_Certification_Authority.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/40dc992e.0 -> Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/415660c1.0 -> Verisign_Class_3_Public_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               61 ./etc/ssl/certs/415660c1.1 -> Verisign_Class_3_Public_Primary_Certification_Authority_2.pem
+lrwxrwxrwx root       root               69 ./etc/ssl/certs/418595b9.0 -> TÜBİTAK_UEKAE_Kök_Sertifika_Hizmet_Sağlayıcısı_-_Sürüm_3.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/4304c5e5.0 -> Network_Solutions_Certificate_Authority.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/442adcac.0 -> Certum_Root_CA.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/450c6e38.0 -> Swisscom_Root_CA_2.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/46b2fd3b.0 -> SwissSign_Platinum_CA_-_G2.pem
+lrwxrwxrwx root       root               44 ./etc/ssl/certs/480720ec.0 -> GeoTrust_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/48a195d8.0 -> Izenpe.com.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/48bec511.0 -> Certum_Trusted_Network_CA.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/4a6481c9.0 -> GlobalSign_Root_CA_-_R2.pem
+lrwxrwxrwx root       root               45 ./etc/ssl/certs/4bfab552.0 -> Starfield_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/4d654d1d.0 -> GTE_CyberTrust_Global_Root.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/4e18c148.0 -> Deutsche_Telekom_Root_CA_2.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/4f316efb.0 -> SwissSign_Gold_CA_-_G2.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/4fbd6bfa.0 -> UTN_DATACorp_SGC_Root_CA.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/5021a0a2.0 -> TC_TrustCenter_Universal_CA_I.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/5046c355.0 -> SwissSign_Silver_CA_-_G2.pem
+lrwxrwxrwx root       root               51 ./etc/ssl/certs/524d9b43.0 -> VeriSign_Universal_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/5273a94c.0 -> E-Tugra_Certification_Authority.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/5443e9e3.0 -> T-TeleSec_GlobalRoot_Class_3.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/54657681.0 -> Buypass_Class_2_Root_CA.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/55a10908.0 -> ValiCert_Class_2_VA.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/5620c4aa.0 -> TC_TrustCenter_Class_3_CA_II.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/56657bde.0 -> Comodo_Trusted_Services_root.pem
+lrwxrwxrwx root       root               50 ./etc/ssl/certs/56b8a0b6.0 -> TURKTRUST_Certificate_Services_Provider_Root_2.pem
+lrwxrwxrwx root       root               19 ./etc/ssl/certs/56e29e75.0 -> spi-cacert-2008.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/57692373.0 -> GeoTrust_Global_CA_2.pem
+lrwxrwxrwx root       root               21 ./etc/ssl/certs/578d5c04.0 -> Equifax_Secure_CA.pem
+lrwxrwxrwx root       root               39 ./etc/ssl/certs/57bbd831.0 -> ApplicationCA_-_Japanese_Government.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/57bcb2da.0 -> SwissSign_Silver_CA_-_G2.pem
+lrwxrwxrwx root       root                9 ./etc/ssl/certs/58a44af1.0 -> IGC_A.pem
+lrwxrwxrwx root       root               53 ./etc/ssl/certs/592c0a9a.0 -> TURKTRUST_Certificate_Services_Provider_Root_2007.pem
+lrwxrwxrwx root       root               21 ./etc/ssl/certs/594f1775.0 -> Equifax_Secure_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/5a3f0ff8.0 -> COMODO_Certification_Authority.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/5a5372fc.0 -> NetLock_Business_=Class_B=_Root.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/5ad8a5d6.0 -> GlobalSign_Root_CA.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/5c44d531.0 -> Staat_der_Nederlanden_Root_CA_-_G2.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/5cd81ad7.0 -> TeliaSonera_Root_CA_v1.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/5cf9d536.0 -> QuoVadis_Root_CA.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/5e4e69e7.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_-_G4.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/5f15c80c.0 -> TWCA_Global_Root_CA.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/5f267794.0 -> Entrust.net_Secure_Server_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/5f47b495.0 -> Actalis_Authentication_Root_CA.pem
+lrwxrwxrwx root       root               48 ./etc/ssl/certs/60afe812.0 -> NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/635ccfd5.0 -> NetLock_Express_=Class_C=_Root.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/63a2c897.0 -> TeliaSonera_Root_CA_v1.pem
+lrwxrwxrwx root       root               15 ./etc/ssl/certs/6410666e.0 -> Taiwan_GRCA.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/653b494a.0 -> Baltimore_CyberTrust_Root.pem
+lrwxrwxrwx root       root               69 ./etc/ssl/certs/65b876bd.0 -> TÜBİTAK_UEKAE_Kök_Sertifika_Hizmet_Sağlayıcısı_-_Sürüm_3.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/667c66d4.0 -> Swisscom_Root_CA_1.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/67495436.0 -> thawte_Primary_Root_CA_-_G3.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/67d559d1.0 -> Sonera_Class_1_Root_CA.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/69105f4f.0 -> DigiCert_Assured_ID_Root_CA.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/6b99d060.0 -> Entrust_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/6cc3c4c3.0 -> Thawte_Server_CA.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/6e8bf996.0 -> Certum_Root_CA.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/6f2c1157.0 -> AC_Raíz_Certicámara_S.A..pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/6fcc125d.0 -> Visa_eCommerce_Root.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/706f604c.0 -> XRamp_Global_CA_Root.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/72f369af.0 -> Buypass_Class_2_CA_1.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/72fa7371.0 -> Verisign_Class_3_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/74c26bd0.0 -> Equifax_Secure_Global_eBusiness_CA.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/755f7420.0 -> Sonera_Class_1_Root_CA.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/75680d2e.0 -> Comodo_AAA_Services_root.pem
+lrwxrwxrwx root       root               59 ./etc/ssl/certs/7651b327.0 -> Verisign_Class_3_Public_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               61 ./etc/ssl/certs/7651b327.1 -> Verisign_Class_3_Public_Primary_Certification_Authority_2.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/76579174.0 -> XRamp_Global_CA_Root.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/7672ac4b.0 -> Certinomis_-_Autorité_Racine.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/76cb8f92.0 -> Cybertrust_Global_Root.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/76faf6c0.0 -> QuoVadis_Root_CA_3.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/778e3cb0.0 -> UTN_DATACorp_SGC_Root_CA.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/790a7190.0 -> DST_ACES_CA_X6.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/7999be0d.0 -> GeoTrust_Global_CA.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/79ad8b43.0 -> Equifax_Secure_eBusiness_CA_1.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/7a481e66.0 -> TC_TrustCenter_Class_3_CA_II.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/7a819ef2.0 -> QuoVadis_Root_CA_2.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/7d0b38bd.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_-_G4.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/7d3cd826.0 -> RSA_Root_Certificate_1.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/7d453d8f.0 -> Verisign_Class_3_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/7d5a75e4.0 -> WellsSecure_Public_Root_Certificate_Authority.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/812e17de.0 -> Deutsche_Telekom_Root_CA_2.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/8160b96c.0 -> Microsec_e-Szigno_Root_CA_2009.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/81b9768f.0 -> DigiCert_High_Assurance_EV_Root_CA.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/82223c44.0 -> Buypass_Class_2_Root_CA.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/8317b10c.0 -> NetLock_Qualified_=Class_QA=_Root.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/8470719d.0 -> RSA_Security_2048_v3.pem
+lrwxrwxrwx root       root               50 ./etc/ssl/certs/84cba82f.0 -> TURKTRUST_Certificate_Services_Provider_Root_1.pem
+lrwxrwxrwx root       root               45 ./etc/ssl/certs/85cde254.0 -> Starfield_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/861a399d.0 -> AddTrust_Low-Value_Services_Root.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/861e0100.0 -> NetLock_Qualified_=Class_QA=_Root.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/86212b19.0 -> AffirmTrust_Networking.pem
+lrwxrwxrwx root       root               39 ./etc/ssl/certs/876f1e28.0 -> StartCom_Certification_Authority_G2.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/87753b0d.0 -> GeoTrust_Universal_CA_2.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/882de061.0 -> certSIGN_ROOT_CA.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/8867006a.0 -> GeoTrust_Universal_CA_2.pem
+lrwxrwxrwx root       root               50 ./etc/ssl/certs/88f89ea7.0 -> TURKTRUST_Certificate_Services_Provider_Root_1.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/895cad1a.0 -> CNNIC_ROOT.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/89c02a45.0 -> COMODO_ECC_Certification_Authority.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/8b59b1ad.0 -> AddTrust_Public_Services_Root.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/8c24b137.0 -> PSCProcert.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/8d86cdd1.0 -> certSIGN_ROOT_CA.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/8e52d3cd.0 -> Buypass_Class_3_CA_1.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/9007ae68.0 -> CA_Disig_Root_R1.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/91739615.0 -> EE_Certification_Centre_Root_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/930ac5d2.0 -> Actalis_Authentication_Root_CA.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/9339512a.0 -> QuoVadis_Root_CA_3.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/93bc0acc.0 -> AffirmTrust_Networking.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/9576d26b.0 -> CA_Disig_Root_R2.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/95aff9e3.0 -> Certum_Trusted_Network_CA.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/9685a493.0 -> Hongkong_Post_Root_CA_1.pem
+lrwxrwxrwx root       root               44 ./etc/ssl/certs/9772ca32.0 -> GeoTrust_Primary_Certification_Authority.pem
+lrwxrwxrwx root       root               48 ./etc/ssl/certs/988a38cb.0 -> NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/98ec67f0.0 -> Thawte_Premium_Server_CA.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/9ab62355.0 -> Swisscom_Root_EV_CA_2.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/9af9f759.0 -> RSA_Root_Certificate_1.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/9b353c9a.0 -> TDC_Internet_Root_CA.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/9c2e7d30.0 -> Sonera_Class_2_Root_CA.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/9c472bf7.0 -> A-Trust-nQual-03.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/9c8dfbd4.0 -> AffirmTrust_Premium_ECC.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/9d520b32.0 -> Security_Communication_EV_RootCA1.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/9d6523ce.0 -> ePKI_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/9dbefe7b.0 -> Security_Communication_EV_RootCA1.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/9ec3a561.0 -> UTN_USERFirst_Email_Root_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/9f533518.0 -> Global_Chambersign_Root_-_2008.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/9f541fb4.0 -> Digital_Signature_Trust_Co._Global_CA_3.pem
 lrwxrwxrwx root       root               55 ./etc/ssl/certs/A-Trust-nQual-03.pem -> /usr/share/ca-certificates/mozilla/A-Trust-nQual-03.crt
 lrwxrwxrwx root       root               48 ./etc/ssl/certs/ACCVRAIZ1.pem -> /usr/share/ca-certificates/mozilla/ACCVRAIZ1.crt
 lrwxrwxrwx root       root               52 ./etc/ssl/certs/ACEDICOM_Root.pem -> /usr/share/ca-certificates/mozilla/ACEDICOM_Root.crt
@@ -743,9 +946,139 @@ lrwxrwxrwx root       root               99 ./etc/ssl/certs/Verisign_Class_4_Pub
 lrwxrwxrwx root       root               58 ./etc/ssl/certs/Visa_eCommerce_Root.pem -> /usr/share/ca-certificates/mozilla/Visa_eCommerce_Root.crt
 lrwxrwxrwx root       root               84 ./etc/ssl/certs/WellsSecure_Public_Root_Certificate_Authority.pem -> /usr/share/ca-certificates/mozilla/WellsSecure_Public_Root_Certificate_Authority.crt
 lrwxrwxrwx root       root               59 ./etc/ssl/certs/XRamp_Global_CA_Root.pem -> /usr/share/ca-certificates/mozilla/XRamp_Global_CA_Root.crt
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/a0bc6fbb.0 -> Camerfirma_Global_Chambersign_Root.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/a15b3b6b.0 -> Digital_Signature_Trust_Co._Global_CA_3.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/a2df7ad7.0 -> AddTrust_Public_Services_Root.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/a3896b44.0 -> Security_Communication_Root_CA.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/a5fd78f0.0 -> TC_TrustCenter_Class_2_CA_II.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/a6a593ba.0 -> Digital_Signature_Trust_Co._Global_CA_1.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/a7605362.0 -> Sonera_Class_2_Root_CA.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/a760e1bd.0 -> Visa_eCommerce_Root.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/a7d2cf64.0 -> thawte_Primary_Root_CA_-_G2.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/a8dee976.0 -> SwissSign_Platinum_CA_-_G2.pem
+lrwxrwxrwx root       root               13 ./etc/ssl/certs/a94d09e5.0 -> ACCVRAIZ1.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/ab5346f4.0 -> SecureSign_RootCA11.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/ad088e1d.0 -> GeoTrust_Universal_CA.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/add67345.0 -> NetLock_Notary_=Class_A=_Root.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/ae8153b9.0 -> StartCom_Certification_Authority.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/ae8153b9.1 -> StartCom_Certification_Authority_2.pem
+lrwxrwxrwx root       root               10 ./etc/ssl/certs/aeb67534.0 -> EC-ACC.pem
+lrwxrwxrwx root       root               45 ./etc/ssl/certs/aee5f10d.0 -> Entrust.net_Premium_2048_Secure_Server_CA.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/b0ed035a.0 -> TWCA_Global_Root_CA.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/b0f3e76e.0 -> GlobalSign_Root_CA.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/b1159c4c.0 -> DigiCert_Assured_ID_Root_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/b13cc6df.0 -> UTN_USERFirst_Hardware_Root_CA.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/b1b8a7f3.0 -> OISTE_WISeKey_Global_Root_GA_CA.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/b42ff584.0 -> Staat_der_Nederlanden_Root_CA.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/b66938e9.0 -> Secure_Global_CA.pem
+lrwxrwxrwx root       root               12 ./etc/ssl/certs/b6c5745d.0 -> CA_Disig.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/b727005e.0 -> AffirmTrust_Premium.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/b7a5b843.0 -> TWCA_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/b7db1890.0 -> TWCA_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/b7e7231a.0 -> NetLock_Business_=Class_B=_Root.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/b872f2b4.0 -> Atos_TrustedRoot_2011.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/b8e83700.0 -> Verisign_Class_1_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/ba89ed3b.0 -> thawte_Primary_Root_CA_-_G3.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/bad35b78.0 -> Verisign_Class_4_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/bb2d49a0.0 -> ComSign_CA.pem
+lrwxrwxrwx root       root               44 ./etc/ssl/certs/bc3f2570.0 -> Go_Daddy_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/bcdd5959.0 -> ValiCert_Class_2_VA.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/bd1910d4.0 -> CNNIC_ROOT.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/bda4cc84.0 -> America_Online_Root_Certification_Authority_1.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/bdacca6f.0 -> Secure_Global_CA.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/bf64f35b.0 -> Entrust_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               51 ./etc/ssl/certs/c01cdfa2.0 -> VeriSign_Universal_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/c089bbbd.0 -> thawte_Primary_Root_CA_-_G2.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/c0ff1f52.0 -> Verisign_Class_3_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/c19d42c7.0 -> Verisign_Class_1_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               43 ./etc/ssl/certs/c215bc69.0 -> Digital_Signature_Trust_Co._Global_CA_1.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/c28a8a30.0 -> D-TRUST_Root_Class_3_CA_2_2009.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/c33a80d4.0 -> Thawte_Premium_Server_CA.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/c3a6a9ad.0 -> A-Trust-nQual-03.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/c47d9980.0 -> Chambers_of_Commerce_Root_-_2008.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/c51c224c.0 -> Trustis_FPS_Root_CA.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/c527e4ab.0 -> Verisign_Class_4_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/c5d3212a.0 -> PSCProcert.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/c5e082db.0 -> UTN_USERFirst_Email_Root_CA.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/c692a373.0 -> GTE_CyberTrust_Global_Root.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/c7e2a638.0 -> GeoTrust_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               30 ./etc/ssl/certs/c8763593.0 -> AC_Raíz_Certicámara_S.A..pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/c8841d13.0 -> TC_TrustCenter_Universal_CA_I.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/c99398f3.0 -> RSA_Security_2048_v3.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/c9f83a1c.0 -> Comodo_Secure_Services_root.pem
 -rw-r--r-- root       root           264315 ./etc/ssl/certs/ca-certificates.crt
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/ca6e4ad9.0 -> ePKI_Root_Certification_Authority.pem
+lrwxrwxrwx root       root               35 ./etc/ssl/certs/cb156124.0 -> E-Tugra_Certification_Authority.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/cb357862.0 -> Verisign_Class_2_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/cb59f961.0 -> Camerfirma_Global_Chambersign_Root.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/cbeee9e2.0 -> GeoTrust_Global_CA_2.pem
+lrwxrwxrwx root       root               44 ./etc/ssl/certs/cbf06781.0 -> Go_Daddy_Root_Certificate_Authority_-_G2.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/cc450945.0 -> Izenpe.com.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/ccc52f49.0 -> AffirmTrust_Premium_ECC.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/cd58d51e.0 -> Security_Communication_RootCA2.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/cdaebb72.0 -> Staat_der_Nederlanden_Root_CA.pem
 lrwxrwxrwx root       root               55 ./etc/ssl/certs/certSIGN_ROOT_CA.pem -> /usr/share/ca-certificates/mozilla/certSIGN_ROOT_CA.crt
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/cf701eeb.0 -> SecureTrust_CA.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/cfa1c2ee.0 -> Buypass_Class_2_CA_1.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/d06393bb.0 -> T-TeleSec_GlobalRoot_Class_2.pem
+lrwxrwxrwx root       root               61 ./etc/ssl/certs/d16a5865.0 -> Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/d4dae3dd.0 -> D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/d537fba6.0 -> TDC_Internet_Root_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/d59297b8.0 -> Security_Communication_RootCA2.pem
+lrwxrwxrwx root       root               12 ./etc/ssl/certs/d64f06f3.0 -> CA_Disig.pem
+lrwxrwxrwx root       root               53 ./etc/ssl/certs/d66b55d9.0 -> TURKTRUST_Certificate_Services_Provider_Root_2007.pem
+lrwxrwxrwx root       root               37 ./etc/ssl/certs/d7746a63.0 -> D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/d78a75c7.0 -> Verisign_Class_2_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/d7e8dc79.0 -> QuoVadis_Root_CA_2.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/d853d49e.0 -> Trustis_FPS_Root_CA.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/d957f522.0 -> Certinomis_-_Autorité_Racine.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/d9d12c58.0 -> NetLock_Notary_=Class_A=_Root.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/dbc54cab.0 -> AffirmTrust_Premium.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/dc45b0bd.0 -> Verisign_Class_2_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               20 ./etc/ssl/certs/ddc328ff.0 -> Thawte_Server_CA.pem
+lrwxrwxrwx root       root               12 ./etc/ssl/certs/e113c810.0 -> Certigna.pem
+lrwxrwxrwx root       root               36 ./etc/ssl/certs/e268a4c5.0 -> AddTrust_Low-Value_Services_Root.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/e2799e36.0 -> GeoTrust_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/e36a6752.0 -> Atos_TrustedRoot_2011.pem
+lrwxrwxrwx root       root               26 ./etc/ssl/certs/e48193cf.0 -> AffirmTrust_Commercial.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/e536d871.0 -> AddTrust_Qualified_Certificates_Root.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/e60bf0c0.0 -> Swisscom_Root_CA_1.pem
+lrwxrwxrwx root       root               25 ./etc/ssl/certs/e775ed2d.0 -> GeoTrust_Universal_CA.pem
+lrwxrwxrwx root       root               33 ./etc/ssl/certs/e7b8d656.0 -> Equifax_Secure_eBusiness_CA_1.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/e8651083.0 -> Microsec_e-Szigno_Root_CA_2009.pem
+lrwxrwxrwx root       root               27 ./etc/ssl/certs/e8de2f56.0 -> Buypass_Class_3_Root_CA.pem
 lrwxrwxrwx root       root               72 ./etc/ssl/certs/ePKI_Root_Certification_Authority.pem -> /usr/share/ca-certificates/mozilla/ePKI_Root_Certification_Authority.crt
+lrwxrwxrwx root       root               17 ./etc/ssl/certs/ea169617.0 -> ACEDICOM_Root.pem
+lrwxrwxrwx root       root               49 ./etc/ssl/certs/eacdeb40.0 -> America_Online_Root_Certification_Authority_1.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/eb375c3e.0 -> Buypass_Class_3_CA_1.pem
+lrwxrwxrwx root       root               19 ./etc/ssl/certs/ec87c655.0 -> spi-cacert-2008.pem
+lrwxrwxrwx root       root               32 ./etc/ssl/certs/ed524cf5.0 -> Entrust.net_Secure_Server_CA.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/ed62f4e3.0 -> Verisign_Class_2_Public_Primary_Certification_Authority_-_G2.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/ee1365c0.0 -> Verisign_Class_1_Public_Primary_Certification_Authority_-_G3.pem
+lrwxrwxrwx root       root               28 ./etc/ssl/certs/ee64a828.0 -> Comodo_AAA_Services_root.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/ee7cd6fb.0 -> Camerfirma_Chambers_of_Commerce_Root.pem
+lrwxrwxrwx root       root               39 ./etc/ssl/certs/ee90b008.0 -> StartCom_Certification_Authority_G2.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/eed8c118.0 -> COMODO_ECC_Certification_Authority.pem
+lrwxrwxrwx root       root               38 ./etc/ssl/certs/ef2f636c.0 -> Equifax_Secure_Global_eBusiness_CA.pem
+lrwxrwxrwx root       root               31 ./etc/ssl/certs/f060240e.0 -> Certplus_Class_2_Primary_CA.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/f081611a.0 -> Go_Daddy_Class_2_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/f3377b1b.0 -> Security_Communication_Root_CA.pem
+lrwxrwxrwx root       root               24 ./etc/ssl/certs/f387163d.0 -> Starfield_Class_2_CA.pem
+lrwxrwxrwx root       root               18 ./etc/ssl/certs/f39fc864.0 -> SecureTrust_CA.pem
+lrwxrwxrwx root       root               23 ./etc/ssl/certs/f4996e82.0 -> ValiCert_Class_1_VA.pem
+lrwxrwxrwx root       root               57 ./etc/ssl/certs/f559733c.0 -> S-TRUST_Authentication_and_Encryption_Root_CA_2005_PN.pem
+lrwxrwxrwx root       root               22 ./etc/ssl/certs/f58a60fe.0 -> ComSign_Secured_CA.pem
+lrwxrwxrwx root       root               29 ./etc/ssl/certs/f61bff45.0 -> Microsec_e-Szigno_Root_CA.pem
+lrwxrwxrwx root       root               51 ./etc/ssl/certs/f80cc7f6.0 -> EBG_Elektronik_Sertifika_Hizmet_Sağlayıcısı.pem
+lrwxrwxrwx root       root               40 ./etc/ssl/certs/f90208f7.0 -> Camerfirma_Chambers_of_Commerce_Root.pem
+lrwxrwxrwx root       root               39 ./etc/ssl/certs/fac084d7.0 -> ApplicationCA_-_Japanese_Government.pem
+lrwxrwxrwx root       root               64 ./etc/ssl/certs/facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_-_G5.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/fb126c6d.0 -> Root_CA_Generalitat_Valenciana.pem
+lrwxrwxrwx root       root               11 ./etc/ssl/certs/fcac10e3.0 -> Juur-SK.pem
+lrwxrwxrwx root       root               12 ./etc/ssl/certs/fde84897.0 -> Certigna.pem
+lrwxrwxrwx root       root               14 ./etc/ssl/certs/ff588423.0 -> ComSign_CA.pem
+lrwxrwxrwx root       root               34 ./etc/ssl/certs/ff783690.0 -> UTN_USERFirst_Hardware_Root_CA.pem
 lrwxrwxrwx root       root               58 ./etc/ssl/certs/spi-cacert-2008.pem -> /usr/share/ca-certificates/spi-inc.org/spi-cacert-2008.crt
 lrwxrwxrwx root       root               61 ./etc/ssl/certs/thawte_Primary_Root_CA.pem -> /usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA.crt
 lrwxrwxrwx root       root               66 ./etc/ssl/certs/thawte_Primary_Root_CA_-_G2.pem -> /usr/share/ca-certificates/mozilla/thawte_Primary_Root_CA_-_G2.crt
@@ -1068,7 +1401,7 @@ lrwxrwxrwx root       root               36 ./lib/systemd/system/busnames.target
 -rw-r--r-- root       root              268 ./lib/systemd/system/certmgrd.service
 -rw-r--r-- root       root              316 ./lib/systemd/system/configurator-async.service
 -rw-r--r-- root       root              526 ./lib/systemd/system/configurator.service
--rw-r--r-- root       root              294 ./lib/systemd/system/connman.service
+-rw-r--r-- root       root              376 ./lib/systemd/system/connman.service
 -rw-r--r-- root       root              737 ./lib/systemd/system/console-getty.service
 -rw-r--r-- root       root              751 ./lib/systemd/system/console-shell.service
 -rw-r--r-- root       root              751 ./lib/systemd/system/container-getty@.service
@@ -1374,7 +1707,7 @@ drwxr-xr-x root       root              620 ./lib/udev/rules.d
 -rw-r--r-- root       root             2464 ./lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r-- root       root              947 ./lib/udev/rules.d/60-persistent-serial.rules
 -rw-r--r-- root       root             1420 ./lib/udev/rules.d/60-persistent-storage-tape.rules
--rw-r--r-- root       root             5592 ./lib/udev/rules.d/60-persistent-storage.rules
+-rw-r--r-- root       root             5686 ./lib/udev/rules.d/60-persistent-storage.rules
 -rw-r--r-- root       root              769 ./lib/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r-- root       root              166 ./lib/udev/rules.d/61-accelerometer.rules
 -rw-r--r-- root       root              418 ./lib/udev/rules.d/64-btrfs.rules
@@ -1395,7 +1728,12 @@ drwxr-xr-x root       root              620 ./lib/udev/rules.d
 -rw-r--r-- root       root             4033 ./lib/udev/rules.d/99-systemd.rules
 -rwxr-xr-x root       root            47348 ./lib/udev/scsi_id
 -rwxr-xr-x root       root             5732 ./lib/udev/v4l_id
-drwxr-xr-x root       root               40 ./media
+drwxr-xr-x root       root               80 ./media
+drwxr-xr-x root       root               60 ./media/cryptofs
+drwxr-xr-x root       root               60 ./media/cryptofs/data
+drwxr-xr-x root       root               60 ./media/cryptofs/data/db8
+drwx------ root       root               40 ./media/cryptofs/data/db8/mediadb
+drwxrwxrwx root       root               40 ./media/internal
 drwxr-xr-x root       root               40 ./mnt
 drwxr-xr-x root       root               40 ./proc
 drwxr-xr-x root       root               40 ./run
@@ -2485,7 +2823,7 @@ lrwxrwxrwx root       root               20 ./usr/lib/libSDL2-2.0.so.0 -> libSDL
 lrwxrwxrwx root       root               15 ./usr/lib/liba52.so.0 -> liba52.so.0.0.0
 -rwxr-xr-x root       root            39800 ./usr/lib/liba52.so.0.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasound.so.2.0.0
--rwxr-xr-x root       root          1101572 ./usr/lib/libasound.so.2.0.0
+-rwxr-xr-x root       root          1101828 ./usr/lib/libasound.so.2.0.0
 -rwxr-xr-x root       root           920796 ./usr/lib/libbfd-2.24.so
 lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.13.0
 -rwxr-xr-x root       root           107384 ./usr/lib/libbluetooth.so.3.13.0
@@ -2517,7 +2855,7 @@ lrwxrwxrwx root       root               24 ./usr/lib/libdirectfb-1.7.so.4 -> li
 lrwxrwxrwx root       root               15 ./usr/lib/libdrm.so.2 -> libdrm.so.2.4.0
 -rwxr-xr-x root       root            51192 ./usr/lib/libdrm.so.2.4.0
 lrwxrwxrwx root       root               21 ./usr/lib/libdrm_intel.so.1 -> libdrm_intel.so.1.0.0
--rwxr-xr-x root       root           146576 ./usr/lib/libdrm_intel.so.1.0.0
+-rwxr-xr-x root       root           147024 ./usr/lib/libdrm_intel.so.1.0.0
 lrwxrwxrwx root       root               23 ./usr/lib/libdrm_nouveau.so.2 -> libdrm_nouveau.so.2.0.0
 -rwxr-xr-x root       root            25720 ./usr/lib/libdrm_nouveau.so.2.0.0
 lrwxrwxrwx root       root               22 ./usr/lib/libdrm_radeon.so.1 -> libdrm_radeon.so.1.0.1
@@ -5604,7 +5942,7 @@ drwxr-xr-x root       root             2200 ./usr/lib/xtables
 -rwxr-xr-x root       root             6508 ./usr/lib/xtables/libxt_tos.so
 -rwxr-xr-x root       root             8044 ./usr/lib/xtables/libxt_u32.so
 -rwxr-xr-x root       root             6372 ./usr/lib/xtables/libxt_udp.so
-drwxr-xr-x root       root              320 ./usr/palm
+drwxr-xr-x root       root              340 ./usr/palm
 drwxr-xr-x root       root              460 ./usr/palm/applications
 drwxr-xr-x root       root              260 ./usr/palm/applications/com.palm.app.accounts
 -rw-r--r-- root       root            11357 ./usr/palm/applications/com.palm.app.accounts/LICENSE
@@ -11099,6 +11437,7 @@ drwxr-xr-x root       root               60 ./usr/palm/frameworks/underscore/ver
 -rw-r--r-- root       root               86 ./usr/palm/frameworks/underscore/version/1.0/manifest.json
 drwxr-xr-x root       root               60 ./usr/palm/frameworks/webos
 -rw-r--r-- root       root             3777 ./usr/palm/frameworks/webos/webos-api.js
+drwxr-xr-x root       root               40 ./usr/palm/ipkgs
 -rw-r--r-- root       root            31456 ./usr/palm/locale.txt
 drwxr-xr-x root       root               60 ./usr/palm/luna-next
 drwxr-xr-x root       root               60 ./usr/palm/luna-next/shells
@@ -12422,7 +12761,7 @@ drwxr-xr-x root       root              380 ./usr/share/alsa/pcm
 -rw-r--r-- root       root              978 ./usr/share/alsa/pcm/surround71.conf
 -rw-r--r-- root       root              155 ./usr/share/alsa/smixer.conf
 -rw-r--r-- root       root             3206 ./usr/share/alsa/sndo-mixer.alisp
-drwxr-xr-x root       root              140 ./usr/share/alsa/ucm
+drwxr-xr-x root       root              200 ./usr/share/alsa/ucm
 drwxr-xr-x root       root               80 ./usr/share/alsa/ucm/DAISY-I2S
 -rw-r--r-- root       root               94 ./usr/share/alsa/ucm/DAISY-I2S/DAISY-I2S.conf
 -rw-r--r-- root       root             1631 ./usr/share/alsa/ucm/DAISY-I2S/HiFi.conf
@@ -12450,6 +12789,17 @@ drwxr-xr-x root       root              180 ./usr/share/alsa/ucm/SDP4430
 -rw-r--r-- root       root             1194 ./usr/share/alsa/ucm/SDP4430/record
 -rw-r--r-- root       root             1196 ./usr/share/alsa/ucm/SDP4430/voice
 -rw-r--r-- root       root             2165 ./usr/share/alsa/ucm/SDP4430/voiceCall
+drwxr-xr-x root       root              100 ./usr/share/alsa/ucm/Tuna
+-rw-r--r-- root       root             6962 ./usr/share/alsa/ucm/Tuna/HiFi
+-rw-r--r-- root       root              222 ./usr/share/alsa/ucm/Tuna/Tuna.conf
+-rw-r--r-- root       root             4821 ./usr/share/alsa/ucm/Tuna/VoiceCall
+drwxr-xr-x root       root              100 ./usr/share/alsa/ucm/apq8064-tabla-snd-card
+-rw-r--r-- root       root             5872 ./usr/share/alsa/ucm/apq8064-tabla-snd-card/HiFi
+-rw-r--r-- root       root             1517 ./usr/share/alsa/ucm/apq8064-tabla-snd-card/VoiceCall
+-rw-r--r-- root       root              154 ./usr/share/alsa/ucm/apq8064-tabla-snd-card/apq8064-tabla-snd-card.conf
+drwxr-xr-x root       root               80 ./usr/share/alsa/ucm/tegra-rt5640
+-rw-r--r-- root       root             1725 ./usr/share/alsa/ucm/tegra-rt5640/HiFi
+-rw-r--r-- root       root              118 ./usr/share/alsa/ucm/tegra-rt5640/tegra-rt5640.conf
 drwxr-xr-x root       root               60 ./usr/share/alsa/ucm/tegraalc5632
 -rw-r--r-- root       root             1063 ./usr/share/alsa/ucm/tegraalc5632/tegraalc5632.conf
 drwxr-xr-x root       root               80 ./usr/share/applications
@@ -19583,12 +19933,14 @@ drwxr-xr-x root       root              280 ./usr/src/debug/glibc/2.20-r0/git/wc
 -rw-r--r-- root       root             1536 ./usr/src/debug/glibc/2.20-r0/git/wctype/wctype.c
 -rw-r--r-- root       root            11130 ./usr/src/debug/glibc/2.20-r0/git/wctype/wctype.h
 -rw-r--r-- root       root             1648 ./usr/src/debug/glibc/2.20-r0/git/wctype/wctype_l.c
-drwxr-xr-x root       root              300 ./var
+drwxr-xr-x root       root              340 ./var
 drwxr-xr-x root       root               40 ./var/backups
 drwxr-xr-x root       root               80 ./var/cache
 drwxr-xr-x root       root               40 ./var/cache/fontconfig
 drwx------ root       root               60 ./var/cache/ldconfig
 -rw------- root       root            16894 ./var/cache/ldconfig/aux-cache
+drwx------ root       root               60 ./var/db
+drwx------ root       root               40 ./var/db/temp
 drwxr-xr-x root       root              220 ./var/lib
 drwxr-xr-x root       root               60 ./var/lib/alsa
 -rw-r--r-- root       root               28 ./var/lib/alsa/asound.state
@@ -19605,10 +19957,10 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root              765 ./var/lib/opkg/info/activitymanager.control
 -rw-r--r-- root       root              410 ./var/lib/opkg/info/activitymanager.list
--rw-r--r-- root       root              639 ./var/lib/opkg/info/alsa-conf-base.control
+-rw-r--r-- root       root              873 ./var/lib/opkg/info/alsa-conf-base.control
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list
--rw-r--r-- root       root              634 ./var/lib/opkg/info/alsa-conf.control
--rw-r--r-- root       root             3838 ./var/lib/opkg/info/alsa-conf.list
+-rw-r--r-- root       root              868 ./var/lib/opkg/info/alsa-conf.control
+-rw-r--r-- root       root             4303 ./var/lib/opkg/info/alsa-conf.list
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/alsa-states.control
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/alsa-states.list
 -rw-r--r-- root       root              581 ./var/lib/opkg/info/alsa-utils-alsactl.control
@@ -19637,12 +19989,12 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              114 ./var/lib/opkg/info/base-files-lic.list
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/base-files.conffiles
 -rw-r--r-- root       root              654 ./var/lib/opkg/info/base-files.control
--rw-r--r-- root       root              560 ./var/lib/opkg/info/base-files.list
--rw-r--r-- root       root              665 ./var/lib/opkg/info/base-passwd-lic.control
+-rw-r--r-- root       root              745 ./var/lib/opkg/info/base-files.list
+-rw-r--r-- root       root              623 ./var/lib/opkg/info/base-passwd-lic.control
 -rw-r--r-- root       root              119 ./var/lib/opkg/info/base-passwd-lic.list
--rw-r--r-- root       root              689 ./var/lib/opkg/info/base-passwd.control
+-rw-r--r-- root       root              647 ./var/lib/opkg/info/base-passwd.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/base-passwd.list
--rwxr-xr-x root       root             1354 ./var/lib/opkg/info/base-passwd.preinst
+-rwxr-xr-x root       root             1356 ./var/lib/opkg/info/base-passwd.preinst
 -rw-r--r-- root       root             3300 ./var/lib/opkg/info/bash-lic.control
 -rw-r--r-- root       root               98 ./var/lib/opkg/info/bash-lic.list
 -rw-r--r-- root       root             3400 ./var/lib/opkg/info/bash.control
@@ -19692,7 +20044,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/ca-certificates-lic.list
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/ca-certificates.conffiles
 -rw-r--r-- root       root              786 ./var/lib/opkg/info/ca-certificates.control
--rw-r--r-- root       root            11901 ./var/lib/opkg/info/ca-certificates.list
+-rw-r--r-- root       root            28977 ./var/lib/opkg/info/ca-certificates.list
 -rwxr-xr-x root       root               36 ./var/lib/opkg/info/ca-certificates.postinst
 -rw-r--r-- root       root              337 ./var/lib/opkg/info/certmgrd-lic.control
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/certmgrd-lic.list
@@ -19704,15 +20056,15 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/configurator-lic.list
 -rw-r--r-- root       root              625 ./var/lib/opkg/info/configurator.control
 -rw-r--r-- root       root              259 ./var/lib/opkg/info/configurator.list
--rw-r--r-- root       root             1056 ./var/lib/opkg/info/connman-client.control
+-rw-r--r-- root       root             1127 ./var/lib/opkg/info/connman-client.control
 -rw-r--r-- root       root               30 ./var/lib/opkg/info/connman-client.list
--rw-r--r-- root       root              386 ./var/lib/opkg/info/connman-conf-lic.control
+-rw-r--r-- root       root              446 ./var/lib/opkg/info/connman-conf-lic.control
 -rw-r--r-- root       root              122 ./var/lib/opkg/info/connman-conf-lic.list
--rw-r--r-- root       root              411 ./var/lib/opkg/info/connman-conf.control
--rw-r--r-- root       root               77 ./var/lib/opkg/info/connman-conf.list
--rw-r--r-- root       root              953 ./var/lib/opkg/info/connman-lic.control
+-rw-r--r-- root       root              471 ./var/lib/opkg/info/connman-conf.control
+-rw-r--r-- root       root              144 ./var/lib/opkg/info/connman-conf.list
+-rw-r--r-- root       root             1024 ./var/lib/opkg/info/connman-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/connman-lic.list
--rw-r--r-- root       root             1375 ./var/lib/opkg/info/connman.control
+-rw-r--r-- root       root             1446 ./var/lib/opkg/info/connman.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/connman.list
 -rwxr-xr-x root       root              241 ./var/lib/opkg/info/connman.postinst
 -rwxr-xr-x root       root              216 ./var/lib/opkg/info/connman.prerm
@@ -19756,9 +20108,9 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/directfb.postinst
 -rw-r--r-- root       root              341 ./var/lib/opkg/info/distro-feed-configs-lic.control
 -rw-r--r-- root       root              145 ./var/lib/opkg/info/distro-feed-configs-lic.list
--rw-r--r-- root       root              101 ./var/lib/opkg/info/distro-feed-configs.conffiles
+-rw-r--r-- root       root               77 ./var/lib/opkg/info/distro-feed-configs.conffiles
 -rw-r--r-- root       root              373 ./var/lib/opkg/info/distro-feed-configs.control
--rw-r--r-- root       root              101 ./var/lib/opkg/info/distro-feed-configs.list
+-rw-r--r-- root       root               77 ./var/lib/opkg/info/distro-feed-configs.list
 -rw-r--r-- root       root             1521 ./var/lib/opkg/info/e2fsprogs-badblocks.control
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/e2fsprogs-badblocks.list
 -rw-r--r-- root       root             1584 ./var/lib/opkg/info/e2fsprogs-e2fsck.control
@@ -20310,7 +20662,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              627 ./var/lib/opkg/info/libacl1.control
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/libacl1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libacl1.postinst
--rw-r--r-- root       root              707 ./var/lib/opkg/info/libasound2.control
+-rw-r--r-- root       root              941 ./var/lib/opkg/info/libasound2.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libasound2.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libasound2.postinst
 -rw-r--r-- root       root              567 ./var/lib/opkg/info/libattr1.control
@@ -20544,7 +20896,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              669 ./var/lib/opkg/info/libgstvideo-1.0-0.control
 -rw-r--r-- root       root               66 ./var/lib/opkg/info/libgstvideo-1.0-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstvideo-1.0-0.postinst
--rw-r--r-- root       root             1302 ./var/lib/opkg/info/libgudev-1.0-0.control
+-rw-r--r-- root       root             1352 ./var/lib/opkg/info/libgudev-1.0-0.control
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libgudev-1.0-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgudev-1.0-0.postinst
 -rw-r--r-- root       root              707 ./var/lib/opkg/info/libicudata53.control
@@ -20807,7 +21159,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root             2552 ./var/lib/opkg/info/libstdc++6.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/libstdc++6.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libstdc++6.postinst
--rw-r--r-- root       root             1182 ./var/lib/opkg/info/libsystemd0.control
+-rw-r--r-- root       root             1232 ./var/lib/opkg/info/libsystemd0.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libsystemd0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd0.postinst
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/libtag-lic.control
@@ -20833,7 +21185,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libts-1.0-0.postinst
 -rw-r--r-- root       root              671 ./var/lib/opkg/info/libts-1.0-lic.control
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/libts-1.0-lic.list
--rw-r--r-- root       root             1144 ./var/lib/opkg/info/libudev1.control
+-rw-r--r-- root       root             1194 ./var/lib/opkg/info/libudev1.control
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libudev1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libudev1.postinst
 -rw-r--r-- root       root              570 ./var/lib/opkg/info/libusb-0.1-4.control
@@ -20913,10 +21265,10 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              208 ./var/lib/opkg/info/location-service.list
 -rwxr-xr-x root       root              259 ./var/lib/opkg/info/location-service.postinst
 -rwxr-xr-x root       root              234 ./var/lib/opkg/info/location-service.prerm
--rw-r--r-- root       root              491 ./var/lib/opkg/info/lsb-lic.control
+-rw-r--r-- root       root              632 ./var/lib/opkg/info/lsb-lic.control
 -rw-r--r-- root       root               94 ./var/lib/opkg/info/lsb-lic.list
--rw-r--r-- root       root              534 ./var/lib/opkg/info/lsb.control
--rw-r--r-- root       root              508 ./var/lib/opkg/info/lsb.list
+-rw-r--r-- root       root              675 ./var/lib/opkg/info/lsb.control
+-rw-r--r-- root       root              341 ./var/lib/opkg/info/lsb.list
 -rw-r--r-- root       root              380 ./var/lib/opkg/info/luna-applauncher-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/luna-applauncher-lic.list
 -rw-r--r-- root       root              409 ./var/lib/opkg/info/luna-applauncher.control
@@ -20998,9 +21350,9 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/makedevs-lic.list
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/makedevs.control
 -rw-r--r-- root       root               15 ./var/lib/opkg/info/makedevs.list
--rw-r--r-- root       root              861 ./var/lib/opkg/info/maliit-framework-qt5-lic.control
+-rw-r--r-- root       root              862 ./var/lib/opkg/info/maliit-framework-qt5-lic.control
 -rw-r--r-- root       root              154 ./var/lib/opkg/info/maliit-framework-qt5-lic.list
--rw-r--r-- root       root             1074 ./var/lib/opkg/info/maliit-framework-qt5.control
+-rw-r--r-- root       root             1075 ./var/lib/opkg/info/maliit-framework-qt5.control
 -rw-r--r-- root       root              473 ./var/lib/opkg/info/maliit-framework-qt5.list
 -rwxr-xr-x root       root              333 ./var/lib/opkg/info/maliit-framework-qt5.postinst
 -rwxr-xr-x root       root              228 ./var/lib/opkg/info/maliit-framework-qt5.prerm
@@ -21232,7 +21584,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              374 ./var/lib/opkg/info/org.webosports.app.testr-lic.control
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/org.webosports.app.testr-lic.list
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/org.webosports.app.testr.control
--rw-r--r-- root       root             7173 ./var/lib/opkg/info/org.webosports.app.testr.list
+-rw-r--r-- root       root             7162 ./var/lib/opkg/info/org.webosports.app.testr.list
 -rw-r--r-- root       root              461 ./var/lib/opkg/info/org.webosports.cdav-lic.control
 -rw-r--r-- root       root              149 ./var/lib/opkg/info/org.webosports.cdav-lic.list
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/org.webosports.cdav.control
@@ -21589,14 +21941,14 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/strace-lic.list
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/strace.control
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/strace.list
--rw-r--r-- root       root             1225 ./var/lib/opkg/info/systemd-analyze.control
+-rw-r--r-- root       root             1275 ./var/lib/opkg/info/systemd-analyze.control
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/systemd-analyze.list
 -rw-r--r-- root       root              340 ./var/lib/opkg/info/systemd-compat-units-lic.control
 -rw-r--r-- root       root              144 ./var/lib/opkg/info/systemd-compat-units-lic.list
 -rw-r--r-- root       root              373 ./var/lib/opkg/info/systemd-compat-units.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/systemd-compat-units.list
 -rwxr-xr-x root       root              417 ./var/lib/opkg/info/systemd-compat-units.postinst
--rw-r--r-- root       root             1157 ./var/lib/opkg/info/systemd-lic.control
+-rw-r--r-- root       root             1207 ./var/lib/opkg/info/systemd-lic.control
 -rw-r--r-- root       root              281 ./var/lib/opkg/info/systemd-lic.list
 -rw-r--r-- root       root              284 ./var/lib/opkg/info/systemd-machine-units-lic.control
 -rw-r--r-- root       root              147 ./var/lib/opkg/info/systemd-machine-units-lic.list
@@ -21607,7 +21959,7 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              365 ./var/lib/opkg/info/systemd-serialgetty.control
 -rw-r--r-- root       root              108 ./var/lib/opkg/info/systemd-serialgetty.list
 -rw-r--r-- root       root              100 ./var/lib/opkg/info/systemd.conffiles
--rw-r--r-- root       root             1707 ./var/lib/opkg/info/systemd.control
+-rw-r--r-- root       root             1757 ./var/lib/opkg/info/systemd.control
 -rw-r--r-- root       root            16649 ./var/lib/opkg/info/systemd.list
 -rwxr-xr-x root       root              520 ./var/lib/opkg/info/systemd.postinst
 -rwxr-xr-x root       root              336 ./var/lib/opkg/info/systemd.postrm
@@ -21658,11 +22010,11 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/udev-extraconf.conffiles
 -rw-r--r-- root       root              662 ./var/lib/opkg/info/udev-extraconf.control
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/udev-extraconf.list
--rw-r--r-- root       root             1169 ./var/lib/opkg/info/udev-hwdb.control
+-rw-r--r-- root       root             1219 ./var/lib/opkg/info/udev-hwdb.control
 -rw-r--r-- root       root              443 ./var/lib/opkg/info/udev-hwdb.list
 -rwxr-xr-x root       root              183 ./var/lib/opkg/info/udev-hwdb.postinst
 -rwxr-xr-x root       root               63 ./var/lib/opkg/info/udev-hwdb.prerm
--rw-r--r-- root       root             1374 ./var/lib/opkg/info/udev.control
+-rw-r--r-- root       root             1424 ./var/lib/opkg/info/udev.control
 -rw-r--r-- root       root             1982 ./var/lib/opkg/info/udev.list
 -rw-r--r-- root       root              475 ./var/lib/opkg/info/underscore-lic.control
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/underscore-lic.list
@@ -21796,13 +22148,13 @@ drwxr-xr-x root       root            43960 ./var/lib/opkg/info
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/xuser-account-lic.list
 -rw-r--r-- root       root              365 ./var/lib/opkg/info/xuser-account.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/xuser-account.list
--rwxr-xr-x root       root             5747 ./var/lib/opkg/info/xuser-account.preinst
+-rwxr-xr-x root       root             5759 ./var/lib/opkg/info/xuser-account.preinst
 drwxr-xr-x root       root              120 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           110962 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5712227 ./var/lib/opkg/lists/oe-i586
--rw-r--r-- root       root           357188 ./var/lib/opkg/lists/oe-qemux86
--rw-r--r-- root       root           248450 ./var/lib/opkg/status
+-rw-r--r-- root       root          5716379 ./var/lib/opkg/lists/oe-i586
+-rw-r--r-- root       root           357428 ./var/lib/opkg/lists/oe-qemux86
+-rw-r--r-- root       root           248394 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
@@ -21810,6 +22162,7 @@ lrwxrwxrwx root       root               12 ./var/log -> volatile/log
 drwxr-xr-x root       root               60 ./var/luna
 -rw-r--r-- root       root                0 ./var/luna/dev-mode-enabled
 drwxr-xr-x root       root               40 ./var/opt
+drwxr-xr-x root       root               40 ./var/preferences
 lrwxrwxrwx root       root                6 ./var/run -> ../run
 drwxr-xr-x root       root               60 ./var/spool
 drwxr-xr-x root       root               40 ./var/spool/mail
