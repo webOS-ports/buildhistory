@@ -132,11 +132,12 @@ drwxr-xr-x root       root              120 ./etc/dbus-1
 -rw-r--r-- root       root             2771 ./etc/dbus-1/session.conf
 drwxr-xr-x root       root               40 ./etc/dbus-1/session.d
 -rw-r--r-- root       root             2997 ./etc/dbus-1/system.conf
-drwxr-xr-x root       root              320 ./etc/dbus-1/system.d
+drwxr-xr-x root       root              340 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              524 ./etc/dbus-1/system.d/bluetooth.conf
 -rw-r--r-- root       root              731 ./etc/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
 -rw-r--r-- root       root              494 ./etc/dbus-1/system.d/maliit-server.conf
+-rw-r--r-- root       root              290 ./etc/dbus-1/system.d/mmsd.conf
 -rw-r--r-- root       root             1457 ./etc/dbus-1/system.d/ofono.conf
 -rw-r--r-- root       root              445 ./etc/dbus-1/system.d/org.freedesktop.GeoClue2.Agent.conf
 -rw-r--r-- root       root             1091 ./etc/dbus-1/system.d/org.freedesktop.GeoClue2.conf
@@ -1068,7 +1069,7 @@ lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wa
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
 drwxr-xr-x root       root               60 ./etc/systemd/system/local-fs.target.wants
 lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target.wants/var-volatile-lib.service -> /lib/systemd/system/var-volatile-lib.service
-drwxr-xr-x root       root              660 ./etc/systemd/system/multi-user.target.wants
+drwxr-xr-x root       root              680 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/LunaAppManager.service -> /lib/systemd/system/LunaAppManager.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/LunaSysMgr.service -> /lib/systemd/system/LunaSysMgr.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/LunaSysService.service -> /lib/systemd/system/LunaSysService.service
@@ -1089,6 +1090,7 @@ lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/luna-next.service -> /lib/systemd/system/luna-next.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/maliit-server.service -> /lib/systemd/system/maliit-server.service
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/mediaindexer.service -> /lib/systemd/system/mediaindexer.service
+lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/mmsd.service -> /lib/systemd/system/mmsd.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/mtp-server.service -> /lib/systemd/system/mtp-server.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/ofono.service -> /lib/systemd/system/ofono.service
 lrwxrwxrwx root       root               58 ./etc/systemd/system/multi-user.target.wants/org.webosinternals.ipkgservice.service -> /lib/systemd/system/org.webosinternals.ipkgservice.service
@@ -1306,7 +1308,7 @@ drwxr-xr-x root       root              100 ./lib/systemd/network
 -rw-r--r-- root       root              368 ./lib/systemd/network/80-container-host0.network
 -rw-r--r-- root       root              378 ./lib/systemd/network/80-container-ve.network
 -rw-r--r-- root       root               80 ./lib/systemd/network/99-default.link
-drwxr-xr-x root       root             4480 ./lib/systemd/system
+drwxr-xr-x root       root             4500 ./lib/systemd/system
 drwxr-xr-x root       root              200 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            46916 ./lib/systemd/system-generators/systemd-debug-generator
 -rwxr-xr-x root       root            55108 ./lib/systemd/system-generators/systemd-efi-boot-generator
@@ -1406,6 +1408,7 @@ lrwxrwxrwx root       root               12 ./lib/systemd/system/local-fs.target
 -rw-r--r-- root       root              405 ./lib/systemd/system/machine.slice
 -rw-r--r-- root       root              279 ./lib/systemd/system/maliit-server.service
 -rw-r--r-- root       root              260 ./lib/systemd/system/mediaindexer.service
+-rw-r--r-- root       root              253 ./lib/systemd/system/mmsd.service
 -rw-r--r-- root       root              225 ./lib/systemd/system/mtp-server.service
 -rw-r--r-- root       root              492 ./lib/systemd/system/multi-user.target
 drwxr-xr-x root       root              160 ./lib/systemd/system/multi-user.target.wants
@@ -2814,7 +2817,7 @@ lrwxrwxrwx root       root               48 ./usr/arm-webos-linux-gnueabi/bin/ob
 lrwxrwxrwx root       root               48 ./usr/arm-webos-linux-gnueabi/bin/objdump -> ../../../usr/bin/arm-webos-linux-gnueabi-objdump
 lrwxrwxrwx root       root               47 ./usr/arm-webos-linux-gnueabi/bin/ranlib -> ../../../usr/bin/arm-webos-linux-gnueabi-ranlib
 lrwxrwxrwx root       root               46 ./usr/arm-webos-linux-gnueabi/bin/strip -> ../../../usr/bin/arm-webos-linux-gnueabi-strip
-drwxr-xr-x root       root            10160 ./usr/bin
+drwxr-xr-x root       root            10180 ./usr/bin
 drwxr-xr-x root       root              240 ./usr/bin/.debug
 -rwxr-xr-x root       root            58212 ./usr/bin/.debug/gencat
 -rwxr-xr-x root       root            29877 ./usr/bin/.debug/getconf
@@ -3043,6 +3046,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/logname -> /bin/busybox.no
 -rwxr-xr-x root       root            27176 ./usr/bin/lslocks
 -rwxr-xr-x root       root             7560 ./usr/bin/luna-helper
 -rwxr-x--- root       root            15952 ./usr/bin/luna-prefs-service
+-rwxr-xr-x root       root            21236 ./usr/bin/luna-recorder
 -rwxr-xr-x root       root            11832 ./usr/bin/luna-send
 -rwxr-xr-x root       root            11684 ./usr/bin/luna-send-pub
 -rwxr-x--- root       root             8864 ./usr/bin/lunaprop
@@ -3345,7 +3349,7 @@ drwxr-xr-x root       root               40 ./usr/games
 drwxr-xr-x root       root               60 ./usr/include
 drwxr-xr-x root       root               60 ./usr/include/python2.7
 -rw-r--r-- root       root            35988 ./usr/include/python2.7/pyconfig.h
-drwxr-xr-x root       root            10300 ./usr/lib
+drwxr-xr-x root       root            10320 ./usr/lib
 drwxr-xr-x root       root               60 ./usr/lib/android-system
 -rw-r--r-- root       root           358640 ./usr/lib/android-system/ramdisk.img
 drwxr-xr-x root       root               60 ./usr/lib/audit
@@ -4218,6 +4222,8 @@ drwxr-xr-x root       root               60 ./usr/lib/lxc/rootfs
 drwxr-xr-x root       root               60 ./usr/lib/maliit
 drwxr-xr-x root       root               60 ./usr/lib/maliit/plugins
 -rwxr-xr-x root       root           192912 ./usr/lib/maliit/plugins/libubuntu-keyboard-plugin.so
+drwxr-xr-x root       root               60 ./usr/lib/mmsd
+-rwxr-xr-x root       root           123224 ./usr/lib/mmsd/mmsd
 drwxr-xr-x root       root               40 ./usr/lib/modules-load.d
 drwxr-xr-x root       root               60 ./usr/lib/node_modules
 drwxr-xr-x root       root              380 ./usr/lib/node_modules/npm
@@ -6383,7 +6389,7 @@ drwxr-xr-x root       root               80 ./usr/lib/qt5/qml/LunaNext/Common
 -rwxr-xr-x root       root            61120 ./usr/lib/qt5/qml/LunaNext/Common/liblunanext-common-qml.so
 -rw-r--r-- root       root               50 ./usr/lib/qt5/qml/LunaNext/Common/qmldir
 drwxr-xr-x root       root               80 ./usr/lib/qt5/qml/LunaNext/Compositor
--rwxr-xr-x root       root           100668 ./usr/lib/qt5/qml/LunaNext/Compositor/liblunanext-compositor-qml.so
+-rwxr-xr-x root       root           117708 ./usr/lib/qt5/qml/LunaNext/Compositor/liblunanext-compositor-qml.so
 -rw-r--r-- root       root               58 ./usr/lib/qt5/qml/LunaNext/Compositor/qmldir
 drwxr-xr-x root       root              120 ./usr/lib/qt5/qml/LunaNext/Performance
 -rw-r--r-- root       root             4240 ./usr/lib/qt5/qml/LunaNext/Performance/BarGraph.qml
@@ -10048,7 +10054,7 @@ drwxr-xr-x root       root               80 ./usr/palm/frameworks/enyo/0.10/fram
 -rw-r--r-- root       root             1190 ./usr/palm/frameworks/enyo/0.10/framework/build/dom/Drag.js
 -rw-r--r-- root       root             2208 ./usr/palm/frameworks/enyo/0.10/framework/build/dom/Gizmo.js
 -rw-r--r-- root       root            59609 ./usr/palm/frameworks/enyo/0.10/framework/build/enyo-build.css
--rw-r--r-- root       root           397350 ./usr/palm/frameworks/enyo/0.10/framework/build/enyo-build.js
+-rw-r--r-- root       root           397356 ./usr/palm/frameworks/enyo/0.10/framework/build/enyo-build.js
 -rw-r--r-- root       root              220 ./usr/palm/frameworks/enyo/0.10/framework/build/enyo-depends.js
 drwxr-xr-x root       root              140 ./usr/palm/frameworks/enyo/0.10/framework/build/g11n
 drwxr-xr-x root       root              100 ./usr/palm/frameworks/enyo/0.10/framework/build/g11n/address
@@ -11019,7 +11025,7 @@ drwxr-xr-x root       root               60 ./usr/palm/frameworks/enyo/0.10/fram
 -rw-r--r-- root       root             1014 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/images/notification-small-sync.png
 drwxr-xr-x root       root              100 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/source
 -rw-r--r-- root       root             5132 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/source/missingCredentials.js
--rw-r--r-- root       root            10494 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/source/syncDashboard.js
+-rw-r--r-- root       root            10506 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/source/syncDashboard.js
 -rw-r--r-- root       root             2229 ./usr/palm/frameworks/enyo/0.10/framework/lib/syncui/source/utils.js
 drwxr-xr-x root       root              120 ./usr/palm/frameworks/enyo/0.10/framework/lib/systemui
 -rw-r--r-- root       root             5359 ./usr/palm/frameworks/enyo/0.10/framework/lib/systemui/Map.js
@@ -11841,7 +11847,7 @@ drwxr-xr-x root       root              240 ./usr/palm/frameworks/enyo/0.10/fram
 -rw-r--r-- root       root              426 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/CrossAppResult.js
 -rw-r--r-- root       root             4063 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/CrossAppUI.js
 -rw-r--r-- root       root             6353 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/Dashboard.js
--rw-r--r-- root       root             2757 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/FilePicker.js
+-rw-r--r-- root       root             2763 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/FilePicker.js
 drwxr-xr-x root       root              160 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/dashboard-window
 -rw-r--r-- root       root             2100 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/dashboard-window/AnimatedSwipeableItem.js
 -rw-r--r-- root       root             8272 ./usr/palm/frameworks/enyo/0.10/framework/source/palm/system/dashboard-window/DashboardContent.js
@@ -12504,18 +12510,20 @@ drwxr-xr-x root       root              100 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             1855 ./usr/palm/luna-next/shells/card/qml/CardShell.qml
 drwxr-xr-x root       root              180 ./usr/palm/luna-next/shells/card/qml/CardView
 -rw-r--r-- root       root             5292 ./usr/palm/luna-next/shells/card/qml/CardView/CardGroupDelegate.qml
--rw-r--r-- root       root            15072 ./usr/palm/luna-next/shells/card/qml/CardView/CardGroupListView.qml
--rw-r--r-- root       root             5351 ./usr/palm/luna-next/shells/card/qml/CardView/CardGroupModel.qml
+-rw-r--r-- root       root            15070 ./usr/palm/luna-next/shells/card/qml/CardView/CardGroupListView.qml
+-rw-r--r-- root       root             6583 ./usr/palm/luna-next/shells/card/qml/CardView/CardGroupModel.qml
 -rw-r--r-- root       root             9449 ./usr/palm/luna-next/shells/card/qml/CardView/CardView.qml
 -rw-r--r-- root       root             6074 ./usr/palm/luna-next/shells/card/qml/CardView/CardWindowDelegate.qml
 -rw-r--r-- root       root             5610 ./usr/palm/luna-next/shells/card/qml/CardView/CardWindowWrapper.qml
 -rw-r--r-- root       root             1133 ./usr/palm/luna-next/shells/card/qml/CardView/SwipeableCard.qml
--rw-r--r-- root       root             7966 ./usr/palm/luna-next/shells/card/qml/CardsArea.qml
-drwxr-xr-x root       root              100 ./usr/palm/luna-next/shells/card/qml/Connectors
+-rw-r--r-- root       root             7968 ./usr/palm/luna-next/shells/card/qml/CardsArea.qml
+drwxr-xr-x root       root              140 ./usr/palm/luna-next/shells/card/qml/Connectors
+-rw-r--r-- root       root             1416 ./usr/palm/luna-next/shells/card/qml/Connectors/AirplaneModeService.qml
 -rw-r--r-- root       root             2976 ./usr/palm/luna-next/shells/card/qml/Connectors/BatteryService.qml
--rw-r--r-- root       root             1882 ./usr/palm/luna-next/shells/card/qml/Connectors/TelephonyService.qml
--rw-r--r-- root       root             2524 ./usr/palm/luna-next/shells/card/qml/Connectors/WiFiService.qml
--rw-r--r-- root       root             2587 ./usr/palm/luna-next/shells/card/qml/DashboardArea.qml
+-rw-r--r-- root       root             3404 ./usr/palm/luna-next/shells/card/qml/Connectors/TelephonyService.qml
+-rw-r--r-- root       root             2625 ./usr/palm/luna-next/shells/card/qml/Connectors/WanService.qml
+-rw-r--r-- root       root             2665 ./usr/palm/luna-next/shells/card/qml/Connectors/WiFiService.qml
+-rw-r--r-- root       root             2625 ./usr/palm/luna-next/shells/card/qml/DashboardArea.qml
 drwxr-xr-x root       root              160 ./usr/palm/luna-next/shells/card/qml/LaunchBar
 -rw-r--r-- root       root             5641 ./usr/palm/luna-next/shells/card/qml/LaunchBar/FullLauncher.qml
 -rw-r--r-- root       root             3603 ./usr/palm/luna-next/shells/card/qml/LaunchBar/JustTypeField.qml
@@ -12534,7 +12542,7 @@ drwxr-xr-x root       root              200 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             8324 ./usr/palm/luna-next/shells/card/qml/LockScreen/PinPasswordLock.qml
 drwxr-xr-x root       root              140 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI
 -rw-r--r-- root       root             2701 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/ApplicationModel.qml
--rw-r--r-- root       root             5240 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/NotificationService.qml
+-rw-r--r-- root       root             5654 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/NotificationService.qml
 -rw-r--r-- root       root             3173 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/Preferences.qml
 -rw-r--r-- root       root             8254 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/SystemService.qml
 -rw-r--r-- root       root             1424 ./usr/palm/luna-next/shells/card/qml/LunaSysAPI/VolumeControl.qml
@@ -12546,12 +12554,12 @@ drwxr-xr-x root       root              160 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             4517 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/BaseIndicator.qml
 -rw-r--r-- root       root             3886 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/BatteryIndicator.qml
 -rw-r--r-- root       root              939 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/FlightmodeStatusIndicator.qml
--rw-r--r-- root       root             1386 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/TelephonySignalIndicator.qml
+-rw-r--r-- root       root             1277 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/TelephonySignalIndicator.qml
 -rw-r--r-- root       root             1584 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/WanStatusIndicator.qml
 -rw-r--r-- root       root             1302 ./usr/palm/luna-next/shells/card/qml/StatusBar/Indicators/WifiIndicator.qml
 -rw-r--r-- root       root              889 ./usr/palm/luna-next/shells/card/qml/StatusBar/Separator.qml
 -rw-r--r-- root       root             8337 ./usr/palm/luna-next/shells/card/qml/StatusBar/StatusBar.qml
--rw-r--r-- root       root             2587 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemIndicators.qml
+-rw-r--r-- root       root             2688 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemIndicators.qml
 drwxr-xr-x root       root              400 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemMenu
 -rw-r--r-- root       root             2357 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemMenu/AirplaneModeElement.qml
 -rw-r--r-- root       root             2544 ./usr/palm/luna-next/shells/card/qml/StatusBar/SystemMenu/BatteryElement.qml
@@ -12589,7 +12597,7 @@ drwxr-xr-x root       root              120 ./usr/palm/luna-next/shells/card/qml
 drwxr-xr-x root       root              180 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common
 -rw-r--r-- root       root             1230 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/FontUtilsStub.js
 -rw-r--r-- root       root              160 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/LunaNext.Common.qmltypes
--rw-r--r-- root       root            11506 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/LunaService.qml
+-rw-r--r-- root       root            11550 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/LunaService.qml
 -rw-r--r-- root       root              474 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/LunaServiceRegistering.js
 -rw-r--r-- root       root             1239 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/SettingsStub.js
 -rw-r--r-- root       root             1301 ./usr/palm/luna-next/shells/card/qml/Tests/imports/LunaNext/Common/UnitsStub.js
@@ -13305,7 +13313,7 @@ drwxr-xr-x root       root              120 ./usr/sbin/.debug
 -rwxr-xr-x root       root           937456 ./usr/sbin/LunaWebAppManager
 -rwxr-xr-x root       root            10872 ./usr/sbin/PmKLogDaemon
 -rwxr-xr-x root       root            33944 ./usr/sbin/PmLogDaemon
--rwxr-xr-x root       root           958068 ./usr/sbin/activitymanager
+-rwxr-xr-x root       root           961652 ./usr/sbin/activitymanager
 lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            11596 ./usr/sbin/addpart
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
@@ -13419,7 +13427,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.no
 -rwxr-xr-x root       root            77488 ./usr/sbin/useradd
 -rwxr-xr-x root       root            48328 ./usr/sbin/userdel
 -rwxr-xr-x root       root            73208 ./usr/sbin/usermod
--rwxr-xr-x root       root            97240 ./usr/sbin/webos-connman-adapter
+-rwxr-xr-x root       root            98268 ./usr/sbin/webos-connman-adapter
 -rwxrwxrwx root       root            42092 ./usr/sbin/webos-system-update
 -rwxr-xr-x root       root           224988 ./usr/sbin/webos-telephonyd
 -rwxr-xr-x root       root            19692 ./usr/sbin/wipefs
@@ -14259,7 +14267,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/53.1/config
 -rw-r--r-- root       root            19995 ./usr/share/icu/53.1/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/53.1/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             5600 ./usr/share/licenses
+drwxr-xr-x root       root             5620 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/abootimg
 -rw-r--r-- root       root            18092 ./usr/share/licenses/abootimg/LICENSE
 -rw-r--r-- root       root            17611 ./usr/share/licenses/abootimg/generic_GPL-2.0
@@ -14761,7 +14769,7 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/luna-appmanager
 drwxr-xr-x root       root               80 ./usr/share/licenses/luna-init
 -rw-r--r-- root       root            11360 ./usr/share/licenses/luna-init/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/luna-init/generic_Apache-2.0
-drwxr-xr-x root       root              100 ./usr/share/licenses/luna-next
+drwxr-xr-x root       root              140 ./usr/share/licenses/luna-next
 drwxr-xr-x root       root              100 ./usr/share/licenses/luna-next-cardshell
 -rw-r--r-- root       root            37249 ./usr/share/licenses/luna-next-cardshell/COPYING
 -rw-r--r-- root       root            11360 ./usr/share/licenses/luna-next-cardshell/generic_Apache-2.0
@@ -14770,8 +14778,10 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/luna-next-conf
 -rw-r--r-- root       root            34694 ./usr/share/licenses/luna-next-conf/GPL-3.0
 -rw-r--r-- root       root            34694 ./usr/share/licenses/luna-next-conf/generic_GPL-3.0
 -rw-r--r-- root       root            35147 ./usr/share/licenses/luna-next/COPYING
+-rw-r--r-- root       root            26436 ./usr/share/licenses/luna-next/COPYING.LGPL
 -rw-r--r-- root       root            11360 ./usr/share/licenses/luna-next/generic_Apache-2.0
 -rw-r--r-- root       root            34694 ./usr/share/licenses/luna-next/generic_GPL-3.0
+-rw-r--r-- root       root            25878 ./usr/share/licenses/luna-next/generic_LGPL-2.1
 drwxr-xr-x root       root               80 ./usr/share/licenses/luna-prefs
 drwxr-xr-x root       root               80 ./usr/share/licenses/luna-prefs-data
 -rw-r--r-- root       root            11360 ./usr/share/licenses/luna-prefs-data/Apache-2.0
@@ -14834,6 +14844,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/memnotify-modul
 drwxr-xr-x root       root               80 ./usr/share/licenses/mingetty
 -rw-r--r-- root       root            17983 ./usr/share/licenses/mingetty/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/mingetty/generic_GPLv2
+drwxr-xr-x root       root               80 ./usr/share/licenses/mmsd
+-rw-r--r-- root       root            18006 ./usr/share/licenses/mmsd/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/mmsd/generic_GPLv2
 drwxr-xr-x root       root               80 ./usr/share/licenses/mobile-broadband-provider-info
 -rw-r--r-- root       root             1623 ./usr/share/licenses/mobile-broadband-provider-info/COPYING
 -rw-r--r-- root       root               52 ./usr/share/licenses/mobile-broadband-provider-info/generic_PD
@@ -21039,14 +21052,14 @@ drwxr-xr-x root       root              140 ./var/lib/lxc/android/pre-start.d
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              100 ./var/lib/opkg
-drwxr-xr-x root       root            44880 ./var/lib/opkg/info
+drwxr-xr-x root       root            45000 ./var/lib/opkg/info
 -rw-r--r-- root       root              433 ./var/lib/opkg/info/abootimg-lic.control
 -rw-r--r-- root       root              112 ./var/lib/opkg/info/abootimg-lic.list
 -rw-r--r-- root       root              479 ./var/lib/opkg/info/abootimg.control
 -rw-r--r-- root       root               80 ./var/lib/opkg/info/abootimg.list
--rw-r--r-- root       root              484 ./var/lib/opkg/info/activitymanager-lic.control
+-rw-r--r-- root       root              413 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
--rw-r--r-- root       root              767 ./var/lib/opkg/info/activitymanager.control
+-rw-r--r-- root       root              735 ./var/lib/opkg/info/activitymanager.control
 -rw-r--r-- root       root              410 ./var/lib/opkg/info/activitymanager.list
 -rw-r--r-- root       root              889 ./var/lib/opkg/info/alsa-conf-base.control
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list
@@ -22370,15 +22383,15 @@ drwxr-xr-x root       root            44880 ./var/lib/opkg/info
 -rw-r--r-- root       root              443 ./var/lib/opkg/info/luna-next-cardshell-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/luna-next-cardshell-lic.list
 -rw-r--r-- root       root              614 ./var/lib/opkg/info/luna-next-cardshell.control
--rw-r--r-- root       root            23599 ./var/lib/opkg/info/luna-next-cardshell.list
+-rw-r--r-- root       root            23732 ./var/lib/opkg/info/luna-next-cardshell.list
 -rw-r--r-- root       root              332 ./var/lib/opkg/info/luna-next-conf-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/luna-next-conf-lic.list
 -rw-r--r-- root       root              359 ./var/lib/opkg/info/luna-next-conf.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/luna-next-conf.list
--rw-r--r-- root       root              525 ./var/lib/opkg/info/luna-next-lic.control
--rw-r--r-- root       root              164 ./var/lib/opkg/info/luna-next-lic.list
--rw-r--r-- root       root              938 ./var/lib/opkg/info/luna-next.control
--rw-r--r-- root       root             1186 ./var/lib/opkg/info/luna-next.list
+-rw-r--r-- root       root              536 ./var/lib/opkg/info/luna-next-lic.control
+-rw-r--r-- root       root              254 ./var/lib/opkg/info/luna-next-lic.list
+-rw-r--r-- root       root              969 ./var/lib/opkg/info/luna-next.control
+-rw-r--r-- root       root             1209 ./var/lib/opkg/info/luna-next.list
 -rwxr-xr-x root       root              245 ./var/lib/opkg/info/luna-next.postinst
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/luna-next.prerm
 -rw-r--r-- root       root              298 ./var/lib/opkg/info/luna-prefs-data-lic.control
@@ -22469,6 +22482,12 @@ drwxr-xr-x root       root            44880 ./var/lib/opkg/info
 -rw-r--r-- root       root               15 ./var/lib/opkg/info/mingetty.list
 -rwxr-xr-x root       root               77 ./var/lib/opkg/info/mingetty.postinst
 -rwxr-xr-x root       root               62 ./var/lib/opkg/info/mingetty.postrm
+-rw-r--r-- root       root              474 ./var/lib/opkg/info/mmsd-lic.control
+-rw-r--r-- root       root               98 ./var/lib/opkg/info/mmsd-lic.list
+-rw-r--r-- root       root              582 ./var/lib/opkg/info/mmsd.control
+-rw-r--r-- root       root               98 ./var/lib/opkg/info/mmsd.list
+-rwxr-xr-x root       root              235 ./var/lib/opkg/info/mmsd.postinst
+-rwxr-xr-x root       root              210 ./var/lib/opkg/info/mmsd.prerm
 -rw-r--r-- root       root              410 ./var/lib/opkg/info/mobile-broadband-provider-info-lic.control
 -rw-r--r-- root       root              173 ./var/lib/opkg/info/mobile-broadband-provider-info-lic.list
 -rw-r--r-- root       root              453 ./var/lib/opkg/info/mobile-broadband-provider-info.control
@@ -23228,9 +23247,9 @@ drwxr-xr-x root       root            44880 ./var/lib/opkg/info
 -rw-r--r-- root       root              805 ./var/lib/opkg/info/wayland.control
 -rw-r--r-- root       root              324 ./var/lib/opkg/info/wayland.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/wayland.postinst
--rw-r--r-- root       root              657 ./var/lib/opkg/info/webos-connman-adapter-lic.control
+-rw-r--r-- root       root              799 ./var/lib/opkg/info/webos-connman-adapter-lic.control
 -rw-r--r-- root       root              157 ./var/lib/opkg/info/webos-connman-adapter-lic.list
--rw-r--r-- root       root              969 ./var/lib/opkg/info/webos-connman-adapter.control
+-rw-r--r-- root       root             1111 ./var/lib/opkg/info/webos-connman-adapter.control
 -rw-r--r-- root       root              292 ./var/lib/opkg/info/webos-connman-adapter.list
 -rw-r--r-- root       root              495 ./var/lib/opkg/info/webos-keyboard-lic.control
 -rw-r--r-- root       root              434 ./var/lib/opkg/info/webos-keyboard-lic.list
@@ -23254,7 +23273,7 @@ drwxr-xr-x root       root            44880 ./var/lib/opkg/info
 -rw-r--r-- root       root             2634 ./var/lib/opkg/info/webos-systemsounds.list
 -rw-r--r-- root       root              385 ./var/lib/opkg/info/webos-telephonyd-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/webos-telephonyd-lic.list
--rw-r--r-- root       root              602 ./var/lib/opkg/info/webos-telephonyd.control
+-rw-r--r-- root       root              608 ./var/lib/opkg/info/webos-telephonyd.control
 -rw-r--r-- root       root              628 ./var/lib/opkg/info/webos-telephonyd.list
 -rw-r--r-- root       root              684 ./var/lib/opkg/info/wireless-tools-lic.control
 -rw-r--r-- root       root              417 ./var/lib/opkg/info/wireless-tools-lic.list
@@ -23285,9 +23304,9 @@ drwxr-xr-x root       root            44880 ./var/lib/opkg/info
 drwxr-xr-x root       root              120 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           114448 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5959817 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
--rw-r--r-- root       root           127289 ./var/lib/opkg/lists/oe-mako
--rw-r--r-- root       root           261074 ./var/lib/opkg/status
+-rw-r--r-- root       root          5964932 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
+-rw-r--r-- root       root           127625 ./var/lib/opkg/lists/oe-mako
+-rw-r--r-- root       root           261567 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
