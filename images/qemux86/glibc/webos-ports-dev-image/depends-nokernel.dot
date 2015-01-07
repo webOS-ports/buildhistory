@@ -3466,6 +3466,7 @@ digraph depends {
 "python-io" -> "libssl1.0.0";
 "python-io" -> "python-core";
 "python-io" -> "python-math";
+"python-io" -> "python-netclient";
 "python-io" -> "python-textutils";
 "python-lang" -> "libc6";
 "python-lang" -> "libpython2.7-1.0";
@@ -3479,6 +3480,15 @@ digraph depends {
 "python-math" -> "libpython2.7-1.0";
 "python-math" -> "python-core";
 "python-math" -> "python-crypt";
+"python-mime" -> "python-core";
+"python-mime" -> "python-io";
+"python-netclient" -> "python-core";
+"python-netclient" -> "python-crypt";
+"python-netclient" -> "python-datetime";
+"python-netclient" -> "python-io";
+"python-netclient" -> "python-lang";
+"python-netclient" -> "python-logging";
+"python-netclient" -> "python-mime";
 "python-pickle" -> "libc6";
 "python-pickle" -> "libpython2.7-1.0";
 "python-pickle" -> "python-codecs";
@@ -3719,7 +3729,6 @@ digraph depends {
 "systemd" -> "liblzma5";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
-"systemd" -> "systemd-binfmt";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-lic" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
@@ -3734,9 +3743,6 @@ digraph depends {
 "systemd-analyze" -> "libc6";
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libgcc1";
-"systemd-binfmt" -> "kernel-module-binfmt-misc" [style=dotted];
-"systemd-binfmt" -> "libc6";
-"systemd-binfmt" -> "libgcc1";
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted];
 "systemd-machine-units" -> "systemd-machine-units-lic" [style=dotted];
 "systemd-serialgetty" -> "systemd";
@@ -3757,7 +3763,6 @@ digraph depends {
 "udev-extraconf" -> "udev-extraconf-lic" [style=dotted];
 "udev-hwdb" -> "udev";
 "underscore" -> "underscore-lic" [style=dotted];
-"update-rc.d" -> "update-rc.d-lic" [style=dotted];
 "uriparser" -> "libc6";
 "uriparser" -> "uriparser-lic" [style=dotted];
 "util-linux" -> "libblkid1";
