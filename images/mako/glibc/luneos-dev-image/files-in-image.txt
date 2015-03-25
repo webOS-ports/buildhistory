@@ -102,7 +102,7 @@ drwxr-xr-x root       root              100 ./boot
 lrwxrwxrwx root       root               18 ./boot/zImage -> /boot/zImage-3.4.0
 -rw-r--r-- root       root          6592896 ./boot/zImage-3.4.0
 drwxr-xr-x root       root               40 ./dev
-drwxr-xr-x root       root             1860 ./etc
+drwxr-xr-x root       root             1900 ./etc
 drwxr-xr-x root       root               60 ./etc/PmLogDaemon
 -rw-r--r-- root       root             8293 ./etc/PmLogDaemon/whitelist.txt
 drwxr-xr-x root       root               80 ./etc/bash_completion.d
@@ -334,6 +334,8 @@ drwxr-xr-x root       root               80 ./etc/luna-service2
 drwxr-xr-x root       root               60 ./etc/lxc
 -rw-r--r-- root       root               25 ./etc/lxc/default.conf
 -rw-r--r-- root       root                0 ./etc/machine-id
+lrwxrwxrwx root       root               28 ./etc/media_codecs.xml -> /system/etc/media_codecs.xml
+lrwxrwxrwx root       root               26 ./etc/media_profiles.xml -> /system/etc/media_profiles
 -rw-r--r-- root       root              956 ./etc/mke2fs.conf
 drwxr-xr-x root       root               40 ./etc/modprobe.d
 drwxr-xr-x root       root               60 ./etc/modules-load.d
@@ -1503,7 +1505,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              480 ./lib/systemd/system/network.target
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
--rw-r--r-- root       root              256 ./lib/systemd/system/ofono.service
+-rw-r--r-- root       root              320 ./lib/systemd/system/ofono.service
 -rw-r--r-- root       root              527 ./lib/systemd/system/opkg-configure.service
 -rw-r--r-- root       root              554 ./lib/systemd/system/org.freedesktop.hostname1.busname
 -rw-r--r-- root       root              550 ./lib/systemd/system/org.freedesktop.locale1.busname
@@ -1895,7 +1897,7 @@ drwxr-xr-x root       root               80 ./system/addon.d
 -rwxr-xr-x root       root              132 ./system/addon.d/blacklist
 drwxr-xr-x root       root               60 ./system/app
 -rw-r--r-- root       root           509742 ./system/app/Term.apk
-drwxr-xr-x root       root             3020 ./system/bin
+drwxr-xr-x root       root             3100 ./system/bin
 -rwxr-xr-x root       root            21816 ./system/bin/ATFWD-daemon
 -rwxr-xr-x root       root           108812 ./system/bin/adb
 -rwxr-xr-x root       root             9624 ./system/bin/alsaucm_test
@@ -1966,6 +1968,8 @@ lrwxrwxrwx root       root                7 ./system/bin/lsmod -> toolbox
 lrwxrwxrwx root       root                7 ./system/bin/lsof -> toolbox
 -rwxr-xr-x root       root            10444 ./system/bin/make_ext4fs
 lrwxrwxrwx root       root                7 ./system/bin/md5 -> toolbox
+-rwxr-xr-x root       root             5396 ./system/bin/minimediaservice
+-rwxr-xr-x root       root            30072 ./system/bin/minisfservice
 lrwxrwxrwx root       root                7 ./system/bin/mkdir -> toolbox
 -rwxr-xr-x root       root            38292 ./system/bin/mke2fs
 -rwxr-xr-x root       root           157520 ./system/bin/mksh
@@ -2025,6 +2029,8 @@ lrwxrwxrwx root       root                7 ./system/bin/stop -> toolbox
 -rwxr-xr-x root       root             5444 ./system/bin/surfaceflinger
 lrwxrwxrwx root       root                7 ./system/bin/sync -> toolbox
 -rwxr-xr-x root       root              140 ./system/bin/sysinit
+-rwxr-xr-x root       root             5400 ./system/bin/test_droidmedia_camera
+-rwxr-xr-x root       root             5400 ./system/bin/test_droidmedia_codec
 -rwxr-xr-x root       root             9480 ./system/bin/testid3
 -rwxr-xr-x root       root            51736 ./system/bin/thermald
 -rwxr-xr-x root       root           134976 ./system/bin/toolbox
@@ -2046,10 +2052,10 @@ lrwxrwxrwx root       root                7 ./system/bin/wipe -> toolbox
 -rwxr-xr-x root       root            57032 ./system/bin/wpa_cli
 -rwxr-xr-x root       root           670356 ./system/bin/wpa_supplicant
 -rw-r--r-- root       root             2590 ./system/build.prop
-drwxr-xr-x root       root              700 ./system/etc
+drwxr-xr-x root       root              680 ./system/etc
 -rw-r--r-- root       root            20012 ./system/etc/CHANGELOG-CM.txt
 -rw-r--r-- root       root             1086 ./system/etc/DxHDCP.cfg
--rw-r--r-- root       root            59645 ./system/etc/NOTICE.html.gz
+-rw-r--r-- root       root            59647 ./system/etc/NOTICE.html.gz
 -rw-r--r-- root       root           195600 ./system/etc/apns-conf.xml
 -rw-r--r-- root       root             4305 ./system/etc/audio_effects.conf
 -rw-r--r-- root       root             3747 ./system/etc/audio_policy.conf
@@ -2114,7 +2120,6 @@ drwxr-xr-x root       root              460 ./system/etc/permissions
 -rw-r--r-- root       root              822 ./system/etc/permissions/com.cyanogenmod.nfc.enhanced.xml
 -rw-r--r-- root       root              748 ./system/etc/permissions/com.tmobile.software.themes.xml
 -rw-r--r-- root       root             3191 ./system/etc/permissions/handheld_core_hardware.xml
--rw-r--r-- root       root           576162 ./system/etc/recovery-resource.dat
 drwxr-xr-x root       root               60 ./system/etc/security
 -rw-r--r-- root       root             1125 ./system/etc/security/otacerts.zip
 drwxr-xr-x root       root               60 ./system/etc/snd_soc_msm
@@ -2131,7 +2136,7 @@ drwxr-xr-x root       root               60 ./system/extras
 drwxr-xr-x root       root               80 ./system/extras/ext4_utils
 -rw-r--r-- root       root             6458 ./system/extras/ext4_utils/make_ext4fs_main.P
 -rw-r--r-- root       root            18044 ./system/extras/ext4_utils/make_ext4fs_main.o
-drwxr-xr-x root       root             4500 ./system/lib
+drwxr-xr-x root       root             4560 ./system/lib
 -rw-r--r-- root       root             1372 ./system/lib/crtbegin_so.o
 -rw-r--r-- root       root              617 ./system/lib/crtend_so.o
 drwxr-xr-x root       root               60 ./system/lib/drm
@@ -2204,6 +2209,7 @@ drwxr-xr-x root       root              440 ./system/lib/hw
 -rw-r--r-- root       root           111932 ./system/lib/libcamera_client.so
 -rw-r--r-- root       root            13428 ./system/lib/libcamera_fast_af.so
 -rw-r--r-- root       root            15176 ./system/lib/libcamera_metadata.so
+-rw-r--r-- root       root           243008 ./system/lib/libcameraservice.so
 -rw-r--r-- root       root            63068 ./system/lib/libchromatix_imx111_default_video.so
 -rw-r--r-- root       root            63108 ./system/lib/libchromatix_imx111_preview.so
 -rw-r--r-- root       root            63056 ./system/lib/libchromatix_imx111_zsl.so
@@ -2239,6 +2245,7 @@ drwxr-xr-x root       root              440 ./system/lib/hw
 -rw-r--r-- root       root            91452 ./system/lib/libdrmframework.so
 -rw-r--r-- root       root            13468 ./system/lib/libdrmfs.so
 -rw-r--r-- root       root             9376 ./system/lib/libdrmtime.so
+-rw-r--r-- root       root            62772 ./system/lib/libdroidmedia.so
 -rw-r--r-- root       root           124508 ./system/lib/libdsi_netctrl.so
 -rw-r--r-- root       root           111852 ./system/lib/libdsprofile.so
 -rw-r--r-- root       root            96544 ./system/lib/libdss.so
@@ -2282,6 +2289,7 @@ drwxr-xr-x root       root              440 ./system/lib/hw
 -rw-r--r-- root       root            87240 ./system/lib/libm.so
 -rw-r--r-- root       root           501132 ./system/lib/libmedia.so
 -rw-r--r-- root       root             5136 ./system/lib/libmedia_native.so
+-rw-r--r-- root       root           390540 ./system/lib/libmediaplayerservice.so
 -rw-r--r-- root       root             9476 ./system/lib/libmemalloc.so
 -rw-r--r-- root       root            13472 ./system/lib/libmercury.so
 -rw-r--r-- root       root             5148 ./system/lib/libmm-color-convertor.so
@@ -3456,7 +3464,7 @@ drwxr-xr-x root       root               80 ./usr/lib/GConf/2
 -rwxr-xr-x root       root            44316 ./usr/lib/GConf/2/libgconfbackend-oldxml.so
 -rwxr-xr-x root       root            48892 ./usr/lib/GConf/2/libgconfbackend-xml.so
 drwxr-xr-x root       root               60 ./usr/lib/android-system
--rw-r--r-- root       root           358638 ./usr/lib/android-system/ramdisk.img
+-rw-r--r-- root       root           358685 ./usr/lib/android-system/ramdisk.img
 drwxr-xr-x root       root               60 ./usr/lib/audit
 drwxr-xr-x root       root               60 ./usr/lib/audit/.debug
 -rwxr-xr-x root       root            24394 ./usr/lib/audit/.debug/sotruss-lib.so
@@ -17681,7 +17689,7 @@ drwxr-xr-x root       root               60 ./usr/share/icu/53.1/config
 -rw-r--r-- root       root            19995 ./usr/share/icu/53.1/license.html
 -rwxr-xr-x root       root              935 ./usr/share/icu/53.1/mkinstalldirs
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root             5740 ./usr/share/licenses
+drwxr-xr-x root       root             5760 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/abootimg
 -rw-r--r-- root       root            18092 ./usr/share/licenses/abootimg/LICENSE
 -rw-r--r-- root       root            17611 ./usr/share/licenses/abootimg/generic_GPL-2.0
@@ -18358,6 +18366,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/nyx-utils
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nyx-utils/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nyx-utils/generic_Apache-2.0
 drwxr-xr-x root       root              100 ./usr/share/licenses/ofono
+drwxr-xr-x root       root               80 ./usr/share/licenses/ofono-conf
+-rw-r--r-- root       root            17611 ./usr/share/licenses/ofono-conf/GPL-2.0
+-rw-r--r-- root       root            17611 ./usr/share/licenses/ofono-conf/generic_GPL-2.0
 -rw-r--r-- root       root            18011 ./usr/share/licenses/ofono/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/ofono/generic_GPLv2
 -rw-r--r-- root       root            17409 ./usr/share/licenses/ofono/ofono.h
@@ -24480,7 +24491,7 @@ drwx------ root       root               60 ./var/cache/ldconfig
 -rw------- root       root            18127 ./var/cache/ldconfig/aux-cache
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
-drwxr-xr-x root       root              200 ./var/lib
+drwxr-xr-x root       root              220 ./var/lib
 drwxr-xr-x root       root               60 ./var/lib/alsa
 -rw-r--r-- root       root               28 ./var/lib/alsa/asound.state
 drwxr-xr-x root       root               40 ./var/lib/arpd
@@ -24498,8 +24509,10 @@ drwxr-xr-x root       root              140 ./var/lib/lxc/android/pre-start.d
 -rwxr-xr-x root       root             1945 ./var/lib/lxc/android/pre-start.sh
 drwxr-xr-x root       root               40 ./var/lib/maliit
 drwxr-xr-x root       root               40 ./var/lib/misc
+drwxr-xr-x root       root               60 ./var/lib/ofono
+-rw-r--r-- root       root               15 ./var/lib/ofono/environment.conf
 drwxr-xr-x root       root              100 ./var/lib/opkg
-drwxr-xr-x root       root            45640 ./var/lib/opkg/info
+drwxr-xr-x root       root            45720 ./var/lib/opkg/info
 -rw-r--r-- root       root              428 ./var/lib/opkg/info/abootimg-lic.control
 -rw-r--r-- root       root              112 ./var/lib/opkg/info/abootimg-lic.list
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/abootimg.control
@@ -24537,7 +24550,7 @@ drwxr-xr-x root       root            45640 ./var/lib/opkg/info
 -rw-r--r-- root       root              455 ./var/lib/opkg/info/android-system-image-mako-lic.control
 -rw-r--r-- root       root              169 ./var/lib/opkg/info/android-system-image-mako-lic.list
 -rw-r--r-- root       root              532 ./var/lib/opkg/info/android-system-image-mako.control
--rw-r--r-- root       root            29942 ./var/lib/opkg/info/android-system-image-mako.list
+-rw-r--r-- root       root            30176 ./var/lib/opkg/info/android-system-image-mako.list
 -rw-r--r-- root       root              575 ./var/lib/opkg/info/android-system-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/android-system-lic.list
 -rw-r--r-- root       root              744 ./var/lib/opkg/info/android-system.control
@@ -26052,9 +26065,13 @@ drwxr-xr-x root       root            45640 ./var/lib/opkg/info
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/nyx-utils-lic.list
 -rw-r--r-- root       root              621 ./var/lib/opkg/info/nyx-utils.control
 -rw-r--r-- root       root              398 ./var/lib/opkg/info/nyx-utils.list
+-rw-r--r-- root       root              284 ./var/lib/opkg/info/ofono-conf-lic.control
+-rw-r--r-- root       root              118 ./var/lib/opkg/info/ofono-conf-lic.list
+-rw-r--r-- root       root              307 ./var/lib/opkg/info/ofono-conf.control
+-rw-r--r-- root       root               48 ./var/lib/opkg/info/ofono-conf.list
 -rw-r--r-- root       root              818 ./var/lib/opkg/info/ofono-lic.control
 -rw-r--r-- root       root              135 ./var/lib/opkg/info/ofono-lic.list
--rw-r--r-- root       root             1073 ./var/lib/opkg/info/ofono.control
+-rw-r--r-- root       root             1085 ./var/lib/opkg/info/ofono.control
 -rw-r--r-- root       root              153 ./var/lib/opkg/info/ofono.list
 -rwxr-xr-x root       root              237 ./var/lib/opkg/info/ofono.postinst
 -rwxr-xr-x root       root              212 ./var/lib/opkg/info/ofono.prerm
@@ -26783,9 +26800,9 @@ drwxr-xr-x root       root            45640 ./var/lib/opkg/info
 drwxr-xr-x root       root              120 ./var/lib/opkg/lists
 -rw-r--r-- 3004       3004                0 ./var/lib/opkg/lists/oe
 -rw-r--r-- root       root           111484 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          5983117 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
--rw-r--r-- root       root           144113 ./var/lib/opkg/lists/oe-mako
--rw-r--r-- root       root           265754 ./var/lib/opkg/status
+-rw-r--r-- root       root          5983145 ./var/lib/opkg/lists/oe-armv7a-vfp-neon
+-rw-r--r-- root       root           145922 ./var/lib/opkg/lists/oe-mako
+-rw-r--r-- root       root           266065 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
