@@ -25,6 +25,7 @@ digraph depends {
 "audio-service" -> "libpbnjson";
 "audio-service" -> "libpulse-mainloop-glib0";
 "audio-service" -> "libpulse0";
+"audio-service" -> "libstdc++6";
 "audio-service" -> "luna-service2";
 "base-files" -> "base-files-lic" [style=dotted];
 "base-passwd" -> "base-passwd-lic" [style=dotted];
@@ -67,7 +68,6 @@ digraph depends {
 "connman" -> "libgnutls28";
 "connman" -> "ofono";
 "connman" -> "wpa-supplicant";
-"connman" -> "xuser-account";
 "connman-client" -> "libdbus-1-3";
 "connman-client" -> "libglib-2.0-0";
 "connman-client" -> "libreadline6";
@@ -141,6 +141,14 @@ digraph depends {
 "fingerterm" -> "qtbase";
 "fingerterm" -> "qtdeclarative";
 "foundation-frameworks" -> "foundation-frameworks-lic" [style=dotted];
+"gconf" -> "gconf-lic" [style=dotted];
+"gconf" -> "libdbus-1-3";
+"gconf" -> "libdbus-glib-1-2";
+"gconf" -> "libffi6";
+"gconf" -> "libglib-2.0-0";
+"gconf" -> "libxml2";
+"gconf" -> "libz1";
+"gconf-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted];
 "gdb" -> "gdb-lic" [style=dotted];
 "gdb" -> "libexpat1";
 "gdb" -> "libpython2.7-1.0";
@@ -1443,6 +1451,7 @@ digraph depends {
 "imlibpurpleservice" -> "libglib-2.0-0";
 "imlibpurpleservice" -> "libpurple";
 "imlibpurpleservice" -> "libstdc++6";
+"imlibpurpleservice" -> "tidy-html5";
 "iproute2" -> "iproute2-lic" [style=dotted];
 "iptables" -> "iptables-lic" [style=dotted];
 "keymanager" -> "keymanager-lic" [style=dotted];
@@ -1524,6 +1533,8 @@ digraph depends {
 "libexpat1" -> "libexpat-lic" [style=dotted];
 "libext2fs2" -> "libblkid1";
 "libext2fs2" -> "libcom-err2";
+"libfdisk1" -> "libblkid1";
+"libfdisk1" -> "libuuid1";
 "libffi6" -> "libffi-lic" [style=dotted];
 "libflac8" -> "libogg0";
 "libfontconfig1" -> "libexpat1";
@@ -1773,6 +1784,7 @@ digraph depends {
 "libpulsecore" -> "libpulsecommon";
 "libpulsecore" -> "libsndfile1";
 "libpulsecore" -> "speex";
+"libpurple" -> "gconf";
 "libpurple" -> "libdbus-1-3";
 "libpurple" -> "libdbus-glib-1-2";
 "libpurple" -> "libffi6";
@@ -1932,6 +1944,7 @@ digraph depends {
 "luna-sysmgr" -> "liblunasysmgrcommon3";
 "luna-sysmgr" -> "libnyx6";
 "luna-sysmgr" -> "libpbnjson";
+"luna-sysmgr" -> "libqt5sensors5";
 "luna-sysmgr" -> "libstdc++6";
 "luna-sysmgr" -> "luna-prefs";
 "luna-sysmgr" -> "luna-service2";
@@ -2092,7 +2105,9 @@ digraph depends {
 "ofono" -> "libglib-2.0-0";
 "ofono" -> "libudev1";
 "ofono" -> "mobile-broadband-provider-info";
+"ofono" -> "ofono-conf";
 "ofono" -> "ofono-lic" [style=dotted];
+"ofono-conf" -> "ofono-conf-lic" [style=dotted];
 "openssh" -> "openssh-keygen";
 "openssh" -> "openssh-lic" [style=dotted];
 "openssh" -> "openssh-scp";
@@ -2160,6 +2175,10 @@ digraph depends {
 "org.webosports.cdav" -> "org.webosports.cdav-lic" [style=dotted];
 "org.webosports.service.devmode" -> "org.webosports.service.devmode-lic" [style=dotted];
 "org.webosports.service.licenses" -> "org.webosports.service.licenses-lic" [style=dotted];
+"org.webosports.service.lumberjack" -> "libglib-2.0-0";
+"org.webosports.service.lumberjack" -> "libjson-c2";
+"org.webosports.service.lumberjack" -> "luna-service2";
+"org.webosports.service.lumberjack" -> "org.webosports.service.lumberjack-lic" [style=dotted];
 "org.webosports.service.messaging" -> "org.webosports.service.messaging-lic" [style=dotted];
 "os-release" -> "os-release-lic" [style=dotted];
 "packagegroup-core-boot" -> "base-files";
@@ -2249,6 +2268,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.cdav";
 "packagegroup-luneos-extended" -> "org.webosports.service.devmode";
 "packagegroup-luneos-extended" -> "org.webosports.service.licenses";
+"packagegroup-luneos-extended" -> "org.webosports.service.lumberjack";
 "packagegroup-luneos-extended" -> "org.webosports.service.messaging";
 "packagegroup-luneos-extended" -> "org.webosports.service.update";
 "packagegroup-luneos-extended" -> "packagegroup-luneos-extended-lic" [style=dotted];
@@ -2903,8 +2923,10 @@ digraph depends {
 "sdl2-opengles-test" -> "sdl2-opengles-test-lic" [style=dotted];
 "serial-forward" -> "serial-forward-lic" [style=dotted];
 "shadow" -> "base-passwd";
+"shadow" -> "shadow-base";
 "shadow" -> "shadow-lic" [style=dotted];
 "shadow" -> "shadow-securetty";
+"shadow" -> "util-linux-sulogin";
 "shadow-securetty" -> "shadow-securetty-lic" [style=dotted];
 "shared-mime-info" -> "libglib-2.0-0";
 "shared-mime-info" -> "libxml2";
@@ -2955,6 +2977,7 @@ digraph depends {
 "systemd-serialgetty" -> "systemd";
 "systemd-serialgetty" -> "systemd-serialgetty-lic" [style=dotted];
 "tar" -> "tar-lic" [style=dotted];
+"tidy-html5" -> "tidy-html5-lic" [style=dotted];
 "tzdata" -> "tzdata-lic" [style=dotted];
 "udev" -> "libacl1";
 "udev" -> "libattr1";
@@ -2968,6 +2991,7 @@ digraph depends {
 "util-linux" -> "libblkid1";
 "util-linux" -> "libmount1";
 "util-linux" -> "libncursesw5";
+"util-linux" -> "libsmartcols1";
 "util-linux" -> "libtinfo5";
 "util-linux" -> "libuuid1";
 "util-linux" -> "util-linux-cfdisk" [style=dotted];
@@ -2978,22 +3002,24 @@ digraph depends {
 "util-linux" -> "util-linux-mount" [style=dotted];
 "util-linux" -> "util-linux-readprofile" [style=dotted];
 "util-linux" -> "util-linux-sfdisk" [style=dotted];
+"util-linux" -> "util-linux-sulogin";
 "util-linux" -> "util-linux-swaponoff";
 "util-linux" -> "util-linux-umount";
-"util-linux-cfdisk" -> "libblkid1";
+"util-linux-cfdisk" -> "libfdisk1";
 "util-linux-cfdisk" -> "libncursesw5";
+"util-linux-cfdisk" -> "libsmartcols1";
 "util-linux-cfdisk" -> "libtinfo5";
-"util-linux-cfdisk" -> "libuuid1";
-"util-linux-cfdisk" -> "util-linux";
-"util-linux-fdisk" -> "libblkid1";
-"util-linux-fdisk" -> "libuuid1";
-"util-linux-fdisk" -> "util-linux";
+"util-linux-fdisk" -> "libfdisk1";
+"util-linux-fdisk" -> "libsmartcols1";
 "util-linux-fsck" -> "libblkid1";
 "util-linux-fsck" -> "libmount1";
-"util-linux-losetup" -> "util-linux";
+"util-linux-losetup" -> "libsmartcols1";
 "util-linux-mount" -> "libmount1";
+"util-linux-sfdisk" -> "libfdisk1";
+"util-linux-sfdisk" -> "libsmartcols1";
+"util-linux-swaponoff" -> "libblkid1";
 "util-linux-swaponoff" -> "libmount1";
-"util-linux-swaponoff" -> "util-linux";
+"util-linux-swaponoff" -> "libsmartcols1";
 "util-linux-umount" -> "libmount1";
 "v86d" -> "v86d-lic" [style=dotted];
 "valgrind" -> "perl";
@@ -3040,8 +3066,4 @@ digraph depends {
 "wpa-supplicant-passphrase" -> "libgcrypt";
 "xkeyboard-config" -> "xkeyboard-config-lic" [style=dotted];
 "xkeyboard-config-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted];
-"xuser-account" -> "base-files";
-"xuser-account" -> "base-passwd";
-"xuser-account" -> "shadow";
-"xuser-account" -> "xuser-account-lic" [style=dotted];
 }
