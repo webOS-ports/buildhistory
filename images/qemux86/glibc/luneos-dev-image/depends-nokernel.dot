@@ -3346,6 +3346,7 @@ digraph depends {
 "qt5-opengles2-test" -> "libc6";
 "qt5-opengles2-test" -> "libgcc1";
 "qt5-opengles2-test" -> "libgles2-mesa";
+"qt5-opengles2-test" -> "libqt5sensors5";
 "qt5-opengles2-test" -> "libstdc++6";
 "qt5-opengles2-test" -> "qt5-opengles2-test-lic" [style=dotted];
 "qt5-opengles2-test" -> "qtbase";
@@ -3410,7 +3411,6 @@ digraph depends {
 "qtmultimedia" -> "qtbase";
 "qtmultimedia" -> "qtdeclarative";
 "qtmultimedia" -> "qtmultimedia-lic" [style=dotted];
-"qtmultimedia-plugins" -> "libasound2";
 "qtmultimedia-plugins" -> "libc6";
 "qtmultimedia-plugins" -> "libegl-mesa";
 "qtmultimedia-plugins" -> "libgcc1";
@@ -3503,9 +3503,13 @@ digraph depends {
 "serial-forward" -> "serial-forward-lic" [style=dotted];
 "shadow" -> "base-passwd";
 "shadow" -> "libc6";
+"shadow" -> "shadow-base";
 "shadow" -> "shadow-lic" [style=dotted];
 "shadow" -> "shadow-securetty";
 "shadow" -> "update-alternatives-opkg";
+"shadow" -> "util-linux-sulogin";
+"shadow-base" -> "libc6";
+"shadow-base" -> "update-alternatives-opkg";
 "shadow-securetty" -> "shadow-securetty-lic" [style=dotted];
 "shared-mime-info" -> "libc6";
 "shared-mime-info" -> "libglib-2.0-0";
@@ -3570,8 +3574,6 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted];
 "systemd-machine-units" -> "systemd-machine-units-lic" [style=dotted];
-"systemd-serialgetty" -> "systemd";
-"systemd-serialgetty" -> "systemd-serialgetty-lic" [style=dotted];
 "sysvinit-pidof" -> "libc6";
 "sysvinit-pidof" -> "update-alternatives-opkg";
 "tar" -> "libc6";
@@ -3608,6 +3610,7 @@ digraph depends {
 "util-linux" -> "util-linux-mount" [style=dotted];
 "util-linux" -> "util-linux-readprofile" [style=dotted];
 "util-linux" -> "util-linux-sfdisk" [style=dotted];
+"util-linux" -> "util-linux-sulogin";
 "util-linux" -> "util-linux-swaponoff";
 "util-linux" -> "util-linux-umount";
 "util-linux-agetty" -> "libc6";
@@ -3639,6 +3642,8 @@ digraph depends {
 "util-linux-readprofile" -> "libc6";
 "util-linux-readprofile" -> "update-alternatives-opkg";
 "util-linux-sfdisk" -> "libc6";
+"util-linux-sulogin" -> "libc6";
+"util-linux-sulogin" -> "update-alternatives-opkg";
 "util-linux-swaponoff" -> "libc6";
 "util-linux-swaponoff" -> "libmount1";
 "util-linux-swaponoff" -> "libsmartcols1";
