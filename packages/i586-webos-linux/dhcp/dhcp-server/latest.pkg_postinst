@@ -8,9 +8,9 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS disable dhcpd.service
+	systemctl $OPTS disable dhcpd.service dhcpd6.service
 
 	if [ -z "$D" -a "disable" = "enable" ]; then
-		systemctl restart dhcpd.service
+		systemctl restart dhcpd.service dhcpd6.service
 	fi
 fi
