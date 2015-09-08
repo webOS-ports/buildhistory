@@ -1702,6 +1702,9 @@ digraph depends {
 "iptables" -> "kernel-module-nf-nat" [style=dotted];
 "iptables" -> "kernel-module-x-tables" [style=dotted];
 "iptables" -> "libc6";
+"kbd" -> "kbd-lic" [style=dotted];
+"kbd" -> "libc6";
+"kbd" -> "update-alternatives-opkg";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
@@ -2351,6 +2354,8 @@ digraph depends {
 "luna-qml-launcher" -> "libc6";
 "luna-qml-launcher" -> "libgcc1";
 "luna-qml-launcher" -> "libglib-2.0-0";
+"luna-qml-launcher" -> "libjson-c2";
+"luna-qml-launcher" -> "liblunasysmgrcommon3";
 "luna-qml-launcher" -> "libstdc++6";
 "luna-qml-launcher" -> "libwebos-application0";
 "luna-qml-launcher" -> "luna-qml-launcher-lic" [style=dotted];
@@ -2412,6 +2417,7 @@ digraph depends {
 "luna-webappmanager" -> "libconnman-qt5-1";
 "luna-webappmanager" -> "libgcc1";
 "luna-webappmanager" -> "libglib-2.0-0";
+"luna-webappmanager" -> "libjson-c2";
 "luna-webappmanager" -> "liblunasysmgrcommon3";
 "luna-webappmanager" -> "libstdc++6";
 "luna-webappmanager" -> "libsystemd0";
@@ -3521,6 +3527,7 @@ digraph depends {
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-lic" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -3534,6 +3541,10 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted];
 "systemd-machine-units" -> "systemd-machine-units-lic" [style=dotted];
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libc6";
 "sysvinit-pidof" -> "libc6";
 "sysvinit-pidof" -> "update-alternatives-opkg";
 "tar" -> "libc6";
