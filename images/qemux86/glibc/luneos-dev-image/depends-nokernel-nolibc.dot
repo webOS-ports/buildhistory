@@ -84,7 +84,7 @@ digraph depends {
 "core-apps" -> "core-apps-lic" [style=dotted];
 "cpushareholder-stub" -> "cpushareholder-stub-lic" [style=dotted];
 "curl" -> "curl-lic" [style=dotted];
-"curl" -> "libcurl5";
+"curl" -> "libcurl4";
 "curl" -> "libz1";
 "db8" -> "bash";
 "db8" -> "db8-lic" [style=dotted];
@@ -158,6 +158,8 @@ digraph depends {
 "gdb" -> "libreadline6";
 "gdb" -> "libtinfo5";
 "gdb" -> "libz1";
+"gdb" -> "python";
+"gdb" -> "python-codecs";
 "gdk-pixbuf" -> "gdk-pixbuf-lic" [style=dotted];
 "gdk-pixbuf" -> "libffi6";
 "gdk-pixbuf" -> "libglib-2.0-0";
@@ -302,7 +304,7 @@ digraph depends {
 "gstreamer1.0-plugins-bad-compositor" -> "libgstvideo-1.0-0";
 "gstreamer1.0-plugins-bad-compositor" -> "liborc-0.4-0";
 "gstreamer1.0-plugins-bad-curl" -> "gstreamer1.0";
-"gstreamer1.0-plugins-bad-curl" -> "libcurl5";
+"gstreamer1.0-plugins-bad-curl" -> "libcurl4";
 "gstreamer1.0-plugins-bad-curl" -> "libffi6";
 "gstreamer1.0-plugins-bad-curl" -> "libglib-2.0-0";
 "gstreamer1.0-plugins-bad-curl" -> "libgmp10";
@@ -1470,6 +1472,8 @@ digraph depends {
 "iptables" -> "kernel-module-nf-defrag-ipv4" [style=dotted];
 "iptables" -> "kernel-module-nf-nat" [style=dotted];
 "iptables" -> "kernel-module-x-tables" [style=dotted];
+"kbd" -> "kbd-lic" [style=dotted];
+"kbd" -> "update-alternatives-opkg";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
@@ -1524,11 +1528,11 @@ digraph depends {
 "libconnman-qt5-1" -> "qtbase";
 "libconnman-qt5-1" -> "qtdeclarative";
 "libcrypto1.0.0" -> "openssl-conf" [style=dotted];
-"libcurl5" -> "ca-certificates" [style=dotted];
-"libcurl5" -> "libgmp10";
-"libcurl5" -> "libgnutls28";
-"libcurl5" -> "libz1";
-"libcurl5" -> "nettle";
+"libcurl4" -> "ca-certificates" [style=dotted];
+"libcurl4" -> "libgmp10";
+"libcurl4" -> "libgnutls28";
+"libcurl4" -> "libz1";
+"libcurl4" -> "nettle";
 "libdbus-1-3" -> "dbus-1" [style=dotted];
 "libdbus-glib-1-2" -> "libdbus-1-3";
 "libdbus-glib-1-2" -> "libdbus-glib-1-lic" [style=dotted];
@@ -1548,7 +1552,7 @@ digraph depends {
 "libegl-mesa" -> "wayland";
 "libemail-common2" -> "db8";
 "libemail-common2" -> "libboost-regex1.57.0";
-"libemail-common2" -> "libcurl5";
+"libemail-common2" -> "libcurl4";
 "libemail-common2" -> "libemail-common-lic" [style=dotted];
 "libemail-common2" -> "libglib-2.0-0";
 "libemail-common2" -> "libicuuc54";
@@ -1947,6 +1951,8 @@ digraph depends {
 "luna-prefs" -> "luna-service2";
 "luna-prefs-data" -> "luna-prefs-data-lic" [style=dotted];
 "luna-qml-launcher" -> "libglib-2.0-0";
+"luna-qml-launcher" -> "libjson-c2";
+"luna-qml-launcher" -> "liblunasysmgrcommon3";
 "luna-qml-launcher" -> "libstdc++6";
 "luna-qml-launcher" -> "libwebos-application0";
 "luna-qml-launcher" -> "luna-qml-launcher-lic" [style=dotted];
@@ -1999,6 +2005,7 @@ digraph depends {
 "luna-universalsearchmgr" -> "luna-universalsearchmgr-lic" [style=dotted];
 "luna-webappmanager" -> "libconnman-qt5-1";
 "luna-webappmanager" -> "libglib-2.0-0";
+"luna-webappmanager" -> "libjson-c2";
 "luna-webappmanager" -> "liblunasysmgrcommon3";
 "luna-webappmanager" -> "libstdc++6";
 "luna-webappmanager" -> "libsystemd0";
@@ -2197,9 +2204,11 @@ digraph depends {
 "org.webosports.app.firstuse" -> "org.webosports.app.firstuse-lic" [style=dotted];
 "org.webosports.app.firstuse" -> "qtbase";
 "org.webosports.app.firstuse" -> "qtdeclarative";
+"org.webosports.app.maps" -> "org.webosports.app.maps-lic" [style=dotted];
 "org.webosports.app.memos" -> "org.webosports.app.memos-lic" [style=dotted];
 "org.webosports.app.messaging" -> "org.webosports.app.messaging-lic" [style=dotted];
 "org.webosports.app.pdf" -> "org.webosports.app.pdf-lic" [style=dotted];
+"org.webosports.app.photos" -> "org.webosports.app.photos-lic" [style=dotted];
 "org.webosports.app.settings" -> "org.webosports.app.settings-lic" [style=dotted];
 "org.webosports.app.testr" -> "cordova";
 "org.webosports.app.testr" -> "org.webosports.app.testr-lic" [style=dotted];
@@ -2294,9 +2303,11 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.app.contacts";
 "packagegroup-luneos-extended" -> "org.webosports.app.filemanager";
 "packagegroup-luneos-extended" -> "org.webosports.app.firstuse";
+"packagegroup-luneos-extended" -> "org.webosports.app.maps";
 "packagegroup-luneos-extended" -> "org.webosports.app.memos";
 "packagegroup-luneos-extended" -> "org.webosports.app.messaging";
 "packagegroup-luneos-extended" -> "org.webosports.app.pdf";
+"packagegroup-luneos-extended" -> "org.webosports.app.photos";
 "packagegroup-luneos-extended" -> "org.webosports.app.settings";
 "packagegroup-luneos-extended" -> "org.webosports.cdav";
 "packagegroup-luneos-extended" -> "org.webosports.service.devmode";
@@ -3004,6 +3015,7 @@ digraph depends {
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-lic" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -3016,6 +3028,9 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted];
 "systemd-machine-units" -> "systemd-machine-units-lic" [style=dotted];
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
 "sysvinit-pidof" -> "update-alternatives-opkg";
 "tar" -> "tar-lic" [style=dotted];
 "tar" -> "update-alternatives-opkg";
