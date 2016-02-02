@@ -13,21 +13,10 @@
 			if test -e /etc/busybox.links$suffix; then
 				while read link; do
 					if test ! -e "$link"; then
-						case "$link" in
-							/*/*/*)
-								to="../../bin/busybox$suffix"
-								;;
-							/bin/*)
-								to="busybox$suffix"
-								;;
-							/*/*)
-								to="../bin/busybox$suffix"
-								;;
-						esac
 						# we can use busybox here because even if we are using splitted busybox
 						# we've made a symlink from /bin/busybox to /bin/busybox.nosuid.
 						busybox rm -f $link
-						busybox ln -s $to $link
+						busybox ln -s "/bin/busybox$suffix" $link
 					fi
 				done < /etc/busybox.links$suffix
 			fi
