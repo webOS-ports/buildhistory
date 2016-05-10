@@ -2003,6 +2003,7 @@ digraph depends {
 "kbd" -> "kbd-lic" [style=dotted];
 "kbd" -> "libc6";
 "kbd" -> "update-alternatives-opkg";
+"kernel-module-ac97-bus" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-ip-tables" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-4.4.3-yocto-standard";
@@ -2015,8 +2016,13 @@ digraph depends {
 "kernel-module-nf-defrag-ipv4" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-nf-nat" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
+"kernel-module-snd-ac97-codec" -> "kernel-4.4.3-yocto-standard";
+"kernel-module-snd-ac97-codec" -> "kernel-module-ac97-bus";
 "kernel-module-snd-ens1370" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-snd-ens1370" -> "kernel-module-snd-rawmidi";
+"kernel-module-snd-intel8x0" -> "kernel-4.4.3-yocto-standard";
+"kernel-module-snd-intel8x0" -> "kernel-module-ac97-bus";
+"kernel-module-snd-intel8x0" -> "kernel-module-snd-ac97-codec";
 "kernel-module-snd-rawmidi" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-uvesafb" -> "kernel-4.4.3-yocto-standard";
 "kernel-module-vboxguest" -> "kernel-4.4.3-yocto-standard";
@@ -3315,6 +3321,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "gstreamer1.0-plugins-ugly-meta";
 "packagegroup-luneos-extended" -> "imaccountvalidator";
 "packagegroup-luneos-extended" -> "imlibpurpleservice";
+"packagegroup-luneos-extended" -> "kernel-module-snd-intel8x0";
 "packagegroup-luneos-extended" -> "keymanager";
 "packagegroup-luneos-extended" -> "libegl-gallium";
 "packagegroup-luneos-extended" -> "location-service";
