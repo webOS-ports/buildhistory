@@ -1269,7 +1269,6 @@ lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/maliit-server.service -> /lib/systemd/system/maliit-server.service
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/mediaindexer.service -> /lib/systemd/system/mediaindexer.service
 lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/mmsd.service -> /lib/systemd/system/mmsd.service
-lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/mtp-server.service -> /lib/systemd/system/mtp-server.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/ofono.service -> /lib/systemd/system/ofono.service
 lrwxrwxrwx root       root               58 ./etc/systemd/system/multi-user.target.wants/org.webosinternals.ipkgservice.service -> /lib/systemd/system/org.webosinternals.ipkgservice.service
 lrwxrwxrwx root       root               61 ./etc/systemd/system/multi-user.target.wants/org.webosports.service.lumberjack.service -> /lib/systemd/system/org.webosports.service.lumberjack.service
@@ -1279,6 +1278,7 @@ lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/sensorfwd.service -> /lib/systemd/system/sensorfwd.service
 lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/sleepd.service -> /lib/systemd/system/sleepd.service
 lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/sntp.service -> /lib/systemd/system/sntp.service
+lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/storaged.service -> /lib/systemd/system/storaged.service
 lrwxrwxrwx root       root               45 ./etc/systemd/system/multi-user.target.wants/voicecall-manager.service -> /lib/systemd/system/voicecall-manager.service
 lrwxrwxrwx root       root               49 ./etc/systemd/system/multi-user.target.wants/webos-connman-adapter.service -> /lib/systemd/system/webos-connman-adapter.service
 lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.target.wants/webos-telephonyd.service -> /lib/systemd/system/webos-telephonyd.service
@@ -1337,10 +1337,11 @@ drwxr-xr-x root       root              180 ./etc/udev
 drwxr-xr-x root       root               40 ./etc/udev/hwdb.d
 -rw-r--r-- root       root               51 ./etc/udev/mount.blacklist
 drwxr-xr-x root       root               40 ./etc/udev/mount.blacklist.d
-drwxr-xr-x root       root              260 ./etc/udev/rules.d
+drwxr-xr-x root       root              280 ./etc/udev/rules.d
 -rw-r--r-- root       root              206 ./etc/udev/rules.d/50-firmware.rules
 -rw-r--r-- root       root              317 ./etc/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r-- root       root             1669 ./etc/udev/rules.d/65-android.rules
+-rw-r--r-- root       root             1137 ./etc/udev/rules.d/90-storaged.rules
 -rw-r--r-- root       root             1029 ./etc/udev/rules.d/99-nyx-modules.rules
 -rw-r--r-- root       root              174 ./etc/udev/rules.d/android-system-devs.rules
 -rw-r--r-- root       root              847 ./etc/udev/rules.d/automount.rules
@@ -1349,9 +1350,10 @@ drwxr-xr-x root       root              260 ./etc/udev/rules.d
 -rw-r--r-- root       root              855 ./etc/udev/rules.d/touchscreen.rules
 -rw-r--r-- root       root              329 ./etc/udev/rules.d/tuna-modem.rules
 -rw-r--r-- root       root              134 ./etc/udev/rules.d/tuna-pulseaudio.rules
-drwxr-xr-x root       root               80 ./etc/udev/scripts
+drwxr-xr-x root       root              100 ./etc/udev/scripts
 -rwxr-xr-x root       root             2469 ./etc/udev/scripts/mount.sh
 -rwxr-xr-x root       root             1402 ./etc/udev/scripts/network.sh
+-rwxr-xr-x root       root             1744 ./etc/udev/scripts/storage.sh
 -rw-r--r-- root       root               49 ./etc/udev/udev.conf
 drwxr-xr-x root       root               60 ./etc/udhcpc.d
 -rwxr-xr-x root       root             2634 ./etc/udhcpc.d/50default
@@ -1517,7 +1519,7 @@ drwxr-xr-x root       root              100 ./lib/systemd/network
 -rw-r--r-- root       root              404 ./lib/systemd/network/80-container-host0.network
 -rw-r--r-- root       root              482 ./lib/systemd/network/80-container-ve.network
 -rw-r--r-- root       root               80 ./lib/systemd/network/99-default.link
-drwxr-xr-x root       root             4600 ./lib/systemd/system
+drwxr-xr-x root       root             4620 ./lib/systemd/system
 drwxr-xr-x root       root              220 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            50952 ./lib/systemd/system-generators/systemd-dbus1-generator
 -rwxr-xr-x root       root            34576 ./lib/systemd/system-generators/systemd-debug-generator
@@ -1626,7 +1628,7 @@ lrwxrwxrwx root       root               25 ./lib/systemd/system/local-fs.target
 -rw-r--r-- root       root              279 ./lib/systemd/system/maliit-server.service
 -rw-r--r-- root       root              260 ./lib/systemd/system/mediaindexer.service
 -rw-r--r-- root       root              252 ./lib/systemd/system/mmsd.service
--rw-r--r-- root       root              225 ./lib/systemd/system/mtp-server.service
+-rw-r--r-- root       root              428 ./lib/systemd/system/mtp-server.service
 -rw-r--r-- root       root              492 ./lib/systemd/system/multi-user.target
 drwxr-xr-x root       root              140 ./lib/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               15 ./lib/systemd/system/multi-user.target.wants/dbus.service -> ../dbus.service
@@ -1703,6 +1705,7 @@ lrwxrwxrwx root       root               30 ./lib/systemd/system/sockets.target.
 -rw-r--r-- root       root              143 ./lib/systemd/system/sshd.socket
 -rw-r--r-- root       root              305 ./lib/systemd/system/sshd@.service
 -rw-r--r-- root       root              954 ./lib/systemd/system/sshdgenkeys.service
+-rw-r--r-- root       root              292 ./lib/systemd/system/storaged.service
 -rw-r--r-- root       root              441 ./lib/systemd/system/suspend.target
 -rw-r--r-- root       root              353 ./lib/systemd/system/swap.target
 -rw-r--r-- root       root              715 ./lib/systemd/system/sys-fs-fuse-connections.mount
@@ -4272,7 +4275,7 @@ lrwxrwxrwx root       root               17 ./usr/lib/libmpeg2.so.0 -> libmpeg2.
 lrwxrwxrwx root       root               17 ./usr/lib/libmtdev.so.1 -> libmtdev.so.1.0.0
 -rwxr-xr-x root       root            16012 ./usr/lib/libmtdev.so.1.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libmtpserver.so.1 -> libmtpserver.so.1.0.0
--rwxr-xr-x root       root           123160 ./usr/lib/libmtpserver.so.1.0.0
+-rwxr-xr-x root       root           123220 ./usr/lib/libmtpserver.so.1.0.0
 lrwxrwxrwx root       root               17 ./usr/lib/libneon.so.27 -> libneon.so.27.3.1
 -rwxr-xr-x root       root           122776 ./usr/lib/libneon.so.27.3.1
 lrwxrwxrwx root       root               16 ./usr/lib/libnettle.so.6 -> libnettle.so.6.2
@@ -4551,13 +4554,14 @@ drwxr-xr-x root       root              120 ./usr/lib/nodejs
 -rwxr-xr-x root       root            64868 ./usr/lib/nodejs/webos-sysbus.node
 -rwxr-xr-x root       root            19596 ./usr/lib/nodejs/webos.node
 drwxr-xr-x root       root               80 ./usr/lib/nyx
-drwxr-xr-x root       root              280 ./usr/lib/nyx/modules
+drwxr-xr-x root       root              300 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root            11852 ./usr/lib/nyx/modules/nyxBatteryMain.module
 -rwxr-xr-x root       root             8236 ./usr/lib/nyx/modules/nyxChargerMain.module
 -rwxr-xr-x root       root             6364 ./usr/lib/nyx/modules/nyxDeviceInfoMain.module
 -rwxr-xr-x root       root             4228 ./usr/lib/nyx/modules/nyxDisplayMain.module
 -rwxr-xr-x root       root             5476 ./usr/lib/nyx/modules/nyxHapticsMain.module
 -rwxr-xr-x root       root             7880 ./usr/lib/nyx/modules/nyxKeysMain.module
+-rwxr-xr-x root       root             7880 ./usr/lib/nyx/modules/nyxMassStorageModeMain.module
 -rwxr-xr-x root       root             6796 ./usr/lib/nyx/modules/nyxMicroControllerLEDsDefault.module
 -rwxr-xr-x root       root             5384 ./usr/lib/nyx/modules/nyxOSInfoMain.module
 -rwxr-xr-x root       root            15568 ./usr/lib/nyx/modules/nyxSecurityMain.module
@@ -12934,7 +12938,7 @@ drwxr-xr-x root       root               80 ./usr/palm/services/com.palm.service
 -rw-r--r-- root       root              124 ./usr/palm/services/com.palm.service.accounts/files/sysbus/com.palm.service.accounts.service
 drwxr-xr-x root       root              320 ./usr/palm/services/com.palm.service.accounts/handlers
 -rw-r--r-- root       root              891 ./usr/palm/services/com.palm.service.accounts/handlers/apps-changed.js
--rw-r--r-- root       root             3028 ./usr/palm/services/com.palm.service.accounts/handlers/create-local-account.js
+-rw-r--r-- root       root             3089 ./usr/palm/services/com.palm.service.accounts/handlers/create-local-account.js
 -rw-r--r-- root       root             6905 ./usr/palm/services/com.palm.service.accounts/handlers/create.js
 -rw-r--r-- root       root             3590 ./usr/palm/services/com.palm.service.accounts/handlers/credentials.js
 -rw-r--r-- root       root             3523 ./usr/palm/services/com.palm.service.accounts/handlers/delete.js
@@ -13326,7 +13330,7 @@ drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
 -rw-r--r-- root       root             2655 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
-drwxr-xr-x root       root             3020 ./usr/sbin
+drwxr-xr-x root       root             3040 ./usr/sbin
 drwxr-xr-x root       root              120 ./usr/sbin/.debug
 -rwxr-xr-x root       root            58864 ./usr/sbin/.debug/iconvconfig
 -rwxr-xr-x root       root           497112 ./usr/sbin/.debug/nscd
@@ -13336,7 +13340,7 @@ drwxr-xr-x root       root              120 ./usr/sbin/.debug
 -rwxr-xr-x root       root           219400 ./usr/sbin/LunaSysMgr
 -rwxr-xr-x root       root           467456 ./usr/sbin/LunaSysService
 -rwxr-xr-x root       root           146196 ./usr/sbin/LunaUniversalSearchMgr
--rwxr-xr-x root       root           937336 ./usr/sbin/LunaWebAppManager
+-rwxr-xr-x root       root           932464 ./usr/sbin/LunaWebAppManager
 -rwxr-xr-x root       root            10896 ./usr/sbin/PmKLogDaemon
 -rwxr-xr-x root       root            33576 ./usr/sbin/PmLogDaemon
 -rwxr-xr-x root       root           929300 ./usr/sbin/activitymanager
@@ -13463,6 +13467,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.no
 -rwxr-xr-x root       root           186336 ./usr/sbin/sntp
 -rwxr-xr-x root       root             7016 ./usr/sbin/sserver
 -rwxr-xr-x root       root           703256 ./usr/sbin/sshd
+-rwxr-xr-x root       root            23364 ./usr/sbin/storaged
 -rwxr-xr-x root       root             1020 ./usr/sbin/suspend_action
 -rwxr-xr-x root       root             8816 ./usr/sbin/swaplabel
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
@@ -14377,7 +14382,7 @@ drwxr-xr-x root       root              820 ./usr/share/consolefonts/partialfont
 -rw-r--r-- root       root             1363 ./usr/share/consolefonts/tcvn8x16.psf.gz
 -rw-r--r-- root       root             1891 ./usr/share/consolefonts/viscii10-8x16.psfu.gz
 drwxr-xr-x root       root              160 ./usr/share/dbus-1
-drwxr-xr-x root       root              680 ./usr/share/dbus-1/services
+drwxr-xr-x root       root              700 ./usr/share/dbus-1/services
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/services/audio-service.service
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/services/com.palm.activitymanager.service
 -rw-r--r-- root       root              713 ./usr/share/dbus-1/services/com.palm.db.service
@@ -14390,6 +14395,7 @@ drwxr-xr-x root       root              680 ./usr/share/dbus-1/services
 -rw-r--r-- root       root              128 ./usr/share/dbus-1/services/com.palm.preferences.service
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/services/com.palm.service.accounts.service
 -rw-r--r-- root       root              697 ./usr/share/dbus-1/services/com.palm.sleep.service
+-rw-r--r-- root       root              708 ./usr/share/dbus-1/services/com.palm.storage.service
 -rw-r--r-- root       root              101 ./usr/share/dbus-1/services/com.palm.systemservice.service
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/services/com.palm.universalsearch.service
 -rw-r--r-- root       root              710 ./usr/share/dbus-1/services/com.webos.mediadb.service
@@ -14412,7 +14418,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root              745 ./usr/share/dbus-1/services/webos-telephonyd.service
 -rw-r--r-- root       root             3561 ./usr/share/dbus-1/session.conf
 drwxr-xr-x root       root               40 ./usr/share/dbus-1/session.d
-drwxr-xr-x root       root             1180 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root             1200 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/android-property-service.service
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
@@ -14438,6 +14444,7 @@ drwxr-xr-x root       root             1180 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/com.palm.service.contacts.service
 -rw-r--r-- root       root              697 ./usr/share/dbus-1/system-services/com.palm.sleep.service
 -rw-r--r-- root       root              154 ./usr/share/dbus-1/system-services/com.palm.smtp.service
+-rw-r--r-- root       root              708 ./usr/share/dbus-1/system-services/com.palm.storage.service
 -rw-r--r-- root       root              101 ./usr/share/dbus-1/system-services/com.palm.systemservice.service
 -rw-r--r-- root       root              709 ./usr/share/dbus-1/system-services/com.palm.tempdb.service
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/com.palm.universalsearch.service
@@ -14958,7 +14965,7 @@ drwxr-xr-x root       root              360 ./usr/share/keymaps/sun
 -rw-r--r-- root       root             2274 ./usr/share/keymaps/sun/sunt5-uk.map.gz
 -rw-r--r-- root       root             4926 ./usr/share/keymaps/sun/sunt5-us-cz.map.gz
 -rw-r--r-- root       root             1706 ./usr/share/keymaps/sun/sunt6-uk.map.gz
-drwxr-xr-x root       root             6180 ./usr/share/licenses
+drwxr-xr-x root       root             6200 ./usr/share/licenses
 drwxr-xr-x root       root               80 ./usr/share/licenses/abootimg
 -rw-r--r-- root       root            18092 ./usr/share/licenses/abootimg/LICENSE
 -rw-r--r-- root       root            17611 ./usr/share/licenses/abootimg/generic_GPL-2.0
@@ -16053,6 +16060,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/speexdsp
 drwxr-xr-x root       root               80 ./usr/share/licenses/sqlite3
 -rw-r--r-- root       root               52 ./usr/share/licenses/sqlite3/generic_PD
 -rw-r--r-- root       root           416807 ./usr/share/licenses/sqlite3/sqlite3.h
+drwxr-xr-x root       root               80 ./usr/share/licenses/storaged
+-rw-r--r-- root       root            11360 ./usr/share/licenses/storaged/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/storaged/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/strace
 -rw-r--r-- root       root             1757 ./usr/share/licenses/strace/COPYING
 -rw-r--r-- root       root             1499 ./usr/share/licenses/strace/generic_BSD
@@ -16206,7 +16216,7 @@ drwxr-xr-x root       root               60 ./usr/share/locale/en_US/LC_MESSAGES
 -rw-r--r-- root       root              410 ./usr/share/locale/en_US/LC_MESSAGES/mit-krb5.mo
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root             1100 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root             1120 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              315 ./usr/share/ls2/roles/prv/android-property-service.json
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/prv/audio-service.json
 -rw-r--r-- root       root              299 ./usr/share/ls2/roles/prv/certmgrd.json
@@ -16238,6 +16248,7 @@ drwxr-xr-x root       root             1100 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              204 ./usr/share/ls2/roles/prv/com.palm.service.contacts.linker.json
 -rw-r--r-- root       root              281 ./usr/share/ls2/roles/prv/com.palm.sleep.json
 -rw-r--r-- root       root              282 ./usr/share/ls2/roles/prv/com.palm.smtp.json
+-rw-r--r-- root       root              284 ./usr/share/ls2/roles/prv/com.palm.storage.json
 -rw-r--r-- root       root              439 ./usr/share/ls2/roles/prv/com.palm.systemservice.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/prv/com.palm.universalsearch.json
 -rw-r--r-- root       root              287 ./usr/share/ls2/roles/prv/com.webos.pmlogd.json
@@ -16260,7 +16271,7 @@ drwxr-xr-x root       root             1100 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              529 ./usr/share/ls2/roles/prv/org.webosports.webappmanager.json
 -rw-r--r-- root       root              453 ./usr/share/ls2/roles/prv/webos-connman-adapter.json
 -rw-r--r-- root       root              432 ./usr/share/ls2/roles/prv/webos-telephonyd.json
-drwxr-xr-x root       root              920 ./usr/share/ls2/roles/pub
+drwxr-xr-x root       root              940 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/pub/audio-service.json
 -rw-r--r-- root       root              401 ./usr/share/ls2/roles/pub/com.palm.activitymanager.json
 -rw-r--r-- root       root              996 ./usr/share/ls2/roles/pub/com.palm.db.json
@@ -16285,6 +16296,7 @@ drwxr-xr-x root       root              920 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              189 ./usr/share/ls2/roles/pub/com.palm.service.contacts.json
 -rw-r--r-- root       root              204 ./usr/share/ls2/roles/pub/com.palm.service.contacts.linker.json
 -rw-r--r-- root       root              281 ./usr/share/ls2/roles/pub/com.palm.sleep.json
+-rw-r--r-- root       root              284 ./usr/share/ls2/roles/pub/com.palm.storage.json
 -rw-r--r-- root       root              439 ./usr/share/ls2/roles/pub/com.palm.systemservice.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/pub/ls-monitor-pub.json
@@ -22104,7 +22116,7 @@ drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root               60 ./var/lib/ofono
 -rw-r--r-- root       root               36 ./var/lib/ofono/environment.conf
 drwxr-xr-x root       root               80 ./var/lib/opkg
-drwxr-xr-x root       root            51640 ./var/lib/opkg/info
+drwxr-xr-x root       root            51760 ./var/lib/opkg/info
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/abootimg-lic.control
 -rw-r--r-- root       root              112 ./var/lib/opkg/info/abootimg-lic.list
 -rw-r--r-- root       root              470 ./var/lib/opkg/info/abootimg.control
@@ -23815,9 +23827,9 @@ drwxr-xr-x root       root            51640 ./var/lib/opkg/info
 -rw-r--r-- root       root              636 ./var/lib/opkg/info/mtdev.control
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/mtdev.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/mtdev.postinst
--rw-r--r-- root       root              391 ./var/lib/opkg/info/mtp-server-lic.control
+-rw-r--r-- root       root              390 ./var/lib/opkg/info/mtp-server-lic.control
 -rw-r--r-- root       root              260 ./var/lib/opkg/info/mtp-server-lic.list
--rw-r--r-- root       root              651 ./var/lib/opkg/info/mtp-server.control
+-rw-r--r-- root       root              650 ./var/lib/opkg/info/mtp-server.control
 -rw-r--r-- root       root              117 ./var/lib/opkg/info/mtp-server.list
 -rwxr-xr-x root       root              327 ./var/lib/opkg/info/mtp-server.postinst
 -rwxr-xr-x root       root              222 ./var/lib/opkg/info/mtp-server.prerm
@@ -23882,7 +23894,7 @@ drwxr-xr-x root       root            51640 ./var/lib/opkg/info
 -rw-r--r-- root       root              396 ./var/lib/opkg/info/nyx-modules-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/nyx-modules-lic.list
 -rw-r--r-- root       root              595 ./var/lib/opkg/info/nyx-modules.control
--rw-r--r-- root       root              420 ./var/lib/opkg/info/nyx-modules.list
+-rw-r--r-- root       root              471 ./var/lib/opkg/info/nyx-modules.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/nyx-utils-lic.control
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/nyx-utils-lic.list
 -rw-r--r-- root       root              618 ./var/lib/opkg/info/nyx-utils.control
@@ -24053,7 +24065,7 @@ drwxr-xr-x root       root            51640 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-development.list
 -rw-r--r-- root       root              339 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.list
--rw-r--r-- root       root             2426 ./var/lib/opkg/info/packagegroup-luneos-extended.control
+-rw-r--r-- root       root             2436 ./var/lib/opkg/info/packagegroup-luneos-extended.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-extended.list
 -rw-r--r-- root       root              323 ./var/lib/opkg/info/packagegroup-webos-extended-lic.control
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/packagegroup-webos-extended-lic.list
@@ -24455,6 +24467,12 @@ drwxr-xr-x root       root            51640 ./var/lib/opkg/info
 -rw-r--r-- root       root              106 ./var/lib/opkg/info/sqlite3-lic.list
 -rw-r--r-- root       root              457 ./var/lib/opkg/info/sqlite3.control
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/sqlite3.list
+-rw-r--r-- root       root              322 ./var/lib/opkg/info/storaged-lic.control
+-rw-r--r-- root       root              118 ./var/lib/opkg/info/storaged-lic.list
+-rw-r--r-- root       root              502 ./var/lib/opkg/info/storaged.control
+-rw-r--r-- root       root              326 ./var/lib/opkg/info/storaged.list
+-rwxr-xr-x root       root              243 ./var/lib/opkg/info/storaged.postinst
+-rwxr-xr-x root       root              218 ./var/lib/opkg/info/storaged.prerm
 -rw-r--r-- root       root              814 ./var/lib/opkg/info/strace-lic.control
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/strace-lic.list
 -rw-r--r-- root       root              858 ./var/lib/opkg/info/strace.control
@@ -24685,7 +24703,7 @@ drwxr-xr-x root       root            51640 ./var/lib/opkg/info
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/xkeyboard-config-locale-en-gb.list
 -rw-r--r-- root       root              731 ./var/lib/opkg/info/xkeyboard-config.control
 -rw-r--r-- root       root            10519 ./var/lib/opkg/info/xkeyboard-config.list
--rw-r--r-- root       root           306751 ./var/lib/opkg/status
+-rw-r--r-- root       root           307225 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
