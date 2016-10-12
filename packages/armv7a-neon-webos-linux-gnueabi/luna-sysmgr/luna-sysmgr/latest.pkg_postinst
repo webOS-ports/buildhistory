@@ -1,5 +1,14 @@
-    #!/bin/sh -e
+#!/bin/sh
+OPTS=""
 
-    # We need the lock directory for the application installer which will fail if this
-    # directory does not exist
-    mkdir -p /media/cryptofs/apps/var/lock
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable luna-sysmgr.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart luna-sysmgr.service
+	fi
+fi
