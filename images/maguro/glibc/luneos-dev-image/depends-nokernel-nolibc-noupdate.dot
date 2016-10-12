@@ -2607,7 +2607,6 @@ digraph depends {
 "luna-service2" -> "libsystemd0";
 "luna-service2" -> "luna-service2-lic" [style=dotted];
 "luna-service2" -> "rdx-utils-stub";
-"luna-sysmgr" -> "cpushareholder-stub";
 "luna-sysmgr" -> "libglib-2.0-0";
 "luna-sysmgr" -> "libjson-c2";
 "luna-sysmgr" -> "liblunasysmgrcommon3";
@@ -2618,9 +2617,7 @@ digraph depends {
 "luna-sysmgr" -> "luna-prefs";
 "luna-sysmgr" -> "luna-service2";
 "luna-sysmgr" -> "luna-sysmgr-lic" [style=dotted];
-"luna-sysmgr" -> "ptmalloc3";
 "luna-sysmgr" -> "qtbase";
-"luna-sysmgr" -> "util-linux";
 "luna-sysmgr-conf" -> "luna-sysmgr-conf-lic" [style=dotted];
 "luna-sysservice" -> "libglib-2.0-0";
 "luna-sysservice" -> "libjson-c2";
@@ -2959,6 +2956,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "messaging-accounts";
 "packagegroup-luneos-extended" -> "mtp-server";
 "packagegroup-luneos-extended" -> "nyx-modules-hybris";
+"packagegroup-luneos-extended" -> "ofono";
 "packagegroup-luneos-extended" -> "org.webosinternals.ipkgservice";
 "packagegroup-luneos-extended" -> "org.webosinternals.preware";
 "packagegroup-luneos-extended" -> "org.webosinternals.tweaks";
@@ -2971,6 +2969,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.app.memos";
 "packagegroup-luneos-extended" -> "org.webosports.app.messaging";
 "packagegroup-luneos-extended" -> "org.webosports.app.pdf";
+"packagegroup-luneos-extended" -> "org.webosports.app.phone";
 "packagegroup-luneos-extended" -> "org.webosports.app.photos";
 "packagegroup-luneos-extended" -> "org.webosports.app.settings";
 "packagegroup-luneos-extended" -> "org.webosports.app.tasks";
@@ -2981,7 +2980,6 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.service.messaging";
 "packagegroup-luneos-extended" -> "org.webosports.service.update";
 "packagegroup-luneos-extended" -> "packagegroup-luneos-extended-lic" [style=dotted];
-"packagegroup-luneos-extended" -> "packagegroup-webos-telephony";
 "packagegroup-luneos-extended" -> "pmcertificatemgr";
 "packagegroup-luneos-extended" -> "pulseaudio-distro-conf";
 "packagegroup-luneos-extended" -> "pulseaudio-misc";
@@ -3009,10 +3007,12 @@ digraph depends {
 "packagegroup-luneos-extended" -> "storaged";
 "packagegroup-luneos-extended" -> "tar";
 "packagegroup-luneos-extended" -> "udev-extraconf";
+"packagegroup-luneos-extended" -> "voicecall";
 "packagegroup-luneos-extended" -> "webos-connman-adapter";
 "packagegroup-luneos-extended" -> "webos-system-update";
 "packagegroup-luneos-extended" -> "webos-systemd-services";
 "packagegroup-luneos-extended" -> "webos-systemsounds";
+"packagegroup-luneos-extended" -> "webos-telephonyd";
 "packagegroup-luneos-extended" -> "wireless-tools";
 "packagegroup-webos-extended" -> "activitymanager";
 "packagegroup-webos-extended" -> "app-services";
@@ -3074,11 +3074,6 @@ digraph depends {
 "packagegroup-webos-extended" -> "underscore";
 "packagegroup-webos-extended" -> "webos-connman-adapter";
 "packagegroup-webos-extended" -> "webos-keyboard";
-"packagegroup-webos-telephony" -> "ofono";
-"packagegroup-webos-telephony" -> "org.webosports.app.phone";
-"packagegroup-webos-telephony" -> "packagegroup-webos-telephony-lic" [style=dotted];
-"packagegroup-webos-telephony" -> "voicecall";
-"packagegroup-webos-telephony" -> "webos-telephonyd";
 "pango" -> "directfb";
 "pango" -> "libcairo2";
 "pango" -> "libexpat1";
@@ -3224,7 +3219,6 @@ digraph depends {
 "psmisc" -> "psmisc-lic" [style=dotted];
 "psmisc" -> "pstree";
 "pstree" -> "libtinfo5";
-"ptmalloc3" -> "ptmalloc3-lic" [style=dotted];
 "pulseaudio-distro-conf" -> "pulseaudio-distro-conf-lic" [style=dotted];
 "pulseaudio-lib-alsa-util" -> "libasound2";
 "pulseaudio-lib-alsa-util" -> "libcap2";
@@ -4057,6 +4051,7 @@ digraph depends {
 "sntp" -> "libevent";
 "sqlite3" -> "libsqlite3-0";
 "sqlite3" -> "sqlite3-lic" [style=dotted];
+"storaged" -> "bash";
 "storaged" -> "libglib-2.0-0";
 "storaged" -> "libjson-c2";
 "storaged" -> "libnyx6";
@@ -4094,9 +4089,12 @@ digraph depends {
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted];
+"systemd-extra-utils" -> "base-files";
+"systemd-extra-utils" -> "base-passwd";
 "systemd-extra-utils" -> "libattr1";
 "systemd-extra-utils" -> "libblkid1";
 "systemd-extra-utils" -> "libcap2";
+"systemd-extra-utils" -> "shadow";
 "systemd-machine-units" -> "systemd-machine-units-lic" [style=dotted];
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
