@@ -4,10 +4,10 @@ drwxr-xr-x root       root              100 ./etc/event.d
 -rw-r--r-- root       root             1280 ./etc/event.d/db8-maindb
 -rw-r--r-- root       root             1098 ./etc/event.d/db8-tempdb
 drwxr-xr-x root       root              120 ./etc/init
+-rw-r--r-- root       root              838 ./etc/init/db8.conf
 -rw-r--r-- root       root             1870 ./etc/init/db8-maindb.conf
 -rw-r--r-- root       root             1316 ./etc/init/db8-mediadb.conf
 -rw-r--r-- root       root             1255 ./etc/init/db8-tempdb.conf
--rw-r--r-- root       root              838 ./etc/init/db8.conf
 drwxr-xr-x root       root              100 ./etc/palm
 drwxr-xr-x root       root              100 ./etc/palm/activities
 drwxr-xr-x root       root               80 ./etc/palm/activities/com.palm.db
@@ -22,10 +22,16 @@ drwxr-xr-x root       root               80 ./etc/palm/activities/com.webos.medi
 drwxr-xr-x root       root               60 ./etc/palm/backup
 -rw-r--r-- root       root              192 ./etc/palm/backup/backup-com.palm.db
 drwxr-xr-x root       root              100 ./etc/palm/db8
--rw-r--r-- root       root             1404 ./etc/palm/db8/maindb.conf
--rw-r--r-- root       root             1333 ./etc/palm/db8/mediadb.conf
--rw-r--r-- root       root             1239 ./etc/palm/db8/tempdb.conf
-drwxr-xr-x root       root              100 ./usr
+-rw-r--r-- root       root             1605 ./etc/palm/db8/maindb.conf
+-rw-r--r-- root       root             1332 ./etc/palm/db8/mediadb.conf
+-rw-r--r-- root       root             1238 ./etc/palm/db8/tempdb.conf
+drwxr-xr-x root       root               60 ./lib
+drwxr-xr-x root       root               60 ./lib/systemd
+drwxr-xr-x root       root               60 ./lib/systemd/system
+-rw-r--r-- root       root              330 ./lib/systemd/system/db8@.service
+drwxr-xr-x root       root              120 ./usr
+drwxr-xr-x root       root               60 ./usr/bin
+-rwxr-xr-x root       root              321 ./usr/bin/db8-prestart.sh
 drwxr-xr-x root       root              180 ./usr/lib
 drwxr-xr-x root       root               60 ./usr/lib/db8
 drwxr-xr-x root       root              120 ./usr/lib/db8/bin
@@ -33,15 +39,15 @@ drwxr-xr-x root       root              120 ./usr/lib/db8/bin
 -r-x------ root       root             1116 ./usr/lib/db8/bin/errorOpenMainDb.bash
 -r-x------ root       root               78 ./usr/lib/db8/bin/errorOpenMediaDb.bash
 -r-x------ root       root               51 ./usr/lib/db8/bin/errorOpenTempDb.bash
+-rwxr-xr-x root       root           217812 ./usr/lib/libmojocore.so.3.2.0
 lrwxrwxrwx root       root               20 ./usr/lib/libmojocore.so.3 -> libmojocore.so.3.2.0
--rwxr-xr-x root       root           214476 ./usr/lib/libmojocore.so.3.2.0
+-rwxr-xr-x root       root           432860 ./usr/lib/libmojodb.so.3.2.0
 lrwxrwxrwx root       root               18 ./usr/lib/libmojodb.so.3 -> libmojodb.so.3.2.0
--rwxr-xr-x root       root           434324 ./usr/lib/libmojodb.so.3.2.0
+-rwxr-xr-x root       root            35100 ./usr/lib/libmojoluna.so.3.2.0
 lrwxrwxrwx root       root               20 ./usr/lib/libmojoluna.so.3 -> libmojoluna.so.3.2.0
--rwxr-xr-x root       root            33356 ./usr/lib/libmojoluna.so.3.2.0
 drwxr-xr-x root       root               80 ./usr/sbin
--rwxr-xr-x root       root           181036 ./usr/sbin/mojodb-luna
--rwxr-xr-x root       root           181300 ./usr/sbin/mojodb_migrate
+-rwxr-xr-x root       root           182892 ./usr/sbin/mojodb-luna
+-rwxr-xr-x root       root           186848 ./usr/sbin/mojodb_migrate
 drwxr-xr-x root       root               80 ./usr/share
 drwxr-xr-x root       root               80 ./usr/share/dbus-1
 drwxr-xr-x root       root               80 ./usr/share/dbus-1/services
@@ -55,14 +61,14 @@ drwxr-xr-x root       root              120 ./usr/share/dbus-1/system-services
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
 drwxr-xr-x root       root              140 ./usr/share/ls2/roles/prv
--rw-r--r-- root       root              998 ./usr/share/ls2/roles/prv/com.palm.db.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/prv/com.palm.db8_gtest_db_media.json
--rw-r--r-- root       root              283 ./usr/share/ls2/roles/prv/com.palm.db8_test_db_stress.json
 -rw-r--r-- root       root              300 ./usr/share/ls2/roles/prv/com.palm.db8_test_dbclient.json
+-rw-r--r-- root       root              283 ./usr/share/ls2/roles/prv/com.palm.db8_test_db_stress.json
 -rw-r--r-- root       root              468 ./usr/share/ls2/roles/prv/com.palm.db8_test_luna_service.json
+-rw-r--r-- root       root              998 ./usr/share/ls2/roles/prv/com.palm.db.json
 drwxr-xr-x root       root              140 ./usr/share/ls2/roles/pub
--rw-r--r-- root       root              996 ./usr/share/ls2/roles/pub/com.palm.db.json
 -rw-r--r-- root       root              297 ./usr/share/ls2/roles/pub/com.palm.db8_gtest_db_media.json
--rw-r--r-- root       root              283 ./usr/share/ls2/roles/pub/com.palm.db8_test_db_stress.json
 -rw-r--r-- root       root              300 ./usr/share/ls2/roles/pub/com.palm.db8_test_dbclient.json
+-rw-r--r-- root       root              283 ./usr/share/ls2/roles/pub/com.palm.db8_test_db_stress.json
 -rw-r--r-- root       root              468 ./usr/share/ls2/roles/pub/com.palm.db8_test_luna_service.json
+-rw-r--r-- root       root              996 ./usr/share/ls2/roles/pub/com.palm.db.json
