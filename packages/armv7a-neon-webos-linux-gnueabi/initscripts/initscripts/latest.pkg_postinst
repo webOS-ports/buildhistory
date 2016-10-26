@@ -1,13 +1,1 @@
-	if true; then
-		if [ -n "$D" ]; then
-			OPTS="--root=$D"
-		fi
-		for SERVICE in    banner   bootmisc   checkfs   checkroot   devpts   dmesg   hostname   mountall   mountnfs   populate-volatile   read-only-rootfs-hook   rmnologin   sysfs   urandom; do
-			systemctl $OPTS mask $SERVICE.service
-		done
-	fi
-
-    # Delete any old volatile cache script, as directories may have moved
-    if [ -z "$D" ]; then
-        rm -f "/etc/volatile.cache"
-    fi
+\tif true; then\n\t\tif [ -n "$D" ]; then\n\t\t\tOPTS="--root=$D"\n\t\tfi\n\t\tfor SERVICE in    banner   bootmisc   checkfs   checkroot   devpts   dmesg   hostname   mountall   mountnfs   populate-volatile   read-only-rootfs-hook   rmnologin   sysfs   urandom; do\n\t\t\tsystemctl $OPTS mask $SERVICE.service\n\t\tdone\n\tfi\n\n    # Delete any old volatile cache script, as directories may have moved\n    if [ -z "$D" ]; then\n        rm -f "/etc/volatile.cache"\n    fi\n
