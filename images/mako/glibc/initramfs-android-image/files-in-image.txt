@@ -64,7 +64,7 @@ lrwxrwxrwx root       root               19 ./bin/watch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/zcat -> /bin/busybox.nosuid
 drwxr-xr-x root       root               40 ./boot
 drwxr-xr-x root       root               40 ./dev
--rw-r--r-- root       root              253 ./distro.conf
+-rw-r--r-- root       root              280 ./distro.conf
 drwxr-xr-x root       root              560 ./etc
 -rw-r--r-- root       root             2292 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
@@ -78,7 +78,7 @@ drwxr-xr-x root       root               80 ./etc/default
 -rw-r--r-- root       root                5 ./etc/hostname
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root             1096 ./etc/ld.so.cache
+-rw-r--r-- root       root             1212 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root                0 ./etc/motd
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
@@ -133,7 +133,7 @@ drwxr-xr-x root       root               40 ./firmware
 -rwxr-xr-x root       root              421 ./fixups.sh
 drwxr-xr-x root       root               60 ./home
 drwx------ root       root               40 ./home/root
--rwxr-xr-x root       root             3894 ./init
+-rwxr-xr-x root       root             5159 ./init
 drwxr-xr-x root       root              740 ./lib
 -rwxr-xr-x root       root           134388 ./lib/ld-2.25.so
 lrwxrwxrwx root       root               10 ./lib/ld-linux-armhf.so.3 -> ld-2.25.so
@@ -171,7 +171,7 @@ lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.25.s
 lrwxrwxrwx root       root               14 ./lib/libz.so.1 -> libz.so.1.2.11
 drwxr-xr-x root       root               60 ./lib/systemd
 drwxr-xr-x root       root              140 ./lib/systemd/system
--rw-r--r-- root       root              255 ./lib/systemd/system/android-tools-adbd.service
+-rw-r--r-- root       root              284 ./lib/systemd/system/android-tools-adbd.service
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service
 -rw-r--r-- root       root              385 ./lib/systemd/system/run-postinsts.service
@@ -229,9 +229,10 @@ drwxr-xr-x root       root               40 ./sys
 drwxr-xr-x root       root               40 ./system
 drwxrwxrwt root       root               40 ./tmp
 drwxr-xr-x root       root              200 ./usr
-drwxr-xr-x root       root             1640 ./usr/bin
--rwxr-xr-x root       root            92780 ./usr/bin/adbd
--rwxr-xr-x root       root             1354 ./usr/bin/android-gadget-setup
+drwxr-xr-x root       root             1840 ./usr/bin
+-rwxr-xr-x root       root           187892 ./usr/bin/adb
+-rwxr-xr-x root       root           138444 ./usr/bin/adbd
+-rwxr-xr-x root       root             1090 ./usr/bin/android-gadget-setup
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
@@ -250,6 +251,9 @@ lrwxrwxrwx root       root               19 ./usr/bin/du -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/dumpleases -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/env -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/expr -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            73156 ./usr/bin/ext2simg
+-rwxr-xr-x root       root            81360 ./usr/bin/ext4fixup
+-rwxr-xr-x root       root           147324 ./usr/bin/fastboot
 lrwxrwxrwx root       root               19 ./usr/bin/find -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/flock -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/free -> /bin/busybox.nosuid
@@ -258,15 +262,18 @@ lrwxrwxrwx root       root               19 ./usr/bin/groups -> /bin/busybox.nos
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/id -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            27552 ./usr/bin/img2simg
 lrwxrwxrwx root       root               19 ./usr/bin/killall -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/less -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/logger -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/logname -> /bin/busybox.nosuid
--rwxr-xr-x root       root           101880 ./usr/bin/make_ext4fs
+-rwxr-xr-x root       root           118408 ./usr/bin/make_ext4fs
 lrwxrwxrwx root       root               19 ./usr/bin/md5sum -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/mesg -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/microcom -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            14100 ./usr/bin/mkbootimg
 lrwxrwxrwx root       root               19 ./usr/bin/mkfifo -> /bin/busybox.nosuid
+-rwxr-xr-x root       root             1581 ./usr/bin/mkuserimg
 lrwxrwxrwx root       root               19 ./usr/bin/nc -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/nohup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/nslookup -> /bin/busybox.nosuid
@@ -284,6 +291,9 @@ lrwxrwxrwx root       root               19 ./usr/bin/seq -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/sha1sum -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/sha256sum -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/shuf -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            27556 ./usr/bin/simg2img
+-rwxr-xr-x root       root            27552 ./usr/bin/simg2simg
+-rwxr-xr-x root       root             5208 ./usr/bin/simg_dump
 lrwxrwxrwx root       root               19 ./usr/bin/sort -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/tail -> /bin/busybox.nosuid
@@ -312,8 +322,12 @@ lrwxrwxrwx root       root               19 ./usr/bin/xargs -> /bin/busybox.nosu
 lrwxrwxrwx root       root               19 ./usr/bin/yes -> /bin/busybox.nosuid
 drwxr-xr-x root       root               40 ./usr/games
 drwxr-xr-x root       root               40 ./usr/include
-drwxr-xr-x root       root               80 ./usr/lib
+drwxr-xr-x root       root              160 ./usr/lib
+-rwxr-xr-x root       root            96712 ./usr/lib/libbsd.so.0.8.3
+lrwxrwxrwx root       root               15 ./usr/lib/libbsd.so.0 -> libbsd.so.0.8.3
 -rwxr-xr-x root       root          1469184 ./usr/lib/libcrypto.so.1.0.2
+-rwxr-xr-x root       root           259884 ./usr/lib/libpcre.so.1.2.8
+lrwxrwxrwx root       root               16 ./usr/lib/libpcre.so.1 -> libpcre.so.1.2.8
 drwxr-xr-x root       root               60 ./usr/lib/opkg
 drwxr-xr-x root       root             3640 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/[[
@@ -513,15 +527,14 @@ lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.no
 drwxr-xr-x root       root              160 ./usr/share
 drwxr-xr-x root       root               40 ./usr/share/dict
 drwxr-xr-x root       root               40 ./usr/share/info
-drwxr-xr-x root       root              240 ./usr/share/licenses
-drwxr-xr-x root       root              220 ./usr/share/licenses/android-tools
+drwxr-xr-x root       root              280 ./usr/share/licenses
+drwxr-xr-x root       root              200 ./usr/share/licenses/android-tools
 -rw-r--r-- root       root            11360 ./usr/share/licenses/android-tools/Apache-2.0
 -rw-r--r-- root       root             1512 ./usr/share/licenses/android-tools/BSD-2-Clause
 -rw-r--r-- root       root             1468 ./usr/share/licenses/android-tools/BSD-3-Clause
 drwxr-xr-x root       root               80 ./usr/share/licenses/android-tools-conf
 -rw-r--r-- root       root             1080 ./usr/share/licenses/android-tools-conf/generic_MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/android-tools-conf/MIT
--rw-r--r-- root       root             8460 ./usr/share/licenses/android-tools/copyright
 -rw-r--r-- root       root            11360 ./usr/share/licenses/android-tools/generic_Apache-2.0
 -rw-r--r-- root       root             1512 ./usr/share/licenses/android-tools/generic_BSD-2-Clause
 -rw-r--r-- root       root             1468 ./usr/share/licenses/android-tools/generic_BSD-3-Clause
@@ -550,6 +563,14 @@ drwxr-xr-x root       root              160 ./usr/share/licenses/glibc
 drwxr-xr-x root       root               80 ./usr/share/licenses/initramfs-boot-android
 -rw-r--r-- root       root             1035 ./usr/share/licenses/initramfs-boot-android/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/initramfs-boot-android/generic_MIT
+drwxr-xr-x root       root              120 ./usr/share/licenses/libbsd
+-rw-r--r-- root       root            23283 ./usr/share/licenses/libbsd/COPYING
+-rw-r--r-- root       root             1654 ./usr/share/licenses/libbsd/generic_BSD-4-Clause
+-rw-r--r-- root       root              831 ./usr/share/licenses/libbsd/generic_ISC
+-rw-r--r-- root       root               52 ./usr/share/licenses/libbsd/generic_PD
+drwxr-xr-x root       root               80 ./usr/share/licenses/libpcre
+-rw-r--r-- root       root             1499 ./usr/share/licenses/libpcre/generic_BSD
+-rw-r--r-- root       root             3182 ./usr/share/licenses/libpcre/LICENCE
 drwxr-xr-x root       root               80 ./usr/share/licenses/run-postinsts
 -rw-r--r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
@@ -565,7 +586,7 @@ drwxr-xr-x root       root              280 ./var
 drwxr-xr-x root       root               40 ./var/backups
 drwxr-xr-x root       root               80 ./var/cache
 drwx------ root       root               60 ./var/cache/ldconfig
--rw------- root       root             1158 ./var/cache/ldconfig/aux-cache
+-rw------- root       root             1279 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root               40 ./var/cache/opkg
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
