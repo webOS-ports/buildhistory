@@ -1,0 +1,1 @@
+#!/bin/sh\nset -e\n\tupdate-alternatives --remove  scp /usr/sbin/dropbearmulti\n\tupdate-alternatives --remove  ssh /usr/sbin/dropbearmulti\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl stop dropbear.socket\n\tfi\n\n\tsystemctl $OPTS disable dropbear.socket\nfi\n
