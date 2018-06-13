@@ -45,7 +45,6 @@ digraph depends {
 "busybox" -> "busybox-syslog" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox" -> "libc6"
-"busybox" -> "libtirpc3"
 "busybox" -> "update-alternatives-opkg"
 "bzip2" -> "bzip2-lic" [style=dotted]
 "bzip2" -> "libbz2-1"
@@ -220,6 +219,13 @@ digraph depends {
 "funyahoo-plusplus" -> "libpurple"
 "fuser" -> "libc6"
 "fuser" -> "update-alternatives-opkg"
+"gconf" -> "gconf-lic" [style=dotted]
+"gconf" -> "libc6"
+"gconf" -> "libdbus-1-3"
+"gconf" -> "libdbus-glib-1-2"
+"gconf" -> "libglib-2.0-0"
+"gconf" -> "libxml2"
+"gconf-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "geoclue" -> "geoclue-lic" [style=dotted]
 "geoclue" -> "libavahi-client3"
 "geoclue" -> "libavahi-common3"
@@ -1517,8 +1523,6 @@ digraph depends {
 "kernel-module-snd-rawmidi-4.15.18-yocto-standard" -> "kernel-module-snd-seq-device-4.15.18-yocto-standard"
 "kernel-module-snd-seq-device-4.15.18-yocto-standard" -> "kernel-module-snd-4.15.18-yocto-standard"
 "kernel-module-snd-timer-4.15.18-yocto-standard" -> "kernel-module-snd-4.15.18-yocto-standard"
-"kernel-module-vboxsf-4.15.18-yocto-standard" -> "kernel-module-vboxguest-4.15.18-yocto-standard"
-"kernel-module-vboxvideo-4.15.18-yocto-standard" -> "kernel-module-ttm-4.15.18-yocto-standard"
 "keymanager" -> "keymanager-lic" [style=dotted]
 "killall" -> "libc6"
 "killall" -> "update-alternatives-opkg"
@@ -1944,6 +1948,16 @@ digraph depends {
 "libleveldb1" -> "libgcc1"
 "libleveldb1" -> "libleveldb-lic" [style=dotted]
 "libleveldb1" -> "libstdc++6"
+"libllvm6.0-llvm-6.0.0" -> "libllvm6.0-llvm-6.0"
+"libllvm6.0-llvm-6.0.0" -> "llvm"
+"libllvm6.0-llvm-6.0" -> "libc6"
+"libllvm6.0-llvm-6.0" -> "libffi6"
+"libllvm6.0-llvm-6.0" -> "libgcc1"
+"libllvm6.0-llvm-6.0" -> "libstdc++6"
+"libllvm6.0-llvm-6.0" -> "libtinfo5"
+"libllvm6.0-llvm-6.0" -> "libxml2"
+"libllvm6.0-llvm-6.0" -> "libz1"
+"libllvm6.0-llvm-6.0" -> "llvm"
 "libltdl7" -> "libc6"
 "liblunasysmgrcommon3" -> "libc6"
 "liblunasysmgrcommon3" -> "libgcc1"
@@ -2077,6 +2091,7 @@ digraph depends {
 "libpulse-simple0" -> "libpulsecommon"
 "libpulse-simple0" -> "libsndfile1"
 "libpulse-simple0" -> "libsystemd0"
+"libpurple" -> "gconf"
 "libpurple" -> "libc6"
 "libpurple" -> "libdbus-1-3"
 "libpurple" -> "libdbus-glib-1-2"
@@ -2258,8 +2273,6 @@ digraph depends {
 "libtinyxml2.6.2" -> "libgcc1"
 "libtinyxml2.6.2" -> "libstdc++6"
 "libtinyxml2.6.2" -> "libtinyxml-lic" [style=dotted]
-"libtirpc3" -> "libc6"
-"libtirpc3" -> "libtirpc-lic" [style=dotted]
 "libudev1" -> "libc6"
 "libunistring2" -> "libc6"
 "libunistring2" -> "libunistring-lic" [style=dotted]
@@ -2285,6 +2298,12 @@ digraph depends {
 "libyajl2" -> "libyajl-lic" [style=dotted]
 "libz1" -> "libc6"
 "libz1" -> "libz-lic" [style=dotted]
+"llvm" -> "libc6"
+"llvm" -> "libllvm6.0-llvm-6.0"
+"llvm" -> "libllvm6.0-llvm-6.0.0"
+"llvm" -> "libstdc++6"
+"llvm" -> "llvm-lic" [style=dotted]
+"llvm" -> "ncurses-terminfo"
 "loadable-frameworks" -> "bash"
 "loadable-frameworks" -> "loadable-frameworks-lic" [style=dotted]
 "locale-base-en-gb" -> "glibc-binary-localedata-en-gb"
@@ -2460,6 +2479,7 @@ digraph depends {
 "mesa-megadriver" -> "libexpat1"
 "mesa-megadriver" -> "libgcc1"
 "mesa-megadriver" -> "libglapi0"
+"mesa-megadriver" -> "libllvm6.0-llvm-6.0"
 "mesa-megadriver" -> "libstdc++6"
 "mesa-megadriver" -> "libz1"
 "messaging-accounts" -> "messaging-accounts-lic" [style=dotted]
@@ -2524,6 +2544,7 @@ digraph depends {
 "ncurses" -> "libc6"
 "ncurses" -> "libtinfo5"
 "ncurses" -> "ncurses-lic" [style=dotted]
+"ncurses-terminfo" -> "ncurses-terminfo-base"
 "neard" -> "bluez5" [style=dotted]
 "neard" -> "dbus-1"
 "neard" -> "libc6"
@@ -2581,7 +2602,6 @@ digraph depends {
 "nyx-modules" -> "lsb"
 "nyx-modules" -> "nyx-conf"
 "nyx-modules" -> "nyx-modules-lic" [style=dotted]
-"nyx-modules" -> "vboxguestdrivers"
 "ofono-conf" -> "ofono-conf-lic" [style=dotted]
 "ofono" -> "dbus-1"
 "ofono" -> "kernel-module-tun" [style=dotted]
@@ -2688,7 +2708,6 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
 "packagegroup-core-boot" -> "update-alternatives-opkg"
-"packagegroup-core-boot" -> "v86d"
 "packagegroup-core-ssh-openssh" -> "openssh"
 "packagegroup-core-ssh-openssh" -> "packagegroup-core-ssh-openssh-lic" [style=dotted]
 "packagegroup-luneos-extended" -> "alsa-conf"
@@ -3750,17 +3769,6 @@ digraph depends {
 "util-linux" -> "util-linux-swaponoff"
 "util-linux" -> "util-linux-switch-root" [style=dotted]
 "util-linux" -> "util-linux-umount"
-"v86d" -> "kernel-module-uvesafb" [style=dotted]
-"v86d" -> "libc6"
-"v86d" -> "v86d-lic" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxguest-4.15.18-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxguest" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxsf-4.15.18-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxsf" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxvideo-4.15.18-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxvideo" [style=dotted]
-"vboxguestdrivers" -> "libc6"
-"vboxguestdrivers" -> "vboxguestdrivers-lic" [style=dotted]
 "voicecall" -> "libc6"
 "voicecall" -> "libgcc1"
 "voicecall" -> "libqofono-qt5-0"
