@@ -840,7 +840,9 @@ digraph depends {
 "kernel-modules" -> "kernel-module-videobuf2-vmalloc-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-videodev-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-virtio-crypto-4.10.17-yocto-standard"
+"kernel-modules" -> "kernel-module-virtio-gpu-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-virtio-input-4.10.17-yocto-standard"
+"kernel-modules" -> "kernel-module-vmwgfx-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-wp512-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-x86-pkg-temp-thermal-4.10.17-yocto-standard"
 "kernel-modules" -> "kernel-module-xcbc-4.10.17-yocto-standard"
@@ -1090,11 +1092,16 @@ digraph depends {
 "kernel-module-uvcvideo-4.10.17-yocto-standard" -> "kernel-module-videobuf2-vmalloc-4.10.17-yocto-standard"
 "kernel-module-uvcvideo-4.10.17-yocto-standard" -> "kernel-module-videodev-4.10.17-yocto-standard"
 "kernel-module-v4l2-common-4.10.17-yocto-standard" -> "kernel-module-videodev-4.10.17-yocto-standard"
+"kernel-module-vboxsf-4.10.17-yocto-standard" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
+"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
+"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
 "kernel-module-videobuf2-core-4.10.17-yocto-standard" -> "kernel-module-videodev-4.10.17-yocto-standard"
 "kernel-module-videobuf2-v4l2-4.10.17-yocto-standard" -> "kernel-module-videobuf2-core-4.10.17-yocto-standard"
 "kernel-module-videobuf2-v4l2-4.10.17-yocto-standard" -> "kernel-module-videodev-4.10.17-yocto-standard"
 "kernel-module-videobuf2-vmalloc-4.10.17-yocto-standard" -> "kernel-module-videobuf2-memops-4.10.17-yocto-standard"
 "kernel-module-videodev-4.10.17-yocto-standard" -> "kernel-module-media-4.10.17-yocto-standard"
+"kernel-module-virtio-gpu-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
+"kernel-module-vmwgfx-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
 "kernel-module-xfrm6-tunnel-4.10.17-yocto-standard" -> "kernel-module-tunnel6-4.10.17-yocto-standard"
 "kernel-module-xt-classify-4.10.17-yocto-standard" -> "kernel-module-x-tables-4.10.17-yocto-standard"
 "kernel-module-xt-comment-4.10.17-yocto-standard" -> "kernel-module-x-tables-4.10.17-yocto-standard"
@@ -1494,7 +1501,6 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
 "packagegroup-core-boot" -> "update-alternatives-opkg"
-"packagegroup-core-boot" -> "v86d"
 "packagegroup-core-device-devel" -> "bash"
 "packagegroup-core-device-devel" -> "binutils-symlinks"
 "packagegroup-core-device-devel" -> "distcc-config"
@@ -1504,6 +1510,10 @@ digraph depends {
 "packagegroup-core-nfs-server" -> "nfs-utils-client"
 "packagegroup-core-ssh-openssh" -> "openssh"
 "packagegroup-core-ssh-openssh" -> "packagegroup-core-ssh-openssh-lic" [style=dotted]
+"packagegroup-distro-base" -> "kernel-module-uvesafb"
+"packagegroup-distro-base" -> "kernel-module-vboxvideo"
+"packagegroup-distro-base" -> "kernel-module-virtio-gpu"
+"packagegroup-distro-base" -> "kernel-module-vmwgfx"
 "packagegroup-distro-base" -> "qemu-config"
 "packagegroup-machine-base" -> "rng-tools" [style=dotted]
 "pango" -> "libcairo2"
@@ -1628,6 +1638,13 @@ digraph depends {
 "util-linux-sulogin" -> "update-alternatives-opkg"
 "v86d" -> "kernel-module-uvesafb" [style=dotted]
 "v86d" -> "v86d-lic" [style=dotted]
+"vboxguestdrivers" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
+"vboxguestdrivers" -> "kernel-module-vboxguest" [style=dotted]
+"vboxguestdrivers" -> "kernel-module-vboxsf-4.10.17-yocto-standard"
+"vboxguestdrivers" -> "kernel-module-vboxsf" [style=dotted]
+"vboxguestdrivers" -> "kernel-module-vboxvideo-4.10.17-yocto-standard"
+"vboxguestdrivers" -> "kernel-module-vboxvideo" [style=dotted]
+"vboxguestdrivers" -> "vboxguestdrivers-lic" [style=dotted]
 "volatile-binds" -> "volatile-binds-lic" [style=dotted]
 "wayland" -> "libffi6"
 "wayland" -> "wayland-lic" [style=dotted]

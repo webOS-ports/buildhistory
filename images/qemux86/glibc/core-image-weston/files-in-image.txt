@@ -167,9 +167,14 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rw-r--r-- root       root            10929 ./etc/login.defs
 -rw-r--r-- root       root                0 ./etc/machine-id
 drwxr-xr-x root       root             4096 ./etc/modprobe.d
--rw-r--r-- root       root               40 ./etc/modprobe.d/uvesafb.conf
+-rw-r--r-- root       root               18 ./etc/modprobe.d/uvesafb.conf
+-rw-r--r-- root       root               20 ./etc/modprobe.d/vboxvideo.conf
+-rw-r--r-- root       root               21 ./etc/modprobe.d/virtio-gpu.conf
+-rw-r--r-- root       root               17 ./etc/modprobe.d/vmwgfx.conf
 drwxr-xr-x root       root             4096 ./etc/modules-load.d
 -rw-r--r-- root       root                8 ./etc/modules-load.d/uvesafb.conf
+-rw-r--r-- root       root               10 ./etc/modules-load.d/vboxguest.conf
+-rw-r--r-- root       root               10 ./etc/modules-load.d/vboxvideo.conf
 -rw-r--r-- root       root                0 ./etc/motd
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
 -rw-r--r-- root       root              767 ./etc/netconfig
@@ -367,6 +372,14 @@ drwxr-xr-x root       root             4096 ./lib/modules
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/ttm
+-rw-r--r-- root       root            78792 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/ttm/ttm.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/virtio
+-rw-r--r-- root       root            57904 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/virtio/virtio-gpu.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/vmwgfx
+-rw-r--r-- root       root           260984 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/gpu/drm/vmwgfx/vmwgfx.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/video
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/video/fbdev
 -rw-r--r-- root       root            33580 ./lib/modules/4.10.17-yocto-standard/kernel/drivers/video/fbdev/uvesafb.ko
@@ -375,6 +388,9 @@ drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard
 -rw-r--r-- root       root           291248 ./lib/modules/4.10.17-yocto-standard/kernel/fs/nfsd/nfsd.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/fs/nls
 -rw-r--r-- root       root             2868 ./lib/modules/4.10.17-yocto-standard/kernel/fs/nls/nls_utf8.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/misc
+-rw-r--r-- root       root           258124 ./lib/modules/4.10.17-yocto-standard/kernel/misc/vboxguest.ko
+-rw-r--r-- root       root            50080 ./lib/modules/4.10.17-yocto-standard/kernel/misc/vboxvideo.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/net
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/net/bluetooth
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/net/bluetooth/bnep
@@ -383,17 +399,17 @@ drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard
 -rw-r--r-- root       root            21576 ./lib/modules/4.10.17-yocto-standard/kernel/net/bluetooth/hidp/hidp.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.10.17-yocto-standard/kernel/net/bluetooth/rfcomm
 -rw-r--r-- root       root            46268 ./lib/modules/4.10.17-yocto-standard/kernel/net/bluetooth/rfcomm/rfcomm.ko
--rw-r--r-- root       root              132 ./lib/modules/4.10.17-yocto-standard/modules.alias
--rw-r--r-- root       root              122 ./lib/modules/4.10.17-yocto-standard/modules.alias.bin
+-rw-r--r-- root       root              338 ./lib/modules/4.10.17-yocto-standard/modules.alias
+-rw-r--r-- root       root              413 ./lib/modules/4.10.17-yocto-standard/modules.alias.bin
 -rw-r--r-- root       root             8136 ./lib/modules/4.10.17-yocto-standard/modules.builtin
 -rw-r--r-- root       root            10341 ./lib/modules/4.10.17-yocto-standard/modules.builtin.bin
--rw-r--r-- root       root              199 ./lib/modules/4.10.17-yocto-standard/modules.dep
--rw-r--r-- root       root              402 ./lib/modules/4.10.17-yocto-standard/modules.dep.bin
+-rw-r--r-- root       root              499 ./lib/modules/4.10.17-yocto-standard/modules.dep
+-rw-r--r-- root       root              892 ./lib/modules/4.10.17-yocto-standard/modules.dep.bin
 -rw-r--r-- root       root                0 ./lib/modules/4.10.17-yocto-standard/modules.devname
--rw-r--r-- root       root            17709 ./lib/modules/4.10.17-yocto-standard/modules.order
+-rw-r--r-- root       root            17793 ./lib/modules/4.10.17-yocto-standard/modules.order
 -rw-r--r-- root       root               55 ./lib/modules/4.10.17-yocto-standard/modules.softdep
--rw-r--r-- root       root               49 ./lib/modules/4.10.17-yocto-standard/modules.symbols
--rw-r--r-- root       root               12 ./lib/modules/4.10.17-yocto-standard/modules.symbols.bin
+-rw-r--r-- root       root            17774 ./lib/modules/4.10.17-yocto-standard/modules.symbols
+-rw-r--r-- root       root            17516 ./lib/modules/4.10.17-yocto-standard/modules.symbols.bin
 drwxr-xr-x root       root             4096 ./lib/systemd
 -rwxr-xr-x root       root          2059340 ./lib/systemd/libsystemd-shared-232.so
 lrwxrwxrwx root       root               24 ./lib/systemd/libsystemd-shared.so -> libsystemd-shared-232.so
@@ -823,7 +839,6 @@ lrwxrwxrwx root       root               26 ./sbin/udevd -> /lib/systemd/systemd
 lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
 lrwxrwxrwx root       root                9 ./sbin/umount.nfs4 -> mount.nfs
 lrwxrwxrwx root       root                9 ./sbin/umount.nfs -> mount.nfs
--rwxr-xr-x root       root           130764 ./sbin/v86d
 lrwxrwxrwx root       root               17 ./sbin/vigr -> /sbin/vigr.shadow
 lrwxrwxrwx root       root               11 ./sbin/vigr.shadow -> vipw.shadow
 lrwxrwxrwx root       root               17 ./sbin/vipw -> /sbin/vipw.shadow
@@ -4169,9 +4184,6 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/systemd-serialg
 drwxr-xr-x root       root             4096 ./usr/share/licenses/update-rc.d
 -rw-r--r-- root       root            17611 ./usr/share/licenses/update-rc.d/generic_GPLv2
 -rw-r--r-- root       root              529 ./usr/share/licenses/update-rc.d/update-rc.d
-drwxr-xr-x root       root             4096 ./usr/share/licenses/v86d
--rw-r--r-- root       root            17611 ./usr/share/licenses/v86d/generic_GPLv2
--rw-r--r-- root       root             2096 ./usr/share/licenses/v86d/README
 drwxr-xr-x root       root             4096 ./usr/share/licenses/volatile-binds
 -rw-r--r-- root       root             1023 ./usr/share/licenses/volatile-binds/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/volatile-binds/generic_MIT
@@ -5451,7 +5463,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              839 ./var/lib/opkg/info/busybox-udhcpc.control
 -rw-r--r-- root       root               91 ./var/lib/opkg/info/busybox-udhcpc.list
 -rw-r--r-- root       root              543 ./var/lib/opkg/info/cogl-1.0-locale-en-gb.control
--rw-r--r-- root       root               44 ./var/lib/opkg/info/cogl-1.0-locale-en-gb.list
+-rw-r--r-- root       root              125 ./var/lib/opkg/info/cogl-1.0-locale-en-gb.list
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles
 -rw-r--r-- root       root              845 ./var/lib/opkg/info/dbus-1.control
 -rw-r--r-- root       root              934 ./var/lib/opkg/info/dbus-1.list
@@ -5521,7 +5533,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              153 ./var/lib/opkg/info/kernel-4.10.17-yocto-standard.list
 -rwxr-xr-x root       root              227 ./var/lib/opkg/info/kernel-4.10.17-yocto-standard.postinst
 -rw-r--r-- root       root              403 ./var/lib/opkg/info/kernel-module-bnep-4.10.17-yocto-standard.control
--rw-r--r-- root       root              283 ./var/lib/opkg/info/kernel-module-bnep-4.10.17-yocto-standard.list
+-rw-r--r-- root       root              239 ./var/lib/opkg/info/kernel-module-bnep-4.10.17-yocto-standard.list
 -rwxr-xr-x root       root              182 ./var/lib/opkg/info/kernel-module-bnep-4.10.17-yocto-standard.postinst
 -rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-bnep-4.10.17-yocto-standard.postrm
 -rw-r--r-- root       root              403 ./var/lib/opkg/info/kernel-module-hidp-4.10.17-yocto-standard.control
@@ -5540,10 +5552,30 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/kernel-module-rfcomm-4.10.17-yocto-standard.list
 -rwxr-xr-x root       root              182 ./var/lib/opkg/info/kernel-module-rfcomm-4.10.17-yocto-standard.postinst
 -rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-rfcomm-4.10.17-yocto-standard.postrm
+-rw-r--r-- root       root              422 ./var/lib/opkg/info/kernel-module-ttm-4.10.17-yocto-standard.control
+-rw-r--r-- root       root              250 ./var/lib/opkg/info/kernel-module-ttm-4.10.17-yocto-standard.list
+-rwxr-xr-x root       root              182 ./var/lib/opkg/info/kernel-module-ttm-4.10.17-yocto-standard.postinst
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-ttm-4.10.17-yocto-standard.postrm
 -rw-r--r-- root       root              450 ./var/lib/opkg/info/kernel-module-uvesafb-4.10.17-yocto-standard.control
--rw-r--r-- root       root              310 ./var/lib/opkg/info/kernel-module-uvesafb-4.10.17-yocto-standard.list
+-rw-r--r-- root       root              375 ./var/lib/opkg/info/kernel-module-uvesafb-4.10.17-yocto-standard.list
 -rwxr-xr-x root       root              236 ./var/lib/opkg/info/kernel-module-uvesafb-4.10.17-yocto-standard.postinst
 -rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-uvesafb-4.10.17-yocto-standard.postrm
+-rw-r--r-- root       root              439 ./var/lib/opkg/info/kernel-module-vboxguest-4.10.17-yocto-standard.control
+-rw-r--r-- root       root              145 ./var/lib/opkg/info/kernel-module-vboxguest-4.10.17-yocto-standard.list
+-rwxr-xr-x root       root              238 ./var/lib/opkg/info/kernel-module-vboxguest-4.10.17-yocto-standard.postinst
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-vboxguest-4.10.17-yocto-standard.postrm
+-rw-r--r-- root       root              509 ./var/lib/opkg/info/kernel-module-vboxvideo-4.10.17-yocto-standard.control
+-rw-r--r-- root       root              127 ./var/lib/opkg/info/kernel-module-vboxvideo-4.10.17-yocto-standard.list
+-rwxr-xr-x root       root              238 ./var/lib/opkg/info/kernel-module-vboxvideo-4.10.17-yocto-standard.postinst
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-vboxvideo-4.10.17-yocto-standard.postrm
+-rw-r--r-- root       root              464 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.10.17-yocto-standard.control
+-rw-r--r-- root       root              179 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.10.17-yocto-standard.list
+-rwxr-xr-x root       root              182 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.10.17-yocto-standard.postinst
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.10.17-yocto-standard.postrm
+-rw-r--r-- root       root              479 ./var/lib/opkg/info/kernel-module-vmwgfx-4.10.17-yocto-standard.control
+-rw-r--r-- root       root              171 ./var/lib/opkg/info/kernel-module-vmwgfx-4.10.17-yocto-standard.list
+-rwxr-xr-x root       root              182 ./var/lib/opkg/info/kernel-module-vmwgfx-4.10.17-yocto-standard.postinst
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-vmwgfx-4.10.17-yocto-standard.postrm
 -rw-r--r-- root       root              823 ./var/lib/opkg/info/kmod.control
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/kmod-lic.control
 -rw-r--r-- root       root              142 ./var/lib/opkg/info/kmod-lic.list
@@ -5976,7 +6008,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-base-usbgadget.list
 -rw-r--r-- root       root              356 ./var/lib/opkg/info/packagegroup-base-zeroconf.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-base-zeroconf.list
--rw-r--r-- root       root              501 ./var/lib/opkg/info/packagegroup-core-boot.control
+-rw-r--r-- root       root              495 ./var/lib/opkg/info/packagegroup-core-boot.control
 -rw-r--r-- root       root              323 ./var/lib/opkg/info/packagegroup-core-boot-lic.control
 -rw-r--r-- root       root               99 ./var/lib/opkg/info/packagegroup-core-boot-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-boot.list
@@ -5990,7 +6022,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              315 ./var/lib/opkg/info/packagegroup-core-ssh-dropbear-lic.control
 -rw-r--r-- root       root              115 ./var/lib/opkg/info/packagegroup-core-ssh-dropbear-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-ssh-dropbear.list
--rw-r--r-- root       root              337 ./var/lib/opkg/info/packagegroup-distro-base.control
+-rw-r--r-- root       root              433 ./var/lib/opkg/info/packagegroup-distro-base.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-distro-base.list
 -rw-r--r-- root       root              383 ./var/lib/opkg/info/packagegroup-machine-base.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-machine-base.list
@@ -6061,7 +6093,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root             5236 ./var/lib/opkg/info/systemd-extra-utils.preinst
 -rw-r--r-- root       root              831 ./var/lib/opkg/info/systemd-lic.control
 -rw-r--r-- root       root              201 ./var/lib/opkg/info/systemd-lic.list
--rw-r--r-- root       root            13948 ./var/lib/opkg/info/systemd.list
+-rw-r--r-- root       root            13927 ./var/lib/opkg/info/systemd.list
 -rw-r--r-- root       root              339 ./var/lib/opkg/info/systemd-machine-units.control
 -rw-r--r-- root       root              305 ./var/lib/opkg/info/systemd-machine-units-lic.control
 -rw-r--r-- root       root              147 ./var/lib/opkg/info/systemd-machine-units-lic.list
@@ -6104,10 +6136,6 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/util-linux-sulogin.list
 -rwxr-xr-x root       root              160 ./var/lib/opkg/info/util-linux-sulogin.postinst
 -rwxr-xr-x root       root              143 ./var/lib/opkg/info/util-linux-sulogin.prerm
--rw-r--r-- root       root              421 ./var/lib/opkg/info/v86d.control
--rw-r--r-- root       root              356 ./var/lib/opkg/info/v86d-lic.control
--rw-r--r-- root       root               97 ./var/lib/opkg/info/v86d-lic.list
--rw-r--r-- root       root               11 ./var/lib/opkg/info/v86d.list
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/volatile-binds.control
 -rw-r--r-- root       root              342 ./var/lib/opkg/info/volatile-binds-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/volatile-binds-lic.list
@@ -6137,8 +6165,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/xkeyboard-config-lic.list
 -rw-r--r-- root       root            10848 ./var/lib/opkg/info/xkeyboard-config.list
 -rw-r--r-- root       root              806 ./var/lib/opkg/info/xkeyboard-config-locale-en-gb.control
--rw-r--r-- root       root              137 ./var/lib/opkg/info/xkeyboard-config-locale-en-gb.list
--rw-r--r-- root       root            68604 ./var/lib/opkg/status
+-rw-r--r-- root       root               56 ./var/lib/opkg/info/xkeyboard-config-locale-en-gb.list
+-rw-r--r-- root       root            69901 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock

@@ -113,7 +113,16 @@ digraph depends {
 "kernel-module-nfsd-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
 "kernel-module-nls-utf8-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
 "kernel-module-rfcomm-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-ttm-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
 "kernel-module-uvesafb-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-vboxguest-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
+"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
+"kernel-module-virtio-gpu-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-virtio-gpu-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
+"kernel-module-vmwgfx-4.10.17-yocto-standard" -> "kernel-4.10.17-yocto-standard"
+"kernel-module-vmwgfx-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
 "kmod" -> "kmod-lic" [style=dotted]
 "kmod" -> "libc6"
 "kmod" -> "libz1"
@@ -530,7 +539,6 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
 "packagegroup-core-boot" -> "update-alternatives-opkg"
-"packagegroup-core-boot" -> "v86d"
 "packagegroup-core-device-devel" -> "bash"
 "packagegroup-core-device-devel" -> "binutils-symlinks"
 "packagegroup-core-device-devel" -> "distcc-config"
@@ -540,6 +548,10 @@ digraph depends {
 "packagegroup-core-nfs-server" -> "nfs-utils-client"
 "packagegroup-core-ssh-dropbear" -> "dropbear"
 "packagegroup-core-ssh-dropbear" -> "packagegroup-core-ssh-dropbear-lic" [style=dotted]
+"packagegroup-distro-base" -> "kernel-module-uvesafb"
+"packagegroup-distro-base" -> "kernel-module-vboxvideo"
+"packagegroup-distro-base" -> "kernel-module-virtio-gpu"
+"packagegroup-distro-base" -> "kernel-module-vmwgfx"
 "packagegroup-distro-base" -> "qemu-config"
 "packagegroup-machine-base" -> "rng-tools" [style=dotted]
 "pango" -> "libc6"
@@ -654,9 +666,6 @@ digraph depends {
 "util-linux-mount" -> "update-alternatives-opkg"
 "util-linux-sulogin" -> "libc6"
 "util-linux-sulogin" -> "update-alternatives-opkg"
-"v86d" -> "kernel-module-uvesafb" [style=dotted]
-"v86d" -> "libc6"
-"v86d" -> "v86d-lic" [style=dotted]
 "volatile-binds" -> "volatile-binds-lic" [style=dotted]
 "wayland" -> "libc6"
 "wayland" -> "libffi6"
