@@ -1215,9 +1215,6 @@ digraph depends {
 "kernel-module-snd-rawmidi-4.10.17-yocto-standard" -> "kernel-module-snd-seq-device-4.10.17-yocto-standard"
 "kernel-module-snd-seq-device-4.10.17-yocto-standard" -> "kernel-module-snd-4.10.17-yocto-standard"
 "kernel-module-snd-timer-4.10.17-yocto-standard" -> "kernel-module-snd-4.10.17-yocto-standard"
-"kernel-module-vboxsf-4.10.17-yocto-standard" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
-"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-ttm-4.10.17-yocto-standard"
-"kernel-module-vboxvideo-4.10.17-yocto-standard" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
 "keymanager" -> "keymanager-lic" [style=dotted]
 "kmod" -> "kmod-lic" [style=dotted]
 "kmod" -> "libz1"
@@ -1289,20 +1286,9 @@ digraph depends {
 "libdrm-intel1" -> "libpciaccess0"
 "libdrm-nouveau2" -> "libdrm2"
 "libdrm-radeon1" -> "libdrm2"
-"libegl-gallium" -> "libdrm2"
-"libegl-gallium" -> "libdrm-nouveau2"
-"libegl-gallium" -> "libdrm-radeon1"
-"libegl-gallium" -> "libegl-mesa"
-"libegl-gallium" -> "libexpat1"
-"libegl-gallium" -> "libgbm1"
-"libegl-gallium" -> "libglapi0"
-"libegl-gallium" -> "libllvm3.3-llvm-3.3"
-"libegl-gallium" -> "libstdc++6"
-"libegl-gallium" -> "wayland"
 "libegl-mesa" -> "libdrm2"
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
-"libegl-mesa" -> "libglapi0"
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
 "libelf1" -> "libz1"
@@ -1333,7 +1319,6 @@ digraph depends {
 "libfreetype6" -> "libz1"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libglapi0"
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap2"
 "libgcrypt" -> "libgcrypt-lic" [style=dotted]
@@ -1981,7 +1966,6 @@ digraph depends {
 "nyx-modules" -> "lsb"
 "nyx-modules" -> "nyx-conf"
 "nyx-modules" -> "nyx-modules-lic" [style=dotted]
-"nyx-modules" -> "vboxguestdrivers"
 "nyx-utils" -> "libglib-2.0-0"
 "nyx-utils" -> "libnyx6"
 "nyx-utils" -> "libstdc++6"
@@ -2089,7 +2073,6 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-compat-units"
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
-"packagegroup-core-boot" -> "v86d"
 "packagegroup-core-ssh-openssh" -> "openssh"
 "packagegroup-core-ssh-openssh" -> "packagegroup-core-ssh-openssh-lic" [style=dotted]
 "packagegroup-luneos-development" -> "alsa-utils-alsactl"
@@ -2140,7 +2123,6 @@ digraph depends {
 "packagegroup-luneos-extended" -> "imlibpurpleservice"
 "packagegroup-luneos-extended" -> "kernel-module-snd-intel8x0"
 "packagegroup-luneos-extended" -> "keymanager"
-"packagegroup-luneos-extended" -> "libegl-gallium"
 "packagegroup-luneos-extended" -> "libpci3"
 "packagegroup-luneos-extended" -> "libpmcertificatemgr2"
 "packagegroup-luneos-extended" -> "libqt5sensors5"
@@ -2862,6 +2844,7 @@ digraph depends {
 "qt5-plugin-generic-vboxtouch" -> "qt5-plugin-generic-vboxtouch-lic" [style=dotted]
 "qt5-plugin-generic-vboxtouch" -> "qtbase"
 "qtbase" -> "libdbus-1-3"
+"qtbase" -> "libdrm2"
 "qtbase" -> "libegl-mesa"
 "qtbase" -> "libfontconfig1"
 "qtbase" -> "libfreetype6"
@@ -2875,9 +2858,11 @@ digraph depends {
 "qtbase" -> "libudev1"
 "qtbase" -> "libz1"
 "qtbase" -> "mtdev"
+"qtbase-plugins" -> "libdrm2"
 "qtbase-plugins" -> "libegl-mesa"
 "qtbase-plugins" -> "libfontconfig1"
 "qtbase-plugins" -> "libfreetype6"
+"qtbase-plugins" -> "libgbm1"
 "qtbase-plugins" -> "libgles2-mesa"
 "qtbase-plugins" -> "libjpeg62"
 "qtbase-plugins" -> "libsqlite3-0"
@@ -3177,17 +3162,8 @@ digraph depends {
 "util-linux" -> "util-linux-sulogin"
 "util-linux" -> "util-linux-swaponoff"
 "util-linux" -> "util-linux-umount"
-"v86d" -> "kernel-module-uvesafb" [style=dotted]
-"v86d" -> "v86d-lic" [style=dotted]
 "valgrind" -> "perl"
 "valgrind" -> "valgrind-lic" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxguest-4.10.17-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxguest" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxsf-4.10.17-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxsf" [style=dotted]
-"vboxguestdrivers" -> "kernel-module-vboxvideo-4.10.17-yocto-standard"
-"vboxguestdrivers" -> "kernel-module-vboxvideo" [style=dotted]
-"vboxguestdrivers" -> "vboxguestdrivers-lic" [style=dotted]
 "voicecall" -> "libqofono-qt5-0"
 "voicecall" -> "libstdc++6"
 "voicecall" -> "qtbase"
