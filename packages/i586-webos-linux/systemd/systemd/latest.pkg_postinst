@@ -3,3 +3,4 @@ set -e
 		-e 's/\(^hosts:.*\)\(\<files\>\)\(.*\)\(\<dns\>\)\(.*\)/\1\2 myhostname \3\4\5/' \
 		-i $D/etc/nsswitch.conf
 	update-alternatives --install /etc/resolv.conf resolv-conf /etc/resolv-conf.systemd 50
+	update-alternatives --install /sbin/reboot reboot /sbin/reboot.systemd 100
