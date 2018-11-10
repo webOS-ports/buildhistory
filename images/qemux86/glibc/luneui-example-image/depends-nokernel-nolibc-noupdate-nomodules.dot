@@ -38,7 +38,6 @@ digraph depends {
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-syslog" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
-"cogl-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "connman" -> "bluez5"
 "connman-conf" -> "connman-conf-lic" [style=dotted]
 "connman" -> "connman-conf" [style=dotted]
@@ -173,45 +172,6 @@ digraph depends {
 "libcairo-gobject2" -> "libpng16-16"
 "libcairo-gobject2" -> "libz1"
 "libcap2" -> "libcap-lic" [style=dotted]
-"libclutter-1.0-0" -> "libatk-1.0-0"
-"libclutter-1.0-0" -> "libcairo2"
-"libclutter-1.0-0" -> "libcairo-gobject2"
-"libclutter-1.0-0" -> "libclutter-1.0-lic" [style=dotted]
-"libclutter-1.0-0" -> "libcogl20"
-"libclutter-1.0-0" -> "libcogl-pango20"
-"libclutter-1.0-0" -> "libcogl-path20"
-"libclutter-1.0-0" -> "libegl-mesa"
-"libclutter-1.0-0" -> "libgdk-pixbuf-2.0-0"
-"libclutter-1.0-0" -> "libglib-2.0-0"
-"libclutter-1.0-0" -> "libjson-glib-1.0-0"
-"libclutter-1.0-0" -> "libwayland-egl1"
-"libclutter-1.0-0" -> "libxkbcommon0"
-"libclutter-1.0-0" -> "pango"
-"libclutter-1.0-0" -> "wayland"
-"libclutter-1.0-examples" -> "libcairo2"
-"libclutter-1.0-examples" -> "libclutter-1.0-0"
-"libclutter-1.0-examples" -> "libgdk-pixbuf-2.0-0"
-"libclutter-1.0-examples" -> "libglib-2.0-0"
-"libclutter-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
-"libcogl20" -> "libegl-mesa"
-"libcogl20" -> "libgdk-pixbuf-2.0-0"
-"libcogl20" -> "libglib-2.0-0"
-"libcogl20" -> "libwayland-egl1"
-"libcogl20" -> "wayland"
-"libcogl-pango20" -> "libcairo2"
-"libcogl-pango20" -> "libcogl20"
-"libcogl-pango20" -> "libegl-mesa"
-"libcogl-pango20" -> "libgdk-pixbuf-2.0-0"
-"libcogl-pango20" -> "libglib-2.0-0"
-"libcogl-pango20" -> "libwayland-egl1"
-"libcogl-pango20" -> "pango"
-"libcogl-pango20" -> "wayland"
-"libcogl-path20" -> "libcogl20"
-"libcogl-path20" -> "libegl-mesa"
-"libcogl-path20" -> "libgdk-pixbuf-2.0-0"
-"libcogl-path20" -> "libglib-2.0-0"
-"libcogl-path20" -> "libwayland-egl1"
-"libcogl-path20" -> "wayland"
 "libconnman-qt5-1" -> "connman"
 "libconnman-qt5-1" -> "libconnman-qt5-lic" [style=dotted]
 "libconnman-qt5-1" -> "libconnman-qt5-plugins" [style=dotted]
@@ -234,6 +194,7 @@ digraph depends {
 "libegl-mesa" -> "libdrm2"
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
+"libegl-mesa" -> "libglapi0"
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
 "libepoxy0" -> "libepoxy-lic" [style=dotted]
@@ -254,6 +215,7 @@ digraph depends {
 "libfreetype6" -> "libz1"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
+"libgbm1" -> "libglapi0"
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap2"
 "libgcrypt" -> "libgcrypt-lic" [style=dotted]
@@ -355,9 +317,6 @@ digraph depends {
 "libinput" -> "mtdev"
 "libjpeg62" -> "libjpeg-lic" [style=dotted]
 "libjson-c2" -> "libjson-c-lic" [style=dotted]
-"libjson-glib-1.0-0" -> "libglib-2.0-0"
-"libjson-glib-1.0-0" -> "libjson-glib-1.0-lic" [style=dotted]
-"libjson-glib-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "libkf5bluezqt5" -> "libkf5bluezqt-lic" [style=dotted]
 "libkf5bluezqt5" -> "libstdc++6"
 "libkf5bluezqt5" -> "qtbase"
@@ -606,6 +565,7 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-compat-units"
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
+"packagegroup-core-boot" -> "v86d"
 "packagegroup-core-device-devel" -> "bash"
 "packagegroup-core-device-devel" -> "binutils-symlinks"
 "packagegroup-core-device-devel" -> "distcc-config"
@@ -687,7 +647,6 @@ digraph depends {
 "qtbase-examples" -> "libstdc++6"
 "qtbase-examples" -> "qtbase"
 "qtbase" -> "libdbus-1-3"
-"qtbase" -> "libdrm2"
 "qtbase" -> "libegl-mesa"
 "qtbase" -> "libfontconfig1"
 "qtbase" -> "libfreetype6"
@@ -701,11 +660,9 @@ digraph depends {
 "qtbase" -> "libudev1"
 "qtbase" -> "libz1"
 "qtbase" -> "mtdev"
-"qtbase-plugins" -> "libdrm2"
 "qtbase-plugins" -> "libegl-mesa"
 "qtbase-plugins" -> "libfontconfig1"
 "qtbase-plugins" -> "libfreetype6"
-"qtbase-plugins" -> "libgbm1"
 "qtbase-plugins" -> "libgles2-mesa"
 "qtbase-plugins" -> "libjpeg62"
 "qtbase-plugins" -> "libsqlite3-0"
