@@ -989,6 +989,7 @@ lrwxrwxrwx root       root               61 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/powerd.service -> /lib/systemd/system/powerd.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/pulseaudio.service -> /lib/systemd/system/pulseaudio.service
 lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../lib/systemd/system/remote-fs.target
+lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/rngd.service -> /lib/systemd/system/rngd.service
 lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/sleepd.service -> /lib/systemd/system/sleepd.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/storaged.service -> /lib/systemd/system/storaged.service
 lrwxrwxrwx root       root               55 ./etc/systemd/system/multi-user.target.wants/systemd-networkd.service -> ../../../../lib/systemd/system/systemd-networkd.service
@@ -2006,6 +2007,7 @@ lrwxrwxrwx root       root               25 ./lib/systemd/system/remote-fs.targe
 -rw-r--r-- root       root              492 ./lib/systemd/system/rescue.target
 drwxr-xr-x root       root             4096 ./lib/systemd/system/rescue.target.wants
 lrwxrwxrwx root       root               39 ./lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
+-rw-r--r-- root       root              249 ./lib/systemd/system/rngd.service
 -rw-r--r-- root       root              540 ./lib/systemd/system/rpcbind.target
 lrwxrwxrwx root       root               15 ./lib/systemd/system/runlevel0.target -> poweroff.target
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel1.target -> rescue.target
@@ -2891,6 +2893,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/resize -> /bin/busybox.nos
 lrwxrwxrwx root       root               23 ./usr/bin/rev -> /usr/bin/rev.util-linux
 -rwxr-xr-x root       root             9812 ./usr/bin/rev.util-linux
 -rwxr-xr-x root       root            91136 ./usr/bin/rfcomm
+-rwxr-xr-x root       root            14392 ./usr/bin/rngtest
 -rwxr-xr-x root       root          1583520 ./usr/bin/rsaperf
 -rwxr-xr-x root       root            75816 ./usr/bin/rsapoptst
 -rwxr-xr-x root       root             9173 ./usr/bin/run-js-service
@@ -16633,6 +16636,7 @@ lrwxrwxrwx root       root               32 ./usr/sbin/readprofile -> /usr/sbin/
 -rwxr-xr-x root       root            13996 ./usr/sbin/readprofile.util-linux
 -rwxr-xr-x root       root            38748 ./usr/sbin/resizepart
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            22764 ./usr/sbin/rngd
 -rwxr-xr-x root       root            42816 ./usr/sbin/rtcwake
 -rwxr-xr-x root       root             1989 ./usr/sbin/run-postinsts
 -rwxr-xr-x root       root              147 ./usr/sbin/setcpushares-ls2
@@ -23479,6 +23483,9 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/rdx-utils-stub
 drwxr-xr-x root       root             4096 ./usr/share/licenses/readline
 -rw-r--r-- root       root            35147 ./usr/share/licenses/readline/COPYING
 -rw-r--r-- root       root            34694 ./usr/share/licenses/readline/generic_GPLv3
+drwxr-xr-x root       root             4096 ./usr/share/licenses/rng-tools
+-rw-r--r-- root       root            17998 ./usr/share/licenses/rng-tools/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/rng-tools/generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/licenses/run-postinsts
 -rw-r--r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
@@ -33230,7 +33237,7 @@ drwxr-xr-x root       root           327680 ./var/lib/opkg/info
 -rw-r--r-- root       root              711 ./var/lib/opkg/info/avahi-lic.control
 -rw-r--r-- root       root              280 ./var/lib/opkg/info/avahi-lic.list
 -rw-r--r-- root       root              888 ./var/lib/opkg/info/avahi-locale-en-gb.control
--rw-r--r-- root       root              126 ./var/lib/opkg/info/avahi-locale-en-gb.list
+-rw-r--r-- root       root               45 ./var/lib/opkg/info/avahi-locale-en-gb.list
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/base-files.conffiles
 -rw-r--r-- root       root              419 ./var/lib/opkg/info/base-files.control
 -rw-r--r-- root       root              396 ./var/lib/opkg/info/base-files-lic.control
@@ -33869,7 +33876,7 @@ drwxr-xr-x root       root           327680 ./var/lib/opkg/info
 -rw-r--r-- root       root              245 ./var/lib/opkg/info/gtk+3-lic.list
 -rw-r--r-- root       root              668 ./var/lib/opkg/info/gtk+3-locale-en.control
 -rw-r--r-- root       root              683 ./var/lib/opkg/info/gtk+3-locale-en-gb.control
--rw-r--r-- root       root              101 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
+-rw-r--r-- root       root              182 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/gtk+3-locale-en.list
 -rw-r--r-- root       root              487 ./var/lib/opkg/info/gzip.control
 -rw-r--r-- root       root              419 ./var/lib/opkg/info/gzip-lic.control
@@ -37313,7 +37320,7 @@ drwxr-xr-x root       root           327680 ./var/lib/opkg/info
 -rw-r--r-- root       root              378 ./var/lib/opkg/info/packagegroup-luneos-development-lic.control
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/packagegroup-luneos-development-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-development.list
--rw-r--r-- root       root             2247 ./var/lib/opkg/info/packagegroup-luneos-extended.control
+-rw-r--r-- root       root             2258 ./var/lib/opkg/info/packagegroup-luneos-extended.control
 -rw-r--r-- root       root              367 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-extended.list
@@ -37727,6 +37734,12 @@ drwxr-xr-x root       root           327680 ./var/lib/opkg/info
 -rw-r--r-- root       root              378 ./var/lib/opkg/info/rdx-utils-stub-lic.control
 -rw-r--r-- root       root              136 ./var/lib/opkg/info/rdx-utils-stub-lic.list
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/rdx-utils-stub.list
+-rw-r--r-- root       root              334 ./var/lib/opkg/info/rng-tools.control
+-rw-r--r-- root       root              265 ./var/lib/opkg/info/rng-tools-lic.control
+-rw-r--r-- root       root              113 ./var/lib/opkg/info/rng-tools-lic.list
+-rw-r--r-- root       root               65 ./var/lib/opkg/info/rng-tools.list
+-rwxr-xr-x root       root              306 ./var/lib/opkg/info/rng-tools.postinst
+-rwxr-xr-x root       root              217 ./var/lib/opkg/info/rng-tools.prerm
 -rw-r--r-- root       root              364 ./var/lib/opkg/info/run-postinsts.control
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/run-postinsts-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/run-postinsts-lic.list
@@ -38069,7 +38082,7 @@ drwxr-xr-x root       root           327680 ./var/lib/opkg/info
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              375 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           552196 ./var/lib/opkg/status
+-rw-r--r-- root       root           552590 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
