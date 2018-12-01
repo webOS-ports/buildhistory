@@ -3,7 +3,7 @@ lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 -rwxr-xr-x root       root          1085168 ./bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/bash -> /bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           595136 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           595144 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            68760 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
@@ -67,7 +67,7 @@ drwxr-xr-x root       root             4096 ./boot
 drwxr-xr-x root       root             4096 ./dev
 -rw-r--r-- root       root              280 ./distro.conf
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             2298 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2311 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root               52 ./etc/default/postinst
@@ -251,7 +251,7 @@ drwxrwxrwx root       root             4096 ./media/internal
 drwxr-xr-x root       root             4096 ./mnt
 drwxr-xr-x root       root             4096 ./opt
 -rw-r--r-- root       root                0 ./opt/.keep
-drwxr-xr-x root       root             4096 ./proc
+dr-xr-xr-x root       root             4096 ./proc
 drwxr-xr-x root       root             4096 ./recovery
 drwxr-xr-x root       root             4096 ./recovery/acct
 lrwxrwxrwx root       root               50 ./recovery/bugreports -> /data/user_de/0/com.android.shell/files/bugreports
@@ -775,6 +775,7 @@ lrwxrwxrwx root       root               19 ./sbin/lsmod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/mkswap -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/modprobe -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/pivot_root -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./sbin/reboot -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            68904 ./sbin/resize2fs
 lrwxrwxrwx root       root               19 ./sbin/rmmod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/route -> /bin/busybox.nosuid
@@ -787,7 +788,7 @@ lrwxrwxrwx root       root               19 ./sbin/switch_root -> /bin/busybox.n
 lrwxrwxrwx root       root               19 ./sbin/sysctl -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               26 ./sbin/udevd -> /lib/systemd/systemd-udevd
 lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
-drwxr-xr-x root       root             4096 ./sys
+dr-xr-xr-x root       root             4096 ./sys
 drwxrwxrwt root       root             4096 ./tmp
 -rw-r--r-- root       root              501 ./udev-start.sh
 -rw-r--r-- root       root              467 ./udev-stop.sh
@@ -890,6 +891,8 @@ drwxr-xr-x root       root             4096 ./usr/games
 drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root             4096 ./usr/lib
 -rwxr-xr-x root       root            68032 ./usr/lib/e2initrd_helper
+drwxr-xr-x root       root             4096 ./usr/libexec
+-rwxr-xr-x root       root           724264 ./usr/libexec/udevadm
 -rwxr-xr-x root       root           134640 ./usr/lib/libbsd.so.0.9.1
 lrwxrwxrwx root       root               15 ./usr/lib/libbsd.so.0 -> libbsd.so.0.9.1
 -rwxr-xr-x root       root          2028616 ./usr/lib/libcrypto.so.1.0.2
@@ -1013,6 +1016,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/rdate
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/readlink
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/realpath
+-rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/reboot
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/renice
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/reset
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/resize
