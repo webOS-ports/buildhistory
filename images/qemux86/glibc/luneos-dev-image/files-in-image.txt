@@ -99,6 +99,12 @@ lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
 drwxr-xr-x root       root             4096 ./boot
 drwxr-xr-x root       root             4096 ./dev
 drwxr-xr-x root       root             4096 ./etc
+drwxr-xr-x root       root             4096 ./etc/avahi
+-rw-r--r-- root       root             1732 ./etc/avahi/avahi-daemon.conf
+-rw-r--r-- root       root             1121 ./etc/avahi/hosts
+drwxr-xr-x root       root             4096 ./etc/avahi/services
+-rw-r--r-- root       root             1075 ./etc/avahi/services/sftp-ssh.service
+-rw-r--r-- root       root             1071 ./etc/avahi/services/ssh.service
 drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              397 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
@@ -121,6 +127,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1
 -rw-r--r-- root       root              838 ./etc/dbus-1/session.conf
 -rw-r--r-- root       root              833 ./etc/dbus-1/system.conf
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
+-rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf
 -rw-r--r-- root       root             1489 ./etc/dbus-1/system.d/bluetooth.conf
 -rw-r--r-- root       root              642 ./etc/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root              549 ./etc/dbus-1/system.d/connman-vpn-dbus.conf
@@ -142,6 +149,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
 -rw-r--r-- root       root             2259 ./etc/dbus-1/system.d/pulseaudio-system.conf
 drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root             1056 ./etc/default/busybox-syslog
+-rwxr-xr-x root       root              526 ./etc/default/distcc
 -rw-r--r-- root       root               52 ./etc/default/postinst
 -rw-r--r-- root       root               40 ./etc/default/pulseaudio.conf
 -rw-r--r-- root       root              857 ./etc/default/sleepd.conf
@@ -157,6 +165,10 @@ drwxr-xr-x root       root             4096 ./etc/default/volatiles
 drwxr-xr-x root       root             4096 ./etc/depmod.d
 drwxr-xr-x root       root             4096 ./etc/dhcp
 -rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf
+drwxr-xr-x root       root             4096 ./etc/distcc
+-rw-r--r-- root       root             1582 ./etc/distcc/clients.allow
+-rw-r--r-- root       root             1763 ./etc/distcc/commands.allow.sh
+-rw-r--r-- root       root              203 ./etc/distcc/hosts
 drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              839 ./etc/event.d/activitymanager
 -rw-r--r-- root       root                0 ./etc/event.d/audio-service
@@ -190,6 +202,7 @@ drwxr-xr-x root       root             4096 ./etc/event.d
 -rw-r--r-- root       root              901 ./etc/event.d/sleepd
 -rw-r--r-- root       root              714 ./etc/event.d/webos-connman-adapter
 -rw-r--r-- root       root              927 ./etc/event.d/webos-telephonyd
+-rw-r--r-- root       root               46 ./etc/exports
 -rw-r--r-- root       root               38 ./etc/filesystems
 drwxr-xr-x root       root             4096 ./etc/fonts
 drwxr-xr-x root       root             4096 ./etc/fonts/conf.d
@@ -214,11 +227,12 @@ lrwxrwxrwx root       root               58 ./etc/fonts/conf.d/90-synthetic.conf
 -rw-r--r-- root       root              963 ./etc/fstab
 drwxr-xr-x root       root             4096 ./etc/geoclue
 -rw-r--r-- root       root             2236 ./etc/geoclue/geoclue.conf
--rw-r--r-- root       root              644 ./etc/group
--r-------- root       root              536 ./etc/gshadow
+-rw-r--r-- root       root              683 ./etc/group
+-r-------- root       root              566 ./etc/gshadow
 -rw-r--r-- root       root               26 ./etc/host.conf
 -rw-r--r-- root       root                8 ./etc/hostname
 -rw-r--r-- root       root              237 ./etc/hosts
+-rw-r--r-- root       root             3579 ./etc/idmapd.conf
 drwxr-xr-x root       root             4096 ./etc/init
 -rw-r--r-- root       root              987 ./etc/init/activitymanager.conf
 -rw-r--r-- root       root             1372 ./etc/init/configurator-async.conf
@@ -260,7 +274,7 @@ drwxr-xr-x root       root             4096 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root            21086 ./etc/ld.so.cache
+-rw-r--r-- root       root            21896 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -279,16 +293,27 @@ drwxr-xr-x root       root             4096 ./etc/luna-service2
 -rw-r--r-- root       root                0 ./etc/machine-id
 -rw-r--r-- root       root              985 ./etc/mke2fs.conf
 drwxr-xr-x root       root             4096 ./etc/modprobe.d
+-rw-r--r-- root       root               18 ./etc/modprobe.d/uvesafb.conf
+-rw-r--r-- root       root               28 ./etc/modprobe.d/vboxvideo.conf
+-rw-r--r-- root       root               21 ./etc/modprobe.d/virtio-gpu.conf
+-rw-r--r-- root       root               17 ./etc/modprobe.d/vmwgfx.conf
 drwxr-xr-x root       root             4096 ./etc/modules-load.d
+-rw-r--r-- root       root                8 ./etc/modules-load.d/uvesafb.conf
+-rw-r--r-- root       root               10 ./etc/modules-load.d/vboxguest.conf
+-rw-r--r-- root       root                7 ./etc/modules-load.d/vboxsf.conf
+-rw-r--r-- root       root               10 ./etc/modules-load.d/vboxvideo.conf
 -rw-r--r-- root       root                0 ./etc/motd
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
+-rw-r--r-- root       root              767 ./etc/netconfig
 drwxr-xr-x root       root             4096 ./etc/network
 drwxr-xr-x root       root             4096 ./etc/network/if-down.d
 drwxr-xr-x root       root             4096 ./etc/network/if-post-down.d
 lrwxrwxrwx root       root               29 ./etc/network/if-post-down.d/wpa-supplicant -> ../if-pre-up.d/wpa-supplicant
 drwxr-xr-x root       root             4096 ./etc/network/if-pre-up.d
 -rwxr-xr-x root       root             1951 ./etc/network/if-pre-up.d/wpa-supplicant
--rw-r--r-- root       root              477 ./etc/nsswitch.conf
+-rwxr-xr-x root       root             3605 ./etc/nfsmount.conf
+-rwxr-xr-x root       root             1087 ./etc/nfs-utils.conf
+-rw-r--r-- root       root              514 ./etc/nsswitch.conf
 -rw-r--r-- root       root               30 ./etc/nyx.conf
 drwxr-xr-x root       root             4096 ./etc/ofono
 -rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
@@ -604,7 +629,7 @@ drwxr-xr-x root       root             4096 ./etc/palm/tempdb/permissions
 drwxr-xr-x root       root             4096 ./etc/palm/tempdb/permissions/com.palm.service.accounts
 -rw-r--r-- root       root              185 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.account.syncstate
 -rw-r--r-- root       root              178 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.signaling
--rw-r--r-- root       root              982 ./etc/passwd
+-rw-r--r-- root       root             1141 ./etc/passwd
 drwxr-xr-x root       root             4096 ./etc/pki
 drwxr-xr-x root       root             4096 ./etc/pki/nssdb
 -rw-r--r-- root       root            65536 ./etc/pki/nssdb/cert8.db
@@ -647,6 +672,7 @@ drwxr-xr-x root       root             4096 ./etc/prefs/properties
 -rw-r--r-- root       root             5877 ./etc/presage.xml
 -rw-r--r-- root       root             1090 ./etc/profile
 drwxr-xr-x root       root             4096 ./etc/profile.d
+-rwxr-xr-x root       root               68 ./etc/profile.d/distcc.sh
 -rwxr-xr-x root       root              752 ./etc/profile.d/get-systemd-environments.sh
 -rw-r--r-- root       root             2932 ./etc/protocols
 drwxr-xr-x root       root             4096 ./etc/pulse
@@ -658,9 +684,10 @@ drwxr-xr-x root       root             4096 ./etc/pulse
 lrwxrwxrwx root       root               26 ./etc/resolv-conf.connman -> ../run/connman/resolv.conf
 lrwxrwxrwx root       root               24 ./etc/resolv.conf -> /etc/resolv-conf.connman
 -rw-r--r-- root       root              895 ./etc/rpc
+-rwxr-xr-x root       root               58 ./etc/rpcbind.conf
 -r-------- root       root             1848 ./etc/securetty
 -rw-r--r-- root       root            19199 ./etc/services
--r-------- root       root              665 ./etc/shadow
+-r-------- root       root              774 ./etc/shadow
 -rw-r--r-- root       root               68 ./etc/shells
 drwxr-xr-x root       root             4096 ./etc/skel
 -rwxr-xr-x root       root              410 ./etc/skel/.bashrc
@@ -1039,6 +1066,7 @@ lrwxrwxrwx root       root               37 ./etc/systemd/system/bluetooth.targe
 -rw-r--r-- root       root             1604 ./etc/systemd/system.conf
 lrwxrwxrwx root       root               41 ./etc/systemd/system/ctrl-alt-del.target -> ../../../lib/systemd/system/reboot.target
 lrwxrwxrwx root       root               37 ./etc/systemd/system/dbus-org.bluez.service -> /lib/systemd/system/bluetooth.service
+lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.ModemManager1.service -> /lib/systemd/system/ModemManager.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/dbus-org.neard.service -> /lib/systemd/system/neard.service
 lrwxrwxrwx root       root               37 ./etc/systemd/system/default.target -> /lib/systemd/system/multi-user.target
@@ -1054,12 +1082,14 @@ lrwxrwxrwx root       root               46 ./etc/systemd/system/local-fs.target
 lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target.wants/var-volatile-srv.service -> /lib/systemd/system/var-volatile-srv.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
+lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/avahi-daemon.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/certmgrd.service -> /lib/systemd/system/certmgrd.service
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
 lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/connman-vpn.service -> /lib/systemd/system/connman-vpn.service
 lrwxrwxrwx root       root               23 ./etc/systemd/system/multi-user.target.wants/default-webos.target -> ../default-webos.target
+lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/distcc.service -> /lib/systemd/system/distcc.service
 lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/filecache.service -> /lib/systemd/system/filecache.service
 lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.target.wants/location-service.service -> /lib/systemd/system/location-service.service
 lrwxrwxrwx root       root               43 ./etc/systemd/system/multi-user.target.wants/luna-appmanager.service -> /lib/systemd/system/luna-appmanager.service
@@ -1072,6 +1102,9 @@ lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/mediaindexer.service -> /lib/systemd/system/mediaindexer.service
 lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/mmsd.service -> /lib/systemd/system/mmsd.service
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/ModemManager.service -> /lib/systemd/system/ModemManager.service
+lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/nfs-mountd.service -> /lib/systemd/system/nfs-mountd.service
+lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/nfs-server.service -> /lib/systemd/system/nfs-server.service
+lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/nfs-statd.service -> /lib/systemd/system/nfs-statd.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/ofono.service -> /lib/systemd/system/ofono.service
 lrwxrwxrwx root       root               61 ./etc/systemd/system/multi-user.target.wants/org.webosports.service.lumberjack.service -> /lib/systemd/system/org.webosports.service.lumberjack.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/pulseaudio.service -> /lib/systemd/system/pulseaudio.service
@@ -1090,6 +1123,8 @@ lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.targ
 drwxr-xr-x root       root             4096 ./etc/systemd/system/network.target.wants
 lrwxrwxrwx root       root               44 ./etc/systemd/system/network.target.wants/wired-connection.service -> /lib/systemd/system/wired-connection.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sockets.target.wants
+lrwxrwxrwx root       root               39 ./etc/systemd/system/sockets.target.wants/avahi-daemon.socket -> /lib/systemd/system/avahi-daemon.socket
+lrwxrwxrwx root       root               34 ./etc/systemd/system/sockets.target.wants/rpcbind.socket -> /lib/systemd/system/rpcbind.socket
 lrwxrwxrwx root       root               31 ./etc/systemd/system/sockets.target.wants/sshd.socket -> /lib/systemd/system/sshd.socket
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sysinit.target.wants
 lrwxrwxrwx root       root               42 ./etc/systemd/system/sysinit.target.wants/opkg-configure.service -> /lib/systemd/system/opkg-configure.service
@@ -1250,6 +1285,12 @@ lrwxrwxrwx root       root               21 ./lib/libnss_compat.so.2 -> libnss_c
 lrwxrwxrwx root       root               18 ./lib/libnss_dns.so.2 -> libnss_dns-2.25.so
 -rwxr-xr-x root       root            46656 ./lib/libnss_files-2.25.so
 lrwxrwxrwx root       root               20 ./lib/libnss_files.so.2 -> libnss_files-2.25.so
+-rwxr-xr-x root       root             9792 ./lib/libnss_mdns4_minimal.so.2
+-rwxr-xr-x root       root             9796 ./lib/libnss_mdns4.so.2
+-rwxr-xr-x root       root             9792 ./lib/libnss_mdns6_minimal.so.2
+-rwxr-xr-x root       root             9796 ./lib/libnss_mdns6.so.2
+-rwxr-xr-x root       root             9792 ./lib/libnss_mdns_minimal.so.2
+-rwxr-xr-x root       root             9796 ./lib/libnss_mdns.so.2
 -rwxr-xr-x root       root           104904 ./lib/libpthread-2.25.so
 lrwxrwxrwx root       root               18 ./lib/libpthread.so.0 -> libpthread-2.25.so
 -rwxr-xr-x root       root            79628 ./lib/libresolv-2.25.so
@@ -1272,6 +1313,8 @@ lrwxrwxrwx root       root               19 ./lib/libusb-1.0.so.0 -> libusb-1.0.
 lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.25.so
 -rwxr-xr-x root       root            18160 ./lib/libuuid.so.1.3.0
 lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3.0
+-rwxr-xr-x root       root            35396 ./lib/libwrap.so.0.7.6
+lrwxrwxrwx root       root               16 ./lib/libwrap.so.0 -> libwrap.so.0.7.6
 -rwxr-xr-x root       root            95940 ./lib/libz.so.1.2.11
 lrwxrwxrwx root       root               14 ./lib/libz.so.1 -> libz.so.1.2.11
 drwxr-xr-x root       root             4096 ./lib/lsb
@@ -1281,8 +1324,25 @@ drwxr-xr-x root       root             4096 ./lib/modules
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/ttm
+-rw-r--r-- root       root            86300 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/ttm/ttm.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/virtio
+-rw-r--r-- root       root            56156 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/virtio/virtio-gpu.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/vmwgfx
+-rw-r--r-- root       root           288672 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/gpu/drm/vmwgfx/vmwgfx.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/net
 -rw-r--r-- root       root            43964 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/net/tun.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/staging
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/staging/vboxvideo
+-rw-r--r-- root       root            40220 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/staging/vboxvideo/vboxvideo.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/video
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/video/fbdev
+-rw-r--r-- root       root            33868 ./lib/modules/4.19.0-yocto-standard/kernel/drivers/video/fbdev/uvesafb.ko
+drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/misc
+-rw-r--r-- root       root           268688 ./lib/modules/4.19.0-yocto-standard/kernel/misc/vboxguest.ko
+-rw-r--r-- root       root            45680 ./lib/modules/4.19.0-yocto-standard/kernel/misc/vboxsf.ko
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/net
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/net/ipv4
 drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/kernel/net/ipv4/netfilter
@@ -1312,17 +1372,17 @@ drwxr-xr-x root       root             4096 ./lib/modules/4.19.0-yocto-standard/
 -rw-r--r-- root       root           132120 ./lib/modules/4.19.0-yocto-standard/kernel/sound/pci/ac97/snd-ac97-codec.ko
 -rw-r--r-- root       root            41416 ./lib/modules/4.19.0-yocto-standard/kernel/sound/pci/snd-intel8x0.ko
 -rw-r--r-- root       root             3340 ./lib/modules/4.19.0-yocto-standard/kernel/sound/soundcore.ko
--rw-r--r-- root       root             1635 ./lib/modules/4.19.0-yocto-standard/modules.alias
--rw-r--r-- root       root             1829 ./lib/modules/4.19.0-yocto-standard/modules.alias.bin
+-rw-r--r-- root       root             1864 ./lib/modules/4.19.0-yocto-standard/modules.alias
+-rw-r--r-- root       root             2140 ./lib/modules/4.19.0-yocto-standard/modules.alias.bin
 -rw-r--r-- root       root             8727 ./lib/modules/4.19.0-yocto-standard/modules.builtin
 -rw-r--r-- root       root            10908 ./lib/modules/4.19.0-yocto-standard/modules.builtin.bin
--rw-r--r-- root       root             2304 ./lib/modules/4.19.0-yocto-standard/modules.dep
--rw-r--r-- root       root             3020 ./lib/modules/4.19.0-yocto-standard/modules.dep.bin
+-rw-r--r-- root       root             2687 ./lib/modules/4.19.0-yocto-standard/modules.dep
+-rw-r--r-- root       root             3622 ./lib/modules/4.19.0-yocto-standard/modules.dep.bin
 -rw-r--r-- root       root              100 ./lib/modules/4.19.0-yocto-standard/modules.devname
 -rw-r--r-- root       root            17812 ./lib/modules/4.19.0-yocto-standard/modules.order
 -rw-r--r-- root       root               55 ./lib/modules/4.19.0-yocto-standard/modules.softdep
--rw-r--r-- root       root            16969 ./lib/modules/4.19.0-yocto-standard/modules.symbols
--rw-r--r-- root       root            19452 ./lib/modules/4.19.0-yocto-standard/modules.symbols.bin
+-rw-r--r-- root       root            35119 ./lib/modules/4.19.0-yocto-standard/modules.symbols
+-rw-r--r-- root       root            37283 ./lib/modules/4.19.0-yocto-standard/modules.symbols.bin
 drwxr-xr-x root       root             4096 ./lib/systemd
 -rwxr-xr-x root       root          2059340 ./lib/systemd/libsystemd-shared-232.so
 lrwxrwxrwx root       root               24 ./lib/systemd/libsystemd-shared.so -> libsystemd-shared-232.so
@@ -1338,6 +1398,8 @@ drwxr-xr-x root       root            16384 ./lib/systemd/system
 -rw-r--r-- root       root              410 ./lib/systemd/system/alsa-state.service
 -rw-r--r-- root       root              283 ./lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
+-rw-r--r-- root       root             1044 ./lib/systemd/system/avahi-daemon.service
+-rw-r--r-- root       root              874 ./lib/systemd/system/avahi-daemon.socket
 -rw-r--r-- root       root              879 ./lib/systemd/system/basic.target
 drwxr-xr-x root       root             4096 ./lib/systemd/system/basic.target.wants
 lrwxrwxrwx root       root               23 ./lib/systemd/system/basic.target.wants/alsa-restore.service -> ../alsa-restore.service
@@ -1391,6 +1453,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target 
 -rwxr-xr-x root       root             9748 ./lib/systemd/systemd-hibernate-resume
 -rwxr-xr-x root       root            22088 ./lib/systemd/systemd-hostnamed
 -rwxr-xr-x root       root            13892 ./lib/systemd/systemd-initctl
+-rw-r--r-- root       root              246 ./lib/systemd/system/distcc.service
 -rwxr-xr-x root       root           116352 ./lib/systemd/systemd-journald
 -rwxr-xr-x root       root            34372 ./lib/systemd/systemd-localed
 -rwxr-xr-x root       root           210676 ./lib/systemd/systemd-logind
@@ -1479,6 +1542,9 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              464 ./lib/systemd/system/network-online.target
 -rw-r--r-- root       root              461 ./lib/systemd/system/network-pre.target
 -rw-r--r-- root       root              480 ./lib/systemd/system/network.target
+-rw-r--r-- root       root              342 ./lib/systemd/system/nfs-mountd.service
+-rw-r--r-- root       root              650 ./lib/systemd/system/nfs-server.service
+-rw-r--r-- root       root              335 ./lib/systemd/system/nfs-statd.service
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
 -rw-r--r-- root       root               30 ./lib/systemd/system/nyx.target
@@ -1505,6 +1571,7 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/poweroff.target
 drwxr-xr-x root       root             4096 ./lib/systemd/system-preset
 -rw-r--r-- root       root              923 ./lib/systemd/system-preset/90-systemd.preset
 -rw-r--r-- root       root              377 ./lib/systemd/system/printer.target
+-rw-r--r-- root       root              133 ./lib/systemd/system/proc-fs-nfsd.mount
 -rw-r--r-- root       root              231 ./lib/systemd/system/pulseaudio.service
 -rw-r--r-- root       root              576 ./lib/systemd/system/quotaon.service
 -rw-r--r-- root       root              628 ./lib/systemd/system/rc-local.service
@@ -1517,6 +1584,8 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/reboot.target.w
 -rw-r--r-- root       root              486 ./lib/systemd/system/rescue.target
 drwxr-xr-x root       root             4096 ./lib/systemd/system/rescue.target.wants
 lrwxrwxrwx root       root               39 ./lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
+-rw-r--r-- root       root              212 ./lib/systemd/system/rpcbind.service
+-rw-r--r-- root       root              132 ./lib/systemd/system/rpcbind.socket
 -rw-r--r-- root       root              500 ./lib/systemd/system/rpcbind.target
 lrwxrwxrwx root       root               15 ./lib/systemd/system/runlevel0.target -> poweroff.target
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel1.target -> rescue.target
@@ -1566,6 +1635,7 @@ lrwxrwxrwx root       root               22 ./lib/systemd/system/sysinit.target.
 lrwxrwxrwx root       root               19 ./lib/systemd/system/sysinit.target.wants/dev-mqueue.mount -> ../dev-mqueue.mount
 lrwxrwxrwx root       root               28 ./lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service -> ../kmod-static-nodes.service
 lrwxrwxrwx root       root               19 ./lib/systemd/system/sysinit.target.wants/ldconfig.service -> ../ldconfig.service
+lrwxrwxrwx root       root               21 ./lib/systemd/system/sysinit.target.wants/proc-fs-nfsd.mount -> ../proc-fs-nfsd.mount
 lrwxrwxrwx root       root               32 ./lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount -> ../sys-fs-fuse-connections.mount
 lrwxrwxrwx root       root               26 ./lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount -> ../sys-kernel-config.mount
 lrwxrwxrwx root       root               25 ./lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount -> ../sys-kernel-debug.mount
@@ -1832,8 +1902,11 @@ lrwxrwxrwx root       root               18 ./sbin/modinfo -> /sbin/modinfo.kmod
 lrwxrwxrwx root       root               11 ./sbin/modprobe.kmod -> ../bin/kmod
 lrwxrwxrwx root       root               19 ./sbin/modprobe -> /sbin/modprobe.kmod
 -rwxr-xr-x root       root              649 ./sbin/mount-copybind
+-r-s--x--x root       root           113204 ./sbin/mount.nfs
+lrwxrwxrwx root       root                9 ./sbin/mount.nfs4 -> mount.nfs
 lrwxrwxrwx root       root               20 ./sbin/nologin -> /sbin/nologin.shadow
 -rwxr-xr-x root       root             5676 ./sbin/nologin.shadow
+-rwxr-xr-x root       root             2613 ./sbin/osd_login
 lrwxrwxrwx root       root               19 ./sbin/pivot_root -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             2460 ./sbin/populate-extfs.sh
 lrwxrwxrwx root       root               14 ./sbin/poweroff -> /bin/systemctl
@@ -1863,6 +1936,8 @@ lrwxrwxrwx root       root               19 ./sbin/sysctl -> /sbin/sysctl.procps
 lrwxrwxrwx root       root               19 ./sbin/syslogd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               26 ./sbin/udevd -> /lib/systemd/systemd-udevd
 lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
+lrwxrwxrwx root       root                9 ./sbin/umount.nfs4 -> mount.nfs
+lrwxrwxrwx root       root                9 ./sbin/umount.nfs -> mount.nfs
 lrwxrwxrwx root       root               17 ./sbin/vigr -> /sbin/vigr.shadow
 lrwxrwxrwx root       root               11 ./sbin/vigr.shadow -> vipw.shadow
 lrwxrwxrwx root       root               17 ./sbin/vipw -> /sbin/vipw.shadow
@@ -1995,6 +2070,9 @@ lrwxrwxrwx root       root               19 ./usr/bin/diff -> /bin/busybox.nosui
 -rwxr-xr-x root       root             9836 ./usr/bin/digest
 -rwxr-xr-x root       root            87792 ./usr/bin/directfb-csource
 lrwxrwxrwx root       root               19 ./usr/bin/dirname -> /bin/busybox.nosuid
+-rwxr-xr-x root       root           125220 ./usr/bin/distcc
+-rwxr-xr-x root       root           129536 ./usr/bin/distccd
+-rwxr-xr-x root       root            42840 ./usr/bin/distccmon-text
 -rwxr-xr-x root       root            14080 ./usr/bin/dnsproxy-test
 lrwxrwxrwx root       root               19 ./usr/bin/du -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            83664 ./usr/bin/dumpkeys
@@ -2105,6 +2183,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/less -> /bin/busybox.nosui
 lrwxrwxrwx root       root               19 ./usr/bin/logger -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/logname -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             9844 ./usr/bin/lsattr
+-rwxr-xr-x root       root            46972 ./usr/bin/lsdistcc
 -rwxr-x--- root       root            30844 ./usr/bin/luna-prefs-service
 -rwxr-x--- root       root             9880 ./usr/bin/lunaprop
 -rwxr-xr-x root       root            26836 ./usr/bin/luna-recorder
@@ -2738,6 +2817,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasoun
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-client.so.3 -> libavahi-client.so.3.2.9
 -rwxr-xr-x root       root            51288 ./usr/lib/libavahi-common.so.3.5.3
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-common.so.3 -> libavahi-common.so.3.5.3
+-rwxr-xr-x root       root           252784 ./usr/lib/libavahi-core.so.7.0.2
+lrwxrwxrwx root       root               22 ./usr/lib/libavahi-core.so.7 -> libavahi-core.so.7.0.2
 -rwxr-xr-x root       root            13908 ./usr/lib/libavahi-glib.so.1.0.2
 lrwxrwxrwx root       root               22 ./usr/lib/libavahi-glib.so.1 -> libavahi-glib.so.1.0.2
 -rwxr-xr-x root       root          1029264 ./usr/lib/libbfd-2.28.0.20170307.so
@@ -2764,6 +2845,8 @@ lrwxrwxrwx root       root               21 ./usr/lib/libcroco-0.6.so.3 -> libcr
 -rwxr-xr-x root       root          2095872 ./usr/lib/libcrypto.so.1.0.2
 -rwxr-xr-x root       root           403992 ./usr/lib/libcurl.so.4.4.0
 lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so.4 -> libcurl.so.4.4.0
+-rwxr-xr-x root       root            26364 ./usr/lib/libdaemon.so.0.5.0
+lrwxrwxrwx root       root               18 ./usr/lib/libdaemon.so.0 -> libdaemon.so.0.5.0
 -rwxr-xr-x root       root           368040 ./usr/lib/libdbus-1.so.3.14.9
 lrwxrwxrwx root       root               19 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.14.9
 -rwxr-xr-x root       root           175176 ./usr/lib/libdbus-glib-1.so.2.3.3
@@ -3008,6 +3091,11 @@ lrwxrwxrwx root       root               20 ./usr/lib/libnemodbus.so.1 -> libnem
 lrwxrwxrwx root       root               17 ./usr/lib/libneon.so.27 -> libneon.so.27.3.2
 -rw-r--r-- root       root           248348 ./usr/lib/libnettle.so.6.3
 lrwxrwxrwx root       root               16 ./usr/lib/libnettle.so.6 -> libnettle.so.6.3
+drwxr-xr-x root       root             4096 ./usr/lib/libnfsidmap
+-rwxr-xr-x root       root             9840 ./usr/lib/libnfsidmap/nsswitch.so
+-rwxr-xr-x root       root            30384 ./usr/lib/libnfsidmap.so.0.3.0
+lrwxrwxrwx root       root               20 ./usr/lib/libnfsidmap.so.0 -> libnfsidmap.so.0.3.0
+-rwxr-xr-x root       root             5680 ./usr/lib/libnfsidmap/static.so
 -rwxr-xr-x root       root           137704 ./usr/lib/libnl-3.so.200.24.0
 lrwxrwxrwx root       root               19 ./usr/lib/libnl-3.so.200 -> libnl-3.so.200.24.0
 -rwxr-xr-x root       root            22876 ./usr/lib/libnl-genl-3.so.200.24.0
@@ -3071,6 +3159,8 @@ lrwxrwxrwx root       root               19 ./usr/lib/libpng16.so.16 -> libpng16
 lrwxrwxrwx root       root               26 ./usr/lib/libpolkit-agent-1.so.0 -> libpolkit-agent-1.so.0.0.0
 -rwxr-xr-x root       root           125476 ./usr/lib/libpolkit-gobject-1.so.0.0.0
 lrwxrwxrwx root       root               28 ./usr/lib/libpolkit-gobject-1.so.0 -> libpolkit-gobject-1.so.0.0.0
+-rwxr-xr-x root       root            51336 ./usr/lib/libpopt.so.0.0.0
+lrwxrwxrwx root       root               16 ./usr/lib/libpopt.so.0 -> libpopt.so.0.0.0
 -rwxr-xr-x root       root           481472 ./usr/lib/libpresage.so.1.1.1
 lrwxrwxrwx root       root               19 ./usr/lib/libpresage.so.1 -> libpresage.so.1.1.1
 -rwxr-xr-x root       root            71612 ./usr/lib/libprocps.so.6.0.0
@@ -3263,6 +3353,8 @@ lrwxrwxrwx root       root               19 ./usr/lib/libtheora.so.0 -> libtheor
 -rwxr-xr-x root       root           441480 ./usr/lib/libtidy-0.99.so.0.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libtidy-0.99.so.0 -> libtidy-0.99.so.0.0.0
 -rwxr-xr-x root       root            84296 ./usr/lib/libtinyxml.so.2.6.2
+-rwxr-xr-x root       root           187056 ./usr/lib/libtirpc.so.3.0.0
+lrwxrwxrwx root       root               17 ./usr/lib/libtirpc.so.3 -> libtirpc.so.3.0.0
 -rwxr-xr-x root       root          1526800 ./usr/lib/libunistring.so.2.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libunistring.so.2 -> libunistring.so.2.0.0
 -rwxr-xr-x root       root           120612 ./usr/lib/liburiparser.so.1.0.20
@@ -14115,6 +14207,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            93176 ./usr/sbin/alsactl
 -rwxr-xr-x root       root            39328 ./usr/sbin/audio-service
+-rwxr-xr-x root       root           133820 ./usr/sbin/avahi-daemon
 -rwxr-xr-x root       root            22576 ./usr/sbin/certmgrd
 -rwxr-xr-x root       root            26304 ./usr/sbin/chat
 -rwxr-xr-x root       root            49988 ./usr/sbin/chgpasswd
@@ -14134,6 +14227,7 @@ drwxr-xr-x root       root             4096 ./usr/sbin/.debug
 -rwxr-xr-x root       root            98576 ./usr/sbin/.debug/zic
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/deluser -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            63480 ./usr/sbin/exportfs
 lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           195036 ./usr/sbin/filecache
 -rwxr-xr-x root       root            10004 ./usr/sbin/genccode
@@ -14176,6 +14270,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root           297264 ./usr/sbin/mojodb-luna
 -rwxr-xr-x root       root           313484 ./usr/sbin/mojodb_migrate
 -rwxr-xr-x root       root            74948 ./usr/sbin/newusers
+-rwxr-xr-x root       root            23748 ./usr/sbin/nfsstat
 -rwxr-xr-x root       root           108744 ./usr/sbin/novacomd
 -rwxr-xr-x root       root          1805376 ./usr/sbin/ofonod
 -rwxr-xr-x root       root           785308 ./usr/sbin/openvpn
@@ -14191,6 +14286,12 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root            32836 ./usr/sbin/pwunconv
 lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            51316 ./usr/sbin/rpcbind
+-rwxr-xr-x root       root            34944 ./usr/sbin/rpc.idmapd
+-rwxr-xr-x root       root            26436 ./usr/sbin/rpcinfo
+-rwxr-xr-x root       root           111000 ./usr/sbin/rpc.mountd
+-rwxr-xr-x root       root            18424 ./usr/sbin/rpc.nfsd
+-rwxr-xr-x root       root            84512 ./usr/sbin/rpc.statd
 -rwxr-xr-x root       root             1890 ./usr/sbin/run-postinsts
 -rwxr-xr-x root       root              147 ./usr/sbin/setcpushares-ls2
 -rwxr-xr-x root       root              345 ./usr/sbin/setcpushares-pdk
@@ -14198,9 +14299,12 @@ lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.no
 -rwxr-xr-x root       root              127 ./usr/sbin/setcpushares-upstart
 -rwxr-xr-x root       root          1268676 ./usr/sbin/SettingsService
 -rwxr-xr-x root       root              761 ./usr/sbin/settings-service.sh
+-rwxr-xr-x root       root            18292 ./usr/sbin/showmount
 -rwxr-xr-x root       root           113548 ./usr/sbin/sleepd
+-rwxr-xr-x root       root            51252 ./usr/sbin/sm-notify
 -rwxr-xr-x root       root           283768 ./usr/sbin/sntp
 -rwxr-xr-x root       root           887496 ./usr/sbin/sshd
+-rwxr-xr-x root       root              969 ./usr/sbin/start-statd
 -rwxr-xr-x root       root            30744 ./usr/sbin/storaged
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             5531 ./usr/sbin/update-ca-certificates
@@ -14386,6 +14490,9 @@ drwxr-xr-x root       root             4096 ./usr/share/applications
 -rw-r--r-- root       root              323 ./usr/share/applications/geoclue-where-am-i.desktop
 -rw-r--r-- root       root              106 ./usr/share/applications/maliit-server.desktop
 -rw-r--r-- root       root              145 ./usr/share/applications/qt5-opengles2-test.desktop
+drwxr-xr-x root       root             4096 ./usr/share/avahi
+-rw-r--r-- root       root              560 ./usr/share/avahi/avahi-service.dtd
+-rw-r--r-- root       root             5132 ./usr/share/avahi/service-types
 drwxr-xr-x root       root             4096 ./usr/share/bash-completion
 drwxr-xr-x root       root             4096 ./usr/share/bash-completion/completions
 -rw-r--r-- root       root             3726 ./usr/share/bash-completion/completions/udevadm
@@ -14878,6 +14985,7 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              151 ./usr/share/dbus-1/system-services/luna-appmanager.service
 -rw-r--r-- root       root              113 ./usr/share/dbus-1/system-services/net.connman.vpn.service
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.bluez.service
+-rw-r--r-- root       root              971 ./usr/share/dbus-1/system-services/org.freedesktop.Avahi.service
 -rw-r--r-- root       root              118 ./usr/share/dbus-1/system-services/org.freedesktop.GeoClue2.service
 -rw-r--r-- root       root              419 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
 -rw-r--r-- root       root              415 ./usr/share/dbus-1/system-services/org.freedesktop.locale1.service
@@ -15817,6 +15925,12 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/dbus-glib
 drwxr-xr-x root       root             4096 ./usr/share/licenses/directfb
 -rw-r--r-- root       root            26428 ./usr/share/licenses/directfb/COPYING
 -rw-r--r-- root       root            25878 ./usr/share/licenses/directfb/generic_LGPLv2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/distcc
+drwxr-xr-x root       root             4096 ./usr/share/licenses/distcc-config
+-rw-r--r-- root       root             1035 ./usr/share/licenses/distcc-config/COPYING.MIT
+-rw-r--r-- root       root             1080 ./usr/share/licenses/distcc-config/generic_MIT
+-rw-r--r-- root       root            17992 ./usr/share/licenses/distcc/COPYING
+-rw-r--r-- root       root            17611 ./usr/share/licenses/distcc/generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/licenses/distro-feed-configs
 -rw-r--r-- root       root             1035 ./usr/share/licenses/distro-feed-configs/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/distro-feed-configs/generic_MIT
@@ -16082,6 +16196,10 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libcroco
 -rw-r--r-- root       root              807 ./usr/share/licenses/libcroco/cr-test-utils.c
 -rw-r--r-- root       root            24925 ./usr/share/licenses/libcroco/generic_LGPLv2
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libcroco/generic_LGPLv2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libdaemon
+-rw-r--r-- root       root              646 ./usr/share/licenses/libdaemon/daemon.h
+-rw-r--r-- root       root            25878 ./usr/share/licenses/libdaemon/generic_LGPLv2.1
+-rw-r--r-- root       root            26527 ./usr/share/licenses/libdaemon/LICENSE
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libdrm
 -rw-r--r-- root       root             1080 ./usr/share/licenses/libdrm/generic_MIT
 -rw-r--r-- root       root             1274 ./usr/share/licenses/libdrm/xf86drm.c
@@ -16136,9 +16254,15 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libmbim
 -rw-r--r-- root       root            26530 ./usr/share/licenses/libmbim/COPYING.LIB
 -rw-r--r-- root       root            17611 ./usr/share/licenses/libmbim/generic_GPLv2
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libmbim/generic_LGPLv2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libnfsidmap
+-rw-r--r-- root       root             1548 ./usr/share/licenses/libnfsidmap/COPYING
+-rw-r--r-- root       root             1499 ./usr/share/licenses/libnfsidmap/generic_BSD
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libnl
 -rw-r--r-- root       root            26530 ./usr/share/licenses/libnl/COPYING
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libnl/generic_LGPLv2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libnss-mdns
+-rw-r--r-- root       root            25878 ./usr/share/licenses/libnss-mdns/generic_LGPLv2.1
+-rw-r--r-- root       root            26527 ./usr/share/licenses/libnss-mdns/LICENSE
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libogg
 -rw-r--r-- root       root             1466 ./usr/share/licenses/libogg/COPYING
 -rw-r--r-- root       root             1499 ./usr/share/licenses/libogg/generic_BSD
@@ -16204,6 +16328,10 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libtheora
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libtinyxml
 -rw-r--r-- root       root              863 ./usr/share/licenses/libtinyxml/generic_Zlib
 -rw-r--r-- root       root            19831 ./usr/share/licenses/libtinyxml/readme.txt
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libtirpc
+-rw-r--r-- root       root             1476 ./usr/share/licenses/libtirpc/COPYING
+-rw-r--r-- root       root             1499 ./usr/share/licenses/libtirpc/generic_BSD
+-rw-r--r-- root       root             1579 ./usr/share/licenses/libtirpc/netname.c
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libunistring
 -rw-r--r-- root       root             7639 ./usr/share/licenses/libunistring/COPYING.LIB
 -rw-r--r-- root       root            17611 ./usr/share/licenses/libunistring/generic_GPLv2
@@ -16401,6 +16529,14 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/nettle
 -rw-r--r-- root       root             7468 ./usr/share/licenses/nettle/generic_LGPLv3
 -rw-r--r-- root       root              924 ./usr/share/licenses/nettle/serpent-decrypt.c
 -rw-r--r-- root       root              924 ./usr/share/licenses/nettle/serpent-set-key.c
+drwxr-xr-x root       root             4096 ./usr/share/licenses/nfs-export-root
+-rw-r--r-- root       root             1035 ./usr/share/licenses/nfs-export-root/COPYING.MIT
+-rw-r--r-- root       root             1080 ./usr/share/licenses/nfs-export-root/generic_MIT
+drwxr-xr-x root       root             4096 ./usr/share/licenses/nfs-utils
+-rw-r--r-- root       root            18076 ./usr/share/licenses/nfs-utils/COPYING
+-rw-r--r-- root       root             1499 ./usr/share/licenses/nfs-utils/generic_BSD
+-rw-r--r-- root       root            17611 ./usr/share/licenses/nfs-utils/generic_GPLv2
+-rw-r--r-- root       root             1080 ./usr/share/licenses/nfs-utils/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/nodejs
 -rw-r--r-- root       root             8904 ./usr/share/licenses/nodejs/generic_Artistic-2.0
 -rw-r--r-- root       root             1499 ./usr/share/licenses/nodejs/generic_BSD
@@ -16547,6 +16683,8 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/os-release
 -rw-r--r-- root       root             1080 ./usr/share/licenses/os-release/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/packagegroup-core-boot
 -rw-r--r-- root       root             1080 ./usr/share/licenses/packagegroup-core-boot/generic_MIT
+drwxr-xr-x root       root             4096 ./usr/share/licenses/packagegroup-core-device-devel
+-rw-r--r-- root       root             1080 ./usr/share/licenses/packagegroup-core-device-devel/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/packagegroup-core-ssh-openssh
 -rw-r--r-- root       root             1080 ./usr/share/licenses/packagegroup-core-ssh-openssh/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/packagegroup-luneos-development
@@ -16601,6 +16739,9 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/polkit
 -rw-r--r-- root       root            25387 ./usr/share/licenses/polkit/COPYING
 -rw-r--r-- root       root            24925 ./usr/share/licenses/polkit/generic_LGPLv2
 -rw-r--r-- root       root              831 ./usr/share/licenses/polkit/polkit.h
+drwxr-xr-x root       root             4096 ./usr/share/licenses/popt
+-rw-r--r-- root       root             1277 ./usr/share/licenses/popt/COPYING
+-rw-r--r-- root       root             1080 ./usr/share/licenses/popt/generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/licenses/powerstat
 -rw-r--r-- root       root            17611 ./usr/share/licenses/powerstat/generic_GPLv2
 -rw-r--r-- root       root              768 ./usr/share/licenses/powerstat/powerstat.c
@@ -16821,6 +16962,10 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/rdx-utils-stub
 drwxr-xr-x root       root             4096 ./usr/share/licenses/readline
 -rw-r--r-- root       root            35147 ./usr/share/licenses/readline/COPYING
 -rw-r--r-- root       root            34694 ./usr/share/licenses/readline/generic_GPLv3
+drwxr-xr-x root       root             4096 ./usr/share/licenses/rpcbind
+-rw-r--r-- root       root             1475 ./usr/share/licenses/rpcbind/COPYING
+-rw-r--r-- root       root             1499 ./usr/share/licenses/rpcbind/generic_BSD
+-rw-r--r-- root       root             1579 ./usr/share/licenses/rpcbind/rpcinfo.c
 drwxr-xr-x root       root             4096 ./usr/share/licenses/run-postinsts
 -rw-r--r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
@@ -23410,7 +23555,7 @@ drwxr-xr-x root       root             4096 ./var/cache/fontconfig
 -rw-r--r-- root       root             4504 ./var/cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le32d4.cache-7
 -rw-r--r-- root       root              200 ./var/cache/fontconfig/CACHEDIR.TAG
 drwx------ root       root             4096 ./var/cache/ldconfig
--rw------- root       root            20259 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            21056 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/cache/opkg
 drwx------ root       root             4096 ./var/db
 drwx------ root       root             4096 ./var/db/temp
@@ -23424,12 +23569,21 @@ drwxr-xr-x messagebus messagebus       4096 ./var/lib/dbus
 drwxr-xr-x root       root             4096 ./var/lib/dhcp
 drwxr-xr-x root       root             4096 ./var/lib/maliit
 drwxr-xr-x root       root             4096 ./var/lib/misc
+drwxr-xr-x root       root             4096 ./var/lib/nfs
+-rw-r--r-- root       root                0 ./var/lib/nfs/etab
+-rw-r--r-- root       root                0 ./var/lib/nfs/rmtab
+drwxr-xr-x rpcuser    rpcuser          4096 ./var/lib/nfs/statd
+drwx------ rpcuser    rpcuser          4096 ./var/lib/nfs/statd/sm
+drwx------ rpcuser    rpcuser          4096 ./var/lib/nfs/statd/sm.bak
+-rw-r--r-- rpcuser    rpcuser             0 ./var/lib/nfs/statd/state
+drwxr-xr-x root       root             4096 ./var/lib/nfs/v4recovery
+-rw-r--r-- root       root                0 ./var/lib/nfs/xtab
 drwxr-xr-x root       root             4096 ./var/lib/ofono
 -rw-r--r-- root       root               40 ./var/lib/ofono/environment.conf
 -rw-r--r-- root       root             6900 ./var/lib/ofono/ril_subscription.conf
 drwx--x--- root       root             4096 ./var/lib/openvpn
 drwxr-xr-x root       root             4096 ./var/lib/opkg
-drwxr-xr-x root       root           135168 ./var/lib/opkg/info
+drwxr-xr-x root       root           139264 ./var/lib/opkg/info
 -rw-r--r-- root       root              679 ./var/lib/opkg/info/activitymanager.control
 -rw-r--r-- root       root              362 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/activitymanager-lic.list
@@ -23464,6 +23618,12 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              377 ./var/lib/opkg/info/audio-service.list
 -rwxr-xr-x root       root              317 ./var/lib/opkg/info/audio-service.postinst
 -rwxr-xr-x root       root              228 ./var/lib/opkg/info/audio-service.prerm
+-rw-r--r-- root       root               29 ./var/lib/opkg/info/avahi-daemon.conffiles
+-rw-r--r-- root       root              946 ./var/lib/opkg/info/avahi-daemon.control
+-rw-r--r-- root       root              437 ./var/lib/opkg/info/avahi-daemon.list
+-rwxr-xr-x root       root              366 ./var/lib/opkg/info/avahi-daemon.postinst
+-rwxr-xr-x root       root             5311 ./var/lib/opkg/info/avahi-daemon.preinst
+-rwxr-xr-x root       root              226 ./var/lib/opkg/info/avahi-daemon.prerm
 -rw-r--r-- root       root              891 ./var/lib/opkg/info/avahi-locale-en-gb.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/avahi-locale-en-gb.list
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/base-files.conffiles
@@ -23608,6 +23768,17 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/directfb-lic.list
 -rw-r--r-- root       root             2715 ./var/lib/opkg/info/directfb.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/directfb.postinst
+-rw-r--r-- root       root              357 ./var/lib/opkg/info/distcc-config.control
+-rw-r--r-- root       root              315 ./var/lib/opkg/info/distcc-config-lic.control
+-rw-r--r-- root       root              127 ./var/lib/opkg/info/distcc-config-lic.list
+-rw-r--r-- root       root               41 ./var/lib/opkg/info/distcc-config.list
+-rw-r--r-- root       root              504 ./var/lib/opkg/info/distcc.control
+-rw-r--r-- root       root              333 ./var/lib/opkg/info/distcc-lic.control
+-rw-r--r-- root       root              104 ./var/lib/opkg/info/distcc-lic.list
+-rw-r--r-- root       root              217 ./var/lib/opkg/info/distcc.list
+-rwxr-xr-x root       root              303 ./var/lib/opkg/info/distcc.postinst
+-rwxr-xr-x root       root             5324 ./var/lib/opkg/info/distcc.preinst
+-rwxr-xr-x root       root              214 ./var/lib/opkg/info/distcc.prerm
 -rw-r--r-- root       root               77 ./var/lib/opkg/info/distro-feed-configs.conffiles
 -rw-r--r-- root       root              388 ./var/lib/opkg/info/distro-feed-configs.control
 -rw-r--r-- root       root              356 ./var/lib/opkg/info/distro-feed-configs-lic.control
@@ -24040,7 +24211,7 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              518 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-lame.control
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-lame.list
 -rw-r--r-- root       root              632 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-locale-en-gb.control
--rw-r--r-- root       root              141 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-locale-en-gb.list
+-rw-r--r-- root       root               60 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-locale-en-gb.list
 -rw-r--r-- root       root              703 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-meta.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-meta.list
 -rw-r--r-- root       root              519 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-mpg123.control
@@ -24183,10 +24354,38 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/kernel-module-soundcore-4.19.0-yocto-standard.list
 -rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-soundcore-4.19.0-yocto-standard.postinst
 -rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-soundcore-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              420 ./var/lib/opkg/info/kernel-module-ttm-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              246 ./var/lib/opkg/info/kernel-module-ttm-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-ttm-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-ttm-4.19.0-yocto-standard.postrm
 -rw-r--r-- root       root              406 ./var/lib/opkg/info/kernel-module-tun-4.19.0-yocto-standard.control
 -rw-r--r-- root       root              167 ./var/lib/opkg/info/kernel-module-tun-4.19.0-yocto-standard.list
 -rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-tun-4.19.0-yocto-standard.postinst
 -rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-tun-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              448 ./var/lib/opkg/info/kernel-module-uvesafb-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              255 ./var/lib/opkg/info/kernel-module-uvesafb-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              235 ./var/lib/opkg/info/kernel-module-uvesafb-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-uvesafb-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              437 ./var/lib/opkg/info/kernel-module-vboxguest-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              143 ./var/lib/opkg/info/kernel-module-vboxguest-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              237 ./var/lib/opkg/info/kernel-module-vboxguest-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-vboxguest-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              478 ./var/lib/opkg/info/kernel-module-vboxsf-4.19.0-yocto-standard.control
+-rw-r--r-- root       root               89 ./var/lib/opkg/info/kernel-module-vboxsf-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              234 ./var/lib/opkg/info/kernel-module-vboxsf-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-vboxsf-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              474 ./var/lib/opkg/info/kernel-module-vboxvideo-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              275 ./var/lib/opkg/info/kernel-module-vboxvideo-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              237 ./var/lib/opkg/info/kernel-module-vboxvideo-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-vboxvideo-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              461 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              177 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-virtio-gpu-4.19.0-yocto-standard.postrm
+-rw-r--r-- root       root              476 ./var/lib/opkg/info/kernel-module-vmwgfx-4.19.0-yocto-standard.control
+-rw-r--r-- root       root              169 ./var/lib/opkg/info/kernel-module-vmwgfx-4.19.0-yocto-standard.list
+-rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-vmwgfx-4.19.0-yocto-standard.postinst
+-rwxr-xr-x root       root              119 ./var/lib/opkg/info/kernel-module-vmwgfx-4.19.0-yocto-standard.postrm
 -rw-r--r-- root       root              432 ./var/lib/opkg/info/kernel-module-x-tables-4.19.0-yocto-standard.control
 -rw-r--r-- root       root              215 ./var/lib/opkg/info/kernel-module-x-tables-4.19.0-yocto-standard.list
 -rwxr-xr-x root       root              181 ./var/lib/opkg/info/kernel-module-x-tables-4.19.0-yocto-standard.postinst
@@ -24236,6 +24435,9 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              772 ./var/lib/opkg/info/libavahi-common3.control
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/libavahi-common3.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libavahi-common3.postinst
+-rw-r--r-- root       root              798 ./var/lib/opkg/info/libavahi-core7.control
+-rw-r--r-- root       root               60 ./var/lib/opkg/info/libavahi-core7.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libavahi-core7.postinst
 -rw-r--r-- root       root              825 ./var/lib/opkg/info/libavahi-glib1.control
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/libavahi-glib1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libavahi-glib1.postinst
@@ -24310,6 +24512,11 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              487 ./var/lib/opkg/info/libcurl4.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libcurl4.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcurl4.postinst
+-rw-r--r-- root       root              460 ./var/lib/opkg/info/libdaemon0.control
+-rw-r--r-- root       root               52 ./var/lib/opkg/info/libdaemon0.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libdaemon0.postinst
+-rw-r--r-- root       root              392 ./var/lib/opkg/info/libdaemon-lic.control
+-rw-r--r-- root       root              155 ./var/lib/opkg/info/libdaemon-lic.list
 -rw-r--r-- root       root              690 ./var/lib/opkg/info/libdbus-1-3.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/libdbus-1-3.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libdbus-1-3.postinst
@@ -24553,7 +24760,7 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              591 ./var/lib/opkg/info/libjson-glib-1.0-lic.control
 -rw-r--r-- root       root              116 ./var/lib/opkg/info/libjson-glib-1.0-lic.list
 -rw-r--r-- root       root              773 ./var/lib/opkg/info/libjson-glib-1.0-locale-en-gb.control
--rw-r--r-- root       root               53 ./var/lib/opkg/info/libjson-glib-1.0-locale-en-gb.list
+-rw-r--r-- root       root              134 ./var/lib/opkg/info/libjson-glib-1.0-locale-en-gb.list
 -rw-r--r-- root       root              976 ./var/lib/opkg/info/libk5crypto3.control
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libk5crypto3.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libk5crypto3.postinst
@@ -24631,6 +24838,11 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libneon27.postinst
 -rw-r--r-- root       root              364 ./var/lib/opkg/info/libneon-lic.control
 -rw-r--r-- root       root              139 ./var/lib/opkg/info/libneon-lic.list
+-rw-r--r-- root       root              387 ./var/lib/opkg/info/libnfsidmap0.control
+-rw-r--r-- root       root              159 ./var/lib/opkg/info/libnfsidmap0.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnfsidmap0.postinst
+-rw-r--r-- root       root              315 ./var/lib/opkg/info/libnfsidmap-lic.control
+-rw-r--r-- root       root              117 ./var/lib/opkg/info/libnfsidmap-lic.list
 -rw-r--r-- root       root              473 ./var/lib/opkg/info/libnl-3-200.control
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/libnl-3-200.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-3-200.postinst
@@ -24639,6 +24851,12 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              494 ./var/lib/opkg/info/libnl-genl-3-200.control
 -rw-r--r-- root       root               63 ./var/lib/opkg/info/libnl-genl-3-200.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libnl-genl-3-200.postinst
+-rw-r--r-- root       root              480 ./var/lib/opkg/info/libnss-mdns.control
+-rw-r--r-- root       root              417 ./var/lib/opkg/info/libnss-mdns-lic.control
+-rw-r--r-- root       root              122 ./var/lib/opkg/info/libnss-mdns-lic.list
+-rw-r--r-- root       root              160 ./var/lib/opkg/info/libnss-mdns.list
+-rwxr-xr-x root       root              253 ./var/lib/opkg/info/libnss-mdns.postinst
+-rwxr-xr-x root       root              125 ./var/lib/opkg/info/libnss-mdns.prerm
 -rw-r--r-- root       root              422 ./var/lib/opkg/info/libnyx7.control
 -rw-r--r-- root       root               77 ./var/lib/opkg/info/libnyx7.list
 -rwxr-xr-x root       root              375 ./var/lib/opkg/info/libnyx7.postinst
@@ -24711,6 +24929,11 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpng16-16.postinst
 -rw-r--r-- root       root              327 ./var/lib/opkg/info/libpng16-lic.control
 -rw-r--r-- root       root              138 ./var/lib/opkg/info/libpng16-lic.list
+-rw-r--r-- root       root              363 ./var/lib/opkg/info/libpopt0.control
+-rw-r--r-- root       root               48 ./var/lib/opkg/info/libpopt0.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpopt0.postinst
+-rw-r--r-- root       root              321 ./var/lib/opkg/info/libpopt-lic.control
+-rw-r--r-- root       root               96 ./var/lib/opkg/info/libpopt-lic.list
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/libproxy.control
 -rw-r--r-- root       root              377 ./var/lib/opkg/info/libproxy-lic.control
 -rw-r--r-- root       root              150 ./var/lib/opkg/info/libproxy-lic.list
@@ -24914,6 +25137,11 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libtinyxml2.6.2.postinst
 -rw-r--r-- root       root              347 ./var/lib/opkg/info/libtinyxml-lic.control
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/libtinyxml-lic.list
+-rw-r--r-- root       root              433 ./var/lib/opkg/info/libtirpc3.control
+-rw-r--r-- root       root               65 ./var/lib/opkg/info/libtirpc3.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libtirpc3.postinst
+-rw-r--r-- root       root              367 ./var/lib/opkg/info/libtirpc-lic.control
+-rw-r--r-- root       root              147 ./var/lib/opkg/info/libtirpc-lic.list
 -rw-r--r-- root       root              397 ./var/lib/opkg/info/libudev1.control
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libudev1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libudev1.postinst
@@ -24953,6 +25181,9 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              141 ./var/lib/opkg/info/libwebp-lic.list
 -rw-r--r-- root       root              160 ./var/lib/opkg/info/libwebp.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libwebp.postinst
+-rw-r--r-- root       root              378 ./var/lib/opkg/info/libwrap0.control
+-rw-r--r-- root       root               40 ./var/lib/opkg/info/libwrap0.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libwrap0.postinst
 -rw-r--r-- root       root              499 ./var/lib/opkg/info/libxkbcommon0.control
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libxkbcommon0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libxkbcommon0.postinst
@@ -25192,6 +25423,24 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              282 ./var/lib/opkg/info/nettle-lic.list
 -rw-r--r-- root       root              213 ./var/lib/opkg/info/nettle.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/nettle.postinst
+-rw-r--r-- root       root              425 ./var/lib/opkg/info/nfs-export-root.control
+-rw-r--r-- root       root              359 ./var/lib/opkg/info/nfs-export-root-lic.control
+-rw-r--r-- root       root              133 ./var/lib/opkg/info/nfs-export-root-lic.list
+-rw-r--r-- root       root               13 ./var/lib/opkg/info/nfs-export-root.list
+-rw-r--r-- root       root               99 ./var/lib/opkg/info/nfs-utils-client.conffiles
+-rw-r--r-- root       root              584 ./var/lib/opkg/info/nfs-utils-client.control
+-rw-r--r-- root       root              387 ./var/lib/opkg/info/nfs-utils-client.list
+-rwxr-xr-x root       root              309 ./var/lib/opkg/info/nfs-utils-client.postinst
+-rwxr-xr-x root       root             5281 ./var/lib/opkg/info/nfs-utils-client.preinst
+-rwxr-xr-x root       root              220 ./var/lib/opkg/info/nfs-utils-client.prerm
+-rw-r--r-- root       root              546 ./var/lib/opkg/info/nfs-utils.control
+-rw-r--r-- root       root              391 ./var/lib/opkg/info/nfs-utils-lic.control
+-rw-r--r-- root       root              197 ./var/lib/opkg/info/nfs-utils-lic.list
+-rw-r--r-- root       root              252 ./var/lib/opkg/info/nfs-utils.list
+-rw-r--r-- root       root              463 ./var/lib/opkg/info/nfs-utils-mount.control
+-rw-r--r-- root       root               68 ./var/lib/opkg/info/nfs-utils-mount.list
+-rwxr-xr-x root       root              349 ./var/lib/opkg/info/nfs-utils.postinst
+-rwxr-xr-x root       root              260 ./var/lib/opkg/info/nfs-utils.prerm
 -rw-r--r-- root       root              466 ./var/lib/opkg/info/nodejs.control
 -rw-r--r-- root       root              307 ./var/lib/opkg/info/nodejs-lic.control
 -rw-r--r-- root       root              189 ./var/lib/opkg/info/nodejs-lic.list
@@ -25403,6 +25652,12 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              323 ./var/lib/opkg/info/packagegroup-core-boot-lic.control
 -rw-r--r-- root       root               99 ./var/lib/opkg/info/packagegroup-core-boot-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-boot.list
+-rw-r--r-- root       root              556 ./var/lib/opkg/info/packagegroup-core-device-devel.control
+-rw-r--r-- root       root              381 ./var/lib/opkg/info/packagegroup-core-device-devel-lic.control
+-rw-r--r-- root       root              115 ./var/lib/opkg/info/packagegroup-core-device-devel-lic.list
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-device-devel.list
+-rw-r--r-- root       root              304 ./var/lib/opkg/info/packagegroup-core-nfs-server.control
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-nfs-server.list
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/packagegroup-core-ssh-openssh.control
 -rw-r--r-- root       root              310 ./var/lib/opkg/info/packagegroup-core-ssh-openssh-lic.control
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/packagegroup-core-ssh-openssh-lic.list
@@ -25411,7 +25666,7 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              375 ./var/lib/opkg/info/packagegroup-luneos-development-lic.control
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/packagegroup-luneos-development-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-development.list
--rw-r--r-- root       root             2314 ./var/lib/opkg/info/packagegroup-luneos-extended.control
+-rw-r--r-- root       root             2470 ./var/lib/opkg/info/packagegroup-luneos-extended.control
 -rw-r--r-- root       root              364 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.control
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-extended.list
@@ -25765,6 +26020,13 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              376 ./var/lib/opkg/info/rdx-utils-stub-lic.control
 -rw-r--r-- root       root              136 ./var/lib/opkg/info/rdx-utils-stub-lic.list
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/rdx-utils-stub.list
+-rw-r--r-- root       root              620 ./var/lib/opkg/info/rpcbind.control
+-rw-r--r-- root       root              419 ./var/lib/opkg/info/rpcbind-lic.control
+-rw-r--r-- root       root              143 ./var/lib/opkg/info/rpcbind-lic.list
+-rw-r--r-- root       root              125 ./var/lib/opkg/info/rpcbind.list
+-rwxr-xr-x root       root              305 ./var/lib/opkg/info/rpcbind.postinst
+-rwxr-xr-x root       root             5276 ./var/lib/opkg/info/rpcbind.preinst
+-rwxr-xr-x root       root              216 ./var/lib/opkg/info/rpcbind.prerm
 -rw-r--r-- root       root              361 ./var/lib/opkg/info/run-postinsts.control
 -rw-r--r-- root       root              335 ./var/lib/opkg/info/run-postinsts-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/run-postinsts-lic.list
@@ -26005,7 +26267,7 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              575 ./var/lib/opkg/info/webos-initscripts.control
 -rw-r--r-- root       root              340 ./var/lib/opkg/info/webos-initscripts-lic.control
 -rw-r--r-- root       root              195 ./var/lib/opkg/info/webos-initscripts-lic.list
--rw-r--r-- root       root              628 ./var/lib/opkg/info/webos-initscripts.list
+-rw-r--r-- root       root              612 ./var/lib/opkg/info/webos-initscripts.list
 -rwxr-xr-x root       root              621 ./var/lib/opkg/info/webos-initscripts.postinst
 -rwxr-xr-x root       root              532 ./var/lib/opkg/info/webos-initscripts.prerm
 -rw-r--r-- root       root              840 ./var/lib/opkg/info/webos-keyboard.control
@@ -26058,7 +26320,7 @@ drwxr-xr-x root       root           135168 ./var/lib/opkg/info
 -rw-r--r-- root       root              400 ./var/lib/opkg/info/xl2tpd-lic.control
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/xl2tpd-lic.list
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/xl2tpd.list
--rw-r--r-- root       root           303920 ./var/lib/opkg/status
+-rw-r--r-- root       root           312820 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock

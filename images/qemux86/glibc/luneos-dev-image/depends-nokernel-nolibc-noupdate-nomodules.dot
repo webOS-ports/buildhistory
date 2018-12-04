@@ -30,6 +30,16 @@ digraph depends {
 "audio-service" -> "libpulse-mainloop-glib0"
 "audio-service" -> "libstdc++6"
 "audio-service" -> "luna-service2"
+"avahi-daemon" -> "base-files"
+"avahi-daemon" -> "base-passwd"
+"avahi-daemon" -> "libavahi-common3"
+"avahi-daemon" -> "libavahi-core7"
+"avahi-daemon" -> "libcap2"
+"avahi-daemon" -> "libdaemon0"
+"avahi-daemon" -> "libdbus-1-3"
+"avahi-daemon" -> "libexpat1"
+"avahi-daemon" -> "libnss-mdns" [style=dotted]
+"avahi-daemon" -> "shadow"
 "avahi-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "base-files" -> "base-files-lic" [style=dotted]
 "base-passwd" -> "base-passwd-lic" [style=dotted]
@@ -137,6 +147,16 @@ digraph depends {
 "directfb" -> "libpng16-16"
 "directfb" -> "libstdc++6"
 "directfb" -> "libz1"
+"distcc" -> "avahi-daemon" [style=dotted]
+"distcc" -> "base-files"
+"distcc" -> "base-passwd"
+"distcc-config" -> "distcc"
+"distcc-config" -> "distcc-config-lic" [style=dotted]
+"distcc" -> "distcc-lic" [style=dotted]
+"distcc" -> "libavahi-client3"
+"distcc" -> "libavahi-common3"
+"distcc" -> "libpopt0"
+"distcc" -> "shadow"
 "distro-feed-configs" -> "distro-feed-configs-lic" [style=dotted]
 "downloadmanager" -> "downloadmanager-lic" [style=dotted]
 "e2fsprogs-badblocks" -> "libcom-err2"
@@ -1200,6 +1220,7 @@ digraph depends {
 "libasound-module-pcm-pulse" -> "libpulse0"
 "libavahi-client3" -> "libavahi-common3"
 "libavahi-client3" -> "libdbus-1-3"
+"libavahi-core7" -> "libavahi-common3"
 "libavahi-glib1" -> "libavahi-common3"
 "libavahi-glib1" -> "libglib-2.0-0"
 "libblkid1" -> "libuuid1"
@@ -1243,6 +1264,7 @@ digraph depends {
 "libcurl4" -> "libgnutls30"
 "libcurl4" -> "libz1"
 "libcurl4" -> "nettle"
+"libdaemon0" -> "libdaemon-lic" [style=dotted]
 "libdbus-1-3" -> "dbus-1" [style=dotted]
 "libdbus-1-3" -> "libsystemd0"
 "libdbus-glib-1-2" -> "libdbus-1-3"
@@ -1477,8 +1499,11 @@ digraph depends {
 "libneon27" -> "libneon-lic" [style=dotted]
 "libneon27" -> "libproxy"
 "libneon27" -> "libz1"
+"libnfsidmap0" -> "libnfsidmap-lic" [style=dotted]
 "libnl-3-200" -> "libnl-3-lic" [style=dotted]
 "libnl-genl-3-200" -> "libnl-3-200"
+"libnss-mdns" -> "avahi-daemon"
+"libnss-mdns" -> "libnss-mdns-lic" [style=dotted]
 "libnyx7" -> "libglib-2.0-0"
 "libnyx7" -> "libnyx-lic" [style=dotted]
 "libnyx7" -> "pmloglib"
@@ -1513,6 +1538,7 @@ digraph depends {
 "libpmstatemachineengine2" -> "pmloglib"
 "libpng16-16" -> "libpng16-lic" [style=dotted]
 "libpng16-16" -> "libz1"
+"libpopt0" -> "libpopt-lic" [style=dotted]
 "libproxy" -> "libglib-2.0-0"
 "libproxy" -> "libproxy-lic" [style=dotted]
 "libproxy" -> "libstdc++6"
@@ -1668,6 +1694,7 @@ digraph depends {
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
 "libtinyxml2.6.2" -> "libstdc++6"
 "libtinyxml2.6.2" -> "libtinyxml-lic" [style=dotted]
+"libtirpc3" -> "libtirpc-lic" [style=dotted]
 "libudev1" -> "libcap2"
 "libunistring2" -> "libunistring-lic" [style=dotted]
 "libusb-1.0-0" -> "libusb-1.0-lic" [style=dotted]
@@ -1903,6 +1930,26 @@ digraph depends {
 "netbase" -> "netbase-lic" [style=dotted]
 "nettle" -> "libgmp10"
 "nettle" -> "nettle-lic" [style=dotted]
+"nfs-export-root" -> "nfs-export-root-lic" [style=dotted]
+"nfs-export-root" -> "packagegroup-core-nfs-server"
+"nfs-utils" -> "bash"
+"nfs-utils-client" -> "base-files"
+"nfs-utils-client" -> "base-passwd"
+"nfs-utils-client" -> "libcap2"
+"nfs-utils-client" -> "libevent"
+"nfs-utils-client" -> "libnfsidmap0"
+"nfs-utils-client" -> "libtirpc3"
+"nfs-utils-client" -> "libwrap0"
+"nfs-utils-client" -> "nfs-utils-mount"
+"nfs-utils-client" -> "rpcbind"
+"nfs-utils-client" -> "shadow"
+"nfs-utils" -> "libblkid1"
+"nfs-utils" -> "libtirpc3"
+"nfs-utils" -> "libwrap0"
+"nfs-utils-mount" -> "libmount1"
+"nfs-utils-mount" -> "libtirpc3"
+"nfs-utils" -> "nfs-utils-client"
+"nfs-utils" -> "nfs-utils-lic" [style=dotted]
 "nodejs" -> "libcrypto1.0.2"
 "nodejs" -> "libssl1.0.2"
 "nodejs" -> "libstdc++6"
@@ -2040,6 +2087,13 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-compat-units"
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
+"packagegroup-core-device-devel" -> "bash"
+"packagegroup-core-device-devel" -> "binutils-symlinks"
+"packagegroup-core-device-devel" -> "distcc-config"
+"packagegroup-core-device-devel" -> "nfs-export-root"
+"packagegroup-core-device-devel" -> "packagegroup-core-device-devel-lic" [style=dotted]
+"packagegroup-core-nfs-server" -> "nfs-utils"
+"packagegroup-core-nfs-server" -> "nfs-utils-client"
 "packagegroup-core-ssh-openssh" -> "openssh"
 "packagegroup-core-ssh-openssh" -> "packagegroup-core-ssh-openssh-lic" [style=dotted]
 "packagegroup-luneos-development" -> "alsa-utils-alsactl"
@@ -2138,6 +2192,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "pulseaudio-module-bluez5-discover"
 "packagegroup-luneos-extended" -> "pulseaudio-module-switch-on-connect"
 "packagegroup-luneos-extended" -> "pulseaudio-server"
+"packagegroup-luneos-extended" -> "qemu-config"
 "packagegroup-luneos-extended" -> "qt5-plugin-generic-vboxtouch"
 "packagegroup-luneos-extended" -> "qtbase-plugins"
 "packagegroup-luneos-extended" -> "qtconnectivity"
@@ -2988,6 +3043,12 @@ digraph depends {
 "qtwebengine" -> "qtwebengine-plugins" [style=dotted]
 "qtwebengine" -> "qtwebengine-qmlplugins" [style=dotted]
 "rdx-utils-stub" -> "rdx-utils-stub-lic" [style=dotted]
+"rpcbind" -> "base-files"
+"rpcbind" -> "base-passwd"
+"rpcbind" -> "libsystemd0"
+"rpcbind" -> "libtirpc3"
+"rpcbind" -> "rpcbind-lic" [style=dotted]
+"rpcbind" -> "shadow"
 "run-postinsts" -> "run-postinsts-lic" [style=dotted]
 "sbc" -> "sbc-lic" [style=dotted]
 "screen" -> "base-files"
