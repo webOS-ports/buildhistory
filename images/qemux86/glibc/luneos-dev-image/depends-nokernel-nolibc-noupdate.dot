@@ -41,6 +41,17 @@ digraph depends {
 "audio-service" -> "libpulse-mainloop-glib0"
 "audio-service" -> "libstdc++6"
 "audio-service" -> "luna-service2"
+"avahi-daemon" -> "avahi-lic" [style=dotted]
+"avahi-daemon" -> "base-files"
+"avahi-daemon" -> "base-passwd"
+"avahi-daemon" -> "libavahi-common3"
+"avahi-daemon" -> "libavahi-core7"
+"avahi-daemon" -> "libcap2"
+"avahi-daemon" -> "libdaemon0"
+"avahi-daemon" -> "libdbus-1-3"
+"avahi-daemon" -> "libexpat1"
+"avahi-daemon" -> "libnss-mdns" [style=dotted]
+"avahi-daemon" -> "shadow"
 "avahi-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "base-files" -> "base-files-lic" [style=dotted]
 "base-passwd" -> "base-passwd-lic" [style=dotted]
@@ -159,6 +170,16 @@ digraph depends {
 "directfb" -> "libpng16-16"
 "directfb" -> "libstdc++6"
 "directfb" -> "libz1"
+"distcc" -> "avahi-daemon" [style=dotted]
+"distcc" -> "base-files"
+"distcc" -> "base-passwd"
+"distcc-config" -> "distcc"
+"distcc-config" -> "distcc-config-lic" [style=dotted]
+"distcc" -> "distcc-lic" [style=dotted]
+"distcc" -> "libavahi-client3"
+"distcc" -> "libavahi-common3"
+"distcc" -> "libpopt0"
+"distcc" -> "shadow"
 "distro-feed-configs" -> "distro-feed-configs-lic" [style=dotted]
 "downloadmanager" -> "downloadmanager-lic" [style=dotted]
 "e2fsprogs-badblocks" -> "e2fsprogs-lic" [style=dotted]
@@ -2499,6 +2520,7 @@ digraph depends {
 "kernel-module-uvcvideo-4.19.0-yoctodev-standard" -> "kernel-module-videobuf2-vmalloc-4.19.0-yoctodev-standard"
 "kernel-module-uvcvideo-4.19.0-yoctodev-standard" -> "kernel-module-videodev-4.19.0-yoctodev-standard"
 "kernel-module-v4l2-common-4.19.0-yoctodev-standard" -> "kernel-module-videodev-4.19.0-yoctodev-standard"
+"kernel-module-vboxsf-4.19.0-yoctodev-standard" -> "kernel-module-vboxguest-4.19.0-yoctodev-standard"
 "kernel-module-vboxvideo-4.19.0-yoctodev-standard" -> "kernel-module-ttm-4.19.0-yoctodev-standard"
 "kernel-module-video-4.19.0-yoctodev-standard" -> "kernel-module-backlight-4.19.0-yoctodev-standard"
 "kernel-module-videobuf2-common-4.19.0-yoctodev-standard" -> "kernel-module-videodev-4.19.0-yoctodev-standard"
@@ -2591,6 +2613,8 @@ digraph depends {
 "libavahi-client3" -> "libavahi-common3"
 "libavahi-client3" -> "libdbus-1-3"
 "libavahi-common3" -> "avahi-lic" [style=dotted]
+"libavahi-core7" -> "avahi-lic" [style=dotted]
+"libavahi-core7" -> "libavahi-common3"
 "libavahi-glib1" -> "avahi-lic" [style=dotted]
 "libavahi-glib1" -> "libavahi-common3"
 "libavahi-glib1" -> "libglib-2.0-0"
@@ -2648,6 +2672,7 @@ digraph depends {
 "libcurl4" -> "libidn2-0"
 "libcurl4" -> "libz1"
 "libcurl4" -> "nettle"
+"libdaemon0" -> "libdaemon-lic" [style=dotted]
 "libdbus-1-3" -> "dbus-1" [style=dotted]
 "libdbus-1-3" -> "dbus-lic" [style=dotted]
 "libdbus-1-3" -> "libsystemd0"
@@ -2960,6 +2985,8 @@ digraph depends {
 "libnl-3-200" -> "libnl-3-lic" [style=dotted]
 "libnl-genl-3-200" -> "libnl-3-200"
 "libnl-genl-3-200" -> "libnl-3-lic" [style=dotted]
+"libnss-mdns" -> "avahi-daemon"
+"libnss-mdns" -> "libnss-mdns-lic" [style=dotted]
 "libnyx7" -> "libglib-2.0-0"
 "libnyx7" -> "libnyx-lic" [style=dotted]
 "libnyx7" -> "pmloglib"
@@ -2987,6 +3014,7 @@ digraph depends {
 "libpixman-1-0" -> "libpixman-1-lic" [style=dotted]
 "libpng16-16" -> "libpng16-lic" [style=dotted]
 "libpng16-16" -> "libz1"
+"libpopt0" -> "libpopt-lic" [style=dotted]
 "libpulse0" -> "libcap2"
 "libpulse0" -> "libdbus-1-3"
 "libpulse0" -> "libpulsecommon"
@@ -3164,6 +3192,7 @@ digraph depends {
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
 "libtinyxml2.6.2" -> "libstdc++6"
 "libtinyxml2.6.2" -> "libtinyxml-lic" [style=dotted]
+"libtirpc3" -> "libtirpc-lic" [style=dotted]
 "libudev1" -> "libmount1"
 "libunistring2" -> "libunistring-lic" [style=dotted]
 "libusb-1.0-0" -> "libusb-1.0-lic" [style=dotted]
@@ -3195,6 +3224,7 @@ digraph depends {
 "libweston-5" -> "pango"
 "libweston-5" -> "wayland"
 "libweston-5" -> "weston-lic" [style=dotted]
+"libwrap0" -> "tcp-wrappers-lic" [style=dotted]
 "libxkbcommon0" -> "libxkbcommon-lic" [style=dotted]
 "libxml2" -> "libxml2-lic" [style=dotted]
 "libxml2" -> "libz1"
@@ -3407,6 +3437,27 @@ digraph depends {
 "netbase" -> "netbase-lic" [style=dotted]
 "nettle" -> "libgmp10"
 "nettle" -> "nettle-lic" [style=dotted]
+"nfs-export-root" -> "nfs-export-root-lic" [style=dotted]
+"nfs-export-root" -> "packagegroup-core-nfs-server"
+"nfs-utils" -> "bash"
+"nfs-utils-client" -> "base-files"
+"nfs-utils-client" -> "base-passwd"
+"nfs-utils-client" -> "libcap2"
+"nfs-utils-client" -> "libtirpc3"
+"nfs-utils-client" -> "libwrap0"
+"nfs-utils-client" -> "nfs-utils-lic" [style=dotted]
+"nfs-utils-client" -> "nfs-utils-mount"
+"nfs-utils-client" -> "rpcbind"
+"nfs-utils-client" -> "shadow"
+"nfs-utils" -> "kernel-module-nfsd" [style=dotted]
+"nfs-utils" -> "libblkid1"
+"nfs-utils" -> "libtirpc3"
+"nfs-utils" -> "libwrap0"
+"nfs-utils-mount" -> "libmount1"
+"nfs-utils-mount" -> "libtirpc3"
+"nfs-utils-mount" -> "nfs-utils-lic" [style=dotted]
+"nfs-utils" -> "nfs-utils-client"
+"nfs-utils" -> "nfs-utils-lic" [style=dotted]
 "nodejs" -> "libcrypto1.1"
 "nodejs" -> "libicui18n62"
 "nodejs" -> "libicuuc62"
@@ -3542,6 +3593,14 @@ digraph depends {
 "packagegroup-core-boot" -> "systemd-compat-units"
 "packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
+"packagegroup-core-device-devel" -> "bash"
+"packagegroup-core-device-devel" -> "binutils-symlinks"
+"packagegroup-core-device-devel" -> "distcc-config"
+"packagegroup-core-device-devel" -> "nfs-export-root"
+"packagegroup-core-device-devel" -> "packagegroup-core-device-devel-lic" [style=dotted]
+"packagegroup-core-nfs-server" -> "nfs-utils"
+"packagegroup-core-nfs-server" -> "nfs-utils-client"
+"packagegroup-core-nfs-server" -> "packagegroup-core-nfs-lic" [style=dotted]
 "packagegroup-core-ssh-openssh" -> "openssh"
 "packagegroup-core-ssh-openssh" -> "packagegroup-core-ssh-openssh-lic" [style=dotted]
 "packagegroup-luneos-development" -> "alsa-utils-alsactl"
@@ -3591,6 +3650,12 @@ digraph depends {
 "packagegroup-luneos-extended" -> "imlibpurpleservice"
 "packagegroup-luneos-extended" -> "iw"
 "packagegroup-luneos-extended" -> "kernel-module-snd-intel8x0"
+"packagegroup-luneos-extended" -> "kernel-module-uvesafb"
+"packagegroup-luneos-extended" -> "kernel-module-vboxguest"
+"packagegroup-luneos-extended" -> "kernel-module-vboxsf"
+"packagegroup-luneos-extended" -> "kernel-module-vboxvideo"
+"packagegroup-luneos-extended" -> "kernel-module-virtio-gpu"
+"packagegroup-luneos-extended" -> "kernel-module-vmwgfx"
 "packagegroup-luneos-extended" -> "keymanager"
 "packagegroup-luneos-extended" -> "libpci3"
 "packagegroup-luneos-extended" -> "libqt5sensors5"
@@ -3640,6 +3705,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "pulseaudio-module-bluez5-discover"
 "packagegroup-luneos-extended" -> "pulseaudio-module-switch-on-connect"
 "packagegroup-luneos-extended" -> "pulseaudio-server"
+"packagegroup-luneos-extended" -> "qemu-config"
 "packagegroup-luneos-extended" -> "qt5-plugin-generic-vboxtouch"
 "packagegroup-luneos-extended" -> "qtbase-plugins"
 "packagegroup-luneos-extended" -> "qtconnectivity"
@@ -4734,6 +4800,12 @@ digraph depends {
 "rdx-utils-stub" -> "rdx-utils-stub-lic" [style=dotted]
 "rng-tools" -> "libgcrypt"
 "rng-tools" -> "rng-tools-lic" [style=dotted]
+"rpcbind" -> "base-files"
+"rpcbind" -> "base-passwd"
+"rpcbind" -> "libsystemd0"
+"rpcbind" -> "libtirpc3"
+"rpcbind" -> "rpcbind-lic" [style=dotted]
+"rpcbind" -> "shadow"
 "run-postinsts" -> "run-postinsts-lic" [style=dotted]
 "screen" -> "base-files"
 "screen" -> "libcrypt1"
