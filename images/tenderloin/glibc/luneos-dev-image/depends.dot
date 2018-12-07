@@ -6,10 +6,10 @@ digraph depends {
 "activitymanager" -> "libc6"
 "activitymanager" -> "libgcc1"
 "activitymanager" -> "libglib-2.0-0"
-"activitymanager" -> "libnyx6"
-"activitymanager" -> "libpmloglib3"
+"activitymanager" -> "libpbnjson"
 "activitymanager" -> "libstdc++6"
 "activitymanager" -> "luna-service2"
+"activitymanager" -> "pmloglib"
 "alsa-plugins-pulseaudio-conf" -> "libasound-module-conf-pulse"
 "alsa-plugins-pulseaudio-conf" -> "libasound-module-ctl-pulse"
 "alsa-plugins-pulseaudio-conf" -> "libasound-module-pcm-pulse"
@@ -110,8 +110,8 @@ digraph depends {
 "configurator" -> "libc6"
 "configurator" -> "libgcc1"
 "configurator" -> "libglib-2.0-0"
-"configurator" -> "libpmloglib3"
 "configurator" -> "libstdc++6"
+"configurator" -> "pmloglib"
 "connman" -> "bluez5"
 "connman-client" -> "connman"
 "connman-client" -> "libc6"
@@ -179,16 +179,18 @@ digraph depends {
 "curl" -> "libcurl4"
 "curl" -> "libz1"
 "db8" -> "bash"
+"db8" -> "busybox"
 "db8" -> "db8-lic" [style=dotted]
+"db8" -> "libboost-regex1.66.0"
 "db8" -> "libc6"
 "db8" -> "libgcc1"
 "db8" -> "libglib-2.0-0"
 "db8" -> "libicui18n60"
 "db8" -> "libicuuc60"
 "db8" -> "libleveldb1"
-"db8" -> "libpmloglib3"
 "db8" -> "libstdc++6"
 "db8" -> "luna-service2"
+"db8" -> "pmloglib"
 "dbus-1" -> "base-files"
 "dbus-1" -> "base-passwd"
 "dbus-1" -> "dbus-lic" [style=dotted]
@@ -253,15 +255,21 @@ digraph depends {
 "filecache" -> "libc6"
 "filecache" -> "libgcc1"
 "filecache" -> "libglib-2.0-0"
+"filecache" -> "libpbnjson"
 "filecache" -> "libsigc-2.0-0"
 "filecache" -> "libstdc++6"
 "filecache" -> "luna-service2"
+"filecache" -> "pmloglib"
 "fingerterm" -> "fingerterm-lic" [style=dotted]
 "fingerterm" -> "libc6"
 "fingerterm" -> "libgcc1"
 "fingerterm" -> "libstdc++6"
 "fingerterm" -> "qtbase"
 "fingerterm" -> "qtdeclarative"
+"fingerterm" -> "ttf-liberation-mono"
+"fontconfig-utils" -> "libc6"
+"fontconfig-utils" -> "libfontconfig1"
+"fontconfig-utils" -> "libfreetype6"
 "foundation-frameworks" -> "foundation-frameworks-lic" [style=dotted]
 "funyahoo-plusplus" -> "funyahoo-plusplus-lic" [style=dotted]
 "funyahoo-plusplus" -> "libc6"
@@ -1519,6 +1527,7 @@ digraph depends {
 "libarchive" -> "libxml2"
 "libarchive" -> "libz1"
 "libasound2" -> "alsa-conf"
+"libasound2" -> "libasound-lic" [style=dotted]
 "libasound2" -> "libc6"
 "libasound-module-conf-pulse" -> "libasound2"
 "libasound-module-conf-pulse" -> "libc6"
@@ -1545,9 +1554,6 @@ digraph depends {
 "libboost-filesystem1.66.0" -> "libc6"
 "libboost-filesystem1.66.0" -> "libgcc1"
 "libboost-filesystem1.66.0" -> "libstdc++6"
-"libboost-program-options1.66.0" -> "libc6"
-"libboost-program-options1.66.0" -> "libgcc1"
-"libboost-program-options1.66.0" -> "libstdc++6"
 "libboost-regex1.66.0" -> "libc6"
 "libboost-regex1.66.0" -> "libgcc1"
 "libboost-regex1.66.0" -> "libstdc++6"
@@ -1560,6 +1566,8 @@ digraph depends {
 "libboost-thread1.66.0" -> "libstdc++6"
 "libbsd0" -> "libbsd-lic" [style=dotted]
 "libbsd0" -> "libc6"
+"libbson-1.0-0" -> "libbson-1.0-lic" [style=dotted]
+"libbson-1.0-0" -> "libc6"
 "libbz2-1" -> "libc6"
 "libc6" -> "libc6-lic" [style=dotted]
 "libc6-thread-db" -> "libc6"
@@ -1649,9 +1657,6 @@ digraph depends {
 "libext2fs2" -> "libblkid1"
 "libext2fs2" -> "libc6"
 "libext2fs2" -> "libcom-err2"
-"libfdisk1" -> "libblkid1"
-"libfdisk1" -> "libc6"
-"libfdisk1" -> "libuuid1"
 "libffi6" -> "libc6"
 "libffi6" -> "libffi-lic" [style=dotted]
 "libffi6" -> "libgcc1"
@@ -1667,10 +1672,6 @@ digraph depends {
 "libfreetype6" -> "libc6"
 "libfreetype6" -> "libfreetype-lic" [style=dotted]
 "libfreetype6" -> "libz1"
-"libgbm1" -> "libc6"
-"libgbm1" -> "libdrm2"
-"libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgcc1" -> "libc6"
 "libgcc1" -> "libgcc-s-lic" [style=dotted]
 "libgcrypt" -> "libc6"
@@ -1881,6 +1882,7 @@ digraph depends {
 "libleveldb1" -> "libc6"
 "libleveldb1" -> "libgcc1"
 "libleveldb1" -> "libleveldb-lic" [style=dotted]
+"libleveldb1" -> "libsnappy1"
 "libleveldb1" -> "libstdc++6"
 "libltdl7" -> "libc6"
 "liblunasysmgrcommon3" -> "libc6"
@@ -1888,12 +1890,12 @@ digraph depends {
 "liblunasysmgrcommon3" -> "libglib-2.0-0"
 "liblunasysmgrcommon3" -> "libjson-c3"
 "liblunasysmgrcommon3" -> "liblunasysmgrcommon-lic" [style=dotted]
-"liblunasysmgrcommon3" -> "libnyx6"
+"liblunasysmgrcommon3" -> "libnyx7"
 "liblunasysmgrcommon3" -> "libpbnjson"
-"liblunasysmgrcommon3" -> "libpmloglib3"
 "liblunasysmgrcommon3" -> "libsqlite3-0"
 "liblunasysmgrcommon3" -> "libstdc++6"
 "liblunasysmgrcommon3" -> "luna-service2"
+"liblunasysmgrcommon3" -> "pmloglib"
 "liblunasysmgrcommon3" -> "qtbase"
 "liblzma5" -> "libc6"
 "liblzo2-2" -> "libc6"
@@ -1931,9 +1933,10 @@ digraph depends {
 "libnl-3-200" -> "libnl-3-lic" [style=dotted]
 "libnl-genl-3-200" -> "libc6"
 "libnl-genl-3-200" -> "libnl-3-200"
-"libnyx6" -> "libc6"
-"libnyx6" -> "libglib-2.0-0"
-"libnyx6" -> "libnyx-lic" [style=dotted]
+"libnyx7" -> "libc6"
+"libnyx7" -> "libglib-2.0-0"
+"libnyx7" -> "libnyx-lic" [style=dotted]
+"libnyx7" -> "pmloglib"
 "libogg0" -> "libc6"
 "libogg0" -> "libogg-lic" [style=dotted]
 "libopkg1" -> "libarchive"
@@ -1944,9 +1947,9 @@ digraph depends {
 "libpalmsocket2" -> "libcrypto1.0.2"
 "libpalmsocket2" -> "libglib-2.0-0"
 "libpalmsocket2" -> "libpalmsocket-lic" [style=dotted]
-"libpalmsocket2" -> "libpmloglib3"
 "libpalmsocket2" -> "libpmstatemachineengine2"
 "libpalmsocket2" -> "libssl1.0.2"
+"libpalmsocket2" -> "pmloglib"
 "libpanel5" -> "libc6"
 "libpanel5" -> "libncurses5"
 "libpanel5" -> "libtinfo5"
@@ -1974,13 +1977,9 @@ digraph depends {
 "libpmcertificatemgr2" -> "libglib-2.0-0"
 "libpmcertificatemgr2" -> "libpmcertificatemgr-lic" [style=dotted]
 "libpmcertificatemgr2" -> "update-alternatives-opkg"
-"libpmloglib3" -> "libc6"
-"libpmloglib3" -> "libglib-2.0-0"
-"libpmloglib3" -> "libpbnjson"
-"libpmloglib3" -> "libpmloglib-lic" [style=dotted]
 "libpmstatemachineengine2" -> "libc6"
-"libpmstatemachineengine2" -> "libpmloglib3"
 "libpmstatemachineengine2" -> "libpmstatemachineengine-lic" [style=dotted]
+"libpmstatemachineengine2" -> "pmloglib"
 "libpng16-16" -> "libc6"
 "libpng16-16" -> "libpng16-lic" [style=dotted]
 "libpng16-16" -> "libz1"
@@ -2077,6 +2076,7 @@ digraph depends {
 "libpurple-protocol-xmpp" -> "libxml2"
 "libpurple-protocol-zephyr" -> "libc6"
 "libpurple-protocol-zephyr" -> "libglib-2.0-0"
+"libpython2.7-1.0" -> "libc6"
 "libpython3.5m1.0" -> "libc6"
 "libqmi" -> "libc6"
 "libqmi" -> "libglib-2.0-0"
@@ -2174,7 +2174,10 @@ digraph depends {
 "libsigc-2.0-0" -> "libgcc1"
 "libsigc-2.0-0" -> "libsigc-2.0-lic" [style=dotted]
 "libsigc-2.0-0" -> "libstdc++6"
-"libsmartcols1" -> "libc6"
+"libsnappy1" -> "libc6"
+"libsnappy1" -> "libgcc1"
+"libsnappy1" -> "libsnappy-lic" [style=dotted]
+"libsnappy1" -> "libstdc++6"
 "libsndfile1" -> "libc6"
 "libsndfile1" -> "libflac8"
 "libsndfile1" -> "libogg0"
@@ -2198,8 +2201,6 @@ digraph depends {
 "libssl1.0.2" -> "libcrypto1.0.2"
 "libstdc++6" -> "libc6"
 "libstdc++6" -> "libgcc1"
-"libsuspend1" -> "libc6"
-"libsuspend1" -> "libsuspend-lic" [style=dotted]
 "libsystemd0" -> "libc6"
 "libsystemd0" -> "libcap2"
 "libsystemd0" -> "liblzma5"
@@ -2234,6 +2235,12 @@ digraph depends {
 "libwebos-application0" -> "libpbnjson"
 "libwebos-application0" -> "libwebos-application-lic" [style=dotted]
 "libwebos-application0" -> "luna-service2"
+"libwebosi18n1" -> "libboost-regex1.66.0"
+"libwebosi18n1" -> "libc6"
+"libwebosi18n1" -> "libgcc1"
+"libwebosi18n1" -> "libpbnjson"
+"libwebosi18n1" -> "libstdc++6"
+"libwebosi18n1" -> "libwebosi18n-lic" [style=dotted]
 "libwebp" -> "libc6"
 "libwebp" -> "libwebp-lic" [style=dotted]
 "libxkbcommon0" -> "libc6"
@@ -2242,9 +2249,6 @@ digraph depends {
 "libxml2" -> "libgcc1"
 "libxml2" -> "libxml2-lic" [style=dotted]
 "libxml2" -> "libz1"
-"libxslt" -> "libc6"
-"libxslt" -> "libxml2"
-"libxslt" -> "libxslt-lic" [style=dotted]
 "libyajl2" -> "libc6"
 "libyajl2" -> "libyajl-lic" [style=dotted]
 "libz1" -> "libc6"
@@ -2260,9 +2264,6 @@ digraph depends {
 "location-service" -> "libpbnjson"
 "location-service" -> "location-service-lic" [style=dotted]
 "location-service" -> "luna-service2"
-"lsbinitscripts" -> "lsbinitscripts-lic" [style=dotted]
-"lsbinitscripts" -> "util-linux"
-"lsb" -> "lsbinitscripts"
 "lsb" -> "lsb-lic" [style=dotted]
 "lsb" -> "util-linux-getopt"
 "luna-applauncher" -> "luna-applauncher-lic" [style=dotted]
@@ -2284,8 +2285,10 @@ digraph depends {
 "luna-next-cardshell" -> "libqofono-qt5-0"
 "luna-next-cardshell" -> "luna-next"
 "luna-next-cardshell" -> "luna-next-cardshell-lic" [style=dotted]
+"luna-next-cardshell" -> "luneos-components"
 "luna-next-cardshell" -> "qtdeclarative-qmlplugins"
 "luna-next-cardshell" -> "qtgraphicaleffects-qmlplugins"
+"luna-next-cardshell" -> "qtmultimedia-qmlplugins"
 "luna-next-cardshell" -> "qtquickcontrols-qmlplugins"
 "luna-next-conf" -> "luna-next-conf-lic" [style=dotted]
 "luna-next" -> "libc6"
@@ -2305,7 +2308,7 @@ digraph depends {
 "luna-prefs" -> "libc6"
 "luna-prefs" -> "libglib-2.0-0"
 "luna-prefs" -> "libjson-c3"
-"luna-prefs" -> "libnyx6"
+"luna-prefs" -> "libnyx7"
 "luna-prefs" -> "libsqlite3-0"
 "luna-prefs" -> "luna-prefs-data"
 "luna-prefs" -> "luna-prefs-lic" [style=dotted]
@@ -2324,23 +2327,25 @@ digraph depends {
 "luna-qml-launcher" -> "qtdeclarative-qmlplugins"
 "luna-qml-launcher" -> "qtwebengine"
 "luna-qml-launcher" -> "qtwebengine-qmlplugins"
+"luna-service2" -> "bash"
 "luna-service2" -> "cpushareholder-stub"
 "luna-service2" -> "libc6"
 "luna-service2" -> "libgcc1"
 "luna-service2" -> "libglib-2.0-0"
 "luna-service2" -> "libpbnjson"
-"luna-service2" -> "libpmloglib3"
 "luna-service2" -> "libstdc++6"
-"luna-service2" -> "libsystemd0"
 "luna-service2" -> "luna-service2-lic" [style=dotted]
+"luna-service2" -> "luna-service2-security-conf"
+"luna-service2" -> "pmloglib"
 "luna-service2" -> "rdx-utils-stub"
+"luna-service2-security-conf" -> "luna-service2-security-conf-lic" [style=dotted]
 "luna-sysmgr-conf" -> "luna-sysmgr-conf-lic" [style=dotted]
 "luna-sysmgr" -> "libc6"
 "luna-sysmgr" -> "libgcc1"
 "luna-sysmgr" -> "libglib-2.0-0"
 "luna-sysmgr" -> "libjson-c3"
 "luna-sysmgr" -> "liblunasysmgrcommon3"
-"luna-sysmgr" -> "libnyx6"
+"luna-sysmgr" -> "libnyx7"
 "luna-sysmgr" -> "libpbnjson"
 "luna-sysmgr" -> "libqt5sensors5"
 "luna-sysmgr" -> "libstdc++6"
@@ -2349,17 +2354,19 @@ digraph depends {
 "luna-sysmgr" -> "luna-sysmgr-lic" [style=dotted]
 "luna-sysmgr" -> "qtbase"
 "luna-sysservice" -> "libc6"
+"luna-sysservice" -> "libgcc1"
 "luna-sysservice" -> "libglib-2.0-0"
-"luna-sysservice" -> "libjson-c3"
-"luna-sysservice" -> "libnyx6"
+"luna-sysservice" -> "libnyx7"
 "luna-sysservice" -> "libpbnjson"
-"luna-sysservice" -> "libpmloglib3"
 "luna-sysservice" -> "libsqlite3-0"
 "luna-sysservice" -> "libstdc++6"
+"luna-sysservice" -> "libwebosi18n1"
 "luna-sysservice" -> "luna-service2"
 "luna-sysservice" -> "luna-sysservice-lic" [style=dotted]
+"luna-sysservice" -> "pmloglib"
 "luna-sysservice" -> "qtbase"
 "luna-sysservice" -> "sntp"
+"luna-sysservice" -> "tzcode"
 "luna-sysservice" -> "uriparser"
 "luna-systemui" -> "luna-systemui-lic" [style=dotted]
 "luna-universalsearchmgr" -> "libc6"
@@ -2495,11 +2502,6 @@ digraph depends {
 "mojomail-smtp" -> "libstdc++6"
 "mojomail-smtp" -> "mojomail-smtp-lic" [style=dotted]
 "mojoservice-frameworks" -> "mojoservice-frameworks-lic" [style=dotted]
-"mojoservicelauncher" -> "libboost-program-options1.66.0"
-"mojoservicelauncher" -> "libc6"
-"mojoservicelauncher" -> "libgcc1"
-"mojoservicelauncher" -> "libpbnjson"
-"mojoservicelauncher" -> "libstdc++6"
 "mojoservicelauncher" -> "mojoloader"
 "mojoservicelauncher" -> "mojoservicelauncher-lic" [style=dotted]
 "mojoservicelauncher" -> "nodejs"
@@ -2548,9 +2550,9 @@ digraph depends {
 "nodejs-module-webos-dynaload" -> "libgcc1"
 "nodejs-module-webos-dynaload" -> "libstdc++6"
 "nodejs-module-webos-dynaload" -> "nodejs-module-webos-dynaload-lic" [style=dotted]
-"nodejs-module-webos-pmlog" -> "libpmloglib3"
 "nodejs-module-webos-pmlog" -> "libstdc++6"
 "nodejs-module-webos-pmlog" -> "nodejs-module-webos-pmlog-lic" [style=dotted]
+"nodejs-module-webos-pmlog" -> "pmloglib"
 "nodejs-module-webos-sysbus" -> "libc6"
 "nodejs-module-webos-sysbus" -> "libgcc1"
 "nodejs-module-webos-sysbus" -> "libglib-2.0-0"
@@ -2559,7 +2561,7 @@ digraph depends {
 "nodejs-module-webos-sysbus" -> "nodejs-module-webos-sysbus-lic" [style=dotted]
 "nodejs" -> "nodejs-lic" [style=dotted]
 "novacomd" -> "libc6"
-"novacomd" -> "libnyx6"
+"novacomd" -> "libnyx7"
 "novacomd" -> "novacomd-lic" [style=dotted]
 "nspr" -> "libc6"
 "nspr" -> "nspr-lic" [style=dotted]
@@ -2570,26 +2572,19 @@ digraph depends {
 "nss" -> "nss-lic" [style=dotted]
 "nyx-conf" -> "nyx-conf-lic" [style=dotted]
 "nyx-modules" -> "gzip"
-"nyx-modules-hybris" -> "libc6"
-"nyx-modules-hybris" -> "libcrypto1.0.2"
-"nyx-modules-hybris" -> "libglib-2.0-0"
-"nyx-modules-hybris" -> "libhybris"
-"nyx-modules-hybris" -> "libnyx6"
-"nyx-modules-hybris" -> "libsuspend1"
-"nyx-modules-hybris" -> "nyx-modules-hybris-lic" [style=dotted]
 "nyx-modules" -> "libc6"
 "nyx-modules" -> "libcrypto1.0.2"
 "nyx-modules" -> "libglib-2.0-0"
-"nyx-modules" -> "libnyx6"
+"nyx-modules" -> "libnyx7"
 "nyx-modules" -> "libudev1"
 "nyx-modules" -> "lsb"
-"nyx-modules" -> "mtdev"
 "nyx-modules" -> "nyx-conf"
 "nyx-modules" -> "nyx-modules-lic" [style=dotted]
+"nyx-modules" -> "pmloglib"
 "nyx-utils" -> "libc6"
 "nyx-utils" -> "libgcc1"
 "nyx-utils" -> "libglib-2.0-0"
-"nyx-utils" -> "libnyx6"
+"nyx-utils" -> "libnyx7"
 "nyx-utils" -> "libstdc++6"
 "nyx-utils" -> "nyx-utils-lic" [style=dotted]
 "ofono-conf" -> "ofono-conf-lic" [style=dotted]
@@ -2796,7 +2791,6 @@ digraph depends {
 "packagegroup-luneos-extended" -> "memnotify-module"
 "packagegroup-luneos-extended" -> "messaging-accounts"
 "packagegroup-luneos-extended" -> "mtp-server"
-"packagegroup-luneos-extended" -> "nyx-modules-hybris"
 "packagegroup-luneos-extended" -> "ofono"
 "packagegroup-luneos-extended" -> "org.webosinternals.ipkgservice"
 "packagegroup-luneos-extended" -> "org.webosinternals.preware"
@@ -2834,6 +2828,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "qt5-qpa-hwcomposer-plugin"
 "packagegroup-luneos-extended" -> "qtbase-plugins"
 "packagegroup-luneos-extended" -> "qtconnectivity"
+"packagegroup-luneos-extended" -> "qtlocation-luneos-plugin"
 "packagegroup-luneos-extended" -> "qtmultimedia-plugins"
 "packagegroup-luneos-extended" -> "qtmultimedia-qmlplugins"
 "packagegroup-luneos-extended" -> "qtscenegraph-adaptation"
@@ -2895,6 +2890,7 @@ digraph depends {
 "packagegroup-webos-extended" -> "pmlogdaemon"
 "packagegroup-webos-extended" -> "procps"
 "packagegroup-webos-extended" -> "psmisc"
+"packagegroup-webos-extended" -> "settingsservice"
 "packagegroup-webos-extended" -> "sleepd"
 "packagegroup-webos-extended" -> "sqlite3"
 "packagegroup-webos-extended" -> "tzdata"
@@ -2912,6 +2908,7 @@ digraph depends {
 "packagegroup-webos-extended" -> "tzdata-right"
 "packagegroup-webos-extended" -> "underscore"
 "packagegroup-webos-extended" -> "webos-connman-adapter"
+"packagegroup-webos-extended" -> "webos-initscripts"
 "packagegroup-webos-extended" -> "webos-keyboard"
 "pango" -> "libc6"
 "pango" -> "libcairo2"
@@ -3059,17 +3056,23 @@ digraph depends {
 "pmklogd" -> "libglib-2.0-0"
 "pmklogd" -> "pmklogd-lic" [style=dotted]
 "pmlogctl" -> "libc6"
-"pmlogctl" -> "libpmloglib3"
 "pmlogctl" -> "pmlogctl-lic" [style=dotted]
+"pmlogctl" -> "pmloglib"
 "pmlogdaemon" -> "busybox"
 "pmlogdaemon" -> "libc6"
 "pmlogdaemon" -> "libglib-2.0-0"
 "pmlogdaemon" -> "libpbnjson"
-"pmlogdaemon" -> "libpmloglib3"
 "pmlogdaemon" -> "librdx-stub"
 "pmlogdaemon" -> "libz1"
 "pmlogdaemon" -> "luna-service2"
 "pmlogdaemon" -> "pmlogdaemon-lic" [style=dotted]
+"pmlogdaemon" -> "pmloglib"
+"pmloglib" -> "libc6"
+"pmloglib" -> "libgcc1"
+"pmloglib" -> "libglib-2.0-0"
+"pmloglib" -> "libpbnjson"
+"pmloglib" -> "libstdc++6"
+"pmloglib" -> "pmloglib-lic" [style=dotted]
 "polkit" -> "base-files"
 "polkit" -> "base-passwd"
 "polkit" -> "libc6"
@@ -3079,12 +3082,6 @@ digraph depends {
 "polkit" -> "libsystemd0"
 "polkit" -> "polkit-lic" [style=dotted]
 "polkit" -> "shadow"
-"powerd" -> "libc6"
-"powerd" -> "libglib-2.0-0"
-"powerd" -> "libjson-c3"
-"powerd" -> "libnyx6"
-"powerd" -> "luna-service2"
-"powerd" -> "powerd-lic" [style=dotted]
 "powerstat" -> "libc6"
 "powerstat" -> "powerstat-lic" [style=dotted]
 "ppp" -> "libc6"
@@ -3412,6 +3409,7 @@ digraph depends {
 "pulseaudio-module-role-cork" -> "libsystemd0"
 "pulseaudio-modules-droid" -> "libc6"
 "pulseaudio-modules-droid" -> "libdbus-1-3"
+"pulseaudio-modules-droid" -> "libexpat1"
 "pulseaudio-modules-droid" -> "libhybris"
 "pulseaudio-modules-droid" -> "libpulse0"
 "pulseaudio-modules-droid" -> "libpulsecommon"
@@ -3784,6 +3782,10 @@ digraph depends {
 "python3-xml" -> "python3-core"
 "python3-xmlrpc" -> "python3-core"
 "python3-xmlrpc" -> "python3-xml"
+"python-core" -> "libc6"
+"python-core" -> "libpython2.7-1.0"
+"python-core" -> "libreadline7"
+"python-core" -> "libz1"
 "qt5-opengles2-test" -> "libc6"
 "qt5-opengles2-test" -> "libgcc1"
 "qt5-opengles2-test" -> "libhybris"
@@ -3795,7 +3797,6 @@ digraph depends {
 "qt5-qpa-hwcomposer-plugin" -> "libfontconfig1"
 "qt5-qpa-hwcomposer-plugin" -> "libfreetype6"
 "qt5-qpa-hwcomposer-plugin" -> "libgcc1"
-"qt5-qpa-hwcomposer-plugin" -> "libglib-2.0-0"
 "qt5-qpa-hwcomposer-plugin" -> "libhybris"
 "qt5-qpa-hwcomposer-plugin" -> "libqt5sensors5"
 "qt5-qpa-hwcomposer-plugin" -> "libstdc++6"
@@ -3803,7 +3804,6 @@ digraph depends {
 "qt5-qpa-hwcomposer-plugin" -> "qtbase"
 "qtbase" -> "libc6"
 "qtbase" -> "libdbus-1-3"
-"qtbase" -> "libdrm2"
 "qtbase" -> "libfontconfig1"
 "qtbase" -> "libfreetype6"
 "qtbase" -> "libgcc1"
@@ -3818,12 +3818,9 @@ digraph depends {
 "qtbase" -> "libz1"
 "qtbase" -> "mtdev"
 "qtbase-plugins" -> "libc6"
-"qtbase-plugins" -> "libdrm2"
 "qtbase-plugins" -> "libfontconfig1"
 "qtbase-plugins" -> "libfreetype6"
-"qtbase-plugins" -> "libgbm1"
 "qtbase-plugins" -> "libgcc1"
-"qtbase-plugins" -> "libglib-2.0-0"
 "qtbase-plugins" -> "libhybris"
 "qtbase-plugins" -> "libjpeg62"
 "qtbase-plugins" -> "libsqlite3-0"
@@ -3851,6 +3848,11 @@ digraph depends {
 "qtdeclarative" -> "libc6"
 "qtdeclarative" -> "libgcc1"
 "qtdeclarative" -> "libstdc++6"
+"qtdeclarative-plugins" -> "libc6"
+"qtdeclarative-plugins" -> "libgcc1"
+"qtdeclarative-plugins" -> "libstdc++6"
+"qtdeclarative-plugins" -> "qtbase"
+"qtdeclarative-plugins" -> "qtdeclarative"
 "qtdeclarative-qmlplugins" -> "libc6"
 "qtdeclarative-qmlplugins" -> "libgcc1"
 "qtdeclarative-qmlplugins" -> "libqt5xmlpatterns5"
@@ -3873,12 +3875,19 @@ digraph depends {
 "qtlocation" -> "libc6"
 "qtlocation" -> "libgcc1"
 "qtlocation" -> "libstdc++6"
+"qtlocation-luneos-plugin" -> "libc6"
+"qtlocation-luneos-plugin" -> "libgcc1"
+"qtlocation-luneos-plugin" -> "libglib-2.0-0"
+"qtlocation-luneos-plugin" -> "libstdc++6"
+"qtlocation-luneos-plugin" -> "luna-service2"
+"qtlocation-luneos-plugin" -> "qtbase"
+"qtlocation-luneos-plugin" -> "qtlocation"
+"qtlocation-luneos-plugin" -> "qtlocation-luneos-plugin-lic" [style=dotted]
 "qtlocation-plugins" -> "libc6"
 "qtlocation-plugins" -> "libgcc1"
-"qtlocation-plugins" -> "libglib-2.0-0"
 "qtlocation-plugins" -> "libstdc++6"
-"qtlocation-plugins" -> "luna-service2"
 "qtlocation-plugins" -> "qtbase"
+"qtlocation-plugins" -> "qtdeclarative"
 "qtlocation-plugins" -> "qtlocation"
 "qtlocation-qmlplugins" -> "libc6"
 "qtlocation-qmlplugins" -> "libstdc++6"
@@ -3983,7 +3992,6 @@ digraph depends {
 "qtwayland" -> "libfontconfig1"
 "qtwayland" -> "libfreetype6"
 "qtwayland" -> "libgcc1"
-"qtwayland" -> "libglib-2.0-0"
 "qtwayland" -> "libhybris"
 "qtwayland" -> "libstdc++6"
 "qtwayland" -> "libxkbcommon0"
@@ -4019,21 +4027,13 @@ digraph depends {
 "qtwebengine" -> "libasound2"
 "qtwebengine" -> "libc6"
 "qtwebengine" -> "libdbus-1-3"
-"qtwebengine" -> "libevent"
 "qtwebengine" -> "libexpat1"
 "qtwebengine" -> "libfontconfig1"
 "qtwebengine" -> "libfreetype6"
 "qtwebengine" -> "libgcc1"
-"qtwebengine" -> "libglib-2.0-0"
 "qtwebengine" -> "libjpeg62"
-"qtwebengine" -> "libpmloglib3"
-"qtwebengine" -> "libpng16-16"
 "qtwebengine" -> "libqt5webchannel5"
 "qtwebengine" -> "libstdc++6"
-"qtwebengine" -> "libwebp"
-"qtwebengine" -> "libxml2"
-"qtwebengine" -> "libxslt"
-"qtwebengine" -> "luna-service2"
 "qtwebengine" -> "nspr"
 "qtwebengine" -> "nss"
 "qtwebengine-qmlplugins" -> "libc6"
@@ -4078,6 +4078,20 @@ digraph depends {
 "sensorfw" -> "sensorfw-lic" [style=dotted]
 "serial-forward" -> "libc6"
 "serial-forward" -> "serial-forward-lic" [style=dotted]
+"settingsservice" -> "bash"
+"settingsservice-conf" -> "settingsservice-conf-lic" [style=dotted]
+"settingsservice" -> "libbson-1.0-0"
+"settingsservice" -> "libc6"
+"settingsservice" -> "libcrypto1.0.2"
+"settingsservice" -> "libgcc1"
+"settingsservice" -> "libglib-2.0-0"
+"settingsservice" -> "libpbnjson"
+"settingsservice" -> "libstdc++6"
+"settingsservice" -> "luna-service2"
+"settingsservice" -> "pmloglib"
+"settingsservice" -> "python"
+"settingsservice" -> "settingsservice-conf"
+"settingsservice" -> "settingsservice-lic" [style=dotted]
 "shadow-base" -> "libc6"
 "shadow" -> "base-passwd"
 "shadow-base" -> "update-alternatives-opkg"
@@ -4096,12 +4110,11 @@ digraph depends {
 "sleepd" -> "libc6"
 "sleepd" -> "libglib-2.0-0"
 "sleepd" -> "libjson-c3"
-"sleepd" -> "libnyx6"
-"sleepd" -> "libpmloglib3"
+"sleepd" -> "libnyx7"
 "sleepd" -> "libsqlite3-0"
 "sleepd" -> "libxml2"
 "sleepd" -> "luna-service2"
-"sleepd" -> "powerd"
+"sleepd" -> "pmloglib"
 "sleepd" -> "sleepd-lic" [style=dotted]
 "smemstat" -> "libc6"
 "smemstat" -> "smemstat-lic" [style=dotted]
@@ -4115,7 +4128,7 @@ digraph depends {
 "storaged" -> "libc6"
 "storaged" -> "libglib-2.0-0"
 "storaged" -> "libjson-c3"
-"storaged" -> "libnyx6"
+"storaged" -> "libnyx7"
 "storaged" -> "luna-service2"
 "storaged" -> "storaged-lic" [style=dotted]
 "strace" -> "libc6"
@@ -4187,6 +4200,8 @@ digraph depends {
 "thin-provisioning-tools" -> "thin-provisioning-tools-lic" [style=dotted]
 "tidy-html5" -> "libc6"
 "tidy-html5" -> "tidy-html5-lic" [style=dotted]
+"ttf-liberation-mono" -> "fontconfig-utils"
+"tzcode" -> "libc6"
 "tzdata" -> "tzdata-lic" [style=dotted]
 "udev-extraconf" -> "udev"
 "udev-extraconf" -> "udev-extraconf-lic" [style=dotted]
@@ -4202,80 +4217,17 @@ digraph depends {
 "uriparser" -> "uriparser-lic" [style=dotted]
 "util-linux-agetty" -> "libc6"
 "util-linux-agetty" -> "update-alternatives-opkg"
-"util-linux-cfdisk" -> "libc6"
-"util-linux-cfdisk" -> "libfdisk1"
-"util-linux-cfdisk" -> "libmount1"
-"util-linux-cfdisk" -> "libncursesw5"
-"util-linux-cfdisk" -> "libsmartcols1"
-"util-linux-cfdisk" -> "libtinfo5"
-"util-linux-fdisk" -> "libc6"
-"util-linux-fdisk" -> "libfdisk1"
-"util-linux-fdisk" -> "libsmartcols1"
-"util-linux-fdisk" -> "libtinfo5"
-"util-linux-fdisk" -> "update-alternatives-opkg"
 "util-linux-fsck" -> "libblkid1"
 "util-linux-fsck" -> "libc6"
 "util-linux-fsck" -> "libmount1"
 "util-linux-fsck" -> "update-alternatives-opkg"
 "util-linux-getopt" -> "libc6"
 "util-linux-getopt" -> "update-alternatives-opkg"
-"util-linux-ionice" -> "libc6"
-"util-linux" -> "libblkid1"
-"util-linux" -> "libc6"
-"util-linux" -> "libmount1"
-"util-linux" -> "libsmartcols1"
-"util-linux" -> "libtinfo5"
-"util-linux" -> "libuuid1"
-"util-linux-losetup" -> "libc6"
-"util-linux-losetup" -> "libsmartcols1"
-"util-linux-losetup" -> "update-alternatives-opkg"
-"util-linux-lsblk" -> "libblkid1"
-"util-linux-lsblk" -> "libc6"
-"util-linux-lsblk" -> "libmount1"
-"util-linux-lsblk" -> "libsmartcols1"
-"util-linux-mkfs" -> "libc6"
 "util-linux-mount" -> "libc6"
 "util-linux-mount" -> "libmount1"
-"util-linux-mountpoint" -> "libc6"
-"util-linux-mountpoint" -> "libmount1"
-"util-linux-mountpoint" -> "update-alternatives-opkg"
 "util-linux-mount" -> "update-alternatives-opkg"
-"util-linux-prlimit" -> "libc6"
-"util-linux-prlimit" -> "libsmartcols1"
-"util-linux-readprofile" -> "libc6"
-"util-linux-readprofile" -> "update-alternatives-opkg"
-"util-linux-sfdisk" -> "libc6"
-"util-linux-sfdisk" -> "libfdisk1"
-"util-linux-sfdisk" -> "libsmartcols1"
-"util-linux-sfdisk" -> "libtinfo5"
 "util-linux-sulogin" -> "libc6"
 "util-linux-sulogin" -> "update-alternatives-opkg"
-"util-linux-swaponoff" -> "libblkid1"
-"util-linux-swaponoff" -> "libc6"
-"util-linux-swaponoff" -> "libmount1"
-"util-linux-swaponoff" -> "libsmartcols1"
-"util-linux-swaponoff" -> "update-alternatives-opkg"
-"util-linux-switch-root" -> "libc6"
-"util-linux-umount" -> "libc6"
-"util-linux-umount" -> "libmount1"
-"util-linux-umount" -> "update-alternatives-opkg"
-"util-linux" -> "update-alternatives-opkg"
-"util-linux" -> "util-linux-cfdisk" [style=dotted]
-"util-linux" -> "util-linux-fdisk" [style=dotted]
-"util-linux" -> "util-linux-ionice" [style=dotted]
-"util-linux" -> "util-linux-lic" [style=dotted]
-"util-linux" -> "util-linux-losetup"
-"util-linux" -> "util-linux-lsblk"
-"util-linux" -> "util-linux-mkfs" [style=dotted]
-"util-linux" -> "util-linux-mountpoint" [style=dotted]
-"util-linux" -> "util-linux-mount" [style=dotted]
-"util-linux" -> "util-linux-prlimit" [style=dotted]
-"util-linux" -> "util-linux-readprofile" [style=dotted]
-"util-linux" -> "util-linux-sfdisk" [style=dotted]
-"util-linux" -> "util-linux-sulogin"
-"util-linux" -> "util-linux-swaponoff"
-"util-linux" -> "util-linux-switch-root" [style=dotted]
-"util-linux" -> "util-linux-umount"
 "valgrind" -> "libc6"
 "valgrind" -> "libc6-dbg" [style=dotted]
 "valgrind" -> "perl"
@@ -4304,10 +4256,19 @@ digraph depends {
 "webos-connman-adapter" -> "libcrypto1.0.2"
 "webos-connman-adapter" -> "libglib-2.0-0"
 "webos-connman-adapter" -> "libpbnjson"
-"webos-connman-adapter" -> "libpmloglib3"
 "webos-connman-adapter" -> "luna-prefs"
 "webos-connman-adapter" -> "luna-service2"
+"webos-connman-adapter" -> "pmloglib"
 "webos-connman-adapter" -> "webos-connman-adapter-lic" [style=dotted]
+"webos-initscripts" -> "libc6"
+"webos-initscripts" -> "libgcc1"
+"webos-initscripts" -> "libstdc++6"
+"webos-initscripts" -> "libsystemd0"
+"webos-initscripts" -> "rdx-utils-stub"
+"webos-initscripts" -> "systemd"
+"webos-initscripts" -> "systemd-compat-units"
+"webos-initscripts" -> "systemd-machine-units"
+"webos-initscripts" -> "webos-initscripts-lic" [style=dotted]
 "webos-keyboard" -> "hunspell"
 "webos-keyboard" -> "hunspell-dictionaries" [style=dotted]
 "webos-keyboard" -> "libc6"
