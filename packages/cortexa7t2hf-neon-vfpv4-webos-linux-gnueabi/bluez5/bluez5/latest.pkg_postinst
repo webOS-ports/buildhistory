@@ -11,10 +11,10 @@ if type systemctl >/dev/null 2>/dev/null; then
 		systemctl daemon-reload
 	fi
 
-	systemctl $OPTS enable bluetooth.service brcm43438.service
+	systemctl $OPTS enable bluetooth.service
 
 	if [ -z "$D" -a "enable" = "enable" ]; then
-		systemctl --no-block restart bluetooth.service brcm43438.service
+		systemctl --no-block restart bluetooth.service
 	fi
 fi
 if [ x"$D" = "x" ]; then
