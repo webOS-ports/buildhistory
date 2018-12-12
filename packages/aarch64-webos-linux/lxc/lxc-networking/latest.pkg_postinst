@@ -1,1 +1,31 @@
-\tif [ "x$D" != "x" ]; then\n\t\texit 1\n\tfi\n\n\t# setup for our bridge\n        echo "lxc.network.link=lxcbr0" >> /etc/lxc/default.conf\n\ncat >> /etc/network/interfaces << EOF\n\nauto lxcbr0\niface lxcbr0 inet dhcp\n\tbridge_ports eth0\n\tbridge_fd 0\n\tbridge_maxwait 0\nEOF\n\ncat<<EOF>/etc/network/if-pre-up.d/lxcbr0\n#! /bin/sh\n\nif test "x\\$IFACE" = xlxcbr0 ; then\n        brctl show |grep lxcbr0 > /dev/null 2>/dev/null\n        if [ \\$? != 0 ] ; then\n                brctl addbr lxcbr0\n                brctl addif lxcbr0 eth0\n                ip addr flush eth0\n                ifconfig eth0 up\n        fi\nfi\nEOF\nchmod 755 /etc/network/if-pre-up.d/lxcbr0\n
+set -e
+	if [ "x$D" != "x" ]; then
+		exit 1
+	fi
+
+	# setup for our bridge
+        echo "lxc.network.link=lxcbr0" >> /etc/lxc/default.conf
+
+cat >> /etc/network/interfaces << EOF
+
+auto lxcbr0
+iface lxcbr0 inet dhcp
+	bridge_ports eth0
+	bridge_fd 0
+	bridge_maxwait 0
+EOF
+
+cat<<EOF>/etc/network/if-pre-up.d/lxcbr0
+#! /bin/sh
+
+if test "x\$IFACE" = xlxcbr0 ; then
+        brctl show |grep lxcbr0 > /dev/null 2>/dev/null
+        if [ \$? != 0 ] ; then
+                brctl addbr lxcbr0
+                brctl addif lxcbr0 eth0
+                ip addr flush eth0
+                ifconfig eth0 up
+        fi
+fi
+EOF
+chmod 755 /etc/network/if-pre-up.d/lxcbr0
