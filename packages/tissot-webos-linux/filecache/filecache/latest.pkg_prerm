@@ -1,15 +1,1 @@
-#!/bin/sh
-set -e
-OPTS=""
-
-if [ -n "$D" ]; then
-    OPTS="--root=$D"
-fi
-
-if type systemctl >/dev/null 2>/dev/null; then
-	if [ -z "$D" ]; then
-		systemctl stop filecache.service
-	fi
-
-	systemctl $OPTS disable filecache.service
-fi
+#!/bin/sh\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl stop filecache.service\n\tfi\n\n\tsystemctl $OPTS disable filecache.service\nfi\n

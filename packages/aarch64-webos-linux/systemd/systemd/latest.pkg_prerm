@@ -1,10 +1,1 @@
-set -e
-	sed -e '/^hosts:/s/\s*\<myhostname\>//' \
-		-e '/^hosts:/s/\s*myhostname//' \
-		-i $D/etc/nsswitch.conf
-	update-alternatives --remove  halt /bin/systemctl
-	update-alternatives --remove  reboot /bin/systemctl
-	update-alternatives --remove  shutdown /bin/systemctl
-	update-alternatives --remove  poweroff /bin/systemctl
-	update-alternatives --remove  runlevel /bin/systemctl
-	update-alternatives --remove  resolv-conf /etc/resolv-conf.systemd
+\tsed -e '/^hosts:/s/\\s*\\<myhostname\\>//' \\\n\t\t-e '/^hosts:/s/\\s*myhostname//' \\\n\t\t-i $D/etc/nsswitch.conf\n\tupdate-alternatives --remove  init /lib/systemd/systemd\n\tupdate-alternatives --remove  halt /bin/systemctl\n\tupdate-alternatives --remove  reboot /bin/systemctl\n\tupdate-alternatives --remove  shutdown /bin/systemctl\n\tupdate-alternatives --remove  poweroff /bin/systemctl\n\tupdate-alternatives --remove  runlevel /bin/systemctl\n\tupdate-alternatives --remove  resolv-conf /etc/resolv-conf.systemd\n
