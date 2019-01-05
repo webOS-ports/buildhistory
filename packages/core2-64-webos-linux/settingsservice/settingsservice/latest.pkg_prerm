@@ -1,1 +1,15 @@
-#!/bin/sh\nset -e\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl stop settings-service-recovery.service settings-service.service\n\tfi\n\n\tsystemctl $OPTS disable settings-service-recovery.service settings-service.service\nfi\n
+#!/bin/sh
+set -e
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop settings-service-recovery.service settings-service.service
+	fi
+
+	systemctl $OPTS disable settings-service-recovery.service settings-service.service
+fi
