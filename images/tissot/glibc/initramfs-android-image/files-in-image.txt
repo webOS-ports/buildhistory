@@ -36,6 +36,7 @@ lrwxrwxrwx root       root               19 ./bin/mknod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/mktemp -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/more -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/mount -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/mountpoint -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/mv -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/netstat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/pidof -> /bin/busybox.nosuid
@@ -67,16 +68,16 @@ drwxr-xr-x root       root             4096 ./boot
 drwxr-xr-x root       root             4096 ./dev
 -rw-r--r-- root       root              280 ./distro.conf
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             2326 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2358 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/default
 -rw-r--r-- root       root               52 ./etc/default/postinst
 -rw-r--r-- root       root                0 ./etc/default/usbd
--rw-r--r-- root       root               38 ./etc/filesystems
 -rw-r--r-- root       root              963 ./etc/fstab
 -rw-r--r-- root       root              477 ./etc/group
 -rw-r--r-- root       root               26 ./etc/host.conf
 -rw-r--r-- root       root                7 ./etc/hostname
+-rw-r--r-- root       root              254 ./etc/hosts
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
 -rw-r--r-- root       root             1721 ./etc/ld.so.cache
@@ -138,52 +139,52 @@ drwxr-xr-x root       root             4096 ./home
 drwx------ root       root             4096 ./home/root
 -rwxr-xr-x root       root             4298 ./init
 drwxr-xr-x root       root             4096 ./lib
--rwxr-xr-x root       root           136792 ./lib/ld-2.28.9000.so
-lrwxrwxrwx root       root               15 ./lib/ld-linux-aarch64.so.1 -> ld-2.28.9000.so
+-rwxr-xr-x root       root           137064 ./lib/ld-2.29.so
+lrwxrwxrwx root       root               10 ./lib/ld-linux-aarch64.so.1 -> ld-2.29.so
 -rw-r--r-- root       root            68200 ./lib/libacl.so.1.1.0
 lrwxrwxrwx root       root               15 ./lib/libacl.so.1 -> libacl.so.1.1.0
--rwxr-xr-x root       root            14808 ./lib/libanl-2.28.9000.so
-lrwxrwxrwx root       root               19 ./lib/libanl.so.1 -> libanl-2.28.9000.so
+-rwxr-xr-x root       root            68104 ./lib/libanl-2.29.so
+lrwxrwxrwx root       root               14 ./lib/libanl.so.1 -> libanl-2.29.so
 -rw-r--r-- root       root            68000 ./lib/libattr.so.1.1.0
 lrwxrwxrwx root       root               16 ./lib/libattr.so.1 -> libattr.so.1.1.0
 -rwxr-xr-x root       root           332888 ./lib/libblkid.so.1.1.0
 lrwxrwxrwx root       root               17 ./lib/libblkid.so.1 -> libblkid.so.1.1.0
--rwxr-xr-x root       root             6216 ./lib/libBrokenLocale-2.28.9000.so
-lrwxrwxrwx root       root               28 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.28.9000.so
--rwxr-xr-x root       root          1423184 ./lib/libc-2.28.9000.so
--rw-r--r-- root       root            68304 ./lib/libcap.so.2.25
-lrwxrwxrwx root       root               14 ./lib/libcap.so.2 -> libcap.so.2.25
+-rwxr-xr-x root       root            67888 ./lib/libBrokenLocale-2.29.so
+lrwxrwxrwx root       root               23 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.29.so
+-rwxr-xr-x root       root          1459408 ./lib/libc-2.29.so
+-rw-r--r-- root       root            68312 ./lib/libcap.so.2.26
+lrwxrwxrwx root       root               14 ./lib/libcap.so.2 -> libcap.so.2.26
 -rwxr-xr-x root       root            68080 ./lib/libcom_err.so.2.1
 lrwxrwxrwx root       root               17 ./lib/libcom_err.so.2 -> libcom_err.so.2.1
-lrwxrwxrwx root       root               17 ./lib/libc.so.6 -> libc-2.28.9000.so
--rwxr-xr-x root       root            14520 ./lib/libdl-2.28.9000.so
-lrwxrwxrwx root       root               18 ./lib/libdl.so.2 -> libdl-2.28.9000.so
+lrwxrwxrwx root       root               12 ./lib/libc.so.6 -> libc-2.29.so
+-rwxr-xr-x root       root            67880 ./lib/libdl-2.29.so
+lrwxrwxrwx root       root               13 ./lib/libdl.so.2 -> libdl-2.29.so
 -rwxr-xr-x root       root            69752 ./lib/libe2p.so.2.3
 lrwxrwxrwx root       root               13 ./lib/libe2p.so.2 -> libe2p.so.2.3
 -rwxr-xr-x root       root           401032 ./lib/libext2fs.so.2.4
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
--rwxr-xr-x root       root           616576 ./lib/libm-2.28.9000.so
+-rwxr-xr-x root       root           657712 ./lib/libm-2.29.so
 -rwxr-xr-x root       root           399240 ./lib/libmount.so.1.1.0
 lrwxrwxrwx root       root               17 ./lib/libmount.so.1 -> libmount.so.1.1.0
-lrwxrwxrwx root       root               17 ./lib/libm.so.6 -> libm-2.28.9000.so
--rwxr-xr-x root       root            84840 ./lib/libnsl-2.28.9000.so
-lrwxrwxrwx root       root               19 ./lib/libnsl.so.1 -> libnsl-2.28.9000.so
--rwxr-xr-x root       root            35504 ./lib/libnss_compat-2.28.9000.so
-lrwxrwxrwx root       root               26 ./lib/libnss_compat.so.2 -> libnss_compat-2.28.9000.so
--rwxr-xr-x root       root            22784 ./lib/libnss_dns-2.28.9000.so
-lrwxrwxrwx root       root               23 ./lib/libnss_dns.so.2 -> libnss_dns-2.28.9000.so
--rwxr-xr-x root       root            47512 ./lib/libnss_files-2.28.9000.so
-lrwxrwxrwx root       root               25 ./lib/libnss_files.so.2 -> libnss_files-2.28.9000.so
--rwxr-xr-x root       root           109856 ./lib/libpthread-2.28.9000.so
-lrwxrwxrwx root       root               23 ./lib/libpthread.so.0 -> libpthread-2.28.9000.so
--rwxr-xr-x root       root            84680 ./lib/libresolv-2.28.9000.so
-lrwxrwxrwx root       root               22 ./lib/libresolv.so.2 -> libresolv-2.28.9000.so
--rwxr-xr-x root       root            31544 ./lib/librt-2.28.9000.so
-lrwxrwxrwx root       root               18 ./lib/librt.so.1 -> librt-2.28.9000.so
+lrwxrwxrwx root       root               12 ./lib/libm.so.6 -> libm-2.29.so
+-rwxr-xr-x root       root           133416 ./lib/libnsl-2.29.so
+lrwxrwxrwx root       root               14 ./lib/libnsl.so.1 -> libnsl-2.29.so
+-rwxr-xr-x root       root            68280 ./lib/libnss_compat-2.29.so
+lrwxrwxrwx root       root               21 ./lib/libnss_compat.so.2 -> libnss_compat-2.29.so
+-rwxr-xr-x root       root            67888 ./lib/libnss_dns-2.29.so
+lrwxrwxrwx root       root               18 ./lib/libnss_dns.so.2 -> libnss_dns-2.29.so
+-rwxr-xr-x root       root            67888 ./lib/libnss_files-2.29.so
+lrwxrwxrwx root       root               20 ./lib/libnss_files.so.2 -> libnss_files-2.29.so
+-rwxr-xr-x root       root           133936 ./lib/libpthread-2.29.so
+lrwxrwxrwx root       root               18 ./lib/libpthread.so.0 -> libpthread-2.29.so
+-rwxr-xr-x root       root           133640 ./lib/libresolv-2.29.so
+lrwxrwxrwx root       root               17 ./lib/libresolv.so.2 -> libresolv-2.29.so
+-rwxr-xr-x root       root            68232 ./lib/librt-2.29.so
+lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.29.so
 -rwxr-xr-x root       root           200984 ./lib/libtinfo.so.5.9
 lrwxrwxrwx root       root               15 ./lib/libtinfo.so.5 -> libtinfo.so.5.9
--rwxr-xr-x root       root            10544 ./lib/libutil-2.28.9000.so
-lrwxrwxrwx root       root               20 ./lib/libutil.so.1 -> libutil-2.28.9000.so
+-rwxr-xr-x root       root            67880 ./lib/libutil-2.29.so
+lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.29.so
 -rwxr-xr-x root       root            68240 ./lib/libuuid.so.1.3.0
 lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3.0
 -rwxr-xr-x root       root           133648 ./lib/libz.so.1.2.11
@@ -767,7 +768,7 @@ lrwxrwxrwx root       root               19 ./sbin/ifdown -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/ifup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/insmod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/ip -> /bin/busybox.nosuid
--rwxr-xr-x root       root           582344 ./sbin/ldconfig
+-rwxr-xr-x root       root           598928 ./sbin/ldconfig
 lrwxrwxrwx root       root               19 ./sbin/loadkmap -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/logread -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/losetup -> /bin/busybox.nosuid
@@ -855,6 +856,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/renice -> /bin/busybox.nos
 lrwxrwxrwx root       root               19 ./usr/bin/reset -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/resize -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/seq -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./usr/bin/setsid -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/sha1sum -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/sha256sum -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/shuf -> /bin/busybox.nosuid
@@ -997,6 +999,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/modprobe
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/more
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/mount
+-rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/mountpoint
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/mv
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/nc
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/netstat
@@ -1031,6 +1034,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/sed
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/seq
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/setconsole
+-rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/setsid
 -rw-r--r-- root       root               50 ./usr/lib/opkg/alternatives/sh
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/sha1sum
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/sha256sum
