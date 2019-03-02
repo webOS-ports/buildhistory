@@ -1,1 +1,26 @@
-    if [ x"$D" = "x" ] ; then\n        if [ ! -e /boot/boot.img ] ; then\n            # if the boot image is not available here something went wrong and we don't\n            # continue with anything that can be dangerous\n            exit 1\n        fi\n\n        BOOT_PARTITION_NAMES="LNX boot boot_a KERNEL"\n        for i in $BOOT_PARTITION_NAMES; do\n            path=$(find /dev -name "$i"|grep disk| head -n 1)\n            [ -n "$path" ] && break\n        done\n\n        if [ -z "$path" ] ; then\n            echo "Boot partition does not exist!"\n            exit 1\n        fi\n\n        echo "Flashing the new kernel /boot/boot.img to $path"\n        dd if=/boot/boot.img of=$path\n    else\n        exit 1\n    fi\n
+#!/bin/sh
+set -e
+
+if [ -n "$D" ]; then
+    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot android-kernel-bootimg mlprefix=
+    exit 0
+fi
+    if [ ! -e /boot/boot.img ] ; then
+        # if the boot image is not available here something went wrong and we don't
+        # continue with anything that can be dangerous
+        exit 1
+    fi
+
+    BOOT_PARTITION_NAMES="LNX boot boot_a KERNEL"
+    for i in $BOOT_PARTITION_NAMES; do
+        path=$(find /dev -name "$i"|grep disk| head -n 1)
+        [ -n "$path" ] && break
+    done
+
+    if [ -z "$path" ] ; then
+        echo "Boot partition does not exist!"
+        exit 1
+    fi
+
+    echo "Flashing the new kernel /boot/boot.img to $path"
+    dd if=/boot/boot.img of=$path

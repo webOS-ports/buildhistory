@@ -1,1 +1,50 @@
-    #!/bin/sh -e\n\n    # Make sure we're only executed on the device\n    if [ x"$D" = "x" ]; then\n        APPS=/media/cryptofs/apps\n\n        # Create the opkg config and database areas\n        mkdir -p $APPS//etc/opkg $APPS//var/lib/opkg/cache\n\n        # We provide an empty status file to satisfy the ipkgservice\n        touch $APPS//var/lib/opkg/status\n\n        # Remove all list database cache files\n        rm -f $APPS//var/lib/opkg/lists/*\n\n        # Set up the architecture configuration file\n        rm -f $APPS//etc/opkg/arch.conf\n        cp /etc/opkg/arch.conf $APPS//etc/opkg/arch.conf\n\n        # Install webosports all-arch feeds\n        echo "src/gz webosports http://feeds.webos-ports.org/webos-ports/all" > $APPS//etc/opkg/webos-ports.conf\n\n        # Add additional feeds which are disabled by default and NOT SUPPORTED by webOS-ports\n        # ports / LuneOS. The user has to turn them on manually to use them.\n        echo "src PivotCE https://feed.pivotce.com" > $APPS//etc/opkg/pivotce.conf.disabled\n        echo "src Macaw-enyo https://minego.net/preware/macaw-enyo" > $APPS//etc/opkg/macaw-enyo.conf.disabled\n        echo "src Hominid-Software https://hominidsoftware.com/preware" > $APPS//etc/opkg/hominid-software.conf.disabled\n        echo "src/gz FeedSpider2 https://www.hunternet.ca/fs/luneos" > $APPS//etc/opkg/feedspider.conf.disabled\n    else\n        exit 1\n    fi\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl daemon-reload\n\tfi\n\n\tsystemctl $OPTS enable org.webosinternals.ipkgservice.service\n\n\tif [ -z "$D" -a "enable" = "enable" ]; then\n\t\tsystemctl --no-block restart org.webosinternals.ipkgservice.service\n\tfi\nfi\n
+#!/bin/sh
+set -e
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+	fi
+
+	systemctl $OPTS enable org.webosinternals.ipkgservice.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl --no-block restart org.webosinternals.ipkgservice.service
+	fi
+fi
+
+if [ -n "$D" ]; then
+    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot org.webosinternals.ipkgservice mlprefix=
+    exit 0
+fi
+    #!/bin/sh -e
+
+    APPS=/media/cryptofs/apps
+
+    # Create the opkg config and database areas
+    mkdir -p $APPS//etc/opkg $APPS//var/lib/opkg/cache
+
+    # We provide an empty status file to satisfy the ipkgservice
+    touch $APPS//var/lib/opkg/status
+
+    # Remove all list database cache files
+    rm -f $APPS//var/lib/opkg/lists/*
+
+    # Set up the architecture configuration file
+    rm -f $APPS//etc/opkg/arch.conf
+    cp /etc/opkg/arch.conf $APPS//etc/opkg/arch.conf
+
+    # Install webosports all-arch feeds
+    echo "src/gz webosports http://feeds.webos-ports.org/webos-ports/all" > $APPS//etc/opkg/webos-ports.conf
+
+    # Add additional feeds which are disabled by default and NOT SUPPORTED by webOS-ports
+    # ports / LuneOS. The user has to turn them on manually to use them.
+    echo "src PivotCE https://feed.pivotce.com" > $APPS//etc/opkg/pivotce.conf.disabled
+    echo "src Macaw-enyo https://minego.net/preware/macaw-enyo" > $APPS//etc/opkg/macaw-enyo.conf.disabled
+    echo "src Hominid-Software https://hominidsoftware.com/preware" > $APPS//etc/opkg/hominid-software.conf.disabled
+    echo "src/gz FeedSpider2 https://www.hunternet.ca/fs/luneos" > $APPS//etc/opkg/feedspider.conf.disabled
