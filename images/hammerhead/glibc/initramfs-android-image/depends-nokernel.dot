@@ -20,6 +20,7 @@ digraph depends {
 "busybox" -> "busybox-syslog" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox" -> "libc6"
+"busybox-syslog" -> "update-alternatives-opkg"
 "busybox" -> "update-alternatives-opkg"
 "e2fsprogs-e2fsck" -> "libblkid1"
 "e2fsprogs-e2fsck" -> "libc6"
@@ -40,6 +41,8 @@ digraph depends {
 "libbsd0" -> "libbsd-lic" [style=dotted]
 "libbsd0" -> "libc6"
 "libc6" -> "libc6-lic" [style=dotted]
+"libcap2" -> "libc6"
+"libcap2" -> "libcap-lic" [style=dotted]
 "libcom-err2" -> "libc6"
 "libcrypto1.0.2" -> "libc6"
 "libcrypto1.0.2" -> "openssl-conf" [style=dotted]
@@ -47,8 +50,6 @@ digraph depends {
 "libext2fs2" -> "libblkid1"
 "libext2fs2" -> "libc6"
 "libext2fs2" -> "libcom-err2"
-"libgcc1" -> "libc6"
-"libgcc1" -> "libgcc-s-lic" [style=dotted]
 "libkmod2" -> "libc6"
 "libkmod2" -> "libz1"
 "libpcre1" -> "libc6"
@@ -62,6 +63,6 @@ digraph depends {
 "udev" -> "libacl1"
 "udev" -> "libblkid1"
 "udev" -> "libc6"
-"udev" -> "libgcc1"
+"udev" -> "libcap2"
 "udev" -> "libkmod2"
 }
