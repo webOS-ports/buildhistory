@@ -1,13 +1,13 @@
 DISTRO = luneos
 DISTRO_VERSION = 1.0
 USER_CLASSES = 
-IMAGE_CLASSES = image_types
+IMAGE_CLASSES = license_image
 IMAGE_FEATURES = debug-tweaks luneos-development luneos-extended package-management ssh-server-openssh
 IMAGE_LINGUAS = en-us en-gb
 IMAGE_INSTALL = packagegroup-core-boot packagegroup-webos-extended android-kernel-bootimg dosfstools kernel-module-wlan libdrm-tests qtbase-examples qtbase-plugins gtk+3-demo kernel-modules
 BAD_RECOMMENDATIONS = update-rc.d
 NO_RECOMMENDATIONS = 
 PACKAGE_EXCLUDE = 
-ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest;  rootfs_set_image_name ; clean_python_installation ; verify_acg ;     ssh_allow_empty_password;  postinst_enable_logging;  rootfs_update_timestamp ;   write_image_test_data ;  set_systemd_default_target; systemd_create_users; empty_var_volatile; webos_swap_hook; webos_enable_devmode; sort_passwd; rootfs_reproducible;
-IMAGE_POSTPROCESS_COMMAND = write_deploy_manifest;  buildhistory_get_imageinfo ;
-IMAGESIZE = 1821200
+ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest;  rootfs_set_image_name ; clean_python_installation ; verify_acg ;     ssh_allow_empty_password;  ssh_allow_root_login;  postinst_enable_logging;  rootfs_update_timestamp ;   write_image_test_data ;  set_systemd_default_target; systemd_create_users; empty_var_volatile; webos_swap_hook; webos_enable_devmode; sort_passwd; rootfs_reproducible;
+IMAGE_POSTPROCESS_COMMAND =  buildhistory_get_imageinfo ;
+IMAGESIZE = 1844796

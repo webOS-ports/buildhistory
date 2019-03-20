@@ -1,1 +1,19 @@
-#!/bin/sh\nset -e\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl daemon-reload\n\tfi\n\n\tsystemctl $OPTS enable default-webos.target                          webos-cbd.target \t\t\t webos-ibd.target \t\t\t webos-rbd.target \t\t         webos-bd.target \t\t\t webos-dis.target \t\t\t webos-mbd.target\n\n\tif [ -z "$D" -a "enable" = "enable" ]; then\n\t\tsystemctl --no-block restart default-webos.target                          webos-cbd.target \t\t\t webos-ibd.target \t\t\t webos-rbd.target \t\t         webos-bd.target \t\t\t webos-dis.target \t\t\t webos-mbd.target\n\tfi\nfi\n
+#!/bin/sh
+set -e
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+	fi
+
+	systemctl $OPTS enable default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl --no-block restart default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+	fi
+fi

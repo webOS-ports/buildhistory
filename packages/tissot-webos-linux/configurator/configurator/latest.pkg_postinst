@@ -1,1 +1,19 @@
-#!/bin/sh\nset -e\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl daemon-reload\n\tfi\n\n\tsystemctl $OPTS enable configurator-activity.service configurator-db8.service\n\n\tif [ -z "$D" -a "enable" = "enable" ]; then\n\t\tsystemctl --no-block restart configurator-activity.service configurator-db8.service\n\tfi\nfi\n
+#!/bin/sh
+set -e
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+	fi
+
+	systemctl $OPTS enable configurator-activity.service configurator-db8.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl --no-block restart configurator-activity.service configurator-db8.service
+	fi
+fi
