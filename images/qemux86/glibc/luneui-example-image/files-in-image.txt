@@ -3,7 +3,7 @@ lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 -rwxr-xr-x root       root          1113400 ./bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/bash -> /bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           511008 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           519200 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            47056 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
@@ -12,6 +12,7 @@ lrwxrwxrwx root       root               19 ./bin/chmod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chown -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/cp -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/cpio -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/cttyhack -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/date -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/dd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/df -> /bin/busybox.nosuid
@@ -97,7 +98,7 @@ drwxr-xr-x root       root             4096 ./etc/avahi/services
 drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              397 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
--rw-r--r-- root       root             2298 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2339 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/chatscripts
 -rwxr-xr-x root       root              653 ./etc/chatscripts/pap
@@ -1536,6 +1537,7 @@ lrwxrwxrwx root       root               19 ./sbin/loadkmap -> /bin/busybox.nosu
 lrwxrwxrwx root       root               19 ./sbin/logread -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/losetup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               15 ./sbin/lsmod -> /bin/lsmod.kmod
+lrwxrwxrwx root       root               19 ./sbin/mdev -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./sbin/mkswap -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               11 ./sbin/modinfo.kmod -> ../bin/kmod
 lrwxrwxrwx root       root               18 ./sbin/modinfo -> /sbin/modinfo.kmod
@@ -1820,6 +1822,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/seq -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             9768 ./usr/bin/setkeycodes
 -rwxr-xr-x root       root             9812 ./usr/bin/setleds
 -rwxr-xr-x root       root             9828 ./usr/bin/setmetamode
+lrwxrwxrwx root       root               19 ./usr/bin/setsid -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             9860 ./usr/bin/setvtrgb
 -rwxr-xr-x root       root            22128 ./usr/bin/sexp-conv
 lrwxrwxrwx root       root               13 ./usr/bin/sg -> newgrp.shadow
@@ -2466,6 +2469,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/cmp
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/cp
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/cpio
+-rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/cttyhack
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/cut
 -rw-r--r-- root       root               33 ./usr/lib/opkg/alternatives/date
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/dc
@@ -2539,6 +2543,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               54 ./usr/lib/opkg/alternatives/lsmod
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/lzcat
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/md5sum
+-rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/mdev
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/mesg
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/microcom
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/mkdir
@@ -2594,6 +2599,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/sed
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/seq
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/setconsole
+-rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/setsid
 -rw-r--r-- root       root               50 ./usr/lib/opkg/alternatives/sh
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/sha1sum
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/sha256sum
@@ -14051,7 +14057,7 @@ drwxr-xr-x root       root           229376 ./var/lib/opkg/info
 -rwxr-xr-x root       root             5314 ./var/lib/opkg/info/avahi-daemon.preinst
 -rwxr-xr-x root       root              233 ./var/lib/opkg/info/avahi-daemon.prerm
 -rw-r--r-- root       root              887 ./var/lib/opkg/info/avahi-locale-en-gb.control
--rw-r--r-- root       root              107 ./var/lib/opkg/info/avahi-locale-en-gb.list
+-rw-r--r-- root       root               45 ./var/lib/opkg/info/avahi-locale-en-gb.list
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/base-files.conffiles
 -rw-r--r-- root       root              419 ./var/lib/opkg/info/base-files.control
 -rw-r--r-- root       root              396 ./var/lib/opkg/info/base-files-lic.control
@@ -14086,9 +14092,9 @@ drwxr-xr-x root       root           229376 ./var/lib/opkg/info
 -rw-r--r-- root       root              838 ./var/lib/opkg/info/busybox-lic.control
 -rw-r--r-- root       root              149 ./var/lib/opkg/info/busybox-lic.list
 -rw-r--r-- root       root              109 ./var/lib/opkg/info/busybox.list
--rwxr-xr-x root       root            14104 ./var/lib/opkg/info/busybox.postinst
+-rwxr-xr-x root       root            14328 ./var/lib/opkg/info/busybox.postinst
 -rwxr-xr-x root       root              157 ./var/lib/opkg/info/busybox.postrm
--rwxr-xr-x root       root            10859 ./var/lib/opkg/info/busybox.prerm
+-rwxr-xr-x root       root            11033 ./var/lib/opkg/info/busybox.prerm
 -rw-r--r-- root       root              915 ./var/lib/opkg/info/busybox-syslog.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/busybox-syslog.list
 -rwxr-xr-x root       root              474 ./var/lib/opkg/info/busybox-syslog.postinst
@@ -14173,7 +14179,7 @@ drwxr-xr-x root       root           229376 ./var/lib/opkg/info
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/gstreamer1.0-lic.list
 -rw-r--r-- root       root              949 ./var/lib/opkg/info/gstreamer1.0.list
 -rw-r--r-- root       root              655 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.control
--rw-r--r-- root       root               53 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.list
+-rw-r--r-- root       root              134 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.list
 -rw-r--r-- root       root              630 ./var/lib/opkg/info/gstreamer1.0-plugins-bad-locale-en-gb.control
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/gstreamer1.0-plugins-bad-locale-en-gb.list
 -rw-r--r-- root       root              622 ./var/lib/opkg/info/gstreamer1.0-plugins-base-locale-en-gb.control
@@ -14186,7 +14192,7 @@ drwxr-xr-x root       root           229376 ./var/lib/opkg/info
 -rw-r--r-- root       root              667 ./var/lib/opkg/info/gtk+3-locale-en.control
 -rw-r--r-- root       root              682 ./var/lib/opkg/info/gtk+3-locale-en-gb.control
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
--rw-r--r-- root       root              170 ./var/lib/opkg/info/gtk+3-locale-en.list
+-rw-r--r-- root       root              151 ./var/lib/opkg/info/gtk+3-locale-en.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/hicolor-icon-theme.control
 -rw-r--r-- root       root              431 ./var/lib/opkg/info/hicolor-icon-theme-lic.control
 -rw-r--r-- root       root              140 ./var/lib/opkg/info/hicolor-icon-theme-lic.list
