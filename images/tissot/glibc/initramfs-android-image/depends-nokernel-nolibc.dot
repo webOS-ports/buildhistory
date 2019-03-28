@@ -16,6 +16,7 @@ digraph depends {
 "bash" -> "update-alternatives-opkg"
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
+"busybox-mdev" -> "busybox-lic" [style=dotted]
 "busybox-udhcpc" -> "busybox-lic" [style=dotted]
 "busybox" -> "update-alternatives-opkg"
 "e2fsprogs-e2fsck" -> "e2fsprogs-lic" [style=dotted]
@@ -29,13 +30,12 @@ digraph depends {
 "e2fsprogs-resize2fs" -> "libe2p2"
 "e2fsprogs-resize2fs" -> "libext2fs2"
 "initramfs-android-recovery-tissot" -> "initramfs-android-recovery-tissot-lic" [style=dotted]
+"initramfs-boot-android" -> "busybox-mdev"
+"initramfs-boot-android" -> "e2fsprogs-e2fsck"
+"initramfs-boot-android" -> "e2fsprogs-resize2fs"
 "initramfs-boot-android" -> "initramfs-boot-android-lic" [style=dotted]
-"libacl1" -> "acl-lic" [style=dotted]
-"libacl1" -> "libattr1"
-"libattr1" -> "attr-lic" [style=dotted]
 "libblkid1" -> "libuuid1"
 "libbsd0" -> "libbsd-lic" [style=dotted]
-"libcap2" -> "libcap-lic" [style=dotted]
 "libcom-err2" -> "e2fsprogs-lic" [style=dotted]
 "libcrypto1.0.2" -> "openssl10-conf" [style=dotted]
 "libcrypto1.0.2" -> "openssl10-lic" [style=dotted]
@@ -43,10 +43,6 @@ digraph depends {
 "libext2fs2" -> "e2fsprogs-lic" [style=dotted]
 "libext2fs2" -> "libblkid1"
 "libext2fs2" -> "libcom-err2"
-"libkmod2" -> "kmod-lic" [style=dotted]
-"libkmod2" -> "libz1"
-"libmount1" -> "libblkid1"
-"libmount1" -> "libuuid1"
 "libpcre1" -> "libpcre-lic" [style=dotted]
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
 "libz1" -> "libz-lic" [style=dotted]
@@ -54,11 +50,5 @@ digraph depends {
 "openssl-conf" -> "openssl-lic" [style=dotted]
 "openssl-conf" -> "update-alternatives-opkg"
 "run-postinsts" -> "run-postinsts-lic" [style=dotted]
-"udev" -> "libacl1"
-"udev" -> "libblkid1"
-"udev" -> "libcap2"
-"udev" -> "libkmod2"
-"udev" -> "libmount1"
-"udev" -> "systemd-lic" [style=dotted]
 "update-alternatives-opkg" -> "opkg-utils-lic" [style=dotted]
 }
