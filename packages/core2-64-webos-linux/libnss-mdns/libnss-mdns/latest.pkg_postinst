@@ -1,1 +1,0 @@
-set -e\n\tsed '\n\t\t/^hosts:/ !b\n\t\t/\\<mdns\\(4\\|6\\)\\?\\(_minimal\\)\\?\\>/ b\n\t\ts/\\([[:blank:]]\\+\\)dns\\>/\\1mdns4_minimal [NOTFOUND=return] dns/g\n\t\t' -i $D/etc/nsswitch.conf\nif [ x"$D" = "x" ]; then\n\tif [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi\nfi\n

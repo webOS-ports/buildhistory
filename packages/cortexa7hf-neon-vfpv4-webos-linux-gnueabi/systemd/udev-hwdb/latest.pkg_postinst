@@ -1,1 +1,0 @@
-set -e\n\tif test -n "$D"; then\n\t\tif true; then\n\t\t\tPSEUDO_UNLOAD=1 qemu-arm -r 3.2.0  -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/bin/udevadm hwdb --update \\\n\t\t\t\t--root $D\n\t\t\tchown root:root $D/etc/udev/hwdb.bin\n\t\telse\n\t\t\t$INTERCEPT_DIR/postinst_intercept delay_to_first_boot ${PKG} mlprefix=\n\t\tfi\n\telse\n\t\tudevadm hwdb --update\n\tfi\n
