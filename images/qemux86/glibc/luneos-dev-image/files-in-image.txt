@@ -102,7 +102,7 @@ lrwxrwxrwx root       root               14 ./bin/zcat -> /bin/zcat.gzip
 -rwxr-xr-x root       root             1984 ./bin/zcat.gzip
 drwxr-xr-x root       root               40 ./boot
 drwxr-xr-x root       root               40 ./dev
-drwxr-xr-x root       root             2000 ./etc
+drwxr-xr-x root       root             2020 ./etc
 drwxr-xr-x root       root               60 ./etc/alsa
 drwxr-xr-x root       root               80 ./etc/alsa/conf.d
 lrwxrwxrwx root       root               46 ./etc/alsa/conf.d/50-pulseaudio.conf -> /usr/share/alsa/alsa.conf.d/50-pulseaudio.conf
@@ -116,6 +116,7 @@ drwxr-xr-x root       root               80 ./etc/avahi/services
 drwxr-xr-x root       root               80 ./etc/bluetooth
 -rw-r--r-- root       root              397 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
+-rw-r--r-- root       root             1294 ./etc/build
 -rw-r--r-- root       root             2383 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root               60 ./etc/ca-certificates
@@ -956,7 +957,7 @@ lrwxrwxrwx root       root               14 ./etc/sysctl.d/99-sysctl.conf -> ../
 drwxr-xr-x root       root              280 ./etc/systemd
 -rw-r--r-- root       root              615 ./etc/systemd/coredump.conf
 -rw-r--r-- root       root             1043 ./etc/systemd/journald.conf
--rw-r--r-- root       root             1043 ./etc/systemd/logind.conf
+-rw-r--r-- root       root             1029 ./etc/systemd/logind.conf
 drwxr-xr-x root       root               40 ./etc/systemd/network
 -rw-r--r-- root       root              529 ./etc/systemd/networkd.conf
 -rw-r--r-- root       root              693 ./etc/systemd/resolved.conf
@@ -4060,8 +4061,11 @@ drwxr-xr-x root       root               40 ./usr/lib/modules-load.d
 drwxr-xr-x root       root               80 ./usr/lib/mpg123
 -rwxr-xr-x root       root             5592 ./usr/lib/mpg123/output_dummy.so
 -rwxr-xr-x root       root             9716 ./usr/lib/mpg123/output_pulse.so
-drwxr-xr-x root       root               60 ./usr/lib/nodejs
+drwxr-xr-x root       root              120 ./usr/lib/nodejs
+-rwxr-xr-x root       root             1005 ./usr/lib/nodejs/palmbus.js
 -rwxr-xr-x root       root            17740 ./usr/lib/nodejs/pmloglib.node
+-rwxr-xr-x root       root            34884 ./usr/lib/nodejs/webos.node
+-rwxr-xr-x root       root           105000 ./usr/lib/nodejs/webos-sysbus.node
 drwxr-xr-x root       root               80 ./usr/lib/nyx
 drwxr-xr-x root       root              140 ./usr/lib/nyx/modules
 -rwxr-xr-x root       root             9744 ./usr/lib/nyx/modules/nyxDeviceInfoMain.module
@@ -16225,10 +16229,12 @@ drwxr-xr-x root       root              120 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             2685 ./usr/palm/luna-next/shells/card/qml/WindowManager/OverlaysManager.qml
 -rw-r--r-- root       root             2149 ./usr/palm/luna-next/shells/card/qml/WindowManager/WindowManager.qml
 -rw-r--r-- root       root             2984 ./usr/palm/luna-next/shells/card/qml/WindowManager/WindowManagerServices.js
-drwxr-xr-x root       root              100 ./usr/palm/nodejs
+drwxr-xr-x root       root              140 ./usr/palm/nodejs
 -rw-r--r-- root       root            15058 ./usr/palm/nodejs/fork_server.js
 -rw-r--r-- root       root             2991 ./usr/palm/nodejs/gcctrl.js
+lrwxrwxrwx root       root               26 ./usr/palm/nodejs/palmbus.js -> /usr/lib/nodejs/palmbus.js
 lrwxrwxrwx root       root               29 ./usr/palm/nodejs/pmloglib.node -> /usr/lib/nodejs/pmloglib.node
+lrwxrwxrwx root       root               26 ./usr/palm/nodejs/webos.node -> /usr/lib/nodejs/webos.node
 drwxr-xr-x root       root               60 ./usr/palm/public
 drwxr-xr-x root       root              380 ./usr/palm/public/accounts
 drwxr-xr-x root       root               80 ./usr/palm/public/accounts/com.palm.palmprofile
@@ -23140,7 +23146,7 @@ drwxr-xr-x root       root              360 ./usr/share/keymaps/sun
 -rw-r--r-- root       root             1706 ./usr/share/keymaps/sun/sunt6-uk.map.gz
 drwxr-xr-x root       root               60 ./usr/share/libdrm
 -rw-r--r-- root       root             6682 ./usr/share/libdrm/amdgpu.ids
-drwxr-xr-x root       root             6920 ./usr/share/licenses
+drwxr-xr-x root       root             6960 ./usr/share/licenses
 drwxr-xr-x root       root              120 ./usr/share/licenses/acl
 -rw-r--r-- root       root            18311 ./usr/share/licenses/acl/COPYING
 -rw-r--r-- root       root            26762 ./usr/share/licenses/acl/COPYING.LGPL
@@ -24015,9 +24021,15 @@ drwxr-xr-x root       root              120 ./usr/share/licenses/nodejs
 -rw-r--r-- root       root             1499 ./usr/share/licenses/nodejs/generic_BSD
 -rw-r--r-- root       root             1080 ./usr/share/licenses/nodejs/generic_MIT
 -rw-r--r-- root       root            65839 ./usr/share/licenses/nodejs/LICENSE
+drwxr-xr-x root       root               80 ./usr/share/licenses/nodejs-module-webos-dynaload
+-rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-dynaload/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-dynaload/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/nodejs-module-webos-pmlog
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-pmlog/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-pmlog/generic_Apache-2.0
+drwxr-xr-x root       root               80 ./usr/share/licenses/nodejs-module-webos-sysbus
+-rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-sysbus/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/nodejs-module-webos-sysbus/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/novacomd
 -rw-r--r-- root       root            11360 ./usr/share/licenses/novacomd/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/novacomd/generic_Apache-2.0
@@ -24742,7 +24754,7 @@ drwxr-xr-x root       root               60 ./usr/share/localization/luna-sysser
 -rwxr-xr-x root       root            48595 ./usr/share/localization/luna-sysservice/resources/zh/Hant/TW/cppstrings.json
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root             1060 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root             1080 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/prv/audio-service.json
 -rw-r--r-- root       root              118 ./usr/share/ls2/roles/prv/com.lge.settingsservice.backupRegistration.json
 -rw-r--r-- root       root              304 ./usr/share/ls2/roles/prv/com.lge.settingsservice.json
@@ -24757,6 +24769,7 @@ drwxr-xr-x root       root             1060 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              190 ./usr/share/ls2/roles/prv/com.palm.service.accounts.role.json
 -rw-r--r-- root       root              284 ./usr/share/ls2/roles/prv/com.palm.storage.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/prv/com.palm.universalsearch.json
+-rw-r--r-- root       root              249 ./usr/share/ls2/roles/prv/com.webos.nodejs.json
 -rw-r--r-- root       root              287 ./usr/share/ls2/roles/prv/com.webos.pmlogd.json
 -rw-r--r-- root       root              451 ./usr/share/ls2/roles/prv/location-service.json
 -rw-r--r-- root       root              261 ./usr/share/ls2/roles/prv/lumberjack.json
@@ -24794,7 +24807,7 @@ drwxr-xr-x root       root             1060 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              634 ./usr/share/ls2/roles/prv/org.webosports.webappmanager.json
 -rw-r--r-- root       root              591 ./usr/share/ls2/roles/prv/sleepd.json
 -rw-r--r-- root       root              432 ./usr/share/ls2/roles/prv/webos-telephonyd.json
-drwxr-xr-x root       root              600 ./usr/share/ls2/roles/pub
+drwxr-xr-x root       root              620 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/pub/audio-service.json
 -rw-r--r-- root       root              118 ./usr/share/ls2/roles/pub/com.lge.settingsservice.backupRegistration.json
 -rw-r--r-- root       root              304 ./usr/share/ls2/roles/pub/com.lge.settingsservice.json
@@ -24808,6 +24821,7 @@ drwxr-xr-x root       root              600 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              190 ./usr/share/ls2/roles/pub/com.palm.service.accounts.role.json
 -rw-r--r-- root       root              284 ./usr/share/ls2/roles/pub/com.palm.storage.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json
+-rw-r--r-- root       root              249 ./usr/share/ls2/roles/pub/com.webos.nodejs.json
 -rw-r--r-- root       root              261 ./usr/share/ls2/roles/pub/lumberjack.json
 -rw-r--r-- root       root              911 ./usr/share/ls2/roles/pub/luna-appmanager.json
 -rw-r--r-- root       root              294 ./usr/share/ls2/roles/pub/org.webosinternals.ipkgservice.json
@@ -24868,7 +24882,7 @@ drwxr-xr-x root       root              120 ./usr/share/luna-service2/groups.d
 -rw-r--r-- root       root             4769 ./usr/share/luna-service2/groups.d/all.groups.json
 -rw-r--r-- root       root              136 ./usr/share/luna-service2/groups.d/configurator.groups.json
 -rw-r--r-- root       root               99 ./usr/share/luna-service2/groups.d/db8.groups.json
-drwxrwxr-x root       root              840 ./usr/share/luna-service2/manifests.d
+drwxrwxr-x root       root              860 ./usr/share/luna-service2/manifests.d
 -rw-rw-r-- root       root              555 ./usr/share/luna-service2/manifests.d/activitymanager.manifest.json
 -rw-rw-r-- root       root              939 ./usr/share/luna-service2/manifests.d/app-services.manifest.json
 -rw-rw-r-- root       root              375 ./usr/share/luna-service2/manifests.d/audio-service.manifest.json
@@ -24893,6 +24907,7 @@ drwxrwxr-x root       root              840 ./usr/share/luna-service2/manifests.
 -rw-rw-r-- root       root              560 ./usr/share/luna-service2/manifests.d/luna-webappmanager.manifest.json
 -rw-rw-r-- root       root              259 ./usr/share/luna-service2/manifests.d/mediaindexer.manifest.json
 -rw-rw-r-- root       root              434 ./usr/share/luna-service2/manifests.d/media-permission-service.manifest.json
+-rw-rw-r-- root       root              239 ./usr/share/luna-service2/manifests.d/nodejs-module-webos-sysbus.manifest.json
 -rw-rw-r-- root       root              460 ./usr/share/luna-service2/manifests.d/org.webosinternals.ipkgservice.manifest.json
 -rw-rw-r-- root       root              459 ./usr/share/luna-service2/manifests.d/org.webosinternals.tweaks.manifest.json
 -rw-rw-r-- root       root              492 ./usr/share/luna-service2/manifests.d/org.webosports.app.filemanager.manifest.json
@@ -28431,7 +28446,7 @@ drwxr-xr-x root       root               80 ./var/lib/ofono
 -rw-r--r-- root       root             6900 ./var/lib/ofono/ril_subscription.conf
 drwx--x--- root       root               40 ./var/lib/openvpn
 drwxr-xr-x root       root               80 ./var/lib/opkg
-drwxr-xr-x root       root           100020 ./var/lib/opkg/info
+drwxr-xr-x root       root           100180 ./var/lib/opkg/info
 -rw-r--r-- root       root              361 ./var/lib/opkg/info/acl-lic.control
 -rw-r--r-- root       root              212 ./var/lib/opkg/info/acl-lic.list
 -rw-r--r-- root       root              682 ./var/lib/opkg/info/activitymanager.control
@@ -28491,7 +28506,7 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rw-r--r-- root       root              711 ./var/lib/opkg/info/avahi-lic.control
 -rw-r--r-- root       root              343 ./var/lib/opkg/info/avahi-lic.list
 -rw-r--r-- root       root              888 ./var/lib/opkg/info/avahi-locale-en-gb.control
--rw-r--r-- root       root               53 ./var/lib/opkg/info/avahi-locale-en-gb.list
+-rw-r--r-- root       root              129 ./var/lib/opkg/info/avahi-locale-en-gb.list
 -rw-r--r-- root       root               90 ./var/lib/opkg/info/base-files.conffiles
 -rw-r--r-- root       root              421 ./var/lib/opkg/info/base-files.control
 -rw-r--r-- root       root              398 ./var/lib/opkg/info/base-files-lic.control
@@ -29134,7 +29149,7 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rw-r--r-- root       root              665 ./var/lib/opkg/info/gtk+3-locale-en.control
 -rw-r--r-- root       root              680 ./var/lib/opkg/info/gtk+3-locale-en-gb.control
 -rw-r--r-- root       root              117 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
--rw-r--r-- root       root              181 ./var/lib/opkg/info/gtk+3-locale-en.list
+-rw-r--r-- root       root              207 ./var/lib/opkg/info/gtk+3-locale-en.list
 -rw-r--r-- root       root              488 ./var/lib/opkg/info/gzip.control
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/gzip-lic.control
 -rw-r--r-- root       root              161 ./var/lib/opkg/info/gzip-lic.list
@@ -31653,7 +31668,7 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rwxr-xr-x root       root              551 ./var/lib/opkg/info/libgdk-pixbuf-2.0-loader-xpm.postinst
 -rwxr-xr-x root       root              551 ./var/lib/opkg/info/libgdk-pixbuf-2.0-loader-xpm.postrm
 -rw-r--r-- root       root              526 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.control
--rw-r--r-- root       root              160 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.list
+-rw-r--r-- root       root               58 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.list
 -rw-r--r-- root       root              708 ./var/lib/opkg/info/libglapi0.control
 -rw-r--r-- root       root               84 ./var/lib/opkg/info/libglapi0.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libglapi0.postinst
@@ -32428,7 +32443,7 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rw-r--r-- root       root              354 ./var/lib/opkg/info/mojoservice-frameworks-lic.control
 -rw-r--r-- root       root              183 ./var/lib/opkg/info/mojoservice-frameworks-lic.list
 -rw-r--r-- root       root             6509 ./var/lib/opkg/info/mojoservice-frameworks.list
--rw-r--r-- root       root              484 ./var/lib/opkg/info/mojoservicelauncher.control
+-rw-r--r-- root       root              542 ./var/lib/opkg/info/mojoservicelauncher.control
 -rw-r--r-- root       root              397 ./var/lib/opkg/info/mojoservicelauncher-lic.control
 -rw-r--r-- root       root              174 ./var/lib/opkg/info/mojoservicelauncher-lic.list
 -rw-r--r-- root       root              544 ./var/lib/opkg/info/mojoservicelauncher.list
@@ -32487,10 +32502,18 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rw-r--r-- root       root              315 ./var/lib/opkg/info/nodejs-lic.control
 -rw-r--r-- root       root              228 ./var/lib/opkg/info/nodejs-lic.list
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/nodejs.list
+-rw-r--r-- root       root              614 ./var/lib/opkg/info/nodejs-module-webos-dynaload.control
+-rw-r--r-- root       root              466 ./var/lib/opkg/info/nodejs-module-webos-dynaload-lic.control
+-rw-r--r-- root       root              201 ./var/lib/opkg/info/nodejs-module-webos-dynaload-lic.list
+-rw-r--r-- root       root              147 ./var/lib/opkg/info/nodejs-module-webos-dynaload.list
 -rw-r--r-- root       root              605 ./var/lib/opkg/info/nodejs-module-webos-pmlog.control
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/nodejs-module-webos-pmlog-lic.control
 -rw-r--r-- root       root              192 ./var/lib/opkg/info/nodejs-module-webos-pmlog-lic.list
--rw-r--r-- root       root              156 ./var/lib/opkg/info/nodejs-module-webos-pmlog.list
+-rw-r--r-- root       root              107 ./var/lib/opkg/info/nodejs-module-webos-pmlog.list
+-rw-r--r-- root       root              622 ./var/lib/opkg/info/nodejs-module-webos-sysbus.control
+-rw-r--r-- root       root              443 ./var/lib/opkg/info/nodejs-module-webos-sysbus-lic.control
+-rw-r--r-- root       root              195 ./var/lib/opkg/info/nodejs-module-webos-sysbus-lic.list
+-rw-r--r-- root       root              336 ./var/lib/opkg/info/nodejs-module-webos-sysbus.list
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/novacomd.control
 -rw-r--r-- root       root              336 ./var/lib/opkg/info/novacomd-lic.control
 -rw-r--r-- root       root              141 ./var/lib/opkg/info/novacomd-lic.list
@@ -33431,7 +33454,7 @@ drwxr-xr-x root       root           100020 ./var/lib/opkg/info
 -rw-r--r-- root       root              179 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           551999 ./var/lib/opkg/status
+-rw-r--r-- root       root           553175 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
