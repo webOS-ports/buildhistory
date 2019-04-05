@@ -6,7 +6,7 @@ digraph depends {
 "android-tools-conf" -> "android-tools-conf-lic" [style=dotted]
 "android-tools" -> "libbsd0"
 "android-tools" -> "libc6"
-"android-tools" -> "libcrypto1.0.2"
+"android-tools" -> "libcrypto1.1"
 "android-tools" -> "libpcre1"
 "android-tools" -> "libz1"
 "base-files" -> "base-files-lic" [style=dotted]
@@ -17,17 +17,19 @@ digraph depends {
 "bash" -> "libtinfo5"
 "bash" -> "update-alternatives-opkg"
 "busybox" -> "busybox-lic" [style=dotted]
-"busybox" -> "busybox-syslog" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox" -> "libc6"
-"busybox-syslog" -> "update-alternatives-opkg"
+"busybox-mdev" -> "busybox-lic" [style=dotted]
+"busybox-udhcpc" -> "busybox-lic" [style=dotted]
 "busybox" -> "update-alternatives-opkg"
+"e2fsprogs-e2fsck" -> "e2fsprogs-lic" [style=dotted]
 "e2fsprogs-e2fsck" -> "libblkid1"
 "e2fsprogs-e2fsck" -> "libc6"
 "e2fsprogs-e2fsck" -> "libcom-err2"
 "e2fsprogs-e2fsck" -> "libe2p2"
 "e2fsprogs-e2fsck" -> "libext2fs2"
 "e2fsprogs-e2fsck" -> "libuuid1"
+"e2fsprogs-resize2fs" -> "e2fsprogs-lic" [style=dotted]
 "e2fsprogs-resize2fs" -> "libc6"
 "e2fsprogs-resize2fs" -> "libcom-err2"
 "e2fsprogs-resize2fs" -> "libe2p2"
@@ -41,10 +43,14 @@ digraph depends {
 "libbsd0" -> "libbsd-lic" [style=dotted]
 "libbsd0" -> "libc6"
 "libc6" -> "libc6-lic" [style=dotted]
+"libcom-err2" -> "e2fsprogs-lic" [style=dotted]
 "libcom-err2" -> "libc6"
-"libcrypto1.0.2" -> "libc6"
-"libcrypto1.0.2" -> "openssl-conf" [style=dotted]
+"libcrypto1.1" -> "libc6"
+"libcrypto1.1" -> "openssl-conf" [style=dotted]
+"libcrypto1.1" -> "openssl-lic" [style=dotted]
+"libe2p2" -> "e2fsprogs-lic" [style=dotted]
 "libe2p2" -> "libc6"
+"libext2fs2" -> "e2fsprogs-lic" [style=dotted]
 "libext2fs2" -> "libblkid1"
 "libext2fs2" -> "libc6"
 "libext2fs2" -> "libcom-err2"
@@ -55,5 +61,9 @@ digraph depends {
 "libuuid1" -> "libc6"
 "libz1" -> "libc6"
 "libz1" -> "libz-lic" [style=dotted]
+"ncurses-terminfo-base" -> "ncurses-lic" [style=dotted]
+"openssl-conf" -> "openssl-lic" [style=dotted]
+"openssl-conf" -> "update-alternatives-opkg"
 "run-postinsts" -> "run-postinsts-lic" [style=dotted]
+"update-alternatives-opkg" -> "opkg-utils-lic" [style=dotted]
 }
