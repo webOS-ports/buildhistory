@@ -1,0 +1,9 @@
+set -e
+	if [ ! -e "$D/lib/modules/3.4.106" ]; then
+		mkdir -p $D/lib/modules/3.4.106
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.4.106
+	else
+		depmod -a 3.4.106
+	fi
