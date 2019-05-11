@@ -166,10 +166,6 @@ digraph depends {
 "iptables" -> "kernel-module-nf-defrag-ipv4" [style=dotted]
 "iptables" -> "kernel-module-nf-nat" [style=dotted]
 "iptables" -> "kernel-module-x-tables" [style=dotted]
-"iptables-module-ebt-802-3" -> "iptables"
-"iptables-module-ebt-ip" -> "iptables"
-"iptables-module-ebt-log" -> "iptables"
-"iptables-module-ebt-mark-m" -> "iptables"
 "iptables-module-ip6t-ah" -> "iptables"
 "iptables-module-ip6t-dnat" -> "iptables"
 "iptables-module-ip6t-dnpt" -> "iptables"
@@ -205,10 +201,6 @@ digraph depends {
 "iptables-module-ipt-ttl" -> "iptables"
 "iptables-module-ipt-ulog" -> "iptables"
 "iptables-modules" -> "iptables-lic" [style=dotted]
-"iptables-modules" -> "iptables-module-ebt-802-3"
-"iptables-modules" -> "iptables-module-ebt-ip"
-"iptables-modules" -> "iptables-module-ebt-log"
-"iptables-modules" -> "iptables-module-ebt-mark-m"
 "iptables-modules" -> "iptables-module-ip6t-ah"
 "iptables-modules" -> "iptables-module-ip6t-dnat"
 "iptables-modules" -> "iptables-module-ip6t-dnpt"
@@ -274,7 +266,6 @@ digraph depends {
 "iptables-modules" -> "iptables-module-xt-length"
 "iptables-modules" -> "iptables-module-xt-limit"
 "iptables-modules" -> "iptables-module-xt-mac"
-"iptables-modules" -> "iptables-module-xt-mangle"
 "iptables-modules" -> "iptables-module-xt-mark"
 "iptables-modules" -> "iptables-module-xt-multiport"
 "iptables-modules" -> "iptables-module-xt-nfacct"
@@ -340,7 +331,6 @@ digraph depends {
 "iptables-module-xt-length" -> "iptables"
 "iptables-module-xt-limit" -> "iptables"
 "iptables-module-xt-mac" -> "iptables"
-"iptables-module-xt-mangle" -> "iptables"
 "iptables-module-xt-mark" -> "iptables"
 "iptables-module-xt-multiport" -> "iptables"
 "iptables-module-xt-nfacct" -> "iptables"
@@ -1971,6 +1961,7 @@ digraph depends {
 "libatk-1.0-0" -> "libatk-1.0-lic" [style=dotted]
 "libatk-1.0-0" -> "libglib-2.0-0"
 "libatk-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"libatomic1" -> "gcc-runtime-lic" [style=dotted]
 "libattr1" -> "attr-lic" [style=dotted]
 "libavahi-client3" -> "avahi-lic" [style=dotted]
 "libavahi-client3" -> "libavahi-common3"
@@ -2052,6 +2043,7 @@ digraph depends {
 "libfontconfig1" -> "libexpat1"
 "libfontconfig1" -> "libfontconfig-lic" [style=dotted]
 "libfontconfig1" -> "libfreetype6"
+"libfontconfig1" -> "libuuid1"
 "libformw5" -> "libncursesw5"
 "libformw5" -> "libtinfo5"
 "libfreetype6" -> "libfreetype-lic" [style=dotted]
@@ -2098,6 +2090,7 @@ digraph depends {
 "libglib-2.0-utils" -> "libglib-2.0-0"
 "libglib-2.0-utils" -> "libglib-2.0-lic" [style=dotted]
 "libgmp10" -> "libgmp-lic" [style=dotted]
+"libgnutls30" -> "libatomic1"
 "libgnutls30" -> "libgmp10"
 "libgnutls30" -> "libgnutls-lic" [style=dotted]
 "libgnutls30" -> "libidn2-0"
@@ -2153,14 +2146,14 @@ digraph depends {
 "libharfbuzz0" -> "libglib-2.0-0"
 "libharfbuzz0" -> "libharfbuzz-lic" [style=dotted]
 "libharfbuzz0" -> "libstdc++6"
-"libicudata63" -> "icu-lic" [style=dotted]
-"libicui18n63" -> "icu-lic" [style=dotted]
-"libicui18n63" -> "libicudata63"
-"libicui18n63" -> "libicuuc63"
-"libicui18n63" -> "libstdc++6"
-"libicuuc63" -> "icu-lic" [style=dotted]
-"libicuuc63" -> "libicudata63"
-"libicuuc63" -> "libstdc++6"
+"libicudata64" -> "icu-lic" [style=dotted]
+"libicui18n64" -> "icu-lic" [style=dotted]
+"libicui18n64" -> "libicudata64"
+"libicui18n64" -> "libicuuc64"
+"libicui18n64" -> "libstdc++6"
+"libicuuc64" -> "icu-lic" [style=dotted]
+"libicuuc64" -> "libicudata64"
+"libicuuc64" -> "libstdc++6"
 "libidn2-0" -> "libidn2-lic" [style=dotted]
 "libidn2-0" -> "libunistring2"
 "libinput10" -> "libevdev"
@@ -2252,23 +2245,23 @@ digraph depends {
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
 "libtirpc3" -> "libtirpc-lic" [style=dotted]
 "libunistring2" -> "libunistring-lic" [style=dotted]
-"libweston-5" -> "libcairo2"
-"libweston-5" -> "libdbus-1-3"
-"libweston-5" -> "libdrm2"
-"libweston-5" -> "libegl-mesa"
-"libweston-5" -> "libgbm1"
-"libweston-5" -> "libgles2-mesa"
-"libweston-5" -> "libglib-2.0-0"
-"libweston-5" -> "libinput10"
-"libweston-5" -> "libjpeg62"
-"libweston-5" -> "libpixman-1-0"
-"libweston-5" -> "libpng16-16"
-"libweston-5" -> "libsystemd0"
-"libweston-5" -> "libudev1"
-"libweston-5" -> "libxkbcommon0"
-"libweston-5" -> "pango"
-"libweston-5" -> "wayland"
-"libweston-5" -> "weston-lic" [style=dotted]
+"libweston-6" -> "libcairo2"
+"libweston-6" -> "libdbus-1-3"
+"libweston-6" -> "libdrm2"
+"libweston-6" -> "libegl-mesa"
+"libweston-6" -> "libgbm1"
+"libweston-6" -> "libgles2-mesa"
+"libweston-6" -> "libglib-2.0-0"
+"libweston-6" -> "libinput10"
+"libweston-6" -> "libjpeg62"
+"libweston-6" -> "libpixman-1-0"
+"libweston-6" -> "libpng16-16"
+"libweston-6" -> "libsystemd0"
+"libweston-6" -> "libudev1"
+"libweston-6" -> "libxkbcommon0"
+"libweston-6" -> "pango"
+"libweston-6" -> "wayland"
+"libweston-6" -> "weston-lic" [style=dotted]
 "libwrap0" -> "tcp-wrappers-lic" [style=dotted]
 "libxkbcommon0" -> "libxkbcommon-lic" [style=dotted]
 "libxml2" -> "libxml2-lic" [style=dotted]
@@ -2587,8 +2580,8 @@ digraph depends {
 "qtbase" -> "libfreetype6"
 "qtbase" -> "libgles2-mesa"
 "qtbase" -> "libglib-2.0-0"
-"qtbase" -> "libicui18n63"
-"qtbase" -> "libicuuc63"
+"qtbase" -> "libicui18n64"
+"qtbase" -> "libicuuc64"
 "qtbase" -> "libpng16-16"
 "qtbase" -> "libssl1.1"
 "qtbase" -> "libstdc++6"
@@ -2743,12 +2736,6 @@ digraph depends {
 "systemd-compat-units" -> "systemd"
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted]
 "systemd-conf" -> "systemd-conf-lic" [style=dotted]
-"systemd-container" -> "libacl1"
-"systemd-container" -> "systemd"
-"systemd-container" -> "systemd-journal-gatewayd" [style=dotted]
-"systemd-container" -> "systemd-journal-remote" [style=dotted]
-"systemd-container" -> "systemd-journal-upload" [style=dotted]
-"systemd-container" -> "systemd-lic" [style=dotted]
 "systemd" -> "dbus-1"
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted]
 "systemd-extra-utils" -> "base-files"
@@ -2763,7 +2750,6 @@ digraph depends {
 "systemd" -> "libacl1"
 "systemd" -> "libblkid1"
 "systemd" -> "libcap2"
-"systemd" -> "libcrypt1"
 "systemd" -> "libkmod2"
 "systemd" -> "liblzma5"
 "systemd" -> "libmount1"
@@ -2773,8 +2759,7 @@ digraph depends {
 "systemd-serialgetty" -> "systemd-serialgetty-lic" [style=dotted]
 "systemd" -> "shadow"
 "systemd" -> "systemd-compat-units" [style=dotted]
-"systemd" -> "systemd-conf"
-"systemd" -> "systemd-container"
+"systemd" -> "systemd-conf" [style=dotted]
 "systemd" -> "systemd-extra-utils" [style=dotted]
 "systemd" -> "systemd-lic" [style=dotted]
 "systemd" -> "systemd-serialgetty"
@@ -2823,6 +2808,7 @@ digraph depends {
 "weston-examples" -> "libdrm-freedreno1"
 "weston-examples" -> "libdrm-intel1"
 "weston-examples" -> "libegl-mesa"
+"weston-examples" -> "libgbm1"
 "weston-examples" -> "libgles2-mesa"
 "weston-examples" -> "libglib-2.0-0"
 "weston-examples" -> "libjpeg62"
@@ -2838,12 +2824,13 @@ digraph depends {
 "weston" -> "libcairo2"
 "weston" -> "libdrm2"
 "weston" -> "liberation-fonts" [style=dotted]
+"weston" -> "libevdev"
 "weston" -> "libinput10"
 "weston" -> "libjpeg62"
 "weston" -> "libpixman-1-0"
 "weston" -> "libpng16-16"
 "weston" -> "libsystemd0"
-"weston" -> "libweston-5"
+"weston" -> "libweston-6"
 "weston" -> "libxkbcommon0"
 "weston" -> "pango"
 "weston" -> "shadow"
