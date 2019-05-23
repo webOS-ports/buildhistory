@@ -104,6 +104,12 @@ digraph depends {
 "bzip2" -> "update-alternatives-opkg"
 "ca-certificates" -> "ca-certificates-lic" [style=dotted]
 "ca-certificates" -> "openssl"
+"certmgrd" -> "certmgrd-lic" [style=dotted]
+"certmgrd" -> "libc6"
+"certmgrd" -> "libglib-2.0-0"
+"certmgrd" -> "libpbnjson"
+"certmgrd" -> "libpmcertificatemgr2"
+"certmgrd" -> "luna-service2"
 "configurator" -> "configurator-lic" [style=dotted]
 "configurator" -> "db8"
 "configurator" -> "libc6"
@@ -185,8 +191,8 @@ digraph depends {
 "db8" -> "libc6"
 "db8" -> "libgcc1"
 "db8" -> "libglib-2.0-0"
-"db8" -> "libicui18n63"
-"db8" -> "libicuuc63"
+"db8" -> "libicui18n64"
+"db8" -> "libicuuc64"
 "db8" -> "libleveldb1"
 "db8" -> "libstdc++6"
 "db8" -> "luna-service2"
@@ -339,6 +345,7 @@ digraph depends {
 "glmark2" -> "libpng16-16"
 "glmark2" -> "libstdc++6"
 "glmark2" -> "libudev1"
+"glmark2" -> "libz1"
 "gstreamer1.0" -> "gstreamer1.0-lic" [style=dotted]
 "gstreamer1.0-libav" -> "gstreamer1.0"
 "gstreamer1.0-libav" -> "gstreamer1.0-libav-lic" [style=dotted]
@@ -1292,6 +1299,7 @@ digraph depends {
 "gstreamer1.0-plugins-good-png" -> "libglib-2.0-0"
 "gstreamer1.0-plugins-good-png" -> "libgstvideo-1.0-0"
 "gstreamer1.0-plugins-good-png" -> "libpng16-16"
+"gstreamer1.0-plugins-good-png" -> "libz1"
 "gstreamer1.0-plugins-good-pulseaudio" -> "gstreamer1.0"
 "gstreamer1.0-plugins-good-pulseaudio" -> "libc6"
 "gstreamer1.0-plugins-good-pulseaudio" -> "libglib-2.0-0"
@@ -1470,14 +1478,21 @@ digraph depends {
 "icu" -> "icu-lic" [style=dotted]
 "icu" -> "libc6"
 "icu" -> "libgcc1"
-"icu" -> "libicudata63"
-"icu" -> "libicui18n63"
-"icu" -> "libicuio63"
-"icu" -> "libicutu63"
-"icu" -> "libicuuc63"
+"icu" -> "libicudata64"
+"icu" -> "libicui18n64"
+"icu" -> "libicuio64"
+"icu" -> "libicutu64"
+"icu" -> "libicuuc64"
 "icu" -> "libstdc++6"
+"icyque" -> "icyque-lic" [style=dotted]
+"icyque" -> "libc6"
+"icyque" -> "libglib-2.0-0"
+"icyque" -> "libjson-glib-1.0-0"
+"icyque" -> "libpurple"
+"icyque" -> "libz1"
 "imaccountvalidator" -> "db8"
 "imaccountvalidator" -> "funyahoo-plusplus" [style=dotted]
+"imaccountvalidator" -> "icyque" [style=dotted]
 "imaccountvalidator" -> "imaccountvalidator-lic" [style=dotted]
 "imaccountvalidator" -> "libc6"
 "imaccountvalidator" -> "libgcc1"
@@ -1494,10 +1509,8 @@ digraph depends {
 "imaccountvalidator" -> "libpurple-plugin-ssl-gnutls" [style=dotted]
 "imaccountvalidator" -> "libpurple-plugin-ssl" [style=dotted]
 "imaccountvalidator" -> "libpurple-plugin-statenotify" [style=dotted]
-"imaccountvalidator" -> "libpurple-protocol-aim" [style=dotted]
 "imaccountvalidator" -> "libpurple-protocol-bonjour" [style=dotted]
 "imaccountvalidator" -> "libpurple-protocol-gg" [style=dotted]
-"imaccountvalidator" -> "libpurple-protocol-icq" [style=dotted]
 "imaccountvalidator" -> "libpurple-protocol-irc" [style=dotted]
 "imaccountvalidator" -> "libpurple-protocol-novell" [style=dotted]
 "imaccountvalidator" -> "libpurple-protocol-simple" [style=dotted]
@@ -1508,6 +1521,7 @@ digraph depends {
 "imaccountvalidator" -> "purple-skypeweb" [style=dotted]
 "imlibpurpleservice" -> "db8"
 "imlibpurpleservice" -> "funyahoo-plusplus" [style=dotted]
+"imlibpurpleservice" -> "icyque" [style=dotted]
 "imlibpurpleservice" -> "imlibpurpleservice-lic" [style=dotted]
 "imlibpurpleservice" -> "libc6"
 "imlibpurpleservice" -> "libgcc1"
@@ -1524,10 +1538,8 @@ digraph depends {
 "imlibpurpleservice" -> "libpurple-plugin-ssl-gnutls" [style=dotted]
 "imlibpurpleservice" -> "libpurple-plugin-ssl" [style=dotted]
 "imlibpurpleservice" -> "libpurple-plugin-statenotify" [style=dotted]
-"imlibpurpleservice" -> "libpurple-protocol-aim" [style=dotted]
 "imlibpurpleservice" -> "libpurple-protocol-bonjour" [style=dotted]
 "imlibpurpleservice" -> "libpurple-protocol-gg" [style=dotted]
-"imlibpurpleservice" -> "libpurple-protocol-icq" [style=dotted]
 "imlibpurpleservice" -> "libpurple-protocol-irc" [style=dotted]
 "imlibpurpleservice" -> "libpurple-protocol-novell" [style=dotted]
 "imlibpurpleservice" -> "libpurple-protocol-simple" [style=dotted]
@@ -1556,14 +1568,6 @@ digraph depends {
 "iptables" -> "kernel-module-nf-nat" [style=dotted]
 "iptables" -> "kernel-module-x-tables" [style=dotted]
 "iptables" -> "libc6"
-"iptables-module-ebt-802-3" -> "iptables"
-"iptables-module-ebt-802-3" -> "libc6"
-"iptables-module-ebt-ip" -> "iptables"
-"iptables-module-ebt-ip" -> "libc6"
-"iptables-module-ebt-log" -> "iptables"
-"iptables-module-ebt-log" -> "libc6"
-"iptables-module-ebt-mark-m" -> "iptables"
-"iptables-module-ebt-mark-m" -> "libc6"
 "iptables-module-ip6t-ah" -> "iptables"
 "iptables-module-ip6t-ah" -> "libc6"
 "iptables-module-ip6t-dnat" -> "iptables"
@@ -1633,10 +1637,6 @@ digraph depends {
 "iptables-module-ipt-ulog" -> "iptables"
 "iptables-module-ipt-ulog" -> "libc6"
 "iptables-modules" -> "iptables-lic" [style=dotted]
-"iptables-modules" -> "iptables-module-ebt-802-3"
-"iptables-modules" -> "iptables-module-ebt-ip"
-"iptables-modules" -> "iptables-module-ebt-log"
-"iptables-modules" -> "iptables-module-ebt-mark-m"
 "iptables-modules" -> "iptables-module-ip6t-ah"
 "iptables-modules" -> "iptables-module-ip6t-dnat"
 "iptables-modules" -> "iptables-module-ip6t-dnpt"
@@ -1702,7 +1702,6 @@ digraph depends {
 "iptables-modules" -> "iptables-module-xt-length"
 "iptables-modules" -> "iptables-module-xt-limit"
 "iptables-modules" -> "iptables-module-xt-mac"
-"iptables-modules" -> "iptables-module-xt-mangle"
 "iptables-modules" -> "iptables-module-xt-mark"
 "iptables-modules" -> "iptables-module-xt-multiport"
 "iptables-modules" -> "iptables-module-xt-nfacct"
@@ -1799,8 +1798,6 @@ digraph depends {
 "iptables-module-xt-limit" -> "libc6"
 "iptables-module-xt-mac" -> "iptables"
 "iptables-module-xt-mac" -> "libc6"
-"iptables-module-xt-mangle" -> "iptables"
-"iptables-module-xt-mangle" -> "libc6"
 "iptables-module-xt-mark" -> "iptables"
 "iptables-module-xt-mark" -> "libc6"
 "iptables-module-xt-multiport" -> "iptables"
@@ -3491,6 +3488,8 @@ digraph depends {
 "libatk-1.0-0" -> "libc6"
 "libatk-1.0-0" -> "libglib-2.0-0"
 "libatk-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"libatomic1" -> "gcc-runtime-lic" [style=dotted]
+"libatomic1" -> "libc6"
 "libattr1" -> "attr-lic" [style=dotted]
 "libattr1" -> "libc6"
 "libavahi-client3" -> "avahi-lic" [style=dotted]
@@ -3519,8 +3518,8 @@ digraph depends {
 "libboost-regex1.69.0" -> "libc6"
 "libboost-regex1.69.0" -> "libgcc1"
 "libboost-regex1.69.0" -> "libstdc++6"
-"libbson-1.0-0" -> "libbson-1.0-lic" [style=dotted]
-"libbson-1.0-0" -> "libc6"
+"libbson-1.0-1" -> "libbson-1.0-lic" [style=dotted]
+"libbson-1.0-1" -> "libc6"
 "libbz2-1" -> "bzip2-lic" [style=dotted]
 "libbz2-1" -> "libc6"
 "libc6-dbg" -> "libc6-lic" [style=dotted]
@@ -3547,6 +3546,8 @@ digraph depends {
 "libcairo-gobject2" -> "libz1"
 "libcap2" -> "libc6"
 "libcap2" -> "libcap-lic" [style=dotted]
+"libcares2" -> "libc6"
+"libcares2" -> "libcares-lic" [style=dotted]
 "libcom-err2" -> "e2fsprogs-lic" [style=dotted]
 "libcom-err2" -> "libc6"
 "libconnman-qt5-1" -> "connman"
@@ -3618,13 +3619,24 @@ digraph depends {
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
 "libegl-mesa" -> "libglapi0"
-"libegl-mesa" -> "libz1"
 "libegl-mesa" -> "mesa-lic" [style=dotted]
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
 "libelf1" -> "elfutils-lic" [style=dotted]
 "libelf1" -> "libc6"
 "libelf1" -> "libz1"
+"libemail-common2" -> "db8"
+"libemail-common2" -> "jemalloc"
+"libemail-common2" -> "libboost-regex1.69.0"
+"libemail-common2" -> "libc6"
+"libemail-common2" -> "libcurl4"
+"libemail-common2" -> "libemail-common-lic" [style=dotted]
+"libemail-common2" -> "libgcc1"
+"libemail-common2" -> "libglib-2.0-0"
+"libemail-common2" -> "libicuuc64"
+"libemail-common2" -> "libpalmsocket2"
+"libemail-common2" -> "libstdc++6"
+"libemail-common2" -> "libz1"
 "libepoxy0" -> "libc6"
 "libepoxy0" -> "libepoxy-lic" [style=dotted]
 "liberation-fonts" -> "fontconfig-utils"
@@ -3646,6 +3658,7 @@ digraph depends {
 "libfontconfig1" -> "libexpat1"
 "libfontconfig1" -> "libfontconfig-lic" [style=dotted]
 "libfontconfig1" -> "libfreetype6"
+"libfontconfig1" -> "libuuid1"
 "libformw5" -> "libc6"
 "libformw5" -> "libncursesw5"
 "libformw5" -> "libtinfo5"
@@ -3657,7 +3670,6 @@ digraph depends {
 "libgbm1" -> "libc6"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgbm1" -> "mesa-lic" [style=dotted]
 "libgbm1" -> "wayland"
 "libgcc1" -> "libc6"
@@ -3693,12 +3705,10 @@ digraph depends {
 "libglapi0" -> "libc6"
 "libglapi0" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "libc6"
-"libgles1-mesa" -> "libdrm2"
 "libgles1-mesa" -> "libglapi0"
 "libgles1-mesa" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "mesa-megadriver" [style=dotted]
 "libgles2-mesa" -> "libc6"
-"libgles2-mesa" -> "libdrm2"
 "libgles2-mesa" -> "libglapi0"
 "libgles2-mesa" -> "mesa-lic" [style=dotted]
 "libgles2-mesa" -> "mesa-megadriver" [style=dotted]
@@ -3715,6 +3725,7 @@ digraph depends {
 "libglib-2.0-utils" -> "libglib-2.0-lic" [style=dotted]
 "libgmp10" -> "libc6"
 "libgmp10" -> "libgmp-lic" [style=dotted]
+"libgnutls30" -> "libatomic1"
 "libgnutls30" -> "libc6"
 "libgnutls30" -> "libgmp10"
 "libgnutls30" -> "libgnutls-lic" [style=dotted]
@@ -3866,33 +3877,33 @@ digraph depends {
 "libharfbuzz0" -> "libglib-2.0-0"
 "libharfbuzz0" -> "libharfbuzz-lic" [style=dotted]
 "libharfbuzz0" -> "libstdc++6"
-"libicudata63" -> "icu-lic" [style=dotted]
-"libicudata63" -> "libc6"
-"libicui18n63" -> "icu-lic" [style=dotted]
-"libicui18n63" -> "libc6"
-"libicui18n63" -> "libgcc1"
-"libicui18n63" -> "libicudata63"
-"libicui18n63" -> "libicuuc63"
-"libicui18n63" -> "libstdc++6"
-"libicuio63" -> "icu-lic" [style=dotted]
-"libicuio63" -> "libc6"
-"libicuio63" -> "libgcc1"
-"libicuio63" -> "libicudata63"
-"libicuio63" -> "libicui18n63"
-"libicuio63" -> "libicuuc63"
-"libicuio63" -> "libstdc++6"
-"libicutu63" -> "icu-lic" [style=dotted]
-"libicutu63" -> "libc6"
-"libicutu63" -> "libgcc1"
-"libicutu63" -> "libicudata63"
-"libicutu63" -> "libicui18n63"
-"libicutu63" -> "libicuuc63"
-"libicutu63" -> "libstdc++6"
-"libicuuc63" -> "icu-lic" [style=dotted]
-"libicuuc63" -> "libc6"
-"libicuuc63" -> "libgcc1"
-"libicuuc63" -> "libicudata63"
-"libicuuc63" -> "libstdc++6"
+"libicudata64" -> "icu-lic" [style=dotted]
+"libicudata64" -> "libc6"
+"libicui18n64" -> "icu-lic" [style=dotted]
+"libicui18n64" -> "libc6"
+"libicui18n64" -> "libgcc1"
+"libicui18n64" -> "libicudata64"
+"libicui18n64" -> "libicuuc64"
+"libicui18n64" -> "libstdc++6"
+"libicuio64" -> "icu-lic" [style=dotted]
+"libicuio64" -> "libc6"
+"libicuio64" -> "libgcc1"
+"libicuio64" -> "libicudata64"
+"libicuio64" -> "libicui18n64"
+"libicuio64" -> "libicuuc64"
+"libicuio64" -> "libstdc++6"
+"libicutu64" -> "icu-lic" [style=dotted]
+"libicutu64" -> "libc6"
+"libicutu64" -> "libgcc1"
+"libicutu64" -> "libicudata64"
+"libicutu64" -> "libicui18n64"
+"libicutu64" -> "libicuuc64"
+"libicutu64" -> "libstdc++6"
+"libicuuc64" -> "icu-lic" [style=dotted]
+"libicuuc64" -> "libc6"
+"libicuuc64" -> "libgcc1"
+"libicuuc64" -> "libicudata64"
+"libicuuc64" -> "libstdc++6"
 "libidn12" -> "libc6"
 "libidn12" -> "libidn-lic" [style=dotted]
 "libidn2-0" -> "libc6"
@@ -4002,6 +4013,14 @@ digraph depends {
 "libopkg1" -> "libc6"
 "libopkg1" -> "opkg-lic" [style=dotted]
 "liborc-0.4-0" -> "libc6"
+"libpalmsocket2" -> "libc6"
+"libpalmsocket2" -> "libcares2"
+"libpalmsocket2" -> "libcrypto1.1"
+"libpalmsocket2" -> "libglib-2.0-0"
+"libpalmsocket2" -> "libpalmsocket-lic" [style=dotted]
+"libpalmsocket2" -> "libpmstatemachineengine2"
+"libpalmsocket2" -> "libssl1.1"
+"libpalmsocket2" -> "pmloglib"
 "libpanelw5" -> "libc6"
 "libpanelw5" -> "libncursesw5"
 "libpanelw5" -> "libtinfo5"
@@ -4025,6 +4044,15 @@ digraph depends {
 "libpcre1" -> "libpcre-lic" [style=dotted]
 "libpixman-1-0" -> "libc6"
 "libpixman-1-0" -> "libpixman-1-lic" [style=dotted]
+"libpmcertificatemgr2" -> "ca-certificates"
+"libpmcertificatemgr2" -> "libc6"
+"libpmcertificatemgr2" -> "libcrypto1.1"
+"libpmcertificatemgr2" -> "libglib-2.0-0"
+"libpmcertificatemgr2" -> "libpmcertificatemgr-lic" [style=dotted]
+"libpmcertificatemgr2" -> "update-alternatives-opkg"
+"libpmstatemachineengine2" -> "libc6"
+"libpmstatemachineengine2" -> "libpmstatemachineengine-lic" [style=dotted]
+"libpmstatemachineengine2" -> "pmloglib"
 "libpng16-16" -> "libc6"
 "libpng16-16" -> "libpng16-lic" [style=dotted]
 "libpng16-16" -> "libz1"
@@ -4114,10 +4142,6 @@ digraph depends {
 "libpurple-plugin-statenotify" -> "libc6"
 "libpurple-plugin-statenotify" -> "libglib-2.0-0"
 "libpurple-plugin-statenotify" -> "libnsl2"
-"libpurple-protocol-aim" -> "libc6"
-"libpurple-protocol-aim" -> "libglib-2.0-0"
-"libpurple-protocol-aim" -> "libnsl2"
-"libpurple-protocol-aim" -> "libpurple"
 "libpurple-protocol-bonjour" -> "libavahi-client3"
 "libpurple-protocol-bonjour" -> "libavahi-common3"
 "libpurple-protocol-bonjour" -> "libavahi-glib1"
@@ -4129,10 +4153,6 @@ digraph depends {
 "libpurple-protocol-gg" -> "libglib-2.0-0"
 "libpurple-protocol-gg" -> "libgnutls30"
 "libpurple-protocol-gg" -> "libnsl2"
-"libpurple-protocol-icq" -> "libc6"
-"libpurple-protocol-icq" -> "libglib-2.0-0"
-"libpurple-protocol-icq" -> "libnsl2"
-"libpurple-protocol-icq" -> "libpurple"
 "libpurple-protocol-irc" -> "libc6"
 "libpurple-protocol-irc" -> "libglib-2.0-0"
 "libpurple-protocol-irc" -> "libnsl2"
@@ -4226,8 +4246,6 @@ digraph depends {
 "libqt5xmlpatterns-qmlplugins" -> "libstdc++6"
 "libqt5xmlpatterns-qmlplugins" -> "qtbase"
 "libqt5xmlpatterns-qmlplugins" -> "qtdeclarative"
-"librdx-stub" -> "libc6"
-"librdx-stub" -> "librdx-lic" [style=dotted]
 "libreadline8" -> "libc6"
 "libreadline8" -> "libreadline-lic" [style=dotted]
 "libreadline8" -> "libtinfo5"
@@ -4245,6 +4263,7 @@ digraph depends {
 "librsvg-2-2" -> "libpng16-16"
 "librsvg-2-2" -> "librsvg-2-lic" [style=dotted]
 "librsvg-2-2" -> "libxml2"
+"librsvg-2-2" -> "libz1"
 "librsvg-2-2" -> "pango"
 "libsbc1" -> "libc6"
 "libsbc1" -> "libsbc-lic" [style=dotted]
@@ -4433,7 +4452,7 @@ digraph depends {
 "luna-service2" -> "luna-service2-lic" [style=dotted]
 "luna-service2" -> "luna-service2-security-conf"
 "luna-service2" -> "pmloglib"
-"luna-service2" -> "rdx-utils-stub"
+"luna-service2" -> "rdxd"
 "luna-service2-security-conf" -> "luna-service2-security-conf-lic" [style=dotted]
 "luna-sysmgr-conf" -> "luna-sysmgr-conf-lic" [style=dotted]
 "luna-sysmgr" -> "libc6"
@@ -4551,6 +4570,30 @@ digraph depends {
 "modemmanager" -> "libsystemd0"
 "modemmanager" -> "modemmanager-lic" [style=dotted]
 "mojoloader" -> "mojoloader-lic" [style=dotted]
+"mojomail-imap" -> "db8"
+"mojomail-imap" -> "libboost-regex1.69.0"
+"mojomail-imap" -> "libc6"
+"mojomail-imap" -> "libemail-common2"
+"mojomail-imap" -> "libgcc1"
+"mojomail-imap" -> "libglib-2.0-0"
+"mojomail-imap" -> "libicuuc64"
+"mojomail-imap" -> "libstdc++6"
+"mojomail-imap" -> "mojomail-imap-lic" [style=dotted]
+"mojomail-pop" -> "db8"
+"mojomail-pop" -> "libc6"
+"mojomail-pop" -> "libemail-common2"
+"mojomail-pop" -> "libgcc1"
+"mojomail-pop" -> "libglib-2.0-0"
+"mojomail-pop" -> "libstdc++6"
+"mojomail-pop" -> "mojomail-pop-lic" [style=dotted]
+"mojomail-smtp" -> "db8"
+"mojomail-smtp" -> "jemalloc"
+"mojomail-smtp" -> "libc6"
+"mojomail-smtp" -> "libemail-common2"
+"mojomail-smtp" -> "libgcc1"
+"mojomail-smtp" -> "libglib-2.0-0"
+"mojomail-smtp" -> "libstdc++6"
+"mojomail-smtp" -> "mojomail-smtp-lic" [style=dotted]
 "mojoservice-frameworks" -> "mojoservice-frameworks-lic" [style=dotted]
 "mojoservicelauncher" -> "mojoloader"
 "mojoservicelauncher" -> "mojoservicelauncher-lic" [style=dotted]
@@ -4608,8 +4651,8 @@ digraph depends {
 "nodejs" -> "libc6"
 "nodejs" -> "libcrypto1.1"
 "nodejs" -> "libgcc1"
-"nodejs" -> "libicui18n63"
-"nodejs" -> "libicuuc63"
+"nodejs" -> "libicui18n64"
+"nodejs" -> "libicuuc64"
 "nodejs" -> "libssl1.1"
 "nodejs" -> "libstdc++6"
 "nodejs" -> "libz1"
@@ -4688,6 +4731,7 @@ digraph depends {
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
 "openssh-sshd" -> "openssh-lic" [style=dotted]
+"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libc6"
 "openssh-ssh" -> "libcrypto1.1"
@@ -4827,6 +4871,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "audio-service"
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
+"packagegroup-luneos-extended" -> "certmgrd"
 "packagegroup-luneos-extended" -> "distro-feed-configs"
 "packagegroup-luneos-extended" -> "downloadmanager"
 "packagegroup-luneos-extended" -> "fingerterm"
@@ -4847,6 +4892,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "kernel-module-vmwgfx"
 "packagegroup-luneos-extended" -> "keymanager"
 "packagegroup-luneos-extended" -> "libpci3"
+"packagegroup-luneos-extended" -> "libpmcertificatemgr2"
 "packagegroup-luneos-extended" -> "libqt5sensors5"
 "packagegroup-luneos-extended" -> "libqt5sensors-qmlplugins"
 "packagegroup-luneos-extended" -> "location-service"
@@ -4929,7 +4975,6 @@ digraph depends {
 "packagegroup-webos-extended" -> "hunspell"
 "packagegroup-webos-extended" -> "icu"
 "packagegroup-webos-extended" -> "iproute2"
-"packagegroup-webos-extended" -> "librdx-stub"
 "packagegroup-webos-extended" -> "loadable-frameworks"
 "packagegroup-webos-extended" -> "lsb"
 "packagegroup-webos-extended" -> "luna-applauncher"
@@ -4941,6 +4986,9 @@ digraph depends {
 "packagegroup-webos-extended" -> "luna-universalsearchmgr"
 "packagegroup-webos-extended" -> "luna-webappmanager"
 "packagegroup-webos-extended" -> "makedevs"
+"packagegroup-webos-extended" -> "mojomail-imap"
+"packagegroup-webos-extended" -> "mojomail-pop"
+"packagegroup-webos-extended" -> "mojomail-smtp"
 "packagegroup-webos-extended" -> "mojoservice-frameworks"
 "packagegroup-webos-extended" -> "mojoservicelauncher"
 "packagegroup-webos-extended" -> "ncurses"
@@ -4953,6 +5001,7 @@ digraph depends {
 "packagegroup-webos-extended" -> "pmlogdaemon"
 "packagegroup-webos-extended" -> "procps"
 "packagegroup-webos-extended" -> "psmisc"
+"packagegroup-webos-extended" -> "rdxd"
 "packagegroup-webos-extended" -> "settingsservice"
 "packagegroup-webos-extended" -> "sleepd"
 "packagegroup-webos-extended" -> "sqlite3"
@@ -5032,6 +5081,7 @@ digraph depends {
 "pidgin-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "pidgin-sipe" -> "libc6"
 "pidgin-sipe" -> "libcom-err2"
+"pidgin-sipe" -> "libdbus-1-3"
 "pidgin-sipe" -> "libglib-2.0-0"
 "pidgin-sipe" -> "libgssapi-krb5-2"
 "pidgin-sipe" -> "libk5crypto3"
@@ -5051,11 +5101,11 @@ digraph depends {
 "pmlogdaemon" -> "libc6"
 "pmlogdaemon" -> "libglib-2.0-0"
 "pmlogdaemon" -> "libpbnjson"
-"pmlogdaemon" -> "librdx-stub"
 "pmlogdaemon" -> "libz1"
 "pmlogdaemon" -> "luna-service2"
 "pmlogdaemon" -> "pmlogdaemon-lic" [style=dotted]
 "pmlogdaemon" -> "pmloglib"
+"pmlogdaemon" -> "rdxd"
 "pmloglib" -> "libc6"
 "pmloglib" -> "libgcc1"
 "pmloglib" -> "libglib-2.0-0"
@@ -5847,8 +5897,8 @@ digraph depends {
 "qtbase" -> "libgcc1"
 "qtbase" -> "libgles2-mesa"
 "qtbase" -> "libglib-2.0-0"
-"qtbase" -> "libicui18n63"
-"qtbase" -> "libicuuc63"
+"qtbase" -> "libicui18n64"
+"qtbase" -> "libicuuc64"
 "qtbase" -> "libpng16-16"
 "qtbase" -> "libssl1.1"
 "qtbase" -> "libstdc++6"
@@ -6075,7 +6125,18 @@ digraph depends {
 "qtwebengine" -> "qtwebengine-lic" [style=dotted]
 "qtwebengine" -> "qtwebengine-plugins" [style=dotted]
 "qtwebengine" -> "qtwebengine-qmlplugins" [style=dotted]
-"rdx-utils-stub" -> "rdx-utils-stub-lic" [style=dotted]
+"rdxd" -> "bash"
+"rdxd" -> "libc6"
+"rdxd" -> "libgcc1"
+"rdxd" -> "libglib-2.0-0"
+"rdxd" -> "libpbnjson"
+"rdxd" -> "libstdc++6"
+"rdxd" -> "luna-prefs"
+"rdxd" -> "luna-service2"
+"rdxd" -> "nyx-utils"
+"rdxd" -> "pmloglib"
+"rdxd" -> "rdxd-lic" [style=dotted]
+"rdxd" -> "tar"
 "rng-tools" -> "libc6"
 "rng-tools" -> "libgcrypt"
 "rng-tools" -> "libjitterentropy2"
@@ -6105,7 +6166,7 @@ digraph depends {
 "serial-forward" -> "serial-forward-lic" [style=dotted]
 "settingsservice" -> "bash"
 "settingsservice-conf" -> "settingsservice-conf-lic" [style=dotted]
-"settingsservice" -> "libbson-1.0-0"
+"settingsservice" -> "libbson-1.0-1"
 "settingsservice" -> "libc6"
 "settingsservice" -> "libcrypto1.1"
 "settingsservice" -> "libgcc1"
@@ -6171,13 +6232,6 @@ digraph depends {
 "systemd-compat-units" -> "systemd"
 "systemd-compat-units" -> "systemd-compat-units-lic" [style=dotted]
 "systemd-conf" -> "systemd-conf-lic" [style=dotted]
-"systemd-container" -> "libacl1"
-"systemd-container" -> "libc6"
-"systemd-container" -> "systemd"
-"systemd-container" -> "systemd-journal-gatewayd" [style=dotted]
-"systemd-container" -> "systemd-journal-remote" [style=dotted]
-"systemd-container" -> "systemd-journal-upload" [style=dotted]
-"systemd-container" -> "systemd-lic" [style=dotted]
 "systemd" -> "dbus-1"
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted]
 "systemd-extra-utils" -> "base-files"
@@ -6194,7 +6248,6 @@ digraph depends {
 "systemd" -> "libblkid1"
 "systemd" -> "libc6"
 "systemd" -> "libcap2"
-"systemd" -> "libcrypt1"
 "systemd" -> "libkmod2"
 "systemd" -> "liblzma5"
 "systemd" -> "libmount1"
@@ -6204,8 +6257,7 @@ digraph depends {
 "systemd-serialgetty" -> "systemd-serialgetty-lic" [style=dotted]
 "systemd" -> "shadow"
 "systemd" -> "systemd-compat-units" [style=dotted]
-"systemd" -> "systemd-conf"
-"systemd" -> "systemd-container"
+"systemd" -> "systemd-conf" [style=dotted]
 "systemd" -> "systemd-extra-utils" [style=dotted]
 "systemd" -> "systemd-lic" [style=dotted]
 "systemd" -> "systemd-serialgetty"
@@ -6329,7 +6381,7 @@ digraph depends {
 "webos-initscripts" -> "libgcc1"
 "webos-initscripts" -> "libstdc++6"
 "webos-initscripts" -> "libsystemd0"
-"webos-initscripts" -> "rdx-utils-stub"
+"webos-initscripts" -> "rdxd"
 "webos-initscripts" -> "systemd"
 "webos-initscripts" -> "systemd-compat-units"
 "webos-initscripts" -> "systemd-machine-units"
