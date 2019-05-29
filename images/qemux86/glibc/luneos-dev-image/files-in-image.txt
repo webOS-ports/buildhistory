@@ -3,7 +3,7 @@ lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 -rwxr-xr-x root       root          1113400 ./bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/bash -> /bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           539648 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           539680 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            47064 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               21 ./bin/chattr -> /bin/chattr.e2fsprogs
@@ -116,7 +116,7 @@ drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              397 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
 -rw-r--r-- root       root             1481 ./etc/build
--rw-r--r-- root       root             2383 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2401 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/ca-certificates
 -rw-r--r-- root       root             5340 ./etc/ca-certificates.conf
@@ -4295,6 +4295,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               49 ./usr/lib/opkg/alternatives/tar
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/tee
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/telnet
+-rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/telnetd
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/test
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/tftp
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/time
@@ -11171,6 +11172,58 @@ drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webospor
 -rw-r--r-- root       root             9425 ./usr/palm/applications/org.webosports.app.calculator/lib/webos-lib/source/webos.js
 -rw-r--r-- root       root            34480 ./usr/palm/applications/org.webosports.app.calculator/lib/webos-lib/source/WebView.js
 -rw-r--r-- root       root               64 ./usr/palm/applications/org.webosports.app.calculator/lib/webos-lib/version.js
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera
+-rw-r--r-- root       root              406 ./usr/palm/applications/org.webosports.app.camera/appinfo.json
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera/CameraApp
+-rwxr-xr-x root       root           158632 ./usr/palm/applications/org.webosports.app.camera/CameraApp/libcamera-qml.so
+-rw-r--r-- root       root               35 ./usr/palm/applications/org.webosports.app.camera/CameraApp/qmldir
+-rw-r--r-- root       root            30139 ./usr/palm/applications/org.webosports.app.camera/icon-256x256.png
+-rw-r--r-- root       root             5719 ./usr/palm/applications/org.webosports.app.camera/icon.png
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera/qml
+-rw-r--r-- root       root             4247 ./usr/palm/applications/org.webosports.app.camera/qml/CameraView.qml
+-rw-r--r-- root       root             3600 ./usr/palm/applications/org.webosports.app.camera/qml/CaptureOverlay.qml
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera/qml/components
+-rw-r--r-- root       root             2366 ./usr/palm/applications/org.webosports.app.camera/qml/components/CornerShader.qml
+-rw-r--r-- root       root               88 ./usr/palm/applications/org.webosports.app.camera/qml/components/ExclusiveGroup.qml
+-rw-r--r-- root       root             1222 ./usr/palm/applications/org.webosports.app.camera/qml/components/GridLines.qml
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera/qml/components/images
+-rw-r--r-- root       root              705 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-first.png
+-rw-r--r-- root       root             1386 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-first-pressed.png
+-rw-r--r-- root       root              749 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-last.png
+-rw-r--r-- root       root             1400 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-last-pressed.png
+-rw-r--r-- root       root              430 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-middle.png
+-rw-r--r-- root       root             1132 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-middle-pressed.png
+-rw-r--r-- root       root             1005 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-single.png
+-rw-r--r-- root       root             1618 ./usr/palm/applications/org.webosports.app.camera/qml/components/images/radiobutton-single-pressed.png
+-rw-r--r-- root       root             2015 ./usr/palm/applications/org.webosports.app.camera/qml/components/LuneOSButtonElement.qml
+-rw-r--r-- root       root             2877 ./usr/palm/applications/org.webosports.app.camera/qml/components/MenuItemRingArc.qml
+-rw-r--r-- root       root              657 ./usr/palm/applications/org.webosports.app.camera/qml/components/ResolutionsListModel.qml
+-rw-r--r-- root       root             1154 ./usr/palm/applications/org.webosports.app.camera/qml/components/TimeoutTimerText.qml
+-rw-r--r-- root       root             3429 ./usr/palm/applications/org.webosports.app.camera/qml/GalleryView.qml
+drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.camera/qml/images
+-rw-r--r-- root       root             1914 ./usr/palm/applications/org.webosports.app.camera/qml/images/button-bg-pill.png
+-rw-r--r-- root       root             2615 ./usr/palm/applications/org.webosports.app.camera/qml/images/flipcamera.svg
+-rw-r--r-- root       root             4874 ./usr/palm/applications/org.webosports.app.camera/qml/images/focus_ring@27.png
+-rw-r--r-- root       root             2197 ./usr/palm/applications/org.webosports.app.camera/qml/images/grid_lines.svg
+-rw-r--r-- root       root            56465 ./usr/palm/applications/org.webosports.app.camera/qml/images/last-capture-frame.png
+-rw-r--r-- root       root             8409 ./usr/palm/applications/org.webosports.app.camera/qml/images/main-buttons.svg
+-rw-r--r-- root       root             2724 ./usr/palm/applications/org.webosports.app.camera/qml/images/record_video@27.png
+-rw-r--r-- root       root             3590 ./usr/palm/applications/org.webosports.app.camera/qml/images/record_video_stop@27.png
+-rw-r--r-- root       root             3035 ./usr/palm/applications/org.webosports.app.camera/qml/images/self_timer.svg
+-rw-r--r-- root       root              492 ./usr/palm/applications/org.webosports.app.camera/qml/images/shadow@27.png
+-rw-r--r-- root       root             5469 ./usr/palm/applications/org.webosports.app.camera/qml/images/shutter_stills@27.png
+-rw-r--r-- root       root             9926 ./usr/palm/applications/org.webosports.app.camera/qml/images/shutter.svg
+-rw-r--r-- root       root              174 ./usr/palm/applications/org.webosports.app.camera/qml/images/ubuntu_shape@27.sci
+-rw-r--r-- root       root             2397 ./usr/palm/applications/org.webosports.app.camera/qml/images/ubuntu_shape.svg
+-rw-r--r-- root       root               83 ./usr/palm/applications/org.webosports.app.camera/qml/images/zoom_bar@18.png
+-rw-r--r-- root       root              278 ./usr/palm/applications/org.webosports.app.camera/qml/images/zoom_minus@18.png
+-rw-r--r-- root       root              537 ./usr/palm/applications/org.webosports.app.camera/qml/images/zoom_plus@18.png
+-rw-r--r-- root       root              226 ./usr/palm/applications/org.webosports.app.camera/qml/images/zoom_point@18.png
+-rw-r--r-- root       root              499 ./usr/palm/applications/org.webosports.app.camera/qml/luneos-camera.qmlproject
+-rw-r--r-- root       root             1184 ./usr/palm/applications/org.webosports.app.camera/qml/main.qml
+-rw-r--r-- root       root             4806 ./usr/palm/applications/org.webosports.app.camera/qml/PreferencesModel.qml
+-rw-r--r-- root       root             2230 ./usr/palm/applications/org.webosports.app.camera/qml/PreferencesOverlay.qml
+-rw-r--r-- root       root            20915 ./usr/palm/applications/org.webosports.app.camera/qml/PreferencesView.qml
 drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.filemanager
 -rw-r--r-- root       root              276 ./usr/palm/applications/org.webosports.app.filemanager/appinfo.json
 drwxr-xr-x root       root             4096 ./usr/palm/applications/org.webosports.app.filemanager/assets
@@ -16781,7 +16834,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root            23704 ./usr/sbin/nfsstat
 -rwxr-xr-x root       root           108700 ./usr/sbin/novacomd
 -rwxr-xr-x root       root          1797108 ./usr/sbin/ofonod
--rwxr-xr-x root       root           896052 ./usr/sbin/openvpn
+-rwxr-xr-x root       root           900156 ./usr/sbin/openvpn
 -rwxr-xr-x root       root            59660 ./usr/sbin/org.webosinternals.ipkgservice
 -rwxr-xr-x root       root            13944 ./usr/sbin/PmKLogDaemon
 -rwxr-xr-x root       root            38936 ./usr/sbin/PmLogDaemon
@@ -16816,6 +16869,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.no
 -rwxr-xr-x root       root           862876 ./usr/sbin/sshd
 -rwxr-xr-x root       root              965 ./usr/sbin/start-statd
 -rwxr-xr-x root       root            30700 ./usr/sbin/storaged
+lrwxrwxrwx root       root               19 ./usr/sbin/telnetd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             5990 ./usr/sbin/update-ca-certificates
 -rwxr-xr-x root       root             2036 ./usr/sbin/update-distcc-symlinks
@@ -23990,6 +24044,9 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/org.webosports.
 drwxr-xr-x root       root             4096 ./usr/share/licenses/org.webosports.app.calculator
 -rw-r--r-- root       root            11360 ./usr/share/licenses/org.webosports.app.calculator/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/org.webosports.app.calculator/generic_Apache-2.0
+drwxr-xr-x root       root             4096 ./usr/share/licenses/org.webosports.app.camera
+-rw-r--r-- root       root            34694 ./usr/share/licenses/org.webosports.app.camera/generic_GPL-3.0
+-rw-r--r-- root       root            35141 ./usr/share/licenses/org.webosports.app.camera/LICENSE
 drwxr-xr-x root       root             4096 ./usr/share/licenses/org.webosports.app.contacts
 -rw-r--r-- root       root            11360 ./usr/share/licenses/org.webosports.app.contacts/Apache-2.0
 -rw-r--r-- root       root            11360 ./usr/share/licenses/org.webosports.app.contacts/generic_Apache-2.0
@@ -28472,9 +28529,9 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              838 ./var/lib/opkg/info/busybox-lic.control
 -rw-r--r-- root       root              180 ./var/lib/opkg/info/busybox-lic.list
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/busybox.list
--rwxr-xr-x root       root            14558 ./var/lib/opkg/info/busybox.postinst
+-rwxr-xr-x root       root            14638 ./var/lib/opkg/info/busybox.postinst
 -rwxr-xr-x root       root              157 ./var/lib/opkg/info/busybox.postrm
--rwxr-xr-x root       root            11210 ./var/lib/opkg/info/busybox.prerm
+-rwxr-xr-x root       root            11269 ./var/lib/opkg/info/busybox.prerm
 -rw-r--r-- root       root              948 ./var/lib/opkg/info/busybox-syslog.control
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/busybox-syslog.list
 -rwxr-xr-x root       root              474 ./var/lib/opkg/info/busybox-syslog.postinst
@@ -32105,7 +32162,7 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              143 ./var/lib/opkg/info/libsoup-2.4-lic.list
 -rw-r--r-- root       root              144 ./var/lib/opkg/info/libsoup-2.4.list
 -rw-r--r-- root       root              536 ./var/lib/opkg/info/libsoup-2.4-locale-en-gb.control
--rw-r--r-- root       root              157 ./var/lib/opkg/info/libsoup-2.4-locale-en-gb.list
+-rw-r--r-- root       root               55 ./var/lib/opkg/info/libsoup-2.4-locale-en-gb.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libsoup-2.4.postinst
 -rw-r--r-- root       root              409 ./var/lib/opkg/info/libspeex1.control
 -rw-r--r-- root       root               84 ./var/lib/opkg/info/libspeex1.list
@@ -32546,8 +32603,8 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              336 ./var/lib/opkg/info/openssl-lic.control
 -rw-r--r-- root       root              132 ./var/lib/opkg/info/openssl-lic.list
 -rw-r--r-- root       root              380 ./var/lib/opkg/info/openssl.list
--rw-r--r-- root       root              477 ./var/lib/opkg/info/openvpn.control
--rw-r--r-- root       root              343 ./var/lib/opkg/info/openvpn-lic.control
+-rw-r--r-- root       root              467 ./var/lib/opkg/info/openvpn.control
+-rw-r--r-- root       root              333 ./var/lib/opkg/info/openvpn-lic.control
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/openvpn-lic.list
 -rw-r--r-- root       root              252 ./var/lib/opkg/info/openvpn.list
 -rwxr-xr-x root       root              410 ./var/lib/opkg/info/openvpn.postinst
@@ -32588,6 +32645,10 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              399 ./var/lib/opkg/info/org.webosports.app.calculator-lic.control
 -rw-r--r-- root       root              204 ./var/lib/opkg/info/org.webosports.app.calculator-lic.list
 -rw-r--r-- root       root             6124 ./var/lib/opkg/info/org.webosports.app.calculator.list
+-rw-r--r-- root       root              644 ./var/lib/opkg/info/org.webosports.app.camera.control
+-rw-r--r-- root       root              391 ./var/lib/opkg/info/org.webosports.app.camera-lic.control
+-rw-r--r-- root       root              186 ./var/lib/opkg/info/org.webosports.app.camera-lic.list
+-rw-r--r-- root       root             4439 ./var/lib/opkg/info/org.webosports.app.camera.list
 -rw-r--r-- root       root              387 ./var/lib/opkg/info/org.webosports.app.contacts.control
 -rw-r--r-- root       root              347 ./var/lib/opkg/info/org.webosports.app.contacts-lic.control
 -rw-r--r-- root       root              198 ./var/lib/opkg/info/org.webosports.app.contacts-lic.list
@@ -32690,7 +32751,7 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              378 ./var/lib/opkg/info/packagegroup-luneos-development-lic.control
 -rw-r--r-- root       root              210 ./var/lib/opkg/info/packagegroup-luneos-development-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-development.list
--rw-r--r-- root       root             2449 ./var/lib/opkg/info/packagegroup-luneos-extended.control
+-rw-r--r-- root       root             2476 ./var/lib/opkg/info/packagegroup-luneos-extended.control
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.control
 -rw-r--r-- root       root              201 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-extended.list
@@ -32739,7 +32800,7 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              291 ./var/lib/opkg/info/pidgin-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/pidgin-lic.list
 -rw-r--r-- root       root              470 ./var/lib/opkg/info/pidgin-locale-en-gb.control
--rw-r--r-- root       root               54 ./var/lib/opkg/info/pidgin-locale-en-gb.list
+-rw-r--r-- root       root              156 ./var/lib/opkg/info/pidgin-locale-en-gb.list
 -rw-r--r-- root       root              696 ./var/lib/opkg/info/pidgin-sipe.control
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/pidgin-sipe-lic.control
 -rw-r--r-- root       root              144 ./var/lib/opkg/info/pidgin-sipe-lic.list
@@ -33420,7 +33481,7 @@ drwxr-xr-x root       root           344064 ./var/lib/opkg/info
 -rw-r--r-- root       root              179 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              365 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           557860 ./var/lib/opkg/status
+-rw-r--r-- root       root           558531 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
