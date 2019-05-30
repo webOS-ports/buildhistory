@@ -141,6 +141,7 @@ digraph depends {
 "glmark2" -> "libpng16-16"
 "glmark2" -> "libstdc++6"
 "glmark2" -> "libudev1"
+"glmark2" -> "libz1"
 "gstreamer1.0" -> "gstreamer1.0-lic" [style=dotted]
 "gstreamer1.0" -> "libcap2"
 "gstreamer1.0" -> "libglib-2.0-0"
@@ -2034,7 +2035,6 @@ digraph depends {
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
 "libegl-mesa" -> "libglapi0"
-"libegl-mesa" -> "libz1"
 "libegl-mesa" -> "mesa-lic" [style=dotted]
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
@@ -2058,7 +2058,6 @@ digraph depends {
 "libfribidi0" -> "libfribidi-lic" [style=dotted]
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgbm1" -> "mesa-lic" [style=dotted]
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap2"
@@ -2079,11 +2078,9 @@ digraph depends {
 "libgdk-pixbuf-2.0-loader-xpm" -> "libglib-2.0-0"
 "libgdk-pixbuf-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "libglapi0" -> "mesa-lic" [style=dotted]
-"libgles1-mesa" -> "libdrm2"
 "libgles1-mesa" -> "libglapi0"
 "libgles1-mesa" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "mesa-megadriver" [style=dotted]
-"libgles2-mesa" -> "libdrm2"
 "libgles2-mesa" -> "libglapi0"
 "libgles2-mesa" -> "mesa-lic" [style=dotted]
 "libgles2-mesa" -> "mesa-megadriver" [style=dotted]
@@ -2168,6 +2165,7 @@ digraph depends {
 "libinput10" -> "libinput-lic" [style=dotted]
 "libinput10" -> "libudev1"
 "libinput10" -> "mtdev"
+"libjitterentropy2" -> "libjitterentropy-lic" [style=dotted]
 "libjpeg62" -> "libjpeg-lic" [style=dotted]
 "libjson-c4" -> "libjson-c-lic" [style=dotted]
 "libkf5bluezqt5" -> "libkf5bluezqt-lic" [style=dotted]
@@ -2248,6 +2246,7 @@ digraph depends {
 "libssl1.1" -> "libcrypto1.1"
 "libssl1.1" -> "openssl-lic" [style=dotted]
 "libstdc++6" -> "gcc-runtime-lic" [style=dotted]
+"libsysfs2" -> "sysfsutils-lic" [style=dotted]
 "libsystemd0" -> "libcap2"
 "libsystemd0" -> "liblzma5"
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
@@ -2267,6 +2266,7 @@ digraph depends {
 "libweston-6" -> "libsystemd0"
 "libweston-6" -> "libudev1"
 "libweston-6" -> "libxkbcommon0"
+"libweston-6" -> "libz1"
 "libweston-6" -> "pango"
 "libweston-6" -> "wayland"
 "libweston-6" -> "weston-lic" [style=dotted]
@@ -2306,6 +2306,14 @@ digraph depends {
 "luna-next" -> "qtwayland"
 "luna-next" -> "wayland"
 "luna-next" -> "xkeyboard-config"
+"luna-prefs-data" -> "luna-prefs-data-lic" [style=dotted]
+"luna-prefs" -> "libglib-2.0-0"
+"luna-prefs" -> "libjson-c4"
+"luna-prefs" -> "libnyx7"
+"luna-prefs" -> "libsqlite3-0"
+"luna-prefs" -> "luna-prefs-data"
+"luna-prefs" -> "luna-prefs-lic" [style=dotted]
+"luna-prefs" -> "luna-service2"
 "luna-service2" -> "bash"
 "luna-service2" -> "cpushareholder-stub"
 "luna-service2" -> "libglib-2.0-0"
@@ -2314,7 +2322,7 @@ digraph depends {
 "luna-service2" -> "luna-service2-lic" [style=dotted]
 "luna-service2" -> "luna-service2-security-conf"
 "luna-service2" -> "pmloglib"
-"luna-service2" -> "rdx-utils-stub"
+"luna-service2" -> "rdxd"
 "luna-service2-security-conf" -> "luna-service2-security-conf-lic" [style=dotted]
 "luneos-components" -> "libkf5bluezqt5"
 "luneos-components" -> "libstdc++6"
@@ -2369,6 +2377,10 @@ digraph depends {
 "nfs-utils-mount" -> "nfs-utils-lic" [style=dotted]
 "nfs-utils" -> "nfs-utils-client"
 "nfs-utils" -> "nfs-utils-lic" [style=dotted]
+"nyx-utils" -> "libglib-2.0-0"
+"nyx-utils" -> "libnyx7"
+"nyx-utils" -> "libstdc++6"
+"nyx-utils" -> "nyx-utils-lic" [style=dotted]
 "ofono-conf" -> "ofono-conf-lic" [style=dotted]
 "ofono" -> "dbus-1"
 "ofono" -> "kernel-module-tun" [style=dotted]
@@ -2395,6 +2407,7 @@ digraph depends {
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
 "openssh-sshd" -> "openssh-lic" [style=dotted]
+"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libcrypto1.1"
 "openssh-ssh" -> "libz1"
@@ -2532,6 +2545,7 @@ digraph depends {
 "pciutils" -> "pciutils-ids"
 "pciutils" -> "pciutils-lic" [style=dotted]
 "perl" -> "libcrypt1"
+"perl-module-carp" -> "perl"
 "perl-module-config-heavy" -> "perl"
 "perl-module-dynaloader" -> "perl"
 "perl-module-dynaloader" -> "perl-module-config"
@@ -2545,11 +2559,13 @@ digraph depends {
 "perl-module-fcntl" -> "perl-module-strict"
 "perl-module-fcntl" -> "perl-module-xsloader"
 "perl-module-io-file" -> "perl"
+"perl-module-io-file" -> "perl-module-carp"
 "perl-module-io-file" -> "perl-module-exporter"
 "perl-module-io-file" -> "perl-module-fcntl"
 "perl-module-io-file" -> "perl-module-io-seekable"
 "perl-module-io-file" -> "perl-module-selectsaver"
 "perl-module-io-file" -> "perl-module-strict"
+"perl-module-io-file" -> "perl-module-symbol"
 "perl-module-io-handle" -> "perl"
 "perl-module-io-handle" -> "perl-module-exporter"
 "perl-module-io-handle" -> "perl-module-io"
@@ -2566,6 +2582,7 @@ digraph depends {
 "perl-module-io-seekable" -> "perl-module-io-handle"
 "perl-module-io-seekable" -> "perl-module-strict"
 "perl-module-selectsaver" -> "perl"
+"perl-module-symbol" -> "perl"
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl-module-dynaloader"
 "perl" -> "perl-lic" [style=dotted]
@@ -2640,7 +2657,6 @@ digraph depends {
 "qtlocation" -> "libstdc++6"
 "qtlocation-plugins" -> "libstdc++6"
 "qtlocation-plugins" -> "qtbase"
-"qtlocation-plugins" -> "qtdeclarative"
 "qtlocation-plugins" -> "qtlocation"
 "qtlocation-plugins" -> "qtlocation-lic" [style=dotted]
 "qtlocation-qmlplugins" -> "libstdc++6"
@@ -2723,7 +2739,20 @@ digraph depends {
 "qtwayland" -> "qtwayland-plugins" [style=dotted]
 "qtwayland" -> "qtwayland-qmlplugins" [style=dotted]
 "qtwayland" -> "wayland"
-"rdx-utils-stub" -> "rdx-utils-stub-lic" [style=dotted]
+"rdxd" -> "bash"
+"rdxd" -> "libglib-2.0-0"
+"rdxd" -> "libpbnjson"
+"rdxd" -> "libstdc++6"
+"rdxd" -> "luna-prefs"
+"rdxd" -> "luna-service2"
+"rdxd" -> "nyx-utils"
+"rdxd" -> "pmloglib"
+"rdxd" -> "rdxd-lic" [style=dotted]
+"rdxd" -> "tar"
+"rng-tools" -> "libgcrypt"
+"rng-tools" -> "libjitterentropy2"
+"rng-tools" -> "libsysfs2"
+"rng-tools" -> "rng-tools-lic" [style=dotted]
 "rpcbind" -> "base-files"
 "rpcbind" -> "base-passwd"
 "rpcbind" -> "libsystemd0"
@@ -2793,6 +2822,8 @@ digraph depends {
 "systemd-vconsole-setup" -> "systemd"
 "systemd-vconsole-setup" -> "systemd-lic" [style=dotted]
 "systemd" -> "volatile-binds"
+"tar" -> "tar-lic" [style=dotted]
+"tar" -> "update-alternatives-opkg"
 "udev-hwdb" -> "systemd-lic" [style=dotted]
 "udev-hwdb" -> "udev"
 "udev" -> "libacl1"
