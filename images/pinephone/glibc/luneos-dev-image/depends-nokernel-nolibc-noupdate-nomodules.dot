@@ -1,6 +1,7 @@
 digraph depends {
     node [shape=plaintext]
 "activitymanager" -> "activitymanager-lic" [style=dotted]
+"activitymanager" -> "bootd"
 "activitymanager" -> "db8"
 "activitymanager" -> "libboost-regex1.69.0"
 "activitymanager" -> "libglib-2.0-0"
@@ -56,6 +57,12 @@ digraph depends {
 "bluez5" -> "libglib-2.0-0"
 "bluez5" -> "libreadline8"
 "bluez5" -> "libudev1"
+"bootd" -> "bootd-lic" [style=dotted]
+"bootd" -> "libglib-2.0-0"
+"bootd" -> "libpbnjson"
+"bootd" -> "libstdc++6"
+"bootd" -> "luna-service2"
+"bootd" -> "pmloglib"
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox-syslog" -> "busybox"
@@ -1194,6 +1201,9 @@ digraph depends {
 "icyque" -> "libjson-glib-1.0-0"
 "icyque" -> "libpurple"
 "icyque" -> "libz1"
+"iio-sensor-proxy" -> "iio-sensor-proxy-lic" [style=dotted]
+"iio-sensor-proxy" -> "libglib-2.0-0"
+"iio-sensor-proxy" -> "libgudev-1.0-0"
 "imaccountvalidator" -> "db8"
 "imaccountvalidator" -> "funyahoo-plusplus" [style=dotted]
 "imaccountvalidator" -> "icyque" [style=dotted]
@@ -1569,6 +1579,10 @@ digraph depends {
 "libdrm2" -> "libdrm-lic" [style=dotted]
 "libdrm-etnaviv1" -> "libdrm2"
 "libdrm-etnaviv1" -> "libdrm-lic" [style=dotted]
+"libdrm-nouveau2" -> "libdrm2"
+"libdrm-nouveau2" -> "libdrm-lic" [style=dotted]
+"libdrm-radeon1" -> "libdrm2"
+"libdrm-radeon1" -> "libdrm-lic" [style=dotted]
 "libdrm-tests" -> "libdrm2"
 "libdrm-tests" -> "libdrm-etnaviv1"
 "libdrm-tests" -> "libdrm-lic" [style=dotted]
@@ -1578,7 +1592,7 @@ digraph depends {
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
 "libegl-mesa" -> "libglapi0"
-"libegl-mesa" -> "mesa-lima-lic" [style=dotted]
+"libegl-mesa" -> "mesa-lic" [style=dotted]
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
 "libelf1" -> "elfutils-lic" [style=dotted]
@@ -1614,7 +1628,7 @@ digraph depends {
 "libfribidi0" -> "libfribidi-lic" [style=dotted]
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "mesa-lima-lic" [style=dotted]
+"libgbm1" -> "mesa-lic" [style=dotted]
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap2"
 "libgcrypt" -> "libgcrypt-lic" [style=dotted]
@@ -1636,12 +1650,12 @@ digraph depends {
 "libgdk-pixbuf-2.0-loader-xpm" -> "libgdk-pixbuf-2.0-0"
 "libgdk-pixbuf-2.0-loader-xpm" -> "libglib-2.0-0"
 "libgdk-pixbuf-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
-"libglapi0" -> "mesa-lima-lic" [style=dotted]
+"libglapi0" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "libglapi0"
-"libgles1-mesa" -> "mesa-lima-lic" [style=dotted]
+"libgles1-mesa" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "mesa-megadriver" [style=dotted]
 "libgles2-mesa" -> "libglapi0"
-"libgles2-mesa" -> "mesa-lima-lic" [style=dotted]
+"libgles2-mesa" -> "mesa-lic" [style=dotted]
 "libgles2-mesa" -> "mesa-megadriver" [style=dotted]
 "libglib-2.0-0" -> "libffi6"
 "libglib-2.0-0" -> "libglib-2.0-lic" [style=dotted]
@@ -2104,6 +2118,12 @@ digraph depends {
 "libz1" -> "libz-lic" [style=dotted]
 "linux-firmware-rtl8723bs" -> "linux-firmware-rtl8723bs-lic" [style=dotted]
 "linux-firmware-rtl8723bs" -> "wireless-regdb"
+"llvm-libllvm" -> "libffi6"
+"llvm-libllvm" -> "libstdc++6"
+"llvm-libllvm" -> "libtinfo5"
+"llvm-libllvm" -> "libxml2"
+"llvm-libllvm" -> "libz1"
+"llvm-libllvm" -> "llvm-lic" [style=dotted]
 "loadable-frameworks" -> "bash"
 "loadable-frameworks" -> "loadable-frameworks-lic" [style=dotted]
 "locale-base-en-gb" -> "glibc-binary-localedata-en-gb"
@@ -2253,11 +2273,14 @@ digraph depends {
 "mediaindexer" -> "shared-mime-info"
 "media-permission-service" -> "media-permission-service-lic" [style=dotted]
 "mesa-megadriver" -> "libdrm2"
+"mesa-megadriver" -> "libdrm-nouveau2"
+"mesa-megadriver" -> "libdrm-radeon1"
 "mesa-megadriver" -> "libexpat1"
 "mesa-megadriver" -> "libglapi0"
 "mesa-megadriver" -> "libstdc++6"
 "mesa-megadriver" -> "libz1"
-"mesa-megadriver" -> "mesa-lima-lic" [style=dotted]
+"mesa-megadriver" -> "llvm-libllvm"
+"mesa-megadriver" -> "mesa-lic" [style=dotted]
 "messaging-accounts" -> "messaging-accounts-lic" [style=dotted]
 "mingetty" -> "mingetty-lic" [style=dotted]
 "mmsd" -> "dbus-1"
