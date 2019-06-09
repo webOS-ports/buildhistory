@@ -1,6 +1,7 @@
 digraph depends {
     node [shape=plaintext]
 "activitymanager" -> "activitymanager-lic" [style=dotted]
+"activitymanager" -> "bootd"
 "activitymanager" -> "db8"
 "activitymanager" -> "libboost-regex1.69.0"
 "activitymanager" -> "libglib-2.0-0"
@@ -78,6 +79,12 @@ digraph depends {
 "bluez5" -> "libglib-2.0-0"
 "bluez5" -> "libreadline8"
 "bluez5" -> "libudev1"
+"bootd" -> "bootd-lic" [style=dotted]
+"bootd" -> "libglib-2.0-0"
+"bootd" -> "libpbnjson"
+"bootd" -> "libstdc++6"
+"bootd" -> "luna-service2"
+"bootd" -> "pmloglib"
 "bridge-utils" -> "bridge-utils-lic" [style=dotted]
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
@@ -1816,6 +1823,7 @@ digraph depends {
 "libidn12" -> "libidn-lic" [style=dotted]
 "libidn2-0" -> "libidn2-lic" [style=dotted]
 "libidn2-0" -> "libunistring2"
+"libjitterentropy2" -> "libjitterentropy-lic" [style=dotted]
 "libjpeg62" -> "libjpeg-lic" [style=dotted]
 "libjson-c4" -> "libjson-c-lic" [style=dotted]
 "libjson-glib-1.0-0" -> "libglib-2.0-0"
@@ -2100,6 +2108,7 @@ digraph depends {
 "libssl1.1" -> "openssl-lic" [style=dotted]
 "libstdc++6" -> "gcc-runtime-lic" [style=dotted]
 "libsuspend1" -> "libsuspend-lic" [style=dotted]
+"libsysfs2" -> "sysfsutils-lic" [style=dotted]
 "libsystemd0" -> "libcap2"
 "libsystemd0" -> "liblzma5"
 "libtag1" -> "libstdc++6"
@@ -2434,6 +2443,7 @@ digraph depends {
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
 "openssh-sshd" -> "openssh-lic" [style=dotted]
+"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libcrypto1.1"
 "openssh-ssh" -> "libz1"
@@ -2721,6 +2731,7 @@ digraph depends {
 "pango" -> "libharfbuzz0"
 "pango" -> "pango-lic" [style=dotted]
 "perl" -> "libcrypt1"
+"perl-module-carp" -> "perl"
 "perl-module-config-heavy" -> "perl"
 "perl-module-constant" -> "perl"
 "perl-module-constant" -> "perl-module-strict"
@@ -2746,11 +2757,13 @@ digraph depends {
 "perl-module-getopt-long" -> "perl-module-vars"
 "perl-module-getopt-long" -> "perl-module-warnings"
 "perl-module-io-file" -> "perl"
+"perl-module-io-file" -> "perl-module-carp"
 "perl-module-io-file" -> "perl-module-exporter"
 "perl-module-io-file" -> "perl-module-fcntl"
 "perl-module-io-file" -> "perl-module-io-seekable"
 "perl-module-io-file" -> "perl-module-selectsaver"
 "perl-module-io-file" -> "perl-module-strict"
+"perl-module-io-file" -> "perl-module-symbol"
 "perl-module-io-handle" -> "perl"
 "perl-module-io-handle" -> "perl-module-exporter"
 "perl-module-io-handle" -> "perl-module-io"
@@ -2770,8 +2783,13 @@ digraph depends {
 "perl-module-mro" -> "perl-module-strict"
 "perl-module-mro" -> "perl-module-warnings"
 "perl-module-mro" -> "perl-module-xsloader"
+"perl-module-overloading" -> "perl"
+"perl-module-overloading" -> "perl-module-overload-numbers"
+"perl-module-overloading" -> "perl-module-warnings"
+"perl-module-overload-numbers" -> "perl"
 "perl-module-overload" -> "perl"
 "perl-module-overload" -> "perl-module-mro"
+"perl-module-overload" -> "perl-module-overloading"
 "perl-module-overload" -> "perl-module-warnings-register"
 "perl-module-pod-usage" -> "perl"
 "perl-module-pod-usage" -> "perl-module-config"
@@ -2779,6 +2797,7 @@ digraph depends {
 "perl-module-pod-usage" -> "perl-module-strict"
 "perl-module-pod-usage" -> "perl-module-vars"
 "perl-module-selectsaver" -> "perl"
+"perl-module-symbol" -> "perl"
 "perl-module-text-parsewords" -> "perl"
 "perl-module-text-parsewords" -> "perl-module-exporter"
 "perl-module-text-parsewords" -> "perl-module-strict"
@@ -3748,6 +3767,10 @@ digraph depends {
 "rdxd" -> "pmloglib"
 "rdxd" -> "rdxd-lic" [style=dotted]
 "rdxd" -> "tar"
+"rng-tools" -> "libgcrypt"
+"rng-tools" -> "libjitterentropy2"
+"rng-tools" -> "libsysfs2"
+"rng-tools" -> "rng-tools-lic" [style=dotted]
 "rsync" -> "libacl1"
 "rsync" -> "libattr1"
 "rsync" -> "libpopt0"
