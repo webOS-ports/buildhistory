@@ -1,6 +1,7 @@
 digraph depends {
     node [shape=plaintext]
 "activitymanager" -> "activitymanager-lic" [style=dotted]
+"activitymanager" -> "bootd"
 "activitymanager" -> "db8"
 "activitymanager" -> "libboost-regex1.69.0"
 "activitymanager" -> "libc6"
@@ -78,6 +79,7 @@ digraph depends {
 "bind-libs" -> "libc6"
 "bind-libs" -> "libcap2"
 "bind-libs" -> "libcrypto1.1"
+"bind-libs" -> "libz1"
 "binutils" -> "binutils-lic" [style=dotted]
 "binutils" -> "libbfd"
 "binutils" -> "libc6"
@@ -89,6 +91,14 @@ digraph depends {
 "bluez5" -> "libglib-2.0-0"
 "bluez5" -> "libreadline8"
 "bluez5" -> "libudev1"
+"bootd" -> "bootd-lic" [style=dotted]
+"bootd" -> "libc6"
+"bootd" -> "libgcc1"
+"bootd" -> "libglib-2.0-0"
+"bootd" -> "libpbnjson"
+"bootd" -> "libstdc++6"
+"bootd" -> "luna-service2"
+"bootd" -> "pmloglib"
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox" -> "libc6"
@@ -3633,7 +3643,6 @@ digraph depends {
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
 "libegl-mesa" -> "libglapi0"
-"libegl-mesa" -> "libz1"
 "libegl-mesa" -> "mesa-lic" [style=dotted]
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
@@ -3684,7 +3693,6 @@ digraph depends {
 "libgbm1" -> "libc6"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgbm1" -> "mesa-lic" [style=dotted]
 "libgbm1" -> "wayland"
 "libgcc1" -> "libc6"
@@ -3720,12 +3728,10 @@ digraph depends {
 "libglapi0" -> "libc6"
 "libglapi0" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "libc6"
-"libgles1-mesa" -> "libdrm2"
 "libgles1-mesa" -> "libglapi0"
 "libgles1-mesa" -> "mesa-lic" [style=dotted]
 "libgles1-mesa" -> "mesa-megadriver" [style=dotted]
 "libgles2-mesa" -> "libc6"
-"libgles2-mesa" -> "libdrm2"
 "libgles2-mesa" -> "libglapi0"
 "libgles2-mesa" -> "mesa-lic" [style=dotted]
 "libgles2-mesa" -> "mesa-megadriver" [style=dotted]
@@ -4748,6 +4754,7 @@ digraph depends {
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
 "openssh-sshd" -> "openssh-lic" [style=dotted]
+"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libc6"
 "openssh-ssh" -> "libcrypto1.1"
@@ -5057,6 +5064,7 @@ digraph depends {
 "pango" -> "pango-lic" [style=dotted]
 "perl" -> "libc6"
 "perl" -> "libcrypt1"
+"perl-module-carp" -> "perl"
 "perl-module-config-heavy" -> "perl"
 "perl-module-dynaloader" -> "perl"
 "perl-module-dynaloader" -> "perl-module-config"
@@ -5071,11 +5079,13 @@ digraph depends {
 "perl-module-fcntl" -> "perl-module-strict"
 "perl-module-fcntl" -> "perl-module-xsloader"
 "perl-module-io-file" -> "perl"
+"perl-module-io-file" -> "perl-module-carp"
 "perl-module-io-file" -> "perl-module-exporter"
 "perl-module-io-file" -> "perl-module-fcntl"
 "perl-module-io-file" -> "perl-module-io-seekable"
 "perl-module-io-file" -> "perl-module-selectsaver"
 "perl-module-io-file" -> "perl-module-strict"
+"perl-module-io-file" -> "perl-module-symbol"
 "perl-module-io-handle" -> "perl"
 "perl-module-io-handle" -> "perl-module-exporter"
 "perl-module-io-handle" -> "perl-module-io"
@@ -5093,6 +5103,7 @@ digraph depends {
 "perl-module-io-seekable" -> "perl-module-io-handle"
 "perl-module-io-seekable" -> "perl-module-strict"
 "perl-module-selectsaver" -> "perl"
+"perl-module-symbol" -> "perl"
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl-module-dynaloader"
 "perl" -> "perl-lic" [style=dotted]
