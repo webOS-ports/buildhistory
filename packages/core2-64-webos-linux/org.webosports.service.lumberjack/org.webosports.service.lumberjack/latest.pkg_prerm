@@ -1,15 +1,9 @@
 #!/bin/sh
 set -e
-OPTS=""
-
-if [ -n "$D" ]; then
-    OPTS="--root=$D"
-fi
-
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
 		systemctl stop org.webosports.service.lumberjack.service
-	fi
 
-	systemctl $OPTS disable org.webosports.service.lumberjack.service
+		systemctl disable org.webosports.service.lumberjack.service
+	fi
 fi
