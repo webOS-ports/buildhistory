@@ -1,15 +1,9 @@
 #!/bin/sh
 set -e
-OPTS=""
-
-if [ -n "$D" ]; then
-    OPTS="--root=$D"
-fi
-
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
 		systemctl stop db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service
-	fi
 
-	systemctl $OPTS disable db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service
+		systemctl disable db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service
+	fi
 fi
