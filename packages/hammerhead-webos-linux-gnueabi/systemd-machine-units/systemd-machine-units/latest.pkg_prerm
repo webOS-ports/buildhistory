@@ -1,15 +1,9 @@
 #!/bin/sh
 set -e
-OPTS=""
-
-if [ -n "$D" ]; then
-    OPTS="--root=$D"
-fi
-
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
 		systemctl stop wifi-macaddr-persister.service wifi-module-load.service hciattach.service dev-ttyHS99.device
-	fi
 
-	systemctl $OPTS disable wifi-macaddr-persister.service wifi-module-load.service hciattach.service dev-ttyHS99.device
+		systemctl disable wifi-macaddr-persister.service wifi-module-load.service hciattach.service dev-ttyHS99.device
+	fi
 fi
