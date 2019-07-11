@@ -142,10 +142,11 @@ drwxr-xr-x root       root              260 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              422 ./etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf
 -rw-r--r-- root       root              686 ./etc/dbus-1/system.d/org.neard.conf
 -rw-r--r-- root       root             2259 ./etc/dbus-1/system.d/pulseaudio-system.conf
-drwxr-xr-x root       root              260 ./etc/default
+drwxr-xr-x root       root              280 ./etc/default
 -rw-r--r-- root       root             1056 ./etc/default/busybox-syslog
 -rw-r--r-- root       root               36 ./etc/default/mountall
 -rw-r--r-- root       root               52 ./etc/default/postinst
+-rw-r--r-- root       root              703 ./etc/default/powerd.conf
 -rw-r--r-- root       root               40 ./etc/default/pulseaudio.conf
 -rw-r--r-- root       root              857 ./etc/default/sleepd.conf
 -rw-r--r-- root       root              236 ./etc/default/smartmontools
@@ -158,7 +159,7 @@ drwxr-xr-x root       root              100 ./etc/default/volatiles
 -rw-r--r-- root       root               91 ./etc/default/volatiles/volatiles.04_pulse
 -rw-r--r-- root       root              307 ./etc/default/xl2tpd
 drwxr-xr-x root       root               40 ./etc/depmod.d
-drwxr-xr-x root       root              680 ./etc/event.d
+drwxr-xr-x root       root              700 ./etc/event.d
 -rw-r--r-- root       root              839 ./etc/event.d/activitymanager
 -rw-r--r-- root       root                0 ./etc/event.d/audio-service
 -rw-r--r-- root       root                0 ./etc/event.d/certmgrd
@@ -186,6 +187,7 @@ drwxr-xr-x root       root              680 ./etc/event.d
 -rw-r--r-- root       root              417 ./etc/event.d/org.webosinternals.ipkgservice
 -rw-r--r-- root       root              817 ./etc/event.d/PmKLogDaemon
 -rw-r--r-- root       root             1229 ./etc/event.d/PmLogDaemon
+-rw-r--r-- root       root             2821 ./etc/event.d/powerd
 -rw-r--r-- root       root              793 ./etc/event.d/rdxd
 -rw-r--r-- root       root              919 ./etc/event.d/SettingsService
 -rw-r--r-- root       root              901 ./etc/event.d/sleepd
@@ -216,14 +218,14 @@ lrwxrwxrwx root       root               58 ./etc/fonts/conf.d/90-synthetic.conf
 -rw-r--r-- root       root              963 ./etc/fstab
 drwxr-xr-x root       root               60 ./etc/geoclue
 -rw-r--r-- root       root             3391 ./etc/geoclue/geoclue.conf
--rw-r--r-- root       root              616 ./etc/group
--r-------- root       root              515 ./etc/gshadow
+-rw-r--r-- root       root              592 ./etc/group
+-r-------- root       root              494 ./etc/gshadow
 drwxr-xr-x root       root               60 ./etc/gtk-3.0
 -rw-r--r-- root       root              890 ./etc/gtk-3.0/im-multipress.conf
 -rw-r--r-- root       root               26 ./etc/host.conf
 -rw-r--r-- root       root               10 ./etc/hostname
 -rw-r--r-- root       root              257 ./etc/hosts
-drwxr-xr-x root       root              560 ./etc/init
+drwxr-xr-x root       root              580 ./etc/init
 -rw-r--r-- root       root              987 ./etc/init/activitymanager.conf
 -rw-r--r-- root       root             1372 ./etc/init/configurator-async.conf
 -rw-r--r-- root       root             1221 ./etc/init/configurator.conf
@@ -248,6 +250,7 @@ drwxr-xr-x root       root               60 ./etc/init.d
 -rw-r--r-- root       root              917 ./etc/init/nyx-utils.conf
 -rw-r--r-- root       root              836 ./etc/init/PmKLogDaemon.conf
 -rw-r--r-- root       root              830 ./etc/init/PmLogDaemon.conf
+-rw-r--r-- root       root             1306 ./etc/init/powerd.conf
 -rw-r--r-- root       root              848 ./etc/init/rdxd.conf
 -rw-r--r-- root       root             1178 ./etc/init/SettingsService.conf
 -rw-r--r-- root       root              994 ./etc/init/SettingsService-recovery.conf
@@ -265,7 +268,7 @@ drwxr-xr-x root       root              220 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root            22464 ./etc/ld.so.cache
+-rw-r--r-- root       root            22527 ./etc/ld.so.cache
 -rw-r--r-- root       root               33 ./etc/ld.so.conf
 drwxr-xr-x root       root               80 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -622,7 +625,7 @@ drwxr-xr-x root       root               80 ./etc/palm/tempdb/permissions/com.pa
 -rw-r--r-- root       root              178 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.signaling
 drwxr-xr-x root       root               60 ./etc/pam.d
 -rw-r--r-- root       root              210 ./etc/pam.d/systemd-user
--rw-r--r-- root       root              940 ./etc/passwd
+-rw-r--r-- root       root              897 ./etc/passwd
 drwxr-xr-x root       root               60 ./etc/pdm
 -rw-r--r-- root       root              394 ./etc/pdm/pdm.conf
 drwxr-xr-x root       root               60 ./etc/pki
@@ -680,7 +683,7 @@ lrwxrwxrwx root       root               34 ./etc/resolv-conf.systemd -> ../run/
 -rw-r--r-- root       root              895 ./etc/rpc
 -r-------- root       root             1848 ./etc/securetty
 -rw-r--r-- root       root            18790 ./etc/services
--r-------- root       root              636 ./etc/shadow
+-r-------- root       root              598 ./etc/shadow
 -rw-r--r-- root       root               68 ./etc/shells
 drwxr-xr-x root       root               80 ./etc/skel
 -rwxr-xr-x root       root              410 ./etc/skel/.bashrc
@@ -960,7 +963,7 @@ drwxr-xr-x root       root               40 ./etc/ssl/private
 drwxr-xr-x root       root               60 ./etc/sysctl.d
 lrwxrwxrwx root       root               14 ./etc/sysctl.d/99-sysctl.conf -> ../sysctl.conf
 -rw-r--r-- root       root               69 ./etc/syslog.conf
-drwxr-xr-x root       root              220 ./etc/systemd
+drwxr-xr-x root       root              200 ./etc/systemd
 -rw-r--r-- root       root              615 ./etc/systemd/coredump.conf
 -rw-r--r-- root       root             1043 ./etc/systemd/journald.conf
 -rw-r--r-- root       root             1029 ./etc/systemd/logind.conf
@@ -984,7 +987,7 @@ lrwxrwxrwx root       root               46 ./etc/systemd/system/local-fs.target
 lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target.wants/var-volatile-srv.service -> /lib/systemd/system/var-volatile-srv.service
 drwxr-xr-x root       root               60 ./etc/systemd/system/luna-next.service.wants
 lrwxrwxrwx root       root               50 ./etc/systemd/system/luna-next.service.wants/touchscreen-initialize.service -> /lib/systemd/system/touchscreen-initialize.service
-drwxr-xr-x root       root              740 ./etc/systemd/system/multi-user.target.wants
+drwxr-xr-x root       root              760 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
@@ -1007,6 +1010,7 @@ lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/ofono.service -> /lib/systemd/system/ofono.service
 lrwxrwxrwx root       root               58 ./etc/systemd/system/multi-user.target.wants/org.webosinternals.ipkgservice.service -> /lib/systemd/system/org.webosinternals.ipkgservice.service
 lrwxrwxrwx root       root               61 ./etc/systemd/system/multi-user.target.wants/org.webosports.service.lumberjack.service -> /lib/systemd/system/org.webosports.service.lumberjack.service
+lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.target.wants/powerd.service -> /lib/systemd/system/powerd.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/pulseaudio.service -> /lib/systemd/system/pulseaudio.service
 lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/rngd.service -> /lib/systemd/system/rngd.service
@@ -1023,9 +1027,8 @@ lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.targ
 -rw-r--r-- root       root              381 ./etc/systemd/system/physical-device-manager.service
 drwxr-xr-x root       root               60 ./etc/systemd/system/sockets.target.wants
 lrwxrwxrwx root       root               31 ./etc/systemd/system/sockets.target.wants/sshd.socket -> /lib/systemd/system/sshd.socket
-drwxr-xr-x root       root               80 ./etc/systemd/system/sysinit.target.wants
+drwxr-xr-x root       root               60 ./etc/systemd/system/sysinit.target.wants
 lrwxrwxrwx root       root               41 ./etc/systemd/system/sysinit.target.wants/run-postinsts.service -> /lib/systemd/system/run-postinsts.service
-lrwxrwxrwx root       root               56 ./etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service -> ../../../../lib/systemd/system/systemd-timesyncd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
 drwxr-xr-x root       root               60 ./etc/systemd/system/systemd-random-seed.service.wants
 lrwxrwxrwx root       root               44 ./etc/systemd/system/systemd-random-seed.service.wants/var-volatile-lib.service -> /lib/systemd/system/var-volatile-lib.service
@@ -1039,7 +1042,6 @@ lrwxrwxrwx root       root               20 ./etc/systemd/system/webos-cbd.targe
 -rw-r--r-- root       root              796 ./etc/systemd/system/webos-ibd.target
 -rw-r--r-- root       root              717 ./etc/systemd/system/webos-mbd.target
 -rw-r--r-- root       root              824 ./etc/systemd/system/webos-rbd.target
--rw-r--r-- root       root              657 ./etc/systemd/timesyncd.conf
 drwxr-xr-x root       root               40 ./etc/systemd/user
 -rw-r--r-- root       root             1130 ./etc/systemd/user.conf
 drwxr-xr-x root       root              180 ./etc/terminfo
@@ -1717,11 +1719,11 @@ drwxr-xr-x root       root              100 ./lib/modules/5.1.0-rc7-pinephone/ke
 -rw-r--r-- root       root              128 ./lib/modules/5.1.0-rc7-pinephone/modules.softdep
 -rw-r--r-- root       root            65746 ./lib/modules/5.1.0-rc7-pinephone/modules.symbols
 -rw-r--r-- root       root            82052 ./lib/modules/5.1.0-rc7-pinephone/modules.symbols.bin
-drwxr-xr-x root       root              920 ./lib/systemd
+drwxr-xr-x root       root              860 ./lib/systemd
 -rwxr-xr-x root       root          2564624 ./lib/systemd/libsystemd-shared-241.so
 drwxr-xr-x root       root               60 ./lib/systemd/network
 -rw-r--r-- root       root              417 ./lib/systemd/network/99-default.link
-drwxr-xr-x root       root             4920 ./lib/systemd/system
+drwxr-xr-x root       root             4860 ./lib/systemd/system
 -rw-r--r-- root       root             1062 ./lib/systemd/system/activitymanager.service
 -rw-r--r-- root       root              283 ./lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
@@ -1754,7 +1756,6 @@ lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freede
 lrwxrwxrwx root       root               23 ./lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx root       root               22 ./lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
 lrwxrwxrwx root       root               24 ./lib/systemd/system/dbus-org.freedesktop.machine1.service -> systemd-machined.service
-lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rw-r--r-- root       root              380 ./lib/systemd/system/dbus.service
 -rw-r--r-- root       root              112 ./lib/systemd/system/dbus-session.service
 -rw-r--r-- root       root              106 ./lib/systemd/system/dbus.socket
@@ -1788,9 +1789,6 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target 
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-sulogin-shell
 -rwxr-xr-x root       root            67824 ./lib/systemd/systemd-sysctl
 -rwxr-xr-x root       root             1258 ./lib/systemd/systemd-sysv-install
--rwxr-xr-x root       root            67744 ./lib/systemd/systemd-timedated
--rwxr-xr-x root       root            67744 ./lib/systemd/systemd-timesyncd
--rwxr-xr-x root       root            67744 ./lib/systemd/systemd-time-wait-sync
 -rwxr-xr-x root       root           724328 ./lib/systemd/systemd-udevd
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-update-done
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-update-utmp
@@ -1880,6 +1878,7 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              394 ./lib/systemd/system/paths.target
 -rw-r--r-- root       root             1060 ./lib/systemd/system/pm-log-daemon.service
 -rw-r--r-- root       root              782 ./lib/systemd/system/populate-volatile.service
+-rw-r--r-- root       root              667 ./lib/systemd/system/powerd.service
 -rw-r--r-- root       root              592 ./lib/systemd/system/poweroff.target
 drwxr-xr-x root       root               60 ./lib/systemd/system/poweroff.target.wants
 lrwxrwxrwx root       root               39 ./lib/systemd/system/poweroff.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
@@ -2019,9 +2018,6 @@ lrwxrwxrwx root       root               30 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              596 ./lib/systemd/system/systemd-suspend-then-hibernate.service
 -rw-r--r-- root       root              693 ./lib/systemd/system/systemd-sysctl.service
 -rw-r--r-- root       root              700 ./lib/systemd/system/systemd-sysusers.service
--rw-r--r-- root       root             1055 ./lib/systemd/system/systemd-timedated.service
--rw-r--r-- root       root             1433 ./lib/systemd/system/systemd-timesyncd.service
--rw-r--r-- root       root             1196 ./lib/systemd/system/systemd-time-wait-sync.service
 -rw-r--r-- root       root              659 ./lib/systemd/system/systemd-tmpfiles-clean.service
 -rw-r--r-- root       root              490 ./lib/systemd/system/systemd-tmpfiles-clean.timer
 -rw-r--r-- root       root              732 ./lib/systemd/system/systemd-tmpfiles-setup-dev.service
@@ -2293,7 +2289,7 @@ lrwxrwxrwx root       root               37 ./usr/aarch64-webos-linux/bin/objdum
 lrwxrwxrwx root       root               36 ./usr/aarch64-webos-linux/bin/ranlib -> ../../bin/aarch64-webos-linux-ranlib
 lrwxrwxrwx root       root               37 ./usr/aarch64-webos-linux/bin/readelf -> ../../bin/aarch64-webos-linux-readelf
 lrwxrwxrwx root       root               35 ./usr/aarch64-webos-linux/bin/strip -> ../../bin/aarch64-webos-linux-strip
-drwxr-xr-x root       root            13860 ./usr/bin
+drwxr-xr-x root       root            13840 ./usr/bin
 lrwxrwxrwx root       root                8 ./usr/bin/2to3 -> 2to3-3.7
 -rwxr-xr-x root       root               95 ./usr/bin/2to3-3.7
 -rwxr-xr-x root       root            68968 ./usr/bin/aarch64-webos-linux-addr2line
@@ -2932,7 +2928,6 @@ lrwxrwxrwx root       root               19 ./usr/bin/test -> /bin/busybox.nosui
 lrwxrwxrwx root       root               19 ./usr/bin/tftp -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            68272 ./usr/bin/tidy
 lrwxrwxrwx root       root               19 ./usr/bin/time -> /bin/busybox.nosuid
--rwxr-xr-x root       root            67808 ./usr/bin/timedatectl
 -rwxr-xr-x root       root            68040 ./usr/bin/tload
 -rwxr-xr-x root       root           138016 ./usr/bin/top.procps
 lrwxrwxrwx root       root               19 ./usr/bin/top -> /usr/bin/top.procps
@@ -3002,7 +2997,7 @@ drwxr-xr-x root       root               80 ./usr/include/python2.7
 drwxr-xr-x root       root               80 ./usr/include/python3.7m
 -rw-r--r-- root       root            45166 ./usr/include/python3.7m/pyconfig-64.h
 -rw-r--r-- root       root              931 ./usr/include/python3.7m/pyconfig.h
-drwxr-xr-x root       root            13240 ./usr/lib
+drwxr-xr-x root       root            13280 ./usr/lib
 drwxr-xr-x root       root              100 ./usr/lib/alsa-lib
 -rwxr-xr-x root       root            67784 ./usr/lib/alsa-lib/libasound_module_conf_pulse.so
 -rwxr-xr-x root       root            68288 ./usr/lib/alsa-lib/libasound_module_ctl_pulse.so
@@ -3779,6 +3774,8 @@ lrwxrwxrwx root       root               32 ./usr/lib/libPmStateMachineEngine.so
 lrwxrwxrwx root       root               19 ./usr/lib/libpng16.so.16 -> libpng16.so.16.37.0
 -rwxr-xr-x root       root            68808 ./usr/lib/libpopt.so.0.0.0
 lrwxrwxrwx root       root               16 ./usr/lib/libpopt.so.0 -> libpopt.so.0.0.0
+-rwxr-xr-x root       root            68272 ./usr/lib/libpowerd.so.4.0.0
+lrwxrwxrwx root       root               18 ./usr/lib/libpowerd.so.4 -> libpowerd.so.4.0.0
 -rwxr-xr-x root       root           396768 ./usr/lib/libpresage.so.1.1.1
 lrwxrwxrwx root       root               19 ./usr/lib/libpresage.so.1 -> libpresage.so.1.1.1
 -rwxr-xr-x root       root           134152 ./usr/lib/libprocps.so.7.1.0
@@ -9064,7 +9061,7 @@ lrwxrwxrwx root       root               14 ./usr/lib/systemd/user/sockets.targe
 drwxr-xr-x root       root              100 ./usr/lib/sysusers.d
 -rw-r--r-- root       root             1136 ./usr/lib/sysusers.d/basic.conf
 -rw-r--r-- root       root              211 ./usr/lib/sysusers.d/dbus.conf
--rw-r--r-- root       root              369 ./usr/lib/sysusers.d/systemd.conf
+-rw-r--r-- root       root              316 ./usr/lib/sysusers.d/systemd.conf
 drwxr-xr-x root       root              260 ./usr/lib/tmpfiles.d
 -rw-r--r-- root       root              365 ./usr/lib/tmpfiles.d/dbus.conf
 -rw-r--r-- root       root              557 ./usr/lib/tmpfiles.d/etc.conf
@@ -16653,7 +16650,7 @@ drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources
 drwxr-xr-x root       root               60 ./usr/palm/universalsearchmgr/resources/en_us
 -rw-r--r-- root       root             2655 ./usr/palm/universalsearchmgr/resources/en_us/UniversalSearchList.json
-drwxr-xr-x root       root             2660 ./usr/sbin
+drwxr-xr-x root       root             2680 ./usr/sbin
 -rwxr-xr-x root       root           924064 ./usr/sbin/activitymanager
 lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
@@ -16745,6 +16742,7 @@ lrwxrwxrwx root       root                8 ./usr/sbin/mkfs.vfat -> mkfs.fat
 -rwxr-xr-x root       root            68848 ./usr/sbin/PmLogDaemon
 -rwxr-xr-x root       root             4654 ./usr/sbin/pm-log-daemon-stop.sh
 -rwxr-xr-x root       root            10061 ./usr/sbin/populate-volatile.sh
+-rwxr-xr-x root       root            69824 ./usr/sbin/powerd
 -r-sr-xr-x root       root           353504 ./usr/sbin/pppd
 -r-xr-xr-x root       root            69248 ./usr/sbin/pptp
 -rwxr-xr-x root       root            72200 ./usr/sbin/pwck
@@ -17522,12 +17520,13 @@ drwxr-xr-x root       root              380 ./usr/share/dbus-1/interfaces
 -rw-r--r-- root       root             2606 ./usr/share/dbus-1/interfaces/org.freedesktop.ModemManager1.Sim.xml
 -rw-r--r-- root       root             6517 ./usr/share/dbus-1/interfaces/org.freedesktop.ModemManager1.Sms.xml
 -rw-r--r-- root       root             3573 ./usr/share/dbus-1/interfaces/org.freedesktop.ModemManager1.xml
-drwxr-xr-x root       root              480 ./usr/share/dbus-1/services
+drwxr-xr-x root       root              500 ./usr/share/dbus-1/services
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/services/audio-service.service
 -rw-r--r-- root       root               87 ./usr/share/dbus-1/services/com.lge.settingsservice.service
 -rw-r--r-- root       root              115 ./usr/share/dbus-1/services/com.palm.keymanager.service
 -rw-r--r-- root       root              135 ./usr/share/dbus-1/services/com.palm.luna.service
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/services/com.palm.mediapermissions.service
+-rw-r--r-- root       root              696 ./usr/share/dbus-1/services/com.palm.power.service
 -rw-r--r-- root       root              128 ./usr/share/dbus-1/services/com.palm.preferences.service
 -rw-r--r-- root       root              708 ./usr/share/dbus-1/services/com.palm.storage.service
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/services/com.palm.universalsearch.service
@@ -17548,7 +17547,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root             3561 ./usr/share/dbus-1/session.conf
 drwxr-xr-x root       root               40 ./usr/share/dbus-1/session.d
 -rw-r--r-- root       root             5696 ./usr/share/dbus-1/system.conf
-drwxr-xr-x root       root              220 ./usr/share/dbus-1/system.d
+drwxr-xr-x root       root              180 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root              642 ./usr/share/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root              549 ./usr/share/dbus-1/system.d/connman-vpn-dbus.conf
 -rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.hostname1.conf
@@ -17556,9 +17555,7 @@ drwxr-xr-x root       root              220 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root            13299 ./usr/share/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r-- root       root            11055 ./usr/share/dbus-1/system.d/org.freedesktop.machine1.conf
 -rw-r--r-- root       root            18807 ./usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
--rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.timedate1.conf
--rw-r--r-- root       root             1614 ./usr/share/dbus-1/system.d/org.freedesktop.timesync1.conf
-drwxr-xr-x root       root              900 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root              880 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
 -rw-r--r-- root       root               87 ./usr/share/dbus-1/system-services/com.lge.settingsservice.service
@@ -17569,6 +17566,7 @@ drwxr-xr-x root       root              900 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              359 ./usr/share/dbus-1/system-services/com.palm.luna.service
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/com.palm.mediapermissions.service
 -rw-r--r-- root       root              170 ./usr/share/dbus-1/system-services/com.palm.pop.service
+-rw-r--r-- root       root              696 ./usr/share/dbus-1/system-services/com.palm.power.service
 -rw-r--r-- root       root              128 ./usr/share/dbus-1/system-services/com.palm.preferences.service
 -rw-r--r-- root       root              152 ./usr/share/dbus-1/system-services/com.palm.smtp.service
 -rw-r--r-- root       root              708 ./usr/share/dbus-1/system-services/com.palm.storage.service
@@ -17589,8 +17587,6 @@ drwxr-xr-x root       root              900 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              457 ./usr/share/dbus-1/system-services/org.freedesktop.machine1.service
 -rw-r--r-- root       root              467 ./usr/share/dbus-1/system-services/org.freedesktop.ModemManager1.service
 -rw-r--r-- root       root              404 ./usr/share/dbus-1/system-services/org.freedesktop.systemd1.service
--rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
--rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timesync1.service
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/org.webosinternals.ipkgservice.service
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosinternals.tweaks.prefs.service
 -rw-r--r-- root       root              150 ./usr/share/dbus-1/system-services/org.webosports.app.filemanager.service.service
@@ -22830,7 +22826,7 @@ drwxr-xr-x root       root              160 ./usr/share/libgphoto2/2.5.17/konica
 -rw-r--r-- root       root           123328 ./usr/share/libgphoto2/2.5.17/konica/japanese
 -rw-r--r-- root       root           123485 ./usr/share/libgphoto2/2.5.17/konica/korean
 -rw-r--r-- root       root           121202 ./usr/share/libgphoto2/2.5.17/konica/spanish
-drwxr-xr-x root       root             7300 ./usr/share/licenses
+drwxr-xr-x root       root             7320 ./usr/share/licenses
 drwxr-xr-x root       root              120 ./usr/share/licenses/acl
 -rw-r--r-- root       root            18311 ./usr/share/licenses/acl/COPYING
 -rw-r--r-- root       root            26762 ./usr/share/licenses/acl/COPYING.LGPL
@@ -23956,6 +23952,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/pmstatemachinee
 drwxr-xr-x root       root               80 ./usr/share/licenses/popt
 -rw-r--r-- root       root             1277 ./usr/share/licenses/popt/COPYING
 -rw-r--r-- root       root             1080 ./usr/share/licenses/popt/generic_MIT
+drwxr-xr-x root       root               80 ./usr/share/licenses/powerd
+-rw-r--r-- root       root            11360 ./usr/share/licenses/powerd/Apache-2.0
+-rw-r--r-- root       root            11360 ./usr/share/licenses/powerd/generic_Apache-2.0
 drwxr-xr-x root       root               80 ./usr/share/licenses/powerstat
 -rw-r--r-- root       root            18092 ./usr/share/licenses/powerstat/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/powerstat/generic_GPLv2
@@ -24480,7 +24479,7 @@ drwxr-xr-x root       root               60 ./usr/share/localization/luna-sysser
 -rwxr-xr-x root       root            48595 ./usr/share/localization/luna-sysservice/resources/zh/Hant/TW/cppstrings.json
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root             1080 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root             1100 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/prv/audio-service.json
 -rw-r--r-- root       root              299 ./usr/share/ls2/roles/prv/certmgrd.json
 -rw-r--r-- root       root              118 ./usr/share/ls2/roles/prv/com.lge.settingsservice.backupRegistration.json
@@ -24493,6 +24492,7 @@ drwxr-xr-x root       root             1080 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root             2160 ./usr/share/ls2/roles/prv/com.palm.luna.json
 -rw-r--r-- root       root              221 ./usr/share/ls2/roles/prv/com.palm.mediapermissions.json
 -rw-r--r-- root       root              278 ./usr/share/ls2/roles/prv/com.palm.pop.json
+-rw-r--r-- root       root              281 ./usr/share/ls2/roles/prv/com.palm.power.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/prv/com.palm.preferences.json
 -rw-r--r-- root       root              281 ./usr/share/ls2/roles/prv/com.palm.smtp.json
 -rw-r--r-- root       root              284 ./usr/share/ls2/roles/prv/com.palm.storage.json
@@ -24533,7 +24533,7 @@ drwxr-xr-x root       root             1080 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              234 ./usr/share/ls2/roles/prv/org.webosports.service.messaging.json
 -rw-r--r-- root       root              197 ./usr/share/ls2/roles/prv/org.webosports.service.update.json
 -rw-r--r-- root       root              634 ./usr/share/ls2/roles/prv/org.webosports.webappmanager.json
-drwxr-xr-x root       root              540 ./usr/share/ls2/roles/pub
+drwxr-xr-x root       root              560 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/pub/audio-service.json
 -rw-r--r-- root       root              118 ./usr/share/ls2/roles/pub/com.lge.settingsservice.backupRegistration.json
 -rw-r--r-- root       root              304 ./usr/share/ls2/roles/pub/com.lge.settingsservice.json
@@ -24542,6 +24542,7 @@ drwxr-xr-x root       root              540 ./usr/share/ls2/roles/pub
 -rw-r--r-- root       root              306 ./usr/share/ls2/roles/pub/com.palm.luna-apps.json
 -rw-r--r-- root       root              856 ./usr/share/ls2/roles/pub/com.palm.luna.json
 -rw-r--r-- root       root              221 ./usr/share/ls2/roles/pub/com.palm.mediapermissions.json
+-rw-r--r-- root       root              281 ./usr/share/ls2/roles/pub/com.palm.power.json
 -rw-r--r-- root       root              301 ./usr/share/ls2/roles/pub/com.palm.preferences.json
 -rw-r--r-- root       root              284 ./usr/share/ls2/roles/pub/com.palm.storage.json
 -rw-r--r-- root       root              314 ./usr/share/ls2/roles/pub/com.palm.universalsearch.json
@@ -24609,7 +24610,7 @@ drwxr-xr-x root       root              540 ./usr/share/luna-service2/client-per
 -rw-r--r-- root       root              225 ./usr/share/luna-service2/client-permissions.d/com.webos.service.sleep.perm.json
 -rw-r--r-- root       root              119 ./usr/share/luna-service2/client-permissions.d/com.webos.service.systemservice.perm.json
 -rw-r--r-- root       root              323 ./usr/share/luna-service2/client-permissions.d/com.webos.settingsservice.perm.json
--rw-r--r-- root       root              114 ./usr/share/luna-service2/client-permissions.d/luna-service2.perm.json
+-rw-r--r-- root       root              278 ./usr/share/luna-service2/client-permissions.d/luna-service2.perm.json
 -rw-r--r-- root       root              274 ./usr/share/luna-service2/client-permissions.d/luna-service2-signals.perm.json
 -rw-r--r-- root       root               63 ./usr/share/luna-service2/client-permissions.d/qml.localeservice.perm.json
 -rw-r--r-- root       root              429 ./usr/share/luna-service2/client-permissions.d/webos-connman-adapter.perm.json
@@ -24626,7 +24627,7 @@ drwxr-xr-x root       root              140 ./usr/share/luna-service2/groups.d
 -rw-r--r-- root       root              217 ./usr/share/luna-service2/groups.d/com.webos.service.sleep.groups.json
 -rw-r--r-- root       root              136 ./usr/share/luna-service2/groups.d/configurator.groups.json
 -rw-r--r-- root       root               99 ./usr/share/luna-service2/groups.d/db8.groups.json
-drwxrwxr-x root       root             1020 ./usr/share/luna-service2/manifests.d
+drwxrwxr-x root       root             1040 ./usr/share/luna-service2/manifests.d
 -rw-rw-r-- root       root              555 ./usr/share/luna-service2/manifests.d/activitymanager.manifest.json
 -rw-rw-r-- root       root             1617 ./usr/share/luna-service2/manifests.d/app-services.manifest.json
 -rw-rw-r-- root       root              375 ./usr/share/luna-service2/manifests.d/audio-service.manifest.json
@@ -24670,6 +24671,7 @@ drwxrwxr-x root       root             1020 ./usr/share/luna-service2/manifests.
 -rw-rw-r-- root       root              470 ./usr/share/luna-service2/manifests.d/org.webosports.service.messaging.manifest.json
 -rw-rw-r-- root       root              379 ./usr/share/luna-service2/manifests.d/org.webosports.service.update.manifest.json
 -rw-rw-r-- root       root              236 ./usr/share/luna-service2/manifests.d/pmlogdaemon.manifest.json
+-rw-rw-r-- root       root              372 ./usr/share/luna-service2/manifests.d/powerd.manifest.json
 -rw-rw-r-- root       root              468 ./usr/share/luna-service2/manifests.d/rdxd.manifest.json
 -rw-rw-r-- root       root              506 ./usr/share/luna-service2/manifests.d/sleepd.manifest.json
 -rw-rw-r-- root       root              382 ./usr/share/luna-service2/manifests.d/storaged.manifest.json
@@ -24678,7 +24680,7 @@ drwxrwxr-x root       root             1020 ./usr/share/luna-service2/manifests.
 -rw-rw-r-- root       root              488 ./usr/share/luna-service2/manifests.d/webos-telephonyd.manifest.json
 drwxr-xr-x root       root              540 ./usr/share/luna-service2/roles.d
 -rw-r--r-- root       root              364 ./usr/share/luna-service2/roles.d/com.palm.configurator.role.json
--rw-r--r-- root       root             2386 ./usr/share/luna-service2/roles.d/com.palm.db.role.json
+-rw-r--r-- root       root             2560 ./usr/share/luna-service2/roles.d/com.palm.db.role.json
 -rw-r--r-- root       root              671 ./usr/share/luna-service2/roles.d/com.palm.filecache.role.json
 -rw-r--r-- root       root              195 ./usr/share/luna-service2/roles.d/com.palm.service.accounts.role.json
 -rw-r--r-- root       root              215 ./usr/share/luna-service2/roles.d/com.palm.service.calendar.reminders.role.json
@@ -24689,8 +24691,8 @@ drwxr-xr-x root       root              540 ./usr/share/luna-service2/roles.d
 -rw-r--r-- root       root              451 ./usr/share/luna-service2/roles.d/com.webos.db8.test.lunaservice.role.json
 -rw-r--r-- root       root              294 ./usr/share/luna-service2/roles.d/com.webos.db8.test.media.role.json
 -rw-r--r-- root       root              268 ./usr/share/luna-service2/roles.d/com.webos.db8.test.stress.role.json
--rw-r--r-- root       root              221 ./usr/share/luna-service2/roles.d/com.webos.lunasendpub.role.json
--rw-r--r-- root       root              217 ./usr/share/luna-service2/roles.d/com.webos.lunasend.role.json
+-rw-r--r-- root       root              327 ./usr/share/luna-service2/roles.d/com.webos.lunasendpub.role.json
+-rw-r--r-- root       root              320 ./usr/share/luna-service2/roles.d/com.webos.lunasend.role.json
 -rw-r--r-- root       root              392 ./usr/share/luna-service2/roles.d/com.webos.rdxd.role.json
 -rw-r--r-- root       root              869 ./usr/share/luna-service2/roles.d/com.webos.service.activitymanager.role.json
 -rw-r--r-- root       root              303 ./usr/share/luna-service2/roles.d/com.webos.service.downloadmanager.role.json
@@ -24699,7 +24701,7 @@ drwxr-xr-x root       root              540 ./usr/share/luna-service2/roles.d
 -rw-r--r-- root       root              500 ./usr/share/luna-service2/roles.d/com.webos.service.sleep.role.json
 -rw-r--r-- root       root              508 ./usr/share/luna-service2/roles.d/com.webos.service.systemservice.service.role.json
 -rw-r--r-- root       root              506 ./usr/share/luna-service2/roles.d/com.webos.settingsservice.role.json
--rw-r--r-- root       root              229 ./usr/share/luna-service2/roles.d/ls-monitor.role.json
+-rw-r--r-- root       root              421 ./usr/share/luna-service2/roles.d/ls-monitor.role.json
 -rw-r--r-- root       root              421 ./usr/share/luna-service2/roles.d/webos-connman-adapter.role.json
 -rw-r--r-- root       root              714 ./usr/share/luna-service2/roles.d/webos-telephonyd.role.json
 drwxr-xr-x root       root              480 ./usr/share/luna-service2/services.d
@@ -25775,13 +25777,12 @@ drwxr-xr-x root       root               60 ./usr/share/pixmaps/pidgin/protocols
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon
 -rwxr-xr-x root       root              767 ./usr/share/PmLogDaemon/show_disk_usage.sh
 drwxr-xr-x root       root               60 ./usr/share/polkit-1
-drwxr-xr-x root       root              160 ./usr/share/polkit-1/actions
+drwxr-xr-x root       root              140 ./usr/share/polkit-1/actions
 -rw-r--r-- root       root             3078 ./usr/share/polkit-1/actions/org.freedesktop.hostname1.policy
 -rw-r--r-- root       root             1923 ./usr/share/polkit-1/actions/org.freedesktop.locale1.policy
 -rw-r--r-- root       root            21774 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- root       root             5534 ./usr/share/polkit-1/actions/org.freedesktop.machine1.policy
 -rw-r--r-- root       root             3819 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
--rw-r--r-- root       root             3125 ./usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
 drwxr-xr-x root       root              240 ./usr/share/presage
 -rw-r--r-- root       root              134 ./usr/share/presage/abbreviations_en.txt
 -rw-r--r-- root       root               68 ./usr/share/presage/abbreviations_it.txt
@@ -28207,7 +28208,7 @@ drwxr-xr-x root       root              120 ./var/cache/fontconfig
 -rw-r--r-- root       root            19440 ./var/cache/fontconfig/94322f4d3cdf1bd54794b691285ca062-le64.cache-7
 -rw-r--r-- root       root              200 ./var/cache/fontconfig/CACHEDIR.TAG
 drwx------ root       root               60 ./var/cache/ldconfig
--rw------- root       root            21645 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            21708 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root               40 ./var/cache/opkg
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
@@ -28223,11 +28224,11 @@ drwxr-xr-x root       root               80 ./var/lib/ofono
 -rw-r--r-- root       root             6900 ./var/lib/ofono/ril_subscription.conf
 drwx--x--- root       root               40 ./var/lib/openvpn
 drwxr-xr-x root       root               80 ./var/lib/opkg
-drwxr-xr-x root       root            91200 ./var/lib/opkg/info
+drwxr-xr-x root       root            91320 ./var/lib/opkg/info
 -rw-r--r-- root       root              363 ./var/lib/opkg/info/acl-lic.control
 -rw-r--r-- root       root              212 ./var/lib/opkg/info/acl-lic.list
--rw-r--r-- root       root              690 ./var/lib/opkg/info/activitymanager.control
--rw-r--r-- root       root              366 ./var/lib/opkg/info/activitymanager-lic.control
+-rw-r--r-- root       root              691 ./var/lib/opkg/info/activitymanager.control
+-rw-r--r-- root       root              367 ./var/lib/opkg/info/activitymanager-lic.control
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/activitymanager-lic.list
 -rw-r--r-- root       root             1045 ./var/lib/opkg/info/activitymanager.list
 -rwxr-xr-x root       root              328 ./var/lib/opkg/info/activitymanager.postinst
@@ -28932,7 +28933,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              669 ./var/lib/opkg/info/gtk+3-locale-en.control
 -rw-r--r-- root       root              684 ./var/lib/opkg/info/gtk+3-locale-en-gb.control
 -rw-r--r-- root       root              117 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
--rw-r--r-- root       root              207 ./var/lib/opkg/info/gtk+3-locale-en.list
+-rw-r--r-- root       root              181 ./var/lib/opkg/info/gtk+3-locale-en.list
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/gzip.control
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/gzip-lic.control
 -rw-r--r-- root       root              161 ./var/lib/opkg/info/gzip-lic.list
@@ -31667,7 +31668,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              370 ./var/lib/opkg/info/luna-sysmgr-conf-lic.control
 -rw-r--r-- root       root              165 ./var/lib/opkg/info/luna-sysmgr-conf-lic.list
 -rw-r--r-- root       root              134 ./var/lib/opkg/info/luna-sysmgr-conf.list
--rw-r--r-- root       root              716 ./var/lib/opkg/info/luna-sysmgr.control
+-rw-r--r-- root       root              724 ./var/lib/opkg/info/luna-sysmgr.control
 -rw-r--r-- root       root              296 ./var/lib/opkg/info/luna-sysmgr-lic.control
 -rw-r--r-- root       root              150 ./var/lib/opkg/info/luna-sysmgr-lic.list
 -rw-r--r-- root       root             2262 ./var/lib/opkg/info/luna-sysmgr.list
@@ -31717,8 +31718,8 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              620 ./var/lib/opkg/info/maliit-framework-qt5.list
 -rwxr-xr-x root       root              404 ./var/lib/opkg/info/maliit-framework-qt5.postinst
 -rwxr-xr-x root       root              235 ./var/lib/opkg/info/maliit-framework-qt5.prerm
--rw-r--r-- root       root              614 ./var/lib/opkg/info/mediaindexer.control
--rw-r--r-- root       root              308 ./var/lib/opkg/info/mediaindexer-lic.control
+-rw-r--r-- root       root              615 ./var/lib/opkg/info/mediaindexer.control
+-rw-r--r-- root       root              309 ./var/lib/opkg/info/mediaindexer-lic.control
 -rw-r--r-- root       root              147 ./var/lib/opkg/info/mediaindexer-lic.list
 -rw-r--r-- root       root             1745 ./var/lib/opkg/info/mediaindexer.list
 -rwxr-xr-x root       root              322 ./var/lib/opkg/info/mediaindexer.postinst
@@ -32096,7 +32097,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              294 ./var/lib/opkg/info/pidgin-lic.control
 -rw-r--r-- root       root              127 ./var/lib/opkg/info/pidgin-lic.list
 -rw-r--r-- root       root              473 ./var/lib/opkg/info/pidgin-locale-en-gb.control
--rw-r--r-- root       root              130 ./var/lib/opkg/info/pidgin-locale-en-gb.list
+-rw-r--r-- root       root              156 ./var/lib/opkg/info/pidgin-locale-en-gb.list
 -rw-r--r-- root       root              699 ./var/lib/opkg/info/pidgin-sipe.control
 -rw-r--r-- root       root              423 ./var/lib/opkg/info/pidgin-sipe-lic.control
 -rw-r--r-- root       root              144 ./var/lib/opkg/info/pidgin-sipe-lic.list
@@ -32119,6 +32120,12 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              340 ./var/lib/opkg/info/pmloglib.list
 -rwxr-xr-x root       root              404 ./var/lib/opkg/info/pmloglib.postinst
 -rwxr-xr-x root       root              235 ./var/lib/opkg/info/pmloglib.prerm
+-rw-r--r-- root       root              448 ./var/lib/opkg/info/powerd.control
+-rw-r--r-- root       root              270 ./var/lib/opkg/info/powerd-lic.control
+-rw-r--r-- root       root              135 ./var/lib/opkg/info/powerd-lic.list
+-rw-r--r-- root       root              541 ./var/lib/opkg/info/powerd.list
+-rwxr-xr-x root       root              390 ./var/lib/opkg/info/powerd.postinst
+-rwxr-xr-x root       root              221 ./var/lib/opkg/info/powerd.prerm
 -rw-r--r-- root       root              498 ./var/lib/opkg/info/powerstat.control
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/powerstat-lic.control
 -rw-r--r-- root       root              136 ./var/lib/opkg/info/powerstat-lic.list
@@ -32517,7 +32524,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/simple-mtpfs-lic.control
 -rw-r--r-- root       root              145 ./var/lib/opkg/info/simple-mtpfs-lic.list
 -rw-r--r-- root       root               30 ./var/lib/opkg/info/simple-mtpfs.list
--rw-r--r-- root       root              553 ./var/lib/opkg/info/sleepd.control
+-rw-r--r-- root       root              561 ./var/lib/opkg/info/sleepd.control
 -rw-r--r-- root       root              290 ./var/lib/opkg/info/sleepd-lic.control
 -rw-r--r-- root       root              135 ./var/lib/opkg/info/sleepd-lic.list
 -rw-r--r-- root       root              717 ./var/lib/opkg/info/sleepd.list
@@ -32573,7 +32580,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rwxr-xr-x root       root             5243 ./var/lib/opkg/info/systemd-extra-utils.preinst
 -rw-r--r-- root       root              850 ./var/lib/opkg/info/systemd-lic.control
 -rw-r--r-- root       root              240 ./var/lib/opkg/info/systemd-lic.list
--rw-r--r-- root       root            19188 ./var/lib/opkg/info/systemd.list
+-rw-r--r-- root       root            18207 ./var/lib/opkg/info/systemd.list
 -rw-r--r-- root       root              343 ./var/lib/opkg/info/systemd-machine-units.control
 -rw-r--r-- root       root              309 ./var/lib/opkg/info/systemd-machine-units-lic.control
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/systemd-machine-units-lic.list
@@ -32581,7 +32588,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rwxr-xr-x root       root              342 ./var/lib/opkg/info/systemd-machine-units.postinst
 -rwxr-xr-x root       root              253 ./var/lib/opkg/info/systemd-machine-units.prerm
 -rwxr-xr-x root       root              607 ./var/lib/opkg/info/systemd.postinst
--rwxr-xr-x root       root             5249 ./var/lib/opkg/info/systemd.preinst
+-rwxr-xr-x root       root             5194 ./var/lib/opkg/info/systemd.preinst
 -rwxr-xr-x root       root              449 ./var/lib/opkg/info/systemd.prerm
 -rw-r--r-- root       root              404 ./var/lib/opkg/info/systemd-serialgetty.control
 -rw-r--r-- root       root              372 ./var/lib/opkg/info/systemd-serialgetty-lic.control
@@ -32782,7 +32789,7 @@ drwxr-xr-x root       root            91200 ./var/lib/opkg/info
 -rw-r--r-- root       root              179 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           503274 ./var/lib/opkg/status
+-rw-r--r-- root       root           503835 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
