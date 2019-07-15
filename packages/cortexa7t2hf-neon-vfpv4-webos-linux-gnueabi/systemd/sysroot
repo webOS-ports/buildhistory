@@ -31,7 +31,6 @@ lrwxrwxrwx -          -                  25 ./lib/systemd/system/dbus-org.freede
 lrwxrwxrwx -          -                  23 ./lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx -          -                  22 ./lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
 lrwxrwxrwx -          -                  24 ./lib/systemd/system/dbus-org.freedesktop.machine1.service -> systemd-machined.service
-lrwxrwxrwx -          -                  25 ./lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rwxr-xr-x -          -                5588 ./lib/systemd/systemd-cgroups-agent
 -rwxr-xr-x -          -                9852 ./lib/systemd/systemd-dissect
 -rw-r--r-- -          -                1084 ./lib/systemd/system/debug-shell.service
@@ -60,9 +59,6 @@ lrwxrwxrwx -          -                  16 ./lib/systemd/system/default.target 
 -rwxr-xr-x -          -                9736 ./lib/systemd/systemd-sulogin-shell
 -rwxr-xr-x -          -                9800 ./lib/systemd/systemd-sysctl
 -rwxr-xr-x -          -                1258 ./lib/systemd/systemd-sysv-install
--rwxr-xr-x -          -               22024 ./lib/systemd/systemd-timedated
--rwxr-xr-x -          -               34312 ./lib/systemd/systemd-timesyncd
--rwxr-xr-x -          -                9736 ./lib/systemd/systemd-time-wait-sync
 -rwxr-xr-x -          -              465160 ./lib/systemd/systemd-udevd
 -rwxr-xr-x -          -                5640 ./lib/systemd/systemd-update-done
 -rwxr-xr-x -          -                9736 ./lib/systemd/systemd-update-utmp
@@ -250,9 +246,6 @@ lrwxrwxrwx -          -                  30 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- -          -                 596 ./lib/systemd/system/systemd-suspend-then-hibernate.service
 -rw-r--r-- -          -                 693 ./lib/systemd/system/systemd-sysctl.service
 -rw-r--r-- -          -                 700 ./lib/systemd/system/systemd-sysusers.service
--rw-r--r-- -          -                1096 ./lib/systemd/system/systemd-timedated.service
--rw-r--r-- -          -                1489 ./lib/systemd/system/systemd-timesyncd.service
--rw-r--r-- -          -                1196 ./lib/systemd/system/systemd-time-wait-sync.service
 -rw-r--r-- -          -                 658 ./lib/systemd/system/systemd-tmpfiles-clean.service
 -rw-r--r-- -          -                 490 ./lib/systemd/system/systemd-tmpfiles-clean.timer
 -rw-r--r-- -          -                 732 ./lib/systemd/system/systemd-tmpfiles-setup-dev.service
@@ -342,7 +335,7 @@ drwxr-xr-x -          -                4096 ./sysroot-providers
 -rw-r--r-- -          -                   7 ./sysroot-providers/udev
 drwxr-xr-x -          -                4096 ./usr
 drwxr-xr-x -          -                4096 ./usr/bin
--rwxr-xr-x -          -               12704 ./usr/bin/postinst-useradd-systemd
+-rwxr-xr-x -          -               12645 ./usr/bin/postinst-useradd-systemd
 drwxr-xr-x -          -                4096 ./usr/include
 -rw-r--r-- -          -                9617 ./usr/include/libudev.h
 drwxr-xr-x -          -                4096 ./usr/include/systemd
@@ -416,7 +409,7 @@ drwxr-xr-x -          -                4096 ./usr/lib/systemd/user-preset
 -rw-r--r-- -          -                 445 ./usr/lib/systemd/user/timers.target
 drwxr-xr-x -          -                4096 ./usr/lib/sysusers.d
 -rw-r--r-- -          -                1136 ./usr/lib/sysusers.d/basic.conf
--rw-r--r-- -          -                 369 ./usr/lib/sysusers.d/systemd.conf
+-rw-r--r-- -          -                 316 ./usr/lib/sysusers.d/systemd.conf
 drwxr-xr-x -          -                4096 ./usr/lib/tmpfiles.d
 -rw-r--r-- -          -                 557 ./usr/lib/tmpfiles.d/etc.conf
 -rw-r--r-- -          -                 362 ./usr/lib/tmpfiles.d/home.conf
@@ -448,7 +441,6 @@ drwxr-xr-x -          -                4096 ./usr/share/bash-completion/completi
 -rw-r--r-- -          -                8167 ./usr/share/bash-completion/completions/systemd-nspawn
 -rw-r--r-- -          -                1901 ./usr/share/bash-completion/completions/systemd-path
 -rw-r--r-- -          -                5327 ./usr/share/bash-completion/completions/systemd-run
--rw-r--r-- -          -                2984 ./usr/share/bash-completion/completions/timedatectl
 -rw-r--r-- -          -               10736 ./usr/share/bash-completion/completions/udevadm
 drwxr-xr-x -          -                4096 ./usr/share/dbus-1
 drwxr-xr-x -          -                4096 ./usr/share/dbus-1/services
@@ -459,28 +451,18 @@ drwxr-xr-x -          -                4096 ./usr/share/dbus-1/system.d
 -rw-r--r-- -          -               14499 ./usr/share/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r-- -          -               11055 ./usr/share/dbus-1/system.d/org.freedesktop.machine1.conf
 -rw-r--r-- -          -               18807 ./usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
--rw-r--r-- -          -                 985 ./usr/share/dbus-1/system.d/org.freedesktop.timedate1.conf
--rw-r--r-- -          -                1614 ./usr/share/dbus-1/system.d/org.freedesktop.timesync1.conf
 drwxr-xr-x -          -                4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- -          -                 424 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
 -rw-r--r-- -          -                 455 ./usr/share/dbus-1/system-services/org.freedesktop.locale1.service
 -rw-r--r-- -          -                 453 ./usr/share/dbus-1/system-services/org.freedesktop.login1.service
 -rw-r--r-- -          -                 457 ./usr/share/dbus-1/system-services/org.freedesktop.machine1.service
 -rw-r--r-- -          -                 404 ./usr/share/dbus-1/system-services/org.freedesktop.systemd1.service
--rw-r--r-- -          -                 459 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
--rw-r--r-- -          -                 459 ./usr/share/dbus-1/system-services/org.freedesktop.timesync1.service
 drwxr-xr-x -          -                4096 ./usr/share/factory
 drwxr-xr-x -          -                4096 ./usr/share/factory/etc
 -rw-r--r-- -          -                 359 ./usr/share/factory/etc/nsswitch.conf
 drwxr-xr-x -          -                4096 ./usr/share/factory/etc/pam.d
 -rw-r--r-- -          -                 149 ./usr/share/factory/etc/pam.d/other
 -rw-r--r-- -          -                 340 ./usr/share/factory/etc/pam.d/system-auth
-drwxr-xr-x -          -                4096 ./usr/share/licenses
-drwxr-xr-x -          -                4096 ./usr/share/licenses/systemd
--rw-r--r-- -          -               17611 ./usr/share/licenses/systemd/generic_GPLv2
--rw-r--r-- -          -               25878 ./usr/share/licenses/systemd/generic_LGPLv2.1
--rw-r--r-- -          -               17987 ./usr/share/licenses/systemd/LICENSE.GPL2
--rw-r--r-- -          -               26530 ./usr/share/licenses/systemd/LICENSE.LGPL2.1
 drwxr-xr-x -          -                4096 ./usr/share/pkgconfig
 -rw-r--r-- -          -                1851 ./usr/share/pkgconfig/systemd.pc
 -rw-r--r-- -          -                  61 ./usr/share/pkgconfig/udev.pc
@@ -491,7 +473,6 @@ drwxr-xr-x -          -                4096 ./usr/share/polkit-1/actions
 -rw-r--r-- -          -               23897 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- -          -                5534 ./usr/share/polkit-1/actions/org.freedesktop.machine1.policy
 -rw-r--r-- -          -                3819 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
--rw-r--r-- -          -                3125 ./usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
 drwxr-xr-x -          -                4096 ./usr/share/systemd
 -rw-r--r-- -          -                3564 ./usr/share/systemd/kbd-model-map
 -rw-r--r-- -          -                 218 ./usr/share/systemd/language-fallback-map
@@ -516,5 +497,4 @@ drwxr-xr-x -          -                4096 ./usr/share/zsh/site-functions
 -rw-r--r-- -          -                4596 ./usr/share/zsh/site-functions/_systemd-nspawn
 -rw-r--r-- -          -                3363 ./usr/share/zsh/site-functions/_systemd-run
 -rw-r--r-- -          -                 736 ./usr/share/zsh/site-functions/_systemd-tmpfiles
--rw-r--r-- -          -                2042 ./usr/share/zsh/site-functions/_timedatectl
 -rw-r--r-- -          -                6347 ./usr/share/zsh/site-functions/_udevadm
