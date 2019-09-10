@@ -466,7 +466,6 @@ digraph depends {
 "libfribidi0" -> "libfribidi-lic" [style=dotted]
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgbm1" -> "mesa-gl-lic" [style=dotted]
 "libgcrypt" -> "libcap2"
 "libgcrypt" -> "libgcrypt-lic" [style=dotted]
@@ -494,6 +493,8 @@ digraph depends {
 "libglib-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "libglib-2.0-utils" -> "libglib-2.0-0"
 "libglib-2.0-utils" -> "libglib-2.0-lic" [style=dotted]
+"libglibutil1" -> "libglib-2.0-0"
+"libglibutil1" -> "libglibutil-lic" [style=dotted]
 "libgmp10" -> "libgmp-lic" [style=dotted]
 "libgnutls30" -> "libatomic1"
 "libgnutls30" -> "libgmp10"
@@ -502,6 +503,9 @@ digraph depends {
 "libgnutls30" -> "libunistring2"
 "libgnutls30" -> "nettle"
 "libgpg-error" -> "libgpg-error-lic" [style=dotted]
+"libgrilio1" -> "libglib-2.0-0"
+"libgrilio1" -> "libglibutil1"
+"libgrilio1" -> "libgrilio-lic" [style=dotted]
 "libgstapp-1.0-0" -> "gstreamer1.0"
 "libgstapp-1.0-0" -> "libglib-2.0-0"
 "libgstaudio-1.0-0" -> "gstreamer1.0"
@@ -569,6 +573,7 @@ digraph depends {
 "libinput10" -> "libinput-lic" [style=dotted]
 "libinput10" -> "libudev1"
 "libinput10" -> "mtdev"
+"libjitterentropy2" -> "libjitterentropy-lic" [style=dotted]
 "libjpeg62" -> "libjpeg-lic" [style=dotted]
 "libjson-c4" -> "libjson-c-lic" [style=dotted]
 "libkf5bluezqt5" -> "libkf5bluezqt-lic" [style=dotted]
@@ -590,6 +595,9 @@ digraph depends {
 "liblunasysmgrcommon3" -> "qtbase"
 "liblzma5" -> "xz-lic" [style=dotted]
 "liblzo2-2" -> "liblzo2-lic" [style=dotted]
+"libmce-glib1" -> "libglib-2.0-0"
+"libmce-glib1" -> "libglibutil1"
+"libmce-glib1" -> "libmce-glib-lic" [style=dotted]
 "libmenuw5" -> "libncursesw5"
 "libmenuw5" -> "libtinfo5"
 "libmount1" -> "libblkid1"
@@ -647,6 +655,7 @@ digraph depends {
 "libssl1.1" -> "libcrypto1.1"
 "libssl1.1" -> "openssl-lic" [style=dotted]
 "libstdc++6" -> "gcc-runtime-lic" [style=dotted]
+"libsysfs2" -> "sysfsutils-lic" [style=dotted]
 "libsystemd0" -> "libcap2"
 "libsystemd0" -> "liblzma5"
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
@@ -748,6 +757,9 @@ digraph depends {
 "ofono" -> "dbus-1"
 "ofono" -> "libdbus-1-3"
 "ofono" -> "libglib-2.0-0"
+"ofono" -> "libglibutil1"
+"ofono" -> "libgrilio1"
+"ofono" -> "libmce-glib1"
 "ofono" -> "libudev1"
 "ofono" -> "mobile-broadband-provider-info"
 "ofono" -> "mobile-broadband-provider-info" [style=dotted]
@@ -768,6 +780,7 @@ digraph depends {
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
 "openssh-sshd" -> "openssh-lic" [style=dotted]
+"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libcrypto1.1"
 "openssh-ssh" -> "libz1"
@@ -862,6 +875,7 @@ digraph depends {
 "pango" -> "libharfbuzz0"
 "pango" -> "pango-lic" [style=dotted]
 "perl" -> "libcrypt1"
+"perl-module-carp" -> "perl"
 "perl-module-config-heavy" -> "perl"
 "perl-module-dynaloader" -> "perl"
 "perl-module-dynaloader" -> "perl-module-config"
@@ -875,11 +889,13 @@ digraph depends {
 "perl-module-fcntl" -> "perl-module-strict"
 "perl-module-fcntl" -> "perl-module-xsloader"
 "perl-module-io-file" -> "perl"
+"perl-module-io-file" -> "perl-module-carp"
 "perl-module-io-file" -> "perl-module-exporter"
 "perl-module-io-file" -> "perl-module-fcntl"
 "perl-module-io-file" -> "perl-module-io-seekable"
 "perl-module-io-file" -> "perl-module-selectsaver"
 "perl-module-io-file" -> "perl-module-strict"
+"perl-module-io-file" -> "perl-module-symbol"
 "perl-module-io-handle" -> "perl"
 "perl-module-io-handle" -> "perl-module-exporter"
 "perl-module-io-handle" -> "perl-module-io"
@@ -896,6 +912,7 @@ digraph depends {
 "perl-module-io-seekable" -> "perl-module-io-handle"
 "perl-module-io-seekable" -> "perl-module-strict"
 "perl-module-selectsaver" -> "perl"
+"perl-module-symbol" -> "perl"
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl-module-dynaloader"
 "perl" -> "perl-lic" [style=dotted]
@@ -1052,6 +1069,10 @@ digraph depends {
 "rdxd" -> "pmloglib"
 "rdxd" -> "rdxd-lic" [style=dotted]
 "rdxd" -> "tar"
+"rng-tools" -> "libgcrypt"
+"rng-tools" -> "libjitterentropy2"
+"rng-tools" -> "libsysfs2"
+"rng-tools" -> "rng-tools-lic" [style=dotted]
 "rpcbind" -> "base-files"
 "rpcbind" -> "base-passwd"
 "rpcbind" -> "libsystemd0"
