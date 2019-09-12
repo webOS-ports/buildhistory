@@ -1,0 +1,9 @@
+set -e
+	if [ ! -e "$D/lib/modules/4.19.71" ]; then
+		mkdir -p $D/lib/modules/4.19.71
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.19.71
+	else
+		depmod -a 4.19.71
+	fi
