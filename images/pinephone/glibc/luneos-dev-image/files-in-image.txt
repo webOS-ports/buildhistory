@@ -103,7 +103,7 @@ drwxr-xr-x root       root               80 ./boot
 -rw-r--r-- root       root         21080576 ./boot/Image-5.3.0-rc4-pinephone
 lrwxrwxrwx root       root               25 ./boot/Image -> Image-5.3.0-rc4-pinephone
 drwxr-xr-x root       root               40 ./dev
-drwxr-xr-x root       root             2040 ./etc
+drwxr-xr-x root       root             2060 ./etc
 drwxr-xr-x root       root               60 ./etc/alsa
 drwxr-xr-x root       root               80 ./etc/alsa/conf.d
 lrwxrwxrwx root       root               46 ./etc/alsa/conf.d/50-pulseaudio.conf -> /usr/share/alsa/alsa.conf.d/50-pulseaudio.conf
@@ -135,13 +135,13 @@ drwxr-xr-x root       root              260 ./etc/dbus-1/system.d
 -rw-r--r-- root       root             1096 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
 -rw-r--r-- root       root              494 ./etc/dbus-1/system.d/maliit-server.conf
 -rw-r--r-- root       root              290 ./etc/dbus-1/system.d/mmsd.conf
--rw-r--r-- root       root             2073 ./etc/dbus-1/system.d/net.hadess.SensorProxy.conf
 -rw-r--r-- root       root             1577 ./etc/dbus-1/system.d/ofono.conf
 -rw-r--r-- root       root              708 ./etc/dbus-1/system.d/org.freedesktop.GeoClue2.Agent.conf
 -rw-r--r-- root       root             1402 ./etc/dbus-1/system.d/org.freedesktop.GeoClue2.conf
 -rw-r--r-- root       root              422 ./etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf
 -rw-r--r-- root       root              686 ./etc/dbus-1/system.d/org.neard.conf
 -rw-r--r-- root       root             2259 ./etc/dbus-1/system.d/pulseaudio-system.conf
+-rw-r--r-- root       root              515 ./etc/dbus-1/system.d/sensorfw.conf
 drwxr-xr-x root       root              280 ./etc/default
 -rw-r--r-- root       root             1056 ./etc/default/busybox-syslog
 -rw-r--r-- root       root               36 ./etc/default/mountall
@@ -268,7 +268,7 @@ drwxr-xr-x root       root              220 ./etc/iproute2
 -rw-r--r-- root       root               87 ./etc/iproute2/rt_tables
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root            22724 ./etc/ld.so.cache
+-rw-r--r-- root       root            23050 ./etc/ld.so.cache
 -rw-r--r-- root       root               33 ./etc/ld.so.conf
 drwxr-xr-x root       root               80 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -683,6 +683,13 @@ lrwxrwxrwx root       root               24 ./etc/resolv.conf -> /etc/resolv-con
 lrwxrwxrwx root       root               34 ./etc/resolv-conf.systemd -> ../run/systemd/resolve/resolv.conf
 -rw-r--r-- root       root              895 ./etc/rpc
 -r-------- root       root             1848 ./etc/securetty
+drwxr-xr-x root       root              100 ./etc/sensorfw
+-rw-r--r-- root       root              198 ./etc/sensorfw/primaryuse.conf
+-rw-r--r-- root       root               42 ./etc/sensorfw/sensord.conf
+drwxr-xr-x root       root              100 ./etc/sensorfw/sensord.conf.d
+-rw-r--r-- root       root              100 ./etc/sensorfw/sensord.conf.d/10-sensord-default.conf
+-rw-r--r-- root       root             2021 ./etc/sensorfw/sensord.conf.d/20-sensors-default.conf
+-rw-r--r-- root       root              266 ./etc/sensorfw/sensord.conf.d/90-dontbeevil.conf
 -rw-r--r-- root       root            18790 ./etc/services
 -r-------- root       root              598 ./etc/shadow
 -rw-r--r-- root       root               68 ./etc/shells
@@ -988,7 +995,7 @@ lrwxrwxrwx root       root               46 ./etc/systemd/system/local-fs.target
 lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target.wants/var-volatile-srv.service -> /lib/systemd/system/var-volatile-srv.service
 drwxr-xr-x root       root               60 ./etc/systemd/system/luna-next.service.wants
 lrwxrwxrwx root       root               50 ./etc/systemd/system/luna-next.service.wants/touchscreen-initialize.service -> /lib/systemd/system/touchscreen-initialize.service
-drwxr-xr-x root       root              760 ./etc/systemd/system/multi-user.target.wants
+drwxr-xr-x root       root              780 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
@@ -1015,6 +1022,7 @@ lrwxrwxrwx root       root               34 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/pulseaudio.service -> /lib/systemd/system/pulseaudio.service
 lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root               32 ./etc/systemd/system/multi-user.target.wants/rngd.service -> /lib/systemd/system/rngd.service
+lrwxrwxrwx root       root               37 ./etc/systemd/system/multi-user.target.wants/sensorfwd.service -> /lib/systemd/system/sensorfwd.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/storaged.service -> /lib/systemd/system/storaged.service
 lrwxrwxrwx root       root               45 ./etc/systemd/system/multi-user.target.wants/voicecall-manager.service -> /lib/systemd/system/voicecall-manager.service
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/webos-bd.target -> /etc/systemd/system/webos-bd.target
@@ -1117,7 +1125,9 @@ drwxr-xr-x root       root               60 ./etc/wireless-regdb
 drwxr-xr-x root       root               60 ./etc/wireless-regdb/pubkeys
 -rw-r--r-- root       root              451 ./etc/wireless-regdb/pubkeys/sforshee.key.pub.pem
 -rw------- root       root              113 ./etc/wpa_supplicant.conf
-drwxr-xr-x root       root               60 ./etc/xdg
+drwxr-xr-x root       root               80 ./etc/xdg
+drwxr-xr-x root       root               60 ./etc/xdg/QtProject
+-rw-r--r-- root       root              411 ./etc/xdg/QtProject/Sensors.conf
 drwxr-xr-x root       root               60 ./etc/xdg/systemd
 lrwxrwxrwx root       root               18 ./etc/xdg/systemd/user -> ../../systemd/user
 -rw-r--r-- root       root                0 ./etc/xl2tpd.conf
@@ -2125,7 +2135,6 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/graphical.targe
 -rw-r--r-- root       root              527 ./lib/systemd/system/halt.target
 -rw-r--r-- root       root              509 ./lib/systemd/system/hibernate.target
 -rw-r--r-- root       root              530 ./lib/systemd/system/hybrid-sleep.target
--rw-r--r-- root       root              421 ./lib/systemd/system/iio-sensor-proxy.service
 -rw-r--r-- root       root              670 ./lib/systemd/system/initrd-cleanup.service
 -rw-r--r-- root       root              593 ./lib/systemd/system/initrd-fs.target
 -rw-r--r-- root       root              830 ./lib/systemd/system/initrd-parse-etc.service
@@ -2219,6 +2228,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root               40 ./lib/systemd/system/runlevel5.target.wants
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
 -rw-r--r-- root       root              356 ./lib/systemd/system/run-postinsts.service
+-rw-r--r-- root       root              483 ./lib/systemd/system/sensorfwd.service
 -rw-r--r-- root       root             1059 ./lib/systemd/system/serial-getty@.service
 -rw-r--r-- root       root             1167 ./lib/systemd/system/settings-service-recovery.service
 -rw-r--r-- root       root              993 ./lib/systemd/system/settings-service.service
@@ -2390,7 +2400,7 @@ drwxr-xr-x root       root              420 ./lib/udev/hwdb.d
 -rw-r--r-- root       root             1668 ./lib/udev/hwdb.d/70-touchpad.hwdb
 -rwxr-xr-x root       root            67928 ./lib/udev/mtd_probe
 -rwxr-xr-x root       root            67928 ./lib/udev/mtp-probe
-drwxr-xr-x root       root             1080 ./lib/udev/rules.d
+drwxr-xr-x root       root             1060 ./lib/udev/rules.d
 -rw-r--r-- root       root             3679 ./lib/udev/rules.d/50-udev-default.rules
 -rw-r--r-- root       root              630 ./lib/udev/rules.d/60-block.rules
 -rw-r--r-- root       root             1071 ./lib/udev/rules.d/60-cdrom_id.rules
@@ -2434,7 +2444,6 @@ drwxr-xr-x root       root             1080 ./lib/udev/rules.d
 -rw-r--r-- root       root            14354 ./lib/udev/rules.d/77-mm-zte-port-types.rules
 -rw-r--r-- root       root             4816 ./lib/udev/rules.d/78-sound-card.rules
 -rw-r--r-- root       root              615 ./lib/udev/rules.d/80-drivers.rules
--rw-r--r-- root       root             1183 ./lib/udev/rules.d/80-iio-sensor-proxy.rules
 -rw-r--r-- root       root              972 ./lib/udev/rules.d/80-mm-candidate.rules
 -rw-r--r-- root       root              292 ./lib/udev/rules.d/80-net-setup-link.rules
 -rw-r--r-- root       root              256 ./lib/udev/rules.d/89-alsa-ucm.rules
@@ -2592,7 +2601,7 @@ lrwxrwxrwx root       root               37 ./usr/aarch64-webos-linux/bin/objdum
 lrwxrwxrwx root       root               36 ./usr/aarch64-webos-linux/bin/ranlib -> ../../bin/aarch64-webos-linux-ranlib
 lrwxrwxrwx root       root               37 ./usr/aarch64-webos-linux/bin/readelf -> ../../bin/aarch64-webos-linux-readelf
 lrwxrwxrwx root       root               35 ./usr/aarch64-webos-linux/bin/strip -> ../../bin/aarch64-webos-linux-strip
-drwxr-xr-x root       root            13840 ./usr/bin
+drwxr-xr-x root       root            14080 ./usr/bin
 lrwxrwxrwx root       root                8 ./usr/bin/2to3 -> 2to3-3.7
 -rwxr-xr-x root       root               95 ./usr/bin/2to3-3.7
 -rwxr-xr-x root       root            68968 ./usr/bin/aarch64-webos-linux-addr2line
@@ -2692,6 +2701,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            68160 ./usr/bin/csslint-0.6
 -rwxr-xr-x root       root           134200 ./usr/bin/curl
 lrwxrwxrwx root       root               19 ./usr/bin/cut -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            68392 ./usr/bin/datafaker-qt5
 -rwxr-xr-x root       root           134736 ./usr/bin/dbtest
 -rwxr-xr-x root       root            67968 ./usr/bin/dbus-cleanup-sockets
 -rwxr-xr-x root       root           267536 ./usr/bin/dbus-daemon
@@ -2893,7 +2903,6 @@ lrwxrwxrwx root       root               19 ./usr/bin/mkfifo -> /bin/busybox.nos
 -rwxr-xr-x root       root          1252344 ./usr/bin/mojomail-imap
 -rwxr-xr-x root       root           725848 ./usr/bin/mojomail-pop
 -rwxr-xr-x root       root           463064 ./usr/bin/mojomail-smtp
--rwxr-xr-x root       root            67952 ./usr/bin/monitor-sensor
 -rwxr-xr-x root       root           141488 ./usr/bin/mpg123
 -rwxr-xr-x root       root            68536 ./usr/bin/mpg123-id3dump
 -rwxr-xr-x root       root            68208 ./usr/bin/mpg123-strip
@@ -3096,6 +3105,18 @@ lrwxrwxrwx root       root               12 ./usr/bin/screen -> screen-4.6.2
 -rwxr-xr-x root       root           134768 ./usr/bin/sdrtest
 -rwxr-xr-x root       root            68184 ./usr/bin/secmodtest
 -rwxr-xr-x root       root           135472 ./usr/bin/selfserv
+-rwxr-xr-x root       root           200304 ./usr/bin/sensoradaptors-test
+-rwxr-xr-x root       root           134568 ./usr/bin/sensorapi-test
+-rwxr-xr-x root       root            68656 ./usr/bin/sensorbenchmark-test
+-rwxr-xr-x root       root            68192 ./usr/bin/sensorchains-test
+-rwxr-xr-x root       root            68304 ./usr/bin/sensordataflow-test
+-rwxr-xr-x root       root             1438 ./usr/bin/sensord-daemon-conf-setup
+-rwxr-xr-x root       root            68224 ./usr/bin/sensord-deadclient
+-rwxr-xr-x root       root             3125 ./usr/bin/sensordiverter.sh
+-rwxr-xr-x root       root            68344 ./usr/bin/sensordummyclient-qt5
+-rwxr-xr-x root       root           134344 ./usr/bin/sensorfilters-test
+-rwxr-xr-x root       root           134480 ./usr/bin/sensormetadata-test
+-rwxr-xr-x root       root           134656 ./usr/bin/sensortestapp
 lrwxrwxrwx root       root               19 ./usr/bin/seq -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            67992 ./usr/bin/serial_forward
 -rwxr-xr-x root       root           135192 ./usr/bin/session-test
@@ -3300,7 +3321,7 @@ drwxr-xr-x root       root               80 ./usr/include/python2.7
 drwxr-xr-x root       root               80 ./usr/include/python3.7m
 -rw-r--r-- root       root            45166 ./usr/include/python3.7m/pyconfig-64.h
 -rw-r--r-- root       root              931 ./usr/include/python3.7m/pyconfig.h
-drwxr-xr-x root       root            13460 ./usr/lib
+drwxr-xr-x root       root            13720 ./usr/lib
 drwxr-xr-x root       root              100 ./usr/lib/alsa-lib
 -rwxr-xr-x root       root            67784 ./usr/lib/alsa-lib/libasound_module_conf_pulse.so
 -rwxr-xr-x root       root            68288 ./usr/lib/alsa-lib/libasound_module_ctl_pulse.so
@@ -4242,6 +4263,18 @@ lrwxrwxrwx root       root               20 ./usr/lib/librsvg-2.so.2 -> librsvg-
 lrwxrwxrwx root       root               15 ./usr/lib/libsbc.so.1 -> libsbc.so.1.2.2
 -rwxr-xr-x root       root          1072832 ./usr/lib/libSDL2-2.0.so.0.9.0
 lrwxrwxrwx root       root               20 ./usr/lib/libSDL2-2.0.so.0 -> libSDL2-2.0.so.0.9.0
+-rwxr-xr-x root       root           399080 ./usr/lib/libsensorclient-qt5.so.1.0.0
+lrwxrwxrwx root       root               28 ./usr/lib/libsensorclient-qt5.so.1.0 -> libsensorclient-qt5.so.1.0.0
+lrwxrwxrwx root       root               28 ./usr/lib/libsensorclient-qt5.so.1 -> libsensorclient-qt5.so.1.0.0
+-rwxr-xr-x root       root           134240 ./usr/lib/libsensordatatypes-qt5.so.1.0.0
+lrwxrwxrwx root       root               31 ./usr/lib/libsensordatatypes-qt5.so.1.0 -> libsensordatatypes-qt5.so.1.0.0
+lrwxrwxrwx root       root               31 ./usr/lib/libsensordatatypes-qt5.so.1 -> libsensordatatypes-qt5.so.1.0.0
+-rwxr-xr-x root       root            68024 ./usr/lib/libsensorfakeopen.so.1.0.0
+lrwxrwxrwx root       root               26 ./usr/lib/libsensorfakeopen.so.1.0 -> libsensorfakeopen.so.1.0.0
+lrwxrwxrwx root       root               26 ./usr/lib/libsensorfakeopen.so.1 -> libsensorfakeopen.so.1.0.0
+-rwxr-xr-x root       root           400368 ./usr/lib/libsensorfw-qt5.so.0.9.0
+lrwxrwxrwx root       root               24 ./usr/lib/libsensorfw-qt5.so.0.9 -> libsensorfw-qt5.so.0.9.0
+lrwxrwxrwx root       root               24 ./usr/lib/libsensorfw-qt5.so.0 -> libsensorfw-qt5.so.0.9.0
 -rwxr-xr-x root       root           289232 ./usr/lib/libsgutils2.so.2.0.0
 lrwxrwxrwx root       root               20 ./usr/lib/libsgutils2.so.2 -> libsgutils2.so.2.0.0
 -rwxr-xr-x root       root            68072 ./usr/lib/libsigc-2.0.so.0.0.0
@@ -4738,10 +4771,11 @@ drwxr-xr-x root       root              100 ./usr/lib/plugins/sensorgestures
 -rwxr-xr-x root       root            68184 ./usr/lib/plugins/sensorgestures/libqtsensorgestures_counterplugin.so
 -rwxr-xr-x root       root           134040 ./usr/lib/plugins/sensorgestures/libqtsensorgestures_plugin.so
 -rwxr-xr-x root       root            68256 ./usr/lib/plugins/sensorgestures/libqtsensorgestures_shakeplugin.so
-drwxr-xr-x root       root              100 ./usr/lib/plugins/sensors
+drwxr-xr-x root       root              120 ./usr/lib/plugins/sensors
 -rwxr-xr-x root       root            68632 ./usr/lib/plugins/sensors/libqtsensors_generic.so
 -rwxr-xr-x root       root            68656 ./usr/lib/plugins/sensors/libqtsensors_iio-sensor-proxy.so
 -rwxr-xr-x root       root            68576 ./usr/lib/plugins/sensors/libqtsensors_linuxsys.so
+-rwxr-xr-x root       root           200568 ./usr/lib/plugins/sensors/libqtsensors_sensorfw.so
 drwxr-xr-x root       root               60 ./usr/lib/plugins/sqldrivers
 -rwxr-xr-x root       root            77488 ./usr/lib/plugins/sqldrivers/libqsqlite.so
 drwxr-xr-x root       root               60 ./usr/lib/plugins/video
@@ -9320,6 +9354,63 @@ drwxr-xr-x root       root              260 ./usr/lib/qml/QtWebEngine/Controls2D
 drwxr-xr-x root       root               80 ./usr/lib/qml/QtWebEngine/testsupport
 -rwxr-xr-x root       root            68200 ./usr/lib/qml/QtWebEngine/testsupport/libqtwebenginetestsupportplugin.so
 -rw-r--r-- root       root              132 ./usr/lib/qml/QtWebEngine/testsupport/qmldir
+drwxr-xr-x root       root             1140 ./usr/lib/sensord-qt5
+-rwxr-xr-x root       root            68856 ./usr/lib/sensord-qt5/libaccelerometeradaptor-qt5.so
+-rwxr-xr-x root       root           134488 ./usr/lib/sensord-qt5/libaccelerometerchain-qt5.so
+-rwxr-xr-x root       root           134688 ./usr/lib/sensord-qt5/libaccelerometersensor-qt5.so
+-rwxr-xr-x root       root            68896 ./usr/lib/sensord-qt5/libalsadaptor-ascii-qt5.so
+-rwxr-xr-x root       root            68832 ./usr/lib/sensord-qt5/libalsadaptor-evdev-qt5.so
+-rwxr-xr-x root       root            68872 ./usr/lib/sensord-qt5/libalsadaptor-qt5.so
+-rwxr-xr-x root       root            68704 ./usr/lib/sensord-qt5/libalsadaptor-sysfs-qt5.so
+-rwxr-xr-x root       root           134632 ./usr/lib/sensord-qt5/libalssensor-qt5.so
+-rwxr-xr-x root       root            68528 ./usr/lib/sensord-qt5/libavgaccfilter-qt5.so
+-rwxr-xr-x root       root           134728 ./usr/lib/sensord-qt5/libcompasschain-qt5.so
+-rwxr-xr-x root       root           134648 ./usr/lib/sensord-qt5/libcompasssensor-qt5.so
+-rwxr-xr-x root       root            68552 ./usr/lib/sensord-qt5/libcoordinatealignfilter-qt5.so
+-rwxr-xr-x root       root            68640 ./usr/lib/sensord-qt5/libdeclinationfilter-qt5.so
+-rwxr-xr-x root       root            68656 ./usr/lib/sensord-qt5/libdownsamplefilter-qt5.so
+-rwxr-xr-x root       root            68816 ./usr/lib/sensord-qt5/libgyroadaptor-evdev-qt5.so
+-rwxr-xr-x root       root            68824 ./usr/lib/sensord-qt5/libgyroscopeadaptor-qt5.so
+-rwxr-xr-x root       root           134616 ./usr/lib/sensord-qt5/libgyroscopesensor-qt5.so
+-rwxr-xr-x root       root            68832 ./usr/lib/sensord-qt5/libhumidityadaptor-qt5.so
+-rwxr-xr-x root       root           134640 ./usr/lib/sensord-qt5/libhumiditysensor-qt5.so
+-rwxr-xr-x root       root           134960 ./usr/lib/sensord-qt5/libiiosensorsadaptor-qt5.so
+-rwxr-xr-x root       root            68704 ./usr/lib/sensord-qt5/libkbslideradaptor-qt5.so
+-rwxr-xr-x root       root            68864 ./usr/lib/sensord-qt5/liblidsensoradaptor-evdev-qt5.so
+-rwxr-xr-x root       root           134632 ./usr/lib/sensord-qt5/liblidsensor-qt5.so
+-rwxr-xr-x root       root           134736 ./usr/lib/sensord-qt5/libmagcalibrationchain-qt5.so
+-rwxr-xr-x root       root            68552 ./usr/lib/sensord-qt5/libmagcoordinatealignfilter-qt5.so
+-rwxr-xr-x root       root            68552 ./usr/lib/sensord-qt5/libmagnetometeradaptor-ascii-qt5.so
+-rwxr-xr-x root       root            68824 ./usr/lib/sensord-qt5/libmagnetometeradaptor-evdev-qt5.so
+-rwxr-xr-x root       root            68776 ./usr/lib/sensord-qt5/libmagnetometeradaptor-ncdk-qt5.so
+-rwxr-xr-x root       root            68816 ./usr/lib/sensord-qt5/libmagnetometeradaptor-qt5.so
+-rwxr-xr-x root       root           134904 ./usr/lib/sensord-qt5/libmagnetometersensor-qt5.so
+-rwxr-xr-x root       root            68808 ./usr/lib/sensord-qt5/libmpu6050accelerometeradaptor-qt5.so
+-rwxr-xr-x root       root            68712 ./usr/lib/sensord-qt5/libmrstaccelerometeradaptor-mrst-qt5.so
+-rwxr-xr-x root       root            68840 ./usr/lib/sensord-qt5/liboaktrailaccelerometeradaptor-qt5.so
+-rwxr-xr-x root       root            68840 ./usr/lib/sensord-qt5/liboemtabletaccelerometeradaptor-qt5.so
+-rwxr-xr-x root       root            68832 ./usr/lib/sensord-qt5/liboemtabletalsadaptor-ascii-qt5.so
+-rwxr-xr-x root       root           134440 ./usr/lib/sensord-qt5/liborientationchain-qt5.so
+-rwxr-xr-x root       root            68872 ./usr/lib/sensord-qt5/liborientationinterpreter-qt5.so
+-rwxr-xr-x root       root           134656 ./usr/lib/sensord-qt5/liborientationsensor-qt5.so
+-rwxr-xr-x root       root            68776 ./usr/lib/sensord-qt5/libpegatronaccelerometeradaptor-qt5.so
+-rwxr-xr-x root       root            68832 ./usr/lib/sensord-qt5/libpressureadaptor-qt5.so
+-rwxr-xr-x root       root           134640 ./usr/lib/sensord-qt5/libpressuresensor-qt5.so
+-rwxr-xr-x root       root            68712 ./usr/lib/sensord-qt5/libproximityadaptor-ascii-qt5.so
+-rwxr-xr-x root       root            68800 ./usr/lib/sensord-qt5/libproximityadaptor-evdev-qt5.so
+-rwxr-xr-x root       root            68840 ./usr/lib/sensord-qt5/libproximityadaptor-qt5.so
+-rwxr-xr-x root       root           134640 ./usr/lib/sensord-qt5/libproximitysensor-qt5.so
+-rwxr-xr-x root       root            68528 ./usr/lib/sensord-qt5/librotationfilter-qt5.so
+-rwxr-xr-x root       root           134808 ./usr/lib/sensord-qt5/librotationsensor-qt5.so
+-rwxr-xr-x root       root            68816 ./usr/lib/sensord-qt5/libsteaccelerometeradaptor-qt5.so
+-rwxr-xr-x root       root           134640 ./usr/lib/sensord-qt5/libstepcountersensor-qt5.so
+-rwxr-xr-x root       root            68704 ./usr/lib/sensord-qt5/libtapadaptor-qt5.so
+-rwxr-xr-x root       root           134544 ./usr/lib/sensord-qt5/libtapsensor-qt5.so
+-rwxr-xr-x root       root            68840 ./usr/lib/sensord-qt5/libtemperatureadaptor-qt5.so
+-rwxr-xr-x root       root           134640 ./usr/lib/sensord-qt5/libtemperaturesensor-qt5.so
+-rwxr-xr-x root       root            68720 ./usr/lib/sensord-qt5/libtouchadaptor-qt5.so
+drwxr-xr-x root       root               60 ./usr/lib/sensord-qt5/testing
+-rwxr-xr-x root       root            68864 ./usr/lib/sensord-qt5/testing/libalsadaptor-qt5.so
 drwxr-xr-x root       root              160 ./usr/lib/ssl-1.1
 lrwxrwxrwx root       root               22 ./usr/lib/ssl-1.1/certs -> ../../../etc/ssl/certs
 -rw-r--r-- root       root              412 ./usr/lib/ssl-1.1/ct_log_list.cnf
@@ -9629,7 +9720,7 @@ drwxr-xr-x root       root             2300 ./usr/lib/xtables
 -rwxr-xr-x root       root            68032 ./usr/lib/xtables/libxt_u32.so
 -rwxr-xr-x root       root            68024 ./usr/lib/xtables/libxt_udp.so
 drwxr-xr-x root       root              400 ./usr/palm
-drwxr-xr-x root       root              960 ./usr/palm/applications
+drwxr-xr-x root       root              980 ./usr/palm/applications
 drwxr-xr-x root       root              280 ./usr/palm/applications/com.palm.app.accounts
 -rw-r--r-- root       root              183 ./usr/palm/applications/com.palm.app.accounts/appinfo.json
 drwxr-xr-x root       root               60 ./usr/palm/applications/com.palm.app.accounts/css
@@ -11111,6 +11202,29 @@ drwxr-xr-x root       root              240 ./usr/palm/applications/fingerterm/i
 -rw-r--r-- root       root             1600 ./usr/palm/applications/fingerterm/NotifyWin.qml
 -rw-r--r-- root       root             1455 ./usr/palm/applications/fingerterm/PopupWindow.qml
 -rw-r--r-- root       root             2959 ./usr/palm/applications/fingerterm/UrlWindow.qml
+drwxr-xr-x root       root              120 ./usr/palm/applications/messwerk
+-rw-r--r-- root       root              253 ./usr/palm/applications/messwerk/appinfo.json
+-rwxr-xr-x root       root           201048 ./usr/palm/applications/messwerk/harbour-messwerk
+-rw-r--r-- root       root             6410 ./usr/palm/applications/messwerk/harbour-messwerk.png
+drwxr-xr-x root       root              100 ./usr/palm/applications/messwerk/qml
+-rw-r--r-- root       root              136 ./usr/palm/applications/messwerk/qml/Constants.js
+-rw-r--r-- root       root             2181 ./usr/palm/applications/messwerk/qml/Messwerk.qml
+drwxr-xr-x root       root              300 ./usr/palm/applications/messwerk/qml/pages
+-rw-r--r-- root       root             5537 ./usr/palm/applications/messwerk/qml/pages/AccelPage.qml
+-rw-r--r-- root       root              334 ./usr/palm/applications/messwerk/qml/pages/BasePage.qml
+drwxr-xr-x root       root               80 ./usr/palm/applications/messwerk/qml/pages/CustomTheme
+-rw-r--r-- root       root               50 ./usr/palm/applications/messwerk/qml/pages/CustomTheme/qmldir
+-rw-r--r-- root       root              412 ./usr/palm/applications/messwerk/qml/pages/CustomTheme/Theme.qml
+-rw-r--r-- root       root             5061 ./usr/palm/applications/messwerk/qml/pages/FirstPage.qml
+-rw-r--r-- root       root             4879 ./usr/palm/applications/messwerk/qml/pages/GyroPage.qml
+-rw-r--r-- root       root             2360 ./usr/palm/applications/messwerk/qml/pages/InfoPage.qml
+-rw-r--r-- root       root             4008 ./usr/palm/applications/messwerk/qml/pages/LightPage.qml
+-rw-r--r-- root       root             4552 ./usr/palm/applications/messwerk/qml/pages/MagnetPage.qml
+-rw-r--r-- root       root             6673 ./usr/palm/applications/messwerk/qml/pages/PositionPage.qml
+-rw-r--r-- root       root             2533 ./usr/palm/applications/messwerk/qml/pages/PressurePage.qml
+-rw-r--r-- root       root             4959 ./usr/palm/applications/messwerk/qml/pages/RotationPage.qml
+-rw-r--r-- root       root             2716 ./usr/palm/applications/messwerk/qml/pages/SatellitePage.qml
+-rw-r--r-- root       root             1377 ./usr/palm/applications/messwerk/qml/pages/SettingsDialog.qml
 drwxr-xr-x root       root              160 ./usr/palm/applications/org.webosinternals.preware
 -rw-r--r-- root       root              300 ./usr/palm/applications/org.webosinternals.preware/appinfo.json
 drwxr-xr-x root       root              140 ./usr/palm/applications/org.webosinternals.preware/assets
@@ -16312,7 +16426,7 @@ drwxr-xr-x root       root              240 ./usr/palm/luna-next/shells/card/qml
 -rw-r--r-- root       root             4123 ./usr/palm/luna-next/shells/card/qml/Notifications/PowerMenu.qml
 -rw-r--r-- root       root             2575 ./usr/palm/luna-next/shells/card/qml/Notifications/SwipeableNotification.qml
 -rw-r--r-- root       root             3250 ./usr/palm/luna-next/shells/card/qml/Notifications/VolumeControlAlert.qml
--rw-r--r-- root       root             3532 ./usr/palm/luna-next/shells/card/qml/OrientationHelper.qml
+-rw-r--r-- root       root             3956 ./usr/palm/luna-next/shells/card/qml/OrientationHelper.qml
 -rw-r--r-- root       root             1978 ./usr/palm/luna-next/shells/card/qml/SIMPinWindowArea.qml
 drwxr-xr-x root       root              180 ./usr/palm/luna-next/shells/card/qml/StatusBar
 -rw-r--r-- root       root             5826 ./usr/palm/luna-next/shells/card/qml/StatusBar/AppMenu.qml
@@ -17012,7 +17126,6 @@ lrwxrwxrwx root       root                8 ./usr/sbin/fsck.vfat -> fsck.fat
 -rwxr-xr-x root       root            72056 ./usr/sbin/grpconv
 -rwxr-xr-x root       root            72064 ./usr/sbin/grpunconv
 -rwxr-xr-x root       root            68792 ./usr/sbin/icupkg
--rwxr-xr-x root       root            69256 ./usr/sbin/iio-sensor-proxy
 -rwxr-xr-x root       root            69608 ./usr/sbin/imaccountvalidator
 -rwxr-xr-x root       root           332784 ./usr/sbin/imlibpurpleservice
 lrwxrwxrwx root       root               13 ./usr/sbin/ip6tables-restore -> xtables-multi
@@ -17068,6 +17181,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nos
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            70232 ./usr/sbin/rngd
 -rwxr-xr-x root       root             1986 ./usr/sbin/run-postinsts
+-rwxr-xr-x root       root            68840 ./usr/sbin/sensorfwd
 -rwxr-xr-x root       root              147 ./usr/sbin/setcpushares-ls2
 -rwxr-xr-x root       root              345 ./usr/sbin/setcpushares-pdk
 -rwxr-xr-x root       root              279 ./usr/sbin/setcpushares-task
@@ -17101,7 +17215,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.no
 -rwxr-xr-x root       root           137128 ./usr/sbin/xtables-multi
 -rwxr-xr-x root       root            18728 ./usr/sbin/zdump
 -rwxr-xr-x root       root            47480 ./usr/sbin/zic
-drwxr-xr-x root       root             1260 ./usr/share
+drwxr-xr-x root       root             1300 ./usr/share
 drwxr-xr-x root       root              180 ./usr/share/alsa
 -rw-r--r-- root       root             9596 ./usr/share/alsa/alsa.conf
 drwxr-xr-x root       root               80 ./usr/share/alsa/alsa.conf.d
@@ -17869,10 +17983,11 @@ drwxr-xr-x root       root              180 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root            13299 ./usr/share/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r-- root       root            11055 ./usr/share/dbus-1/system.d/org.freedesktop.machine1.conf
 -rw-r--r-- root       root            18807 ./usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
-drwxr-xr-x root       root              880 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root              900 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
 -rw-r--r-- root       root               87 ./usr/share/dbus-1/system-services/com.lge.settingsservice.service
+-rw-r--r-- root       root              125 ./usr/share/dbus-1/system-services/com.nokia.SensorService.service
 -rw-r--r-- root       root              198 ./usr/share/dbus-1/system-services/com.palm.imaccountvalidator.service
 -rw-r--r-- root       root              292 ./usr/share/dbus-1/system-services/com.palm.imap.service
 -rw-r--r-- root       root              184 ./usr/share/dbus-1/system-services/com.palm.imlibpurple.service
@@ -23140,7 +23255,7 @@ drwxr-xr-x root       root              160 ./usr/share/libgphoto2/2.5.17/konica
 -rw-r--r-- root       root           123328 ./usr/share/libgphoto2/2.5.17/konica/japanese
 -rw-r--r-- root       root           123485 ./usr/share/libgphoto2/2.5.17/konica/korean
 -rw-r--r-- root       root           121202 ./usr/share/libgphoto2/2.5.17/konica/spanish
-drwxr-xr-x root       root             7380 ./usr/share/licenses
+drwxr-xr-x root       root             7420 ./usr/share/licenses
 drwxr-xr-x root       root              120 ./usr/share/licenses/acl
 -rw-r--r-- root       root            18311 ./usr/share/licenses/acl/COPYING
 -rw-r--r-- root       root            26762 ./usr/share/licenses/acl/COPYING.LGPL
@@ -23586,9 +23701,6 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/icu
 drwxr-xr-x root       root               80 ./usr/share/licenses/icyque
 -rw-r--r-- root       root            34694 ./usr/share/licenses/icyque/generic_GPLv3.0
 -rw-r--r-- root       root            35149 ./usr/share/licenses/icyque/LICENSE
-drwxr-xr-x root       root               80 ./usr/share/licenses/iio-sensor-proxy
--rw-r--r-- root       root            34694 ./usr/share/licenses/iio-sensor-proxy/generic_GPL-3.0
--rw-r--r-- root       root            34694 ./usr/share/licenses/iio-sensor-proxy/GPL-3.0
 drwxr-xr-x root       root              100 ./usr/share/licenses/imaccountvalidator
 -rw-r--r-- root       root            18092 ./usr/share/licenses/imaccountvalidator/COPYING
 -rw-r--r-- root       root             9799 ./usr/share/licenses/imaccountvalidator/COPYRIGHT
@@ -23994,6 +24106,9 @@ drwxr-xr-x root       root               80 ./usr/share/licenses/mesa
 drwxr-xr-x root       root               80 ./usr/share/licenses/messaging-accounts
 -rw-r--r-- root       root            11357 ./usr/share/licenses/messaging-accounts/COPYING
 -rw-r--r-- root       root            11360 ./usr/share/licenses/messaging-accounts/generic_Apache-2.0
+drwxr-xr-x root       root               80 ./usr/share/licenses/messwerk
+-rw-r--r-- root       root            34694 ./usr/share/licenses/messwerk/generic_GPL-3.0
+-rw-r--r-- root       root            35121 ./usr/share/licenses/messwerk/LICENSE
 drwxr-xr-x root       root               80 ./usr/share/licenses/mingetty
 -rw-r--r-- root       root            17983 ./usr/share/licenses/mingetty/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/mingetty/generic_GPLv2
@@ -24454,6 +24569,12 @@ drwxr-xr-x root       root              280 ./usr/share/licenses/qtsensors
 -rw-r--r-- root       root            35147 ./usr/share/licenses/qtsensors/LICENSE.GPL3
 -rw-r--r-- root       root            36363 ./usr/share/licenses/qtsensors/LICENSE.GPL3-EXCEPT
 -rw-r--r-- root       root             7651 ./usr/share/licenses/qtsensors/LICENSE.LGPL3
+drwxr-xr-x root       root              140 ./usr/share/licenses/qtsensors-sensorfw-plugin
+-rw-r--r-- root       root            25878 ./usr/share/licenses/qtsensors-sensorfw-plugin/generic_LGPL-2.1
+-rw-r--r-- root       root             7468 ./usr/share/licenses/qtsensors-sensorfw-plugin/generic_LGPL-3.0
+-rw-r--r-- root       root             1187 ./usr/share/licenses/qtsensors-sensorfw-plugin/LGPL_EXCEPTION.txt
+-rw-r--r-- root       root            26855 ./usr/share/licenses/qtsensors-sensorfw-plugin/LICENSE.LGPLv21
+-rw-r--r-- root       root             8072 ./usr/share/licenses/qtsensors-sensorfw-plugin/LICENSE.LGPLv3
 drwxr-xr-x root       root              260 ./usr/share/licenses/qtsvg
 -rw-r--r-- root       root             1499 ./usr/share/licenses/qtsvg/generic_BSD
 -rw-r--r-- root       root            22964 ./usr/share/licenses/qtsvg/generic_GFDL-1.3
@@ -24547,6 +24668,9 @@ drwxr-xr-x root       root              100 ./usr/share/licenses/sdparm
 -rw-r--r-- root       root             1514 ./usr/share/licenses/sdparm/BSD_LICENSE
 -rw-r--r-- root       root             1439 ./usr/share/licenses/sdparm/COPYING
 -rw-r--r-- root       root             1499 ./usr/share/licenses/sdparm/generic_BSD
+drwxr-xr-x root       root               80 ./usr/share/licenses/sensorfw
+-rw-r--r-- root       root            26527 ./usr/share/licenses/sensorfw/COPYING
+-rw-r--r-- root       root            25878 ./usr/share/licenses/sensorfw/generic_LGPLv2.1
 drwxr-xr-x root       root               80 ./usr/share/licenses/serial-forward
 -rw-r--r-- root       root            17988 ./usr/share/licenses/serial-forward/COPYING
 -rw-r--r-- root       root            17611 ./usr/share/licenses/serial-forward/generic_GPLv2
@@ -24801,11 +24925,12 @@ drwxr-xr-x root       root               60 ./usr/share/localization/luna-sysser
 -rwxr-xr-x root       root            48595 ./usr/share/localization/luna-sysservice/resources/zh/Hant/TW/cppstrings.json
 drwxr-xr-x root       root               60 ./usr/share/ls2
 drwxr-xr-x root       root               80 ./usr/share/ls2/roles
-drwxr-xr-x root       root             1100 ./usr/share/ls2/roles/prv
+drwxr-xr-x root       root             1120 ./usr/share/ls2/roles/prv
 -rw-r--r-- root       root              437 ./usr/share/ls2/roles/prv/audio-service.json
 -rw-r--r-- root       root              299 ./usr/share/ls2/roles/prv/certmgrd.json
 -rw-r--r-- root       root              118 ./usr/share/ls2/roles/prv/com.lge.settingsservice.backupRegistration.json
 -rw-r--r-- root       root              304 ./usr/share/ls2/roles/prv/com.lge.settingsservice.json
+-rw-r--r-- root       root              302 ./usr/share/ls2/roles/prv/com.nokia.SensorService.json
 -rw-r--r-- root       root              316 ./usr/share/ls2/roles/prv/com.palm.imaccountvalidator.json
 -rw-r--r-- root       root              281 ./usr/share/ls2/roles/prv/com.palm.imap.json
 -rw-r--r-- root       root              936 ./usr/share/ls2/roles/prv/com.palm.imlibpurple.json
@@ -24949,7 +25074,7 @@ drwxr-xr-x root       root              140 ./usr/share/luna-service2/groups.d
 -rw-r--r-- root       root              217 ./usr/share/luna-service2/groups.d/com.webos.service.sleep.groups.json
 -rw-r--r-- root       root              136 ./usr/share/luna-service2/groups.d/configurator.groups.json
 -rw-r--r-- root       root               99 ./usr/share/luna-service2/groups.d/db8.groups.json
-drwxrwxr-x root       root             1040 ./usr/share/luna-service2/manifests.d
+drwxrwxr-x root       root             1060 ./usr/share/luna-service2/manifests.d
 -rw-rw-r-- root       root              555 ./usr/share/luna-service2/manifests.d/activitymanager.manifest.json
 -rw-rw-r-- root       root             1617 ./usr/share/luna-service2/manifests.d/app-services.manifest.json
 -rw-rw-r-- root       root              375 ./usr/share/luna-service2/manifests.d/audio-service.manifest.json
@@ -24995,6 +25120,7 @@ drwxrwxr-x root       root             1040 ./usr/share/luna-service2/manifests.
 -rw-rw-r-- root       root              236 ./usr/share/luna-service2/manifests.d/pmlogdaemon.manifest.json
 -rw-rw-r-- root       root              372 ./usr/share/luna-service2/manifests.d/powerd.manifest.json
 -rw-rw-r-- root       root              468 ./usr/share/luna-service2/manifests.d/rdxd.manifest.json
+-rw-rw-r-- root       root              247 ./usr/share/luna-service2/manifests.d/sensorfw.manifest.json
 -rw-rw-r-- root       root              506 ./usr/share/luna-service2/manifests.d/sleepd.manifest.json
 -rw-rw-r-- root       root              382 ./usr/share/luna-service2/manifests.d/storaged.manifest.json
 -rw-rw-r-- root       root              513 ./usr/share/luna-service2/manifests.d/webos-connman-adapter.manifest.json
@@ -26178,6 +26304,10 @@ drwxr-xr-x root       root              100 ./usr/share/purple/ca-certs
 -rw-r--r-- root       root             2610 ./usr/share/purple/ca-certs/CAcert_Class3.pem
 -rw-r--r-- root       root             2569 ./usr/share/purple/ca-certs/CAcert_Root.pem
 -rw-r--r-- root       root           250607 ./usr/share/purple/ca-certs/mozilla.pem
+drwxr-xr-x root       root               60 ./usr/share/qt5
+drwxr-xr-x root       root               60 ./usr/share/qt5/mkspecs
+drwxr-xr-x root       root               60 ./usr/share/qt5/mkspecs/features
+-rw-r--r-- root       root              483 ./usr/share/qt5/mkspecs/features/sensord.prf
 drwxr-xr-x root       root              200 ./usr/share/rdxd
 -rwxr-xr-x root       root             1622 ./usr/share/rdxd/cleanseen.sh
 -rwxr-xr-x root       root             1392 ./usr/share/rdxd/dumplog.sh
@@ -26223,6 +26353,12 @@ drwxr-xr-x root       root              380 ./usr/share/screen/utf8encodings
 -rw-r--r-- root       root               68 ./usr/share/screen/utf8encodings/cc
 -rw-r--r-- root       root               52 ./usr/share/screen/utf8encodings/cd
 -rw-r--r-- root       root              212 ./usr/share/screen/utf8encodings/d6
+drwxr-xr-x root       root              140 ./usr/share/sensorfw-tests
+-rw-r--r-- root       root              368 ./usr/share/sensorfw-tests/00-automatic-testing-rm680.conf
+-rw-r--r-- root       root              368 ./usr/share/sensorfw-tests/00-automatic-testing-rm696.conf
+-rwxr-xr-x root       root             2761 ./usr/share/sensorfw-tests/sensord-deadclienttest.py
+-rw-r--r-- root       root             1020 ./usr/share/sensorfw-tests/testapp.conf
+-rw-r--r-- root       root             7322 ./usr/share/sensorfw-tests/tests.xml
 drwxr-xr-x root       root               60 ./usr/share/smartmontools
 -rw-r--r-- root       root           191512 ./usr/share/smartmontools/drivedb.h
 drwxr-xr-x root       root               80 ./usr/share/systemd
@@ -28530,7 +28666,7 @@ drwxr-xr-x root       root              120 ./var/cache/fontconfig
 -rw-r--r-- root       root            19440 ./var/cache/fontconfig/94322f4d3cdf1bd54794b691285ca062-le64.cache-7
 -rw-r--r-- root       root              200 ./var/cache/fontconfig/CACHEDIR.TAG
 drwx------ root       root               60 ./var/cache/ldconfig
--rw------- root       root            21901 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            22190 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root               40 ./var/cache/opkg
 drwx------ root       root               60 ./var/db
 drwx------ root       root               40 ./var/db/temp
@@ -28546,7 +28682,7 @@ drwxr-xr-x root       root               80 ./var/lib/ofono
 -rw-r--r-- root       root             6900 ./var/lib/ofono/ril_subscription.conf
 drwx--x--- root       root               40 ./var/lib/openvpn
 drwxr-xr-x root       root               80 ./var/lib/opkg
-drwxr-xr-x root       root           111380 ./var/lib/opkg/info
+drwxr-xr-x root       root           111580 ./var/lib/opkg/info
 -rw-r--r-- root       root              363 ./var/lib/opkg/info/acl-lic.control
 -rw-r--r-- root       root              212 ./var/lib/opkg/info/acl-lic.list
 -rw-r--r-- root       root              691 ./var/lib/opkg/info/activitymanager.control
@@ -28603,7 +28739,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              421 ./var/lib/opkg/info/base-files.control
 -rw-r--r-- root       root              398 ./var/lib/opkg/info/base-files-lic.control
 -rw-r--r-- root       root              137 ./var/lib/opkg/info/base-files-lic.list
--rw-r--r-- root       root             1208 ./var/lib/opkg/info/base-files.list
+-rw-r--r-- root       root             1226 ./var/lib/opkg/info/base-files.list
 -rwxr-xr-x root       root              279 ./var/lib/opkg/info/base-files.preinst
 -rw-r--r-- root       root              472 ./var/lib/opkg/info/base-passwd.control
 -rw-r--r-- root       root              448 ./var/lib/opkg/info/base-passwd-lic.control
@@ -28632,7 +28768,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              599 ./var/lib/opkg/info/bluez5.control
 -rw-r--r-- root       root              405 ./var/lib/opkg/info/bluez5-lic.control
 -rw-r--r-- root       root              268 ./var/lib/opkg/info/bluez5-lic.list
--rw-r--r-- root       root              917 ./var/lib/opkg/info/bluez5.list
+-rw-r--r-- root       root              946 ./var/lib/opkg/info/bluez5.list
 -rwxr-xr-x root       root              396 ./var/lib/opkg/info/bluez5.postinst
 -rwxr-xr-x root       root              227 ./var/lib/opkg/info/bluez5.prerm
 -rw-r--r-- root       root              356 ./var/lib/opkg/info/boost-lic.control
@@ -28736,7 +28872,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rwxr-xr-x root       root              377 ./var/lib/opkg/info/db8.prerm
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles
 -rw-r--r-- root       root              812 ./var/lib/opkg/info/dbus-1.control
--rw-r--r-- root       root             1722 ./var/lib/opkg/info/dbus-1.list
+-rw-r--r-- root       root             1791 ./var/lib/opkg/info/dbus-1.list
 -rwxr-xr-x root       root              306 ./var/lib/opkg/info/dbus-1.postinst
 -rwxr-xr-x root       root             5285 ./var/lib/opkg/info/dbus-1.preinst
 -rw-r--r-- root       root              608 ./var/lib/opkg/info/dbus-lic.control
@@ -29254,7 +29390,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              300 ./var/lib/opkg/info/gtk+3-lic.list
 -rw-r--r-- root       root              669 ./var/lib/opkg/info/gtk+3-locale-en.control
 -rw-r--r-- root       root              684 ./var/lib/opkg/info/gtk+3-locale-en-gb.control
--rw-r--r-- root       root              117 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
+-rw-r--r-- root       root              219 ./var/lib/opkg/info/gtk+3-locale-en-gb.list
 -rw-r--r-- root       root              181 ./var/lib/opkg/info/gtk+3-locale-en.list
 -rw-r--r-- root       root              492 ./var/lib/opkg/info/gzip.control
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/gzip-lic.control
@@ -29288,10 +29424,6 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              395 ./var/lib/opkg/info/icyque-lic.control
 -rw-r--r-- root       root              129 ./var/lib/opkg/info/icyque-lic.list
 -rw-r--r-- root       root               39 ./var/lib/opkg/info/icyque.list
--rw-r--r-- root       root              414 ./var/lib/opkg/info/iio-sensor-proxy.control
--rw-r--r-- root       root              308 ./var/lib/opkg/info/iio-sensor-proxy-lic.control
--rw-r--r-- root       root              159 ./var/lib/opkg/info/iio-sensor-proxy-lic.list
--rw-r--r-- root       root              389 ./var/lib/opkg/info/iio-sensor-proxy.list
 -rw-r--r-- root       root             1071 ./var/lib/opkg/info/imaccountvalidator.control
 -rw-r--r-- root       root              352 ./var/lib/opkg/info/imaccountvalidator-lic.control
 -rw-r--r-- root       root              222 ./var/lib/opkg/info/imaccountvalidator-lic.list
@@ -32257,7 +32389,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rwxr-xr-x root       root              551 ./var/lib/opkg/info/libgdk-pixbuf-2.0-loader-xpm.postinst
 -rwxr-xr-x root       root              551 ./var/lib/opkg/info/libgdk-pixbuf-2.0-loader-xpm.postrm
 -rw-r--r-- root       root              530 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.control
--rw-r--r-- root       root              160 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.list
+-rw-r--r-- root       root               58 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.list
 -rw-r--r-- root       root              735 ./var/lib/opkg/info/libglapi0.control
 -rw-r--r-- root       root               84 ./var/lib/opkg/info/libglapi0.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libglapi0.postinst
@@ -33061,6 +33193,10 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              334 ./var/lib/opkg/info/messaging-accounts-lic.control
 -rw-r--r-- root       root              168 ./var/lib/opkg/info/messaging-accounts-lic.list
 -rw-r--r-- root       root             9232 ./var/lib/opkg/info/messaging-accounts.list
+-rw-r--r-- root       root              592 ./var/lib/opkg/info/messwerk.control
+-rw-r--r-- root       root              329 ./var/lib/opkg/info/messwerk-lic.control
+-rw-r--r-- root       root              135 ./var/lib/opkg/info/messwerk-lic.list
+-rw-r--r-- root       root             1406 ./var/lib/opkg/info/messwerk.list
 -rw-r--r-- root       root              457 ./var/lib/opkg/info/mingetty.control
 -rw-r--r-- root       root              385 ./var/lib/opkg/info/mingetty-lic.control
 -rw-r--r-- root       root              133 ./var/lib/opkg/info/mingetty-lic.list
@@ -33375,7 +33511,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              379 ./var/lib/opkg/info/packagegroup-luneos-development-lic.control
 -rw-r--r-- root       root              210 ./var/lib/opkg/info/packagegroup-luneos-development-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-development.list
--rw-r--r-- root       root             2199 ./var/lib/opkg/info/packagegroup-luneos-extended.control
+-rw-r--r-- root       root             2209 ./var/lib/opkg/info/packagegroup-luneos-extended.control
 -rw-r--r-- root       root              368 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.control
 -rw-r--r-- root       root              201 ./var/lib/opkg/info/packagegroup-luneos-extended-lic.list
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-luneos-extended.list
@@ -33756,6 +33892,10 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              797 ./var/lib/opkg/info/qtquickcontrols-lic.list
 -rw-r--r-- root       root              666 ./var/lib/opkg/info/qtquickcontrols-qmlplugins.control
 -rw-r--r-- root       root            24531 ./var/lib/opkg/info/qtquickcontrols-qmlplugins.list
+-rw-r--r-- root       root              562 ./var/lib/opkg/info/qtsensors-sensorfw-plugin.control
+-rw-r--r-- root       root              352 ./var/lib/opkg/info/qtsensors-sensorfw-plugin-lic.control
+-rw-r--r-- root       root              408 ./var/lib/opkg/info/qtsensors-sensorfw-plugin-lic.list
+-rw-r--r-- root       root              125 ./var/lib/opkg/info/qtsensors-sensorfw-plugin.list
 -rw-r--r-- root       root              838 ./var/lib/opkg/info/qtwayland.control
 -rw-r--r-- root       root              470 ./var/lib/opkg/info/qtwayland-lic.control
 -rw-r--r-- root       root              719 ./var/lib/opkg/info/qtwayland-lic.list
@@ -33808,6 +33948,12 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              381 ./var/lib/opkg/info/sdparm-lic.control
 -rw-r--r-- root       root              172 ./var/lib/opkg/info/sdparm-lic.list
 -rw-r--r-- root       root               24 ./var/lib/opkg/info/sdparm.list
+-rw-r--r-- root       root              641 ./var/lib/opkg/info/sensorfw.control
+-rw-r--r-- root       root              443 ./var/lib/opkg/info/sensorfw-lic.control
+-rw-r--r-- root       root              136 ./var/lib/opkg/info/sensorfw-lic.list
+-rw-r--r-- root       root             5558 ./var/lib/opkg/info/sensorfw.list
+-rwxr-xr-x root       root              396 ./var/lib/opkg/info/sensorfw.postinst
+-rwxr-xr-x root       root              227 ./var/lib/opkg/info/sensorfw.prerm
 -rw-r--r-- root       root              365 ./var/lib/opkg/info/serial-forward.control
 -rw-r--r-- root       root              313 ./var/lib/opkg/info/serial-forward-lic.control
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/serial-forward-lic.list
@@ -33981,7 +34127,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              832 ./var/lib/opkg/info/udev-hwdb.list
 -rwxr-xr-x root       root              148 ./var/lib/opkg/info/udev-hwdb.postinst
 -rwxr-xr-x root       root               35 ./var/lib/opkg/info/udev-hwdb.prerm
--rw-r--r-- root       root             2701 ./var/lib/opkg/info/udev.list
+-rw-r--r-- root       root             2745 ./var/lib/opkg/info/udev.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/underscore.control
 -rw-r--r-- root       root              439 ./var/lib/opkg/info/underscore-lic.control
 -rw-r--r-- root       root              147 ./var/lib/opkg/info/underscore-lic.list
@@ -34114,7 +34260,7 @@ drwxr-xr-x root       root           111380 ./var/lib/opkg/info
 -rw-r--r-- root       root              179 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           588695 ./var/lib/opkg/status
+-rw-r--r-- root       root           590055 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
