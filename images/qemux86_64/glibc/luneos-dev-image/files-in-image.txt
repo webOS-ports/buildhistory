@@ -1933,13 +1933,13 @@ drwxr-xr-x root       root               80 ./lib/modules/5.0.0-yocto-standard/k
 -rw-r--r-- root       root              379 ./lib/modules/5.0.0-yocto-standard/modules.softdep
 -rw-r--r-- root       root            97860 ./lib/modules/5.0.0-yocto-standard/modules.symbols
 -rw-r--r-- root       root           119552 ./lib/modules/5.0.0-yocto-standard/modules.symbols.bin
-drwxr-xr-x root       root              900 ./lib/systemd
+drwxr-xr-x root       root              920 ./lib/systemd
 -rwxr-xr-x root       root          2544832 ./lib/systemd/libsystemd-shared-241.so
 drwxr-xr-x root       root              100 ./lib/systemd/network
 -rw-r--r-- root       root               33 ./lib/systemd/network/80-anbox-bridge.netdev
 -rw-r--r-- root       root               87 ./lib/systemd/network/80-anbox-bridge.network
 -rw-r--r-- root       root              417 ./lib/systemd/network/99-default.link
-drwxr-xr-x root       root             5180 ./lib/systemd/system
+drwxr-xr-x root       root             5220 ./lib/systemd/system
 -rw-r--r-- root       root             1062 ./lib/systemd/system/activitymanager.service
 -rw-r--r-- root       root              459 ./lib/systemd/system/alsa-restore.service
 -rw-r--r-- root       root              389 ./lib/systemd/system/alsa-state.service
@@ -1978,6 +1978,7 @@ lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freede
 lrwxrwxrwx root       root               23 ./lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx root       root               22 ./lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
 lrwxrwxrwx root       root               24 ./lib/systemd/system/dbus-org.freedesktop.machine1.service -> systemd-machined.service
+lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rw-r--r-- root       root              380 ./lib/systemd/system/dbus.service
 -rw-r--r-- root       root              112 ./lib/systemd/system/dbus-session.service
 -rw-r--r-- root       root              106 ./lib/systemd/system/dbus.socket
@@ -2014,6 +2015,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target 
 -rwxr-xr-x root       root            10328 ./lib/systemd/systemd-sulogin-shell
 -rwxr-xr-x root       root            14576 ./lib/systemd/systemd-sysctl
 -rwxr-xr-x root       root             1258 ./lib/systemd/systemd-sysv-install
+-rwxr-xr-x root       root            30800 ./lib/systemd/systemd-timedated
 -rwxr-xr-x root       root            47184 ./lib/systemd/systemd-timesyncd
 -rwxr-xr-x root       root            14424 ./lib/systemd/systemd-time-wait-sync
 -rwxr-xr-x root       root           699304 ./lib/systemd/systemd-udevd
@@ -2253,6 +2255,7 @@ lrwxrwxrwx root       root               30 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              596 ./lib/systemd/system/systemd-suspend-then-hibernate.service
 -rw-r--r-- root       root              693 ./lib/systemd/system/systemd-sysctl.service
 -rw-r--r-- root       root              700 ./lib/systemd/system/systemd-sysusers.service
+-rw-r--r-- root       root             1055 ./lib/systemd/system/systemd-timedated.service
 -rw-r--r-- root       root             1433 ./lib/systemd/system/systemd-timesyncd.service
 -rw-r--r-- root       root             1196 ./lib/systemd/system/systemd-time-wait-sync.service
 -rw-r--r-- root       root              659 ./lib/systemd/system/systemd-tmpfiles-clean.service
@@ -17972,7 +17975,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root             3561 ./usr/share/dbus-1/session.conf
 drwxr-xr-x root       root               40 ./usr/share/dbus-1/session.d
 -rw-r--r-- root       root             5696 ./usr/share/dbus-1/system.conf
-drwxr-xr-x root       root              200 ./usr/share/dbus-1/system.d
+drwxr-xr-x root       root              220 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root              642 ./usr/share/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root              549 ./usr/share/dbus-1/system.d/connman-vpn-dbus.conf
 -rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.hostname1.conf
@@ -17980,8 +17983,9 @@ drwxr-xr-x root       root              200 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root            13299 ./usr/share/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r-- root       root            11055 ./usr/share/dbus-1/system.d/org.freedesktop.machine1.conf
 -rw-r--r-- root       root            18807 ./usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
+-rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.timedate1.conf
 -rw-r--r-- root       root             1614 ./usr/share/dbus-1/system.d/org.freedesktop.timesync1.conf
-drwxr-xr-x root       root              920 ./usr/share/dbus-1/system-services
+drwxr-xr-x root       root              940 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/audio-service.service
 -rw-r--r-- root       root               80 ./usr/share/dbus-1/system-services/certmgrd.service
 -rw-r--r-- root       root               87 ./usr/share/dbus-1/system-services/com.lge.settingsservice.service
@@ -18014,6 +18018,7 @@ drwxr-xr-x root       root              920 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              457 ./usr/share/dbus-1/system-services/org.freedesktop.machine1.service
 -rw-r--r-- root       root              467 ./usr/share/dbus-1/system-services/org.freedesktop.ModemManager1.service
 -rw-r--r-- root       root              404 ./usr/share/dbus-1/system-services/org.freedesktop.systemd1.service
+-rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
 -rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timesync1.service
 -rw-r--r-- root       root               98 ./usr/share/dbus-1/system-services/org.webosinternals.ipkgservice.service
 -rw-r--r-- root       root              136 ./usr/share/dbus-1/system-services/org.webosinternals.tweaks.prefs.service
@@ -26526,12 +26531,13 @@ drwxr-xr-x root       root               60 ./usr/share/pixmaps/pidgin/protocols
 drwxr-xr-x root       root               60 ./usr/share/PmLogDaemon
 -rwxr-xr-x root       root              767 ./usr/share/PmLogDaemon/show_disk_usage.sh
 drwxr-xr-x root       root               60 ./usr/share/polkit-1
-drwxr-xr-x root       root              140 ./usr/share/polkit-1/actions
+drwxr-xr-x root       root              160 ./usr/share/polkit-1/actions
 -rw-r--r-- root       root             3078 ./usr/share/polkit-1/actions/org.freedesktop.hostname1.policy
 -rw-r--r-- root       root             1923 ./usr/share/polkit-1/actions/org.freedesktop.locale1.policy
 -rw-r--r-- root       root            21774 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- root       root             5534 ./usr/share/polkit-1/actions/org.freedesktop.machine1.policy
 -rw-r--r-- root       root             3819 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
+-rw-r--r-- root       root             3125 ./usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
 drwxr-xr-x root       root              240 ./usr/share/presage
 -rw-r--r-- root       root              134 ./usr/share/presage/abbreviations_en.txt
 -rw-r--r-- root       root               68 ./usr/share/presage/abbreviations_it.txt
@@ -29378,7 +29384,7 @@ drwxr-xr-x root       root           105480 ./var/lib/opkg/info
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/gphoto2-lic.list
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/gphoto2.list
 -rw-r--r-- root       root              521 ./var/lib/opkg/info/gphoto2-locale-en-gb.control
--rw-r--r-- root       root               55 ./var/lib/opkg/info/gphoto2-locale-en-gb.list
+-rw-r--r-- root       root              157 ./var/lib/opkg/info/gphoto2-locale-en-gb.list
 -rw-r--r-- root       root              496 ./var/lib/opkg/info/gphotofs.control
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/gphotofs-lic.control
 -rw-r--r-- root       root              135 ./var/lib/opkg/info/gphotofs-lic.list
@@ -29396,7 +29402,7 @@ drwxr-xr-x root       root           105480 ./var/lib/opkg/info
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/gstreamer1.0-lic.list
 -rw-r--r-- root       root             1246 ./var/lib/opkg/info/gstreamer1.0.list
 -rw-r--r-- root       root              660 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.control
--rw-r--r-- root       root              163 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.list
+-rw-r--r-- root       root               61 ./var/lib/opkg/info/gstreamer1.0-locale-en-gb.list
 -rw-r--r-- root       root              506 ./var/lib/opkg/info/gstreamer1.0-plugins-bad-accurip.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/gstreamer1.0-plugins-bad-accurip.list
 -rw-r--r-- root       root              509 ./var/lib/opkg/info/gstreamer1.0-plugins-bad-adpcmdec.control
@@ -33059,8 +33065,8 @@ drwxr-xr-x root       root           105480 ./var/lib/opkg/info
 -rw-r--r-- root       root              386 ./var/lib/opkg/info/luna-qml-launcher-lic.control
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/luna-qml-launcher-lic.list
 -rw-r--r-- root       root              255 ./var/lib/opkg/info/luna-qml-launcher.list
--rw-r--r-- root       root              621 ./var/lib/opkg/info/luna-service2.control
--rw-r--r-- root       root              357 ./var/lib/opkg/info/luna-service2-lic.control
+-rw-r--r-- root       root              622 ./var/lib/opkg/info/luna-service2.control
+-rw-r--r-- root       root              358 ./var/lib/opkg/info/luna-service2-lic.control
 -rw-r--r-- root       root              156 ./var/lib/opkg/info/luna-service2-lic.list
 -rw-r--r-- root       root             2018 ./var/lib/opkg/info/luna-service2.list
 -rwxr-xr-x root       root              392 ./var/lib/opkg/info/luna-service2.postinst
@@ -34068,7 +34074,7 @@ drwxr-xr-x root       root           105480 ./var/lib/opkg/info
 -rwxr-xr-x root       root             5243 ./var/lib/opkg/info/systemd-extra-utils.preinst
 -rw-r--r-- root       root              851 ./var/lib/opkg/info/systemd-lic.control
 -rw-r--r-- root       root              240 ./var/lib/opkg/info/systemd-lic.list
--rw-r--r-- root       root            18838 ./var/lib/opkg/info/systemd.list
+-rw-r--r-- root       root            19235 ./var/lib/opkg/info/systemd.list
 -rw-r--r-- root       root              345 ./var/lib/opkg/info/systemd-machine-units.control
 -rw-r--r-- root       root              311 ./var/lib/opkg/info/systemd-machine-units-lic.control
 -rw-r--r-- root       root              166 ./var/lib/opkg/info/systemd-machine-units-lic.list
@@ -34273,7 +34279,7 @@ drwxr-xr-x root       root           105480 ./var/lib/opkg/info
 -rw-r--r-- root       root              179 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              370 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           590248 ./var/lib/opkg/status
+-rw-r--r-- root       root           590250 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
