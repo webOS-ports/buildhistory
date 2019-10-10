@@ -13,13 +13,14 @@ drwxr-xr-x root       root               60 ./etc/pam.d
 -rw-r--r-- root       root              210 ./etc/pam.d/systemd-user
 lrwxrwxrwx root       root               34 ./etc/resolv-conf.systemd -> ../run/systemd/resolve/resolv.conf
 drwxr-xr-x root       root               40 ./etc/sysctl.d
-drwxr-xr-x root       root              200 ./etc/systemd
+drwxr-xr-x root       root              220 ./etc/systemd
 -rw-r--r-- root       root             1041 ./etc/systemd/journald.conf
 -rw-r--r-- root       root             1043 ./etc/systemd/logind.conf
 -rw-r--r-- root       root              529 ./etc/systemd/pstore.conf
 -rw-r--r-- root       root              790 ./etc/systemd/sleep.conf
 drwxr-xr-x root       root               40 ./etc/systemd/system
 -rw-r--r-- root       root             1762 ./etc/systemd/system.conf
+-rw-r--r-- root       root              657 ./etc/systemd/timesyncd.conf
 drwxr-xr-x root       root               40 ./etc/systemd/user
 -rw-r--r-- root       root             1185 ./etc/systemd/user.conf
 drwxr-xr-x root       root               60 ./etc/tmpfiles.d
@@ -30,9 +31,11 @@ lrwxrwxrwx root       root               18 ./etc/xdg/systemd/user -> ../../syst
 drwxr-xr-x root       root               80 ./lib
 drwxr-xr-x root       root               60 ./lib/modprobe.d
 -rw-r--r-- root       root              765 ./lib/modprobe.d/systemd.conf
-drwxr-xr-x root       root              660 ./lib/systemd
+drwxr-xr-x root       root              740 ./lib/systemd
 -rwxr-xr-x root       root          2761480 ./lib/systemd/libsystemd-shared-243.so
-drwxr-xr-x root       root             2860 ./lib/systemd/system
+drwxr-xr-x root       root               60 ./lib/systemd/ntp-units.d
+-rw-r--r-- root       root               26 ./lib/systemd/ntp-units.d/80-systemd-timesync.list
+drwxr-xr-x root       root             2920 ./lib/systemd/system
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r-- root       root              919 ./lib/systemd/system/basic.target
 -rw-r--r-- root       root              419 ./lib/systemd/system/bluetooth.target
@@ -46,6 +49,7 @@ lrwxrwxrwx root       root               13 ./lib/systemd/system/ctrl-alt-del.ta
 lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
 lrwxrwxrwx root       root               23 ./lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx root       root               22 ./lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
+lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.timedate1.service -> systemd-timedated.service
 -rwxr-xr-x root       root            67904 ./lib/systemd/systemd-dissect
 -rw-r--r-- root       root             1055 ./lib/systemd/system/debug-shell.service
 lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target -> graphical.target
@@ -69,6 +73,9 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target 
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-sulogin-shell
 -rwxr-xr-x root       root            67824 ./lib/systemd/systemd-sysctl
 -rwxr-xr-x root       root             1258 ./lib/systemd/systemd-sysv-install
+-rwxr-xr-x root       root            67744 ./lib/systemd/systemd-timedated
+-rwxr-xr-x root       root            67744 ./lib/systemd/systemd-timesyncd
+-rwxr-xr-x root       root            67744 ./lib/systemd/systemd-time-wait-sync
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-update-done
 -rwxr-xr-x root       root            67744 ./lib/systemd/systemd-update-utmp
 -rwxr-xr-x root       root            67752 ./lib/systemd/systemd-user-runtime-dir
@@ -168,7 +175,7 @@ lrwxrwxrwx root       root               26 ./lib/systemd/system/sockets.target.
 -rw-r--r-- root       root              393 ./lib/systemd/system/swap.target
 -rw-r--r-- root       root              823 ./lib/systemd/system/sys-fs-fuse-connections.mount
 -rw-r--r-- root       root              558 ./lib/systemd/system/sysinit.target
-drwxr-xr-x root       root              440 ./lib/systemd/system/sysinit.target.wants
+drwxr-xr-x root       root              420 ./lib/systemd/system/sysinit.target.wants
 lrwxrwxrwx root       root               22 ./lib/systemd/system/sysinit.target.wants/dev-hugepages.mount -> ../dev-hugepages.mount
 lrwxrwxrwx root       root               19 ./lib/systemd/system/sysinit.target.wants/dev-mqueue.mount -> ../dev-mqueue.mount
 lrwxrwxrwx root       root               28 ./lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service -> ../kmod-static-nodes.service
@@ -176,7 +183,6 @@ lrwxrwxrwx root       root               19 ./lib/systemd/system/sysinit.target.
 lrwxrwxrwx root       root               32 ./lib/systemd/system/sysinit.target.wants/sys-fs-fuse-connections.mount -> ../sys-fs-fuse-connections.mount
 lrwxrwxrwx root       root               26 ./lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount -> ../sys-kernel-config.mount
 lrwxrwxrwx root       root               25 ./lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount -> ../sys-kernel-debug.mount
-lrwxrwxrwx root       root               30 ./lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service -> ../systemd-hwdb-update.service
 lrwxrwxrwx root       root               41 ./lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service -> ../systemd-journal-catalog-update.service
 lrwxrwxrwx root       root               27 ./lib/systemd/system/sysinit.target.wants/systemd-journald.service -> ../systemd-journald.service
 lrwxrwxrwx root       root               32 ./lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service -> ../systemd-journal-flush.service
@@ -200,7 +206,6 @@ lrwxrwxrwx root       root               30 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              584 ./lib/systemd/system/systemd-halt.service
 -rw-r--r-- root       root              671 ./lib/systemd/system/systemd-hibernate-resume@.service
 -rw-r--r-- root       root             1136 ./lib/systemd/system/systemd-hostnamed.service
--rw-r--r-- root       root              819 ./lib/systemd/system/systemd-hwdb-update.service
 -rw-r--r-- root       root              738 ./lib/systemd/system/systemd-journal-catalog-update.service
 -rw-r--r-- root       root              647 ./lib/systemd/system/systemd-journald-audit.socket
 -rw-r--r-- root       root             1130 ./lib/systemd/system/systemd-journald-dev-log.socket
@@ -223,6 +228,9 @@ lrwxrwxrwx root       root               30 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              596 ./lib/systemd/system/systemd-suspend-then-hibernate.service
 -rw-r--r-- root       root              693 ./lib/systemd/system/systemd-sysctl.service
 -rw-r--r-- root       root              700 ./lib/systemd/system/systemd-sysusers.service
+-rw-r--r-- root       root             1119 ./lib/systemd/system/systemd-timedated.service
+-rw-r--r-- root       root             1489 ./lib/systemd/system/systemd-timesyncd.service
+-rw-r--r-- root       root             1196 ./lib/systemd/system/systemd-time-wait-sync.service
 -rw-r--r-- root       root              663 ./lib/systemd/system/systemd-tmpfiles-clean.service
 -rw-r--r-- root       root              490 ./lib/systemd/system/systemd-tmpfiles-clean.timer
 -rw-r--r-- root       root              744 ./lib/systemd/system/systemd-tmpfiles-setup-dev.service
@@ -255,7 +263,7 @@ lrwxrwxrwx root       root               16 ./sbin/runlevel -> ../bin/systemctl
 lrwxrwxrwx root       root               16 ./sbin/shutdown -> ../bin/systemctl
 lrwxrwxrwx root       root               16 ./sbin/telinit -> ../bin/systemctl
 drwxr-xr-x root       root              100 ./usr
-drwxr-xr-x root       root              180 ./usr/bin
+drwxr-xr-x root       root              200 ./usr/bin
 -rwxr-xr-x root       root           133440 ./usr/bin/busctl
 -rwxr-xr-x root       root            67808 ./usr/bin/hostnamectl
 -rwxr-xr-x root       root            67808 ./usr/bin/localectl
@@ -263,6 +271,7 @@ drwxr-xr-x root       root              180 ./usr/bin
 -rwxr-xr-x root       root            67928 ./usr/bin/systemd-mount
 -rwxr-xr-x root       root            67824 ./usr/bin/systemd-socket-activate
 lrwxrwxrwx root       root               13 ./usr/bin/systemd-umount -> systemd-mount
+-rwxr-xr-x root       root            67808 ./usr/bin/timedatectl
 drwxr-xr-x root       root              160 ./usr/lib
 drwxr-xr-x root       root               60 ./usr/lib/environment.d
 lrwxrwxrwx root       root               24 ./usr/lib/environment.d/99-environment.conf -> ../../../etc/environment
@@ -309,7 +318,7 @@ drwxr-xr-x root       root               60 ./usr/lib/systemd/user-preset
 -rw-r--r-- root       root              445 ./usr/lib/systemd/user/timers.target
 drwxr-xr-x root       root               80 ./usr/lib/sysusers.d
 -rw-r--r-- root       root             1136 ./usr/lib/sysusers.d/basic.conf
--rw-r--r-- root       root              316 ./usr/lib/sysusers.d/systemd.conf
+-rw-r--r-- root       root              369 ./usr/lib/sysusers.d/systemd.conf
 drwxr-xr-x root       root              240 ./usr/lib/tmpfiles.d
 -rw-r--r-- root       root              529 ./usr/lib/tmpfiles.d/etc.conf
 -rw-r--r-- root       root              362 ./usr/lib/tmpfiles.d/home.conf
@@ -323,15 +332,19 @@ drwxr-xr-x root       root              240 ./usr/lib/tmpfiles.d
 -rw-r--r-- root       root              655 ./usr/lib/tmpfiles.d/x11.conf
 drwxr-xr-x root       root              120 ./usr/share
 drwxr-xr-x root       root               80 ./usr/share/dbus-1
-drwxr-xr-x root       root              120 ./usr/share/dbus-1/system.d
+drwxr-xr-x root       root              160 ./usr/share/dbus-1/system.d
 -rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.hostname1.conf
 -rw-r--r-- root       root              975 ./usr/share/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r-- root       root            14689 ./usr/share/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r-- root       root            18807 ./usr/share/dbus-1/system.d/org.freedesktop.systemd1.conf
-drwxr-xr-x root       root              100 ./usr/share/dbus-1/system-services
+-rw-r--r-- root       root              985 ./usr/share/dbus-1/system.d/org.freedesktop.timedate1.conf
+-rw-r--r-- root       root             1614 ./usr/share/dbus-1/system.d/org.freedesktop.timesync1.conf
+drwxr-xr-x root       root              140 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              424 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
 -rw-r--r-- root       root              455 ./usr/share/dbus-1/system-services/org.freedesktop.locale1.service
 -rw-r--r-- root       root              453 ./usr/share/dbus-1/system-services/org.freedesktop.login1.service
+-rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service
+-rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.timesync1.service
 drwxr-xr-x root       root               60 ./usr/share/factory
 drwxr-xr-x root       root              100 ./usr/share/factory/etc
 -rw-r--r-- root       root               28 ./usr/share/factory/etc/issue
@@ -340,11 +353,12 @@ drwxr-xr-x root       root               80 ./usr/share/factory/etc/pam.d
 -rw-r--r-- root       root              149 ./usr/share/factory/etc/pam.d/other
 -rw-r--r-- root       root              621 ./usr/share/factory/etc/pam.d/system-auth
 drwxr-xr-x root       root               60 ./usr/share/polkit-1
-drwxr-xr-x root       root              120 ./usr/share/polkit-1/actions
+drwxr-xr-x root       root              140 ./usr/share/polkit-1/actions
 -rw-r--r-- root       root             3078 ./usr/share/polkit-1/actions/org.freedesktop.hostname1.policy
 -rw-r--r-- root       root             1923 ./usr/share/polkit-1/actions/org.freedesktop.locale1.policy
 -rw-r--r-- root       root            23897 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- root       root             3819 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
+-rw-r--r-- root       root             3125 ./usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
 drwxr-xr-x root       root               80 ./usr/share/systemd
 -rw-r--r-- root       root             3564 ./usr/share/systemd/kbd-model-map
 -rw-r--r-- root       root              218 ./usr/share/systemd/language-fallback-map
