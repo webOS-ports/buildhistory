@@ -42,17 +42,6 @@ digraph depends {
 "audio-service" -> "libpulse-mainloop-glib0"
 "audio-service" -> "libstdc++6"
 "audio-service" -> "luna-service2"
-"avahi-daemon" -> "avahi-lic" [style=dotted]
-"avahi-daemon" -> "base-files"
-"avahi-daemon" -> "base-passwd"
-"avahi-daemon" -> "libavahi-common3"
-"avahi-daemon" -> "libavahi-core7"
-"avahi-daemon" -> "libcap2"
-"avahi-daemon" -> "libdaemon0"
-"avahi-daemon" -> "libdbus-1-3"
-"avahi-daemon" -> "libexpat1"
-"avahi-daemon" -> "libnss-mdns" [style=dotted]
-"avahi-daemon" -> "shadow"
 "avahi-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "base-files" -> "base-files-lic" [style=dotted]
 "base-passwd" -> "base-passwd-lic" [style=dotted]
@@ -206,16 +195,12 @@ digraph depends {
 "directfb" -> "libpng16-16"
 "directfb" -> "libstdc++6"
 "directfb" -> "libz1"
-"distcc" -> "avahi-daemon" [style=dotted]
-"distcc" -> "base-files"
-"distcc" -> "base-passwd"
 "distcc-config" -> "distcc"
 "distcc-config" -> "distcc-config-lic" [style=dotted]
 "distcc" -> "distcc-lic" [style=dotted]
 "distcc" -> "libavahi-client3"
 "distcc" -> "libavahi-common3"
 "distcc" -> "libpopt0"
-"distcc" -> "shadow"
 "distro-feed-configs" -> "distro-feed-configs-lic" [style=dotted]
 "dosfstools" -> "dosfstools-lic" [style=dotted]
 "e2fsprogs-badblocks" -> "e2fsprogs-lic" [style=dotted]
@@ -292,10 +277,12 @@ digraph depends {
 "gdb" -> "libexpat1"
 "gdb" -> "libpython3.7m1.0"
 "gdb" -> "libreadline8"
+"gdb" -> "libstdc++6"
 "gdb" -> "libtinfo5"
 "gdb" -> "python3"
 "gdb" -> "python3-codecs"
 "gdbserver" -> "gdb-lic" [style=dotted]
+"gdbserver" -> "libstdc++6"
 "geoclue" -> "geoclue-lic" [style=dotted]
 "geoclue" -> "libavahi-client3"
 "geoclue" -> "libavahi-common3"
@@ -3180,8 +3167,6 @@ digraph depends {
 "libavahi-client3" -> "libavahi-common3"
 "libavahi-client3" -> "libdbus-1-3"
 "libavahi-common3" -> "avahi-lic" [style=dotted]
-"libavahi-core7" -> "avahi-lic" [style=dotted]
-"libavahi-core7" -> "libavahi-common3"
 "libavahi-glib1" -> "avahi-lic" [style=dotted]
 "libavahi-glib1" -> "libavahi-common3"
 "libavahi-glib1" -> "libglib-2.0-0"
@@ -3236,7 +3221,6 @@ digraph depends {
 "libcurl4" -> "libidn2-0"
 "libcurl4" -> "libz1"
 "libcurl4" -> "nettle"
-"libdaemon0" -> "libdaemon-lic" [style=dotted]
 "libdbus-1-3" -> "dbus-1" [style=dotted]
 "libdbus-1-3" -> "dbus-lic" [style=dotted]
 "libdbus-1-3" -> "libsystemd0"
@@ -3581,8 +3565,6 @@ digraph depends {
 "libnl-genl-3-200" -> "libnl-3-lic" [style=dotted]
 "libnsl2" -> "libnsl-lic" [style=dotted]
 "libnsl2" -> "libtirpc3"
-"libnss-mdns" -> "avahi-daemon"
-"libnss-mdns" -> "libnss-mdns-lic" [style=dotted]
 "libntfs-3g88" -> "ntfs-3g-ntfsprogs-lic" [style=dotted]
 "libnyx7" -> "libglib-2.0-0"
 "libnyx7" -> "libnyx-lic" [style=dotted]
@@ -4030,6 +4012,12 @@ digraph depends {
 "mesa-megadriver" -> "llvm-libllvm"
 "mesa-megadriver" -> "mesa-lic" [style=dotted]
 "messaging-accounts" -> "messaging-accounts-lic" [style=dotted]
+"messwerk" -> "libqt5sensors5"
+"messwerk" -> "libstdc++6"
+"messwerk" -> "messwerk-lic" [style=dotted]
+"messwerk" -> "qtbase"
+"messwerk" -> "qtdeclarative"
+"messwerk" -> "qtlocation"
 "mingetty" -> "mingetty-lic" [style=dotted]
 "mmsd" -> "dbus-1"
 "mmsd" -> "libdbus-1-3"
@@ -4352,6 +4340,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "media-permission-service"
 "packagegroup-luneos-extended" -> "mesa-driver-swrast"
 "packagegroup-luneos-extended" -> "messaging-accounts"
+"packagegroup-luneos-extended" -> "messwerk"
 "packagegroup-luneos-extended" -> "ofono"
 "packagegroup-luneos-extended" -> "org.webosinternals.ipkgservice"
 "packagegroup-luneos-extended" -> "org.webosinternals.preware"
@@ -5124,7 +5113,6 @@ digraph depends {
 "python3-modules" -> "python3-profile"
 "python3-modules" -> "python3-pydoc"
 "python3-modules" -> "python3-resource"
-"python3-modules" -> "python3-runpy"
 "python3-modules" -> "python3-shell"
 "python3-modules" -> "python3-smtpd"
 "python3-modules" -> "python3-sqlite3"
@@ -5193,9 +5181,6 @@ digraph depends {
 "python3-resource" -> "libpython3.7m1.0"
 "python3-resource" -> "python3-core"
 "python3-resource" -> "python3-lic" [style=dotted]
-"python3-runpy" -> "python3-core"
-"python3-runpy" -> "python3-lic" [style=dotted]
-"python3-runpy" -> "python3-pkgutil"
 "python3-shell" -> "python3-compression"
 "python3-shell" -> "python3-core"
 "python3-shell" -> "python3-lic" [style=dotted]
