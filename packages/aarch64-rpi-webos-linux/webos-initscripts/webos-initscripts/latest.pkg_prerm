@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+	fi
+
+	systemctl $OPTS disable default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+fi
