@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+if type systemctl >/dev/null 2>/dev/null; then
+	OPTS=""
+
+	if [ -n "$D" ]; then
+		OPTS="--root=$D"
+	fi
+
+	if [ "enable" = "enable" ]; then
+		for service in db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service; do
+			case "${service}" in
+			*@*)
+				systemctl ${OPTS} enable "${service}"
+				;;
+			esac
+		done
+	fi
+
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+		systemctl preset db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service
+
+		if [ "enable" = "enable" ]; then
+			systemctl --no-block restart db8.service db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service
+		fi
+	fi
+fi
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi
