@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+
+		systemctl disable default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target
+	fi
+fi
