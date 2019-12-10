@@ -9,11 +9,7 @@ if type systemctl >/dev/null 2>/dev/null; then
 
 	if [ "enable" = "enable" ]; then
 		for service in default-webos.target webos-cbd.target webos-ibd.target webos-rbd.target webos-bd.target webos-dis.target webos-mbd.target; do
-			case "${service}" in
-			*@*)
-				systemctl ${OPTS} enable "${service}"
-				;;
-			esac
+			systemctl ${OPTS} enable "$service"
 		done
 	fi
 
