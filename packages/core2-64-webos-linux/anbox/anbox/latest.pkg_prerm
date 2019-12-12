@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop anbox-container-manager.service anbox-session-manager.service
+
+		systemctl disable anbox-container-manager.service anbox-session-manager.service
+	fi
+fi
