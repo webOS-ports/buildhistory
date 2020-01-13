@@ -3,7 +3,7 @@ digraph depends {
 "activitymanager" -> "activitymanager-lic" [style=dotted]
 "activitymanager" -> "bootd"
 "activitymanager" -> "db8"
-"activitymanager" -> "libboost-regex1.71.0"
+"activitymanager" -> "libboost-regex1.72.0"
 "activitymanager" -> "libglib-2.0-0"
 "activitymanager" -> "libpbnjson"
 "activitymanager" -> "libstdc++6"
@@ -15,6 +15,7 @@ digraph depends {
 "alsa-plugins-pulseaudio-conf" -> "libasound-module-ctl-pulse"
 "alsa-plugins-pulseaudio-conf" -> "libasound-module-pcm-pulse"
 "alsa-states" -> "alsa-state-lic" [style=dotted]
+"alsa-ucm-conf" -> "alsa-ucm-conf-lic" [style=dotted]
 "alsa-utils-alsactl" -> "alsa-states" [style=dotted]
 "alsa-utils-alsactl" -> "alsa-utils-lic" [style=dotted]
 "alsa-utils-alsactl" -> "libasound2"
@@ -36,10 +37,10 @@ digraph depends {
 "anbox" -> "anbox-lic" [style=dotted]
 "anbox" -> "boost-log"
 "anbox-data" -> "anbox-data-lic" [style=dotted]
-"anbox" -> "libboost-filesystem1.71.0"
-"anbox" -> "libboost-iostreams1.71.0"
-"anbox" -> "libboost-program-options1.71.0"
-"anbox" -> "libboost-thread1.71.0"
+"anbox" -> "libboost-filesystem1.72.0"
+"anbox" -> "libboost-iostreams1.72.0"
+"anbox" -> "libboost-program-options1.72.0"
+"anbox" -> "libboost-thread1.72.0"
 "anbox" -> "libdw1"
 "anbox" -> "libprotobuf-lite21"
 "anbox" -> "libsdl2-2.0-0"
@@ -76,9 +77,9 @@ digraph depends {
 "bluez5" -> "libreadline8"
 "bluez5" -> "libudev1"
 "boost-log" -> "boost-lic" [style=dotted]
-"boost-log" -> "libboost-filesystem1.71.0"
-"boost-log" -> "libboost-regex1.71.0"
-"boost-log" -> "libboost-thread1.71.0"
+"boost-log" -> "libboost-filesystem1.72.0"
+"boost-log" -> "libboost-regex1.72.0"
+"boost-log" -> "libboost-thread1.72.0"
 "boost-log" -> "libstdc++6"
 "bootd" -> "bootd-lic" [style=dotted]
 "bootd" -> "libglib-2.0-0"
@@ -189,7 +190,7 @@ digraph depends {
 "db8" -> "busybox"
 "db8" -> "db8-lic" [style=dotted]
 "db8" -> "leveldb"
-"db8" -> "libboost-regex1.71.0"
+"db8" -> "libboost-regex1.72.0"
 "db8" -> "libglib-2.0-0"
 "db8" -> "libicui18n64"
 "db8" -> "libicuuc64"
@@ -227,6 +228,11 @@ digraph depends {
 "e2fsprogs-badblocks" -> "e2fsprogs-lic" [style=dotted]
 "e2fsprogs-badblocks" -> "libcom-err2"
 "e2fsprogs-badblocks" -> "libext2fs2"
+"e2fsprogs-dumpe2fs" -> "e2fsprogs-lic" [style=dotted]
+"e2fsprogs-dumpe2fs" -> "libblkid1"
+"e2fsprogs-dumpe2fs" -> "libcom-err2"
+"e2fsprogs-dumpe2fs" -> "libe2p2"
+"e2fsprogs-dumpe2fs" -> "libext2fs2"
 "e2fsprogs-e2fsck" -> "e2fsprogs-lic" [style=dotted]
 "e2fsprogs-e2fsck" -> "libblkid1"
 "e2fsprogs-e2fsck" -> "libcom-err2"
@@ -234,6 +240,7 @@ digraph depends {
 "e2fsprogs-e2fsck" -> "libext2fs2"
 "e2fsprogs-e2fsck" -> "libuuid1"
 "e2fsprogs" -> "e2fsprogs-badblocks"
+"e2fsprogs" -> "e2fsprogs-dumpe2fs"
 "e2fsprogs" -> "e2fsprogs-e2fsck" [style=dotted]
 "e2fsprogs" -> "e2fsprogs-lic" [style=dotted]
 "e2fsprogs" -> "e2fsprogs-mke2fs" [style=dotted]
@@ -272,7 +279,7 @@ digraph depends {
 "filecache" -> "filecache-lic" [style=dotted]
 "filecache" -> "glibmm"
 "filecache" -> "jemalloc"
-"filecache" -> "libboost-filesystem1.71.0"
+"filecache" -> "libboost-filesystem1.72.0"
 "filecache" -> "libglib-2.0-0"
 "filecache" -> "libpbnjson"
 "filecache" -> "libsigc-2.0-0"
@@ -1563,7 +1570,7 @@ digraph depends {
 "kbd-consolefonts" -> "kbd-lic" [style=dotted]
 "kbd" -> "kbd-lic" [style=dotted]
 "kbd-keymaps" -> "kbd-lic" [style=dotted]
-"kernel-5.2.20-yocto-standard" -> "linux-yocto-lic" [style=dotted]
+"kernel-5.2.28-yocto-standard" -> "linux-yocto-lic" [style=dotted]
 "keymanager" -> "keymanager-lic" [style=dotted]
 "killall" -> "psmisc-lic" [style=dotted]
 "kmod" -> "kmod-lic" [style=dotted]
@@ -1581,6 +1588,7 @@ digraph depends {
 "libarchive" -> "libxml2"
 "libarchive" -> "libz1"
 "libasound2" -> "alsa-conf"
+"libasound2" -> "alsa-ucm-conf"
 "libasound2" -> "libasound-lic" [style=dotted]
 "libasound-module-conf-pulse" -> "libasound2"
 "libasound-module-conf-pulse" -> "libpulse0"
@@ -1598,19 +1606,19 @@ digraph depends {
 "libavahi-glib1" -> "libglib-2.0-0"
 "libbfd" -> "binutils-lic" [style=dotted]
 "libbfd" -> "libz1"
-"libboost-filesystem1.71.0" -> "boost-lic" [style=dotted]
-"libboost-filesystem1.71.0" -> "libstdc++6"
-"libboost-iostreams1.71.0" -> "boost-lic" [style=dotted]
-"libboost-iostreams1.71.0" -> "libbz2-1"
-"libboost-iostreams1.71.0" -> "liblzma5"
-"libboost-iostreams1.71.0" -> "libstdc++6"
-"libboost-iostreams1.71.0" -> "libz1"
-"libboost-program-options1.71.0" -> "boost-lic" [style=dotted]
-"libboost-program-options1.71.0" -> "libstdc++6"
-"libboost-regex1.71.0" -> "boost-lic" [style=dotted]
-"libboost-regex1.71.0" -> "libstdc++6"
-"libboost-thread1.71.0" -> "boost-lic" [style=dotted]
-"libboost-thread1.71.0" -> "libstdc++6"
+"libboost-filesystem1.72.0" -> "boost-lic" [style=dotted]
+"libboost-filesystem1.72.0" -> "libstdc++6"
+"libboost-iostreams1.72.0" -> "boost-lic" [style=dotted]
+"libboost-iostreams1.72.0" -> "libbz2-1"
+"libboost-iostreams1.72.0" -> "liblzma5"
+"libboost-iostreams1.72.0" -> "libstdc++6"
+"libboost-iostreams1.72.0" -> "libz1"
+"libboost-program-options1.72.0" -> "boost-lic" [style=dotted]
+"libboost-program-options1.72.0" -> "libstdc++6"
+"libboost-regex1.72.0" -> "boost-lic" [style=dotted]
+"libboost-regex1.72.0" -> "libstdc++6"
+"libboost-thread1.72.0" -> "boost-lic" [style=dotted]
+"libboost-thread1.72.0" -> "libstdc++6"
 "libbson-1.0-1" -> "libbson-1.0-lic" [style=dotted]
 "libbz2-1" -> "bzip2-lic" [style=dotted]
 "libcairo2" -> "directfb"
@@ -1696,7 +1704,7 @@ digraph depends {
 "libelf1" -> "libz1"
 "libemail-common2" -> "db8"
 "libemail-common2" -> "jemalloc"
-"libemail-common2" -> "libboost-regex1.71.0"
+"libemail-common2" -> "libboost-regex1.72.0"
 "libemail-common2" -> "libcurl4"
 "libemail-common2" -> "libemail-common-lic" [style=dotted]
 "libemail-common2" -> "libglib-2.0-0"
@@ -1992,6 +2000,7 @@ digraph depends {
 "libpci3" -> "pciutils-lic" [style=dotted]
 "libpciaccess0" -> "libpciaccess-lic" [style=dotted]
 "libpcre1" -> "libpcre-lic" [style=dotted]
+"libpcre2-16-0" -> "libpcre2-lic" [style=dotted]
 "libpdm-plugin1" -> "libpdm-plugin-lic" [style=dotted]
 "libpdm-plugin1" -> "libstdc++6"
 "libpixman-1-0" -> "libpixman-1-lic" [style=dotted]
@@ -2219,7 +2228,7 @@ digraph depends {
 "libwebos-application0" -> "libpbnjson"
 "libwebos-application0" -> "libwebos-application-lic" [style=dotted]
 "libwebos-application0" -> "luna-service2"
-"libwebosi18n1" -> "libboost-regex1.71.0"
+"libwebosi18n1" -> "libboost-regex1.72.0"
 "libwebosi18n1" -> "libpbnjson"
 "libwebosi18n1" -> "libstdc++6"
 "libwebosi18n1" -> "libwebosi18n-lic" [style=dotted]
@@ -2262,7 +2271,7 @@ digraph depends {
 "luna-appmanager" -> "luna-appmanager-lic" [style=dotted]
 "luna-appmanager" -> "luna-service2"
 "luna-appmanager" -> "qtbase"
-"luna-downloadmgr" -> "libboost-regex1.71.0"
+"luna-downloadmgr" -> "libboost-regex1.72.0"
 "luna-downloadmgr" -> "libcurl4"
 "luna-downloadmgr" -> "libglib-2.0-0"
 "luna-downloadmgr" -> "libpbnjson"
@@ -2457,7 +2466,7 @@ digraph depends {
 "modemmanager" -> "modemmanager-lic" [style=dotted]
 "mojoloader" -> "mojoloader-lic" [style=dotted]
 "mojomail-imap" -> "db8"
-"mojomail-imap" -> "libboost-regex1.71.0"
+"mojomail-imap" -> "libboost-regex1.72.0"
 "mojomail-imap" -> "libemail-common2"
 "mojomail-imap" -> "libglib-2.0-0"
 "mojomail-imap" -> "libicuuc64"
@@ -2526,7 +2535,7 @@ digraph depends {
 "nodejs" -> "libstdc++6"
 "nodejs" -> "libuv1"
 "nodejs" -> "libz1"
-"nodejs-module-webos-dynaload" -> "libboost-filesystem1.71.0"
+"nodejs-module-webos-dynaload" -> "libboost-filesystem1.72.0"
 "nodejs-module-webos-dynaload" -> "libstdc++6"
 "nodejs-module-webos-dynaload" -> "nodejs-module-webos-dynaload-lic" [style=dotted]
 "nodejs-module-webos-pmlog" -> "libstdc++6"
@@ -2714,7 +2723,7 @@ digraph depends {
 "packagegroup-luneos-development" -> "powerstat"
 "packagegroup-luneos-development" -> "qt5-opengles2-test"
 "packagegroup-luneos-development" -> "qtdeclarative-tools"
-"packagegroup-luneos-development" -> "qtwebengine-examples"
+"packagegroup-luneos-development" -> "qtwebengine"
 "packagegroup-luneos-development" -> "qtwebengine-qmlplugins"
 "packagegroup-luneos-development" -> "screen"
 "packagegroup-luneos-development" -> "sdl2-opengles-test"
@@ -4122,6 +4131,7 @@ digraph depends {
 "qtbase" -> "libglib-2.0-0"
 "qtbase" -> "libicui18n64"
 "qtbase" -> "libicuuc64"
+"qtbase" -> "libpcre2-16-0"
 "qtbase" -> "libpng16-16"
 "qtbase" -> "libssl1.1"
 "qtbase" -> "libstdc++6"
@@ -4278,22 +4288,13 @@ digraph depends {
 "qtwayland-qmlplugins" -> "qtdeclarative"
 "qtwayland-qmlplugins" -> "qtwayland"
 "qtwayland-qmlplugins" -> "qtwayland-lic" [style=dotted]
+"qtwayland-qmlplugins" -> "wayland"
 "qtwayland" -> "qtbase"
 "qtwayland" -> "qtdeclarative"
 "qtwayland" -> "qtwayland-lic" [style=dotted]
 "qtwayland" -> "qtwayland-plugins" [style=dotted]
 "qtwayland" -> "qtwayland-qmlplugins" [style=dotted]
 "qtwayland" -> "wayland"
-"qtwebengine-examples" -> "libqt5webchannel5"
-"qtwebengine-examples" -> "libstdc++6"
-"qtwebengine-examples" -> "qtbase"
-"qtwebengine-examples" -> "qtdeclarative"
-"qtwebengine-examples" -> "qtdeclarative-qmlplugins"
-"qtwebengine-examples" -> "qtquickcontrols2"
-"qtwebengine-examples" -> "qtquickcontrols-qmlplugins"
-"qtwebengine-examples" -> "qtwebengine"
-"qtwebengine-examples" -> "qtwebengine-lic" [style=dotted]
-"qtwebengine-examples" -> "qtwebengine-qmlplugins"
 "qtwebengine" -> "libasound2"
 "qtwebengine" -> "libdbus-1-3"
 "qtwebengine" -> "libexpat1"
