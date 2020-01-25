@@ -388,7 +388,6 @@ digraph depends {
 "geoclue" -> "libglib-2.0-0"
 "geoclue" -> "libjson-glib-1.0-0"
 "geoclue" -> "libsoup-2.4"
-"geoclue" -> "modemmanager"
 "glibc-gconv-ibm437" -> "glibc-gconv"
 "glibc-gconv-ibm437" -> "libc6"
 "glibc-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
@@ -403,6 +402,12 @@ digraph depends {
 "glib-networking" -> "libglib-2.0-0"
 "glib-networking" -> "libgnutls30"
 "glib-networking-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"gobject-introspection" -> "gobject-introspection-lic" [style=dotted]
+"gobject-introspection" -> "libc6"
+"gobject-introspection" -> "libffi7"
+"gobject-introspection" -> "libglib-2.0-0"
+"gobject-introspection" -> "python3-pickle"
+"gobject-introspection" -> "python3-xml"
 "gphoto2" -> "gphoto2-lic" [style=dotted]
 "gphoto2" -> "libc6"
 "gphoto2" -> "libexif12"
@@ -2409,10 +2414,6 @@ digraph depends {
 "liblzma5" -> "xz-lic" [style=dotted]
 "liblzo2-2" -> "libc6"
 "liblzo2-2" -> "liblzo2-lic" [style=dotted]
-"libmbim" -> "libc6"
-"libmbim" -> "libglib-2.0-0"
-"libmbim" -> "libgudev-1.0-0"
-"libmbim" -> "libmbim-lic" [style=dotted]
 "libmce-glib1" -> "libglib-2.0-0"
 "libmce-glib1" -> "libglibutil1"
 "libmce-glib1" -> "libmce-glib-lic" [style=dotted]
@@ -2634,11 +2635,6 @@ digraph depends {
 "libpython3.7m1.0" -> "libc6"
 "libpython3.7m1.0" -> "libgcc1"
 "libpython3.7m1.0" -> "python3-lic" [style=dotted]
-"libqmi" -> "libc6"
-"libqmi" -> "libglib-2.0-0"
-"libqmi" -> "libgudev-1.0-0"
-"libqmi" -> "libmbim"
-"libqmi" -> "libqmi-lic" [style=dotted]
 "libqofono-qt5-0" -> "libc6"
 "libqofono-qt5-0" -> "libgcc1"
 "libqofono-qt5-0" -> "libqofono-qt5-lic" [style=dotted]
@@ -3061,13 +3057,6 @@ digraph depends {
 "mmsd" -> "mmsd-lic" [style=dotted]
 "mmsd" -> "ofono" [style=dotted]
 "mobile-broadband-provider-info" -> "mobile-broadband-provider-info-lic" [style=dotted]
-"modemmanager" -> "libc6"
-"modemmanager" -> "libglib-2.0-0"
-"modemmanager" -> "libgudev-1.0-0"
-"modemmanager" -> "libmbim"
-"modemmanager" -> "libqmi"
-"modemmanager" -> "libsystemd0"
-"modemmanager" -> "modemmanager-lic" [style=dotted]
 "mojoloader" -> "mojoloader-lic" [style=dotted]
 "mojomail-imap" -> "db8"
 "mojomail-imap" -> "libboost-regex1.71.0"
@@ -3209,6 +3198,11 @@ digraph depends {
 "ofono" -> "mobile-broadband-provider-info" [style=dotted]
 "ofono" -> "ofono-conf"
 "ofono" -> "ofono-lic" [style=dotted]
+"ofono-tests" -> "ofono-lic" [style=dotted]
+"ofono-tests" -> "python"
+"ofono-tests" -> "python3-core"
+"ofono-tests" -> "python3-dbus"
+"ofono-tests" -> "python3-pygobject"
 "openssh-keygen" -> "libc6"
 "openssh-keygen" -> "libcrypto1.1"
 "openssh-keygen" -> "openssh-lic" [style=dotted]
@@ -3354,6 +3348,7 @@ digraph depends {
 "packagegroup-luneos-development" -> "gdbserver"
 "packagegroup-luneos-development" -> "mingetty"
 "packagegroup-luneos-development" -> "nyx-utils"
+"packagegroup-luneos-development" -> "ofono-tests"
 "packagegroup-luneos-development" -> "opkg-utils"
 "packagegroup-luneos-development" -> "org.webosports.app.settings-qml"
 "packagegroup-luneos-development" -> "org.webosports.app.testr"
@@ -4166,6 +4161,15 @@ digraph depends {
 "python3-db" -> "libpython3.7m1.0"
 "python3-db" -> "python3-core"
 "python3-db" -> "python3-lic" [style=dotted]
+"python3-dbus" -> "libc6"
+"python3-dbus" -> "libdbus-1-3"
+"python3-dbus" -> "libglib-2.0-0"
+"python3-dbus" -> "python3-dbus-lic" [style=dotted]
+"python3-dbus" -> "python3-io"
+"python3-dbus" -> "python3-logging"
+"python3-dbus" -> "python3-stringold"
+"python3-dbus" -> "python3-threading"
+"python3-dbus" -> "python3-xml"
 "python3-debugger" -> "python3-core"
 "python3-debugger" -> "python3-lic" [style=dotted]
 "python3-debugger" -> "python3-pprint"
@@ -4358,10 +4362,23 @@ digraph depends {
 "python3-profile" -> "libpython3.7m1.0"
 "python3-profile" -> "python3-core"
 "python3-profile" -> "python3-lic" [style=dotted]
+"python3-pycairo" -> "libc6"
+"python3-pycairo" -> "libcairo2"
+"python3-pycairo" -> "python3-pycairo-lic" [style=dotted]
 "python3-pydoc" -> "python3-core"
 "python3-pydoc" -> "python3-lic" [style=dotted]
 "python3-pydoc" -> "python3-netclient"
 "python3-pydoc" -> "python3-pkgutil"
+"python3-pygobject" -> "gobject-introspection"
+"python3-pygobject" -> "libc6"
+"python3-pygobject" -> "libcairo2"
+"python3-pygobject" -> "libcairo-gobject2"
+"python3-pygobject" -> "libffi7"
+"python3-pygobject" -> "libglib-2.0-0"
+"python3-pygobject" -> "python3-core"
+"python3-pygobject" -> "python3-pkgutil"
+"python3-pygobject" -> "python3-pycairo"
+"python3-pygobject" -> "python3-pygobject-lic" [style=dotted]
 "python3-resource" -> "libc6"
 "python3-resource" -> "libpython3.7m1.0"
 "python3-resource" -> "python3-core"
