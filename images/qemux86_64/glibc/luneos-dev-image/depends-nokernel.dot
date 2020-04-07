@@ -263,6 +263,7 @@ digraph depends {
 "dhcp-client" -> "bind-libs"
 "dhcp-client" -> "dhcp-libs"
 "dhcp-client" -> "dhcp-lic" [style=dotted]
+"dhcp-client" -> "iproute2"
 "dhcp-client" -> "libc6"
 "dhcp-libs" -> "dhcp-lic" [style=dotted]
 "dhcp-libs" -> "libc6"
@@ -387,6 +388,13 @@ digraph depends {
 "fuser" -> "update-alternatives-opkg"
 "fuse-utils" -> "libc6"
 "fuse-utils" -> "libfuse-lic" [style=dotted]
+"gconf" -> "gconf-lic" [style=dotted]
+"gconf" -> "libc6"
+"gconf" -> "libdbus-1-3"
+"gconf" -> "libdbus-glib-1-2"
+"gconf" -> "libglib-2.0-0"
+"gconf" -> "libxml2"
+"gconf-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "gdb" -> "gdb-lic" [style=dotted]
 "gdb" -> "libc6"
 "gdb" -> "libc6-thread-db" [style=dotted]
@@ -4079,6 +4087,7 @@ digraph depends {
 "libpulse-simple0" -> "libsndfile1"
 "libpulse-simple0" -> "libsystemd0"
 "libpulse-simple0" -> "pulseaudio-lic" [style=dotted]
+"libpurple" -> "gconf"
 "libpurple" -> "libc6"
 "libpurple" -> "libdbus-1-3"
 "libpurple" -> "libdbus-glib-1-2"
@@ -6417,10 +6426,10 @@ digraph depends {
 "systemd-extra-utils" -> "systemd-lic" [style=dotted]
 "systemd" -> "kernel-module-autofs4" [style=dotted]
 "systemd" -> "kernel-module-ipv6" [style=dotted]
+"systemd" -> "kernel-module-sch-fq-codel" [style=dotted]
 "systemd" -> "kernel-module-unix" [style=dotted]
 "systemd" -> "kmod"
 "systemd" -> "ldconfig"
-"systemd" -> "libacl1"
 "systemd" -> "libblkid1"
 "systemd" -> "libc6"
 "systemd" -> "libcap2"
@@ -6439,6 +6448,7 @@ digraph depends {
 "systemd" -> "systemd-serialgetty"
 "systemd" -> "systemd-vconsole-setup"
 "systemd" -> "udev"
+"systemd" -> "udev-hwdb"
 "systemd" -> "udev-hwdb" [style=dotted]
 "systemd" -> "update-alternatives-opkg"
 "systemd" -> "update-rc.d"
@@ -6493,7 +6503,6 @@ digraph depends {
 "udev-extraconf" -> "udev-extraconf-lic" [style=dotted]
 "udev-hwdb" -> "systemd-lic" [style=dotted]
 "udev-hwdb" -> "udev"
-"udev" -> "libacl1"
 "udev" -> "libblkid1"
 "udev" -> "libc6"
 "udev" -> "libcap2"
