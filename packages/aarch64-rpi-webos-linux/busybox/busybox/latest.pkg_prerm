@@ -18,6 +18,14 @@ set -e
 	ln -s /bin/busybox $tmpdir/grep
 	ln -s /bin/busybox $tmpdir/tail
 	export PATH=$PATH:$tmpdir
+
+        # If busybox is the shell, we need to save it since its the lowest priority shell
+        # Register saved bitbake as the lowest priority shell possible as back up.
+        if [ -n "$(readlink -f /bin/sh | grep busybox)" ] ; then
+           BUSYBOX=$(readlink -f /bin/sh)
+           cp $BUSYBOX $tmpdir/$(basename $BUSYBOX)
+           update-alternatives --install /bin/sh sh $tmpdir/$(basename $BUSYBOX) 1
+        fi
 	update-alternatives --remove  ash /bin/busybox.nosuid
 	update-alternatives --remove  cat /bin/busybox.nosuid
 	update-alternatives --remove  chattr /bin/busybox.nosuid
