@@ -8,17 +8,17 @@ if type systemctl >/dev/null 2>/dev/null; then
 	fi
 
 	if [ "enable" = "enable" ]; then
-		for service in location-service.service; do
+		for service in org.webosports.service.location.service; do
 			systemctl ${OPTS} enable "$service"
 		done
 	fi
 
 	if [ -z "$D" ]; then
 		systemctl daemon-reload
-		systemctl preset location-service.service
+		systemctl preset org.webosports.service.location.service
 
 		if [ "enable" = "enable" ]; then
-			systemctl --no-block restart location-service.service
+			systemctl --no-block restart org.webosports.service.location.service
 		fi
 	fi
 fi
