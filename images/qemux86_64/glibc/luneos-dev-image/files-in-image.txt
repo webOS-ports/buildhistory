@@ -105,6 +105,10 @@ drwxr-xr-x root       root             4096 ./etc/alsa
 drwxr-xr-x root       root             4096 ./etc/alsa/conf.d
 lrwxrwxrwx root       root               46 ./etc/alsa/conf.d/50-pulseaudio.conf -> /usr/share/alsa/alsa.conf.d/50-pulseaudio.conf
 lrwxrwxrwx root       root               54 ./etc/alsa/conf.d/99-pulseaudio-default.conf -> /usr/share/alsa/alsa.conf.d/99-pulseaudio-default.conf
+drwxr-xr-x root       root             4096 ./etc/avahi
+-rw-r--r-- root       root             1807 ./etc/avahi/avahi-daemon.conf
+-rw-r--r-- root       root             1121 ./etc/avahi/hosts
+drwxr-xr-x root       root             4096 ./etc/avahi/services
 -rw-r--r-- root       root              447 ./etc/bindresvport.blacklist
 drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              772 ./etc/bluetooth/input.conf
@@ -124,6 +128,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1
 -rw-r--r-- root       root              838 ./etc/dbus-1/session.conf
 -rw-r--r-- root       root              833 ./etc/dbus-1/system.conf
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
+-rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf
 -rw-r--r-- root       root             1120 ./etc/dbus-1/system.d/bluetooth.conf
 -rw-r--r-- root       root              743 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
 -rw-r--r-- root       root              494 ./etc/dbus-1/system.d/maliit-server.conf
@@ -262,8 +267,8 @@ drwxr-xr-x root       root             4096 ./etc/gconf/schemas
 -rw-r--r-- root       root           360998 ./etc/gconf/schemas/purple.schemas
 drwxr-xr-x root       root             4096 ./etc/geoclue
 -rw-r--r-- root       root             3391 ./etc/geoclue/geoclue.conf
--rw-r--r-- root       root              628 ./etc/group
--r-------- root       root              524 ./etc/gshadow
+-rw-r--r-- root       root              641 ./etc/group
+-r-------- root       root              534 ./etc/gshadow
 -rw-r--r-- root       root               26 ./etc/host.conf
 -rw-r--r-- root       root               11 ./etc/hostname
 -rw-r--r-- root       root              258 ./etc/hosts
@@ -314,7 +319,7 @@ drwxr-xr-x root       root             4096 ./etc/iptables
 -rw-r--r-- root       root                0 ./etc/iptables/iptables.rules
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root            25759 ./etc/ld.so.cache
+-rw-r--r-- root       root            26327 ./etc/ld.so.cache
 -rw-r--r-- root       root               33 ./etc/ld.so.conf
 drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -355,7 +360,7 @@ drwxr-xr-x root       root             4096 ./etc/network/if-pre-up.d
 -rwxr-xr-x root       root             1999 ./etc/network/if-pre-up.d/wpa-supplicant
 -rwxr-xr-x root       root             3606 ./etc/nfsmount.conf
 -rwxr-xr-x root       root             1087 ./etc/nfs-utils.conf
--rw-r--r-- root       root              477 ./etc/nsswitch.conf
+-rw-r--r-- root       root              509 ./etc/nsswitch.conf
 -rw-r--r-- root       root               30 ./etc/nyx.conf
 drwxr-xr-x root       root             4096 ./etc/ofono
 -rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
@@ -681,7 +686,7 @@ drwxr-xr-x root       root             4096 ./etc/palm/tempdb/permissions/com.pa
 -rw-r--r-- root       root              178 ./etc/palm/tempdb/permissions/com.palm.service.accounts/com.palm.signaling
 drwxr-xr-x root       root             4096 ./etc/pam.d
 -rw-r--r-- root       root              244 ./etc/pam.d/systemd-user
--rw-r--r-- root       root             1011 ./etc/passwd
+-rw-r--r-- root       root             1057 ./etc/passwd
 drwxr-xr-x root       root             4096 ./etc/pdm
 -rw-r--r-- root       root              394 ./etc/pdm/pdm.conf
 drwxr-xr-x root       root             4096 ./etc/pki
@@ -747,7 +752,7 @@ drwxr-xr-x root       root             4096 ./etc/sensorfw/sensord.conf.d
 -rw-r--r-- root       root              100 ./etc/sensorfw/sensord.conf.d/10-sensord-default.conf
 -rw-r--r-- root       root             2021 ./etc/sensorfw/sensord.conf.d/20-sensors-default.conf
 -rw-r--r-- root       root            14464 ./etc/services
--r-------- root       root              690 ./etc/shadow
+-r-------- root       root              717 ./etc/shadow
 -rw-r--r-- root       root               68 ./etc/shells
 drwxr-xr-x root       root             4096 ./etc/skel
 -rwxr-xr-x root       root              410 ./etc/skel/.bashrc
@@ -1035,6 +1040,7 @@ lrwxrwxrwx root       root               37 ./etc/systemd/system/bluetooth.targe
 -rw-r--r-- root       root             1762 ./etc/systemd/system.conf
 lrwxrwxrwx root       root               33 ./etc/systemd/system/ctrl-alt-del.target -> /lib/systemd/system/reboot.target
 lrwxrwxrwx root       root               37 ./etc/systemd/system/dbus-org.bluez.service -> /lib/systemd/system/bluetooth.service
+lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               45 ./etc/systemd/system/dbus-org.freedesktop.timesync1.service -> /lib/systemd/system/systemd-timesyncd.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/dbus-org.neard.service -> /lib/systemd/system/neard.service
 lrwxrwxrwx root       root               37 ./etc/systemd/system/default.target -> /lib/systemd/system/multi-user.target
@@ -1051,6 +1057,7 @@ lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target
 drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               51 ./etc/systemd/system/multi-user.target.wants/anbox-container-manager.service -> /lib/systemd/system/anbox-container-manager.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/audio-service.service -> /lib/systemd/system/audio-service.service
+lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/avahi-daemon.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
 lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/connman-vpn.service -> /lib/systemd/system/connman-vpn.service
 lrwxrwxrwx root       root               23 ./etc/systemd/system/multi-user.target.wants/default-webos.target -> ../default-webos.target
@@ -1095,6 +1102,7 @@ drwxr-xr-x root       root             4096 ./etc/systemd/system/network.target.
 lrwxrwxrwx root       root               44 ./etc/systemd/system/network.target.wants/wired-connection.service -> /lib/systemd/system/wired-connection.service
 -rw-r--r-- root       root              381 ./etc/systemd/system/physical-device-manager.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sockets.target.wants
+lrwxrwxrwx root       root               39 ./etc/systemd/system/sockets.target.wants/avahi-daemon.socket -> /lib/systemd/system/avahi-daemon.socket
 lrwxrwxrwx root       root               34 ./etc/systemd/system/sockets.target.wants/rpcbind.socket -> /lib/systemd/system/rpcbind.socket
 lrwxrwxrwx root       root               31 ./etc/systemd/system/sockets.target.wants/sshd.socket -> /lib/systemd/system/sshd.socket
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sysinit.target.wants
@@ -1260,6 +1268,12 @@ lrwxrwxrwx root       root               21 ./lib/libnss_compat.so.2 -> libnss_c
 lrwxrwxrwx root       root               18 ./lib/libnss_dns.so.2 -> libnss_dns-2.31.so
 -rwxr-xr-x root       root            51232 ./lib/libnss_files-2.31.so
 lrwxrwxrwx root       root               20 ./lib/libnss_files.so.2 -> libnss_files-2.31.so
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns4_minimal.so.2
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns4.so.2
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns6_minimal.so.2
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns6.so.2
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns_minimal.so.2
+-rwxr-xr-x root       root            14664 ./lib/libnss_mdns.so.2
 -rwxr-xr-x root       root           125456 ./lib/libnss_myhostname.so.2
 -rwxr-xr-x root       root           113296 ./lib/libpthread-2.31.so
 lrwxrwxrwx root       root               18 ./lib/libpthread.so.0 -> libpthread-2.31.so
@@ -1948,7 +1962,7 @@ drwxr-xr-x root       root             4096 ./lib/systemd/network
 -rw-r--r-- root       root              491 ./lib/systemd/network/99-default.link
 drwxr-xr-x root       root             4096 ./lib/systemd/ntp-units.d
 -rw-r--r-- root       root               26 ./lib/systemd/ntp-units.d/80-systemd-timesync.list
-drwxr-xr-x root       root            12288 ./lib/systemd/system
+drwxr-xr-x root       root            16384 ./lib/systemd/system
 -rw-r--r-- root       root             1062 ./lib/systemd/system/activitymanager.service
 -rw-r--r-- root       root              459 ./lib/systemd/system/alsa-restore.service
 -rw-r--r-- root       root              389 ./lib/systemd/system/alsa-state.service
@@ -1956,6 +1970,8 @@ drwxr-xr-x root       root            12288 ./lib/systemd/system
 -rw-r--r-- root       root              128 ./lib/systemd/system/anbox-session-manager.service
 -rw-r--r-- root       root              283 ./lib/systemd/system/audio-service.service
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
+-rw-r--r-- root       root             1091 ./lib/systemd/system/avahi-daemon.service
+-rw-r--r-- root       root              870 ./lib/systemd/system/avahi-daemon.socket
 -rw-r--r-- root       root              919 ./lib/systemd/system/basic.target
 -rw-r--r-- root       root              441 ./lib/systemd/system/blockdev@.target
 -rw-r--r-- root       root              424 ./lib/systemd/system/bluetooth.service
@@ -2123,6 +2139,7 @@ drwxr-xr-x root       root             4096 ./lib/systemd/system-preset
 -rw-r--r-- root       root               31 ./lib/systemd/system-preset/98-activitymanager.preset
 -rw-r--r-- root       root               76 ./lib/systemd/system-preset/98-anbox.preset
 -rw-r--r-- root       root               29 ./lib/systemd/system-preset/98-audio-service.preset
+-rw-r--r-- root       root               28 ./lib/systemd/system-preset/98-avahi-daemon.preset
 -rw-r--r-- root       root               25 ./lib/systemd/system-preset/98-bluez5.preset
 -rw-r--r-- root       root               21 ./lib/systemd/system-preset/98-bootd.preset
 -rw-r--r-- root       root               46 ./lib/systemd/system-preset/98-certmgrd.preset
@@ -3760,6 +3777,8 @@ lrwxrwxrwx root       root               19 ./usr/lib/libattr.so.1 -> libattr.so
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-client.so.3 -> libavahi-client.so.3.2.9
 -rwxr-xr-x root       root            52520 ./usr/lib/libavahi-common.so.3.5.4
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-common.so.3 -> libavahi-common.so.3.5.4
+-rwxr-xr-x root       root           226256 ./usr/lib/libavahi-core.so.7.1.0
+lrwxrwxrwx root       root               22 ./usr/lib/libavahi-core.so.7 -> libavahi-core.so.7.1.0
 -rwxr-xr-x root       root            14696 ./usr/lib/libavahi-glib.so.1.0.2
 lrwxrwxrwx root       root               22 ./usr/lib/libavahi-glib.so.1 -> libavahi-glib.so.1.0.2
 -rwxr-xr-x root       root         13327088 ./usr/lib/libavcodec.so.58.54.100
@@ -3828,6 +3847,8 @@ lrwxrwxrwx root       root               21 ./usr/lib/libctf-nobfd.so.0 -> libct
 lrwxrwxrwx root       root               15 ./usr/lib/libctf.so.0 -> libctf.so.0.0.0
 -rwxr-xr-x root       root           397560 ./usr/lib/libcurl.so.4.6.0
 lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so.4 -> libcurl.so.4.6.0
+-rwxr-xr-x root       root            27264 ./usr/lib/libdaemon.so.0.5.0
+lrwxrwxrwx root       root               18 ./usr/lib/libdaemon.so.0 -> libdaemon.so.0.5.0
 -rwxr-xr-x root       root           333856 ./usr/lib/libdbus-1.so.3.19.12
 lrwxrwxrwx root       root               20 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.19.12
 -rwxr-xr-x root       root           165112 ./usr/lib/libdbus-glib-1.so.2.3.4
@@ -17220,6 +17241,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           103592 ./usr/sbin/alsactl
 -rwxr-xr-x root       root            40752 ./usr/sbin/audio-service
+-rwxr-xr-x root       root           139840 ./usr/sbin/avahi-daemon
 -rwxr-xr-x root       root           184312 ./usr/sbin/bootd
 -rwxr-xr-x root       root            31192 ./usr/sbin/brctl.bridge-utils
 lrwxrwxrwx root       root               28 ./usr/sbin/brctl -> /usr/sbin/brctl.bridge-utils
@@ -17685,6 +17707,8 @@ drwxr-xr-x root       root             4096 ./usr/share/applications
 -rw-r--r-- root       root              323 ./usr/share/applications/geoclue-where-am-i.desktop
 -rw-r--r-- root       root              106 ./usr/share/applications/maliit-server.desktop
 -rw-r--r-- root       root              145 ./usr/share/applications/qt5-opengles2-test.desktop
+drwxr-xr-x root       root             4096 ./usr/share/avahi
+-rw-r--r-- root       root              612 ./usr/share/avahi/avahi-service.dtd
 drwxr-xr-x root       root             4096 ./usr/share/bash-completion
 drwxr-xr-x root       root             4096 ./usr/share/bash-completion/completions
 -rw-r--r-- root       root             2425 ./usr/share/bash-completion/completions/lxc
@@ -18094,6 +18118,7 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root              124 ./usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service
 -rw-r--r-- root       root              113 ./usr/share/dbus-1/system-services/net.connman.vpn.service
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.bluez.service
+-rw-r--r-- root       root              971 ./usr/share/dbus-1/system-services/org.freedesktop.Avahi.service
 -rw-r--r-- root       root              113 ./usr/share/dbus-1/system-services/org.freedesktop.GeoClue2.service
 -rw-r--r-- root       root              424 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service
 -rw-r--r-- root       root              455 ./usr/share/dbus-1/system-services/org.freedesktop.locale1.service
@@ -21873,6 +21898,10 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libcroco
 -rw-r--r-- root       root              807 ./usr/share/licenses/libcroco/cr-test-utils.c
 -rw-r--r-- root       root            24925 ./usr/share/licenses/libcroco/generic_LGPLv2
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libcroco/generic_LGPLv2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libdaemon
+-rw-r--r-- root       root              646 ./usr/share/licenses/libdaemon/daemon.h
+-rw-r--r-- root       root            25878 ./usr/share/licenses/libdaemon/generic_LGPLv2.1
+-rw-r--r-- root       root            26527 ./usr/share/licenses/libdaemon/LICENSE
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libdrm
 -rw-r--r-- root       root             1080 ./usr/share/licenses/libdrm/generic_MIT
 -rw-r--r-- root       root             1274 ./usr/share/licenses/libdrm/xf86drm.c
@@ -21962,6 +21991,9 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/libnl
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libnsl2
 -rw-r--r-- root       root            26530 ./usr/share/licenses/libnsl2/COPYING
 -rw-r--r-- root       root            25878 ./usr/share/licenses/libnsl2/generic_LGPL-2.1
+drwxr-xr-x root       root             4096 ./usr/share/licenses/libnss-mdns
+-rw-r--r-- root       root            25878 ./usr/share/licenses/libnss-mdns/generic_LGPLv2.1
+-rw-r--r-- root       root            26527 ./usr/share/licenses/libnss-mdns/LICENSE
 drwxr-xr-x root       root             4096 ./usr/share/licenses/libogg
 -rw-r--r-- root       root             1466 ./usr/share/licenses/libogg/COPYING
 -rw-r--r-- root       root             1468 ./usr/share/licenses/libogg/generic_BSD-3-Clause
@@ -27313,11 +27345,11 @@ drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/backups
 drwxr-xr-x root       root             4096 ./var/cache
 drwxr-xr-x root       root             4096 ./var/cache/fontconfig
--rw-r--r-- root       root             6336 ./var/cache/fontconfig/975854a4-da02-43fc-b505-9479f5dda14f-le64.cache-7
--rw-r--r-- root       root            49464 ./var/cache/fontconfig/ab1fda70-683b-454c-a81b-c5efc895b09c-le64.cache-7
+-rw-r--r-- root       root            49464 ./var/cache/fontconfig/ab01e8b7-8533-4a13-b3b3-f4e8c48f4e68-le64.cache-7
 -rw-r--r-- root       root              200 ./var/cache/fontconfig/CACHEDIR.TAG
+-rw-r--r-- root       root             6336 ./var/cache/fontconfig/f76b2b82-ee0b-40b7-9e30-485fad214635-le64.cache-7
 drwx------ root       root             4096 ./var/cache/ldconfig
--rw------- root       root            24773 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            25321 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/cache/opkg
 drwx------ root       root             4096 ./var/db
 drwx------ root       root             4096 ./var/db/temp
@@ -27406,6 +27438,12 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root              592 ./var/lib/opkg/info/audio-service.list
 -rwxr-xr-x root       root              439 ./var/lib/opkg/info/audio-service.postinst
 -rwxr-xr-x root       root              175 ./var/lib/opkg/info/audio-service.prerm
+-rw-r--r-- root       root               29 ./var/lib/opkg/info/avahi-daemon.conffiles
+-rw-r--r-- root       root              958 ./var/lib/opkg/info/avahi-daemon.control
+-rw-r--r-- root       root              477 ./var/lib/opkg/info/avahi-daemon.list
+-rwxr-xr-x root       root              487 ./var/lib/opkg/info/avahi-daemon.postinst
+-rwxr-xr-x root       root             5316 ./var/lib/opkg/info/avahi-daemon.preinst
+-rwxr-xr-x root       root              173 ./var/lib/opkg/info/avahi-daemon.prerm
 -rw-r--r-- root       root              714 ./var/lib/opkg/info/avahi-lic.control
 -rw-r--r-- root       root              342 ./var/lib/opkg/info/avahi-lic.list
 -rw-r--r-- root       root              891 ./var/lib/opkg/info/avahi-locale-en-gb.control
@@ -27700,7 +27738,7 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root             2373 ./var/lib/opkg/info/gdb.list
 -rw-r--r-- root       root              414 ./var/lib/opkg/info/gdbserver.control
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/gdbserver.list
--rw-r--r-- root       root              777 ./var/lib/opkg/info/geoclue.control
+-rw-r--r-- root       root              791 ./var/lib/opkg/info/geoclue.control
 -rw-r--r-- root       root              554 ./var/lib/opkg/info/geoclue-lic.control
 -rw-r--r-- root       root              131 ./var/lib/opkg/info/geoclue-lic.list
 -rw-r--r-- root       root              655 ./var/lib/opkg/info/geoclue.list
@@ -27987,129 +28025,129 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-base-volume.list
 -rw-r--r-- root       root              569 ./var/lib/opkg/info/gstreamer1.0-plugins-base-vorbis.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-base-vorbis.list
--rw-r--r-- root       root              481 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alaw.control
+-rw-r--r-- root       root              482 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alaw.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alaw.list
--rw-r--r-- root       root              499 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alphacolor.control
+-rw-r--r-- root       root              500 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alphacolor.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alphacolor.list
--rw-r--r-- root       root              517 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alpha.control
+-rw-r--r-- root       root              518 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alpha.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-alpha.list
--rw-r--r-- root       root              551 ./var/lib/opkg/info/gstreamer1.0-plugins-good-apetag.control
+-rw-r--r-- root       root              552 ./var/lib/opkg/info/gstreamer1.0-plugins-good-apetag.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-apetag.list
--rw-r--r-- root       root              578 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audiofx.control
+-rw-r--r-- root       root              579 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audiofx.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audiofx.list
--rw-r--r-- root       root              600 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audioparsers.control
+-rw-r--r-- root       root              601 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audioparsers.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/gstreamer1.0-plugins-good-audioparsers.list
--rw-r--r-- root       root              490 ./var/lib/opkg/info/gstreamer1.0-plugins-good-auparse.control
+-rw-r--r-- root       root              491 ./var/lib/opkg/info/gstreamer1.0-plugins-good-auparse.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/gstreamer1.0-plugins-good-auparse.list
--rw-r--r-- root       root              501 ./var/lib/opkg/info/gstreamer1.0-plugins-good-autodetect.control
+-rw-r--r-- root       root              502 ./var/lib/opkg/info/gstreamer1.0-plugins-good-autodetect.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-autodetect.list
--rw-r--r-- root       root              601 ./var/lib/opkg/info/gstreamer1.0-plugins-good-avi.control
+-rw-r--r-- root       root              602 ./var/lib/opkg/info/gstreamer1.0-plugins-good-avi.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/gstreamer1.0-plugins-good-avi.list
--rw-r--r-- root       root              538 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cairo.control
+-rw-r--r-- root       root              539 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cairo.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cairo.list
--rw-r--r-- root       root              520 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cutter.control
+-rw-r--r-- root       root              521 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cutter.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-cutter.list
--rw-r--r-- root       root              486 ./var/lib/opkg/info/gstreamer1.0-plugins-good-debug.control
+-rw-r--r-- root       root              487 ./var/lib/opkg/info/gstreamer1.0-plugins-good-debug.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-debug.list
--rw-r--r-- root       root              561 ./var/lib/opkg/info/gstreamer1.0-plugins-good-deinterlace.control
+-rw-r--r-- root       root              562 ./var/lib/opkg/info/gstreamer1.0-plugins-good-deinterlace.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/gstreamer1.0-plugins-good-deinterlace.list
--rw-r--r-- root       root              512 ./var/lib/opkg/info/gstreamer1.0-plugins-good-dtmf.control
+-rw-r--r-- root       root              513 ./var/lib/opkg/info/gstreamer1.0-plugins-good-dtmf.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-dtmf.list
--rw-r--r-- root       root              523 ./var/lib/opkg/info/gstreamer1.0-plugins-good-effectv.control
+-rw-r--r-- root       root              524 ./var/lib/opkg/info/gstreamer1.0-plugins-good-effectv.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/gstreamer1.0-plugins-good-effectv.list
--rw-r--r-- root       root              529 ./var/lib/opkg/info/gstreamer1.0-plugins-good-equalizer.control
+-rw-r--r-- root       root              530 ./var/lib/opkg/info/gstreamer1.0-plugins-good-equalizer.control
 -rw-r--r-- root       root              239 ./var/lib/opkg/info/gstreamer1.0-plugins-good-equalizer.list
--rw-r--r-- root       root              564 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flac.control
+-rw-r--r-- root       root              565 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flac.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flac.list
--rw-r--r-- root       root              604 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flv.control
+-rw-r--r-- root       root              605 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flv.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flv.list
--rw-r--r-- root       root              489 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flxdec.control
+-rw-r--r-- root       root              490 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flxdec.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-flxdec.list
--rw-r--r-- root       root              562 ./var/lib/opkg/info/gstreamer1.0-plugins-good-gdkpixbuf.control
+-rw-r--r-- root       root              563 ./var/lib/opkg/info/gstreamer1.0-plugins-good-gdkpixbuf.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-gdkpixbuf.list
--rw-r--r-- root       root              525 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom2k1.control
+-rw-r--r-- root       root              526 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom2k1.control
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom2k1.list
--rw-r--r-- root       root              542 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom.control
+-rw-r--r-- root       root              543 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-goom.list
--rw-r--r-- root       root              491 ./var/lib/opkg/info/gstreamer1.0-plugins-good-icydemux.control
+-rw-r--r-- root       root              492 ./var/lib/opkg/info/gstreamer1.0-plugins-good-icydemux.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-icydemux.list
--rw-r--r-- root       root              524 ./var/lib/opkg/info/gstreamer1.0-plugins-good-id3demux.control
+-rw-r--r-- root       root              525 ./var/lib/opkg/info/gstreamer1.0-plugins-good-id3demux.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-id3demux.list
--rw-r--r-- root       root              471 ./var/lib/opkg/info/gstreamer1.0-plugins-good-imagefreeze.control
+-rw-r--r-- root       root              472 ./var/lib/opkg/info/gstreamer1.0-plugins-good-imagefreeze.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/gstreamer1.0-plugins-good-imagefreeze.list
--rw-r--r-- root       root              532 ./var/lib/opkg/info/gstreamer1.0-plugins-good-interleave.control
+-rw-r--r-- root       root              533 ./var/lib/opkg/info/gstreamer1.0-plugins-good-interleave.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-interleave.list
--rw-r--r-- root       root              691 ./var/lib/opkg/info/gstreamer1.0-plugins-good-isomp4.control
+-rw-r--r-- root       root              692 ./var/lib/opkg/info/gstreamer1.0-plugins-good-isomp4.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-isomp4.list
--rw-r--r-- root       root              536 ./var/lib/opkg/info/gstreamer1.0-plugins-good-jpeg.control
+-rw-r--r-- root       root              537 ./var/lib/opkg/info/gstreamer1.0-plugins-good-jpeg.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-jpeg.list
--rw-r--r-- root       root              538 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lame.control
+-rw-r--r-- root       root              539 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lame.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lame.list
--rw-r--r-- root       root              517 ./var/lib/opkg/info/gstreamer1.0-plugins-good-level.control
+-rw-r--r-- root       root              518 ./var/lib/opkg/info/gstreamer1.0-plugins-good-level.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-level.list
--rw-r--r-- root       root              417 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lic.control
+-rw-r--r-- root       root              418 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lic.control
 -rw-r--r-- root       root              394 ./var/lib/opkg/info/gstreamer1.0-plugins-good-lic.list
--rw-r--r-- root       root              615 ./var/lib/opkg/info/gstreamer1.0-plugins-good-locale-en-gb.control
+-rw-r--r-- root       root              616 ./var/lib/opkg/info/gstreamer1.0-plugins-good-locale-en-gb.control
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/gstreamer1.0-plugins-good-locale-en-gb.list
--rw-r--r-- root       root              689 ./var/lib/opkg/info/gstreamer1.0-plugins-good-matroska.control
+-rw-r--r-- root       root              690 ./var/lib/opkg/info/gstreamer1.0-plugins-good-matroska.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-matroska.list
--rw-r--r-- root       root             2563 ./var/lib/opkg/info/gstreamer1.0-plugins-good-meta.control
+-rw-r--r-- root       root             2564 ./var/lib/opkg/info/gstreamer1.0-plugins-good-meta.control
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/gstreamer1.0-plugins-good-meta.list
--rw-r--r-- root       root              498 ./var/lib/opkg/info/gstreamer1.0-plugins-good-monoscope.control
+-rw-r--r-- root       root              499 ./var/lib/opkg/info/gstreamer1.0-plugins-good-monoscope.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-monoscope.list
--rw-r--r-- root       root              540 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mpg123.control
+-rw-r--r-- root       root              541 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mpg123.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mpg123.list
--rw-r--r-- root       root              484 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mulaw.control
+-rw-r--r-- root       root              485 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mulaw.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-mulaw.list
--rw-r--r-- root       root              529 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multifile.control
+-rw-r--r-- root       root              530 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multifile.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multifile.list
--rw-r--r-- root       root              498 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multipart.control
+-rw-r--r-- root       root              499 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multipart.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-multipart.list
--rw-r--r-- root       root              544 ./var/lib/opkg/info/gstreamer1.0-plugins-good-navigationtest.control
+-rw-r--r-- root       root              545 ./var/lib/opkg/info/gstreamer1.0-plugins-good-navigationtest.control
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/gstreamer1.0-plugins-good-navigationtest.list
--rw-r--r-- root       root              526 ./var/lib/opkg/info/gstreamer1.0-plugins-good-ossaudio.control
+-rw-r--r-- root       root              527 ./var/lib/opkg/info/gstreamer1.0-plugins-good-ossaudio.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-ossaudio.list
--rw-r--r-- root       root              536 ./var/lib/opkg/info/gstreamer1.0-plugins-good-png.control
+-rw-r--r-- root       root              537 ./var/lib/opkg/info/gstreamer1.0-plugins-good-png.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/gstreamer1.0-plugins-good-png.list
--rw-r--r-- root       root              595 ./var/lib/opkg/info/gstreamer1.0-plugins-good-pulseaudio.control
+-rw-r--r-- root       root              596 ./var/lib/opkg/info/gstreamer1.0-plugins-good-pulseaudio.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-pulseaudio.list
--rw-r--r-- root       root              565 ./var/lib/opkg/info/gstreamer1.0-plugins-good-replaygain.control
+-rw-r--r-- root       root              566 ./var/lib/opkg/info/gstreamer1.0-plugins-good-replaygain.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-replaygain.list
--rw-r--r-- root       root              633 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtp.control
+-rw-r--r-- root       root              634 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtp.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtp.list
--rw-r--r-- root       root              530 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtpmanager.control
+-rw-r--r-- root       root              531 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtpmanager.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtpmanager.list
--rw-r--r-- root       root              571 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtsp.control
+-rw-r--r-- root       root              572 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtsp.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-rtsp.list
--rw-r--r-- root       root              529 ./var/lib/opkg/info/gstreamer1.0-plugins-good-shapewipe.control
+-rw-r--r-- root       root              530 ./var/lib/opkg/info/gstreamer1.0-plugins-good-shapewipe.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-shapewipe.list
--rw-r--r-- root       root              517 ./var/lib/opkg/info/gstreamer1.0-plugins-good-smpte.control
+-rw-r--r-- root       root              518 ./var/lib/opkg/info/gstreamer1.0-plugins-good-smpte.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-smpte.list
--rw-r--r-- root       root              585 ./var/lib/opkg/info/gstreamer1.0-plugins-good-soup.control
+-rw-r--r-- root       root              586 ./var/lib/opkg/info/gstreamer1.0-plugins-good-soup.control
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/gstreamer1.0-plugins-good-soup.list
--rw-r--r-- root       root              555 ./var/lib/opkg/info/gstreamer1.0-plugins-good-spectrum.control
+-rw-r--r-- root       root              556 ./var/lib/opkg/info/gstreamer1.0-plugins-good-spectrum.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-spectrum.list
--rw-r--r-- root       root              568 ./var/lib/opkg/info/gstreamer1.0-plugins-good-speex.control
+-rw-r--r-- root       root              569 ./var/lib/opkg/info/gstreamer1.0-plugins-good-speex.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/gstreamer1.0-plugins-good-speex.list
--rw-r--r-- root       root              584 ./var/lib/opkg/info/gstreamer1.0-plugins-good-taglib.control
+-rw-r--r-- root       root              585 ./var/lib/opkg/info/gstreamer1.0-plugins-good-taglib.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-taglib.list
--rw-r--r-- root       root              480 ./var/lib/opkg/info/gstreamer1.0-plugins-good-udp.control
+-rw-r--r-- root       root              481 ./var/lib/opkg/info/gstreamer1.0-plugins-good-udp.control
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/gstreamer1.0-plugins-good-udp.list
--rw-r--r-- root       root              599 ./var/lib/opkg/info/gstreamer1.0-plugins-good-video4linux2.control
+-rw-r--r-- root       root              600 ./var/lib/opkg/info/gstreamer1.0-plugins-good-video4linux2.control
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/gstreamer1.0-plugins-good-video4linux2.list
--rw-r--r-- root       root              552 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videobox.control
+-rw-r--r-- root       root              553 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videobox.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videobox.list
--rw-r--r-- root       root              529 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videocrop.control
+-rw-r--r-- root       root              530 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videocrop.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videocrop.list
--rw-r--r-- root       root              535 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videofilter.control
+-rw-r--r-- root       root              536 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videofilter.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videofilter.list
--rw-r--r-- root       root              558 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videomixer.control
+-rw-r--r-- root       root              559 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videomixer.control
 -rw-r--r-- root       root               51 ./var/lib/opkg/info/gstreamer1.0-plugins-good-videomixer.list
--rw-r--r-- root       root              520 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavenc.control
+-rw-r--r-- root       root              521 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavenc.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavenc.list
--rw-r--r-- root       root              525 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavparse.control
+-rw-r--r-- root       root              526 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavparse.control
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/gstreamer1.0-plugins-good-wavparse.list
--rw-r--r-- root       root              520 ./var/lib/opkg/info/gstreamer1.0-plugins-good-y4menc.control
+-rw-r--r-- root       root              521 ./var/lib/opkg/info/gstreamer1.0-plugins-good-y4menc.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-good-y4menc.list
 -rw-r--r-- root       root              577 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-a52dec.control
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/gstreamer1.0-plugins-ugly-a52dec.list
@@ -30350,6 +30388,9 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root              801 ./var/lib/opkg/info/libavahi-common3.control
 -rw-r--r-- root       root              105 ./var/lib/opkg/info/libavahi-common3.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libavahi-common3.postinst
+-rw-r--r-- root       root              824 ./var/lib/opkg/info/libavahi-core7.control
+-rw-r--r-- root       root               99 ./var/lib/opkg/info/libavahi-core7.list
+-rwxr-xr-x root       root               97 ./var/lib/opkg/info/libavahi-core7.postinst
 -rw-r--r-- root       root              851 ./var/lib/opkg/info/libavahi-glib1.control
 -rw-r--r-- root       root               99 ./var/lib/opkg/info/libavahi-glib1.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libavahi-glib1.postinst
@@ -30455,6 +30496,11 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root              542 ./var/lib/opkg/info/libcurl4.control
 -rw-r--r-- root       root               81 ./var/lib/opkg/info/libcurl4.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libcurl4.postinst
+-rw-r--r-- root       root              483 ./var/lib/opkg/info/libdaemon0.control
+-rw-r--r-- root       root               87 ./var/lib/opkg/info/libdaemon0.list
+-rwxr-xr-x root       root               97 ./var/lib/opkg/info/libdaemon0.postinst
+-rw-r--r-- root       root              399 ./var/lib/opkg/info/libdaemon-lic.control
+-rw-r--r-- root       root              185 ./var/lib/opkg/info/libdaemon-lic.list
 -rw-r--r-- root       root              725 ./var/lib/opkg/info/libdbus-1-3.control
 -rw-r--r-- root       root               91 ./var/lib/opkg/info/libdbus-1-3.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libdbus-1-3.postinst
@@ -30864,6 +30910,12 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libnsl2.postinst
 -rw-r--r-- root       root              500 ./var/lib/opkg/info/libnsl-lic.control
 -rw-r--r-- root       root              132 ./var/lib/opkg/info/libnsl-lic.list
+-rw-r--r-- root       root              497 ./var/lib/opkg/info/libnss-mdns.control
+-rw-r--r-- root       root              418 ./var/lib/opkg/info/libnss-mdns-lic.control
+-rw-r--r-- root       root              144 ./var/lib/opkg/info/libnss-mdns-lic.list
+-rw-r--r-- root       root              208 ./var/lib/opkg/info/libnss-mdns.list
+-rwxr-xr-x root       root              243 ./var/lib/opkg/info/libnss-mdns.postinst
+-rwxr-xr-x root       root              132 ./var/lib/opkg/info/libnss-mdns.prerm
 -rw-r--r-- root       root              424 ./var/lib/opkg/info/libnss-myhostname2.control
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/libnss-myhostname2.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libnss-myhostname2.postinst
@@ -31084,10 +31136,10 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libsbc1.postinst
 -rw-r--r-- root       root              330 ./var/lib/opkg/info/libsbc-lic.control
 -rw-r--r-- root       root              289 ./var/lib/opkg/info/libsbc-lic.list
--rw-r--r-- root       root              543 ./var/lib/opkg/info/libsdl2-2.0-0.control
+-rw-r--r-- root       root              544 ./var/lib/opkg/info/libsdl2-2.0-0.control
 -rw-r--r-- root       root               95 ./var/lib/opkg/info/libsdl2-2.0-0.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libsdl2-2.0-0.postinst
--rw-r--r-- root       root              484 ./var/lib/opkg/info/libsdl2-2.0-lic.control
+-rw-r--r-- root       root              485 ./var/lib/opkg/info/libsdl2-2.0-lic.control
 -rw-r--r-- root       root              132 ./var/lib/opkg/info/libsdl2-2.0-lic.list
 -rw-r--r-- root       root              522 ./var/lib/opkg/info/libsdl2-image-2.0-0.control
 -rw-r--r-- root       root              111 ./var/lib/opkg/info/libsdl2-image-2.0-0.list
@@ -32573,7 +32625,7 @@ drwxr-xr-x root       root           352256 ./var/lib/opkg/info
 -rw-r--r-- root       root              178 ./var/lib/opkg/info/xl2tpd.list
 -rw-r--r-- root       root              370 ./var/lib/opkg/info/xz-lic.control
 -rw-r--r-- root       root              453 ./var/lib/opkg/info/xz-lic.list
--rw-r--r-- root       root           596304 ./var/lib/opkg/status
+-rw-r--r-- root       root           597979 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 lrwxrwxrwx root       root               11 ./var/lock -> ../run/lock
