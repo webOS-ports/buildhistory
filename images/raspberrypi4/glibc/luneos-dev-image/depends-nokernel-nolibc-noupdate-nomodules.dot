@@ -40,6 +40,17 @@ digraph depends {
 "audio-service" -> "libpulse-mainloop-glib0"
 "audio-service" -> "libstdc++6"
 "audio-service" -> "luna-service2"
+"avahi-daemon" -> "avahi-lic" [style=dotted]
+"avahi-daemon" -> "base-files"
+"avahi-daemon" -> "base-passwd"
+"avahi-daemon" -> "libavahi-common3"
+"avahi-daemon" -> "libavahi-core7"
+"avahi-daemon" -> "libcap2"
+"avahi-daemon" -> "libdaemon0"
+"avahi-daemon" -> "libdbus-1-3"
+"avahi-daemon" -> "libexpat1"
+"avahi-daemon" -> "libnss-mdns" [style=dotted]
+"avahi-daemon" -> "shadow"
 "avahi-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "base-files" -> "base-files-lic" [style=dotted]
 "base-passwd" -> "base-passwd-lic" [style=dotted]
@@ -67,8 +78,6 @@ digraph depends {
 "brotli" -> "brotli-lic" [style=dotted]
 "busybox" -> "busybox-lic" [style=dotted]
 "busybox" -> "busybox-udhcpc" [style=dotted]
-"busybox-syslog" -> "busybox"
-"busybox-syslog" -> "busybox-lic" [style=dotted]
 "busybox-udhcpc" -> "busybox-lic" [style=dotted]
 "bzip2" -> "bzip2-lic" [style=dotted]
 "bzip2" -> "libbz2-1"
@@ -79,6 +88,7 @@ digraph depends {
 "certmgrd" -> "libpbnjson"
 "certmgrd" -> "libpmcertificatemgr2"
 "certmgrd" -> "luna-service2"
+"com.palm.keymanager" -> "com.palm.keymanager-lic" [style=dotted]
 "com.webos.service.pdm" -> "com.webos.service.pdm-lic" [style=dotted]
 "com.webos.service.pdm" -> "dosfstools"
 "com.webos.service.pdm" -> "e2fsprogs-e2fsck"
@@ -281,6 +291,7 @@ digraph depends {
 "gdbserver" -> "gdb-lic" [style=dotted]
 "gdbserver" -> "glibc-thread-db" [style=dotted]
 "gdbserver" -> "libstdc++6"
+"geoclue" -> "avahi-daemon"
 "geoclue" -> "geoclue-lic" [style=dotted]
 "geoclue" -> "libavahi-client3"
 "geoclue" -> "libavahi-common3"
@@ -1469,7 +1480,6 @@ digraph depends {
 "kbd-consolefonts" -> "kbd-lic" [style=dotted]
 "kbd" -> "kbd-lic" [style=dotted]
 "kbd-keymaps" -> "kbd-lic" [style=dotted]
-"keymanager" -> "keymanager-lic" [style=dotted]
 "keymaps" -> "kbd"
 "keymaps" -> "keymaps-lic" [style=dotted]
 "killall" -> "psmisc-lic" [style=dotted]
@@ -1500,6 +1510,8 @@ digraph depends {
 "libavahi-client3" -> "libavahi-common3"
 "libavahi-client3" -> "libdbus-1-3"
 "libavahi-common3" -> "avahi-lic" [style=dotted]
+"libavahi-core7" -> "avahi-lic" [style=dotted]
+"libavahi-core7" -> "libavahi-common3"
 "libavahi-glib1" -> "avahi-lic" [style=dotted]
 "libavahi-glib1" -> "libavahi-common3"
 "libavahi-glib1" -> "libglib-2.0-0"
@@ -1577,6 +1589,7 @@ digraph depends {
 "libcurl4" -> "libidn2-0"
 "libcurl4" -> "libz1"
 "libcurl4" -> "nettle"
+"libdaemon0" -> "libdaemon-lic" [style=dotted]
 "libdbus-1-3" -> "dbus-lic" [style=dotted]
 "libdbus-1-3" -> "dbus" [style=dotted]
 "libdbus-1-3" -> "libsystemd0"
@@ -1796,7 +1809,7 @@ digraph depends {
 "libinput10" -> "mtdev"
 "libjitterentropy2" -> "libjitterentropy-lic" [style=dotted]
 "libjpeg62" -> "libjpeg-turbo-lic" [style=dotted]
-"libjson-c4" -> "json-c-lic" [style=dotted]
+"libjson-c5" -> "json-c-lic" [style=dotted]
 "libjson-glib-1.0-0" -> "json-glib-lic" [style=dotted]
 "libjson-glib-1.0-0" -> "libglib-2.0-0"
 "libjson-glib-1.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
@@ -1818,7 +1831,7 @@ digraph depends {
 "libkrb5support0" -> "krb5-lic" [style=dotted]
 "libltdl7" -> "libtool-lic" [style=dotted]
 "liblunasysmgrcommon3" -> "libglib-2.0-0"
-"liblunasysmgrcommon3" -> "libjson-c4"
+"liblunasysmgrcommon3" -> "libjson-c5"
 "liblunasysmgrcommon3" -> "libnyx7"
 "liblunasysmgrcommon3" -> "libpbnjson"
 "liblunasysmgrcommon3" -> "libsqlite3-0"
@@ -1858,6 +1871,8 @@ digraph depends {
 "libnl-genl-3-200" -> "libnl-lic" [style=dotted]
 "libnsl2" -> "libnsl2-lic" [style=dotted]
 "libnsl2" -> "libtirpc3"
+"libnss-mdns" -> "avahi-daemon"
+"libnss-mdns" -> "libnss-mdns-lic" [style=dotted]
 "libntfs-3g88" -> "ntfs-3g-ntfsprogs-lic" [style=dotted]
 "libnyx7" -> "libglib-2.0-0"
 "libnyx7" -> "nyx-lib-lic" [style=dotted]
@@ -2140,7 +2155,7 @@ digraph depends {
 "luna-applauncher" -> "luna-applauncher-lic" [style=dotted]
 "luna-appmanager" -> "bash"
 "luna-appmanager" -> "libglib-2.0-0"
-"luna-appmanager" -> "libjson-c4"
+"luna-appmanager" -> "libjson-c5"
 "luna-appmanager" -> "liblunasysmgrcommon3"
 "luna-appmanager" -> "libpbnjson"
 "luna-appmanager" -> "librolegen2"
@@ -2185,14 +2200,14 @@ digraph depends {
 "luna-next" -> "xkeyboard-config"
 "luna-prefs-data" -> "luna-prefs-data-lic" [style=dotted]
 "luna-prefs" -> "libglib-2.0-0"
-"luna-prefs" -> "libjson-c4"
+"luna-prefs" -> "libjson-c5"
 "luna-prefs" -> "libnyx7"
 "luna-prefs" -> "libsqlite3-0"
 "luna-prefs" -> "luna-prefs-data"
 "luna-prefs" -> "luna-prefs-lic" [style=dotted]
 "luna-prefs" -> "luna-service2"
 "luna-qml-launcher" -> "libglib-2.0-0"
-"luna-qml-launcher" -> "libjson-c4"
+"luna-qml-launcher" -> "libjson-c5"
 "luna-qml-launcher" -> "liblunasysmgrcommon3"
 "luna-qml-launcher" -> "libstdc++6"
 "luna-qml-launcher" -> "libwebos-application0"
@@ -2215,7 +2230,7 @@ digraph depends {
 "luna-service2-security-conf" -> "luna-service2-security-conf-lic" [style=dotted]
 "luna-sysmgr-conf" -> "luna-sysmgr-conf-lic" [style=dotted]
 "luna-sysmgr" -> "libglib-2.0-0"
-"luna-sysmgr" -> "libjson-c4"
+"luna-sysmgr" -> "libjson-c5"
 "luna-sysmgr" -> "liblunasysmgrcommon3"
 "luna-sysmgr" -> "libnyx7"
 "luna-sysmgr" -> "libpbnjson"
@@ -2241,7 +2256,7 @@ digraph depends {
 "luna-sysservice" -> "uriparser"
 "luna-systemui" -> "luna-systemui-lic" [style=dotted]
 "luna-universalsearchmgr" -> "libglib-2.0-0"
-"luna-universalsearchmgr" -> "libjson-c4"
+"luna-universalsearchmgr" -> "libjson-c5"
 "luna-universalsearchmgr" -> "libsqlite3-0"
 "luna-universalsearchmgr" -> "libstdc++6"
 "luna-universalsearchmgr" -> "libxml2"
@@ -2249,7 +2264,7 @@ digraph depends {
 "luna-universalsearchmgr" -> "luna-universalsearchmgr-lic" [style=dotted]
 "luna-webappmanager" -> "libconnman-qt5-1"
 "luna-webappmanager" -> "libglib-2.0-0"
-"luna-webappmanager" -> "libjson-c4"
+"luna-webappmanager" -> "libjson-c5"
 "luna-webappmanager" -> "liblunasysmgrcommon3"
 "luna-webappmanager" -> "libstdc++6"
 "luna-webappmanager" -> "libsystemd0"
@@ -2263,6 +2278,7 @@ digraph depends {
 "luna-webappmanager" -> "qtwebengine-qmlplugins"
 "luneos-components" -> "libkf5bluezqt5"
 "luneos-components" -> "libstdc++6"
+"luneos-components" -> "libwebos-application0"
 "luneos-components" -> "luna-service2"
 "luneos-components" -> "luneos-components-lic" [style=dotted]
 "luneos-components" -> "qtbase"
@@ -2462,12 +2478,6 @@ digraph depends {
 "opkg-utils" -> "python3-pickle"
 "opkg-utils" -> "python3-shell"
 "opkg-utils" -> "python3-stringold"
-"org.webosinternals.ipkgservice" -> "libglib-2.0-0"
-"org.webosinternals.ipkgservice" -> "libjson-c4"
-"org.webosinternals.ipkgservice" -> "luna-service2"
-"org.webosinternals.ipkgservice" -> "org.webosinternals.ipkgservice-lic" [style=dotted]
-"org.webosinternals.preware" -> "org.webosinternals.preware-lic" [style=dotted]
-"org.webosinternals.tweaks" -> "org.webosinternals.tweaks-lic" [style=dotted]
 "org.webosports.app.browser" -> "libstdc++6"
 "org.webosports.app.browser" -> "org.webosports.app.browser-lic" [style=dotted]
 "org.webosports.app.browser" -> "qtbase"
@@ -2496,6 +2506,7 @@ digraph depends {
 "org.webosports.app.phone" -> "org.webosports.app.phone-lic" [style=dotted]
 "org.webosports.app.phone" -> "qtdeclarative-qmlplugins"
 "org.webosports.app.photos" -> "org.webosports.app.photos-lic" [style=dotted]
+"org.webosports.app.preware" -> "org.webosports.app.preware-lic" [style=dotted]
 "org.webosports.app.settings" -> "org.webosports.app.settings-lic" [style=dotted]
 "org.webosports.app.settings-qml" -> "org.webosports.app.settings-qml-lic" [style=dotted]
 "org.webosports.app.settings-qml" -> "qtdeclarative-qmlplugins"
@@ -2510,13 +2521,18 @@ digraph depends {
 "org.webosports.app.testr" -> "org.webosports.app.testr-lic" [style=dotted]
 "org.webosports.cdav" -> "org.webosports.cdav-lic" [style=dotted]
 "org.webosports.service.devmode" -> "org.webosports.service.devmode-lic" [style=dotted]
+"org.webosports.service.ipkg" -> "libglib-2.0-0"
+"org.webosports.service.ipkg" -> "libjson-c5"
+"org.webosports.service.ipkg" -> "luna-service2"
+"org.webosports.service.ipkg" -> "org.webosports.service.ipkg-lic" [style=dotted]
 "org.webosports.service.licenses" -> "org.webosports.service.licenses-lic" [style=dotted]
 "org.webosports.service.lumberjack" -> "libglib-2.0-0"
-"org.webosports.service.lumberjack" -> "libjson-c4"
+"org.webosports.service.lumberjack" -> "libjson-c5"
 "org.webosports.service.lumberjack" -> "luna-service2"
 "org.webosports.service.lumberjack" -> "org.webosports.service.lumberjack-lic" [style=dotted]
 "org.webosports.service.messaging" -> "org.webosports.service.messaging-lic" [style=dotted]
 "org.webosports.service.update" -> "bash"
+"org.webosports.tweaks" -> "org.webosports.tweaks-lic" [style=dotted]
 "os-release" -> "os-release-lic" [style=dotted]
 "packagegroup-core-boot" -> "base-files"
 "packagegroup-core-boot" -> "base-passwd"
@@ -2564,6 +2580,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
 "packagegroup-luneos-extended" -> "certmgrd"
+"packagegroup-luneos-extended" -> "com.palm.keymanager"
 "packagegroup-luneos-extended" -> "crash-handler"
 "packagegroup-luneos-extended" -> "distro-feed-configs"
 "packagegroup-luneos-extended" -> "fingerterm"
@@ -2576,7 +2593,6 @@ digraph depends {
 "packagegroup-luneos-extended" -> "imaccountvalidator"
 "packagegroup-luneos-extended" -> "imlibpurpleservice"
 "packagegroup-luneos-extended" -> "iw"
-"packagegroup-luneos-extended" -> "keymanager"
 "packagegroup-luneos-extended" -> "location-service"
 "packagegroup-luneos-extended" -> "luna-appmanager"
 "packagegroup-luneos-extended" -> "luna-next-cardshell"
@@ -2590,9 +2606,6 @@ digraph depends {
 "packagegroup-luneos-extended" -> "messaging-accounts"
 "packagegroup-luneos-extended" -> "messwerk"
 "packagegroup-luneos-extended" -> "ofono"
-"packagegroup-luneos-extended" -> "org.webosinternals.ipkgservice"
-"packagegroup-luneos-extended" -> "org.webosinternals.preware"
-"packagegroup-luneos-extended" -> "org.webosinternals.tweaks"
 "packagegroup-luneos-extended" -> "org.webosports.app.browser"
 "packagegroup-luneos-extended" -> "org.webosports.app.calculator"
 "packagegroup-luneos-extended" -> "org.webosports.app.camera"
@@ -2605,15 +2618,18 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.app.pdf"
 "packagegroup-luneos-extended" -> "org.webosports.app.phone"
 "packagegroup-luneos-extended" -> "org.webosports.app.photos"
+"packagegroup-luneos-extended" -> "org.webosports.app.preware"
 "packagegroup-luneos-extended" -> "org.webosports.app.settings"
 "packagegroup-luneos-extended" -> "org.webosports.app.tasks"
 "packagegroup-luneos-extended" -> "org.webosports.app.terminal"
 "packagegroup-luneos-extended" -> "org.webosports.cdav"
 "packagegroup-luneos-extended" -> "org.webosports.service.devmode"
+"packagegroup-luneos-extended" -> "org.webosports.service.ipkg"
 "packagegroup-luneos-extended" -> "org.webosports.service.licenses"
 "packagegroup-luneos-extended" -> "org.webosports.service.lumberjack"
 "packagegroup-luneos-extended" -> "org.webosports.service.messaging"
 "packagegroup-luneos-extended" -> "org.webosports.service.update"
+"packagegroup-luneos-extended" -> "org.webosports.tweaks"
 "packagegroup-luneos-extended" -> "packagegroup-luneos-extended-lic" [style=dotted]
 "packagegroup-luneos-extended" -> "pmcertificatemgr"
 "packagegroup-luneos-extended" -> "pulseaudio-distro-conf"
@@ -2799,7 +2815,7 @@ digraph depends {
 "pmloglib" -> "pmloglib-lic" [style=dotted]
 "pointercal" -> "pointercal-lic" [style=dotted]
 "powerd" -> "libglib-2.0-0"
-"powerd" -> "libjson-c4"
+"powerd" -> "libjson-c5"
 "powerd" -> "libnyx7"
 "powerd" -> "luna-service2"
 "powerd" -> "powerd-lic" [style=dotted]
@@ -3716,7 +3732,7 @@ digraph depends {
 "rdxd" -> "pmloglib"
 "rdxd" -> "rdxd-lic" [style=dotted]
 "rdxd" -> "tar"
-"rng-tools" -> "libgcrypt"
+"rng-tools" -> "libcrypto1.1"
 "rng-tools" -> "libjitterentropy2"
 "rng-tools" -> "libsysfs2"
 "rng-tools" -> "rng-tools-lic" [style=dotted]
@@ -3772,7 +3788,7 @@ digraph depends {
 "simple-mtpfs" -> "libusb-1.0-0"
 "simple-mtpfs" -> "simple-mtpfs-lic" [style=dotted]
 "sleepd" -> "libglib-2.0-0"
-"sleepd" -> "libjson-c4"
+"sleepd" -> "libjson-c5"
 "sleepd" -> "libnyx7"
 "sleepd" -> "libsqlite3-0"
 "sleepd" -> "libxml2"
@@ -3792,7 +3808,7 @@ digraph depends {
 "sqlite3" -> "sqlite3-lic" [style=dotted]
 "storaged" -> "bash"
 "storaged" -> "libglib-2.0-0"
-"storaged" -> "libjson-c4"
+"storaged" -> "libjson-c5"
 "storaged" -> "libnyx7"
 "storaged" -> "luna-service2"
 "storaged" -> "storaged-lic" [style=dotted]
