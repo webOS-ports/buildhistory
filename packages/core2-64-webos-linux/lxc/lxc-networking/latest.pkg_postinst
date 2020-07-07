@@ -1,11 +1,33 @@
+#!/bin/sh
 set -e
-	if [ "x$D" != "x" ]; then
-		exit 1
+if type systemctl >/dev/null 2>/dev/null; then
+	OPTS=""
+
+	if [ -n "$D" ]; then
+		OPTS="--root=$D"
 	fi
 
-	# setup for our bridge
-        echo "lxc.network.link=lxcbr0" >> /etc/lxc/default.conf
+	if [ "enable" = "enable" ]; then
+		for service in lxc-net.service; do
+			systemctl ${OPTS} enable "$service"
+		done
+	fi
 
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+		systemctl preset lxc-net.service
+
+		if [ "enable" = "enable" ]; then
+			systemctl --no-block restart lxc-net.service
+		fi
+	fi
+fi
+
+if [ -n "$D" ]; then
+    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot lxc-networking mlprefix=
+    exit 0
+fi
+if false; then
 cat >> /etc/network/interfaces << EOF
 
 auto lxcbr0
@@ -29,3 +51,4 @@ if test "x\$IFACE" = xlxcbr0 ; then
 fi
 EOF
 chmod 755 /etc/network/if-pre-up.d/lxcbr0
+fi
