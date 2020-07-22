@@ -425,6 +425,11 @@ digraph depends {
 "gstreamer1.0-plugins-bad-debugutilsbad" -> "gstreamer1.0"
 "gstreamer1.0-plugins-bad-debugutilsbad" -> "libglib-2.0-0"
 "gstreamer1.0-plugins-bad-debugutilsbad" -> "libgstvideo-1.0-0"
+"gstreamer1.0-plugins-bad-decklink" -> "gstreamer1.0"
+"gstreamer1.0-plugins-bad-decklink" -> "libglib-2.0-0"
+"gstreamer1.0-plugins-bad-decklink" -> "libgstaudio-1.0-0"
+"gstreamer1.0-plugins-bad-decklink" -> "libgstvideo-1.0-0"
+"gstreamer1.0-plugins-bad-decklink" -> "libstdc++6"
 "gstreamer1.0-plugins-bad-dtls" -> "gstreamer1.0"
 "gstreamer1.0-plugins-bad-dtls" -> "libcrypto1.1"
 "gstreamer1.0-plugins-bad-dtls" -> "libglib-2.0-0"
@@ -519,6 +524,7 @@ digraph depends {
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-curl"
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-dashdemux"
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-debugutilsbad"
+"gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-decklink"
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-dtls"
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-dvb"
 "gstreamer1.0-plugins-bad-meta" -> "gstreamer1.0-plugins-bad-dvbsuboverlay"
@@ -1674,6 +1680,7 @@ digraph depends {
 "libgdk-pixbuf-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "libglib-2.0-0" -> "libffi7"
 "libglib-2.0-0" -> "libglib-2.0-lic" [style=dotted]
+"libglib-2.0-0" -> "libmount1"
 "libglib-2.0-0" -> "libpcre1"
 "libglib-2.0-0" -> "libz1"
 "libglib-2.0-0" -> "shared-mime-info" [style=dotted]
@@ -2301,13 +2308,16 @@ digraph depends {
 "luneos-components" -> "qtquickcontrols2"
 "luneos-default-wallpapers" -> "luneos-default-wallpapers-lic" [style=dotted]
 "lxc" -> "bridge-utils"
+"lxc" -> "curl"
 "lxc" -> "dnsmasq"
 "lxc" -> "gzip"
 "lxc" -> "libcap2"
 "lxc" -> "libcap-bin"
+"lxc" -> "libcrypto1.1"
 "lxc" -> "libgmp10"
 "lxc" -> "libgnutls30"
 "lxc" -> "libidn12"
+"lxc" -> "libssl1.1"
 "lxc" -> "lxc-lic" [style=dotted]
 "lxc" -> "lxc-templates"
 "lxc" -> "nettle"
@@ -2318,10 +2328,13 @@ digraph depends {
 "lxc" -> "perl-module-overload"
 "lxc" -> "perl-module-strict"
 "lxc" -> "perl-module-vars"
-"lxc" -> "perl-module-warnings-register"
 "lxc" -> "rsync"
+"lxc" -> "tar"
 "lxc-templates" -> "bash"
 "lxc-templates" -> "lxc-lic" [style=dotted]
+"lxc" -> "util-linux-getopt"
+"lxc" -> "util-linux-mountpoint"
+"lxc" -> "xz"
 "mailx" -> "libcrypto1.1"
 "mailx" -> "libssl1.1"
 "mailx" -> "mailx-lic" [style=dotted]
@@ -4033,6 +4046,7 @@ digraph depends {
 "util-linux-lsblk" -> "libmount1"
 "util-linux-lsblk" -> "libsmartcols1"
 "util-linux-mount" -> "libmount1"
+"util-linux-mountpoint" -> "libmount1"
 "util-linux-sulogin" -> "libcrypt2"
 "util-linux-umount" -> "libmount1"
 "valgrind" -> "perl"
@@ -4109,4 +4123,6 @@ digraph depends {
 "xkeyboard-config" -> "xkeyboard-config-lic" [style=dotted]
 "xl2tpd" -> "libpcap1"
 "xl2tpd" -> "xl2tpd-lic" [style=dotted]
+"xz" -> "liblzma5"
+"xz" -> "xz-lic" [style=dotted]
 }
