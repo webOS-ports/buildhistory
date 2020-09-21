@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop org.webosports.service.certmgr.service
+
+		systemctl disable org.webosports.service.certmgr.service
+	fi
+fi
