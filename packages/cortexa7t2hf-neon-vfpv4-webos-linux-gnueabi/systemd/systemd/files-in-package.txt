@@ -31,11 +31,11 @@ lrwxrwxrwx root       root               18 ./etc/xdg/systemd/user -> ../../syst
 drwxr-xr-x root       root               80 ./lib
 drwxr-xr-x root       root               60 ./lib/modprobe.d
 -rw-r--r-- root       root              765 ./lib/modprobe.d/systemd.conf
-drwxr-xr-x root       root              780 ./lib/systemd
--rwxr-xr-x root       root          1656640 ./lib/systemd/libsystemd-shared-246.so
+drwxr-xr-x root       root              760 ./lib/systemd
+-rwxr-xr-x root       root          1660736 ./lib/systemd/libsystemd-shared-246.so
 drwxr-xr-x root       root               60 ./lib/systemd/ntp-units.d
 -rw-r--r-- root       root               26 ./lib/systemd/ntp-units.d/80-systemd-timesync.list
-drwxr-xr-x root       root             3080 ./lib/systemd/system
+drwxr-xr-x root       root             3100 ./lib/systemd/system
 lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service -> getty@.service
 -rw-r--r-- root       root              919 ./lib/systemd/system/basic.target
 -rw-r--r-- root       root              441 ./lib/systemd/system/blockdev@.target
@@ -44,7 +44,7 @@ lrwxrwxrwx root       root               14 ./lib/systemd/system/autovt@.service
 -rw-r--r-- root       root             1065 ./lib/systemd/system/console-getty.service
 -rw-r--r-- root       root             1246 ./lib/systemd/system/container-getty@.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/ctrl-alt-del.target -> reboot.target
--rwxr-xr-x root       root          1034588 ./lib/systemd/systemd
+-rwxr-xr-x root       root          1042780 ./lib/systemd/systemd
 -rwxr-xr-x root       root            13912 ./lib/systemd/systemd-backlight
 -rwxr-xr-x root       root             9828 ./lib/systemd/systemd-boot-check-no-failures
 lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
@@ -82,7 +82,6 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target 
 -rwxr-xr-x root       root             9824 ./lib/systemd/systemd-user-runtime-dir
 -rwxr-xr-x root       root            18008 ./lib/systemd/systemd-userwork
 -rwxr-xr-x root       root             9820 ./lib/systemd/systemd-volatile-root
--rwxr-xr-x root       root             5680 ./lib/systemd/systemd-xdg-autostart-condition
 -rw-r--r-- root       root              797 ./lib/systemd/system/emergency.service
 -rw-r--r-- root       root              471 ./lib/systemd/system/emergency.target
 -rw-r--r-- root       root              541 ./lib/systemd/system/exit.target
@@ -261,6 +260,7 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/timers.target.w
 -rw-r--r-- root       root              479 ./lib/systemd/system/time-sync.target
 -rw-r--r-- root       root              793 ./lib/systemd/system/tmp.mount
 -rw-r--r-- root       root              457 ./lib/systemd/system/umount.target
+-rw-r--r-- root       root              418 ./lib/systemd/system/usb-gadget.target
 -rw-r--r-- root       root              688 ./lib/systemd/system/user-runtime-dir@.service
 -rw-r--r-- root       root              748 ./lib/systemd/system/user@.service
 -rw-r--r-- root       root              432 ./lib/systemd/system/user.slice
@@ -304,15 +304,14 @@ drwxr-xr-x root       root              280 ./usr/lib/systemd/catalog
 -rw-r--r-- root       root            21455 ./usr/lib/systemd/catalog/systemd.ru.catalog
 -rw-r--r-- root       root             8101 ./usr/lib/systemd/catalog/systemd.zh_CN.catalog
 -rw-r--r-- root       root             8060 ./usr/lib/systemd/catalog/systemd.zh_TW.catalog
-drwxr-xr-x root       root              400 ./usr/lib/systemd/user
+drwxr-xr-x root       root              380 ./usr/lib/systemd/user
 -rw-r--r-- root       root              497 ./usr/lib/systemd/user/basic.target
 -rw-r--r-- root       root              419 ./usr/lib/systemd/user/bluetooth.target
 -rw-r--r-- root       root              463 ./usr/lib/systemd/user/default.target
 drwxr-xr-x root       root               60 ./usr/lib/systemd/user-environment-generators
 -rwxr-xr-x root       root             5736 ./usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator
 -rw-r--r-- root       root              502 ./usr/lib/systemd/user/exit.target
-drwxr-xr-x root       root               60 ./usr/lib/systemd/user-generators
--rwxr-xr-x root       root            18020 ./usr/lib/systemd/user-generators/systemd-xdg-autostart-generator
+drwxr-xr-x root       root               40 ./usr/lib/systemd/user-generators
 -rw-r--r-- root       root              568 ./usr/lib/systemd/user/graphical-session-pre.target
 -rw-r--r-- root       root              484 ./usr/lib/systemd/user/graphical-session.target
 -rw-r--r-- root       root              394 ./usr/lib/systemd/user/paths.target
@@ -328,7 +327,6 @@ drwxr-xr-x root       root               60 ./usr/lib/systemd/user-preset
 -rw-r--r-- root       root              533 ./usr/lib/systemd/user/systemd-tmpfiles-clean.timer
 -rw-r--r-- root       root              720 ./usr/lib/systemd/user/systemd-tmpfiles-setup.service
 -rw-r--r-- root       root              445 ./usr/lib/systemd/user/timers.target
--rw-r--r-- root       root              469 ./usr/lib/systemd/user/xdg-desktop-autostart.target
 drwxr-xr-x root       root               80 ./usr/lib/sysusers.d
 -rw-r--r-- root       root             1136 ./usr/lib/sysusers.d/basic.conf
 -rw-r--r-- root       root              369 ./usr/lib/sysusers.d/systemd.conf
