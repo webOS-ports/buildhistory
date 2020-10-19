@@ -3,7 +3,7 @@ lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 -rwxr-xr-x root       root          1123288 ./bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/bash -> /bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           570592 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           574688 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            52384 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               21 ./bin/chattr -> /bin/chattr.e2fsprogs
@@ -62,6 +62,7 @@ lrwxrwxrwx root       root               17 ./bin/ping -> /bin/busybox.suid
 lrwxrwxrwx root       root               14 ./bin/ps -> /bin/ps.procps
 -rwxr-xr-x root       root            97336 ./bin/ps.procps
 lrwxrwxrwx root       root               19 ./bin/pwd -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/rev -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rm -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rmdir -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/run-parts -> /bin/busybox.nosuid
@@ -115,7 +116,7 @@ drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              772 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
 -rw-r--r-- root       root             1607 ./etc/build
--rw-r--r-- root       root             2373 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             2397 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/ca-certificates
 -rw-r--r-- root       root             5061 ./etc/ca-certificates.conf
@@ -4738,7 +4739,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               63 ./usr/lib/opkg/alternatives/openvt
 -rw-r--r-- root       root               64 ./usr/lib/opkg/alternatives/passwd
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/patch
--rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/pgrep
+-rw-r--r-- root       root               64 ./usr/lib/opkg/alternatives/pgrep
 -rw-r--r-- root       root               56 ./usr/lib/opkg/alternatives/pidof
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/ping
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/ping6
@@ -4760,6 +4761,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/reset
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/resize
 -rw-r--r-- root       root               46 ./usr/lib/opkg/alternatives/resolv-conf
+-rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/rev
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/rfkill
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/rm
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/rmdir
@@ -21336,6 +21338,7 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/app-services
 drwxr-xr-x root       root             4096 ./usr/share/licenses/attr
 -rw-r--r-- root       root              735 ./usr/share/licenses/attr/attr.c
 -rw-r--r-- root       root            18312 ./usr/share/licenses/attr/COPYING
+-rw-r--r-- root       root            26763 ./usr/share/licenses/attr/COPYING.LGPL
 -rw-r--r-- root       root            17611 ./usr/share/licenses/attr/generic_GPLv2
 -rw-r--r-- root       root            25878 ./usr/share/licenses/attr/generic_LGPLv2.1
 -rw-r--r-- root       root              758 ./usr/share/licenses/attr/libattr.c
@@ -21809,7 +21812,8 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/kf5bluezqt-mer
 -rw-r--r-- root       root            26530 ./usr/share/licenses/kf5bluezqt-mer/COPYING.LIB
 -rw-r--r-- root       root            25878 ./usr/share/licenses/kf5bluezqt-mer/generic_LGPLv2.1
 drwxr-xr-x root       root             4096 ./usr/share/licenses/kmod
--rw-r--r-- root       root            26432 ./usr/share/licenses/kmod/COPYING
+-rw-r--r-- root       root            26432 ./usr/share/licenses/kmod/COPYING.0
+-rw-r--r-- root       root            17987 ./usr/share/licenses/kmod/COPYING.1
 -rw-r--r-- root       root            17611 ./usr/share/licenses/kmod/generic_GPL-2.0
 -rw-r--r-- root       root            25878 ./usr/share/licenses/kmod/generic_LGPL-2.1
 drwxr-xr-x root       root             4096 ./usr/share/licenses/krb5
@@ -27231,9 +27235,9 @@ drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/backups
 drwxr-xr-x root       root             4096 ./var/cache
 drwxr-xr-x root       root             4096 ./var/cache/fontconfig
--rw-r--r-- root       root            49464 ./var/cache/fontconfig/87d1559d-bdb5-4874-9c39-d97db4f40d75-le64.cache-7
+-rw-r--r-- root       root             6336 ./var/cache/fontconfig/9da48a2e-f8c4-4819-ba9a-f631440b188d-le64.cache-7
 -rw-r--r-- root       root              200 ./var/cache/fontconfig/CACHEDIR.TAG
--rw-r--r-- root       root             6336 ./var/cache/fontconfig/f33c8929-ab66-48ed-b44d-fb82bf1a9115-le64.cache-7
+-rw-r--r-- root       root            49464 ./var/cache/fontconfig/f8058cbd-7b72-43e9-84ce-75e705ffeba4-le64.cache-7
 drwx------ root       root             4096 ./var/cache/ldconfig
 -rw------- root       root            24642 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/cache/opkg
@@ -27305,7 +27309,7 @@ drwxr-xr-x root       root           311296 ./var/lib/opkg/info
 -rw-r--r-- root       root              152 ./var/lib/opkg/info/app-services-lic.list
 -rw-r--r-- root       root            23764 ./var/lib/opkg/info/app-services.list
 -rw-r--r-- root       root              381 ./var/lib/opkg/info/attr-lic.control
--rw-r--r-- root       root              253 ./var/lib/opkg/info/attr-lic.list
+-rw-r--r-- root       root              299 ./var/lib/opkg/info/attr-lic.list
 -rw-r--r-- root       root              649 ./var/lib/opkg/info/audio-service.control
 -rw-r--r-- root       root              383 ./var/lib/opkg/info/audio-service-lic.control
 -rw-r--r-- root       root              155 ./var/lib/opkg/info/audio-service-lic.list
@@ -27384,9 +27388,9 @@ drwxr-xr-x root       root           311296 ./var/lib/opkg/info
 -rw-r--r-- root       root              847 ./var/lib/opkg/info/busybox-lic.control
 -rw-r--r-- root       root              185 ./var/lib/opkg/info/busybox-lic.list
 -rw-r--r-- root       root              187 ./var/lib/opkg/info/busybox.list
--rwxr-xr-x root       root            15301 ./var/lib/opkg/info/busybox.postinst
+-rwxr-xr-x root       root            15443 ./var/lib/opkg/info/busybox.postinst
 -rwxr-xr-x root       root              475 ./var/lib/opkg/info/busybox.postrm
--rwxr-xr-x root       root            11691 ./var/lib/opkg/info/busybox.prerm
+-rwxr-xr-x root       root            11803 ./var/lib/opkg/info/busybox.prerm
 -rw-r--r-- root       root              874 ./var/lib/opkg/info/busybox-udhcpc.control
 -rw-r--r-- root       root              119 ./var/lib/opkg/info/busybox-udhcpc.list
 -rw-r--r-- root       root              694 ./var/lib/opkg/info/bzip2.control
@@ -30163,7 +30167,7 @@ drwxr-xr-x root       root           311296 ./var/lib/opkg/info
 -rwxr-xr-x root       root               80 ./var/lib/opkg/info/killall.prerm
 -rw-r--r-- root       root              811 ./var/lib/opkg/info/kmod.control
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/kmod-lic.control
--rw-r--r-- root       root              172 ./var/lib/opkg/info/kmod-lic.list
+-rw-r--r-- root       root              217 ./var/lib/opkg/info/kmod-lic.list
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/kmod.list
 -rwxr-xr-x root       root              522 ./var/lib/opkg/info/kmod.postinst
 -rwxr-xr-x root       root              411 ./var/lib/opkg/info/kmod.prerm
@@ -30458,12 +30462,12 @@ drwxr-xr-x root       root           311296 ./var/lib/opkg/info
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libgdbm-compat4.postinst
 -rw-r--r-- root       root              368 ./var/lib/opkg/info/libgdbm-lic.control
 -rw-r--r-- root       root              120 ./var/lib/opkg/info/libgdbm-lic.list
--rw-r--r-- root       root              587 ./var/lib/opkg/info/libgdk-pixbuf-2.0-0.control
+-rw-r--r-- root       root              588 ./var/lib/opkg/info/libgdk-pixbuf-2.0-0.control
 -rw-r--r-- root       root              318 ./var/lib/opkg/info/libgdk-pixbuf-2.0-0.list
 -rwxr-xr-x root       root               97 ./var/lib/opkg/info/libgdk-pixbuf-2.0-0.postinst
--rw-r--r-- root       root              496 ./var/lib/opkg/info/libgdk-pixbuf-2.0-lic.control
+-rw-r--r-- root       root              497 ./var/lib/opkg/info/libgdk-pixbuf-2.0-lic.control
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/libgdk-pixbuf-2.0-lic.list
--rw-r--r-- root       root              679 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.control
+-rw-r--r-- root       root              680 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.control
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libgdk-pixbuf-2.0-locale-en-gb.list
 -rw-r--r-- root       root              710 ./var/lib/opkg/info/libglapi0.control
 -rw-r--r-- root       root               84 ./var/lib/opkg/info/libglapi0.list
