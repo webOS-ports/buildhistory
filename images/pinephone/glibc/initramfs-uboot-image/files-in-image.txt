@@ -1,9 +1,9 @@
-drwxr-xr-x root       root             1340 ./bin
+drwxr-xr-x root       root             1360 ./bin
 lrwxrwxrwx root       root               19 ./bin/ash -> /bin/busybox.nosuid
 -rwxr-xr-x root       root          1150880 ./bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/bash -> /bin/bash.bash
 lrwxrwxrwx root       root               14 ./bin/busybox -> busybox.nosuid
--rwxr-xr-x root       root           595136 ./bin/busybox.nosuid
+-rwxr-xr-x root       root           660672 ./bin/busybox.nosuid
 -rwsr-xr-x root       root            68792 ./bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/cat -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/chattr -> /bin/busybox.nosuid
@@ -45,6 +45,7 @@ lrwxrwxrwx root       root               17 ./bin/ping6 -> /bin/busybox.suid
 lrwxrwxrwx root       root               17 ./bin/ping -> /bin/busybox.suid
 lrwxrwxrwx root       root               19 ./bin/ps -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/pwd -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./bin/rev -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rm -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/rmdir -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/run-parts -> /bin/busybox.nosuid
@@ -67,8 +68,8 @@ lrwxrwxrwx root       root               19 ./bin/zcat -> /bin/busybox.nosuid
 drwxr-xr-x root       root               40 ./boot
 drwxr-xr-x root       root               40 ./dev
 drwxr-xr-x root       root              620 ./etc
--rw-r--r-- root       root             1493 ./etc/build
--rw-r--r-- root       root             2373 ./etc/busybox.links.nosuid
+-rw-r--r-- root       root             1549 ./etc/build
+-rw-r--r-- root       root             2397 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root               40 ./etc/default
 -rw-r--r-- root       root              963 ./etc/fstab
@@ -235,7 +236,7 @@ lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
 dr-xr-xr-x root       root               40 ./sys
 drwxrwxrwt root       root               40 ./tmp
 drwxr-xr-x root       root              200 ./usr
-drwxr-xr-x root       root             1720 ./usr/bin
+drwxr-xr-x root       root             1740 ./usr/bin
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
@@ -281,6 +282,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/od -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/openvt -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./usr/bin/passwd -> /bin/busybox.suid
 lrwxrwxrwx root       root               19 ./usr/bin/patch -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               19 ./usr/bin/pgrep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/printf -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/readlink -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/realpath -> /bin/busybox.nosuid
@@ -328,7 +330,7 @@ lrwxrwxrwx root       root               15 ./usr/lib/libelf.so.1 -> libelf-0.18
 -rwxr-xr-x root       root            68040 ./usr/lib/libmnl.so.0.2.0
 lrwxrwxrwx root       root               15 ./usr/lib/libmnl.so.0 -> libmnl.so.0.2.0
 drwxr-xr-x root       root               60 ./usr/lib/opkg
-drwxr-xr-x root       root             3720 ./usr/lib/opkg/alternatives
+drwxr-xr-x root       root             3760 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/[[
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/addgroup
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/adduser
@@ -435,6 +437,7 @@ drwxr-xr-x root       root             3720 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/openvt
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/passwd
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/patch
+-rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/pgrep
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/pidof
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/ping
 -rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/ping6
@@ -449,6 +452,7 @@ drwxr-xr-x root       root             3720 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/renice
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/reset
 -rw-r--r-- root       root               39 ./usr/lib/opkg/alternatives/resize
+-rw-r--r-- root       root               32 ./usr/lib/opkg/alternatives/rev
 -rw-r--r-- root       root               40 ./usr/lib/opkg/alternatives/rfkill
 -rw-r--r-- root       root               31 ./usr/lib/opkg/alternatives/rm
 -rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/rmdir
