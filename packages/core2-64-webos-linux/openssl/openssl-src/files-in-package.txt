@@ -5,7 +5,7 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/build
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/build/apps
--rw-r--r-- root       root            16261 ./usr/src/debug/openssl/1.1.1i-r0/build/apps/progs.h
+-rw-r--r-- root       root            16420 ./usr/src/debug/openssl/1.1.1i-r0/build/apps/progs.h
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/build/crypto
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/build/crypto/aes
 -rw-r--r-- root       root            31216 ./usr/src/debug/openssl/1.1.1i-r0/build/crypto/aes/aesni-mb-x86_64.s
@@ -93,6 +93,7 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root            21452 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/smime.c
 -rw-r--r-- root       root           123056 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/speed.c
 -rw-r--r-- root       root             5866 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/spkac.c
+-rw-r--r-- root       root            20569 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/srp.c
 -rw-r--r-- root       root           118904 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/s_server.c
 -rw-r--r-- root       root            13751 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/s_socket.c
 -rw-r--r-- root       root            12184 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/apps/s_time.c
@@ -264,6 +265,7 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root             4823 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_shift.c
 -rw-r--r-- root       root             5502 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_sqr.c
 -rw-r--r-- root       root             9502 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_sqrt.c
+-rw-r--r-- root       root            21885 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_srp.c
 -rw-r--r-- root       root             4509 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_word.c
 -rw-r--r-- root       root             5869 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/bn_x931p.c
 -rw-r--r-- root       root            11023 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/bn/rsaz_exp.c
@@ -679,6 +681,9 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root            12430 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/sha/sha256.c
 -rw-r--r-- root       root            25432 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/sha/sha512.c
 -rw-r--r-- root       root            15513 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/sha/sha_local.h
+drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/srp
+-rw-r--r-- root       root             7482 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/srp/srp_lib.c
+-rw-r--r-- root       root            19994 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/srp/srp_vfy.c
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/stack
 -rw-r--r-- root       root            10363 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/stack/stack.c
 drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/crypto/store
@@ -806,6 +811,7 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root              448 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/async.h
 -rw-r--r-- root       root              836 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/bn_dh.h
 -rw-r--r-- root       root             3466 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/bn.h
+-rw-r--r-- root       root              729 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/bn_srp.h
 -rw-r--r-- root       root             1655 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/chacha.h
 -rw-r--r-- root       root             1065 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/cryptlib.h
 -rw-r--r-- root       root             3267 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/crypto/ctype.h
@@ -899,6 +905,7 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root            22202 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/rsa.h
 -rw-r--r-- root       root             8139 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/safestack.h
 -rw-r--r-- root       root             3831 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/sha.h
+-rw-r--r-- root       root             3827 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/srp.h
 -rw-r--r-- root       root             1316 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/srtp.h
 -rw-r--r-- root       root            46676 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/sslerr.h
 -rw-r--r-- root       root           111252 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/include/openssl/ssl.h
@@ -967,3 +974,4 @@ drwxr-xr-x root       root             4096 ./usr/src/debug/openssl/1.1.1i-r0/op
 -rw-r--r-- root       root            22818 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/ssl/t1_enc.c
 -rw-r--r-- root       root            93548 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/ssl/t1_lib.c
 -rw-r--r-- root       root            33829 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/ssl/tls13_enc.c
+-rw-r--r-- root       root            13583 ./usr/src/debug/openssl/1.1.1i-r0/openssl-1.1.1i/ssl/tls_srp.c
