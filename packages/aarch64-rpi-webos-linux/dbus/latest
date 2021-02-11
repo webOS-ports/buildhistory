@@ -1,6 +1,8 @@
-PV = 1.12.18
+PV = 1.12.20
 PR = r0
-DEPENDS = autoconf-archive autoconf-native automake-native base-files base-passwd expat gettext-native gnu-config-native libtool-cross libtool-native pkgconfig-native shadow shadow-native shadow-sysroot systemd virtual/aarch64-webos-linux-compilerlibs virtual/aarch64-webos-linux-gcc virtual/libc virtual/libintl
-PACKAGES = dbus-src dbus-dbg dbus-lic dbus-lib dbus-staticdev dbus-dev dbus-doc dbus-locale dbus
+DEPENDS = autoconf-archive autoconf-native automake-native base-files base-passwd expat gettext-native libtool-cross libtool-native pkgconfig-native shadow shadow-native shadow-sysroot systemd virtual/aarch64-webos-linux-compilerlibs virtual/aarch64-webos-linux-gcc virtual/libc virtual/libintl
+PACKAGES = dbus-src dbus-dbg dbus-lic dbus-lib dbus-common dbus-tools dbus-staticdev dbus-dev dbus-doc dbus-locale dbus
 LAYER = core
+LICENSE = AFL-2.1 | GPLv2+
 CONFIG = systemd user-session
+SRC_URI = https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz file://tmpdir.patch file://dbus-1.init file://clear-guid_from_server-if-send_negotiate_unix_f.patch file://dbus-session.service file://startup-dbus-session.sh
