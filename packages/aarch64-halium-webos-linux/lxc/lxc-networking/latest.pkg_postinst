@@ -1,5 +1,29 @@
-#!/bin/sh
 set -e
+if false; then
+cat >> $D/etc/network/interfaces << EOF
+
+auto lxcbr0
+iface lxcbr0 inet dhcp
+	bridge_ports eth0
+	bridge_fd 0
+	bridge_maxwait 0
+EOF
+
+cat<<EOF>$D/etc/network/if-pre-up.d/lxcbr0
+#! /bin/sh
+
+if test "x\$IFACE" = xlxcbr0 ; then
+        brctl show |grep lxcbr0 > /dev/null 2>/dev/null
+        if [ \$? != 0 ] ; then
+                brctl addbr lxcbr0
+                brctl addif lxcbr0 eth0
+                ip addr flush eth0
+                ifconfig eth0 up
+        fi
+fi
+EOF
+chmod 755 $D/etc/network/if-pre-up.d/lxcbr0
+fi
 if type systemctl >/dev/null 2>/dev/null; then
 	OPTS=""
 
@@ -21,34 +45,4 @@ if type systemctl >/dev/null 2>/dev/null; then
 			systemctl --no-block restart lxc-net.service
 		fi
 	fi
-fi
-
-if [ -n "$D" ]; then
-    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot lxc-networking mlprefix=
-    exit 0
-fi
-if false; then
-cat >> /etc/network/interfaces << EOF
-
-auto lxcbr0
-iface lxcbr0 inet dhcp
-	bridge_ports eth0
-	bridge_fd 0
-	bridge_maxwait 0
-EOF
-
-cat<<EOF>/etc/network/if-pre-up.d/lxcbr0
-#! /bin/sh
-
-if test "x\$IFACE" = xlxcbr0 ; then
-        brctl show |grep lxcbr0 > /dev/null 2>/dev/null
-        if [ \$? != 0 ] ; then
-                brctl addbr lxcbr0
-                brctl addif lxcbr0 eth0
-                ip addr flush eth0
-                ifconfig eth0 up
-        fi
-fi
-EOF
-chmod 755 /etc/network/if-pre-up.d/lxcbr0
 fi
