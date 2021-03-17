@@ -1,12 +1,12 @@
 set -e
 set +e
 if [ -n "$D" ]; then
-    ln -sf zImage-5.4.72-v7l $D/boot/zImage > /dev/null 2>&1
+    ln -sf zImage-5.10.17-v7l $D/boot/zImage > /dev/null 2>&1
 else
-    ln -sf zImage-5.4.72-v7l boot/zImage > /dev/null 2>&1
+    ln -sf zImage-5.10.17-v7l boot/zImage > /dev/null 2>&1
     if [ $? -ne 0 ]; then
         echo "Filesystem on boot/ doesn't support symlinks, falling back to copied image (zImage)."
-        install -m 0644 boot/zImage-5.4.72-v7l boot/zImage
+        install -m 0644 boot/zImage-5.10.17-v7l boot/zImage
     fi
 fi
 set -e
