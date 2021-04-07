@@ -1,0 +1,142 @@
+#!/bin/sh
+set -e
+bbnote () {
+	echo "NOTE: $*"
+}
+bbwarn () {
+	echo "WARNING: $*"
+}
+bbfatal () {
+	echo "ERROR: $*"
+	exit 1
+}
+perform_groupadd () {
+	local rootdir="$1"
+	local opts="$2"
+	bbnote "android-system: Performing groupadd with [$opts]"
+	local groupname=`echo "$opts" | awk '{ print $NF }'`
+	local group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
+	if test "x$group_exists" = "x"; then
+		eval flock -x $rootdir/etc -c \"$PSEUDO groupadd \$opts\" || true
+		group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
+		if test "x$group_exists" = "x"; then
+			bbfatal "android-system: groupadd command did not succeed."
+		fi
+	else
+		bbnote "android-system: group $groupname already exists, not re-creating it"
+	fi
+}
+perform_useradd () {
+	local rootdir="$1"
+	local opts="$2"
+	bbnote "android-system: Performing useradd with [$opts]"
+	local username=`echo "$opts" | awk '{ print $NF }'`
+	local user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
+	if test "x$user_exists" = "x"; then
+		eval flock -x $rootdir/etc -c  \"$PSEUDO useradd \$opts\" || true
+		user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
+		if test "x$user_exists" = "x"; then
+			bbfatal "android-system: useradd command did not succeed."
+		fi
+	else
+		bbnote "android-system: user $username already exists, not re-creating it"
+	fi
+}
+perform_groupmems () {
+	local rootdir="$1"
+	local opts="$2"
+	bbnote "android-system: Performing groupmems with [$opts]"
+	local groupname=`echo "$opts" | awk '{ for (i = 1; i < NF; i++) if ($i == "-g" || $i == "--group") print $(i+1) }'`
+	local username=`echo "$opts" | awk '{ for (i = 1; i < NF; i++) if ($i == "-a" || $i == "--add") print $(i+1) }'`
+	bbnote "android-system: Running groupmems command with group $groupname and user $username"
+	local mem_exists="`grep "^$groupname:[^:]*:[^:]*:\([^,]*,\)*$username\(,[^,]*\)*$" $rootdir/etc/group || true`"
+	if test "x$mem_exists" = "x"; then
+		eval flock -x $rootdir/etc -c \"$PSEUDO groupmems \$opts\" || true
+		mem_exists="`grep "^$groupname:[^:]*:[^:]*:\([^,]*,\)*$username\(,[^,]*\)*$" $rootdir/etc/group || true`"
+		if test "x$mem_exists" = "x"; then
+			bbfatal "android-system: groupmems command did not succeed."
+		fi
+	else
+		bbnote "android-system: group $groupname already contains $username, not re-adding it"
+	fi
+}
+OPT=""
+SYSROOT=""
+
+if test "x$D" != "x"; then
+	# Installing into a sysroot
+	SYSROOT="$D"
+	OPT="--root $D"
+
+	# Make sure login.defs is there, this is to make debian package backend work
+	# correctly while doing rootfs.
+	# The problem here is that if /etc/login.defs is treated as a config file for
+	# shadow package, then while performing preinsts for packages that depend on
+	# shadow, there might only be /etc/login.def.dpkg-new there in root filesystem.
+	if [ ! -e $D/etc/login.defs -a -e $D/etc/login.defs.dpkg-new ]; then
+	    cp $D/etc/login.defs.dpkg-new $D/etc/login.defs
+	fi
+
+	# user/group lookups should match useradd/groupadd --root
+	export PSEUDO_PASSWD="$SYSROOT"
+fi
+
+# If we're not doing a special SSTATE/SYSROOT install
+# then set the values, otherwise use the environment
+if test "x$UA_SYSROOT" = "x"; then
+	# Installing onto a target
+	# Add groups and users defined only for this package
+	GROUPADD_PARAM="${GROUPADD_PARAM}"
+	USERADD_PARAM="                        -u 1000 -M system;                        -u 1001 -M radio;                        -u 1002 -M bluetooth;                        -u 1003 -M graphics;                        -u 1006 -M camera;                        -u 1007 -M log;                        -u 1008 -M compass;                        -u 1010 -M wifi;                        -u 1011 -M adb;                        -u 1012 -M install;                        -u 1013 -M media;                        -u 1014 -M dhcp;                        -u 1015 -M sdcard_rw;                        -u 1016 -M vpn;                        -u 1017 -M keystore;                        -u 1018 -M usb;                        -u 1019 -M drm;                        -u 1020 -M mdnsr;                        -u 1021 -M gps;                        -u 1023 -M media_rw;                        -u 1024 -M mtp;                        -u 1026 -M drmrpc;                        -u 1027 -M nfc;                        -u 1028 -M sdcard_r;                        -u 1029 -M clat;                        -u 1030 -M loop_radio;                        -u 1031 -M mediadrm;                        -u 1032 -M package_info;                        -u 1033 -M sdcard_pics;                        -u 1034 -M sdcard_av;                        -u 1035 -M sdcard_all;                        -u 1036 -M logd;                        -u 1037 -M shared_relro;                        -u 1038 -M dbus;                        -u 1039 -M tlsdate;                        -u 1040 -M mediaex;                        -u 1041 -M audioserver;                        -u 1042 -M metrics_coll;                        -u 1043 -M metricsd;                        -u 1044 -M webserv;                        -u 1045 -M debuggerd;                        -u 1046 -M mediacodec;                        -u 1047 -M cameraserver;                        -u 1048 -M firewall;                        -u 1049 -M trunks;                        -u 1050 -M nvram;                        -u 1051 -M dns;                        -u 1052 -M dns_tether;                        -u 1053 -M webview_zygote;                        -u 1054 -M vehicle_network;                        -u 1055 -M media_audio;                        -u 1056 -M media_video;                        -u 1057 -M media_image;                        -u 1058 -M tombstoned;                        -u 1059 -M media_obb;                        -u 1060 -M ese;                        -u 1061 -M ota_update;                        -u 1062 -M automotive_evs;                        -u 1063 -M lowpan;                        -u 1064 -M hsm;                        -u 1065 -M reserved_disk;                        -u 1066 -M statsd;                        -u 1067 -M incidentd;                        -u 1068 -M secure_element;                        -u 1069 -M lmkd;                        -u 1070 -M llkd;                        -u 1071 -M iorapd;                        -u 1072 -M gpu_service;                        -u 1073 -M network_stack;                        -u 1074 -M gsid;                        -u 1075 -M fsverity_cert;                        -u 1076 -M credstore;                        -u 1077 -M external_storage;                        -u 1078 -M ext_data_rw;                        -u 1079 -M ext_obb_rw;                        -u 1080 -M context_hub;                        -u 2000 -M shell;                        -u 2001 -M cache;                        -u 2002 -M diag;                        -u 2901 -M vendor_qti_diag;                        -u 2902 -M vendor_qdss;                        -u 2903 -M vendor_rfs;                        -u 2904 -M vendor_rfs_shared;                        -u 2905 -M vendor_adpl_odl;                        -u 2906 -M vendor_qrtr;                        -u 3001 -M net_bt_admin;                        -u 3002 -M net_bt;                        -u 3003 -M inet;                        -u 3004 -M net_raw;                        -u 3005 -M net_admin;                        -u 3006 -M net_bw_stats;                        -u 3007 -M net_bw_acct;                        -u 3008 -M net_bt_stack;                        -u 3009 -M readproc;                        -u 3010 -M wakelock;                        -u 3011 -M uhid;                        -u 9997 -M everybody;                        -u 9998 -M misc;                        -u 9999 -M nobody; "
+	GROUPMEMS_PARAM="${GROUPMEMS_PARAM}"
+fi
+
+# Perform group additions first, since user additions may depend
+# on these groups existing
+if test "x`echo $GROUPADD_PARAM | tr -d '[:space:]'`" != "x"; then
+	echo "Running groupadd commands..."
+	# Invoke multiple instances of groupadd for parameter lists
+	# separated by ';'
+	opts=`echo "$GROUPADD_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$GROUPADD_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	while test "x$opts" != "x"; do
+		perform_groupadd "$SYSROOT" "$OPT $opts"
+		if test "x$opts" = "x$remaining"; then
+			break
+		fi
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	done
+fi
+
+if test "x`echo $USERADD_PARAM | tr -d '[:space:]'`" != "x"; then
+	echo "Running useradd commands..."
+	# Invoke multiple instances of useradd for parameter lists
+	# separated by ';'
+	opts=`echo "$USERADD_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$USERADD_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	while test "x$opts" != "x"; do
+		perform_useradd "$SYSROOT" "$OPT $opts"
+		if test "x$opts" = "x$remaining"; then
+			break
+		fi
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	done
+fi
+
+if test "x`echo $GROUPMEMS_PARAM | tr -d '[:space:]'`" != "x"; then
+	echo "Running groupmems commands..."
+	# Invoke multiple instances of groupmems for parameter lists
+	# separated by ';'
+	opts=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	while test "x$opts" != "x"; do
+		perform_groupmems "$SYSROOT" "$OPT $opts"
+		if test "x$opts" = "x$remaining"; then
+			break
+		fi
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
+	done
+fi
