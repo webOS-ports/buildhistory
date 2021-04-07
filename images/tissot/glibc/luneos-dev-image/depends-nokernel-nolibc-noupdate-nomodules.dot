@@ -81,6 +81,11 @@ digraph depends {
 "binutils" -> "libopcodes"
 "binutils" -> "libstdc++6"
 "binutils" -> "libz1"
+"bluebinder" -> "android-property-service"
+"bluebinder" -> "bluebinder-lic" [style=dotted]
+"bluebinder" -> "libgbinder1"
+"bluebinder" -> "libglib-2.0-0"
+"bluebinder" -> "libsystemd0"
 "bluez5" -> "bluez5-lic" [style=dotted]
 "bluez5" -> "libdbus-1-3"
 "bluez5" -> "libglib-2.0-0"
@@ -1575,14 +1580,12 @@ digraph depends {
 "libavcodec58" -> "liblzma5"
 "libavcodec58" -> "libswresample3"
 "libavcodec58" -> "libtheora"
-"libavcodec58" -> "libx264-161"
 "libavcodec58" -> "libz1"
 "libavfilter7" -> "ffmpeg-lic" [style=dotted]
 "libavfilter7" -> "libavcodec58"
 "libavfilter7" -> "libavformat58"
 "libavfilter7" -> "libavresample4"
 "libavfilter7" -> "libavutil56"
-"libavfilter7" -> "libpostproc55"
 "libavfilter7" -> "libswresample3"
 "libavfilter7" -> "libswscale5"
 "libavformat58" -> "ffmpeg-lic" [style=dotted]
@@ -1700,6 +1703,13 @@ digraph depends {
 "libfuse2" -> "fuse-lic" [style=dotted]
 "libfuse2" -> "fuse-utils" [style=dotted]
 "libfuse2" -> "libulockmgr" [style=dotted]
+"libgbinder1" -> "libgbinder-lic" [style=dotted]
+"libgbinder1" -> "libglib-2.0-0"
+"libgbinder1" -> "libglibutil1"
+"libgbinder-radio1" -> "libgbinder1"
+"libgbinder-radio1" -> "libgbinder-radio-lic" [style=dotted]
+"libgbinder-radio1" -> "libglib-2.0-0"
+"libgbinder-radio1" -> "libglibutil1"
 "libgcrypt" -> "libcap"
 "libgcrypt" -> "libgcrypt-lic" [style=dotted]
 "libgcrypt" -> "libgpg-error"
@@ -1751,6 +1761,12 @@ digraph depends {
 "libgrilio1" -> "libglib-2.0-0"
 "libgrilio1" -> "libglibutil1"
 "libgrilio1" -> "libgrilio-lic" [style=dotted]
+"libgrilio-binder1" -> "libgbinder1"
+"libgrilio-binder1" -> "libgbinder-radio1"
+"libgrilio-binder1" -> "libglib-2.0-0"
+"libgrilio-binder1" -> "libglibutil1"
+"libgrilio-binder1" -> "libgrilio1"
+"libgrilio-binder1" -> "ofono-ril-binder-plugin-lic" [style=dotted]
 "libgssapi-krb5-2" -> "krb5-lic" [style=dotted]
 "libgssapi-krb5-2" -> "libcom-err2"
 "libgssapi-krb5-2" -> "libk5crypto3"
@@ -1971,8 +1987,6 @@ digraph depends {
 "libpng16-16" -> "libpng-lic" [style=dotted]
 "libpng16-16" -> "libz1"
 "libpopt0" -> "popt-lic" [style=dotted]
-"libpostproc55" -> "ffmpeg-lic" [style=dotted]
-"libpostproc55" -> "libavutil56"
 "libprocps8" -> "libsystemd0"
 "libprocps8" -> "procps-lic" [style=dotted]
 "libpsl5" -> "libidn2-0"
@@ -2171,6 +2185,7 @@ digraph depends {
 "libunwind" -> "libunwind-lic" [style=dotted]
 "libusb-1.0-0" -> "libudev1"
 "libusb-1.0-0" -> "libusb1-lic" [style=dotted]
+"libuuid1" -> "util-linux-libuuid-lic" [style=dotted]
 "libvorbis" -> "libogg0"
 "libvorbis" -> "libvorbis-lic" [style=dotted]
 "libwebos-application0" -> "libglib-2.0-0"
@@ -2183,7 +2198,6 @@ digraph depends {
 "libwebosi18n1" -> "libwebosi18n-lic" [style=dotted]
 "libwebp" -> "libwebp-lic" [style=dotted]
 "libx11-compose-data" -> "libx11-compose-data-lic" [style=dotted]
-"libx264-161" -> "x264-lic" [style=dotted]
 "libxkbcommon" -> "libx11-compose-data"
 "libxkbcommon" -> "libxkbcommon-lic" [style=dotted]
 "libxkbcommon" -> "wayland"
@@ -2673,6 +2687,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "android-system-image-tissot"
 "packagegroup-luneos-extended" -> "android-tools"
 "packagegroup-luneos-extended" -> "audio-service"
+"packagegroup-luneos-extended" -> "bluebinder"
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
 "packagegroup-luneos-extended" -> "certmgrd"
@@ -2708,6 +2723,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "mtp-server"
 "packagegroup-luneos-extended" -> "nyx-modules-hybris"
 "packagegroup-luneos-extended" -> "ofono"
+"packagegroup-luneos-extended" -> "ofono-ril-binder-plugin"
 "packagegroup-luneos-extended" -> "org.webosports.app.browser"
 "packagegroup-luneos-extended" -> "org.webosports.app.calculator"
 "packagegroup-luneos-extended" -> "org.webosports.app.camera"
@@ -2893,8 +2909,13 @@ digraph depends {
 "perl-module-mro" -> "perl-module-strict"
 "perl-module-mro" -> "perl-module-warnings"
 "perl-module-mro" -> "perl-module-xsloader"
+"perl-module-overloading" -> "perl"
+"perl-module-overloading" -> "perl-module-overload-numbers"
+"perl-module-overloading" -> "perl-module-warnings"
+"perl-module-overload-numbers" -> "perl"
 "perl-module-overload" -> "perl"
 "perl-module-overload" -> "perl-module-mro"
+"perl-module-overload" -> "perl-module-overloading"
 "perl-module-overload" -> "perl-module-warnings-register"
 "perl-module-pod-usage" -> "perl"
 "perl-module-pod-usage" -> "perl-module-config"
@@ -3377,6 +3398,7 @@ digraph depends {
 "python3-pycairo" -> "libcairo2"
 "python3-pycairo" -> "python3-pycairo-lic" [style=dotted]
 "python3-pydoc" -> "python3-core"
+"python3-pydoc" -> "python3-io"
 "python3-pydoc" -> "python3-lic" [style=dotted]
 "python3-pygobject" -> "gobject-introspection"
 "python3-pygobject" -> "libcairo2"
@@ -3714,7 +3736,8 @@ digraph depends {
 "sdparm" -> "sg3-utils"
 "sed" -> "sed-lic" [style=dotted]
 "sensorfw" -> "bash"
-"sensorfw" -> "libhybris"
+"sensorfw" -> "libgbinder1"
+"sensorfw" -> "libglib-2.0-0"
 "sensorfw" -> "libstdc++6"
 "sensorfw" -> "libsystemd0"
 "sensorfw" -> "libudev1"
