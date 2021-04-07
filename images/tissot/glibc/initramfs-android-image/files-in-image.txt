@@ -70,7 +70,7 @@ drwxr-xr-x root       root             4096 ./boot
 drwxr-xr-x root       root             4096 ./dev
 -rw-r--r-- root       root              280 ./distro.conf
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             1607 ./etc/build
+-rw-r--r-- root       root             1745 ./etc/build
 -rw-r--r-- root       root             2423 ./etc/busybox.links.nosuid
 -rw-r--r-- root       root               91 ./etc/busybox.links.suid
 drwxr-xr-x root       root             4096 ./etc/default
@@ -83,7 +83,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rwxr-xr-x root       root              641 ./etc/init.d/mdev
 -rw-r--r-- root       root               18 ./etc/issue
 -rw-r--r-- root       root               15 ./etc/issue.net
--rw-r--r-- root       root             1383 ./etc/ld.so.cache
+-rw-r--r-- root       root             1387 ./etc/ld.so.cache
 -rw-r--r-- root       root               33 ./etc/ld.so.conf
 drwxr-xr-x root       root             4096 ./etc/mdev
 -rw-r--r-- root       root              870 ./etc/mdev.conf
@@ -135,10 +135,10 @@ drwxr-xr-x root       root             4096 ./etc/udhcpc.d
 -rwxr-xr-x root       root             2652 ./etc/udhcpc.d/50default
 -rw-r--r-- root       root               15 ./etc/version
 -rw-r--r-- root       root            10979 ./functions
--rw-r--r-- root       root            20338 ./halium-boot.sh
+-rw-r--r-- root       root            22196 ./halium-boot.sh
 drwxr-xr-x root       root             4096 ./home
 drwx------ root       root             4096 ./home/root
--rwxr-xr-x root       root             4645 ./init
+-rwxr-xr-x root       root             8039 ./init
 drwxr-xr-x root       root             4096 ./lib
 -rwxr-xr-x root       root           157600 ./lib/ld-2.33.so
 lrwxrwxrwx root       root               10 ./lib/ld-linux-aarch64.so.1 -> ld-2.33.so
@@ -178,15 +178,8 @@ lrwxrwxrwx root       root               13 ./lib/librt.so.1 -> librt-2.33.so
 lrwxrwxrwx root       root               15 ./lib/libtinfo.so.5 -> libtinfo.so.5.9
 -rwxr-xr-x root       root            14296 ./lib/libutil-2.33.so
 lrwxrwxrwx root       root               15 ./lib/libutil.so.1 -> libutil-2.33.so
--rwxr-xr-x root       root            68240 ./lib/libuuid.so.1.3.0
-lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3.0
 -rwxr-xr-x root       root           133648 ./lib/libz.so.1.2.11
 lrwxrwxrwx root       root               14 ./lib/libz.so.1 -> libz.so.1.2.11
-drwxr-xr-x root       root             4096 ./lib/systemd
-drwxr-xr-x root       root             4096 ./lib/systemd/system
-drwxr-xr-x root       root             4096 ./lib/systemd/system-preset
--rw-r--r-- root       root               29 ./lib/systemd/system-preset/98-run-postinsts.preset
--rw-r--r-- root       root              357 ./lib/systemd/system/run-postinsts.service
 -rw-r--r-- root       root               56 ./machine.conf
 drwxr-xr-x root       root             4096 ./media
 drwxr-xr-x root       root             4096 ./media/cryptofs
@@ -200,396 +193,417 @@ drwxr-xr-x root       root             4096 ./opt
 dr-xr-xr-x root       root             4096 ./proc
 drwxr-xr-x root       root             4096 ./recovery
 drwxr-xr-x root       root             4096 ./recovery/acct
+lrwxrwxrwx root       root               11 ./recovery/bin -> /system/bin
 lrwxrwxrwx root       root               50 ./recovery/bugreports -> /data/user_de/0/com.android.shell/files/bugreports
-lrwxrwxrwx root       root               13 ./recovery/charger -> /sbin/healthd
-dr-x------ root       root             4096 ./recovery/config
+lrwxrwxrwx root       root               13 ./recovery/charger -> /sbin/charger
+dr-xr-xr-x root       root             4096 ./recovery/config
 drwxrwx--x root       root             4096 ./recovery/data
--rw-r--r-- root       root             3322 ./recovery/default.prop
+lrwxrwxrwx root       root               12 ./recovery/default.prop -> prop.default
 drwxr-xr-x root       root             4096 ./recovery/dev
 lrwxrwxrwx root       root               17 ./recovery/d -> /sys/kernel/debug
 drwxr-xr-x root       root             4096 ./recovery/etc
--rw-r--r-- root       root              317 ./recovery/etc/mke2fs.conf
--rw-r--r-- root       root              913 ./recovery/etc/recovery.fstab
+-rw-r--r-- root       root             1178 ./recovery/etc/mke2fs.conf
+-rw-r--r-- root       root              484 ./recovery/etc/mkshrc
+-rw-r--r-- root       root             1772 ./recovery/etc/recovery.fstab
+-rw-r--r-- root       root             1456 ./recovery/etc/twrp.fstab
 drwxr-xr-x root       root             4096 ./recovery/etc/update_engine
 -rw-r--r-- root       root              451 ./recovery/etc/update_engine/update-payload-key.pub.pem
--rw-r--r-- root       root            19291 ./recovery/file_contexts
--rw-r--r-- root       root            76072 ./recovery/file_contexts.bin
--rw-r----- root       root             1959 ./recovery/fstab.qcom
--rwxr-x--- root       root          1295528 ./recovery/init
--rwxr-x--- root       root             3123 ./recovery/init.rc
--rwxr-x--- root       root             2366 ./recovery/init.recovery.qcom.rc
+-rw-r--r-- root       root            33637 ./recovery/file_contexts
+-rw-r--r-- root       root           674825 ./recovery/file_contexts.bin
+-rwxr-x--- root       root          2146568 ./recovery/init
+-rwxr-x--- root       root             3152 ./recovery/init.rc
+-rwxr-x--- root       root              103 ./recovery/init.recovery.hlthchrg.rc
+-rwxr-x--- root       root               52 ./recovery/init.recovery.ldconfig.rc
+-rwxr-x--- root       root               35 ./recovery/init.recovery.mksh.rc
+-rwxr-x--- root       root             2400 ./recovery/init.recovery.qcom.rc
 -rwxr-x--- root       root              111 ./recovery/init.recovery.service.rc
--rwxr-x--- root       root             3827 ./recovery/init.recovery.usb.rc
+-rwxr-x--- root       root             5259 ./recovery/init.recovery.usb.rc
 drwxr-xr-x root       root             4096 ./recovery/license
 drwxr-xr-x root       root             4096 ./recovery/license/openaes
 -rw-r--r-- root       root             1571 ./recovery/license/openaes/openaes_license
 drwxr-xr-x root       root             4096 ./recovery/mnt
+drwxr-xr-x root       root             4096 ./recovery/odm
+lrwxrwxrwx root       root               15 ./recovery/odm/app -> /vendor/odm/app
+lrwxrwxrwx root       root               15 ./recovery/odm/bin -> /vendor/odm/bin
+lrwxrwxrwx root       root               20 ./recovery/odm/firmware -> /vendor/odm/firmware
+lrwxrwxrwx root       root               21 ./recovery/odm/framework -> /vendor/odm/framework
+lrwxrwxrwx root       root               17 ./recovery/odm/lib64 -> /vendor/odm/lib64
+lrwxrwxrwx root       root               15 ./recovery/odm/lib -> /vendor/odm/lib
+lrwxrwxrwx root       root               19 ./recovery/odm/overlay -> /vendor/odm/overlay
+lrwxrwxrwx root       root               20 ./recovery/odm/priv-app -> /vendor/odm/priv-app
 drwxr-xr-x root       root             4096 ./recovery/oem
+-rw-r--r-- root       root            23786 ./recovery/plat_file_contexts
+-rw-r--r-- root       root             7212 ./recovery/plat_hwservice_contexts
+-rw-r--r-- root       root             6687 ./recovery/plat_property_contexts
+-rw-r--r-- root       root             1315 ./recovery/plat_seapp_contexts
+-rw-r--r-- root       root            14057 ./recovery/plat_service_contexts
 drwxr-xr-x root       root             4096 ./recovery/postinstall
 drwxr-xr-x root       root             4096 ./recovery/proc
--rw-r--r-- root       root             4737 ./recovery/property_contexts
+lrwxrwxrwx root       root               15 ./recovery/product -> /system/product
+-rw-r--r-- root       root             3065 ./recovery/prop.default
 drwxr-xr-x root       root             4096 ./recovery/res
 drwxr-xr-x root       root             4096 ./recovery/res/images
 -rw-r--r-- root       root                0 ./recovery/res/images/dummyfile
+-rw-r--r-- root       root            13307 ./recovery/res/images/font.png
 -rw-r--r-- root       root             1387 ./recovery/res/keys
 drwxr-x--- root       root            12288 ./recovery/sbin
--rwxr-x--- root       root          1132216 ./recovery/sbin/adbd
-lrwxrwxrwx root       root                7 ./recovery/sbin/adjtimex -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/arp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ash -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/awk -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/base64 -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/basename -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/bbconfig -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/blkid -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/blockdev -> busybox
--rwxr-x--- root       root            10360 ./recovery/sbin/bootctl
-lrwxrwxrwx root       root                7 ./recovery/sbin/brctl -> busybox
--rwxr-x--- root       root            63680 ./recovery/sbin/bu
-lrwxrwxrwx root       root                7 ./recovery/sbin/bunzip2 -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/[ -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/[[ -> busybox
--rwxr-x--- root       root          1047192 ./recovery/sbin/busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/bzcat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/bzip2 -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cal -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/catv -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chattr -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chcon -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chgrp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chmod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chown -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chroot -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/chvt -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/clear -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cmp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/comm -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cpio -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/crond -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/crontab -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/cut -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/date -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dc -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/deallocvt -> busybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/acpi -> toybox
+-rwxr-x--- root       root          1381600 ./recovery/sbin/adbd
+-rwxr-x--- root       root           136104 ./recovery/sbin/android.hardware.boot@1.0.so
+-rwxr-x--- root       root           201944 ./recovery/sbin/android.hardware.confirmationui@1.0.so
+-rwxr-x--- root       root           136088 ./recovery/sbin/android.hardware.gatekeeper@1.0.so
+-rwxr-x--- root       root           203040 ./recovery/sbin/android.hardware.keymaster@3.0.so
+-rwxr-x--- root       root           203720 ./recovery/sbin/android.hardware.keymaster@4.0.so
+-rwxr-x--- root       root           135808 ./recovery/sbin/android.hardware.vibrator@1.0.so
+-rwxr-x--- root       root           135960 ./recovery/sbin/android.hardware.vibrator@1.1.so
+-rwxr-x--- root       root           136088 ./recovery/sbin/android.hardware.vibrator@1.2.so
+-rwxr-x--- root       root           135928 ./recovery/sbin/android.hardware.weaver@1.0.so
+-rwxr-x--- root       root           135736 ./recovery/sbin/android.hidl.token@1.0.so
+-rwxr-x--- root       root           136064 ./recovery/sbin/android.system.wifi.keystore@1.0.so
+lrwxrwxrwx root       root                6 ./recovery/sbin/arp -> toybox
+-rwxr-x--- root       root           136400 ./recovery/sbin/avbctl
+-rwxr-x--- root       root           203560 ./recovery/sbin/awk
+lrwxrwxrwx root       root                6 ./recovery/sbin/base64 -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/basename -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/blkid -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/blockdev -> toybox
+-rwxr-x--- root       root            68976 ./recovery/sbin/bootctl
+-rwxr-x--- root       root            68712 ./recovery/sbin/bu
+lrwxrwxrwx root       root                6 ./recovery/sbin/bzcat -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cal -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cat -> toybox
+-rwxr-x--- root       root          1487704 ./recovery/sbin/charger
+lrwxrwxrwx root       root                6 ./recovery/sbin/chattr -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/chcon -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/chgrp -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/chmod -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/chown -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/chroot -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cksum -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/clear -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cmp -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/comm -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cpio -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cp -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/cut -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/date -> toybox
+-rwxr-x--- root       root            69008 ./recovery/sbin/dd
 drwxr-xr-x root       root             4096 ./recovery/sbin/.debug
--rwxr-xr-x root       root           202216 ./recovery/sbin/.debug/libc.so
--rwxr-xr-x root       root           237200 ./recovery/sbin/.debug/linker
--rwxr-xr-x root       root           224160 ./recovery/sbin/.debug/linker64
-lrwxrwxrwx root       root                7 ./recovery/sbin/depmod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/devmem -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/df -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/diff -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dirname -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dmesg -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dnsd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/dos2unix -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/du -> busybox
--rwxr-x--- root       root             6264 ./recovery/sbin/dump_image
--rwxr-x--- root       root           204984 ./recovery/sbin/e2fsck
-lrwxrwxrwx root       root                7 ./recovery/sbin/echo -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ed -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/egrep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/env -> busybox
--rwxr-x--- root       root             6264 ./recovery/sbin/erase_image
--rwxr-x--- root       root           191096 ./recovery/sbin/exfat-fuse
-lrwxrwxrwx root       root                7 ./recovery/sbin/expand -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/expr -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/false -> busybox
--rwxr-x--- root       root            26888 ./recovery/sbin/fatlabel
-lrwxrwxrwx root       root                7 ./recovery/sbin/fbsplash -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fdisk -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fgconsole -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fgrep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/find -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/findfs -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/flashcp -> busybox
--rwxr-x--- root       root             6264 ./recovery/sbin/flash_image
-lrwxrwxrwx root       root                7 ./recovery/sbin/flash_lock -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/flash_unlock -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/flock -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fold -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/free -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/freeramdisk -> busybox
--rwxr-x--- root       root            10432 ./recovery/sbin/fsck.exfat
--rwxr-x--- root       root            55568 ./recovery/sbin/fsck.fat
-lrwxrwxrwx root       root                7 ./recovery/sbin/fstrim -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fsync -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ftpget -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ftpput -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/fuser -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/getenforce -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/getopt -> busybox
+-rwxr-xr-x root       root           381064 ./recovery/sbin/.debug/adbd
+-rwxr-xr-x root       root          2906080 ./recovery/sbin/.debug/libclang_rt.ubsan_standalone-aarch64-android.so
+-rwxr-xr-x root       root           203568 ./recovery/sbin/.debug/libc.so
+-rwxr-xr-x root       root            54752 ./recovery/sbin/.debug/libdexfile.so
+-rwxr-xr-x root       root           355408 ./recovery/sbin/.debug/linker
+-rwxr-xr-x root       root           429528 ./recovery/sbin/.debug/linker64
+lrwxrwxrwx root       root                6 ./recovery/sbin/df -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/diff -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/dirname -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/dmesg -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/dos2unix -> toybox
+-rwxr-x--- root       root            68336 ./recovery/sbin/dump_image
+lrwxrwxrwx root       root                6 ./recovery/sbin/du -> toybox
+-rwxr-x--- root       root           282616 ./recovery/sbin/e2fsck
+-rwxr-x--- root       root            68992 ./recovery/sbin/e2fsdroid
+lrwxrwxrwx root       root                6 ./recovery/sbin/echo -> toybox
+lrwxrwxrwx root       root                4 ./recovery/sbin/egrep -> grep
+lrwxrwxrwx root       root                6 ./recovery/sbin/env -> toybox
+-rwxr-x--- root       root            68336 ./recovery/sbin/erase_image
+-rwxr-x--- root       root           202584 ./recovery/sbin/exfat-fuse
+lrwxrwxrwx root       root                6 ./recovery/sbin/expand -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/expr -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/fallocate -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/false -> toybox
+-rwxr-x--- root       root            68776 ./recovery/sbin/fatlabel
+lrwxrwxrwx root       root                4 ./recovery/sbin/fgrep -> grep
+lrwxrwxrwx root       root                6 ./recovery/sbin/find -> toybox
+-rwxr-x--- root       root            68344 ./recovery/sbin/flash_image
+lrwxrwxrwx root       root                6 ./recovery/sbin/flock -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/fmt -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/freeramdisk -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/free -> toybox
+-rwxr-x--- root       root            68400 ./recovery/sbin/fsck.exfat
+-rwxr-x--- root       root           136128 ./recovery/sbin/fsck.f2fs
+-rwxr-x--- root       root            69208 ./recovery/sbin/fsck.fat
+-rwxr-x--- root       root            68624 ./recovery/sbin/fsck.ntfs
+lrwxrwxrwx root       root                6 ./recovery/sbin/fsfreeze -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/fstype -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ftpget -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ftpput -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/getenforce -> toybox
+lrwxrwxrwx root       root                7 ./recovery/sbin/getevent -> toolbox
 lrwxrwxrwx root       root                7 ./recovery/sbin/getprop -> toolbox
-lrwxrwxrwx root       root                7 ./recovery/sbin/getsebool -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/grep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/groups -> busybox
-lrwxrwxrwx root       root                4 ./recovery/sbin/gunzip -> pigz
-lrwxrwxrwx root       root                4 ./recovery/sbin/gzip -> pigz
-lrwxrwxrwx root       root                7 ./recovery/sbin/halt -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/head -> busybox
--rwxr-x--- root       root           791352 ./recovery/sbin/healthd
-lrwxrwxrwx root       root                7 ./recovery/sbin/hexdump -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/hwclock -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/id -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ifconfig -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/inetd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/insmod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/install -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ionice -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/iostat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ip -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/killall5 -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/killall -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/kill -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/less -> busybox
--rwxr-x--- root       root            43056 ./recovery/sbin/libaosprecovery.so
--rwxr-x--- root       root            67704 ./recovery/sbin/libbacktrace.so
--rwxr-x--- root       root            47304 ./recovery/sbin/libbase.so
--rwxr-x--- root       root           501960 ./recovery/sbin/libbinder.so
--rwxr-x--- root       root           174864 ./recovery/sbin/libblkid.so
--rwxr-x--- root       root            10216 ./recovery/sbin/libbmlutils.so
--rwxr-x--- root       root            18568 ./recovery/sbin/libbootloader_message.so
--rwxr-x--- root       root            10360 ./recovery/sbin/libcrecovery.so
--rwxr-x--- root       root            10288 ./recovery/sbin/libcryptfs_hw.so
--rwxr-x--- root       root            22592 ./recovery/sbin/libcryptfslollipop.so
--rwxr-x--- root       root          1146864 ./recovery/sbin/libcrypto.so
--rwxr-x--- root       root           915800 ./recovery/sbin/libc++.so
--rwxr-x--- root       root           799480 ./recovery/sbin/libc.so
--rwxr-x--- root       root           121688 ./recovery/sbin/libcutils.so
--rwxr-x--- root       root             5968 ./recovery/sbin/libdl.so
--rwxr-x--- root       root            96456 ./recovery/sbin/libe4crypt.so
--rwxr-x--- root       root            47232 ./recovery/sbin/libexfat_twrp.so
--rwxr-x--- root       root            46952 ./recovery/sbin/libext2_blkid.so
--rwxr-x--- root       root            14392 ./recovery/sbin/libext2_com_err.so
--rwxr-x--- root       root            30840 ./recovery/sbin/libext2_e2p.so
--rwxr-x--- root       root           240792 ./recovery/sbin/libext2fs.so
--rwxr-x--- root       root            22656 ./recovery/sbin/libext2_profile.so
--rwxr-x--- root       root            39064 ./recovery/sbin/libext2_quota.so
--rwxr-x--- root       root            14392 ./recovery/sbin/libext2_uuid.so
--rwxr-x--- root       root            79928 ./recovery/sbin/libext4_utils.so
--rwxr-x--- root       root            10288 ./recovery/sbin/libflashutils.so
--rwxr-x--- root       root           464944 ./recovery/sbin/libft2.so
--rwxr-x--- root       root            10224 ./recovery/sbin/libfusesideload.so
--rwxr-x--- root       root            22512 ./recovery/sbin/libgatekeeper.so
--rwxr-x--- root       root            14328 ./recovery/sbin/libgpt_twrp.so
--rwxr-x--- root       root            10216 ./recovery/sbin/libhardware.so
--rwxr-x--- root       root           186544 ./recovery/sbin/libkeymaster1.so
--rwxr-x--- root       root            67744 ./recovery/sbin/libkeymaster_messages.so
--rwxr-x--- root       root           121040 ./recovery/sbin/libkeystore_binder.so
--rwxr-x--- root       root            68392 ./recovery/sbin/liblog.so
--rwxr-x--- root       root           153784 ./recovery/sbin/liblzma.so
--rwxr-x--- root       root           121424 ./recovery/sbin/libminadbd.so
--rwxr-x--- root       root           319824 ./recovery/sbin/libminuitwrp.so
--rwxr-x--- root       root            26600 ./recovery/sbin/libminzip.so
--rwxr-x--- root       root            14432 ./recovery/sbin/libmmcutils.so
--rwxr-x--- root       root           223424 ./recovery/sbin/libm.so
--rwxr-x--- root       root            22576 ./recovery/sbin/libmtdutils.so
--rwxr-x--- root       root            14384 ./recovery/sbin/libnetd_client.so
--rwxr-x--- root       root            22520 ./recovery/sbin/libopenaes.so
--rwxr-x--- root       root            10224 ./recovery/sbin/libpackagelistparser.so
--rwxr-x--- root       root           112712 ./recovery/sbin/libpcre.so
--rwxr-x--- root       root           210920 ./recovery/sbin/libpng.so
--rwxr-x--- root       root           145624 ./recovery/sbin/libprotobuf-cpp-lite.so
--rwxr-x--- root       root            92424 ./recovery/sbin/libselinux.so
--rwxr-x--- root       root           141344 ./recovery/sbin/libsoftkeymasterdevice.so
--rwxr-x--- root       root            22768 ./recovery/sbin/libsoftkeymaster.so
--rwxr-x--- root       root            30968 ./recovery/sbin/libsparse.so
--rwxr-x--- root       root            14416 ./recovery/sbin/libstdc++.so
--rwxr-x--- root       root            47176 ./recovery/sbin/libtar.so
--rwxr-x--- root       root            10216 ./recovery/sbin/libtwadbbu.so
--rwxr-x--- root       root            14392 ./recovery/sbin/libtwrpdigest.so
--rwxr-x--- root       root           203312 ./recovery/sbin/libtwrpmtp.so
--rwxr-x--- root       root           112840 ./recovery/sbin/libunwind.so
--rwxr-x--- root       root            18408 ./recovery/sbin/libusbhost.so
--rwxr-x--- root       root           100520 ./recovery/sbin/libutil-linux.so
--rwxr-x--- root       root           137432 ./recovery/sbin/libutils.so
--rwxr-x--- root       root            88216 ./recovery/sbin/libz.so
--rwxr-x--- root       root           396836 ./recovery/sbin/linker
--rwxr-x--- root       root           713512 ./recovery/sbin/linker64
-lrwxrwxrwx root       root                7 ./recovery/sbin/ln -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/losetup -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lsattr -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ls -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lsmod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lspci -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lsusb -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lzcat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lzma -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lzop -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/lzopcat -> busybox
--rwxr-x--- root       root            10440 ./recovery/sbin/make_ext4fs
-lrwxrwxrwx root       root                7 ./recovery/sbin/man -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/matchpathcon -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/md5sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mesg -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mkdir -> busybox
--rwxr-x--- root       root            51464 ./recovery/sbin/mke2fs
--rwxr-x--- root       root            24592 ./recovery/sbin/mkexfatfs
-lrwxrwxrwx root       root                7 ./recovery/sbin/mkfifo -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mkfs.ext2 -> busybox
--rwxr-x--- root       root            27384 ./recovery/sbin/mkfs.fat
-lrwxrwxrwx root       root                7 ./recovery/sbin/mknod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mkswap -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mktemp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/modinfo -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/modprobe -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/more -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mount -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mountpoint -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mpstat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/mv -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nanddump -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nandwrite -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nbd-client -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nc -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/netstat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nice -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nmeter -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nohup -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/nslookup -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ntpd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/od -> busybox
--rwxr-x--- root       root            10360 ./recovery/sbin/openaes
-lrwxrwxrwx root       root                7 ./recovery/sbin/openvt -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/patch -> busybox
+-rwxr-x--- root       root            70352 ./recovery/sbin/grep
+lrwxrwxrwx root       root                6 ./recovery/sbin/groups -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/gunzip -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/gzip -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/head -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/help -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/hostname -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/hwclock -> toybox
+-rwxr-x--- root       root           136592 ./recovery/sbin/hwservicemanager
+lrwxrwxrwx root       root                6 ./recovery/sbin/id -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ifconfig -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/inotifyd -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/insmod -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/install -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ionice -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/iorenice -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/iotop -> toybox
+-rwxr-x--- root       root           340800 ./recovery/sbin/keystore
+-rwxr-x--- root       root            68376 ./recovery/sbin/keystore_auth
+-rwxr-x--- root       root            68448 ./recovery/sbin/keystore_cli
+lrwxrwxrwx root       root                6 ./recovery/sbin/killall -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/kill -> toybox
+-rwxr-x--- root       root             1669 ./recovery/sbin/ld.config.txt
+-rwxr-x--- root       root           998336 ./recovery/sbin/libaosprecovery.so
+-rwxr-x--- root       root            68008 ./recovery/sbin/libasyncio.so
+-rwxr-x--- root       root           134600 ./recovery/sbin/libbacktrace.so
+-rwxr-x--- root       root            69376 ./recovery/sbin/libbase.so
+-rwxr-x--- root       root           598448 ./recovery/sbin/libbinder.so
+-rwxr-x--- root       root           201344 ./recovery/sbin/libblkid.so
+-rwxr-x--- root       root            68168 ./recovery/sbin/libbmlutils.so
+-rwxr-x--- root       root            68488 ./recovery/sbin/libbootloader_message_twrp.so
+-rwxr-x--- root       root           451376 ./recovery/sbin/libclang_rt.ubsan_standalone-aarch64-android.so
+-rwxr-x--- root       root            68280 ./recovery/sbin/libcrecovery.so
+-rwxr-x--- root       root            68576 ./recovery/sbin/libcryptfsfde.so
+-rwxr-x--- root       root            68144 ./recovery/sbin/libcryptfs_hw.so
+-rwxr-x--- root       root          1190792 ./recovery/sbin/libcrypto.so
+-rwxr-x--- root       root            68016 ./recovery/sbin/libcrypto_utils.so
+-rwxr-x--- root       root           926888 ./recovery/sbin/libc++.so
+-rwxr-x--- root       root           925656 ./recovery/sbin/libc.so
+-rwxr-x--- root       root           134936 ./recovery/sbin/libcutils.so
+-rwxr-x--- root       root           264072 ./recovery/sbin/libdexfile.so
+-rwxr-x--- root       root            67496 ./recovery/sbin/libdl.so
+-rwxr-x--- root       root           201928 ./recovery/sbin/libe4crypt.so
+-rwxr-x--- root       root            68440 ./recovery/sbin/libexfat_twrp.so
+-rwxr-x--- root       root            72856 ./recovery/sbin/libext2_blkid.so
+-rwxr-x--- root       root            68256 ./recovery/sbin/libext2_com_err.so
+-rwxr-x--- root       root            68360 ./recovery/sbin/libext2_e2p.so
+-rwxr-x--- root       root           333952 ./recovery/sbin/libext2fs.so
+-rwxr-x--- root       root            68192 ./recovery/sbin/libext2_misc.so
+-rwxr-x--- root       root            68440 ./recovery/sbin/libext2_profile.so
+-rwxr-x--- root       root            68912 ./recovery/sbin/libext2_quota.so
+-rwxr-x--- root       root            68280 ./recovery/sbin/libext2_uuid.so
+-rwxr-x--- root       root            68328 ./recovery/sbin/libext4_utils.so
+-rwxr-x--- root       root            68216 ./recovery/sbin/libflashutils.so
+-rwxr-x--- root       root           664456 ./recovery/sbin/libft2.so
+-rwxr-x--- root       root           135304 ./recovery/sbin/libfuse-lite.so
+-rwxr-x--- root       root            68216 ./recovery/sbin/libfusesideload.so
+-rwxr-x--- root       root            68192 ./recovery/sbin/libgatekeeper.so
+-rwxr-x--- root       root            68192 ./recovery/sbin/libgpt_twrp.so
+-rwxr-x--- root       root            68328 ./recovery/sbin/libhardware_legacy.so
+-rwxr-x--- root       root            68176 ./recovery/sbin/libhardware.so
+-rwxr-x--- root       root           201040 ./recovery/sbin/libhidlbase.so
+-rwxr-x--- root       root           463664 ./recovery/sbin/libhidl-gen-utils.so
+-rwxr-x--- root       root           468416 ./recovery/sbin/libhidltransport.so
+-rwxr-x--- root       root           201784 ./recovery/sbin/libhwbinder.so
+-rwxr-x--- root       root           203064 ./recovery/sbin/libkeymaster4support.so
+-rwxr-x--- root       root           134448 ./recovery/sbin/libkeymaster_messages.so
+-rwxr-x--- root       root           267632 ./recovery/sbin/libkeymaster_portable.so
+-rwxr-x--- root       root           134688 ./recovery/sbin/libkeystore_aidl.so
+-rwxr-x--- root       root            69544 ./recovery/sbin/libkeystore_binder.so
+-rwxr-x--- root       root            69488 ./recovery/sbin/libkeystore_parcelables.so
+-rwxr-x--- root       root            68024 ./recovery/sbin/libkeyutils.so
+-rwxr-x--- root       root           136792 ./recovery/sbin/liblog.so
+-rwxr-x--- root       root            68264 ./recovery/sbin/liblogwrap.so
+-rwxr-x--- root       root           200320 ./recovery/sbin/liblzma.so
+-rwxr-x--- root       root           203264 ./recovery/sbin/libminadbd.so
+-rwxr-x--- root       root           333432 ./recovery/sbin/libminuitwrp.so
+-rwxr-x--- root       root            68240 ./recovery/sbin/libminzip.so
+-rwxr-x--- root       root            68320 ./recovery/sbin/libmmcutils.so
+-rwxr-x--- root       root           265472 ./recovery/sbin/libm.so
+-rwxr-x--- root       root            68280 ./recovery/sbin/libmtdutils.so
+-rwxr-x--- root       root            68304 ./recovery/sbin/libnetd_client.so
+-rwxr-x--- root       root           331904 ./recovery/sbin/libntfs-3g.so
+-rwxr-x--- root       root            68200 ./recovery/sbin/libopenaes.so
+-rwxr-x--- root       root            68712 ./recovery/sbin/libpackagelistparser.so
+-rwxr-x--- root       root           134088 ./recovery/sbin/libpcre2.so
+-rwxr-x--- root       root           265480 ./recovery/sbin/libpng.so
+-rwxr-x--- root       root           266384 ./recovery/sbin/libprotobuf-cpp-lite.so
+-rwxr-x--- root       root           135736 ./recovery/sbin/libselinux.so
+-rwxr-x--- root       root            68840 ./recovery/sbin/libservices.so
+-rwxr-x--- root       root           202576 ./recovery/sbin/libsoftkeymasterdevice.so
+-rwxr-x--- root       root            68736 ./recovery/sbin/libsparse.so
+-rwxr-x--- root       root            68232 ./recovery/sbin/libstdc++.so
+-rwxr-x--- root       root            68352 ./recovery/sbin/libtar.so
+-rwxr-x--- root       root           134752 ./recovery/sbin/libtinyxml2.so
+-rwxr-x--- root       root            68592 ./recovery/sbin/libtwadbbu.so
+-rwxr-x--- root       root            68320 ./recovery/sbin/libtwrpdigest.so
+-rwxr-x--- root       root           266176 ./recovery/sbin/libtwrpmtp-ffs.so
+-rwxr-x--- root       root           135136 ./recovery/sbin/libunwind.so
+-rwxr-x--- root       root           332024 ./recovery/sbin/libunwindstack.so
+-rwxr-x--- root       root            68232 ./recovery/sbin/libusbhost.so
+-rwxr-x--- root       root           134232 ./recovery/sbin/libutil-linux.so
+-rwxr-x--- root       root            68960 ./recovery/sbin/libutilscallstack.so
+-rwxr-x--- root       root           134920 ./recovery/sbin/libutils.so
+-rwxr-x--- root       root           535976 ./recovery/sbin/libvintf.so
+-rwxr-x--- root       root            68288 ./recovery/sbin/libvndksupport.so
+-rwxr-x--- root       root            68472 ./recovery/sbin/libwifikeystorehal.so
+-rwxr-x--- root       root            68680 ./recovery/sbin/libziparchive.so
+-rwxr-x--- root       root           134040 ./recovery/sbin/libz.so
+-rwxr-x--- root       root           805428 ./recovery/sbin/linker
+-rwxr-x--- root       root          1315104 ./recovery/sbin/linker64
+-rwxr-x--- root       root            68416 ./recovery/sbin/listxattr
+lrwxrwxrwx root       root                6 ./recovery/sbin/ln -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/load_policy -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/logname -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/losetup -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/lsattr -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/lsmod -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/lsof -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/lspci -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ls -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/lsusb -> toybox
+-rwxr-x--- root       root           303160 ./recovery/sbin/magiskboot
+lrwxrwxrwx root       root                6 ./recovery/sbin/makedevs -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/md5sum -> toybox
+-rwxr-x--- root       root            12382 ./recovery/sbin/me.twrp.twrpapp.apk
+lrwxrwxrwx root       root                6 ./recovery/sbin/mkdir -> toybox
+-rwxr-x--- root       root            68984 ./recovery/sbin/mke2fs
+-rwxr-x--- root       root            74736 ./recovery/sbin/mkexfatfs
+lrwxrwxrwx root       root                6 ./recovery/sbin/mkfifo -> toybox
+-rwxr-x--- root       root           673424 ./recovery/sbin/mkfs.f2fs
+-rwxr-x--- root       root            69192 ./recovery/sbin/mkfs.fat
+-rwxr-x--- root       root           134464 ./recovery/sbin/mkfs.ntfs
+lrwxrwxrwx root       root                6 ./recovery/sbin/mknod -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/mkswap -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/mktemp -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/modinfo -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/more -> toybox
+-rwxr-x--- root       root            69640 ./recovery/sbin/mount.ntfs
+lrwxrwxrwx root       root                6 ./recovery/sbin/mountpoint -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/mount -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/mv -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nbd-client -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nc -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/netcat -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/netstat -> toybox
+lrwxrwxrwx root       root                7 ./recovery/sbin/newfs_msdos -> toolbox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nice -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nl -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nohup -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/nproc -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/od -> toybox
+-rwxr-x--- root       root            68344 ./recovery/sbin/openaes
+lrwxrwxrwx root       root                6 ./recovery/sbin/partprobe -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/paste -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/patch -> toybox
 -rwxr-x--- root       root              287 ./recovery/sbin/permissive.sh
-lrwxrwxrwx root       root                7 ./recovery/sbin/pgrep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pidof -> busybox
--rwxr-x--- root       root            59680 ./recovery/sbin/pigz
-lrwxrwxrwx root       root                7 ./recovery/sbin/ping -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pipe_progress -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pkill -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pmap -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/poweroff -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/printenv -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/printf -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ps -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pstree -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pwd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/pwdx -> busybox
--rwxr-x--- root       root            14696 ./recovery/sbin/qseecomd
-lrwxrwxrwx root       root                7 ./recovery/sbin/rdate -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rdev -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/readlink -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/realpath -> busybox
--rwxr-x--- root       root             6264 ./recovery/sbin/reboot
--rwxr-x--- root       root           993656 ./recovery/sbin/recovery
-lrwxrwxrwx root       root                7 ./recovery/sbin/renice -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/reset -> busybox
--rwxr-x--- root       root            43272 ./recovery/sbin/resize2fs
-lrwxrwxrwx root       root                7 ./recovery/sbin/resize -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/restorecon -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rev -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rm -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rmdir -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rmmod -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/route -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/runcon -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/run-parts -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/rx -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sed -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/selinuxenabled -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/seq -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sestatus -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setconsole -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setenforce -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setfiles -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setkeycodes -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setprop -> toolbox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setsebool -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setserial -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/setsid -> busybox
--rwxr-x--- root       root           166168 ./recovery/sbin/sgdisk
-lrwxrwxrwx root       root                7 ./recovery/sbin/sha1sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sha256sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sha3sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sha512sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sh -> busybox
--rwxr-x--- root       root            10360 ./recovery/sbin/simg2img
-lrwxrwxrwx root       root                7 ./recovery/sbin/sleep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/smemcap -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sort -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/split -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/start -> toolbox
-lrwxrwxrwx root       root                7 ./recovery/sbin/stat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/stop -> toolbox
-lrwxrwxrwx root       root                7 ./recovery/sbin/strings -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/stty -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sum -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/swapoff -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/swapon -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sync -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/sysctl -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tac -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tail -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tar -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/taskset -> busybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pgrep -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pidof -> toybox
+-rwxr-x--- root       root            69040 ./recovery/sbin/pigz
+lrwxrwxrwx root       root                6 ./recovery/sbin/pivot_root -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pkill -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pmap -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/printenv -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/printf -> toybox
+-rwxr-x--- root       root              350 ./recovery/sbin/privapp-permissions-twrpapp.xml
+lrwxrwxrwx root       root                6 ./recovery/sbin/ps -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pwd -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/pwdx -> toybox
+-rwxr-x--- root       root            68976 ./recovery/sbin/qseecomd
+lrwxrwxrwx root       root                6 ./recovery/sbin/readahead -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/readlink -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/realpath -> toybox
+-rwxr-x--- root       root            68392 ./recovery/sbin/reboot
+-rwxr-x--- root       root           869368 ./recovery/sbin/recovery
+lrwxrwxrwx root       root                6 ./recovery/sbin/renice -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/reset -> toybox
+-rwxr-x--- root       root            68896 ./recovery/sbin/resize2fs
+lrwxrwxrwx root       root                6 ./recovery/sbin/restorecon -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/rev -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/rfkill -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/rmdir -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/rmmod -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/rm -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/route -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/runcon -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sed -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/seq -> toybox
+-rwxr-x--- root       root            68816 ./recovery/sbin/servicemanager
+lrwxrwxrwx root       root                6 ./recovery/sbin/setenforce -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/setprop -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/setsid -> toybox
+-rwxr-x--- root       root           203096 ./recovery/sbin/sgdisk
+-rwxr-x--- root       root           335664 ./recovery/sbin/sh
+lrwxrwxrwx root       root                6 ./recovery/sbin/sha1sum -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sha224sum -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sha256sum -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sha384sum -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sha512sum -> toybox
+-rwxr-x--- root       root            68352 ./recovery/sbin/simg2img
+lrwxrwxrwx root       root                6 ./recovery/sbin/sleep -> toybox
+-rwxr-x--- root       root          1006896 ./recovery/sbin/sload.f2fs
+lrwxrwxrwx root       root                6 ./recovery/sbin/sort -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/split -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/start -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/stat -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/stop -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/strings -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/stty -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/swapoff -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/swapon -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sync -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/sysctl -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tac -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tail -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tar -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/taskset -> toybox
 -rwxr-x--- root       root                1 ./recovery/sbin/teamwin
-lrwxrwxrwx root       root                7 ./recovery/sbin/tee -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/telnet -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/telnetd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/test -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tftp -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tftpd -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/time -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/timeout -> busybox
--rwxr-x--- root       root            10432 ./recovery/sbin/toolbox
-lrwxrwxrwx root       root                7 ./recovery/sbin/top -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/touch -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/traceroute -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/tr -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/true -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/ttysize -> busybox
--rwxr-x--- root       root            43232 ./recovery/sbin/tune2fs
--rwxr-x--- root       root            10360 ./recovery/sbin/twrp
+lrwxrwxrwx root       root                6 ./recovery/sbin/tee -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/telnet -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/test -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/timeout -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/time -> toybox
+-rwxr-x--- root       root           135104 ./recovery/sbin/toolbox
+lrwxrwxrwx root       root                6 ./recovery/sbin/top -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/touch -> toybox
+-rwxr-x--- root       root           473928 ./recovery/sbin/toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/traceroute6 -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/traceroute -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tr -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/true -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/truncate -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tty -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/tunctl -> toybox
+-rwxr-x--- root       root            68848 ./recovery/sbin/tune2fs
+-rwxr-x--- root       root            68432 ./recovery/sbin/twrp
 lrwxrwxrwx root       root                7 ./recovery/sbin/ueventd -> ../init
-lrwxrwxrwx root       root                7 ./recovery/sbin/umount -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uname -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uncompress -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/unexpand -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uniq -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/unix2dos -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/unlzma -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/unlzop -> busybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/ulimit -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/umount -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/uname -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/uniq -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/unix2dos -> toybox
 lrwxrwxrwx root       root                4 ./recovery/sbin/unpigz -> pigz
-lrwxrwxrwx root       root                7 ./recovery/sbin/unxz -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/unzip -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uptime -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/usleep -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uudecode -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/uuencode -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/vi -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/watch -> busybox
+-rwxr-x--- root       root            68680 ./recovery/sbin/unzip
+-rwxr-x--- root       root          2235592 ./recovery/sbin/update_engine_sideload
+lrwxrwxrwx root       root                6 ./recovery/sbin/uptime -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/usleep -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/vconfig -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/vmstat -> toybox
 lrwxrwxrwx root       root                7 ./recovery/sbin/watchdogd -> ../init
-lrwxrwxrwx root       root                7 ./recovery/sbin/wc -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/wget -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/which -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/whoami -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/xargs -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/xz -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/xzcat -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/yes -> busybox
-lrwxrwxrwx root       root                7 ./recovery/sbin/zcat -> busybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/watch -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/wc -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/which -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/whoami -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/xargs -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/xxd -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/yes -> toybox
+lrwxrwxrwx root       root                6 ./recovery/sbin/zcat -> toybox
+-rwxr-x--- root       root           205688 ./recovery/sbin/zip
 drwxrwxrwx root       root             4096 ./recovery/sdcard
--rw-r--r-- root       root              869 ./recovery/seapp_contexts
--rw-r--r-- root       root               73 ./recovery/selinux_version
--rw-r--r-- root       root           181740 ./recovery/sepolicy
--rw-r--r-- root       root            11339 ./recovery/service_contexts
+-rw-r--r-- root       root           387957 ./recovery/sepolicy
 drwxr-x--x root       root             4096 ./recovery/storage
 drwxr-xr-x root       root             4096 ./recovery/sys
-drwxr-xr-x root       root             4096 ./recovery/system
-drwxr-xr-x root       root             4096 ./recovery/system/bin
-drwxr-xr-x root       root             4096 ./recovery/system/usr
-drwxr-xr-x root       root             4096 ./recovery/system/usr/share
-drwxr-xr-x root       root             4096 ./recovery/system/usr/share/zoneinfo
--rw-r--r-- root       root           500142 ./recovery/system/usr/share/zoneinfo/tzdata
+drwxr-xr-x root       root             4096 ./recovery/system_root
+lrwxrwxrwx root       root               19 ./recovery/system -> /system_root/system
 drwxr-xr-x root       root             4096 ./recovery/tmp
 drwxr-xr-x root       root             4096 ./recovery/twres
 drwxr-xr-x root       root             4096 ./recovery/twres/fonts
+-rw-r--r-- root       root          3725920 ./recovery/twres/fonts/DroidSansFallback.ttf
 -rw-r--r-- root       root           108128 ./recovery/twres/fonts/DroidSansMono.ttf
+-rw-r--r-- root       root           709712 ./recovery/twres/fonts/NotoSansCJKjp-Regular.ttf
+-rw-r--r-- root       root             4473 ./recovery/twres/fonts/OFL.txt
 -rw-r--r-- root       root           125332 ./recovery/twres/fonts/RobotoCondensed-Regular.ttf
 drwxr-xr-x root       root             4096 ./recovery/twres/images
 -rw-r--r-- root       root             1043 ./recovery/twres/images/back.png
@@ -650,51 +664,62 @@ drwxr-xr-x root       root             4096 ./recovery/twres/images
 -rw-r--r-- root       root              534 ./recovery/twres/images/tab_vibration.png
 -rw-r--r-- root       root             5172 ./recovery/twres/images/unlock_icon.png
 drwxr-xr-x root       root             4096 ./recovery/twres/languages
--rw-r--r-- root       root            43494 ./recovery/twres/languages/cz.xml
--rw-r--r-- root       root            48684 ./recovery/twres/languages/de.xml
--rw-r--r-- root       root            64053 ./recovery/twres/languages/el.xml
--rw-r--r-- root       root            45241 ./recovery/twres/languages/en.xml
--rw-r--r-- root       root            46279 ./recovery/twres/languages/es.xml
--rw-r--r-- root       root            50832 ./recovery/twres/languages/fr.xml
--rw-r--r-- root       root            50330 ./recovery/twres/languages/hu.xml
--rw-r--r-- root       root            48771 ./recovery/twres/languages/it.xml
--rw-r--r-- root       root            45960 ./recovery/twres/languages/nl.xml
--rw-r--r-- root       root            46519 ./recovery/twres/languages/pl.xml
--rw-r--r-- root       root            45351 ./recovery/twres/languages/pt_BR.xml
--rw-r--r-- root       root            61215 ./recovery/twres/languages/ru.xml
--rw-r--r-- root       root            44073 ./recovery/twres/languages/sk.xml
--rw-r--r-- root       root            44948 ./recovery/twres/languages/sl.xml
--rw-r--r-- root       root            10806 ./recovery/twres/languages/sv.xml
--rw-r--r-- root       root            36875 ./recovery/twres/languages/tr.xml
--rw-r--r-- root       root            57632 ./recovery/twres/languages/uk.xml
--rw-r--r-- root       root           163213 ./recovery/twres/portrait.xml
+-rw-r--r-- root       root            43093 ./recovery/twres/languages/cz.xml
+-rw-r--r-- root       root            52454 ./recovery/twres/languages/de.xml
+-rw-r--r-- root       root            66394 ./recovery/twres/languages/el.xml
+-rw-r--r-- root       root            48773 ./recovery/twres/languages/en.xml
+-rw-r--r-- root       root            52581 ./recovery/twres/languages/es.xml
+-rw-r--r-- root       root            50371 ./recovery/twres/languages/fr.xml
+-rw-r--r-- root       root            49921 ./recovery/twres/languages/hu.xml
+-rw-r--r-- root       root            48350 ./recovery/twres/languages/it.xml
+-rw-r--r-- root       root            50174 ./recovery/twres/languages/ja.xml
+-rw-r--r-- root       root            50669 ./recovery/twres/languages/nl.xml
+-rw-r--r-- root       root            46119 ./recovery/twres/languages/pl.xml
+-rw-r--r-- root       root            44935 ./recovery/twres/languages/pt_BR.xml
+-rw-r--r-- root       root            51033 ./recovery/twres/languages/pt_PT.xml
+-rw-r--r-- root       root            67398 ./recovery/twres/languages/ru.xml
+-rw-r--r-- root       root            43658 ./recovery/twres/languages/sk.xml
+-rw-r--r-- root       root            44528 ./recovery/twres/languages/sl.xml
+-rw-r--r-- root       root            10726 ./recovery/twres/languages/sv.xml
+-rw-r--r-- root       root            50558 ./recovery/twres/languages/tr.xml
+-rw-r--r-- root       root            57178 ./recovery/twres/languages/uk.xml
+-rw-r--r-- root       root            49954 ./recovery/twres/languages/zh_CN.xml
+-rw-r--r-- root       root            47125 ./recovery/twres/languages/zh_TW.xml
+-rw-r--r-- root       root           175971 ./recovery/twres/portrait.xml
 -rw-r--r-- root       root             1341 ./recovery/twres/splash.xml
 -rw-r--r-- root       root                0 ./recovery/twres/twrp
--rw-r--r-- root       root            26228 ./recovery/twres/ui.xml
--rw-r--r-- root       root            13025 ./recovery/ueventd.qcom.rc
--rw-r--r-- root       root             4853 ./recovery/ueventd.rc
+-rw-r--r-- root       root            26326 ./recovery/twres/ui.xml
+-rw-r--r-- root       root             5272 ./recovery/ueventd.rc
 drwxr-xr-x root       root             4096 ./recovery/vendor
+-rw-r--r-- root       root             6178 ./recovery/vendor_file_contexts
+-rw-r--r-- root       root                0 ./recovery/vendor_hwservice_contexts
 drwxr-xr-x root       root             4096 ./recovery/vendor/lib64
 drwxr-xr-x root       root             4096 ./recovery/vendor/lib64/hw
 -rw-r--r-- root       root            23064 ./recovery/vendor/lib64/hw/bootctrl.msm8953.so
--rw-r--r-- root       root            43072 ./recovery/vendor/lib64/hw/keystore.msm8953.so
--rw-r--r-- root       root           133712 ./recovery/vendor/lib64/libdiag.so
--rw-r--r-- root       root            22248 ./recovery/vendor/lib64/libdrmfs.so
--rw-r--r-- root       root            14064 ./recovery/vendor/lib64/libdrmtime.so
--rw-r--r-- root       root             9968 ./recovery/vendor/lib64/libGPreqcancel.so
--rw-r--r-- root       root             9976 ./recovery/vendor/lib64/libGPreqcancel_svc.so
--rw-r--r-- root       root            18256 ./recovery/vendor/lib64/libqisl.so
--rw-r--r-- root       root            30448 ./recovery/vendor/lib64/libQSEEComAPI.so
+-rw-r--r-- root       root            73288 ./recovery/vendor/lib64/hw/keystore.msm8953.so
+-rw-r--r-- root       root           210112 ./recovery/vendor/lib64/libdiag.so
+-rw-r--r-- root       root            68392 ./recovery/vendor/lib64/libdrmfs.so
+-rw-r--r-- root       root            68232 ./recovery/vendor/lib64/libdrmtime.so
+-rw-r--r-- root       root            68200 ./recovery/vendor/lib64/libGPreqcancel.so
+-rw-r--r-- root       root            68200 ./recovery/vendor/lib64/libGPreqcancel_svc.so
+-rw-r--r-- root       root          1786576 ./recovery/vendor/lib64/libicuuc.so
+-rw-r--r-- root       root            68360 ./recovery/vendor/lib64/libqisl.so
+-rw-r--r-- root       root            68216 ./recovery/vendor/lib64/libQSEEComAPI.so
 -rw-r--r-- root       root            34696 ./recovery/vendor/lib64/librecovery_updater_msm.so
--rw-r--r-- root       root            31744 ./recovery/vendor/lib64/librpmb.so
+-rw-r--r-- root       root            69592 ./recovery/vendor/lib64/librpmb.so
 -rw-r--r-- root       root            14064 ./recovery/vendor/lib64/lib-sec-disp.so
--rw-r--r-- root       root            14072 ./recovery/vendor/lib64/libSecureUILib.so
--rw-r--r-- root       root            26648 ./recovery/vendor/lib64/libsecureui.so
+-rw-r--r-- root       root            68272 ./recovery/vendor/lib64/libSecureUILib.so
+-rw-r--r-- root       root            69208 ./recovery/vendor/lib64/libsecureui.so
 -rw-r--r-- root       root             9984 ./recovery/vendor/lib64/libsecureuisvc_jni.so
--rw-r--r-- root       root            18168 ./recovery/vendor/lib64/libsecureui_svcsock.so
--rw-r--r-- root       root             9960 ./recovery/vendor/lib64/libssd.so
--rw-r--r-- root       root             9872 ./recovery/vendor/lib64/libStDrvInt.so
--rw-r--r-- root       root             9864 ./recovery/vendor/lib64/libtime_genoff.so
+-rw-r--r-- root       root            69144 ./recovery/vendor/lib64/libsecureui_svcsock.so
+-rw-r--r-- root       root            68208 ./recovery/vendor/lib64/libssd.so
+-rw-r--r-- root       root            68232 ./recovery/vendor/lib64/libStDrvInt.so
+-rw-r--r-- root       root            68112 ./recovery/vendor/lib64/libtime_genoff.so
+-rw-r--r-- root       root          1387952 ./recovery/vendor/lib64/libxml2.so
+-rw-r--r-- root       root              218 ./recovery/vendor_property_contexts
+-rw-r--r-- root       root                0 ./recovery/vendor_seapp_contexts
+-rw-r--r-- root       root                0 ./recovery/vendor_service_contexts
+-rw-r--r-- root       root               65 ./recovery/vndservice_contexts
 drwxr-xr-x root       root             4096 ./run
 drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               19 ./sbin/blkid -> /bin/busybox.nosuid
@@ -832,6 +857,8 @@ drwxr-xr-x root       root             4096 ./usr/lib
 -rwxr-xr-x root       root          2565200 ./usr/lib/libcrypto.so.1.1
 -rwxr-xr-x root       root           461240 ./usr/lib/libpcre.so.1.2.12
 lrwxrwxrwx root       root               17 ./usr/lib/libpcre.so.1 -> libpcre.so.1.2.12
+-rwxr-xr-x root       root            68224 ./usr/lib/libuuid.so.1.3.0
+lrwxrwxrwx root       root               16 ./usr/lib/libuuid.so.1 -> libuuid.so.1.3.0
 drwxr-xr-x root       root             4096 ./usr/lib/opkg
 drwxr-xr-x root       root             4096 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/[[
@@ -1035,7 +1062,6 @@ lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nos
 lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
--rwxr-xr-x root       root             1986 ./usr/sbin/run-postinsts
 lrwxrwxrwx root       root               19 ./usr/sbin/telnetd -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 drwxr-xr-x root       root             4096 ./usr/share
@@ -1106,6 +1132,17 @@ drwxr-xr-x root       root             4096 ./usr/share/licenses/opkg-utils
 drwxr-xr-x root       root             4096 ./usr/share/licenses/run-postinsts
 -rw-r--r-- root       root             1035 ./usr/share/licenses/run-postinsts/COPYING.MIT
 -rw-r--r-- root       root             1080 ./usr/share/licenses/run-postinsts/generic_MIT
+drwxr-xr-x root       root             4096 ./usr/share/licenses/util-linux-libuuid
+-rw-r--r-- root       root            18092 ./usr/share/licenses/util-linux-libuuid/COPYING.0
+-rw-r--r-- root       root              361 ./usr/share/licenses/util-linux-libuuid/COPYING.1
+-rw-r--r-- root       root              355 ./usr/share/licenses/util-linux-libuuid/COPYING.2
+-rw-r--r-- root       root              224 ./usr/share/licenses/util-linux-libuuid/COPYING.3
+-rw-r--r-- root       root             1391 ./usr/share/licenses/util-linux-libuuid/COPYING.BSD-3-Clause
+-rw-r--r-- root       root             1824 ./usr/share/licenses/util-linux-libuuid/COPYING.BSD-4-Clause-UC
+-rw-r--r-- root       root            18092 ./usr/share/licenses/util-linux-libuuid/COPYING.GPL-2.0-or-later
+-rw-r--r-- root       root            26530 ./usr/share/licenses/util-linux-libuuid/COPYING.LGPL-2.1-or-later
+-rw-r--r-- root       root             1468 ./usr/share/licenses/util-linux-libuuid/generic_BSD-3-Clause
+-rw-r--r-- root       root              793 ./usr/share/licenses/util-linux-libuuid/README.licensing
 drwxr-xr-x root       root             4096 ./usr/share/licenses/zlib
 -rw-r--r-- root       root              863 ./usr/share/licenses/zlib/generic_Zlib
 -rw-r--r-- root       root              935 ./usr/share/licenses/zlib/zlib.h
