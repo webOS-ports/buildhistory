@@ -1,12 +1,12 @@
 set -e
 set +e
 if [ -n "$D" ]; then
-    ln -sf Image.gz-dtb-3.18.140 $D/boot/Image.gz-dtb > /dev/null 2>&1
+    ln -sf Image.gz-dtb-4.9.188 $D/boot/Image.gz-dtb > /dev/null 2>&1
 else
-    ln -sf Image.gz-dtb-3.18.140 boot/Image.gz-dtb > /dev/null 2>&1
+    ln -sf Image.gz-dtb-4.9.188 boot/Image.gz-dtb > /dev/null 2>&1
     if [ $? -ne 0 ]; then
         echo "Filesystem on boot/ doesn't support symlinks, falling back to copied image (Image.gz-dtb)."
-        install -m 0644 boot/Image.gz-dtb-3.18.140 boot/Image.gz-dtb
+        install -m 0644 boot/Image.gz-dtb-4.9.188 boot/Image.gz-dtb
     fi
 fi
 set -e
