@@ -8,6 +8,7 @@ drwxr-xr-x root       root             4096 ./etc/sensorfw/sensord.conf.d
 -rw-r--r-- root       root              100 ./etc/sensorfw/sensord.conf.d/10-sensord-default.conf
 -rw-r--r-- root       root             2021 ./etc/sensorfw/sensord.conf.d/20-sensors-default.conf
 -rw-r--r-- root       root              737 ./etc/sensorfw/sensord-hybris.conf
+-rw-r--r-- root       root              150 ./etc/sensorfw/sensord-tenderloin.conf
 drwxr-xr-x root       root             4096 ./lib
 drwxr-xr-x root       root             4096 ./lib/systemd
 drwxr-xr-x root       root             4096 ./lib/systemd/system
@@ -25,14 +26,11 @@ drwxr-xr-x root       root             4096 ./usr/bin
 -rwxr-xr-x root       root             1438 ./usr/bin/sensord-daemon-conf-setup
 -rwxr-xr-x root       root            14228 ./usr/bin/sensord-deadclient
 -rwxr-xr-x root       root             3125 ./usr/bin/sensordiverter.sh
--rwxr-xr-x root       root            18376 ./usr/bin/sensordummyclient-qt5
+-rwxr-xr-x root       root            14280 ./usr/bin/sensordummyclient-qt5
 -rwxr-xr-x root       root            76316 ./usr/bin/sensorfilters-test
 -rwxr-xr-x root       root            59924 ./usr/bin/sensormetadata-test
--rwxr-xr-x root       root            76436 ./usr/bin/sensortestapp
+-rwxr-xr-x root       root            72340 ./usr/bin/sensortestapp
 drwxr-xr-x root       root             4096 ./usr/lib
--rwxr-xr-x root       root            43316 ./usr/lib/libhybrissensorfw-qt5.so.1.0.0
-lrwxrwxrwx root       root               30 ./usr/lib/libhybrissensorfw-qt5.so.1.0 -> libhybrissensorfw-qt5.so.1.0.0
-lrwxrwxrwx root       root               30 ./usr/lib/libhybrissensorfw-qt5.so.1 -> libhybrissensorfw-qt5.so.1.0.0
 -rwxr-xr-x root       root           225620 ./usr/lib/libsensorclient-qt5.so.1.0.0
 lrwxrwxrwx root       root               28 ./usr/lib/libsensorclient-qt5.so.1.0 -> libsensorclient-qt5.so.1.0.0
 lrwxrwxrwx root       root               28 ./usr/lib/libsensorclient-qt5.so.1 -> libsensorclient-qt5.so.1.0.0
@@ -48,7 +46,7 @@ lrwxrwxrwx root       root               24 ./usr/lib/libsensorfw-qt5.so.0 -> li
 drwxr-xr-x root       root             4096 ./usr/lib/sensord-qt5
 -rwxr-xr-x root       root            35080 ./usr/lib/sensord-qt5/libaccelerometeradaptor-qt5.so
 -rwxr-xr-x root       root            43372 ./usr/lib/sensord-qt5/libaccelerometerchain-qt5.so
--rwxr-xr-x root       root            51716 ./usr/lib/sensord-qt5/libaccelerometersensor-qt5.so
+-rwxr-xr-x root       root            47620 ./usr/lib/sensord-qt5/libaccelerometersensor-qt5.so
 -rwxr-xr-x root       root            35104 ./usr/lib/sensord-qt5/libalsadaptor-ascii-qt5.so
 -rwxr-xr-x root       root            35072 ./usr/lib/sensord-qt5/libalsadaptor-evdev-qt5.so
 -rwxr-xr-x root       root            35084 ./usr/lib/sensord-qt5/libalsadaptor-qt5.so
@@ -65,14 +63,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/sensord-qt5
 -rwxr-xr-x root       root            47580 ./usr/lib/sensord-qt5/libgyroscopesensor-qt5.so
 -rwxr-xr-x root       root            35072 ./usr/lib/sensord-qt5/libhumidityadaptor-qt5.so
 -rwxr-xr-x root       root            47592 ./usr/lib/sensord-qt5/libhumiditysensor-qt5.so
--rwxr-xr-x root       root            35084 ./usr/lib/sensord-qt5/libhybrisaccelerometeradaptor-qt5.so
--rwxr-xr-x root       root            39260 ./usr/lib/sensord-qt5/libhybrisalsadaptor-qt5.so
--rwxr-xr-x root       root            35096 ./usr/lib/sensord-qt5/libhybrisgyroscopeadaptor-qt5.so
--rwxr-xr-x root       root            35096 ./usr/lib/sensord-qt5/libhybrismagnetometeradaptor-qt5.so
--rwxr-xr-x root       root            35092 ./usr/lib/sensord-qt5/libhybrisorientationadaptor-qt5.so
--rwxr-xr-x root       root            35088 ./usr/lib/sensord-qt5/libhybrispressureadaptor-qt5.so
--rwxr-xr-x root       root            39276 ./usr/lib/sensord-qt5/libhybrisproximityadaptor-qt5.so
--rwxr-xr-x root       root            35092 ./usr/lib/sensord-qt5/libhybrisstepcounteradaptor-qt5.so
 -rwxr-xr-x root       root            80524 ./usr/lib/sensord-qt5/libiiosensorsadaptor-qt5.so
 -rwxr-xr-x root       root            35000 ./usr/lib/sensord-qt5/libkbslideradaptor-qt5.so
 -rwxr-xr-x root       root            35092 ./usr/lib/sensord-qt5/liblidsensoradaptor-evdev-qt5.so
@@ -84,7 +74,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/sensord-qt5
 -rwxr-xr-x root       root            39124 ./usr/lib/sensord-qt5/libmagnetometeradaptor-ncdk-qt5.so
 -rwxr-xr-x root       root            35052 ./usr/lib/sensord-qt5/libmagnetometeradaptor-qt5.so
 -rwxr-xr-x root       root            64148 ./usr/lib/sensord-qt5/libmagnetometersensor-qt5.so
--rwxr-xr-x root       root            39152 ./usr/lib/sensord-qt5/libmpu6050accelerometeradaptor-qt5.so
+-rwxr-xr-x root       root            35056 ./usr/lib/sensord-qt5/libmpu6050accelerometeradaptor-qt5.so
 -rwxr-xr-x root       root            30912 ./usr/lib/sensord-qt5/libmrstaccelerometeradaptor-mrst-qt5.so
 -rwxr-xr-x root       root            35080 ./usr/lib/sensord-qt5/liboaktrailaccelerometeradaptor-qt5.so
 -rwxr-xr-x root       root            35080 ./usr/lib/sensord-qt5/liboemtabletaccelerometeradaptor-qt5.so

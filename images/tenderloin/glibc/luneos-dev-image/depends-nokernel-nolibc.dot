@@ -44,7 +44,12 @@ digraph depends {
 "android-system-image-tenderloin" -> "android-system-image-tenderloin-lic" [style=dotted]
 "android-system" -> "sed"
 "android-system" -> "shadow"
+"android-tools-adbd" -> "android-tools-conf"
+"android-tools-adbd" -> "android-tools-lic" [style=dotted]
+"android-tools-adbd" -> "libbsd0"
+"android-tools-adbd" -> "libcrypto1.1"
 "android-tools" -> "android-tools-lic" [style=dotted]
+"android-tools-conf" -> "android-tools-conf-lic" [style=dotted]
 "android-tools" -> "libcrypto1.1"
 "android-tools" -> "libpcre1"
 "android-tools" -> "libz1"
@@ -106,6 +111,7 @@ digraph depends {
 "bzip2" -> "libbz2-1"
 "bzip2" -> "update-alternatives-opkg"
 "ca-certificates" -> "ca-certificates-lic" [style=dotted]
+"ca-certificates" -> "openssl"
 "ca-certificates" -> "openssl-bin"
 "certmgrd" -> "certmgrd-lic" [style=dotted]
 "certmgrd" -> "libglib-2.0-0"
@@ -229,12 +235,6 @@ digraph depends {
 "dbus-common" -> "shadow"
 "dbus-tools" -> "dbus-lic" [style=dotted]
 "dbus-tools" -> "libdbus-1-3"
-"directfb" -> "directfb-lic" [style=dotted]
-"directfb" -> "libfreetype6"
-"directfb" -> "libjpeg62"
-"directfb" -> "libpng16-16"
-"directfb" -> "libstdc++6"
-"directfb" -> "libz1"
 "distro-feed-configs" -> "distro-feed-configs-lic" [style=dotted]
 "dnsmasq" -> "dnsmasq-lic" [style=dotted]
 "dosfstools" -> "dosfstools-lic" [style=dotted]
@@ -324,13 +324,6 @@ digraph depends {
 "fuser" -> "psmisc-lic" [style=dotted]
 "fuser" -> "update-alternatives-opkg"
 "fuse-utils" -> "fuse-lic" [style=dotted]
-"gconf" -> "gconf-lic" [style=dotted]
-"gconf" -> "libdbus-1-3"
-"gconf" -> "libdbus-glib-1-2"
-"gconf" -> "libglib-2.0-0"
-"gconf" -> "libxml2"
-"gconf-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
-"gconf" -> "python3-xml"
 "gdb" -> "gdb-lic" [style=dotted]
 "gdb" -> "glibc-thread-db" [style=dotted]
 "gdb" -> "libexpat1"
@@ -1585,6 +1578,7 @@ digraph depends {
 "killall" -> "psmisc-lic" [style=dotted]
 "killall" -> "update-alternatives-opkg"
 "kmod" -> "kmod-lic" [style=dotted]
+"kmod" -> "liblzma5"
 "kmod" -> "libz1"
 "kmod" -> "update-alternatives-opkg"
 "ldconfig" -> "glibc-lic" [style=dotted]
@@ -1649,17 +1643,17 @@ digraph depends {
 "libboost-regex1.75.0" -> "libstdc++6"
 "libboost-thread1.75.0" -> "boost-lic" [style=dotted]
 "libboost-thread1.75.0" -> "libstdc++6"
+"libbsd0" -> "libbsd-lic" [style=dotted]
+"libbsd0" -> "libmd0"
 "libbson-1.0-1" -> "libbson-lic" [style=dotted]
 "libbz2-1" -> "bzip2-lic" [style=dotted]
 "libcairo2" -> "cairo-lic" [style=dotted]
-"libcairo2" -> "directfb"
 "libcairo2" -> "libfontconfig1"
 "libcairo2" -> "libfreetype6"
 "libcairo2" -> "libpixman-1-0"
 "libcairo2" -> "libpng16-16"
 "libcairo2" -> "libz1"
 "libcairo-gobject2" -> "cairo-lic" [style=dotted]
-"libcairo-gobject2" -> "directfb"
 "libcairo-gobject2" -> "libcairo2"
 "libcairo-gobject2" -> "libfontconfig1"
 "libcairo-gobject2" -> "libfreetype6"
@@ -1942,6 +1936,7 @@ digraph depends {
 "libkf5bluezqt5" -> "qtdeclarative"
 "libkf5bluezqt5" -> "qtdeclarative-qmlplugins"
 "libkmod2" -> "kmod-lic" [style=dotted]
+"libkmod2" -> "liblzma5"
 "libkmod2" -> "libz1"
 "libkms1" -> "libdrm2"
 "libkms1" -> "libdrm-lic" [style=dotted]
@@ -1966,6 +1961,7 @@ digraph depends {
 "libmce-glib1" -> "libglib-2.0-0"
 "libmce-glib1" -> "libglibutil1"
 "libmce-glib1" -> "libmce-glib-lic" [style=dotted]
+"libmd0" -> "libmd-lic" [style=dotted]
 "libmenuw5" -> "libncursesw5"
 "libmenuw5" -> "libtinfo5"
 "libmnl0" -> "libmnl-lic" [style=dotted]
@@ -2061,7 +2057,6 @@ digraph depends {
 "libpulse-simple0" -> "libpulse0"
 "libpulse-simple0" -> "libpulsecommon"
 "libpulse-simple0" -> "pulseaudio-lic" [style=dotted]
-"libpurple" -> "gconf"
 "libpurple" -> "libdbus-1-3"
 "libpurple" -> "libdbus-glib-1-2"
 "libpurple" -> "libglib-2.0-0"
@@ -2765,6 +2760,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "android-system-compat"
 "packagegroup-luneos-extended" -> "android-system-image-tenderloin"
 "packagegroup-luneos-extended" -> "android-tools"
+"packagegroup-luneos-extended" -> "android-tools-adbd"
 "packagegroup-luneos-extended" -> "audio-service"
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
@@ -3665,20 +3661,24 @@ digraph depends {
 "qtlocation" -> "qtlocation-plugins" [style=dotted]
 "qtlocation" -> "qtlocation-qmlplugins" [style=dotted]
 "qtmultimedia" -> "gstreamer1.0"
+"qtmultimedia" -> "libasound2"
 "qtmultimedia" -> "libglib-2.0-0"
 "qtmultimedia" -> "libgstapp-1.0-0"
 "qtmultimedia" -> "libgstaudio-1.0-0"
 "qtmultimedia" -> "libgstgl-1.0-0"
 "qtmultimedia" -> "libgstpbutils-1.0-0"
 "qtmultimedia" -> "libgstvideo-1.0-0"
+"qtmultimedia" -> "libpulse0"
 "qtmultimedia" -> "libstdc++6"
 "qtmultimedia-plugins" -> "gstreamer1.0"
+"qtmultimedia-plugins" -> "libasound2"
 "qtmultimedia-plugins" -> "libglib-2.0-0"
 "qtmultimedia-plugins" -> "libgstapp-1.0-0"
 "qtmultimedia-plugins" -> "libgstpbutils-1.0-0"
 "qtmultimedia-plugins" -> "libgstphotography-1.0-0"
 "qtmultimedia-plugins" -> "libgstvideo-1.0-0"
 "qtmultimedia-plugins" -> "libhybris"
+"qtmultimedia-plugins" -> "libpulse0"
 "qtmultimedia-plugins" -> "libstdc++6"
 "qtmultimedia-plugins" -> "qtbase"
 "qtmultimedia-plugins" -> "qtdeclarative"
@@ -3819,7 +3819,6 @@ digraph depends {
 "sed" -> "sed-lic" [style=dotted]
 "sed" -> "update-alternatives-opkg"
 "sensorfw" -> "bash"
-"sensorfw" -> "libhybris"
 "sensorfw" -> "libstdc++6"
 "sensorfw" -> "libsystemd0"
 "sensorfw" -> "libudev1"
