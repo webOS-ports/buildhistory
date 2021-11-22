@@ -1,0 +1,8 @@
+set -e
+	if [ -z "$D" ]; then
+		if command -v systemd-tmpfiles >/dev/null; then
+			systemd-tmpfiles --create /opt/luneos-sdk-x86_64/1.0/sysroots/x86_64-luneossdk-linux/etc/tmpfiles.d/nscd.conf
+		elif [ -e /opt/luneos-sdk-x86_64/1.0/sysroots/x86_64-luneossdk-linux/etc/init.d/populate-volatile.sh ]; then
+			/opt/luneos-sdk-x86_64/1.0/sysroots/x86_64-luneossdk-linux/etc/init.d/populate-volatile.sh update
+		fi
+	fi
