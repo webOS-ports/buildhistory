@@ -20,7 +20,7 @@ set -e
 	if false; then
 		if test -n "$D"; then
 			if true; then
-				sed "s:\(\s\)/:\1$D/:g" $D/etc/man_db.conf | PSEUDO_UNLOAD=1 qemu-x86_64  -cpu core2duo -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/usr/bin/mandb -C - -u -q $D/usr/share/man
+				sed "s:\(\s\)/:\1$D/:g" $D/etc/man_db.conf | PSEUDO_UNLOAD=1 qemu-x86_64 -r 3.2.0  -cpu core2duo -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/usr/bin/mandb -C - -u -q $D/usr/share/man
 				chown -R root:root $D/usr/share/man
 
 				mkdir -p $D/var/cache/man
