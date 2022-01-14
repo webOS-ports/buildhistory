@@ -1,0 +1,12 @@
+set -e
+set +e
+if [ -n "$D" ]; then
+    ln -sf fitImage-5.16.0-pinephonepro $D/boot/fitImage > /dev/null 2>&1
+else
+    ln -sf fitImage-5.16.0-pinephonepro boot/fitImage > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "Filesystem on boot/ doesn't support symlinks, falling back to copied image (fitImage)."
+        install -m 0644 boot/fitImage-5.16.0-pinephonepro boot/fitImage
+    fi
+fi
+set -e
