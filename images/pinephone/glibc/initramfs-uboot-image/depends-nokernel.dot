@@ -1,0 +1,34 @@
+digraph depends {
+    node [shape=plaintext]
+"bash" -> "base-files"
+"bash" -> "libc6"
+"bash" -> "libtinfo5"
+"bash" -> "update-alternatives-opkg"
+"busybox" -> "busybox-udhcpc" [style=dotted]
+"busybox" -> "libc6"
+"busybox" -> "update-alternatives-opkg"
+"initramfs-scripts-simple" -> "busybox-mdev"
+"initramfs-scripts-simple" -> "iproute2"
+"iproute2-ip" -> "libc6"
+"iproute2-ip" -> "libcap"
+"iproute2-ip" -> "libelf1"
+"iproute2-ip" -> "libmnl0"
+"iproute2" -> "iproute2-ip"
+"iproute2-ip" -> "update-alternatives-opkg"
+"iproute2" -> "libc6"
+"iproute2" -> "libcap"
+"iproute2" -> "libmnl0"
+"libblkid1" -> "libc6"
+"libc6" -> "ldconfig" [style=dotted]
+"libcap" -> "libc6"
+"libelf1" -> "libc6"
+"libelf1" -> "libz1"
+"libmnl0" -> "libc6"
+"libtinfo5" -> "libc6"
+"libtinfo5" -> "ncurses-terminfo-base" [style=dotted]
+"libz1" -> "libc6"
+"luneos-recovery-ui" -> "libc6"
+"util-linux-blkid" -> "libblkid1"
+"util-linux-blkid" -> "libc6"
+"util-linux-blkid" -> "update-alternatives-opkg"
+}
