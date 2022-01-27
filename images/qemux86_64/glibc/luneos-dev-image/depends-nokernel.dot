@@ -281,6 +281,13 @@ digraph depends {
 "fuser" -> "libc6"
 "fuser" -> "update-alternatives-opkg"
 "fuse-utils" -> "libc6"
+"gconf" -> "libc6"
+"gconf" -> "libdbus-1-3"
+"gconf" -> "libdbus-glib-1-2"
+"gconf" -> "libglib-2.0-0"
+"gconf" -> "libxml2"
+"gconf-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"gconf" -> "python3-xml"
 "gdb" -> "glibc-thread-db" [style=dotted]
 "gdb" -> "libc6"
 "gdb" -> "libexpat1"
@@ -3816,6 +3823,9 @@ digraph depends {
 "libpbnjson" -> "libyajl2"
 "libpbnjson" -> "uriparser"
 "libpcap1" -> "libc6"
+"libpci3" -> "libc6"
+"libpci3" -> "libudev1"
+"libpci3" -> "libz1"
 "libpciaccess0" -> "libc6"
 "libpcre1" -> "libc6"
 "libpcre2-16-0" -> "libc6"
@@ -3857,6 +3867,7 @@ digraph depends {
 "libpulse-simple0" -> "libc6"
 "libpulse-simple0" -> "libpulse0"
 "libpulse-simple0" -> "libpulsecommon"
+"libpurple" -> "gconf"
 "libpurple" -> "libc6"
 "libpurple" -> "libdbus-1-3"
 "libpurple" -> "libdbus-glib-1-2"
@@ -4501,6 +4512,7 @@ digraph depends {
 "packagegroup-luneos-development" -> "systemd-analyze"
 "packagegroup-luneos-development" -> "valgrind"
 "packagegroup-luneos-extended" -> "alsa-conf"
+"packagegroup-luneos-extended" -> "alsa-utils-systemd"
 "packagegroup-luneos-extended" -> "audio-service"
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
@@ -4517,11 +4529,13 @@ digraph depends {
 "packagegroup-luneos-extended" -> "imaccountvalidator"
 "packagegroup-luneos-extended" -> "imlibpurpleservice"
 "packagegroup-luneos-extended" -> "iw"
+"packagegroup-luneos-extended" -> "kernel-module-snd-intel8x0-5.15.14-yocto-standard" [label="kernel-module-snd-intel8x0"] [style=dashed]
 "packagegroup-luneos-extended" -> "kernel-module-uvesafb-5.15.14-yocto-standard" [label="kernel-module-uvesafb"] [style=dashed]
 "packagegroup-luneos-extended" -> "kernel-module-vboxguest-5.15.14-yocto-standard" [label="kernel-module-vboxguest"] [style=dashed]
 "packagegroup-luneos-extended" -> "kernel-module-vboxvideo-5.15.14-yocto-standard" [label="kernel-module-vboxvideo"] [style=dashed]
 "packagegroup-luneos-extended" -> "kernel-module-virtio-gpu-5.15.14-yocto-standard" [label="kernel-module-virtio-gpu"] [style=dashed]
 "packagegroup-luneos-extended" -> "kernel-module-vmwgfx-5.15.14-yocto-standard" [label="kernel-module-vmwgfx"] [style=dashed]
+"packagegroup-luneos-extended" -> "libpci3" [label="libpci"] [style=dashed]
 "packagegroup-luneos-extended" -> "libpmcertificatemgr2" [label="pmcertificatemgr"] [style=dashed]
 "packagegroup-luneos-extended" -> "libqt5sensors5" [label="qtsensors"] [style=dashed]
 "packagegroup-luneos-extended" -> "libqt5sensors-qmlplugins" [label="qtsensors-qmlplugins"] [style=dashed]
@@ -4535,6 +4549,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "luneos-default-wallpapers"
 "packagegroup-luneos-extended" -> "mediaindexer"
 "packagegroup-luneos-extended" -> "media-permission-service"
+"packagegroup-luneos-extended" -> "mesa-megadriver" [label="mesa-driver-swrast"] [style=dashed]
 "packagegroup-luneos-extended" -> "messaging-accounts"
 "packagegroup-luneos-extended" -> "messwerk"
 "packagegroup-luneos-extended" -> "ofono"
@@ -4562,6 +4577,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "org.webosports.service.messaging"
 "packagegroup-luneos-extended" -> "org.webosports.service.update"
 "packagegroup-luneos-extended" -> "org.webosports.tweaks"
+"packagegroup-luneos-extended" -> "phonesim"
 "packagegroup-luneos-extended" -> "pulseaudio-distro-conf"
 "packagegroup-luneos-extended" -> "pulseaudio-misc"
 "packagegroup-luneos-extended" -> "pulseaudio-module-bluetooth-discover"
@@ -4571,6 +4587,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "pulseaudio-module-loopback"
 "packagegroup-luneos-extended" -> "pulseaudio-module-switch-on-connect"
 "packagegroup-luneos-extended" -> "pulseaudio-server"
+"packagegroup-luneos-extended" -> "qt5-plugin-generic-vboxtouch"
 "packagegroup-luneos-extended" -> "qtbase-plugins"
 "packagegroup-luneos-extended" -> "qtconnectivity"
 "packagegroup-luneos-extended" -> "qtlocation-luneos-plugin"
@@ -4579,6 +4596,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "qtsensors-sensorfw-plugin"
 "packagegroup-luneos-extended" -> "qtwayland"
 "packagegroup-luneos-extended" -> "qtwayland-plugins"
+"packagegroup-luneos-extended" -> "rng-tools"
 "packagegroup-luneos-extended" -> "sensorfw"
 "packagegroup-luneos-extended" -> "storaged"
 "packagegroup-luneos-extended" -> "tar"
@@ -4703,6 +4721,11 @@ digraph depends {
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl-module-dynaloader"
 "perl" -> "perl-module-config-heavy"
+"phonesim" -> "libc6"
+"phonesim" -> "libgcc1"
+"phonesim" -> "libstdc++6"
+"phonesim" -> "qtbase"
+"phonesim" -> "qtscript"
 "pidgin-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "pidgin-sipe" -> "libc6"
 "pidgin-sipe" -> "libcom-err2"
@@ -5265,6 +5288,9 @@ digraph depends {
 "qt5-opengles2-test" -> "libqt5sensors5"
 "qt5-opengles2-test" -> "libstdc++6"
 "qt5-opengles2-test" -> "qtbase"
+"qt5-plugin-generic-vboxtouch" -> "libc6"
+"qt5-plugin-generic-vboxtouch" -> "libstdc++6"
+"qt5-plugin-generic-vboxtouch" -> "qtbase"
 "qtbase-examples" -> "libc6"
 "qtbase-examples" -> "libgcc1"
 "qtbase-examples" -> "libstdc++6"
@@ -5412,6 +5438,11 @@ digraph depends {
 "qtquickcontrols-qmlplugins" -> "libstdc++6"
 "qtquickcontrols-qmlplugins" -> "qtbase"
 "qtquickcontrols-qmlplugins" -> "qtdeclarative"
+"qtscript" -> "libc6"
+"qtscript" -> "libstdc++6"
+"qtscript" -> "qtbase"
+"qtscript" -> "qtscript-plugins" [style=dotted]
+"qtscript" -> "qtscript-qmlplugins" [style=dotted]
 "qtsensors-sensorfw-plugin" -> "bash"
 "qtsensors-sensorfw-plugin" -> "libc6"
 "qtsensors-sensorfw-plugin" -> "libqt5sensors5"
