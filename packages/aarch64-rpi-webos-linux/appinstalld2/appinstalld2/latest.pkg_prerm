@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop appinstalld2.service
+
+		systemctl disable appinstalld2.service
+	fi
+fi
