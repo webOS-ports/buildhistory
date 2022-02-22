@@ -1825,6 +1825,8 @@ digraph depends {
 "jemalloc" -> "libc6"
 "kbd" -> "libc6"
 "kbd" -> "update-alternatives-opkg"
+"kernel-5.15.22-yocto-standard" -> "kernel-image-5.15.22-yocto-standard" [style=dotted]
+"kernel-image-5.15.22-yocto-standard" -> "kernel-image-bzimage-5.15.22-yocto-standard"
 "kernel-module-6lowpan-5.15.22-yocto-standard" -> "kernel-5.15.22-yocto-standard" [label="kernel-5.15.22-yocto-standard"] [style=dashed]
 "kernel-module-8139cp-5.15.22-yocto-standard" -> "kernel-5.15.22-yocto-standard" [label="kernel-5.15.22-yocto-standard"] [style=dashed]
 "kernel-module-8139too-5.15.22-yocto-standard" -> "kernel-5.15.22-yocto-standard" [label="kernel-5.15.22-yocto-standard"] [style=dashed]
@@ -4734,8 +4736,8 @@ digraph depends {
 "perl-module-dynaloader" -> "perl" [label="perl-module-config"] [style=dashed]
 "perl-module-exporter-heavy" -> "perl"
 "perl-module-exporter-heavy" -> "perl" [label="perl-module-strict"] [style=dashed]
-"perl-module-exporter-heavy" -> "perl-module-exporter"
 "perl-module-exporter" -> "perl"
+"perl-module-exporter" -> "perl" [label="perl-module-strict"] [style=dashed]
 "perl-module-exporter" -> "perl-module-exporter-heavy"
 "perl-module-fcntl" -> "perl"
 "perl-module-fcntl" -> "perl" [label="perl-module-strict"] [style=dashed]
@@ -4747,6 +4749,7 @@ digraph depends {
 "perl-module-io-file" -> "perl-module-fcntl"
 "perl-module-io-file" -> "perl-module-io-seekable"
 "perl-module-io-file" -> "perl-module-selectsaver"
+"perl-module-io-file" -> "perl-module-symbol"
 "perl-module-io-handle" -> "perl"
 "perl-module-io-handle" -> "perl" [label="perl-module-strict"] [style=dashed]
 "perl-module-io-handle" -> "perl-module-exporter"
@@ -4764,6 +4767,7 @@ digraph depends {
 "perl-module-io-seekable" -> "perl-module-fcntl"
 "perl-module-io-seekable" -> "perl-module-io-handle"
 "perl-module-selectsaver" -> "perl"
+"perl-module-symbol" -> "perl"
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl-module-dynaloader"
 "perl" -> "perl-module-config-heavy"
