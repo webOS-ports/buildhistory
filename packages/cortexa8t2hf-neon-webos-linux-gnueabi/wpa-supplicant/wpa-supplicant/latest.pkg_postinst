@@ -12,17 +12,17 @@ if systemctl >/dev/null 2>/dev/null; then
 	fi
 
 	if [ "disable" = "enable" ]; then
-		for service in wpa_supplicant.service; do
+		for service in wpa-supplicant.service; do
 			systemctl ${OPTS} enable "$service"
 		done
 	fi
 
 	if [ -z "$D" ]; then
 		systemctl daemon-reload
-		systemctl preset wpa_supplicant.service
+		systemctl preset wpa-supplicant.service
 
 		if [ "disable" = "enable" ]; then
-			systemctl --no-block restart wpa_supplicant.service
+			systemctl --no-block restart wpa-supplicant.service
 		fi
 	fi
 fi
