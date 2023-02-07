@@ -80,6 +80,7 @@ digraph depends {
 "binutils" -> "libstdc++6"
 "binutils" -> "libz1"
 "binutils" -> "update-alternatives-opkg"
+"bluez5" -> "dbus-1" [label="dbus"] [style=dashed]
 "bluez5" -> "libc6"
 "bluez5" -> "libdbus-1-3"
 "bluez5" -> "libglib-2.0-0"
@@ -107,9 +108,9 @@ digraph depends {
 "certmgrd" -> "libpmcertificatemgr2"
 "certmgrd" -> "luna-service2"
 "com.webos.app.mediagallery" -> "com.webos.app.mediagallery-localization" [style=dotted]
-"com.webos.app.mediagallery" -> "qml-app-components"
 "com.webos.app.mediagallery" -> "qml-webos-bridge"
 "com.webos.app.mediagallery" -> "qml-webos-framework"
+"com.webos.app.videocall" -> "com.webos.app.videocall-localization" [style=dotted]
 "com.webos.service.mediaindexer" -> "com.webos.service.pdm"
 "com.webos.service.mediaindexer" -> "db8"
 "com.webos.service.mediaindexer" -> "gstreamer1.0"
@@ -135,6 +136,7 @@ digraph depends {
 "com.webos.service.pdm" -> "gphoto2"
 "com.webos.service.pdm" -> "gphotofs"
 "com.webos.service.pdm" -> "gptfdisk-sgdisk"
+"com.webos.service.pdm" -> "hdparm"
 "com.webos.service.pdm" -> "libc6"
 "com.webos.service.pdm" -> "libgcc1"
 "com.webos.service.pdm" -> "libglib-2.0-0"
@@ -142,6 +144,7 @@ digraph depends {
 "com.webos.service.pdm" -> "libpdm-plugin1" [label="pdm-plugin"] [style=dashed]
 "com.webos.service.pdm" -> "libstdc++6"
 "com.webos.service.pdm" -> "libudev1"
+"com.webos.service.pdm" -> "libusb-1.0-0"
 "com.webos.service.pdm" -> "libwebosi18n1"
 "com.webos.service.pdm" -> "lsof"
 "com.webos.service.pdm" -> "luna-service2"
@@ -151,7 +154,6 @@ digraph depends {
 "com.webos.service.pdm" -> "sdparm"
 "com.webos.service.pdm" -> "simple-mtpfs"
 "com.webos.service.pdm" -> "smartmontools"
-"com.webos.service.pdm" -> "util-linux-lsblk"
 "configd" -> "configd-data"
 "configd" -> "libc6"
 "configd" -> "libgcc1"
@@ -1478,6 +1480,8 @@ digraph depends {
 "gstreamer1.0-plugins-ugly-xingmux" -> "libglib-2.0-0"
 "gzip" -> "libc6"
 "gzip" -> "update-alternatives-opkg"
+"hdparm" -> "libc6"
+"hdparm" -> "update-alternatives-opkg"
 "hunspell-dictionaries" -> "hunspell"
 "hunspell" -> "libc6"
 "hunspell" -> "libgcc1"
@@ -1884,24 +1888,80 @@ digraph depends {
 "jemalloc" -> "libc6"
 "kbd" -> "libc6"
 "kbd" -> "update-alternatives-opkg"
-"kernel-module-af-alg-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-module-algif-aead-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-module-algif-aead-5.19.0-rc7-luneos" -> "kernel-module-af-alg-5.19.0-rc7-luneos"
-"kernel-module-algif-hash-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-module-algif-hash-5.19.0-rc7-luneos" -> "kernel-module-af-alg-5.19.0-rc7-luneos"
-"kernel-module-algif-rng-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-module-algif-rng-5.19.0-rc7-luneos" -> "kernel-module-af-alg-5.19.0-rc7-luneos"
-"kernel-module-algif-skcipher-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-module-algif-skcipher-5.19.0-rc7-luneos" -> "kernel-module-af-alg-5.19.0-rc7-luneos"
-"kernel-module-crypto-user-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
-"kernel-modules" -> "kernel-module-af-alg-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-algif-aead-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-algif-hash-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-algif-rng-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-algif-skcipher-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-crypto-user-5.19.0-rc7-luneos"
-"kernel-modules" -> "kernel-module-tsl2772-5.19.0-rc7-luneos"
-"kernel-module-tsl2772-5.19.0-rc7-luneos" -> "kernel-5.19.0-rc7-luneos" [label="kernel-5.19.0-rc7-luneos"] [style=dashed]
+"kernel-module-af-alg-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-algif-aead-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-algif-aead-6.1.0-luneos" -> "kernel-module-af-alg-6.1.0-luneos"
+"kernel-module-algif-hash-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-algif-hash-6.1.0-luneos" -> "kernel-module-af-alg-6.1.0-luneos"
+"kernel-module-algif-rng-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-algif-rng-6.1.0-luneos" -> "kernel-module-af-alg-6.1.0-luneos"
+"kernel-module-algif-skcipher-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-algif-skcipher-6.1.0-luneos" -> "kernel-module-af-alg-6.1.0-luneos"
+"kernel-module-brcmfmac-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-brcmfmac-6.1.0-luneos" -> "kernel-module-brcmutil-6.1.0-luneos"
+"kernel-module-brcmutil-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-crypto-user-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-g-ether-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-icc-smd-rpm-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-pm8941-pwrkey-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-common-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-pil-info-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-q6v5-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-q6v5-6.1.0-luneos" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-module-qcom-q6v5-adsp-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-q6v5-adsp-6.1.0-luneos" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-module-qcom-q6v5-adsp-6.1.0-luneos" -> "kernel-module-qcom-pil-info-6.1.0-luneos"
+"kernel-module-qcom-q6v5-adsp-6.1.0-luneos" -> "kernel-module-qcom-q6v5-6.1.0-luneos"
+"kernel-module-qcom-q6v5-adsp-6.1.0-luneos" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-module-qcom-q6v5-mss-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-q6v5-mss-6.1.0-luneos" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-module-qcom-q6v5-mss-6.1.0-luneos" -> "kernel-module-qcom-pil-info-6.1.0-luneos"
+"kernel-module-qcom-q6v5-mss-6.1.0-luneos" -> "kernel-module-qcom-q6v5-6.1.0-luneos"
+"kernel-module-qcom-q6v5-mss-6.1.0-luneos" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-module-qcom-q6v5-pas-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-q6v5-pas-6.1.0-luneos" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-module-qcom-q6v5-pas-6.1.0-luneos" -> "kernel-module-qcom-pil-info-6.1.0-luneos"
+"kernel-module-qcom-q6v5-pas-6.1.0-luneos" -> "kernel-module-qcom-q6v5-6.1.0-luneos"
+"kernel-module-qcom-q6v5-pas-6.1.0-luneos" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-module-qcom-rng-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-sysmon-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-wcnss-pil-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qcom-wcnss-pil-6.1.0-luneos" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-module-qcom-wcnss-pil-6.1.0-luneos" -> "kernel-module-qcom-pil-info-6.1.0-luneos"
+"kernel-module-qcom-wcnss-pil-6.1.0-luneos" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-module-qnoc-msm8974-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-qnoc-msm8974-6.1.0-luneos" -> "kernel-module-icc-smd-rpm-6.1.0-luneos"
+"kernel-module-rmi-core-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-rmi-i2c-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-rmi-i2c-6.1.0-luneos" -> "kernel-module-rmi-core-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-af-alg-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-algif-aead-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-algif-hash-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-algif-rng-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-algif-skcipher-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-brcmfmac-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-brcmutil-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-crypto-user-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-g-ether-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-icc-smd-rpm-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-pm8941-pwrkey-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-pil-info-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-q6v5-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-q6v5-adsp-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-q6v5-mss-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-q6v5-pas-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-rng-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-sysmon-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qcom-wcnss-pil-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-qnoc-msm8974-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-rmi-core-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-rmi-i2c-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-slim-qcom-ngd-ctrl-6.1.0-luneos"
+"kernel-modules" -> "kernel-module-tsl2772-6.1.0-luneos"
+"kernel-module-slim-qcom-ngd-ctrl-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
+"kernel-module-slim-qcom-ngd-ctrl-6.1.0-luneos" -> "kernel-module-qcom-common-6.1.0-luneos"
+"kernel-module-tsl2772-6.1.0-luneos" -> "kernel-6.1.0-luneos" [label="kernel-6.1.0-luneos"] [style=dashed]
 "keymaps" -> "kbd"
 "keyutils" -> "libc6"
 "killall" -> "libc6"
@@ -1933,7 +1993,6 @@ digraph depends {
 "libasound-module-pcm-pulse" -> "libasound2"
 "libasound-module-pcm-pulse" -> "libc6"
 "libasound-module-pcm-pulse" -> "libpulse0"
-"libatomic1" -> "libc6"
 "libattr1" -> "libc6"
 "libavahi-client3" -> "libavahi-common3"
 "libavahi-client3" -> "libc6"
@@ -2290,7 +2349,6 @@ digraph depends {
 "libidn12" -> "libc6"
 "libidn2-0" -> "libc6"
 "libidn2-0" -> "libunistring2"
-"libjitterentropy3" -> "libc6"
 "libjpeg62" -> "libc6"
 "libjson-c5" -> "libc6"
 "libjsoncpp25" -> "libc6"
@@ -2601,12 +2659,12 @@ digraph depends {
 "libudev1" -> "libc6"
 "libulockmgr1" -> "libc6"
 "libunistring2" -> "libc6"
-"libusb-1.0-0" -> "libatomic1"
 "libusb-1.0-0" -> "libc6"
 "libusb-1.0-0" -> "libudev1"
 "libuuid1" -> "libc6"
 "libvorbis" -> "libc6"
 "libvorbis" -> "libogg0"
+"libwca-support1" -> "iw"
 "libwebos-application0" -> "libc6"
 "libwebos-application0" -> "libglib-2.0-0"
 "libwebos-application0" -> "libpbnjson"
@@ -2686,6 +2744,7 @@ digraph depends {
 "luna-service2" -> "libglib-2.0-0"
 "luna-service2" -> "libpbnjson"
 "luna-service2" -> "libstdc++6"
+"luna-service2" -> "libsystemd0"
 "luna-service2" -> "luna-service2-security-conf"
 "luna-service2" -> "pmloglib"
 "luna-surfacemanager-base" -> "libc6"
@@ -2870,6 +2929,7 @@ digraph depends {
 "nodejs-npm" -> "python3-misc"
 "nodejs-npm" -> "python3-multiprocessing"
 "nodejs-npm" -> "python3-shell"
+"nodejs" -> "python3-core"
 "notificationmgr" -> "glibmm"
 "notificationmgr" -> "libc6"
 "notificationmgr" -> "libcrypto3"
@@ -2939,7 +2999,6 @@ digraph depends {
 "openssh-sshd" -> "libcrypto3"
 "openssh-sshd" -> "libz1"
 "openssh-sshd" -> "openssh-keygen"
-"openssh-sshd" -> "rng-tools" [style=dotted]
 "openssh-sshd" -> "shadow"
 "openssh-ssh" -> "libc6"
 "openssh-ssh" -> "libcrypto3"
@@ -3031,6 +3090,7 @@ digraph depends {
 "packagegroup-luneos-development" -> "systemd-analyze"
 "packagegroup-luneos-development" -> "valgrind"
 "packagegroup-luneos-extended" -> "alsa-conf"
+"packagegroup-luneos-extended" -> "alsa-utils-systemd"
 "packagegroup-luneos-extended" -> "audio-service"
 "packagegroup-luneos-extended" -> "bluez5"
 "packagegroup-luneos-extended" -> "ca-certificates"
@@ -3058,6 +3118,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "luneos-default-wallpapers"
 "packagegroup-luneos-extended" -> "mediaindexer"
 "packagegroup-luneos-extended" -> "media-permission-service"
+"packagegroup-luneos-extended" -> "mesa-megadriver" [label="mesa-driver-swrast"] [style=dashed]
 "packagegroup-luneos-extended" -> "messaging-accounts"
 "packagegroup-luneos-extended" -> "messwerk"
 "packagegroup-luneos-extended" -> "ofono"
@@ -3091,6 +3152,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "pulseaudio-module-loopback"
 "packagegroup-luneos-extended" -> "pulseaudio-module-switch-on-connect"
 "packagegroup-luneos-extended" -> "pulseaudio-server"
+"packagegroup-luneos-extended" -> "qrtr"
 "packagegroup-luneos-extended" -> "qtbase-plugins"
 "packagegroup-luneos-extended" -> "qtconnectivity"
 "packagegroup-luneos-extended" -> "qtlocation-luneos-plugin"
@@ -3101,6 +3163,8 @@ digraph depends {
 "packagegroup-luneos-extended" -> "qtsensors-sensorfw-plugin"
 "packagegroup-luneos-extended" -> "qtwayland"
 "packagegroup-luneos-extended" -> "qtwayland-plugins"
+"packagegroup-luneos-extended" -> "rmtfs"
+"packagegroup-luneos-extended" -> "rpmsgexport"
 "packagegroup-luneos-extended" -> "sensorfw"
 "packagegroup-luneos-extended" -> "storaged"
 "packagegroup-luneos-extended" -> "tar"
@@ -3124,6 +3188,7 @@ digraph depends {
 "packagegroup-webos-extended" -> "com.webos.app.test.enact"
 "packagegroup-webos-extended" -> "com.webos.app.test.webosose"
 "packagegroup-webos-extended" -> "com.webos.app.test.youtube"
+"packagegroup-webos-extended" -> "com.webos.app.videocall"
 "packagegroup-webos-extended" -> "com.webos.app.videoplayer"
 "packagegroup-webos-extended" -> "com.webos.app.volume"
 "packagegroup-webos-extended" -> "com.webos.service.mediaindexer"
@@ -3798,11 +3863,6 @@ digraph depends {
 "python3-xmlrpc" -> "python3-pydoc"
 "python3-xmlrpc" -> "python3-stringold"
 "python3-xmlrpc" -> "python3-xml"
-"qml-app-components" -> "libc6"
-"qml-app-components" -> "libgcc1"
-"qml-app-components" -> "libstdc++6"
-"qml-app-components" -> "qtbase"
-"qml-app-components" -> "qtdeclarative"
 "qml-webos-bridge" -> "libc6"
 "qml-webos-bridge" -> "libglib-2.0-0"
 "qml-webos-bridge" -> "libstdc++6"
@@ -3828,6 +3888,7 @@ digraph depends {
 "qml-webos-framework" -> "qtbase"
 "qml-webos-framework" -> "qtdeclarative"
 "qml-webos-framework" -> "qtwayland-webos"
+"qrtr" -> "libc6"
 "qtbase-examples" -> "libc6"
 "qtbase-examples" -> "libgcc1"
 "qtbase-examples" -> "libstdc++6"
@@ -4004,9 +4065,10 @@ digraph depends {
 "qtwayland-webos" -> "qtwayland"
 "qtwayland-webos" -> "wayland"
 "qtwayland-webos" -> "webos-wayland-extensions"
-"rng-tools" -> "libc6"
-"rng-tools" -> "libcrypto3"
-"rng-tools" -> "libjitterentropy3"
+"rmtfs" -> "libc6"
+"rmtfs" -> "libudev1"
+"rmtfs" -> "qrtr"
+"rpmsgexport" -> "libc6"
 "sam" -> "ecryptfs-utils"
 "sam" -> "libc6"
 "sam" -> "libgcc1"
@@ -4135,7 +4197,6 @@ digraph depends {
 "systemd" -> "udev"
 "systemd" -> "udev-hwdb" [style=dotted]
 "systemd" -> "update-alternatives-opkg"
-"systemd" -> "update-rc.d"
 "systemd" -> "util-linux-agetty"
 "systemd" -> "util-linux-fsck"
 "systemd" -> "util-linux-mount"
@@ -4164,6 +4225,8 @@ digraph depends {
 "tzdata" -> "tzdata-pacific"
 "tzdata" -> "tzdata-posix"
 "tzdata" -> "tzdata-right"
+"udev" -> "base-files"
+"udev" -> "base-passwd"
 "udev-extraconf" -> "udev"
 "udev-extraconf" -> "util-linux-blkid"
 "udev-extraconf" -> "util-linux-lsblk"
@@ -4172,6 +4235,7 @@ digraph depends {
 "udev" -> "libc6"
 "udev" -> "libkmod2"
 "udev" -> "libsystemd-shared"
+"udev" -> "shadow"
 "uriparser" -> "libc6"
 "util-linux-addpart" -> "libc6"
 "util-linux-agetty" -> "libc6"
@@ -4539,8 +4603,11 @@ digraph depends {
 "webos-connman-adapter" -> "connman-client"
 "webos-connman-adapter" -> "libc6"
 "webos-connman-adapter" -> "libcrypto3"
+"webos-connman-adapter" -> "libgcc1"
 "webos-connman-adapter" -> "libglib-2.0-0"
 "webos-connman-adapter" -> "libpbnjson"
+"webos-connman-adapter" -> "libstdc++6"
+"webos-connman-adapter" -> "libwca-support1"
 "webos-connman-adapter" -> "luna-prefs"
 "webos-connman-adapter" -> "luna-service2"
 "webos-connman-adapter" -> "pmloglib"
