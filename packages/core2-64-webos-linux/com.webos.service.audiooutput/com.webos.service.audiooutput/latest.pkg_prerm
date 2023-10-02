@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop audiooutputd.service
+
+		systemctl disable audiooutputd.service
+	fi
+fi
