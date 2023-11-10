@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service db8.service
+
+		systemctl disable db8-maindb.service db8-mediadb.service db8-pre-config.service db8-tempdb.service db8.service
+	fi
+fi
