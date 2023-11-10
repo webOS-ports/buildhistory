@@ -4,6 +4,14 @@ set -e
 	update-alternatives --install /usr/sbin/shutdown shutdown /usr/bin/systemctl 300
 	update-alternatives --install /usr/sbin/poweroff poweroff /usr/bin/systemctl 300
 	update-alternatives --install /usr/sbin/runlevel runlevel /usr/bin/systemctl 300
-	sed -e '/^hosts:/s/\s*\<myhostname\>//' \
-		-e 's/\(^hosts:.*\)\(\<files\>\)\(.*\)\(\<dns\>\)\(.*\)/\1\2 myhostname \3\4\5/' \
-		-i $D/etc/nsswitch.conf
+	if true; then
+		sed -e '/^hosts:/s/\s*\<myhostname\>//' \
+			-e 's/\(^hosts:.*\)\(\<files\>\)\(.*\)\(\<dns\>\)\(.*\)/\1\2 myhostname \3\4\5/' \
+			-i $D/etc/nsswitch.conf
+	fi
+	if true; then
+		sed -e 's#\(^passwd:.*\)#\1 systemd#' \
+			-e 's#\(^group:.*\)#\1 systemd#' \
+			-e 's#\(^shadow:.*\)#\1 systemd#' \
+			-i $D/etc/nsswitch.conf
+	fi
