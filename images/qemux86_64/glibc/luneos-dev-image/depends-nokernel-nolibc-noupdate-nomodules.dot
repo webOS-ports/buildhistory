@@ -1890,6 +1890,8 @@ digraph depends {
 "libnsl3" -> "libtirpc3"
 "libnss-mdns" -> "avahi-daemon"
 "libnss-myhostname2" -> "libcap"
+"libnss-systemd2" -> "libcap"
+"libnss-systemd2" -> "libcrypt2"
 "libnyx7" -> "libglib-2.0-0"
 "libnyx7" -> "libpmloglib3"
 "libopcodes" -> "binutils"
@@ -2080,6 +2082,7 @@ digraph depends {
 "libsystemd-shared" -> "libcrypt2"
 "libsystemd-shared" -> "libkmod2"
 "libsystemd-shared" -> "libmount1"
+"libsystemd-shared" -> "libseccomp"
 "libsystemd-shared" -> "libzstd1"
 "libtag1" -> "libstdc++6"
 "libtag1" -> "libz1"
@@ -3456,6 +3459,7 @@ digraph depends {
 "storaged" -> "libjson-c5"
 "storaged" -> "libnyx7"
 "storaged" -> "luna-service2"
+"systemd-analyze" -> "libseccomp"
 "systemd-analyze" -> "libsystemd-shared"
 "systemd-analyze" -> "systemd"
 "systemd" -> "base-files"
@@ -3472,6 +3476,8 @@ digraph depends {
 "systemd" -> "libkmod2"
 "systemd" -> "libmount1"
 "systemd" -> "libnss-myhostname2" [label="libnss-myhostname"] [style=dashed]
+"systemd" -> "libnss-systemd2" [label="libnss-systemd"] [style=dashed]
+"systemd" -> "libseccomp"
 "systemd" -> "libsystemd-shared"
 "systemd" -> "os-release" [style=dotted]
 "systemd" -> "pam-plugin-umask" [style=dotted]
@@ -3715,7 +3721,6 @@ digraph depends {
 "util-linux-wipefs" -> "libsmartcols1"
 "util-linux-zramctl" -> "libsmartcols1"
 "valgrind" -> "glibc-dbg" [style=dotted]
-"valgrind" -> "perl"
 "voicecall" -> "libqofono-qt5-0"
 "voicecall" -> "libstdc++6"
 "voicecall" -> "qtbase"
