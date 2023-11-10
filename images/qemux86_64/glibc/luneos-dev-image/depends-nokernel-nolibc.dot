@@ -371,12 +371,16 @@ digraph depends {
 "gdbserver" -> "glibc-thread-db" [style=dotted]
 "gdbserver" -> "libstdc++6"
 "geoclue" -> "avahi-daemon"
+"geoclue" -> "base-files"
+"geoclue" -> "base-passwd"
 "geoclue" -> "libavahi-client3"
 "geoclue" -> "libavahi-common3"
 "geoclue" -> "libavahi-glib1"
 "geoclue" -> "libglib-2.0-0"
 "geoclue" -> "libjson-glib-1.0-0"
-"geoclue" -> "libsoup-2.4"
+"geoclue" -> "libnotify"
+"geoclue" -> "libsoup"
+"geoclue" -> "shadow"
 "glibc-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "glibmm" -> "libglib-2.0-0"
 "glibmm" -> "libsigc-2.0-0"
@@ -3287,7 +3291,6 @@ digraph depends {
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
 "libegl-mesa" -> "libglapi0"
-"libegl-mesa" -> "libstdc++6"
 "libegl-mesa" -> "mesa-megadriver" [style=dotted]
 "libegl-mesa" -> "wayland"
 "libelf1" -> "libz1"
@@ -3319,7 +3322,6 @@ digraph depends {
 "libfuse2" -> "libulockmgr" [style=dotted]
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libstdc++6"
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap"
 "libgcrypt" -> "libgpg-error"
@@ -3509,6 +3511,8 @@ digraph depends {
 "libnemodbus1" -> "qtbase"
 "libnemodbus1" -> "qtdeclarative"
 "libnl-genl-3-200" -> "libnl-3-200"
+"libnotify" -> "libgdk-pixbuf-2.0-0"
+"libnotify" -> "libglib-2.0-0"
 "libnsl3" -> "libtirpc3"
 "libnss-mdns" -> "avahi-daemon"
 "libnyx7" -> "libglib-2.0-0"
@@ -3668,6 +3672,13 @@ digraph depends {
 "libsoup-2.4" -> "libxml2"
 "libsoup-2.4" -> "libz1"
 "libsoup-2.4-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"libsoup-3.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"libsoup" -> "glib-networking" [style=dotted]
+"libsoup" -> "libglib-2.0-0"
+"libsoup" -> "libnghttp2-14"
+"libsoup" -> "libpsl5"
+"libsoup" -> "libsqlite3-0"
+"libsoup" -> "libz1"
 "libss2" -> "libcom-err2"
 "libssh4" -> "libgcrypt"
 "libssh4" -> "libz1"
@@ -3681,6 +3692,7 @@ digraph depends {
 "libsystemd-shared" -> "libcrypt2"
 "libsystemd-shared" -> "libkmod2"
 "libsystemd-shared" -> "libmount1"
+"libsystemd-shared" -> "libseccomp"
 "libsystemd-shared" -> "libzstd1"
 "libtag1" -> "libstdc++6"
 "libtag1" -> "libz1"
@@ -3715,6 +3727,7 @@ digraph depends {
 "llvm-libllvm" -> "libtinfo5"
 "llvm-libllvm" -> "libxml2"
 "llvm-libllvm" -> "libz1"
+"llvm-libllvm" -> "libzstd1"
 "loadable-frameworks" -> "bash"
 "locale-base-c" -> "glibc-binary-localedata-c"
 "locale-base-en-gb" -> "glibc-binary-localedata-en-gb"
@@ -3852,6 +3865,7 @@ digraph depends {
 "mesa-megadriver" -> "libglapi0"
 "mesa-megadriver" -> "libstdc++6"
 "mesa-megadriver" -> "libz1"
+"mesa-megadriver" -> "libzstd1"
 "mesa-megadriver" -> "llvm-libllvm"
 "messwerk" -> "libstdc++6"
 "messwerk" -> "qtbase"
@@ -4038,6 +4052,8 @@ digraph depends {
 "packagegroup-core-boot" -> "busybox-syslog" [style=dotted]
 "packagegroup-core-boot" -> "netbase"
 "packagegroup-core-boot" -> "systemd"
+"packagegroup-core-boot" -> "systemd-compat-units"
+"packagegroup-core-boot" -> "systemd-machine-units"
 "packagegroup-core-boot" -> "udev"
 "packagegroup-core-boot" -> "update-alternatives-opkg"
 "packagegroup-core-ssh-openssh" -> "openssh"
@@ -5049,6 +5065,7 @@ digraph depends {
 "storaged" -> "libnyx7"
 "storaged" -> "luna-service2"
 "systemd-analyze" -> "libmount1"
+"systemd-analyze" -> "libseccomp"
 "systemd-analyze" -> "libsystemd-shared"
 "systemd" -> "base-files"
 "systemd" -> "base-passwd"
@@ -5068,6 +5085,7 @@ digraph depends {
 "systemd" -> "libkmod2"
 "systemd" -> "libmount1"
 "systemd" -> "libnss-myhostname2" [label="libnss-myhostname"] [style=dashed]
+"systemd" -> "libseccomp"
 "systemd" -> "libsystemd-shared"
 "systemd" -> "os-release" [style=dotted]
 "systemd" -> "shadow"
@@ -5391,6 +5409,8 @@ digraph depends {
 "webos-initscripts" -> "libstdc++6"
 "webos-initscripts" -> "libsystemd0"
 "webos-initscripts" -> "systemd"
+"webos-initscripts" -> "systemd-compat-units"
+"webos-initscripts" -> "systemd-machine-units"
 "webos-keyboard" -> "hunspell"
 "webos-keyboard" -> "hunspell-dictionaries" [style=dotted]
 "webos-keyboard" -> "libglib-2.0-0"
