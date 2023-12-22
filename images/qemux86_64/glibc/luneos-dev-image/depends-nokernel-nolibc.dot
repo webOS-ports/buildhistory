@@ -72,6 +72,8 @@ digraph depends {
 "bootd" -> "libpmloglib3"
 "bootd" -> "libstdc++6"
 "bootd" -> "luna-service2"
+"bridge-utils" -> "kernel-module-bridge" [style=dotted]
+"bridge-utils" -> "update-alternatives-opkg"
 "busybox" -> "busybox-udhcpc" [style=dotted]
 "busybox" -> "update-alternatives-opkg"
 "bzip2" -> "libbz2-1"
@@ -366,6 +368,7 @@ digraph depends {
 "gdb" -> "glibc-thread-db" [style=dotted]
 "gdb" -> "libexpat1"
 "gdb" -> "libgmp10"
+"gdb" -> "libmpfr6"
 "gdb" -> "libpython3.11-1.0"
 "gdb" -> "libreadline8"
 "gdb" -> "libstdc++6"
@@ -400,6 +403,7 @@ digraph depends {
 "gobject-introspection" -> "libffi8"
 "gobject-introspection" -> "libglib-2.0-0"
 "gobject-introspection" -> "python3-pickle"
+"gobject-introspection" -> "python3-setuptools"
 "gobject-introspection" -> "python3-xml"
 "gphoto2" -> "libexif12"
 "gphoto2" -> "libgphoto2-6"
@@ -3228,6 +3232,7 @@ digraph depends {
 "kmod" -> "update-alternatives-opkg"
 "leveldb" -> "libsnappy1"
 "leveldb" -> "libstdc++6"
+"libacl1" -> "libattr1"
 "libarchive" -> "libbz2-1"
 "libarchive" -> "liblzma5"
 "libarchive" -> "libz1"
@@ -3274,6 +3279,7 @@ digraph depends {
 "libcairo-gobject2" -> "libpixman-1-0"
 "libcairo-gobject2" -> "libpng16-16"
 "libcairo-gobject2" -> "libz1"
+"libcap-bin" -> "libcap"
 "libconfig++11" -> "libstdc++6"
 "libconnman-qt6-1" -> "connman"
 "libconnman-qt6-1" -> "libstdc++6"
@@ -3334,6 +3340,8 @@ digraph depends {
 "libfuse2" -> "fuse-utils" [style=dotted]
 "libfuse2" -> "kernel-module-fuse" [style=dotted]
 "libfuse2" -> "libulockmgr" [style=dotted]
+"libgbinder1" -> "libglib-2.0-0"
+"libgbinder1" -> "libglibutil1"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
 "libgbm1" -> "wayland"
@@ -3355,6 +3363,7 @@ digraph depends {
 "libglib-2.0-0" -> "libz1"
 "libglib-2.0-0" -> "shared-mime-info" [style=dotted]
 "libglib-2.0-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
+"libglibutil1" -> "libglib-2.0-0"
 "libgmime-3.0-0" -> "libglib-2.0-0"
 "libgmime-3.0-0" -> "libz1"
 "libgnutls30" -> "libgmp10"
@@ -3517,6 +3526,7 @@ digraph depends {
 "libmenuw5" -> "libncursesw5"
 "libmenuw5" -> "libtinfo5"
 "libmount1" -> "libblkid1"
+"libmpfr6" -> "libgmp10"
 "libmtp9" -> "libmtp-bin" [style=dotted]
 "libmtp9" -> "libmtp-common"
 "libmtp9" -> "libmtp-runtime" [style=dotted]
@@ -3861,6 +3871,33 @@ digraph depends {
 "luneos-components" -> "qtbase"
 "luneos-components" -> "qtdeclarative"
 "lvm2-udevrules" -> "libdevmapper"
+"lxc" -> "bridge-utils"
+"lxc" -> "curl"
+"lxc" -> "dnsmasq"
+"lxc" -> "gzip"
+"lxc" -> "libcap"
+"lxc" -> "libcap-bin"
+"lxc" -> "libcrypto3"
+"lxc" -> "libgmp10" [label="gmp"] [style=dashed]
+"lxc" -> "libgnutls30" [label="gnutls"] [style=dashed]
+"lxc" -> "libidn12" [label="libidn"] [style=dashed]
+"lxc" -> "libseccomp"
+"lxc" -> "libssl3"
+"lxc" -> "lxc-templates"
+"lxc" -> "nettle"
+"lxc" -> "perl" [label="perl-module-strict"] [style=dashed]
+"lxc" -> "perl" [label="perl-module-vars"] [style=dashed]
+"lxc" -> "perl-module-constant"
+"lxc" -> "perl-module-exporter"
+"lxc" -> "perl-module-exporter-heavy"
+"lxc" -> "perl-module-getopt-long"
+"lxc" -> "perl-module-overload"
+"lxc" -> "rsync"
+"lxc" -> "tar"
+"lxc-templates" -> "bash"
+"lxc" -> "util-linux-getopt"
+"lxc" -> "util-linux-mountpoint"
+"lxc" -> "xz"
 "maliit-framework-webos" -> "configd"
 "maliit-framework-webos" -> "imemanager"
 "maliit-framework-webos" -> "libglib-2.0-0"
@@ -4186,6 +4223,7 @@ digraph depends {
 "packagegroup-luneos-extended" -> "tar"
 "packagegroup-luneos-extended" -> "udev-extraconf"
 "packagegroup-luneos-extended" -> "vmwgfx-layout"
+"packagegroup-luneos-extended" -> "waydroid"
 "packagegroup-luneos-extended" -> "webos-connman-adapter"
 "packagegroup-luneos-extended" -> "webos-systemd-services"
 "packagegroup-luneos-extended" -> "webos-systemsounds"
@@ -4326,6 +4364,9 @@ digraph depends {
 "perl" -> "libcrypt2"
 "perl-module-carp" -> "perl"
 "perl-module-config-heavy" -> "perl"
+"perl-module-constant" -> "perl"
+"perl-module-constant" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-constant" -> "perl" [label="perl-module-warnings-register"] [style=dashed]
 "perl-module-dynaloader" -> "perl"
 "perl-module-dynaloader" -> "perl" [label="perl-module-config"] [style=dashed]
 "perl-module-dynaloader" -> "perl" [label="perl-module-strict"] [style=dashed]
@@ -4339,6 +4380,15 @@ digraph depends {
 "perl-module-fcntl" -> "perl" [label="perl-module-strict"] [style=dashed]
 "perl-module-fcntl" -> "perl-module-exporter"
 "perl-module-fcntl" -> "perl-module-xsloader"
+"perl-module-getopt-long" -> "perl"
+"perl-module-getopt-long" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-getopt-long" -> "perl" [label="perl-module-vars"] [style=dashed]
+"perl-module-getopt-long" -> "perl" [label="perl-module-warnings"] [style=dashed]
+"perl-module-getopt-long" -> "perl-module-constant"
+"perl-module-getopt-long" -> "perl-module-exporter"
+"perl-module-getopt-long" -> "perl-module-overload"
+"perl-module-getopt-long" -> "perl-module-pod-usage"
+"perl-module-getopt-long" -> "perl-module-text-parsewords"
 "perl-module-io-file" -> "perl"
 "perl-module-io-file" -> "perl" [label="perl-module-strict"] [style=dashed]
 "perl-module-io-file" -> "perl-module-carp"
@@ -4362,8 +4412,29 @@ digraph depends {
 "perl-module-io-seekable" -> "perl-module-exporter"
 "perl-module-io-seekable" -> "perl-module-fcntl"
 "perl-module-io-seekable" -> "perl-module-io-handle"
+"perl-module-mro" -> "perl"
+"perl-module-mro" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-mro" -> "perl" [label="perl-module-warnings"] [style=dashed]
+"perl-module-mro" -> "perl-module-xsloader"
+"perl-module-overloading" -> "perl"
+"perl-module-overloading" -> "perl" [label="perl-module-warnings"] [style=dashed]
+"perl-module-overloading" -> "perl-module-overload-numbers"
+"perl-module-overload-numbers" -> "perl"
+"perl-module-overload" -> "perl"
+"perl-module-overload" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-overload" -> "perl" [label="perl-module-warnings-register"] [style=dashed]
+"perl-module-overload" -> "perl-module-mro"
+"perl-module-overload" -> "perl-module-overloading"
+"perl-module-pod-usage" -> "perl"
+"perl-module-pod-usage" -> "perl" [label="perl-module-config"] [style=dashed]
+"perl-module-pod-usage" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-pod-usage" -> "perl-module-exporter"
 "perl-module-selectsaver" -> "perl"
 "perl-module-symbol" -> "perl"
+"perl-module-text-parsewords" -> "perl"
+"perl-module-text-parsewords" -> "perl" [label="perl-module-strict"] [style=dashed]
+"perl-module-text-parsewords" -> "perl" [label="perl-module-warnings"] [style=dashed]
+"perl-module-text-parsewords" -> "perl-module-exporter"
 "perl-module-xsloader" -> "perl"
 "perl-module-xsloader" -> "perl" [label="perl-module-strict"] [style=dashed]
 "perl-module-xsloader" -> "perl-module-dynaloader"
@@ -4653,6 +4724,8 @@ digraph depends {
 "python3-ensurepip" -> "python3-unixadmin"
 "python3-ensurepip" -> "python3-xmlrpc"
 "python3-fcntl" -> "python3-core"
+"python3-gbinder" -> "libgbinder1"
+"python3-gbinder" -> "python3-core"
 "python3-gdbm" -> "libgdbm6"
 "python3-gdbm" -> "python3-core"
 "python3-html" -> "python3-core"
@@ -4781,6 +4854,10 @@ digraph depends {
 "python3-netserver" -> "python3-stringold"
 "python3-numbers" -> "python3-core"
 "python3-pickle" -> "python3-core"
+"python3-pkg-resources" -> "python3-compression"
+"python3-pkg-resources" -> "python3-email"
+"python3-pkg-resources" -> "python3-plistlib"
+"python3-pkg-resources" -> "python3-pprint"
 "python3-pkgutil" -> "python3-core"
 "python3-plistlib" -> "python3-core"
 "python3-plistlib" -> "python3-datetime"
@@ -4789,6 +4866,7 @@ digraph depends {
 "python3-pprint" -> "python3-profile"
 "python3-profile" -> "python3-core"
 "python3-pycairo" -> "libcairo2"
+"python3-pyclip" -> "python3-core"
 "python3-pydoc" -> "python3-core"
 "python3-pydoc" -> "python3-io"
 "python3-pygobject" -> "gobject-introspection"
@@ -4801,6 +4879,25 @@ digraph depends {
 "python3-pygobject" -> "python3-pkgutil"
 "python3-pygobject" -> "python3-pycairo"
 "python3-resource" -> "python3-core"
+"python3-setuptools" -> "python3-2to3"
+"python3-setuptools" -> "python3-compile"
+"python3-setuptools" -> "python3-compression"
+"python3-setuptools" -> "python3-core"
+"python3-setuptools" -> "python3-ctypes"
+"python3-setuptools" -> "python3-email"
+"python3-setuptools" -> "python3-html"
+"python3-setuptools" -> "python3-json"
+"python3-setuptools" -> "python3-netserver"
+"python3-setuptools" -> "python3-numbers"
+"python3-setuptools" -> "python3-pickle"
+"python3-setuptools" -> "python3-pkg-resources"
+"python3-setuptools" -> "python3-pkgutil"
+"python3-setuptools" -> "python3-plistlib"
+"python3-setuptools" -> "python3-shell"
+"python3-setuptools" -> "python3-stringold"
+"python3-setuptools" -> "python3-threading"
+"python3-setuptools" -> "python3-unittest"
+"python3-setuptools" -> "python3-xml"
 "python3-shell" -> "python3-core"
 "python3-shell" -> "python3-stringold"
 "python3-smtpd" -> "python3-core"
@@ -5054,6 +5151,8 @@ digraph depends {
 "rng-tools" -> "libcap"
 "rng-tools" -> "libcrypto3"
 "rng-tools" -> "libjitterentropy3"
+"rsync" -> "libacl1"
+"rsync" -> "libpopt0"
 "sam" -> "ecryptfs-utils"
 "sam" -> "libglib-2.0-0"
 "sam" -> "libicuuc74"
@@ -5462,6 +5561,14 @@ digraph depends {
 "wam-clang" -> "ptmalloc3"
 "wam-clang" -> "util-linux"
 "wam-clang" -> "webruntime-clang"
+"waydroid" -> "kernel-module-ashmem-linux" [style=dotted]
+"waydroid" -> "kernel-module-binder-linux" [style=dotted]
+"waydroid" -> "libgbinder1" [label="libgbinder"] [style=dashed]
+"waydroid" -> "lxc"
+"waydroid" -> "python3-gbinder"
+"waydroid" -> "python3-pyclip"
+"waydroid" -> "python3-pygobject"
+"waydroid" -> "waydroid-data"
 "wayland" -> "libffi8"
 "wayland" -> "libpmloglib3"
 "webos-connman-adapter" -> "connman"
@@ -5533,4 +5640,6 @@ digraph depends {
 "wpa-supplicant" -> "wpa-supplicant-plugins" [style=dotted]
 "xkeyboard-config-locale-en-gb" -> "virtual-locale-en-gb" [style=dotted]
 "xl2tpd" -> "libpcap1"
+"xz" -> "liblzma5"
+"xz" -> "update-alternatives-opkg"
 }
