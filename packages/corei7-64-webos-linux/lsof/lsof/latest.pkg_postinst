@@ -1,3 +1,6 @@
 #!/bin/sh
 set -e
-	update-alternatives --install /usr/sbin/lsof lsof /usr/sbin/lsof.lsof 100
+	update-alternatives --install /usr/bin/lsof lsof /usr/bin/lsof.lsof 100
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi
