@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+if [ -n "$D" ]; then
+    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot libgnutls-fips mlprefix=
+    exit 0
+fi
+    if test -x /usr/bin/fipshmac
+    then
+        mkdir /etc/gnutls
+        touch /etc/gnutls/config
+        /usr/bin/fipshmac /usr/lib/libgnutls.so.30.*.* > /usr/lib/.libgnutls.so.30.hmac
+        /usr/bin/fipshmac /usr/lib/libnettle.so.8.* > /usr/lib/.libnettle.so.8.hmac
+        /usr/bin/fipshmac /usr/lib/libgmp.so.10.*.* > /usr/lib/.libgmp.so.10.hmac
+        /usr/bin/fipshmac /usr/lib/libhogweed.so.6.* > /usr/lib/.libhogweed.so.6.hmac
+    fi

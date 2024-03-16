@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop com.webos.service.intent.service
+
+		systemctl disable com.webos.service.intent.service
+	fi
+fi

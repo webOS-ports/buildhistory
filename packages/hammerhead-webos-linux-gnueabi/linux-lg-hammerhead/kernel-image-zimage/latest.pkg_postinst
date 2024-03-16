@@ -1,0 +1,12 @@
+set -e
+set +e
+if [ -n "$D" ]; then
+    ln -sf zImage-6.1.0-luneos $D/boot/zImage > /dev/null 2>&1
+else
+    ln -sf zImage-6.1.0-luneos boot/zImage > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "Filesystem on boot/ doesn't support symlinks, falling back to copied image (zImage)."
+        install -m 0644 boot/zImage-6.1.0-luneos boot/zImage
+    fi
+fi
+set -e

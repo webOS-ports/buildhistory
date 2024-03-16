@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	OPTS=""
+
+	if [ -n "$D" ]; then
+		OPTS="--root=$D"
+	fi
+
+	if [ "enable" = "enable" ]; then
+		for service in luna-download-mgr.service; do
+			systemctl ${OPTS} enable "$service"
+		done
+	fi
+
+	if [ -z "$D" ]; then
+		systemctl daemon-reload
+		systemctl preset luna-download-mgr.service
+
+		if [ "enable" = "enable" ]; then
+			systemctl --no-block restart luna-download-mgr.service
+		fi
+	fi
+fi
