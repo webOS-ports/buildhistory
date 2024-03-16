@@ -1,0 +1,28 @@
+set -e
+	# This is so you can make busybox commit suicide - removing busybox with no other packages
+	# providing its files, this will make update-alternatives work, but the update-rc.d part
+	# for syslog, httpd and/or udhcpd will fail if there is no other package providing sh
+	tmpdir=`mktemp -d /tmp/busyboxrm-XXXXXX`
+	ln -s /usr/bin/busybox $tmpdir/[
+	ln -s /usr/bin/busybox $tmpdir/test
+	ln -s /usr/bin/busybox $tmpdir/head
+	ln -s /usr/bin/busybox $tmpdir/sh
+	ln -s /usr/bin/busybox $tmpdir/basename
+	ln -s /usr/bin/busybox $tmpdir/echo
+	ln -s /usr/bin/busybox $tmpdir/mv
+	ln -s /usr/bin/busybox $tmpdir/ln
+	ln -s /usr/bin/busybox $tmpdir/dirname
+	ln -s /usr/bin/busybox $tmpdir/rm
+	ln -s /usr/bin/busybox $tmpdir/sed
+	ln -s /usr/bin/busybox $tmpdir/sort
+	ln -s /usr/bin/busybox $tmpdir/grep
+	ln -s /usr/bin/busybox $tmpdir/tail
+	export PATH=$PATH:$tmpdir
+
+        # If busybox is the shell, we need to save it since its the lowest priority shell
+        # Register saved bitbake as the lowest priority shell possible as back up.
+        if [ -n "$(readlink -f /bin/sh | grep busybox)" ] ; then
+           BUSYBOX=$(readlink -f /bin/sh)
+           cp $BUSYBOX $tmpdir/$(basename $BUSYBOX)
+           update-alternatives --install /bin/sh sh $tmpdir/$(basename $BUSYBOX) 1
+        fi
