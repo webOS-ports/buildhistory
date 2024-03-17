@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop lsm-ready.path lsm-ready.service lsm-ready.target surface-manager.service
+
+		systemctl disable lsm-ready.path lsm-ready.service lsm-ready.target surface-manager.service
+	fi
+fi
