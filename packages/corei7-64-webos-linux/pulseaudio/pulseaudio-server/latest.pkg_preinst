@@ -86,9 +86,9 @@ fi
 if test "x$UA_SYSROOT" = "x"; then
 	# Installing onto a target
 	# Add groups and users defined only for this package
-	GROUPADD_PARAM="--system pulse"
-	USERADD_PARAM="--system --home /var/run/pulse                               --no-create-home --shell /bin/false                               --groups audio,pulse --gid pulse pulse"
-	GROUPMEMS_PARAM=""
+	GROUPADD_PARAM="     -g 507 -f --system pulse;     -g 506 -f --system pulse-access; "
+	USERADD_PARAM="     --system --home /var/run/pulse --no-create-home --shell /bin/false --groups audio,pulse --gid pulse pulse; "
+	GROUPMEMS_PARAM="     -a root -g pulse-access;     -a system -g pulse-access;     -a pulse -g pulse-access;     -a pulse -g audio; "
 fi
 
 # Perform group additions first, since user additions may depend
