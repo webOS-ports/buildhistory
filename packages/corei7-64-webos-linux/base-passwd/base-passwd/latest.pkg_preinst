@@ -21,6 +21,8 @@ list:*:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
 irc:*:39:39:ircd:/run/ircd:/usr/sbin/nologin
 _apt:*:42:65534::/nonexistent:/usr/sbin/nologin
 nobody:*:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+system:x:1000:1000::/var:/usr/sbin/nologin
+media:x:1013:1013::/var:/usr/sbin/nologin
 EOF
 fi
 if [ ! -e $D/etc/group ]; then
@@ -68,5 +70,8 @@ shutdown:*:70:
 wheel:*:80:
 users:*:100:
 nogroup:*:65534:
+system:x:1000:system
+netdev:x:82:system,network,bluetooth,wifi
+media:x:1013:media
 EOF
 fi
