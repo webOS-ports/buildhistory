@@ -24,7 +24,7 @@ lrwxrwxrwx root       root               18 ./etc/xdg/systemd/user -> ../../syst
 drwxr-xr-x root       root             4096 ./usr
 drwxr-xr-x root       root             4096 ./usr/bin
 -rwxr-xr-x root       root            75912 ./usr/bin/bootctl
--rwxr-xr-x root       root            88208 ./usr/bin/busctl
+-rwxr-xr-x root       root            92304 ./usr/bin/busctl
 -rwxr-xr-x root       root            51352 ./usr/bin/coredumpctl
 -rwxr-xr-x root       root            30760 ./usr/bin/hostnamectl
 -rwxr-xr-x root       root            67720 ./usr/bin/journalctl
@@ -33,6 +33,7 @@ drwxr-xr-x root       root             4096 ./usr/bin
 -rwxr-xr-x root       root            14296 ./usr/bin/oomctl
 -rwxr-xr-x root       root           264336 ./usr/bin/systemctl
 -rwxr-xr-x root       root            14232 ./usr/bin/systemd-ac-power
+-rwxr-xr-x root       root            14408 ./usr/bin/systemd-ask-password
 -rwxr-xr-x root       root            26592 ./usr/bin/systemd-id128
 -rwxr-xr-x root       root            14328 ./usr/bin/systemd-machine-id-setup
 -rwxr-xr-x root       root            51352 ./usr/bin/systemd-mount
@@ -40,6 +41,7 @@ drwxr-xr-x root       root             4096 ./usr/bin
 -rwxr-xr-x root       root            26600 ./usr/bin/systemd-socket-activate
 -rwxr-xr-x root       root            67648 ./usr/bin/systemd-sysusers
 -rwxr-xr-x root       root           104584 ./usr/bin/systemd-tmpfiles
+-rwxr-xr-x root       root            30704 ./usr/bin/systemd-tty-ask-password-agent
 lrwxrwxrwx root       root               13 ./usr/bin/systemd-umount -> systemd-mount
 -rwxr-xr-x root       root            43064 ./usr/bin/userdbctl
 -rwxr-xr-x root       root            26584 ./usr/bin/varlinkctl
@@ -54,7 +56,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/modules-load.d
 drwxr-xr-x root       root             4096 ./usr/lib/pam.d
 -rw-r--r-- root       root              394 ./usr/lib/pam.d/systemd-user
 drwxr-xr-x root       root             4096 ./usr/lib/sysctl.d
--rw-r--r-- root       root             1816 ./usr/lib/sysctl.d/50-coredump.conf
+-rw-r--r-- root       root             1819 ./usr/lib/sysctl.d/50-coredump.conf
 -rw-r--r-- root       root             1919 ./usr/lib/sysctl.d/50-default.conf
 -rw-r--r-- root       root              649 ./usr/lib/sysctl.d/50-pid-max.conf
 -rw-r--r-- root       root              387 ./usr/lib/sysctl.d/README
@@ -63,7 +65,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/systemd/catalog
 -rw-r--r-- root       root            13725 ./usr/lib/systemd/catalog/systemd.be.catalog
 -rw-r--r-- root       root            10734 ./usr/lib/systemd/catalog/systemd.be@latin.catalog
 -rw-r--r-- root       root            30141 ./usr/lib/systemd/catalog/systemd.bg.catalog
--rw-r--r-- root       root            30679 ./usr/lib/systemd/catalog/systemd.catalog
+-rw-r--r-- root       root            30691 ./usr/lib/systemd/catalog/systemd.catalog
 -rw-r--r-- root       root             8504 ./usr/lib/systemd/catalog/systemd.da.catalog
 -rw-r--r-- root       root              748 ./usr/lib/systemd/catalog/systemd.de.catalog
 -rw-r--r-- root       root            14015 ./usr/lib/systemd/catalog/systemd.fr.catalog
@@ -115,8 +117,9 @@ lrwxrwxrwx root       root               16 ./usr/lib/systemd/system/default.tar
 -rwxr-xr-x root       root            14232 ./usr/lib/systemd/systemd-quotacheck
 -rwxr-xr-x root       root            26592 ./usr/lib/systemd/systemd-random-seed
 -rwxr-xr-x root       root            14232 ./usr/lib/systemd/systemd-remount-fs
+-rwxr-xr-x root       root            14240 ./usr/lib/systemd/systemd-reply-password
 -rwxr-xr-x root       root            18328 ./usr/lib/systemd/systemd-rfkill
--rwxr-xr-x root       root            55272 ./usr/lib/systemd/systemd-shutdown
+-rwxr-xr-x root       root            59368 ./usr/lib/systemd/systemd-shutdown
 -rwxr-xr-x root       root            47088 ./usr/lib/systemd/systemd-storagetm
 -rwxr-xr-x root       root            14312 ./usr/lib/systemd/systemd-sulogin-shell
 -rwxr-xr-x root       root            22512 ./usr/lib/systemd/systemd-sysctl
@@ -130,6 +133,7 @@ lrwxrwxrwx root       root               41 ./usr/lib/systemd/systemd-sysroot-fs
 -rwxr-xr-x root       root            14240 ./usr/lib/systemd/systemd-volatile-root
 -rw-r--r-- root       root              813 ./usr/lib/systemd/system/emergency.service
 -rw-r--r-- root       root              479 ./usr/lib/systemd/system/emergency.target
+drwxr-xr-x root       root             4096 ./usr/lib/systemd/system-environment-generators
 -rw-r--r-- root       root              549 ./usr/lib/systemd/system/exit.target
 -rw-r--r-- root       root              410 ./usr/lib/systemd/system/factory-reset.target
 -rw-r--r-- root       root              500 ./usr/lib/systemd/system/final.target
@@ -174,6 +178,7 @@ lrwxrwxrwx root       root               12 ./usr/lib/systemd/system/local-fs.ta
 -rw-r--r-- root       root              540 ./usr/lib/systemd/system/multi-user.target
 drwxr-xr-x root       root             4096 ./usr/lib/systemd/system/multi-user.target.wants
 lrwxrwxrwx root       root               15 ./usr/lib/systemd/system/multi-user.target.wants/getty.target -> ../getty.target
+lrwxrwxrwx root       root               33 ./usr/lib/systemd/system/multi-user.target.wants/systemd-ask-password-wall.path -> ../systemd-ask-password-wall.path
 lrwxrwxrwx root       root               25 ./usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service -> ../systemd-logind.service
 lrwxrwxrwx root       root               39 ./usr/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 -rw-r--r-- root       root              483 ./usr/lib/systemd/system/network-online.target
@@ -240,6 +245,7 @@ lrwxrwxrwx root       root               32 ./usr/lib/systemd/system/sysinit.tar
 lrwxrwxrwx root       root               26 ./usr/lib/systemd/system/sysinit.target.wants/sys-kernel-config.mount -> ../sys-kernel-config.mount
 lrwxrwxrwx root       root               25 ./usr/lib/systemd/system/sysinit.target.wants/sys-kernel-debug.mount -> ../sys-kernel-debug.mount
 lrwxrwxrwx root       root               27 ./usr/lib/systemd/system/sysinit.target.wants/sys-kernel-tracing.mount -> ../sys-kernel-tracing.mount
+lrwxrwxrwx root       root               36 ./usr/lib/systemd/system/sysinit.target.wants/systemd-ask-password-console.path -> ../systemd-ask-password-console.path
 lrwxrwxrwx root       root               30 ./usr/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service -> ../systemd-hwdb-update.service
 lrwxrwxrwx root       root               41 ./usr/lib/systemd/system/sysinit.target.wants/systemd-journal-catalog-update.service -> ../systemd-journal-catalog-update.service
 lrwxrwxrwx root       root               27 ./usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service -> ../systemd-journald.service
@@ -258,6 +264,10 @@ lrwxrwxrwx root       root               30 ./usr/lib/systemd/system/sysinit.tar
 -rw-r--r-- root       root              730 ./usr/lib/systemd/system/sys-kernel-debug.mount
 -rw-r--r-- root       root              756 ./usr/lib/systemd/system/sys-kernel-tracing.mount
 -rw-r--r-- root       root             1415 ./usr/lib/systemd/system/syslog.socket
+-rw-r--r-- root       root              771 ./usr/lib/systemd/system/systemd-ask-password-console.path
+-rw-r--r-- root       root              834 ./usr/lib/systemd/system/systemd-ask-password-console.service
+-rw-r--r-- root       root              695 ./usr/lib/systemd/system/systemd-ask-password-wall.path
+-rw-r--r-- root       root              747 ./usr/lib/systemd/system/systemd-ask-password-wall.service
 -rw-r--r-- root       root              777 ./usr/lib/systemd/system/systemd-backlight@.service
 -rw-r--r-- root       root              856 ./usr/lib/systemd/system/systemd-battery-check.service
 -rw-r--r-- root       root              730 ./usr/lib/systemd/system/systemd-boot-check-no-failures.service
@@ -417,7 +427,7 @@ drwxr-xr-x root       root             4096 ./usr/share/polkit-1/actions
 -rw-r--r-- root       root            25127 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- root       root             4385 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
 drwxr-xr-x root       root             4096 ./usr/share/systemd
--rw-r--r-- root       root             3809 ./usr/share/systemd/kbd-model-map
+-rw-r--r-- root       root             3854 ./usr/share/systemd/kbd-model-map
 -rw-r--r-- root       root              218 ./usr/share/systemd/language-fallback-map
 drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/lib
