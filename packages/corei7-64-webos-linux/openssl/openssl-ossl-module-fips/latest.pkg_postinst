@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+if [ -n "$D" ]; then
+    $INTERCEPT_DIR/postinst_intercept delay_to_first_boot openssl-ossl-module-fips mlprefix=
+    exit 0
+fi
+	if test -f /usr/lib/ossl-modules/fips.so; then
+		/usr/bin/openssl fipsinstall -out /usr/lib/ssl-3/fipsmodule.cnf -module /usr/lib/ossl-modules/fips.so
+	fi
